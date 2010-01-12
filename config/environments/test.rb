@@ -16,7 +16,8 @@ config.action_view.cache_template_loading            = true
 
 # Disable request forgery protection in test environment
 config.action_controller.allow_forgery_protection    = false
-
+config.gem "factory_girl", :source => "http://gemcutter.org", :version => "1.2.3"
+config.gem "mocha", :source => "http://gemcutter.org", :version => "0.9.8"
 # Tell Action Mailer not to deliver emails to the real world.
 # The :test delivery method accumulates sent emails in the
 # ActionMailer::Base.deliveries array.
