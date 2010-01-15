@@ -1,3 +1,5 @@
-
+<% @character.items.each do |item| %>
+  <%= image_tag item.icon %>
+<% end %>
 <%= link_to 'Edit', edit_character_path(@character) %> |
 <%= link_to 'Back', characters_path %>

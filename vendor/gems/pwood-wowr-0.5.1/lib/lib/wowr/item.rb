@@ -24,6 +24,7 @@ module Wowr
 			alias_method :to_i, :id
 
 			@@icon_url_base = 'images/icons/'
+			@@icon_url_base_tw = 'wow-icons/_images/'
 			@@icon_sizes = {:large => ['64x64', 'jpg'], :medium => ['43x43', 'png'], :small => ['21x21', 'png']}
 			
 			def initialize(elem, api = nil)
@@ -44,9 +45,15 @@ module Wowr
 				else
 					base = 'http://www.wowarmory.com/'
 				end
+
+				if @api && @api.locale == "tw"
+				  url_base = @@icon_url_base_tw
+				else
+				  url_base = @@icon_url_base
+				end
 				
 				# http://www.wowarmory.com/images/icons/64x64/blahblah.jpg
-				return base + @@icon_url_base + @@icon_sizes[size][0] + '/' + @icon_base + '.' + @@icon_sizes[size][1]
+				return base + url_base + @@icon_sizes[size][0] + '/' + @icon_base + '.' + @@icon_sizes[size][1]
 			end
 		end
 
@@ -97,7 +104,6 @@ module Wowr
 				@cost = ItemCost.new(elem%'cost') if (elem%'cost')
 		
 		
-		
 				# is costs really an array?
 				#@costs 		= []
 				#(elem/:cost).each do |cost|
@@ -105,6 +111,7 @@ module Wowr
 				#end
 				
 				etc = [
+					# xml element name,		member variable					item list	class name,		requires api link
 					['disenchantLoot', 		'@disenchant_items', 		'item', 		DisenchantItem, true],
 					['objectiveOfQuests', '@objective_of_quests', 'quest', 		ItemQuest, false],
 					['rewardFromQuests', 	'@reward_from_quests', 	'quest', 		ItemQuest, false],
@@ -134,56 +141,10 @@ module Wowr
 					end
 				end
 	
+				# Rest of disenchant contents is done in the method above
 				if (elem%'disenchantLoot')
 					@disenchant_skill_rank = (elem%'disenchantLoot')[:requiredSkillRank].to_i 
-					
-					# @disenchant_items = []
-					# (elem%'disenchantLoot'/:item).each do |item|
-					# 	@disenchant_items << DisenchantItem.new(item)
-					# end
 				end
-		
-				# if (elem%'objectiveOfQuests')
-				# 	@objective_of_quests = []
-				# 	(elem%'objectiveOfQuests'/:quest).each do |quest|
-				# 		@objective_of_quests << ItemQuest.new(quest)
-				# 	end
-				# end
-				# 		
-				# if (elem%'rewardFromQuests')
-				# 	@reward_from_quests = []
-				# 	(elem%'rewardFromQuests'/:quest).each do |quest|
-				# 		@reward_from_quests << ItemQuest.new(quest)
-				# 	end
-				# end
-				# 
-				# if (elem%'vendors')
-				# 	@vendors = []
-				# 	(elem%'vendors'/:creature).each do |vendor|
-				# 		@vendors << ItemVendor.new(vendor)
-				# 	end
-				# end
-				# 		
-				# if (elem%'dropCreatures')
-				# 	@drop_creatures = []
-				# 	(elem%'dropCreatures'/:creature).each do |creature|
-				# 		@drop_creatures << ItemDropCreature.new(creature)
-				# 	end
-				# end
-				# 		
-				# if (elem%'plansFor')
-				# 	@plans_for = []
-				# 	(elem%'plansFor'/:spell).each do |plan|
-				# 		@plans_for << ItemPlansFor.new(plan)
-				# 	end
-				# end
-				# 		
-				# if (elem%'createdBy')
-				# 	@created_by = []
-				# 	(elem%'createdBy'/:spell).each do |c|
-				# 		@created_by << ItemCreatedBy.new(c)
-				# 	end
-				# end
 			end
 		end
 		
@@ -195,12 +156,10 @@ module Wowr
 		class ItemTooltip < Item
 			attr_reader :desc, :overall_quality_id, :bonding, :max_count, #:id, :name, :icon, 
 									:class_id, :bonuses, :item_source,
-									:bonuses, :resistances,
-									:required_level,
-									:allowable_classes,
-									:armor, :durability,
+									:resistances, :required_level,
+									:allowable_classes, :armor, :durability,
 									:sockets, :socket_match_enchant,
-									:gem_properties
+									:gem_properties, :equip_data
 			alias_method :description, :desc
 
 			def initialize(elem, api = nil)
@@ -216,14 +175,14 @@ module Wowr
 				@class_id						= (elem%'classId').html.to_i
 				@required_level			= (elem%'requiredLevel').html.to_i if (elem%'requiredLevel')
 				
-				@equipData					= ItemEquipData.new(elem%'equipData')
+				@equip_data					= ItemEquipData.new(elem%'equipData')
 				
 				# TODO: This appears to be a plain string at the moment
 				#<gemProperties>+26 Healing +9 Spell Damage and 2% Reduced Threat</gemProperties>
 				@gem_properties			= (elem%'gemProperties').html if (elem%'gemProperties')
 				
 				# not all items have damage data
-				@damage							= ItemDamageData.new(elem%'damageData') if !(elem%'damageData').html.empty?
+				@damage							= ItemDamageData.new(elem%'damageData') unless !(elem%'damageData') || (elem%'damageData').empty?
 				
 				
 				# TODO: Test socket data with a variety of items
@@ -243,11 +202,47 @@ module Wowr
 				@bonuses = {}
 				
 				bonus_stats = {
-					:strength => :bonusStrength,
-					:agility => :bonusAgility,
-					:stamina => :bonusStamina,
-					:intellect => :bonusIntellect,
-					:spirit => :bonusSpirit
+          :strength           => :bonusStrength,
+          :agility            => :bonusAgility,
+          :stamina            => :bonusStamina,
+          :intellect          => :bonusIntellect,
+          :spirit             => :bonusSpirit,
+
+          # http://www.wowarmory.com/_layout/items/tooltip.xsl defines these bonuses as well
+          :defense            => :bonusDefenseSkillRating,
+          :dodge              => :bonusDodgeRating,
+          :parry              => :bonusParryRating,
+          :block              => :bonusBlockRating,
+          :melee_hit          => :bonusHitMeleeRating,
+          :ranged_hit         => :bonusHitRangedRating,
+          :spell_hit          => :bonusHitSpellRating,
+          :melee_crit         => :bonusCritMeleeRating,
+          :ranged_crit        => :bonusCritRangedRating,
+          :spell_crit         => :bonusCritSpellRating,
+          # :bonusHitTakenMeleeRating,
+          # :bonusHitTakenRangedRating,
+          # :bonusHitTakenSpellRating,
+          # :bonusCritTakenMeleeRating,
+          # :bonusCritTakenRangedRating,
+          # :bonusCritTakenSpellRating,
+          :melee_haste        => :bonusHasteMeleeRating,
+          :ranged_haste       => :bonusHasteRangedRating,
+          :spell_haste        => :bonusHasteSpellRating,
+          :hit                => :bonusHitRating,
+          :crit               => :bonusCritRating,
+          # :bonusHitTakenRating,
+          # :bonusCritTakenRating,
+          :resilience         => :bonusResilienceRating,
+          :haste              => :bonusHasteRating,
+          :spell_power        => :bonusSpellPower,
+          :attack_power       => :bonusAttackPower,
+          :feral_attack_power => :bonusFeralAttackPower,
+          :mana_regen         => :bonusManaRegen,
+          :armor_penetration  => :bonusArmorPenetration,
+          :block_value        => :bonusBlockValue,
+          :health_regen       => :bonusHealthRegen,
+          :spell_penetration  => :bonusSpellPenetration,
+          :expertise          => :bonusExpertiseRating,
 				}
 				bonus_stats.each do |stat, xml_elem|
 					@bonuses[stat] = test_stat(elem/xml_elem) if test_stat(elem/xml_elem)
@@ -286,6 +281,19 @@ module Wowr
 					@spells = []
 					(elem%'spellData'/:spell).each do |spell|
 						@spells << ItemSpell.new(spell)
+					end
+					
+					# Convert specific spell descriptions into bonus values
+					regex = {
+					  :spell_power => /^Increases spell power by ([0-9]+)\.$/,
+					  :mana_regen  => /^Restores ([0-9]+) mana per 5 sec\.$/,
+					}
+					@spells.each do |spell|
+						regex.each do |bonus, exp|
+							if spell.description =~ exp
+								@bonuses[bonus] = spell.description.gsub(exp, '\1').to_i
+							end
+						end
 					end
 				end
 				
@@ -367,8 +375,8 @@ module Wowr
 				@type 	= (elem%'damage'%'type').html.to_i
 				@min 		= (elem%'damage'%'min').html.to_i
 				@max 		= (elem%'damage'%'max').html.to_i
-				@speed 	= (elem%'speed').html.to_i
-				@dps 		= (elem%'dps').html.to_f
+				@speed 	= (elem%'speed').html.to_i	if (elem%'speed')
+				@dps 		= (elem%'dps').html.to_f		if (elem%'dps')
 			end
 		end
 

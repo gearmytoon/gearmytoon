@@ -14,8 +14,8 @@ module Wowr #:nodoc:
 			alias_method :to_s, :name
 
 			def initialize(elem)
-				if (elem%'guildKey')
-					guild = (elem%'guildKey')
+				if (elem%'guildHeader')
+					guild = (elem%'guildHeader')
 				else
 					guild = elem
 				end
@@ -61,7 +61,7 @@ module Wowr #:nodoc:
 	  #   </guild>
 	  # </guildInfo>
 		class FullGuild < Guild
-			attr_reader :members, :name_url, :realm_url #, :member_count
+			attr_reader :members, :name_url, :realm_url, :member_count
 		
 			def initialize(elem)
 				super(elem)
@@ -71,7 +71,7 @@ module Wowr #:nodoc:
 				
 				# Guild/guild_id/guild_url not set for characters
 				if (elem%'guildInfo')
-					# @member_count = (elem%'guildInfo'%'guild'%'members')[:memberCount].to_i || nil
+					@member_count = (elem%'guildInfo'%'guild'%'members')[:memberCount].to_i || nil
 					@members = {}
 					(elem%'guildInfo'%'guild'%'members'/:character).each do |char|
 						# TODO: Change to search character?
