@@ -2,3 +2,7 @@
 log/*.log
 tmp/**/*
 db/*.sqlite3
+cache/**
+test/functional/cache/**
+test/integration/cache/**
+test/unit/cache/**

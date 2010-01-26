@@ -1,7 +1,14 @@
-<div id="character_name"><%= @character.name %></div>
+<div id="character_name">
+  <%= @character.name %>
+</div>
 
 <% @character.items.each do |item| %>
   <%= wowhead_item_image_link item %>
 <% end %>
-<%= link_to 'Edit', edit_character_path(@character) %> |
-<%= link_to 'Back', characters_path %>
+
+<div id="upgrades">
+  <div class="upgrade_section">
+    <h1>Your best upgrade from <%= stylized_item_name Item.badge_of_frost %> <%= wowhead_item_image_link Item.badge_of_frost %></h1>
+<%= Item.badge_of_frost.quality %>
+  </div>
+</div>
