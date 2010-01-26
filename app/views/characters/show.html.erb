@@ -1,5 +1,7 @@
+<div id="character_name"><%= @character.name %></div>
+
 <% @character.items.each do |item| %>
-  <%= image_tag item.icon %>
+  <%= wowhead_item_image_link item %>
 <% end %>
 <%= link_to 'Edit', edit_character_path(@character) %> |
 <%= link_to 'Back', characters_path %>
