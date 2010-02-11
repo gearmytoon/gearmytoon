@@ -16,6 +16,11 @@ class CharactersControllerTest < ActionController::TestCase
       get :show, :id => "merb"
       assert_select "#emblem_of_frost .upgrade", :count => 3
     end
+
+    should_eventually "show how much the item costs" do
+      get :show, :id => "merb"
+      assert_select "#emblem_of_frost .upgrade .cost", :text => "60"
+    end
     
     should "show 3 upgrades under the triumph emblem section" do
       get :show, :id => "merb"
@@ -30,3 +35,4 @@ class CharactersControllerTest < ActionController::TestCase
     
   end
 end
+

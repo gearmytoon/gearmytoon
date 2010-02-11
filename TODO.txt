@@ -1,0 +1,26 @@
+- investigate rails 3? - rpxnow? delayed_job, wowr, mocha, cucumber, rspec
+- db - mongomapper? mysql?
+
+- import data from maxdps for hunter
+  - same for remaining classes
+- show item cost in badges on the character show page
+- populate real data by character name/realm on a class basis
+- find real recommendations for frost badges
+- find real recommendations for triumph badges
+- find real recommendations for heroics
+
+
+- run real forumla's for classes - start with hunter
+- take racials into account
+
+
+
+- setup recurring payments
+- rpxnow?
+- signup with wowcoach for account
+- 3 free previews, use it 3 times for free then upsell, here's one recommendation signup to see 2 more
+- 
+
+
+
+- autocomplete on realm
