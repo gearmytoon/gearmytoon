@@ -35,4 +35,11 @@ class ActiveSupport::TestCase
   fixtures :all
 
   # Add more helper methods to be used by all tests here...
+  def stub_everything(hash)
+    Ztub.new.stub_everything(hash)
+  end
+end
+
+class Ztub
+  include Mocha::API
 end

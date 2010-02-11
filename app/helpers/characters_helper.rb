@@ -6,4 +6,9 @@ module CharactersHelper
   def stylized_item_name(item)
     content_tag(:span, item.name, :class => WowHelpers.quality_adjective_for(item))
   end
+  
+  def wowhead_npc_link(npc)
+    #TODO: npc.id is broken, need to parse from the @url attr, fix ItemDropCreature class
+    link_to npc.name, "http://www.wowhead.com/?npc=#{npc.id}"
+  end
 end
