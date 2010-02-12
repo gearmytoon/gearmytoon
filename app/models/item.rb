@@ -1,4 +1,4 @@
-class Item
+class Item < ActiveRecord::Base
   def self.badge_of_frost
     fetch_from_api(49426)
   end

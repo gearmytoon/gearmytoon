@@ -36,6 +36,7 @@ Rails::Initializer.run do |config|
   config.time_zone = 'UTC'
   config.gem "pwood-wowr", :version => "0.5.1", :lib => "wowr", :source => "http://gems.github.com"
   config.gem "json", :version => "1.2.0"
+  config.gem "mechanize", :version => "0.9.3"
   # The default locale is :en and all translations from config/locales/*.rb,yml are auto loaded.
   # config.i18n.load_path += Dir[Rails.root.join('my', 'locales', '*.{rb,yml}')]
   # config.i18n.default_locale = :de
