@@ -2,5016 +2,5472 @@
 - !ruby/object:Item 
   attributes: 
     name: Snowserpent Mail Helm
-    updated_at: 2010-02-12 16:45:44
+    updated_at: 2010-02-12 16:58:18
     id: "1"
     wowarmory_id: "50605"
     dps: "440.18"
-    quality: epic
-    created_at: 2010-02-12 16:45:44
+    inventory_type: "1"
+    quality: "4"
+    created_at: 2010-02-12 16:58:18
   attributes_cache: {}
 
 - !ruby/object:Item 
   attributes: 
     name: Snowserpent Mail Helm
-    updated_at: 2010-02-12 16:45:44
+    updated_at: 2010-02-12 16:58:18
     id: "2"
     wowarmory_id: "49952"
     dps: "398.6"
-    quality: epic
-    created_at: 2010-02-12 16:45:44
+    inventory_type: "1"
+    quality: "4"
+    created_at: 2010-02-12 16:58:18
   attributes_cache: {}
 
 - !ruby/object:Item 
   attributes: 
     name: Sanctified Ahn'Kahar Blood Hunter's Headpiece
-    updated_at: 2010-02-12 16:45:44
+    updated_at: 2010-02-12 16:58:18
     id: "3"
     wowarmory_id: "51153"
     dps: "383.16"
-    quality: epic
-    created_at: 2010-02-12 16:45:44
+    inventory_type: "1"
+    quality: "4"
+    created_at: 2010-02-12 16:58:18
   attributes_cache: {}
 
 - !ruby/object:Item 
   attributes: 
     name: Taldron's Short-Sighted Helm
-    updated_at: 2010-02-12 16:45:44
+    updated_at: 2010-02-12 16:58:18
     id: "4"
     wowarmory_id: "51877"
     dps: "361.55"
-    quality: epic
-    created_at: 2010-02-12 16:45:44
+    inventory_type: "1"
+    quality: "4"
+    created_at: 2010-02-12 16:58:18
   attributes_cache: {}
 
 - !ruby/object:Item 
   attributes: 
     name: Windrunner's Headpiece of Triumph
-    updated_at: 2010-02-12 16:45:45
+    updated_at: 2010-02-12 16:58:18
     id: "5"
     wowarmory_id: "48262"
     dps: "360.02"
-    quality: epic
-    created_at: 2010-02-12 16:45:45
+    inventory_type: "1"
+    quality: "4"
+    created_at: 2010-02-12 16:58:18
   attributes_cache: {}
 
 - !ruby/object:Item 
   attributes: 
     name: Ahn'Kahar Blood Hunter's Headpiece
-    updated_at: 2010-02-12 16:45:45
+    updated_at: 2010-02-12 16:58:18
     id: "6"
     wowarmory_id: "50115"
     dps: "345.54"
-    quality: epic
-    created_at: 2010-02-12 16:45:45
+    inventory_type: "1"
+    quality: "4"
+    created_at: 2010-02-12 16:58:18
   attributes_cache: {}
 
 - !ruby/object:Item 
   attributes: 
     name: Helm of the Silver Ranger
-    updated_at: 2010-02-12 16:45:45
+    updated_at: 2010-02-12 16:58:18
     id: "7"
     wowarmory_id: "47942"
     dps: "340.15"
-    quality: epic
-    created_at: 2010-02-12 16:45:45
+    inventory_type: "1"
+    quality: "4"
+    created_at: 2010-02-12 16:58:18
   attributes_cache: {}
 
 - !ruby/object:Item 
   attributes: 
     name: Taldron's Short-Sighted Helm
-    updated_at: 2010-02-12 16:45:45
+    updated_at: 2010-02-12 16:58:18
     id: "8"
     wowarmory_id: "51002"
     dps: "325.31"
-    quality: epic
-    created_at: 2010-02-12 16:45:45
+    inventory_type: "1"
+    quality: "4"
+    created_at: 2010-02-12 16:58:18
   attributes_cache: {}
 
 - !ruby/object:Item 
   attributes: 
     name: Windrunner's Headpiece of Triumph
-    updated_at: 2010-02-12 16:45:45
+    updated_at: 2010-02-12 16:58:19
     id: "9"
     wowarmory_id: "48257"
     dps: "323.96"
-    quality: epic
-    created_at: 2010-02-12 16:45:45
+    inventory_type: "1"
+    quality: "4"
+    created_at: 2010-02-12 16:58:19
   attributes_cache: {}
 
 - !ruby/object:Item 
   attributes: 
     name: Dragonstalker's Helm
-    updated_at: 2010-02-12 16:45:45
+    updated_at: 2010-02-12 16:58:19
     id: "10"
     wowarmory_id: "49480"
     dps: "318.48"
-    quality: epic
-    created_at: 2010-02-12 16:45:45
+    inventory_type: "1"
+    quality: "4"
+    created_at: 2010-02-12 16:58:19
   attributes_cache: {}
 
 - !ruby/object:Item 
   attributes: 
     name: Helm of the Brooding Dragon
-    updated_at: 2010-02-12 16:45:45
+    updated_at: 2010-02-12 16:58:19
     id: "11"
     wowarmory_id: "47685"
     dps: "305.99"
-    quality: epic
-    created_at: 2010-02-12 16:45:45
+    inventory_type: "1"
+    quality: "4"
+    created_at: 2010-02-12 16:58:19
   attributes_cache: {}
 
 - !ruby/object:Item 
   attributes: 
     name: Helm of the Silver Ranger
-    updated_at: 2010-02-12 16:45:45
+    updated_at: 2010-02-12 16:58:19
     id: "12"
     wowarmory_id: "47718"
     dps: "305.25"
-    quality: epic
-    created_at: 2010-02-12 16:45:45
+    inventory_type: "1"
+    quality: "4"
+    created_at: 2010-02-12 16:58:19
   attributes_cache: {}
 
 - !ruby/object:Item 
   attributes: 
     name: Eyes of Bewilderment
-    updated_at: 2010-02-12 16:45:45
+    updated_at: 2010-02-12 16:58:19
     id: "13"
     wowarmory_id: "50197"
     dps: "292.73"
-    quality: epic
-    created_at: 2010-02-12 16:45:45
+    inventory_type: "1"
+    quality: "4"
+    created_at: 2010-02-12 16:58:19
   attributes_cache: {}
 
 - !ruby/object:Item 
   attributes: 
     name: Windrunner's Headpiece of Conquest
-    updated_at: 2010-02-12 16:45:45
+    updated_at: 2010-02-12 16:58:19
     id: "14"
     wowarmory_id: "48250"
     dps: "291.75"
-    quality: epic
-    created_at: 2010-02-12 16:45:45
+    inventory_type: "1"
+    quality: "4"
+    created_at: 2010-02-12 16:58:19
   attributes_cache: {}
 
 - !ruby/object:Item 
   attributes: 
     name: Relentless Gladiator's Chain Helm
-    updated_at: 2010-02-12 16:45:45
+    updated_at: 2010-02-12 16:58:19
     id: "15"
     wowarmory_id: "41158"
     dps: "290.49"
-    quality: epic
-    created_at: 2010-02-12 16:45:45
+    inventory_type: "1"
+    quality: "4"
+    created_at: 2010-02-12 16:58:19
   attributes_cache: {}
 
 - !ruby/object:Item 
   attributes: 
     name: Dragonstalker's Helmet
-    updated_at: 2010-02-12 16:45:45
+    updated_at: 2010-02-12 16:58:19
     id: "16"
     wowarmory_id: "49319"
     dps: "286.37"
-    quality: epic
-    created_at: 2010-02-12 16:45:45
+    inventory_type: "1"
+    quality: "4"
+    created_at: 2010-02-12 16:58:19
   attributes_cache: {}
 
 - !ruby/object:Item 
   attributes: 
     name: Conqueror's Scourgestalker Headpiece
-    updated_at: 2010-02-12 16:45:45
+    updated_at: 2010-02-12 16:58:19
     id: "17"
     wowarmory_id: "46143"
     dps: "278.09"
-    quality: epic
-    created_at: 2010-02-12 16:45:45
+    inventory_type: "1"
+    quality: "4"
+    created_at: 2010-02-12 16:58:19
   attributes_cache: {}
 
 - !ruby/object:Item 
   attributes: 
     name: Boundless Gaze
-    updated_at: 2010-02-12 16:45:45
+    updated_at: 2010-02-12 16:58:19
     id: "18"
     wowarmory_id: "45610"
     dps: "277.16"
-    quality: epic
-    created_at: 2010-02-12 16:45:45
+    inventory_type: "1"
+    quality: "4"
+    created_at: 2010-02-12 16:58:19
   attributes_cache: {}
 
 - !ruby/object:Item 
   attributes: 
     name: Horns of the Spurned Val'kyr
-    updated_at: 2010-02-12 16:45:45
+    updated_at: 2010-02-12 16:58:19
     id: "19"
     wowarmory_id: "49824"
     dps: "268.63"
-    quality: epic
-    created_at: 2010-02-12 16:45:45
+    inventory_type: "1"
+    quality: "4"
+    created_at: 2010-02-12 16:58:19
   attributes_cache: {}
 
 - !ruby/object:Item 
   attributes: 
     name: Helm of the Furnace Master
-    updated_at: 2010-02-12 16:45:45
+    updated_at: 2010-02-12 16:58:19
     id: "20"
     wowarmory_id: "45164"
     dps: "265.5"
-    quality: epic
-    created_at: 2010-02-12 16:45:45
+    inventory_type: "1"
+    quality: "4"
+    created_at: 2010-02-12 16:58:19
   attributes_cache: {}
 
 - !ruby/object:Item 
   attributes: 
     name: Circlet of True Sight
-    updated_at: 2010-02-12 16:45:45
+    updated_at: 2010-02-12 16:58:19
     id: "21"
     wowarmory_id: "45329"
     dps: "265.24"
-    quality: epic
-    created_at: 2010-02-12 16:45:45
+    inventory_type: "1"
+    quality: "4"
+    created_at: 2010-02-12 16:58:19
   attributes_cache: {}
 
 - !ruby/object:Item 
   attributes: 
     name: Valorous Scourgestalker Headpiece
-    updated_at: 2010-02-12 16:45:45
+    updated_at: 2010-02-12 16:58:19
     id: "22"
     wowarmory_id: "45361"
     dps: "262.95"
-    quality: epic
-    created_at: 2010-02-12 16:45:45
+    inventory_type: "1"
+    quality: "4"
+    created_at: 2010-02-12 16:58:19
   attributes_cache: {}
 
 - !ruby/object:Item 
   attributes: 
     name: Blue Aspect Helm
-    updated_at: 2010-02-12 16:45:46
+    updated_at: 2010-02-12 16:58:19
     id: "23"
     wowarmory_id: "40543"
     dps: "255.48"
-    quality: epic
-    created_at: 2010-02-12 16:45:46
+    inventory_type: "1"
+    quality: "4"
+    created_at: 2010-02-12 16:58:19
   attributes_cache: {}
 
 - !ruby/object:Item 
   attributes: 
     name: Furious Gladiator's Chain Helm
-    updated_at: 2010-02-12 16:45:46
+    updated_at: 2010-02-12 16:58:19
     id: "24"
     wowarmory_id: "41157"
     dps: "251.69"
-    quality: epic
-    created_at: 2010-02-12 16:45:46
+    inventory_type: "1"
+    quality: "4"
+    created_at: 2010-02-12 16:58:19
   attributes_cache: {}
 
 - !ruby/object:Item 
   attributes: 
     name: Valorous Cryptstalker Headpiece
-    updated_at: 2010-02-12 16:45:46
+    updated_at: 2010-02-12 16:58:19
     id: "25"
     wowarmory_id: "40505"
     dps: "245.21"
-    quality: epic
-    created_at: 2010-02-12 16:45:46
+    inventory_type: "1"
+    quality: "4"
+    created_at: 2010-02-12 16:58:19
   attributes_cache: {}
 
 - !ruby/object:Item 
   attributes: 
     name: Hyaline Helm of the Sniper
-    updated_at: 2010-02-12 16:45:46
+    updated_at: 2010-02-12 16:58:19
     id: "26"
     wowarmory_id: "40451"
     dps: "238.52"
-    quality: epic
-    created_at: 2010-02-12 16:45:46
+    inventory_type: "1"
+    quality: "4"
+    created_at: 2010-02-12 16:58:19
   attributes_cache: {}
 
 - !ruby/object:Item 
   attributes: 
     name: Helm of the Grave
-    updated_at: 2010-02-12 16:45:46
+    updated_at: 2010-02-12 16:58:20
     id: "27"
     wowarmory_id: "40344"
     dps: "237.13"
-    quality: epic
-    created_at: 2010-02-12 16:45:46
+    inventory_type: "1"
+    quality: "4"
+    created_at: 2010-02-12 16:58:20
   attributes_cache: {}
 
 - !ruby/object:Item 
   attributes: 
     name: Heroes' Cryptstalker Headpiece
-    updated_at: 2010-02-12 16:45:46
+    updated_at: 2010-02-12 16:58:20
     id: "28"
     wowarmory_id: "39578"
     dps: "223.36"
-    quality: epic
-    created_at: 2010-02-12 16:45:46
+    inventory_type: "1"
+    quality: "4"
+    created_at: 2010-02-12 16:58:20
   attributes_cache: {}
 
 - !ruby/object:Item 
   attributes: 
     name: Truesight Ice Blinders
-    updated_at: 2010-02-12 16:45:46
+    updated_at: 2010-02-12 16:58:20
     id: "29"
     wowarmory_id: "42551"
     dps: "217.84"
-    quality: epic
-    created_at: 2010-02-12 16:45:46
+    inventory_type: "1"
+    quality: "4"
+    created_at: 2010-02-12 16:58:20
   attributes_cache: {}
 
 - !ruby/object:Item 
   attributes: 
     name: Deadly Gladiator's Chain Helm
-    updated_at: 2010-02-12 16:45:46
+    updated_at: 2010-02-12 16:58:20
     id: "30"
     wowarmory_id: "41156"
     dps: "214.33"
-    quality: epic
-    created_at: 2010-02-12 16:45:46
+    inventory_type: "1"
+    quality: "4"
+    created_at: 2010-02-12 16:58:20
   attributes_cache: {}
 
 - !ruby/object:Item 
   attributes: 
     name: Dual-Bladed Pauldrons
-    updated_at: 2010-02-12 16:45:46
+    updated_at: 2010-02-12 16:58:20
     id: "31"
     wowarmory_id: "50673"
     dps: "293.99"
-    quality: epic
-    created_at: 2010-02-12 16:45:46
+    inventory_type: "3"
+    quality: "4"
+    created_at: 2010-02-12 16:58:20
   attributes_cache: {}
 
 - !ruby/object:Item 
   attributes: 
     name: Shoulderpads of the Morbid Ritual
-    updated_at: 2010-02-12 16:45:46
+    updated_at: 2010-02-12 16:58:20
     id: "32"
     wowarmory_id: "51864"
     dps: "279.27"
-    quality: epic
-    created_at: 2010-02-12 16:45:46
+    inventory_type: "3"
+    quality: "4"
+    created_at: 2010-02-12 16:58:20
   attributes_cache: {}
 
 - !ruby/object:Item 
   attributes: 
     name: Dual-Bladed Pauldrons
-    updated_at: 2010-02-12 16:45:46
+    updated_at: 2010-02-12 16:58:20
     id: "33"
     wowarmory_id: "50022"
     dps: "262.33"
-    quality: epic
-    created_at: 2010-02-12 16:45:46
+    inventory_type: "3"
+    quality: "4"
+    created_at: 2010-02-12 16:58:20
   attributes_cache: {}
 
 - !ruby/object:Item 
   attributes: 
     name: Sanctified Ahn'Kahar Blood Hunter's Spaulders
-    updated_at: 2010-02-12 16:45:46
+    updated_at: 2010-02-12 16:58:20
     id: "34"
     wowarmory_id: "51151"
     dps: "262.2"
-    quality: epic
-    created_at: 2010-02-12 16:45:46
+    inventory_type: "3"
+    quality: "4"
+    created_at: 2010-02-12 16:58:20
   attributes_cache: {}
 
 - !ruby/object:Item 
   attributes: 
     name: Windrunner's Spaulders of Triumph
-    updated_at: 2010-02-12 16:45:46
+    updated_at: 2010-02-12 16:58:20
     id: "35"
     wowarmory_id: "48260"
     dps: "257.84"
-    quality: epic
-    created_at: 2010-02-12 16:45:46
+    inventory_type: "3"
+    quality: "4"
+    created_at: 2010-02-12 16:58:20
   attributes_cache: {}
 
 - !ruby/object:Item 
   attributes: 
     name: Shoulderpads of the Morbid Ritual
-    updated_at: 2010-02-12 16:45:47
+    updated_at: 2010-02-12 16:58:20
     id: "36"
     wowarmory_id: "51015"
     dps: "249.46"
-    quality: epic
-    created_at: 2010-02-12 16:45:47
+    inventory_type: "3"
+    quality: "4"
+    created_at: 2010-02-12 16:58:20
   attributes_cache: {}
 
 - !ruby/object:Item 
   attributes: 
     name: Pauldrons of Lost Hope
-    updated_at: 2010-02-12 16:45:47
+    updated_at: 2010-02-12 16:58:20
     id: "37"
     wowarmory_id: "51911"
     dps: "247.13"
-    quality: epic
-    created_at: 2010-02-12 16:45:47
+    inventory_type: "3"
+    quality: "4"
+    created_at: 2010-02-12 16:58:20
   attributes_cache: {}
 
 - !ruby/object:Item 
   attributes: 
     name: Ahn'Kahar Blood Hunter's Spaulders
-    updated_at: 2010-02-12 16:45:47
+    updated_at: 2010-02-12 16:58:20
     id: "38"
     wowarmory_id: "50117"
     dps: "234.17"
-    quality: epic
-    created_at: 2010-02-12 16:45:47
+    inventory_type: "3"
+    quality: "4"
+    created_at: 2010-02-12 16:58:20
   attributes_cache: {}
 
 - !ruby/object:Item 
   attributes: 
     name: Windrunner's Spaulders of Triumph
-    updated_at: 2010-02-12 16:45:47
+    updated_at: 2010-02-12 16:58:20
     id: "39"
     wowarmory_id: "48259"
     dps: "229.08"
-    quality: epic
-    created_at: 2010-02-12 16:45:47
+    inventory_type: "3"
+    quality: "4"
+    created_at: 2010-02-12 16:58:20
   attributes_cache: {}
 
 - !ruby/object:Item 
   attributes: 
     name: Pauldrons of the Timeless Hunter
-    updated_at: 2010-02-12 16:45:47
+    updated_at: 2010-02-12 16:58:21
     id: "40"
     wowarmory_id: "47969"
     dps: "222.51"
-    quality: epic
-    created_at: 2010-02-12 16:45:47
+    inventory_type: "3"
+    quality: "4"
+    created_at: 2010-02-12 16:58:21
   attributes_cache: {}
 
 - !ruby/object:Item 
   attributes: 
     name: Pauldrons of Lost Hope
-    updated_at: 2010-02-12 16:45:47
+    updated_at: 2010-02-12 16:58:21
     id: "41"
     wowarmory_id: "50792"
     dps: "221.37"
-    quality: epic
-    created_at: 2010-02-12 16:45:47
+    inventory_type: "3"
+    quality: "4"
+    created_at: 2010-02-12 16:58:21
   attributes_cache: {}
 
 - !ruby/object:Item 
   attributes: 
     name: Epaulets of the Devourer
-    updated_at: 2010-02-12 16:45:47
+    updated_at: 2010-02-12 16:58:21
     id: "42"
     wowarmory_id: "47704"
     dps: "217.23"
-    quality: epic
-    created_at: 2010-02-12 16:45:47
+    inventory_type: "3"
+    quality: "4"
+    created_at: 2010-02-12 16:58:21
   attributes_cache: {}
 
 - !ruby/object:Item 
   attributes: 
     name: Windrunner's Spaulders of Conquest
-    updated_at: 2010-02-12 16:45:47
+    updated_at: 2010-02-12 16:58:21
     id: "43"
     wowarmory_id: "48253"
     dps: "203.37"
-    quality: epic
-    created_at: 2010-02-12 16:45:47
+    inventory_type: "3"
+    quality: "4"
+    created_at: 2010-02-12 16:58:21
   attributes_cache: {}
 
 - !ruby/object:Item 
   attributes: 
     name: Pauldrons of the Timeless Hunter
-    updated_at: 2010-02-12 16:45:47
+    updated_at: 2010-02-12 16:58:21
     id: "44"
     wowarmory_id: "47829"
     dps: "190.91"
-    quality: epic
-    created_at: 2010-02-12 16:45:47
+    inventory_type: "3"
+    quality: "4"
+    created_at: 2010-02-12 16:58:21
   attributes_cache: {}
 
 - !ruby/object:Item 
   attributes: 
     name: Relentless Gladiator's Chain Spaulders
-    updated_at: 2010-02-12 16:45:47
+    updated_at: 2010-02-12 16:58:21
     id: "45"
     wowarmory_id: "41218"
     dps: "183.67"
-    quality: epic
-    created_at: 2010-02-12 16:45:47
+    inventory_type: "3"
+    quality: "4"
+    created_at: 2010-02-12 16:58:21
   attributes_cache: {}
 
 - !ruby/object:Item 
   attributes: 
     name: Spurned Val'kyr Shoulderguards
-    updated_at: 2010-02-12 16:45:47
+    updated_at: 2010-02-12 16:58:21
     id: "46"
     wowarmory_id: "50233"
     dps: "181.87"
-    quality: epic
-    created_at: 2010-02-12 16:45:47
+    inventory_type: "3"
+    quality: "4"
+    created_at: 2010-02-12 16:58:21
   attributes_cache: {}
 
 - !ruby/object:Item 
   attributes: 
     name: Pauldrons of Concealed Loathing
-    updated_at: 2010-02-12 16:45:47
+    updated_at: 2010-02-12 16:58:21
     id: "47"
     wowarmory_id: "47245"
     dps: "179.48"
-    quality: epic
-    created_at: 2010-02-12 16:45:47
+    inventory_type: "3"
+    quality: "4"
+    created_at: 2010-02-12 16:58:21
   attributes_cache: {}
 
 - !ruby/object:Item 
   attributes: 
     name: Conqueror's Scourgestalker Spaulders
-    updated_at: 2010-02-12 16:45:47
+    updated_at: 2010-02-12 16:58:21
     id: "48"
     wowarmory_id: "46145"
     dps: "178.68"
-    quality: epic
-    created_at: 2010-02-12 16:45:47
+    inventory_type: "3"
+    quality: "4"
+    created_at: 2010-02-12 16:58:21
   attributes_cache: {}
 
 - !ruby/object:Item 
   attributes: 
     name: Mantle of Fiery Vengeance
-    updated_at: 2010-02-12 16:45:47
+    updated_at: 2010-02-12 16:58:21
     id: "49"
     wowarmory_id: "45300"
     dps: "173.96"
-    quality: epic
-    created_at: 2010-02-12 16:45:47
+    inventory_type: "3"
+    quality: "4"
+    created_at: 2010-02-12 16:58:21
   attributes_cache: {}
 
 - !ruby/object:Item 
   attributes: 
     name: Shoulders of Misfortune
-    updated_at: 2010-02-12 16:45:47
+    updated_at: 2010-02-12 16:58:21
     id: "50"
     wowarmory_id: "45543"
     dps: "172.96"
-    quality: epic
-    created_at: 2010-02-12 16:45:47
+    inventory_type: "3"
+    quality: "4"
+    created_at: 2010-02-12 16:58:21
   attributes_cache: {}
 
 - !ruby/object:Item 
   attributes: 
     name: Iron-studded Mantle
-    updated_at: 2010-02-12 16:45:47
+    updated_at: 2010-02-12 16:58:21
     id: "51"
     wowarmory_id: "45227"
     dps: "172.1"
-    quality: epic
-    created_at: 2010-02-12 16:45:47
+    inventory_type: "3"
+    quality: "4"
+    created_at: 2010-02-12 16:58:21
   attributes_cache: {}
 
 - !ruby/object:Item 
   attributes: 
     name: Valorous Scourgestalker Spaulders
-    updated_at: 2010-02-12 16:45:47
+    updated_at: 2010-02-12 16:58:21
     id: "52"
     wowarmory_id: "45363"
     dps: "166.65"
-    quality: epic
-    created_at: 2010-02-12 16:45:47
+    inventory_type: "3"
+    quality: "4"
+    created_at: 2010-02-12 16:58:21
   attributes_cache: {}
 
 - !ruby/object:Item 
   attributes: 
     name: Valorous Cryptstalker Spaulders
-    updated_at: 2010-02-12 16:45:47
+    updated_at: 2010-02-12 16:58:21
     id: "53"
     wowarmory_id: "40507"
     dps: "158.3"
-    quality: epic
-    created_at: 2010-02-12 16:45:47
+    inventory_type: "3"
+    quality: "4"
+    created_at: 2010-02-12 16:58:21
   attributes_cache: {}
 
 - !ruby/object:Item 
   attributes: 
     name: Furious Gladiator's Chain Spaulders
-    updated_at: 2010-02-12 16:45:47
+    updated_at: 2010-02-12 16:58:21
     id: "54"
     wowarmory_id: "41217"
     dps: "154.88"
-    quality: epic
-    created_at: 2010-02-12 16:45:47
+    inventory_type: "3"
+    quality: "4"
+    created_at: 2010-02-12 16:58:21
   attributes_cache: {}
 
 - !ruby/object:Item 
   attributes: 
     name: Upstanding Spaulders
-    updated_at: 2010-02-12 16:45:47
+    updated_at: 2010-02-12 16:58:21
     id: "55"
     wowarmory_id: "44003"
     dps: "154.22"
-    quality: epic
-    created_at: 2010-02-12 16:45:47
+    inventory_type: "3"
+    quality: "4"
+    created_at: 2010-02-12 16:58:21
   attributes_cache: {}
 
 - !ruby/object:Item 
   attributes: 
     name: Shoulderpads of Secret Arts
-    updated_at: 2010-02-12 16:45:48
+    updated_at: 2010-02-12 16:58:21
     id: "56"
     wowarmory_id: "40315"
     dps: "153.9"
-    quality: epic
-    created_at: 2010-02-12 16:45:48
+    inventory_type: "3"
+    quality: "4"
+    created_at: 2010-02-12 16:58:21
   attributes_cache: {}
 
 - !ruby/object:Item 
   attributes: 
     name: Ironaya's Discarded Mantle
-    updated_at: 2010-02-12 16:45:48
+    updated_at: 2010-02-12 16:58:21
     id: "57"
     wowarmory_id: "45711"
     dps: "152.95"
-    quality: epic
-    created_at: 2010-02-12 16:45:48
+    inventory_type: "3"
+    quality: "4"
+    created_at: 2010-02-12 16:58:21
   attributes_cache: {}
 
 - !ruby/object:Item 
   attributes: 
     name: Pauldrons of the Abandoned
-    updated_at: 2010-02-12 16:45:48
+    updated_at: 2010-02-12 16:58:21
     id: "58"
     wowarmory_id: "40299"
     dps: "144"
-    quality: epic
-    created_at: 2010-02-12 16:45:48
+    inventory_type: "3"
+    quality: "4"
+    created_at: 2010-02-12 16:58:21
   attributes_cache: {}
 
 - !ruby/object:Item 
   attributes: 
     name: Heroes' Cryptstalker Spaulders
-    updated_at: 2010-02-12 16:45:48
+    updated_at: 2010-02-12 16:58:22
     id: "59"
     wowarmory_id: "39581"
     dps: "140.43"
-    quality: epic
-    created_at: 2010-02-12 16:45:48
+    inventory_type: "3"
+    quality: "4"
+    created_at: 2010-02-12 16:58:22
   attributes_cache: {}
 
 - !ruby/object:Item 
   attributes: 
     name: Deadly Gladiator's Chain Spaulders
-    updated_at: 2010-02-12 16:45:48
+    updated_at: 2010-02-12 16:58:22
     id: "60"
     wowarmory_id: "41216"
     dps: "133"
-    quality: epic
-    created_at: 2010-02-12 16:45:48
+    inventory_type: "3"
+    quality: "4"
+    created_at: 2010-02-12 16:58:22
   attributes_cache: {}
 
 - !ruby/object:Item 
   attributes: 
     name: Wodin's Lucky Necklace
-    updated_at: 2010-02-12 16:45:48
+    updated_at: 2010-02-12 16:58:22
     id: "61"
     wowarmory_id: "50452"
     dps: "199.64"
-    quality: epic
-    created_at: 2010-02-12 16:45:48
+    inventory_type: "2"
+    quality: "4"
+    created_at: 2010-02-12 16:58:22
   attributes_cache: {}
 
 - !ruby/object:Item 
   attributes: 
     name: Sindragosa's Cruel Claw
-    updated_at: 2010-02-12 16:45:48
+    updated_at: 2010-02-12 16:58:22
     id: "62"
     wowarmory_id: "50633"
     dps: "197.8"
-    quality: epic
-    created_at: 2010-02-12 16:45:48
+    inventory_type: "2"
+    quality: "4"
+    created_at: 2010-02-12 16:58:22
   attributes_cache: {}
 
 - !ruby/object:Item 
   attributes: 
     name: Precious's Putrid Collar
-    updated_at: 2010-02-12 16:45:48
+    updated_at: 2010-02-12 16:58:22
     id: "63"
     wowarmory_id: "51890"
     dps: "190.95"
-    quality: epic
-    created_at: 2010-02-12 16:45:48
+    inventory_type: "2"
+    quality: "4"
+    created_at: 2010-02-12 16:58:22
   attributes_cache: {}
 
 - !ruby/object:Item 
   attributes: 
     name: Rimetooth Pendant
-    updated_at: 2010-02-12 16:45:48
+    updated_at: 2010-02-12 16:58:22
     id: "64"
     wowarmory_id: "51822"
     dps: "188.33"
-    quality: epic
-    created_at: 2010-02-12 16:45:48
+    inventory_type: "2"
+    quality: "4"
+    created_at: 2010-02-12 16:58:22
   attributes_cache: {}
 
 - !ruby/object:Item 
   attributes: 
     name: Sindragosa's Cruel Claw
-    updated_at: 2010-02-12 16:45:48
+    updated_at: 2010-02-12 16:58:22
     id: "65"
     wowarmory_id: "50421"
     dps: "175.88"
-    quality: epic
-    created_at: 2010-02-12 16:45:48
+    inventory_type: "2"
+    quality: "4"
+    created_at: 2010-02-12 16:58:22
   attributes_cache: {}
 
 - !ruby/object:Item 
   attributes: 
     name: Charge of the Demon Lord
-    updated_at: 2010-02-12 16:45:48
+    updated_at: 2010-02-12 16:58:22
     id: "66"
     wowarmory_id: "47060"
     dps: "175.07"
-    quality: epic
-    created_at: 2010-02-12 16:45:48
+    inventory_type: "2"
+    quality: "4"
+    created_at: 2010-02-12 16:58:22
   attributes_cache: {}
 
 - !ruby/object:Item 
   attributes: 
     name: Precious's Putrid Collar
-    updated_at: 2010-02-12 16:45:48
+    updated_at: 2010-02-12 16:58:22
     id: "67"
     wowarmory_id: "50852"
     dps: "173.66"
-    quality: epic
-    created_at: 2010-02-12 16:45:48
+    inventory_type: "2"
+    quality: "4"
+    created_at: 2010-02-12 16:58:22
   attributes_cache: {}
 
 - !ruby/object:Item 
   attributes: 
     name: Rimetooth Pendant
-    updated_at: 2010-02-12 16:45:48
+    updated_at: 2010-02-12 16:58:22
     id: "68"
     wowarmory_id: "51779"
     dps: "167.64"
-    quality: epic
-    created_at: 2010-02-12 16:45:48
+    inventory_type: "2"
+    quality: "4"
+    created_at: 2010-02-12 16:58:22
   attributes_cache: {}
 
 - !ruby/object:Item 
   attributes: 
     name: Collar of Ceaseless Torment
-    updated_at: 2010-02-12 16:45:48
+    updated_at: 2010-02-12 16:58:22
     id: "69"
     wowarmory_id: "47915"
     dps: "159.8"
-    quality: epic
-    created_at: 2010-02-12 16:45:48
+    inventory_type: "2"
+    quality: "4"
+    created_at: 2010-02-12 16:58:22
   attributes_cache: {}
 
 - !ruby/object:Item 
   attributes: 
     name: Sparkling Onyxia Tooth Pendant
-    updated_at: 2010-02-12 16:45:48
+    updated_at: 2010-02-12 16:58:22
     id: "70"
     wowarmory_id: "49485"
     dps: "159.76"
-    quality: epic
-    created_at: 2010-02-12 16:45:48
+    inventory_type: "2"
+    quality: "4"
+    created_at: 2010-02-12 16:58:22
   attributes_cache: {}
 
 - !ruby/object:Item 
   attributes: 
     name: Charge of the Demon Lord
-    updated_at: 2010-02-12 16:45:48
+    updated_at: 2010-02-12 16:58:22
     id: "71"
     wowarmory_id: "47043"
     dps: "148.3"
-    quality: epic
-    created_at: 2010-02-12 16:45:48
+    inventory_type: "2"
+    quality: "4"
+    created_at: 2010-02-12 16:58:22
   attributes_cache: {}
 
 - !ruby/object:Item 
   attributes: 
     name: Pendulum of Infinity
-    updated_at: 2010-02-12 16:45:49
+    updated_at: 2010-02-12 16:58:22
     id: "72"
     wowarmory_id: "45517"
     dps: "145.11"
-    quality: epic
-    created_at: 2010-02-12 16:45:49
+    inventory_type: "2"
+    quality: "4"
+    created_at: 2010-02-12 16:58:22
   attributes_cache: {}
 
 - !ruby/object:Item 
   attributes: 
     name: Seed of Budding Carnage
-    updated_at: 2010-02-12 16:45:49
+    updated_at: 2010-02-12 16:58:22
     id: "73"
     wowarmory_id: "45945"
     dps: "137.11"
-    quality: epic
-    created_at: 2010-02-12 16:45:49
+    inventory_type: "2"
+    quality: "4"
+    created_at: 2010-02-12 16:58:22
   attributes_cache: {}
 
 - !ruby/object:Item 
   attributes: 
     name: Collar of Ceaseless Torment
-    updated_at: 2010-02-12 16:45:49
+    updated_at: 2010-02-12 16:58:23
     id: "74"
     wowarmory_id: "47607"
     dps: "134.6"
-    quality: epic
-    created_at: 2010-02-12 16:45:49
+    inventory_type: "2"
+    quality: "4"
+    created_at: 2010-02-12 16:58:23
   attributes_cache: {}
 
 - !ruby/object:Item 
   attributes: 
     name: Barbed Ymirheim Choker
-    updated_at: 2010-02-12 16:45:49
+    updated_at: 2010-02-12 16:58:23
     id: "75"
     wowarmory_id: "50228"
     dps: "129.96"
-    quality: epic
-    created_at: 2010-02-12 16:45:49
+    inventory_type: "2"
+    quality: "4"
+    created_at: 2010-02-12 16:58:23
   attributes_cache: {}
 
 - !ruby/object:Item 
   attributes: 
     name: Nymph Heart Charm
-    updated_at: 2010-02-12 16:45:49
+    updated_at: 2010-02-12 16:58:23
     id: "76"
     wowarmory_id: "45480"
     dps: "125.81"
-    quality: epic
-    created_at: 2010-02-12 16:45:49
+    inventory_type: "2"
+    quality: "4"
+    created_at: 2010-02-12 16:58:23
   attributes_cache: {}
 
 - !ruby/object:Item 
   attributes: 
     name: Sweet Perfume Broach
-    updated_at: 2010-02-12 16:45:49
+    updated_at: 2010-02-12 16:58:23
     id: "77"
     wowarmory_id: "51807"
     dps: "125.33"
-    quality: epic
-    created_at: 2010-02-12 16:45:49
+    inventory_type: "2"
+    quality: "4"
+    created_at: 2010-02-12 16:58:23
   attributes_cache: {}
 
 - !ruby/object:Item 
   attributes: 
     name: Broach of the Wailing Night
-    updated_at: 2010-02-12 16:45:49
+    updated_at: 2010-02-12 16:58:23
     id: "78"
     wowarmory_id: "45820"
     dps: "125.33"
-    quality: epic
-    created_at: 2010-02-12 16:45:49
+    inventory_type: "2"
+    quality: "4"
+    created_at: 2010-02-12 16:58:23
   attributes_cache: {}
 
 - !ruby/object:Item 
   attributes: 
     name: Favor of the Dragon Queen
-    updated_at: 2010-02-12 16:45:49
+    updated_at: 2010-02-12 16:58:23
     id: "79"
     wowarmory_id: "44664"
     dps: "115.72"
-    quality: epic
-    created_at: 2010-02-12 16:45:49
+    inventory_type: "2"
+    quality: "4"
+    created_at: 2010-02-12 16:58:23
   attributes_cache: {}
 
 - !ruby/object:Item 
   attributes: 
     name: Ancient Pendant of Arathor
-    updated_at: 2010-02-12 16:45:49
+    updated_at: 2010-02-12 16:58:23
     id: "80"
     wowarmory_id: "47494"
     dps: "115.26"
-    quality: epic
-    created_at: 2010-02-12 16:45:49
+    inventory_type: "2"
+    quality: "4"
+    created_at: 2010-02-12 16:58:23
   attributes_cache: {}
 
 - !ruby/object:Item 
   attributes: 
     name: Fool's Trial
-    updated_at: 2010-02-12 16:45:49
+    updated_at: 2010-02-12 16:58:23
     id: "81"
     wowarmory_id: "40065"
     dps: "114.95"
-    quality: epic
-    created_at: 2010-02-12 16:45:49
+    inventory_type: "2"
+    quality: "4"
+    created_at: 2010-02-12 16:58:23
   attributes_cache: {}
 
 - !ruby/object:Item 
   attributes: 
     name: Choker of the Abyss
-    updated_at: 2010-02-12 16:45:49
+    updated_at: 2010-02-12 16:58:23
     id: "82"
     wowarmory_id: "46008"
     dps: "112.68"
-    quality: epic
-    created_at: 2010-02-12 16:45:49
+    inventory_type: "2"
+    quality: "4"
+    created_at: 2010-02-12 16:58:23
   attributes_cache: {}
 
 - !ruby/object:Item 
   attributes: 
     name: Ahn'kahar Onyx Neckguard
-    updated_at: 2010-02-12 16:45:49
+    updated_at: 2010-02-12 16:58:23
     id: "83"
     wowarmory_id: "50647"
     dps: "111.22"
-    quality: epic
-    created_at: 2010-02-12 16:45:49
+    inventory_type: "2"
+    quality: "4"
+    created_at: 2010-02-12 16:58:23
   attributes_cache: {}
 
 - !ruby/object:Item 
   attributes: 
     name: Icy Blast Amulet
-    updated_at: 2010-02-12 16:45:49
+    updated_at: 2010-02-12 16:58:23
     id: "84"
     wowarmory_id: "40369"
     dps: "104.79"
-    quality: epic
-    created_at: 2010-02-12 16:45:49
+    inventory_type: "2"
+    quality: "4"
+    created_at: 2010-02-12 16:58:23
   attributes_cache: {}
 
 - !ruby/object:Item 
   attributes: 
     name: Pendant of the Dragonsworn
-    updated_at: 2010-02-12 16:45:49
+    updated_at: 2010-02-12 16:58:23
     id: "85"
     wowarmory_id: "44659"
     dps: "103.74"
-    quality: epic
-    created_at: 2010-02-12 16:45:49
+    inventory_type: "2"
+    quality: "4"
+    created_at: 2010-02-12 16:58:23
   attributes_cache: {}
 
 - !ruby/object:Item 
   attributes: 
     name: Gem of Imprisoned Vassals
-    updated_at: 2010-02-12 16:45:49
+    updated_at: 2010-02-12 16:58:23
     id: "86"
     wowarmory_id: "39421"
     dps: "103.22"
-    quality: epic
-    created_at: 2010-02-12 16:45:49
+    inventory_type: "2"
+    quality: "4"
+    created_at: 2010-02-12 16:58:23
   attributes_cache: {}
 
 - !ruby/object:Item 
   attributes: 
     name: Ahn'kahar Onyx Neckguard
-    updated_at: 2010-02-12 16:45:49
+    updated_at: 2010-02-12 16:58:23
     id: "87"
     wowarmory_id: "49989"
     dps: "99.54"
-    quality: epic
-    created_at: 2010-02-12 16:45:49
+    inventory_type: "2"
+    quality: "4"
+    created_at: 2010-02-12 16:58:23
   attributes_cache: {}
 
 - !ruby/object:Item 
   attributes: 
     name: Pendant of the Outcast Hero
-    updated_at: 2010-02-12 16:45:49
+    updated_at: 2010-02-12 16:58:23
     id: "88"
     wowarmory_id: "40678"
     dps: "95.38"
-    quality: epic
-    created_at: 2010-02-12 16:45:49
+    inventory_type: "2"
+    quality: "4"
+    created_at: 2010-02-12 16:58:23
   attributes_cache: {}
 
 - !ruby/object:Item 
   attributes: 
     name: The Executioner's Malice
-    updated_at: 2010-02-12 16:45:49
+    updated_at: 2010-02-12 16:58:23
     id: "89"
     wowarmory_id: "47110"
     dps: "94.99"
-    quality: epic
-    created_at: 2010-02-12 16:45:49
+    inventory_type: "2"
+    quality: "4"
+    created_at: 2010-02-12 16:58:23
   attributes_cache: {}
 
 - !ruby/object:Item 
   attributes: 
     name: Relentless Gladiator's Pendant of Victory
-    updated_at: 2010-02-12 16:45:49
+    updated_at: 2010-02-12 16:58:23
     id: "90"
     wowarmory_id: "42042"
     dps: "94.96"
-    quality: epic
-    created_at: 2010-02-12 16:45:49
+    inventory_type: "2"
+    quality: "4"
+    created_at: 2010-02-12 16:58:23
   attributes_cache: {}
 
 - !ruby/object:Item 
   attributes: 
     name: Carapace of Forgotten Kings
-    updated_at: 2010-02-12 16:45:50
+    updated_at: 2010-02-12 16:58:23
     id: "91"
     wowarmory_id: "50689"
     dps: "423.9"
-    quality: epic
-    created_at: 2010-02-12 16:45:50
+    inventory_type: "5"
+    quality: "4"
+    created_at: 2010-02-12 16:58:23
   attributes_cache: {}
 
 - !ruby/object:Item 
   attributes: 
     name: Carapace of Forgotten Kings
-    updated_at: 2010-02-12 16:45:50
+    updated_at: 2010-02-12 16:58:23
     id: "92"
     wowarmory_id: "50038"
     dps: "377.42"
-    quality: epic
-    created_at: 2010-02-12 16:45:50
+    inventory_type: "5"
+    quality: "4"
+    created_at: 2010-02-12 16:58:23
   attributes_cache: {}
 
 - !ruby/object:Item 
   attributes: 
     name: Hauberk of a Thousand Cuts
-    updated_at: 2010-02-12 16:45:50
+    updated_at: 2010-02-12 16:58:24
     id: "93"
     wowarmory_id: "51903"
     dps: "359.46"
-    quality: epic
-    created_at: 2010-02-12 16:45:50
+    inventory_type: "5"
+    quality: "4"
+    created_at: 2010-02-12 16:58:24
   attributes_cache: {}
 
 - !ruby/object:Item 
   attributes: 
     name: Longstrider's Vest
-    updated_at: 2010-02-12 16:45:50
+    updated_at: 2010-02-12 16:58:24
     id: "94"
     wowarmory_id: "50970"
     dps: "357.79"
-    quality: epic
-    created_at: 2010-02-12 16:45:50
+    inventory_type: "5"
+    quality: "4"
+    created_at: 2010-02-12 16:58:24
   attributes_cache: {}
 
 - !ruby/object:Item 
   attributes: 
     name: Sanctified Ahn'Kahar Blood Hunter's Tunic
-    updated_at: 2010-02-12 16:45:50
+    updated_at: 2010-02-12 16:58:24
     id: "95"
     wowarmory_id: "51150"
     dps: "353.26"
-    quality: epic
-    created_at: 2010-02-12 16:45:50
+    inventory_type: "5"
+    quality: "4"
+    created_at: 2010-02-12 16:58:24
   attributes_cache: {}
 
 - !ruby/object:Item 
   attributes: 
     name: Windrunner's Tunic of Triumph
-    updated_at: 2010-02-12 16:45:50
+    updated_at: 2010-02-12 16:58:24
     id: "96"
     wowarmory_id: "48264"
     dps: "339.71"
-    quality: epic
-    created_at: 2010-02-12 16:45:50
+    inventory_type: "5"
+    quality: "4"
+    created_at: 2010-02-12 16:58:24
   attributes_cache: {}
 
 - !ruby/object:Item 
   attributes: 
     name: Hauberk of a Thousand Cuts
-    updated_at: 2010-02-12 16:45:50
+    updated_at: 2010-02-12 16:58:24
     id: "97"
     wowarmory_id: "50800"
     dps: "320.87"
-    quality: epic
-    created_at: 2010-02-12 16:45:50
+    inventory_type: "5"
+    quality: "4"
+    created_at: 2010-02-12 16:58:24
   attributes_cache: {}
 
 - !ruby/object:Item 
   attributes: 
     name: Breastplate of Cruel Intent
-    updated_at: 2010-02-12 16:45:50
+    updated_at: 2010-02-12 16:58:24
     id: "98"
     wowarmory_id: "46965"
     dps: "319.54"
-    quality: epic
-    created_at: 2010-02-12 16:45:50
+    inventory_type: "5"
+    quality: "4"
+    created_at: 2010-02-12 16:58:24
   attributes_cache: {}
 
 - !ruby/object:Item 
   attributes: 
     name: Ahn'Kahar Blood Hunter's Tunic
-    updated_at: 2010-02-12 16:45:50
+    updated_at: 2010-02-12 16:58:24
     id: "99"
     wowarmory_id: "50118"
     dps: "315.63"
-    quality: epic
-    created_at: 2010-02-12 16:45:50
+    inventory_type: "5"
+    quality: "4"
+    created_at: 2010-02-12 16:58:24
   attributes_cache: {}
 
 - !ruby/object:Item 
   attributes: 
     name: Windrunner's Tunic of Triumph
-    updated_at: 2010-02-12 16:45:50
+    updated_at: 2010-02-12 16:58:24
     id: "100"
     wowarmory_id: "48255"
     dps: "301.87"
-    quality: epic
-    created_at: 2010-02-12 16:45:50
+    inventory_type: "5"
+    quality: "4"
+    created_at: 2010-02-12 16:58:24
   attributes_cache: {}
 
 - !ruby/object:Item 
   attributes: 
     name: Crusader's Dragonscale Breastplate
-    updated_at: 2010-02-12 16:45:50
+    updated_at: 2010-02-12 16:58:24
     id: "101"
     wowarmory_id: "47595"
     dps: "284.26"
-    quality: epic
-    created_at: 2010-02-12 16:45:50
+    inventory_type: "5"
+    quality: "4"
+    created_at: 2010-02-12 16:58:24
   attributes_cache: {}
 
 - !ruby/object:Item 
   attributes: 
     name: Breastplate of Cruel Intent
-    updated_at: 2010-02-12 16:45:50
+    updated_at: 2010-02-12 16:58:24
     id: "102"
     wowarmory_id: "46960"
     dps: "277.5"
-    quality: epic
-    created_at: 2010-02-12 16:45:50
+    inventory_type: "5"
+    quality: "4"
+    created_at: 2010-02-12 16:58:24
   attributes_cache: {}
 
 - !ruby/object:Item 
   attributes: 
     name: Windrunner's Tunic of Conquest
-    updated_at: 2010-02-12 16:45:50
+    updated_at: 2010-02-12 16:58:24
     id: "103"
     wowarmory_id: "48251"
     dps: "269.55"
-    quality: epic
-    created_at: 2010-02-12 16:45:50
+    inventory_type: "5"
+    quality: "4"
+    created_at: 2010-02-12 16:58:24
   attributes_cache: {}
 
 - !ruby/object:Item 
   attributes: 
     name: Conqueror's Scourgestalker Tunic
-    updated_at: 2010-02-12 16:45:50
+    updated_at: 2010-02-12 16:58:24
     id: "104"
     wowarmory_id: "46141"
     dps: "260.09"
-    quality: epic
-    created_at: 2010-02-12 16:45:50
+    inventory_type: "5"
+    quality: "4"
+    created_at: 2010-02-12 16:58:24
   attributes_cache: {}
 
 - !ruby/object:Item 
   attributes: 
     name: Relentless Gladiator's Chain Armor
-    updated_at: 2010-02-12 16:45:50
+    updated_at: 2010-02-12 16:58:24
     id: "105"
     wowarmory_id: "41088"
     dps: "251.66"
-    quality: epic
-    created_at: 2010-02-12 16:45:50
+    inventory_type: "5"
+    quality: "4"
+    created_at: 2010-02-12 16:58:24
   attributes_cache: {}
 
 - !ruby/object:Item 
   attributes: 
     name: Chestguard of Insidious Intent
-    updated_at: 2010-02-12 16:45:51
+    updated_at: 2010-02-12 16:58:24
     id: "106"
     wowarmory_id: "45524"
     dps: "246.69"
-    quality: epic
-    created_at: 2010-02-12 16:45:51
+    inventory_type: "5"
+    quality: "4"
+    created_at: 2010-02-12 16:58:24
   attributes_cache: {}
 
 - !ruby/object:Item 
   attributes: 
     name: Valorous Scourgestalker Tunic
-    updated_at: 2010-02-12 16:45:51
+    updated_at: 2010-02-12 16:58:24
     id: "107"
     wowarmory_id: "45364"
     dps: "245.17"
-    quality: epic
-    created_at: 2010-02-12 16:45:51
+    inventory_type: "5"
+    quality: "4"
+    created_at: 2010-02-12 16:58:24
   attributes_cache: {}
 
 - !ruby/object:Item 
   attributes: 
     name: Frostsworn Bone Chestpiece
-    updated_at: 2010-02-12 16:45:51
+    updated_at: 2010-02-12 16:58:24
     id: "108"
     wowarmory_id: "50297"
     dps: "232.86"
-    quality: epic
-    created_at: 2010-02-12 16:45:51
+    inventory_type: "5"
+    quality: "4"
+    created_at: 2010-02-12 16:58:24
   attributes_cache: {}
 
 - !ruby/object:Item 
   attributes: 
     name: Chestguard of the Ravenous Fiend
-    updated_at: 2010-02-12 16:45:51
+    updated_at: 2010-02-12 16:58:24
     id: "109"
     wowarmory_id: "47244"
     dps: "224.17"
-    quality: epic
-    created_at: 2010-02-12 16:45:51
+    inventory_type: "5"
+    quality: "4"
+    created_at: 2010-02-12 16:58:24
   attributes_cache: {}
 
 - !ruby/object:Item 
   attributes: 
     name: Chestguard of Flagrant Prowess
-    updated_at: 2010-02-12 16:45:51
+    updated_at: 2010-02-12 16:58:24
     id: "110"
     wowarmory_id: "43998"
     dps: "223.82"
-    quality: epic
-    created_at: 2010-02-12 16:45:51
+    inventory_type: "5"
+    quality: "4"
+    created_at: 2010-02-12 16:58:24
   attributes_cache: {}
 
 - !ruby/object:Item 
   attributes: 
     name: Valorous Cryptstalker Tunic
-    updated_at: 2010-02-12 16:45:51
+    updated_at: 2010-02-12 16:58:24
     id: "111"
     wowarmory_id: "40503"
     dps: "213.76"
-    quality: epic
-    created_at: 2010-02-12 16:45:51
+    inventory_type: "5"
+    quality: "4"
+    created_at: 2010-02-12 16:58:24
   attributes_cache: {}
 
 - !ruby/object:Item 
   attributes: 
     name: Furious Gladiator's Chain Armor
-    updated_at: 2010-02-12 16:45:51
+    updated_at: 2010-02-12 16:58:25
     id: "112"
     wowarmory_id: "41087"
     dps: "212.86"
-    quality: epic
-    created_at: 2010-02-12 16:45:51
+    inventory_type: "5"
+    quality: "4"
+    created_at: 2010-02-12 16:58:25
   attributes_cache: {}
 
 - !ruby/object:Item 
   attributes: 
     name: Chestguard of the Lasher
-    updated_at: 2010-02-12 16:45:51
+    updated_at: 2010-02-12 16:58:25
     id: "113"
     wowarmory_id: "45941"
     dps: "208.73"
-    quality: epic
-    created_at: 2010-02-12 16:45:51
+    inventory_type: "5"
+    quality: "4"
+    created_at: 2010-02-12 16:58:25
   attributes_cache: {}
 
 - !ruby/object:Item 
   attributes: 
     name: Tunic of Masked Suffering
-    updated_at: 2010-02-12 16:45:51
+    updated_at: 2010-02-12 16:58:25
     id: "114"
     wowarmory_id: "40193"
     dps: "203.61"
-    quality: epic
-    created_at: 2010-02-12 16:45:51
+    inventory_type: "5"
+    quality: "4"
+    created_at: 2010-02-12 16:58:25
   attributes_cache: {}
 
 - !ruby/object:Item 
   attributes: 
     name: Heroes' Cryptstalker Tunic
-    updated_at: 2010-02-12 16:45:51
+    updated_at: 2010-02-12 16:58:25
     id: "115"
     wowarmory_id: "39579"
     dps: "193.27"
-    quality: epic
-    created_at: 2010-02-12 16:45:51
+    inventory_type: "5"
+    quality: "4"
+    created_at: 2010-02-12 16:58:25
   attributes_cache: {}
 
 - !ruby/object:Item 
   attributes: 
     name: Titan-Forged Chain Armor of Triumph
-    updated_at: 2010-02-12 16:45:51
+    updated_at: 2010-02-12 16:58:25
     id: "116"
     wowarmory_id: "46059"
     dps: "191.22"
-    quality: epic
-    created_at: 2010-02-12 16:45:51
+    inventory_type: "5"
+    quality: "4"
+    created_at: 2010-02-12 16:58:25
   attributes_cache: {}
 
 - !ruby/object:Item 
   attributes: 
     name: Cult's Chestguard
-    updated_at: 2010-02-12 16:45:51
+    updated_at: 2010-02-12 16:58:25
     id: "117"
     wowarmory_id: "39724"
     dps: "191.06"
-    quality: epic
-    created_at: 2010-02-12 16:45:51
+    inventory_type: "5"
+    quality: "4"
+    created_at: 2010-02-12 16:58:25
   attributes_cache: {}
 
 - !ruby/object:Item 
   attributes: 
     name: Tunic of the Lost Pack
-    updated_at: 2010-02-12 16:45:51
+    updated_at: 2010-02-12 16:58:25
     id: "118"
     wowarmory_id: "39248"
     dps: "187.36"
-    quality: epic
-    created_at: 2010-02-12 16:45:51
+    inventory_type: "5"
+    quality: "4"
+    created_at: 2010-02-12 16:58:25
   attributes_cache: {}
 
 - !ruby/object:Item 
   attributes: 
     name: Polished Regimental Hauberk
-    updated_at: 2010-02-12 16:45:51
+    updated_at: 2010-02-12 16:58:25
     id: "119"
     wowarmory_id: "44295"
     dps: "185.6"
-    quality: epic
-    created_at: 2010-02-12 16:45:51
+    inventory_type: "5"
+    quality: "4"
+    created_at: 2010-02-12 16:58:25
   attributes_cache: {}
 
 - !ruby/object:Item 
   attributes: 
     name: Deadly Gladiator's Chain Armor
-    updated_at: 2010-02-12 16:45:52
+    updated_at: 2010-02-12 16:58:25
     id: "120"
     wowarmory_id: "41086"
     dps: "184.75"
-    quality: epic
-    created_at: 2010-02-12 16:45:52
+    inventory_type: "5"
+    quality: "4"
+    created_at: 2010-02-12 16:58:25
   attributes_cache: {}
 
 - !ruby/object:Item 
   attributes: 
     name: Scourge Hunter's Vambraces
-    updated_at: 2010-02-12 16:45:52
+    updated_at: 2010-02-12 16:58:25
     id: "121"
     wowarmory_id: "50655"
     dps: "221.31"
-    quality: epic
-    created_at: 2010-02-12 16:45:52
+    inventory_type: "9"
+    quality: "4"
+    created_at: 2010-02-12 16:58:25
   attributes_cache: {}
 
 - !ruby/object:Item 
   attributes: 
     name: Icecrown Rampart Bracers
-    updated_at: 2010-02-12 16:45:52
+    updated_at: 2010-02-12 16:58:25
     id: "122"
     wowarmory_id: "51914"
     dps: "204.52"
-    quality: epic
-    created_at: 2010-02-12 16:45:52
+    inventory_type: "9"
+    quality: "4"
+    created_at: 2010-02-12 16:58:25
   attributes_cache: {}
 
 - !ruby/object:Item 
   attributes: 
     name: Scourge Hunter's Vambraces
-    updated_at: 2010-02-12 16:45:52
+    updated_at: 2010-02-12 16:58:25
     id: "123"
     wowarmory_id: "50000"
     dps: "196.87"
-    quality: epic
-    created_at: 2010-02-12 16:45:52
+    inventory_type: "9"
+    quality: "4"
+    created_at: 2010-02-12 16:58:25
   attributes_cache: {}
 
 - !ruby/object:Item 
   attributes: 
     name: Icecrown Rampart Bracers
-    updated_at: 2010-02-12 16:45:52
+    updated_at: 2010-02-12 16:58:25
     id: "124"
     wowarmory_id: "50789"
     dps: "181.51"
-    quality: epic
-    created_at: 2010-02-12 16:45:52
+    inventory_type: "9"
+    quality: "4"
+    created_at: 2010-02-12 16:58:25
   attributes_cache: {}
 
 - !ruby/object:Item 
   attributes: 
     name: Bracers of the Untold Massacre
-    updated_at: 2010-02-12 16:45:52
+    updated_at: 2010-02-12 16:58:25
     id: "125"
     wowarmory_id: "47074"
     dps: "181.5"
-    quality: epic
-    created_at: 2010-02-12 16:45:52
+    inventory_type: "9"
+    quality: "4"
+    created_at: 2010-02-12 16:58:25
   attributes_cache: {}
 
 - !ruby/object:Item 
   attributes: 
     name: Crusader's Dragonscale Bracers
-    updated_at: 2010-02-12 16:45:52
+    updated_at: 2010-02-12 16:58:25
     id: "126"
     wowarmory_id: "47576"
     dps: "169.76"
-    quality: epic
-    created_at: 2010-02-12 16:45:52
+    inventory_type: "9"
+    quality: "4"
+    created_at: 2010-02-12 16:58:25
   attributes_cache: {}
 
 - !ruby/object:Item 
   attributes: 
     name: Armbands of the Northern Stalker
-    updated_at: 2010-02-12 16:45:52
+    updated_at: 2010-02-12 16:58:26
     id: "127"
     wowarmory_id: "47916"
     dps: "164.98"
-    quality: epic
-    created_at: 2010-02-12 16:45:52
+    inventory_type: "9"
+    quality: "4"
+    created_at: 2010-02-12 16:58:26
   attributes_cache: {}
 
 - !ruby/object:Item 
   attributes: 
     name: Bracers of the Untold Massacre
-    updated_at: 2010-02-12 16:45:52
+    updated_at: 2010-02-12 16:58:26
     id: "128"
     wowarmory_id: "47073"
     dps: "155.02"
-    quality: epic
-    created_at: 2010-02-12 16:45:52
+    inventory_type: "9"
+    quality: "4"
+    created_at: 2010-02-12 16:58:26
   attributes_cache: {}
 
 - !ruby/object:Item 
   attributes: 
     name: Essence of Suffering
-    updated_at: 2010-02-12 16:45:52
+    updated_at: 2010-02-12 16:58:26
     id: "129"
     wowarmory_id: "50209"
     dps: "146.19"
-    quality: epic
-    created_at: 2010-02-12 16:45:52
+    inventory_type: "9"
+    quality: "4"
+    created_at: 2010-02-12 16:58:26
   attributes_cache: {}
 
 - !ruby/object:Item 
   attributes: 
     name: Armbands of the Northern Stalker
-    updated_at: 2010-02-12 16:45:52
+    updated_at: 2010-02-12 16:58:26
     id: "130"
     wowarmory_id: "47610"
     dps: "138.9"
-    quality: epic
-    created_at: 2010-02-12 16:45:52
+    inventory_type: "9"
+    quality: "4"
+    created_at: 2010-02-12 16:58:26
   attributes_cache: {}
 
 - !ruby/object:Item 
   attributes: 
     name: Frost-bound Chain Bracers
-    updated_at: 2010-02-12 16:45:52
+    updated_at: 2010-02-12 16:58:26
     id: "131"
     wowarmory_id: "45454"
     dps: "134.86"
-    quality: epic
-    created_at: 2010-02-12 16:45:52
+    inventory_type: "9"
+    quality: "4"
+    created_at: 2010-02-12 16:58:26
   attributes_cache: {}
 
 - !ruby/object:Item 
   attributes: 
     name: Slime Stream Bands
-    updated_at: 2010-02-12 16:45:52
+    updated_at: 2010-02-12 16:58:26
     id: "132"
     wowarmory_id: "40282"
     dps: "127.87"
-    quality: epic
-    created_at: 2010-02-12 16:45:52
+    inventory_type: "9"
+    quality: "4"
+    created_at: 2010-02-12 16:58:26
   attributes_cache: {}
 
 - !ruby/object:Item 
   attributes: 
     name: Relentless Gladiator's Wristguards of Triumph
-    updated_at: 2010-02-12 16:45:52
+    updated_at: 2010-02-12 16:58:26
     id: "133"
     wowarmory_id: "41226"
     dps: "124.21"
-    quality: epic
-    created_at: 2010-02-12 16:45:52
+    inventory_type: "9"
+    quality: "4"
+    created_at: 2010-02-12 16:58:26
   attributes_cache: {}
 
 - !ruby/object:Item 
   attributes: 
     name: Bracers of the Smothering Inferno
-    updated_at: 2010-02-12 16:45:52
+    updated_at: 2010-02-12 16:58:26
     id: "134"
     wowarmory_id: "45301"
     dps: "120.59"
-    quality: epic
-    created_at: 2010-02-12 16:45:52
+    inventory_type: "9"
+    quality: "4"
+    created_at: 2010-02-12 16:58:26
   attributes_cache: {}
 
 - !ruby/object:Item 
   attributes: 
     name: Gondria's Spectral Bracer
-    updated_at: 2010-02-12 16:45:52
+    updated_at: 2010-02-12 16:58:26
     id: "135"
     wowarmory_id: "49820"
     dps: "119.55"
-    quality: epic
-    created_at: 2010-02-12 16:45:52
+    inventory_type: "9"
+    quality: "4"
+    created_at: 2010-02-12 16:58:26
   attributes_cache: {}
 
 - !ruby/object:Item 
   attributes: 
     name: Armguard of the Tower Archer
-    updated_at: 2010-02-12 16:45:53
+    updated_at: 2010-02-12 16:58:26
     id: "136"
     wowarmory_id: "40736"
     dps: "111.04"
-    quality: epic
-    created_at: 2010-02-12 16:45:53
+    inventory_type: "9"
+    quality: "4"
+    created_at: 2010-02-12 16:58:26
   attributes_cache: {}
 
 - !ruby/object:Item 
   attributes: 
     name: Titan-Forged Wristguards of Triumph
-    updated_at: 2010-02-12 16:45:53
+    updated_at: 2010-02-12 16:58:26
     id: "137"
     wowarmory_id: "48982"
     dps: "108.13"
-    quality: epic
-    created_at: 2010-02-12 16:45:53
+    inventory_type: "9"
+    quality: "4"
+    created_at: 2010-02-12 16:58:26
   attributes_cache: {}
 
 - !ruby/object:Item 
   attributes: 
     name: Wristguards of Ceaseless Regret
-    updated_at: 2010-02-12 16:45:53
+    updated_at: 2010-02-12 16:58:26
     id: "138"
     wowarmory_id: "47211"
     dps: "105.26"
-    quality: epic
-    created_at: 2010-02-12 16:45:53
+    inventory_type: "9"
+    quality: "4"
+    created_at: 2010-02-12 16:58:26
   attributes_cache: {}
 
 - !ruby/object:Item 
   attributes: 
     name: Furious Gladiator's Wristguards of Triumph
-    updated_at: 2010-02-12 16:45:53
+    updated_at: 2010-02-12 16:58:26
     id: "139"
     wowarmory_id: "41225"
     dps: "104.46"
-    quality: epic
-    created_at: 2010-02-12 16:45:53
+    inventory_type: "9"
+    quality: "4"
+    created_at: 2010-02-12 16:58:26
   attributes_cache: {}
 
 - !ruby/object:Item 
   attributes: 
     name: Arachnoid Gold Band
-    updated_at: 2010-02-12 16:45:53
+    updated_at: 2010-02-12 16:58:26
     id: "140"
     wowarmory_id: "39702"
     dps: "104.34"
-    quality: epic
-    created_at: 2010-02-12 16:45:53
+    inventory_type: "9"
+    quality: "4"
+    created_at: 2010-02-12 16:58:26
   attributes_cache: {}
 
 - !ruby/object:Item 
   attributes: 
     name: Bands of Anxiety
-    updated_at: 2010-02-12 16:45:53
+    updated_at: 2010-02-12 16:58:26
     id: "141"
     wowarmory_id: "39278"
     dps: "103.92"
-    quality: epic
-    created_at: 2010-02-12 16:45:53
+    inventory_type: "9"
+    quality: "4"
+    created_at: 2010-02-12 16:58:26
   attributes_cache: {}
 
 - !ruby/object:Item 
   attributes: 
     name: Interwoven Scale Bracers
-    updated_at: 2010-02-12 16:45:53
+    updated_at: 2010-02-12 16:58:26
     id: "142"
     wowarmory_id: "37170"
     dps: "93.81"
-    quality: epic
-    created_at: 2010-02-12 16:45:53
+    inventory_type: "9"
+    quality: "4"
+    created_at: 2010-02-12 16:58:26
   attributes_cache: {}
 
 - !ruby/object:Item 
   attributes: 
     name: Deadly Gladiator's Wristguards of Triumph
-    updated_at: 2010-02-12 16:45:53
+    updated_at: 2010-02-12 16:58:26
     id: "143"
     wowarmory_id: "41224"
     dps: "93.72"
-    quality: epic
-    created_at: 2010-02-12 16:45:53
+    inventory_type: "9"
+    quality: "4"
+    created_at: 2010-02-12 16:58:26
   attributes_cache: {}
 
 - !ruby/object:Item 
   attributes: 
     name: Giantmaim Bracers
-    updated_at: 2010-02-12 16:45:53
+    updated_at: 2010-02-12 16:58:26
     id: "144"
     wowarmory_id: "43459"
     dps: "92.59"
-    quality: epic
-    created_at: 2010-02-12 16:45:53
+    inventory_type: "9"
+    quality: "4"
+    created_at: 2010-02-12 16:58:26
   attributes_cache: {}
 
 - !ruby/object:Item 
   attributes: 
     name: Hateful Gladiator's Wristguards of Triumph
-    updated_at: 2010-02-12 16:45:53
+    updated_at: 2010-02-12 16:58:27
     id: "145"
     wowarmory_id: "41223"
     dps: "80.14"
-    quality: epic
-    created_at: 2010-02-12 16:45:53
+    inventory_type: "9"
+    quality: "4"
+    created_at: 2010-02-12 16:58:27
   attributes_cache: {}
 
 - !ruby/object:Item 
   attributes: 
     name: Anub'ar Stalker's Gloves
-    updated_at: 2010-02-12 16:45:53
+    updated_at: 2010-02-12 16:58:28
     id: "146"
     wowarmory_id: "50619"
     dps: "291.9"
-    quality: epic
-    created_at: 2010-02-12 16:45:53
+    inventory_type: "10"
+    quality: "4"
+    created_at: 2010-02-12 16:58:28
   attributes_cache: {}
 
 - !ruby/object:Item 
   attributes: 
     name: Sanctified Ahn'Kahar Blood Hunter's Handguards
-    updated_at: 2010-02-12 16:45:53
+    updated_at: 2010-02-12 16:58:28
     id: "147"
     wowarmory_id: "51154"
     dps: "276.97"
-    quality: epic
-    created_at: 2010-02-12 16:45:53
+    inventory_type: "10"
+    quality: "4"
+    created_at: 2010-02-12 16:58:28
   attributes_cache: {}
 
 - !ruby/object:Item 
   attributes: 
     name: Handgrips of Frost and Sleet
-    updated_at: 2010-02-12 16:45:53
+    updated_at: 2010-02-12 16:58:28
     id: "148"
     wowarmory_id: "51926"
     dps: "266.23"
-    quality: epic
-    created_at: 2010-02-12 16:45:53
+    inventory_type: "10"
+    quality: "4"
+    created_at: 2010-02-12 16:58:28
   attributes_cache: {}
 
 - !ruby/object:Item 
   attributes: 
     name: Logsplitters
-    updated_at: 2010-02-12 16:45:53
+    updated_at: 2010-02-12 16:58:28
     id: "149"
     wowarmory_id: "50979"
     dps: "262.99"
-    quality: epic
-    created_at: 2010-02-12 16:45:53
+    inventory_type: "10"
+    quality: "4"
+    created_at: 2010-02-12 16:58:28
   attributes_cache: {}
 
 - !ruby/object:Item 
   attributes: 
     name: Anub'ar Stalker's Gloves
-    updated_at: 2010-02-12 16:45:53
+    updated_at: 2010-02-12 16:58:28
     id: "150"
     wowarmory_id: "50188"
     dps: "260.23"
-    quality: epic
-    created_at: 2010-02-12 16:45:53
+    inventory_type: "10"
+    quality: "4"
+    created_at: 2010-02-12 16:58:28
   attributes_cache: {}
 
 - !ruby/object:Item 
   attributes: 
     name: Ahn'Kahar Blood Hunter's Handguards
-    updated_at: 2010-02-12 16:45:54
+    updated_at: 2010-02-12 16:58:28
     id: "151"
     wowarmory_id: "50114"
     dps: "247.16"
-    quality: epic
-    created_at: 2010-02-12 16:45:54
+    inventory_type: "10"
+    quality: "4"
+    created_at: 2010-02-12 16:58:28
   attributes_cache: {}
 
 - !ruby/object:Item 
   attributes: 
     name: Handgrips of Frost and Sleet
-    updated_at: 2010-02-12 16:45:54
+    updated_at: 2010-02-12 16:58:28
     id: "152"
     wowarmory_id: "50777"
     dps: "240.93"
-    quality: epic
-    created_at: 2010-02-12 16:45:54
+    inventory_type: "10"
+    quality: "4"
+    created_at: 2010-02-12 16:58:28
   attributes_cache: {}
 
 - !ruby/object:Item 
   attributes: 
     name: Windrunner's Handguards of Triumph
-    updated_at: 2010-02-12 16:45:54
+    updated_at: 2010-02-12 16:58:28
     id: "153"
     wowarmory_id: "48263"
     dps: "240.42"
-    quality: epic
-    created_at: 2010-02-12 16:45:54
+    inventory_type: "10"
+    quality: "4"
+    created_at: 2010-02-12 16:58:28
   attributes_cache: {}
 
 - !ruby/object:Item 
   attributes: 
     name: Gloves of the Steady Hand
-    updated_at: 2010-02-12 16:45:54
+    updated_at: 2010-02-12 16:58:28
     id: "154"
     wowarmory_id: "45444"
     dps: "219.39"
-    quality: epic
-    created_at: 2010-02-12 16:45:54
+    inventory_type: "10"
+    quality: "4"
+    created_at: 2010-02-12 16:58:28
   attributes_cache: {}
 
 - !ruby/object:Item 
   attributes: 
     name: Windrunner's Handguards of Triumph
-    updated_at: 2010-02-12 16:45:54
+    updated_at: 2010-02-12 16:58:28
     id: "155"
     wowarmory_id: "48256"
     dps: "213.91"
-    quality: epic
-    created_at: 2010-02-12 16:45:54
+    inventory_type: "10"
+    quality: "4"
+    created_at: 2010-02-12 16:58:28
   attributes_cache: {}
 
 - !ruby/object:Item 
   attributes: 
     name: Hoarfrost Gauntlets
-    updated_at: 2010-02-12 16:45:54
+    updated_at: 2010-02-12 16:58:28
     id: "156"
     wowarmory_id: "50304"
     dps: "196.55"
-    quality: epic
-    created_at: 2010-02-12 16:45:54
+    inventory_type: "10"
+    quality: "4"
+    created_at: 2010-02-12 16:58:28
   attributes_cache: {}
 
 - !ruby/object:Item 
   attributes: 
     name: Windrunner's Handguards of Conquest
-    updated_at: 2010-02-12 16:45:54
+    updated_at: 2010-02-12 16:58:28
     id: "157"
     wowarmory_id: "48254"
     dps: "190.15"
-    quality: epic
-    created_at: 2010-02-12 16:45:54
+    inventory_type: "10"
+    quality: "4"
+    created_at: 2010-02-12 16:58:28
   attributes_cache: {}
 
 - !ruby/object:Item 
   attributes: 
     name: Relentless Gladiator's Chain Gauntlets
-    updated_at: 2010-02-12 16:45:54
+    updated_at: 2010-02-12 16:58:28
     id: "158"
     wowarmory_id: "41144"
     dps: "183.05"
-    quality: epic
-    created_at: 2010-02-12 16:45:54
+    inventory_type: "10"
+    quality: "4"
+    created_at: 2010-02-12 16:58:28
   attributes_cache: {}
 
 - !ruby/object:Item 
   attributes: 
     name: Conqueror's Scourgestalker Handguards
-    updated_at: 2010-02-12 16:45:54
+    updated_at: 2010-02-12 16:58:29
     id: "159"
     wowarmory_id: "46142"
     dps: "177.19"
-    quality: epic
-    created_at: 2010-02-12 16:45:54
+    inventory_type: "10"
+    quality: "4"
+    created_at: 2010-02-12 16:58:29
   attributes_cache: {}
 
 - !ruby/object:Item 
   attributes: 
     name: Gloves of the Dark Exile
-    updated_at: 2010-02-12 16:45:54
+    updated_at: 2010-02-12 16:58:29
     id: "160"
     wowarmory_id: "47561"
     dps: "176.81"
-    quality: epic
-    created_at: 2010-02-12 16:45:54
+    inventory_type: "10"
+    quality: "4"
+    created_at: 2010-02-12 16:58:29
   attributes_cache: {}
 
 - !ruby/object:Item 
   attributes: 
     name: Valorous Scourgestalker Handguards
-    updated_at: 2010-02-12 16:45:54
+    updated_at: 2010-02-12 16:58:29
     id: "161"
     wowarmory_id: "45360"
     dps: "165"
-    quality: epic
-    created_at: 2010-02-12 16:45:54
+    inventory_type: "10"
+    quality: "4"
+    created_at: 2010-02-12 16:58:29
   attributes_cache: {}
 
 - !ruby/object:Item 
   attributes: 
     name: Gloves of Unerring Aim
-    updated_at: 2010-02-12 16:45:54
+    updated_at: 2010-02-12 16:58:29
     id: "162"
     wowarmory_id: "45836"
     dps: "164.53"
-    quality: epic
-    created_at: 2010-02-12 16:45:54
+    inventory_type: "10"
+    quality: "4"
+    created_at: 2010-02-12 16:58:29
   attributes_cache: {}
 
 - !ruby/object:Item 
   attributes: 
     name: Gloves of the Fiery Behemoth
-    updated_at: 2010-02-12 16:45:54
+    updated_at: 2010-02-12 16:58:29
     id: "163"
     wowarmory_id: "45109"
     dps: "163.52"
-    quality: epic
-    created_at: 2010-02-12 16:45:54
+    inventory_type: "10"
+    quality: "4"
+    created_at: 2010-02-12 16:58:29
   attributes_cache: {}
 
 - !ruby/object:Item 
   attributes: 
     name: Gloves of Calculated Risk
-    updated_at: 2010-02-12 16:45:54
+    updated_at: 2010-02-12 16:58:29
     id: "164"
     wowarmory_id: "40262"
     dps: "156.91"
-    quality: epic
-    created_at: 2010-02-12 16:45:54
+    inventory_type: "10"
+    quality: "4"
+    created_at: 2010-02-12 16:58:29
   attributes_cache: {}
 
 - !ruby/object:Item 
   attributes: 
     name: Gloves of Taut Grip
-    updated_at: 2010-02-12 16:45:54
+    updated_at: 2010-02-12 16:58:29
     id: "165"
     wowarmory_id: "45679"
     dps: "153.64"
-    quality: epic
-    created_at: 2010-02-12 16:45:54
+    inventory_type: "10"
+    quality: "4"
+    created_at: 2010-02-12 16:58:29
   attributes_cache: {}
 
 - !ruby/object:Item 
   attributes: 
     name: Rusted-Link Spiked Gauntlets
-    updated_at: 2010-02-12 16:45:54
+    updated_at: 2010-02-12 16:58:29
     id: "166"
     wowarmory_id: "39194"
     dps: "151.05"
-    quality: epic
-    created_at: 2010-02-12 16:45:54
+    inventory_type: "10"
+    quality: "4"
+    created_at: 2010-02-12 16:58:29
   attributes_cache: {}
 
 - !ruby/object:Item 
   attributes: 
     name: Grotesque Handgrips
-    updated_at: 2010-02-12 16:45:54
+    updated_at: 2010-02-12 16:58:29
     id: "167"
     wowarmory_id: "40242"
     dps: "149.73"
-    quality: epic
-    created_at: 2010-02-12 16:45:54
+    inventory_type: "10"
+    quality: "4"
+    created_at: 2010-02-12 16:58:29
   attributes_cache: {}
 
 - !ruby/object:Item 
   attributes: 
     name: Furious Gladiator's Chain Gauntlets
-    updated_at: 2010-02-12 16:45:54
+    updated_at: 2010-02-12 16:58:29
     id: "168"
     wowarmory_id: "41143"
     dps: "148.17"
-    quality: epic
-    created_at: 2010-02-12 16:45:54
+    inventory_type: "10"
+    quality: "4"
+    created_at: 2010-02-12 16:58:29
   attributes_cache: {}
 
 - !ruby/object:Item 
   attributes: 
     name: Valorous Cryptstalker Handguards
-    updated_at: 2010-02-12 16:45:54
+    updated_at: 2010-02-12 16:58:29
     id: "169"
     wowarmory_id: "40504"
     dps: "147.86"
-    quality: epic
-    created_at: 2010-02-12 16:45:54
+    inventory_type: "10"
+    quality: "4"
+    created_at: 2010-02-12 16:58:29
   attributes_cache: {}
 
 - !ruby/object:Item 
   attributes: 
     name: Heroes' Cryptstalker Handguards
-    updated_at: 2010-02-12 16:45:55
+    updated_at: 2010-02-12 16:58:29
     id: "170"
     wowarmory_id: "39582"
     dps: "132.26"
-    quality: epic
-    created_at: 2010-02-12 16:45:55
+    inventory_type: "10"
+    quality: "4"
+    created_at: 2010-02-12 16:58:29
   attributes_cache: {}
 
 - !ruby/object:Item 
   attributes: 
     name: Handgrips of the Savage Emissary
-    updated_at: 2010-02-12 16:45:55
+    updated_at: 2010-02-12 16:58:29
     id: "171"
     wowarmory_id: "37886"
     dps: "131.34"
-    quality: epic
-    created_at: 2010-02-12 16:45:55
+    inventory_type: "10"
+    quality: "4"
+    created_at: 2010-02-12 16:58:29
   attributes_cache: {}
 
 - !ruby/object:Item 
   attributes: 
     name: Deadly Gladiator's Chain Gauntlets
-    updated_at: 2010-02-12 16:45:55
+    updated_at: 2010-02-12 16:58:29
     id: "172"
     wowarmory_id: "41142"
     dps: "126.58"
-    quality: epic
-    created_at: 2010-02-12 16:45:55
+    inventory_type: "10"
+    quality: "4"
+    created_at: 2010-02-12 16:58:29
   attributes_cache: {}
 
 - !ruby/object:Item 
   attributes: 
     name: Hateful Gladiator's Chain Gauntlets
-    updated_at: 2010-02-12 16:45:55
+    updated_at: 2010-02-12 16:58:29
     id: "173"
     wowarmory_id: "41141"
     dps: "112.88"
-    quality: epic
-    created_at: 2010-02-12 16:45:55
+    inventory_type: "10"
+    quality: "4"
+    created_at: 2010-02-12 16:58:29
   attributes_cache: {}
 
 - !ruby/object:Item 
   attributes: 
     name: Nerub'ar Stalker's Cord
-    updated_at: 2010-02-12 16:45:55
+    updated_at: 2010-02-12 16:58:30
     id: "174"
     wowarmory_id: "50688"
     dps: "293.43"
-    quality: epic
-    created_at: 2010-02-12 16:45:55
+    inventory_type: "6"
+    quality: "4"
+    created_at: 2010-02-12 16:58:30
   attributes_cache: {}
 
 - !ruby/object:Item 
   attributes: 
     name: Band of the Night Raven
-    updated_at: 2010-02-12 16:45:55
+    updated_at: 2010-02-12 16:58:30
     id: "175"
     wowarmory_id: "50993"
     dps: "277.38"
-    quality: epic
-    created_at: 2010-02-12 16:45:55
+    inventory_type: "6"
+    quality: "4"
+    created_at: 2010-02-12 16:58:30
   attributes_cache: {}
 
 - !ruby/object:Item 
   attributes: 
     name: Linked Scourge Vertebrae
-    updated_at: 2010-02-12 16:45:55
+    updated_at: 2010-02-12 16:58:30
     id: "176"
     wowarmory_id: "51935"
     dps: "275.71"
-    quality: epic
-    created_at: 2010-02-12 16:45:55
+    inventory_type: "6"
+    quality: "4"
+    created_at: 2010-02-12 16:58:30
   attributes_cache: {}
 
 - !ruby/object:Item 
   attributes: 
     name: Nerub'ar Stalker's Cord
-    updated_at: 2010-02-12 16:45:55
+    updated_at: 2010-02-12 16:58:30
     id: "177"
     wowarmory_id: "50413"
     dps: "264.5"
-    quality: epic
-    created_at: 2010-02-12 16:45:55
+    inventory_type: "6"
+    quality: "4"
+    created_at: 2010-02-12 16:58:30
   attributes_cache: {}
 
 - !ruby/object:Item 
   attributes: 
     name: Belt of Deathly Dominion
-    updated_at: 2010-02-12 16:45:55
+    updated_at: 2010-02-12 16:58:30
     id: "178"
     wowarmory_id: "47153"
     dps: "255.7"
-    quality: epic
-    created_at: 2010-02-12 16:45:55
+    inventory_type: "6"
+    quality: "4"
+    created_at: 2010-02-12 16:58:30
   attributes_cache: {}
 
 - !ruby/object:Item 
   attributes: 
     name: Blood-Drinker's Girdle
-    updated_at: 2010-02-12 16:45:55
+    updated_at: 2010-02-12 16:58:30
     id: "179"
     wowarmory_id: "51853"
     dps: "247.28"
-    quality: epic
-    created_at: 2010-02-12 16:45:55
+    inventory_type: "6"
+    quality: "4"
+    created_at: 2010-02-12 16:58:30
   attributes_cache: {}
 
 - !ruby/object:Item 
   attributes: 
     name: Linked Scourge Vertebrae
-    updated_at: 2010-02-12 16:45:55
+    updated_at: 2010-02-12 16:58:30
     id: "180"
     wowarmory_id: "50762"
     dps: "241.35"
-    quality: epic
-    created_at: 2010-02-12 16:45:55
+    inventory_type: "6"
+    quality: "4"
+    created_at: 2010-02-12 16:58:30
   attributes_cache: {}
 
 - !ruby/object:Item 
   attributes: 
     name: Blood-Drinker's Girdle
-    updated_at: 2010-02-12 16:45:55
+    updated_at: 2010-02-12 16:58:30
     id: "181"
     wowarmory_id: "51325"
     dps: "224.1"
-    quality: epic
-    created_at: 2010-02-12 16:45:55
+    inventory_type: "6"
+    quality: "4"
+    created_at: 2010-02-12 16:58:30
   attributes_cache: {}
 
 - !ruby/object:Item 
   attributes: 
     name: Belt of Rotted Fingernails
-    updated_at: 2010-02-12 16:45:55
+    updated_at: 2010-02-12 16:58:30
     id: "182"
     wowarmory_id: "50270"
     dps: "183.54"
-    quality: epic
-    created_at: 2010-02-12 16:45:55
+    inventory_type: "6"
+    quality: "4"
+    created_at: 2010-02-12 16:58:30
   attributes_cache: {}
 
 - !ruby/object:Item 
   attributes: 
     name: Belt of Dragons
-    updated_at: 2010-02-12 16:45:55
+    updated_at: 2010-02-12 16:58:30
     id: "183"
     wowarmory_id: "45553"
     dps: "179.12"
-    quality: epic
-    created_at: 2010-02-12 16:45:55
+    inventory_type: "6"
+    quality: "4"
+    created_at: 2010-02-12 16:58:30
   attributes_cache: {}
 
 - !ruby/object:Item 
   attributes: 
     name: Belt of the Ardent Marksman
-    updated_at: 2010-02-12 16:45:56
+    updated_at: 2010-02-12 16:58:30
     id: "184"
     wowarmory_id: "45827"
     dps: "174.6"
-    quality: epic
-    created_at: 2010-02-12 16:45:56
+    inventory_type: "6"
+    quality: "4"
+    created_at: 2010-02-12 16:58:30
   attributes_cache: {}
 
 - !ruby/object:Item 
   attributes: 
     name: Relentless Gladiator's Waistguard of Triumph
-    updated_at: 2010-02-12 16:45:56
+    updated_at: 2010-02-12 16:58:30
     id: "185"
     wowarmory_id: "41236"
     dps: "173.43"
-    quality: epic
-    created_at: 2010-02-12 16:45:56
+    inventory_type: "6"
+    quality: "4"
+    created_at: 2010-02-12 16:58:30
   attributes_cache: {}
 
 - !ruby/object:Item 
   attributes: 
     name: Belt of the Betrayed
-    updated_at: 2010-02-12 16:45:56
+    updated_at: 2010-02-12 16:58:30
     id: "186"
     wowarmory_id: "45467"
     dps: "168.16"
-    quality: epic
-    created_at: 2010-02-12 16:45:56
+    inventory_type: "6"
+    quality: "4"
+    created_at: 2010-02-12 16:58:30
   attributes_cache: {}
 
 - !ruby/object:Item 
   attributes: 
     name: Scabrous Zombie Leather Belt
-    updated_at: 2010-02-12 16:45:56
+    updated_at: 2010-02-12 16:58:30
     id: "187"
     wowarmory_id: "49810"
     dps: "167.99"
-    quality: epic
-    created_at: 2010-02-12 16:45:56
+    inventory_type: "6"
+    quality: "4"
+    created_at: 2010-02-12 16:58:30
   attributes_cache: {}
 
 - !ruby/object:Item 
   attributes: 
     name: Torn Web Wrapping
-    updated_at: 2010-02-12 16:45:56
+    updated_at: 2010-02-12 16:58:30
     id: "188"
     wowarmory_id: "39762"
     dps: "154.83"
-    quality: epic
-    created_at: 2010-02-12 16:45:56
+    inventory_type: "6"
+    quality: "4"
+    created_at: 2010-02-12 16:58:30
   attributes_cache: {}
 
 - !ruby/object:Item 
   attributes: 
     name: Depraved Linked Belt
-    updated_at: 2010-02-12 16:45:56
+    updated_at: 2010-02-12 16:58:30
     id: "189"
     wowarmory_id: "40275"
     dps: "148.89"
-    quality: epic
-    created_at: 2010-02-12 16:45:56
+    inventory_type: "6"
+    quality: "4"
+    created_at: 2010-02-12 16:58:30
   attributes_cache: {}
 
 - !ruby/object:Item 
   attributes: 
     name: Furious Gladiator's Waistguard of Triumph
-    updated_at: 2010-02-12 16:45:56
+    updated_at: 2010-02-12 16:58:30
     id: "190"
     wowarmory_id: "41235"
     dps: "148.8"
-    quality: epic
-    created_at: 2010-02-12 16:45:56
+    inventory_type: "6"
+    quality: "4"
+    created_at: 2010-02-12 16:58:30
   attributes_cache: {}
 
 - !ruby/object:Item 
   attributes: 
     name: Belt of the Blood Pit
-    updated_at: 2010-02-12 16:45:56
+    updated_at: 2010-02-12 16:58:30
     id: "191"
     wowarmory_id: "45895"
     dps: "143.05"
-    quality: epic
-    created_at: 2010-02-12 16:45:56
+    inventory_type: "6"
+    quality: "4"
+    created_at: 2010-02-12 16:58:30
   attributes_cache: {}
 
 - !ruby/object:Item 
   attributes: 
     name: Vereesa's Silver Chain Belt
-    updated_at: 2010-02-12 16:45:56
+    updated_at: 2010-02-12 16:58:30
     id: "192"
     wowarmory_id: "40692"
     dps: "142.89"
-    quality: epic
-    created_at: 2010-02-12 16:45:56
+    inventory_type: "6"
+    quality: "4"
+    created_at: 2010-02-12 16:58:30
   attributes_cache: {}
 
 - !ruby/object:Item 
   attributes: 
     name: Belt of Merciless Cruelty
-    updated_at: 2010-02-12 16:45:56
+    updated_at: 2010-02-12 16:58:30
     id: "193"
     wowarmory_id: "47231"
     dps: "135.09"
-    quality: epic
-    created_at: 2010-02-12 16:45:56
+    inventory_type: "6"
+    quality: "4"
+    created_at: 2010-02-12 16:58:30
   attributes_cache: {}
 
 - !ruby/object:Item 
   attributes: 
     name: Titan-Forged Waistguard of Triumph
-    updated_at: 2010-02-12 16:45:56
+    updated_at: 2010-02-12 16:58:30
     id: "194"
     wowarmory_id: "46075"
     dps: "132.48"
-    quality: epic
-    created_at: 2010-02-12 16:45:56
+    inventory_type: "6"
+    quality: "4"
+    created_at: 2010-02-12 16:58:30
   attributes_cache: {}
 
 - !ruby/object:Item 
   attributes: 
     name: Sovereign's Belt
-    updated_at: 2010-02-12 16:45:56
+    updated_at: 2010-02-12 16:58:31
     id: "195"
     wowarmory_id: "37407"
     dps: "129.94"
-    quality: epic
-    created_at: 2010-02-12 16:45:56
+    inventory_type: "6"
+    quality: "4"
+    created_at: 2010-02-12 16:58:31
   attributes_cache: {}
 
 - !ruby/object:Item 
   attributes: 
     name: Deadly Gladiator's Waistguard of Triumph
-    updated_at: 2010-02-12 16:45:56
+    updated_at: 2010-02-12 16:58:31
     id: "196"
     wowarmory_id: "41234"
     dps: "127.66"
-    quality: epic
-    created_at: 2010-02-12 16:45:56
+    inventory_type: "6"
+    quality: "4"
+    created_at: 2010-02-12 16:58:31
   attributes_cache: {}
 
 - !ruby/object:Item 
   attributes: 
     name: Spectral Rider's Girdle
-    updated_at: 2010-02-12 16:45:56
+    updated_at: 2010-02-12 16:58:31
     id: "197"
     wowarmory_id: "39379"
     dps: "126.83"
-    quality: epic
-    created_at: 2010-02-12 16:45:56
+    inventory_type: "6"
+    quality: "4"
+    created_at: 2010-02-12 16:58:31
   attributes_cache: {}
 
 - !ruby/object:Item 
   attributes: 
     name: Hateful Gladiator's Waistguard of Triumph
-    updated_at: 2010-02-12 16:45:56
+    updated_at: 2010-02-12 16:58:31
     id: "198"
     wowarmory_id: "41233"
     dps: "114.96"
-    quality: epic
-    created_at: 2010-02-12 16:45:56
+    inventory_type: "6"
+    quality: "4"
+    created_at: 2010-02-12 16:58:31
   attributes_cache: {}
 
 - !ruby/object:Item 
   attributes: 
     name: Leggings of Northern Lights
-    updated_at: 2010-02-12 16:45:57
+    updated_at: 2010-02-12 16:58:31
     id: "199"
     wowarmory_id: "50645"
     dps: "400.49"
-    quality: epic
-    created_at: 2010-02-12 16:45:57
+    inventory_type: "7"
+    quality: "4"
+    created_at: 2010-02-12 16:58:31
   attributes_cache: {}
 
 - !ruby/object:Item 
   attributes: 
     name: Legguards of the Twisted Dream
-    updated_at: 2010-02-12 16:45:57
+    updated_at: 2010-02-12 16:58:31
     id: "200"
     wowarmory_id: "51829"
     dps: "375.64"
-    quality: epic
-    created_at: 2010-02-12 16:45:57
+    inventory_type: "7"
+    quality: "4"
+    created_at: 2010-02-12 16:58:31
   attributes_cache: {}
 
 - !ruby/object:Item 
   attributes: 
     name: Leggings of Northern Lights
-    updated_at: 2010-02-12 16:45:57
+    updated_at: 2010-02-12 16:58:31
     id: "201"
     wowarmory_id: "49988"
     dps: "356.81"
-    quality: epic
-    created_at: 2010-02-12 16:45:57
+    inventory_type: "7"
+    quality: "4"
+    created_at: 2010-02-12 16:58:31
   attributes_cache: {}
 
 - !ruby/object:Item 
   attributes: 
     name: Draconic Bonesplinter Legguards
-    updated_at: 2010-02-12 16:45:57
+    updated_at: 2010-02-12 16:58:31
     id: "202"
     wowarmory_id: "49901"
     dps: "349.8"
-    quality: epic
-    created_at: 2010-02-12 16:45:57
+    inventory_type: "7"
+    quality: "4"
+    created_at: 2010-02-12 16:58:31
   attributes_cache: {}
 
 - !ruby/object:Item 
   attributes: 
     name: Sanctified Ahn'Kahar Blood Hunter's Legguards
-    updated_at: 2010-02-12 16:45:57
+    updated_at: 2010-02-12 16:58:31
     id: "203"
     wowarmory_id: "51152"
     dps: "348.02"
-    quality: epic
-    created_at: 2010-02-12 16:45:57
+    inventory_type: "7"
+    quality: "4"
+    created_at: 2010-02-12 16:58:31
   attributes_cache: {}
 
 - !ruby/object:Item 
   attributes: 
     name: Legguards of the Lurking Threat
-    updated_at: 2010-02-12 16:45:57
+    updated_at: 2010-02-12 16:58:31
     id: "204"
     wowarmory_id: "47191"
     dps: "341.36"
-    quality: epic
-    created_at: 2010-02-12 16:45:57
+    inventory_type: "7"
+    quality: "4"
+    created_at: 2010-02-12 16:58:31
   attributes_cache: {}
 
 - !ruby/object:Item 
   attributes: 
     name: Windrunner's Legguards of Triumph
-    updated_at: 2010-02-12 16:45:57
+    updated_at: 2010-02-12 16:58:31
     id: "205"
     wowarmory_id: "48261"
     dps: "336.03"
-    quality: epic
-    created_at: 2010-02-12 16:45:57
+    inventory_type: "7"
+    quality: "4"
+    created_at: 2010-02-12 16:58:31
   attributes_cache: {}
 
 - !ruby/object:Item 
   attributes: 
     name: Legguards of the Twisted Dream
-    updated_at: 2010-02-12 16:45:57
+    updated_at: 2010-02-12 16:58:31
     id: "206"
     wowarmory_id: "51566"
     dps: "335.07"
-    quality: epic
-    created_at: 2010-02-12 16:45:57
+    inventory_type: "7"
+    quality: "4"
+    created_at: 2010-02-12 16:58:31
   attributes_cache: {}
 
 - !ruby/object:Item 
   attributes: 
     name: Ahn'Kahar Blood Hunter's Legguards
-    updated_at: 2010-02-12 16:45:57
+    updated_at: 2010-02-12 16:58:31
     id: "207"
     wowarmory_id: "50116"
     dps: "311.01"
-    quality: epic
-    created_at: 2010-02-12 16:45:57
+    inventory_type: "7"
+    quality: "4"
+    created_at: 2010-02-12 16:58:31
   attributes_cache: {}
 
 - !ruby/object:Item 
   attributes: 
     name: Legguards of the Lurking Threat
-    updated_at: 2010-02-12 16:45:57
+    updated_at: 2010-02-12 16:58:32
     id: "208"
     wowarmory_id: "47184"
     dps: "299.39"
-    quality: epic
-    created_at: 2010-02-12 16:45:57
+    inventory_type: "7"
+    quality: "4"
+    created_at: 2010-02-12 16:58:32
   attributes_cache: {}
 
 - !ruby/object:Item 
   attributes: 
     name: Windrunner's Legguards of Triumph
-    updated_at: 2010-02-12 16:45:57
+    updated_at: 2010-02-12 16:58:32
     id: "209"
     wowarmory_id: "48258"
     dps: "299.1"
-    quality: epic
-    created_at: 2010-02-12 16:45:57
+    inventory_type: "7"
+    quality: "4"
+    created_at: 2010-02-12 16:58:32
   attributes_cache: {}
 
 - !ruby/object:Item 
   attributes: 
     name: Windrunner's Legguards of Conquest
-    updated_at: 2010-02-12 16:45:57
+    updated_at: 2010-02-12 16:58:32
     id: "210"
     wowarmory_id: "48252"
     dps: "266.2"
-    quality: epic
-    created_at: 2010-02-12 16:45:57
+    inventory_type: "7"
+    quality: "4"
+    created_at: 2010-02-12 16:58:32
   attributes_cache: {}
 
 - !ruby/object:Item 
   attributes: 
     name: Leggings of the Tireless Sentry
-    updated_at: 2010-02-12 16:45:57
+    updated_at: 2010-02-12 16:58:32
     id: "211"
     wowarmory_id: "45844"
     dps: "254.94"
-    quality: epic
-    created_at: 2010-02-12 16:45:57
+    inventory_type: "7"
+    quality: "4"
+    created_at: 2010-02-12 16:58:32
   attributes_cache: {}
 
 - !ruby/object:Item 
   attributes: 
     name: Relentless Gladiator's Chain Leggings
-    updated_at: 2010-02-12 16:45:57
+    updated_at: 2010-02-12 16:58:32
     id: "212"
     wowarmory_id: "41206"
     dps: "251.66"
-    quality: epic
-    created_at: 2010-02-12 16:45:57
+    inventory_type: "7"
+    quality: "4"
+    created_at: 2010-02-12 16:58:32
   attributes_cache: {}
 
 - !ruby/object:Item 
   attributes: 
     name: Saronite Mesh Legguards
-    updated_at: 2010-02-12 16:45:57
+    updated_at: 2010-02-12 16:58:32
     id: "213"
     wowarmory_id: "45143"
     dps: "248.72"
-    quality: epic
-    created_at: 2010-02-12 16:45:57
+    inventory_type: "7"
+    quality: "4"
+    created_at: 2010-02-12 16:58:32
   attributes_cache: {}
 
 - !ruby/object:Item 
   attributes: 
     name: Darkcore Leggings
-    updated_at: 2010-02-12 16:45:57
+    updated_at: 2010-02-12 16:58:32
     id: "214"
     wowarmory_id: "45504"
     dps: "246.32"
-    quality: epic
-    created_at: 2010-02-12 16:45:57
+    inventory_type: "7"
+    quality: "4"
+    created_at: 2010-02-12 16:58:32
   attributes_cache: {}
 
 - !ruby/object:Item 
   attributes: 
     name: Conqueror's Scourgestalker Legguards
-    updated_at: 2010-02-12 16:45:57
+    updated_at: 2010-02-12 16:58:32
     id: "215"
     wowarmory_id: "46144"
     dps: "235.55"
-    quality: epic
-    created_at: 2010-02-12 16:45:57
+    inventory_type: "7"
+    quality: "4"
+    created_at: 2010-02-12 16:58:32
   attributes_cache: {}
 
 - !ruby/object:Item 
   attributes: 
     name: Leggings of Failed Escape
-    updated_at: 2010-02-12 16:45:57
+    updated_at: 2010-02-12 16:58:32
     id: "216"
     wowarmory_id: "40331"
     dps: "222.33"
-    quality: epic
-    created_at: 2010-02-12 16:45:57
+    inventory_type: "7"
+    quality: "4"
+    created_at: 2010-02-12 16:58:32
   attributes_cache: {}
 
 - !ruby/object:Item 
   attributes: 
     name: Valorous Scourgestalker Legguards
-    updated_at: 2010-02-12 16:45:57
+    updated_at: 2010-02-12 16:58:32
     id: "217"
     wowarmory_id: "45362"
     dps: "221.66"
-    quality: epic
-    created_at: 2010-02-12 16:45:57
+    inventory_type: "7"
+    quality: "4"
+    created_at: 2010-02-12 16:58:32
   attributes_cache: {}
 
 - !ruby/object:Item 
   attributes: 
     name: Titan-Forged Chain Leggings of Triumph
-    updated_at: 2010-02-12 16:45:58
+    updated_at: 2010-02-12 16:58:32
     id: "218"
     wowarmory_id: "48983"
     dps: "218.91"
-    quality: epic
-    created_at: 2010-02-12 16:45:58
+    inventory_type: "7"
+    quality: "4"
+    created_at: 2010-02-12 16:58:32
   attributes_cache: {}
 
 - !ruby/object:Item 
   attributes: 
     name: Furious Gladiator's Chain Leggings
-    updated_at: 2010-02-12 16:45:58
+    updated_at: 2010-02-12 16:58:32
     id: "219"
     wowarmory_id: "41205"
     dps: "213.08"
-    quality: epic
-    created_at: 2010-02-12 16:45:58
+    inventory_type: "7"
+    quality: "4"
+    created_at: 2010-02-12 16:58:32
   attributes_cache: {}
 
 - !ruby/object:Item 
   attributes: 
     name: Leggings of the Insatiable
-    updated_at: 2010-02-12 16:45:58
+    updated_at: 2010-02-12 16:58:32
     id: "220"
     wowarmory_id: "46019"
     dps: "210.37"
-    quality: epic
-    created_at: 2010-02-12 16:45:58
+    inventory_type: "7"
+    quality: "4"
+    created_at: 2010-02-12 16:58:32
   attributes_cache: {}
 
 - !ruby/object:Item 
   attributes: 
     name: Frostsworn Bone Leggings
-    updated_at: 2010-02-12 16:45:58
+    updated_at: 2010-02-12 16:58:32
     id: "221"
     wowarmory_id: "49836"
     dps: "208.73"
-    quality: epic
-    created_at: 2010-02-12 16:45:58
+    inventory_type: "7"
+    quality: "4"
+    created_at: 2010-02-12 16:58:32
   attributes_cache: {}
 
 - !ruby/object:Item 
   attributes: 
     name: Valorous Cryptstalker Legguards
-    updated_at: 2010-02-12 16:45:58
+    updated_at: 2010-02-12 16:58:32
     id: "222"
     wowarmory_id: "40506"
     dps: "203.25"
-    quality: epic
-    created_at: 2010-02-12 16:45:58
+    inventory_type: "7"
+    quality: "4"
+    created_at: 2010-02-12 16:58:32
   attributes_cache: {}
 
 - !ruby/object:Item 
   attributes: 
     name: Leggings of Colossal Strides
-    updated_at: 2010-02-12 16:45:58
+    updated_at: 2010-02-12 16:58:32
     id: "223"
     wowarmory_id: "40201"
     dps: "195.06"
-    quality: epic
-    created_at: 2010-02-12 16:45:58
+    inventory_type: "7"
+    quality: "4"
+    created_at: 2010-02-12 16:58:32
   attributes_cache: {}
 
 - !ruby/object:Item 
   attributes: 
     name: Deadly Gladiator's Chain Leggings
-    updated_at: 2010-02-12 16:45:58
+    updated_at: 2010-02-12 16:58:33
     id: "224"
     wowarmory_id: "41204"
     dps: "184.42"
-    quality: epic
-    created_at: 2010-02-12 16:45:58
+    inventory_type: "7"
+    quality: "4"
+    created_at: 2010-02-12 16:58:33
   attributes_cache: {}
 
 - !ruby/object:Item 
   attributes: 
     name: Heroes' Cryptstalker Legguards
-    updated_at: 2010-02-12 16:45:58
+    updated_at: 2010-02-12 16:58:33
     id: "225"
     wowarmory_id: "39580"
     dps: "183.58"
-    quality: epic
-    created_at: 2010-02-12 16:45:58
+    inventory_type: "7"
+    quality: "4"
+    created_at: 2010-02-12 16:58:33
   attributes_cache: {}
 
 - !ruby/object:Item 
   attributes: 
     name: Leggings of the Stone Halls
-    updated_at: 2010-02-12 16:45:58
+    updated_at: 2010-02-12 16:58:33
     id: "226"
     wowarmory_id: "37669"
     dps: "168.5"
-    quality: epic
-    created_at: 2010-02-12 16:45:58
+    inventory_type: "7"
+    quality: "4"
+    created_at: 2010-02-12 16:58:33
   attributes_cache: {}
 
 - !ruby/object:Item 
   attributes: 
     name: Hateful Gladiator's Chain Leggings
-    updated_at: 2010-02-12 16:45:58
+    updated_at: 2010-02-12 16:58:33
     id: "227"
     wowarmory_id: "41203"
     dps: "166.37"
-    quality: epic
-    created_at: 2010-02-12 16:45:58
+    inventory_type: "7"
+    quality: "4"
+    created_at: 2010-02-12 16:58:33
   attributes_cache: {}
 
 - !ruby/object:Item 
   attributes: 
     name: Giantmaim Legguards
-    updated_at: 2010-02-12 16:45:58
+    updated_at: 2010-02-12 16:58:33
     id: "228"
     wowarmory_id: "43458"
     dps: "161.6"
-    quality: epic
-    created_at: 2010-02-12 16:45:58
+    inventory_type: "7"
+    quality: "4"
+    created_at: 2010-02-12 16:58:33
   attributes_cache: {}
 
 - !ruby/object:Item 
   attributes: 
     name: Treads of the Wasteland
-    updated_at: 2010-02-12 16:45:58
+    updated_at: 2010-02-12 16:58:35
     id: "229"
     wowarmory_id: "50711"
     dps: "311.74"
-    quality: epic
-    created_at: 2010-02-12 16:45:58
+    inventory_type: "8"
+    quality: "4"
+    created_at: 2010-02-12 16:58:35
   attributes_cache: {}
 
 - !ruby/object:Item 
   attributes: 
     name: Wyrmwing Treads
-    updated_at: 2010-02-12 16:45:58
+    updated_at: 2010-02-12 16:58:35
     id: "230"
     wowarmory_id: "51818"
     dps: "272.63"
-    quality: epic
-    created_at: 2010-02-12 16:45:58
+    inventory_type: "8"
+    quality: "4"
+    created_at: 2010-02-12 16:58:35
   attributes_cache: {}
 
 - !ruby/object:Item 
   attributes: 
     name: Rock-Steady Treads
-    updated_at: 2010-02-12 16:45:58
+    updated_at: 2010-02-12 16:58:35
     id: "231"
     wowarmory_id: "49897"
     dps: "267.3"
-    quality: epic
-    created_at: 2010-02-12 16:45:58
+    inventory_type: "8"
+    quality: "4"
+    created_at: 2010-02-12 16:58:35
   attributes_cache: {}
 
 - !ruby/object:Item 
   attributes: 
     name: Taldron's Long Neglected Boots
-    updated_at: 2010-02-12 16:45:59
+    updated_at: 2010-02-12 16:58:35
     id: "232"
     wowarmory_id: "51891"
     dps: "255.53"
-    quality: epic
-    created_at: 2010-02-12 16:45:59
+    inventory_type: "8"
+    quality: "4"
+    created_at: 2010-02-12 16:58:35
   attributes_cache: {}
 
 - !ruby/object:Item 
   attributes: 
     name: Sabatons of Ruthless Judgment
-    updated_at: 2010-02-12 16:45:59
+    updated_at: 2010-02-12 16:58:35
     id: "233"
     wowarmory_id: "47109"
     dps: "254.08"
-    quality: epic
-    created_at: 2010-02-12 16:45:59
+    inventory_type: "8"
+    quality: "4"
+    created_at: 2010-02-12 16:58:35
   attributes_cache: {}
 
 - !ruby/object:Item 
   attributes: 
     name: Wyrmwing Treads
-    updated_at: 2010-02-12 16:45:59
+    updated_at: 2010-02-12 16:58:35
     id: "234"
     wowarmory_id: "51785"
     dps: "243.02"
-    quality: epic
-    created_at: 2010-02-12 16:45:59
+    inventory_type: "8"
+    quality: "4"
+    created_at: 2010-02-12 16:58:35
   attributes_cache: {}
 
 - !ruby/object:Item 
   attributes: 
     name: Taldron's Long Neglected Boots
-    updated_at: 2010-02-12 16:45:59
+    updated_at: 2010-02-12 16:58:35
     id: "235"
     wowarmory_id: "50812"
     dps: "231.17"
-    quality: epic
-    created_at: 2010-02-12 16:45:59
+    inventory_type: "8"
+    quality: "4"
+    created_at: 2010-02-12 16:58:35
   attributes_cache: {}
 
 - !ruby/object:Item 
   attributes: 
     name: Sentinel Scouting Greaves
-    updated_at: 2010-02-12 16:45:59
+    updated_at: 2010-02-12 16:58:35
     id: "236"
     wowarmory_id: "47933"
     dps: "225.81"
-    quality: epic
-    created_at: 2010-02-12 16:45:59
+    inventory_type: "8"
+    quality: "4"
+    created_at: 2010-02-12 16:58:35
   attributes_cache: {}
 
 - !ruby/object:Item 
   attributes: 
     name: Sabatons of Ruthless Judgment
-    updated_at: 2010-02-12 16:45:59
+    updated_at: 2010-02-12 16:58:35
     id: "237"
     wowarmory_id: "47106"
     dps: "220.13"
-    quality: epic
-    created_at: 2010-02-12 16:45:59
+    inventory_type: "8"
+    quality: "4"
+    created_at: 2010-02-12 16:58:35
   attributes_cache: {}
 
 - !ruby/object:Item 
   attributes: 
     name: Treads of the Wasteland
-    updated_at: 2010-02-12 16:45:59
+    updated_at: 2010-02-12 16:58:35
     id: "238"
     wowarmory_id: "50071"
     dps: "202.13"
-    quality: epic
-    created_at: 2010-02-12 16:45:59
+    inventory_type: "8"
+    quality: "4"
+    created_at: 2010-02-12 16:58:35
   attributes_cache: {}
 
 - !ruby/object:Item 
   attributes: 
     name: Greaves of Swift Vengeance
-    updated_at: 2010-02-12 16:45:59
+    updated_at: 2010-02-12 16:58:35
     id: "239"
     wowarmory_id: "45244"
     dps: "198.06"
-    quality: epic
-    created_at: 2010-02-12 16:45:59
+    inventory_type: "8"
+    quality: "4"
+    created_at: 2010-02-12 16:58:35
   attributes_cache: {}
 
 - !ruby/object:Item 
   attributes: 
     name: Tempered Mercury Greaves
-    updated_at: 2010-02-12 16:45:59
+    updated_at: 2010-02-12 16:58:35
     id: "240"
     wowarmory_id: "45989"
     dps: "197.78"
-    quality: epic
-    created_at: 2010-02-12 16:45:59
+    inventory_type: "8"
+    quality: "4"
+    created_at: 2010-02-12 16:58:35
   attributes_cache: {}
 
 - !ruby/object:Item 
   attributes: 
     name: Sentinel Scouting Greaves
-    updated_at: 2010-02-12 16:45:59
+    updated_at: 2010-02-12 16:58:35
     id: "241"
     wowarmory_id: "47683"
     dps: "192.37"
-    quality: epic
-    created_at: 2010-02-12 16:45:59
+    inventory_type: "8"
+    quality: "4"
+    created_at: 2010-02-12 16:58:35
   attributes_cache: {}
 
 - !ruby/object:Item 
   attributes: 
     name: Spiked Toestompers
-    updated_at: 2010-02-12 16:45:59
+    updated_at: 2010-02-12 16:58:35
     id: "242"
     wowarmory_id: "50295"
     dps: "183.42"
-    quality: epic
-    created_at: 2010-02-12 16:45:59
+    inventory_type: "8"
+    quality: "4"
+    created_at: 2010-02-12 16:58:35
   attributes_cache: {}
 
 - !ruby/object:Item 
   attributes: 
     name: Boots of Living Scale
-    updated_at: 2010-02-12 16:45:59
+    updated_at: 2010-02-12 16:58:35
     id: "243"
     wowarmory_id: "45562"
     dps: "182.28"
-    quality: epic
-    created_at: 2010-02-12 16:45:59
+    inventory_type: "8"
+    quality: "4"
+    created_at: 2010-02-12 16:58:35
   attributes_cache: {}
 
 - !ruby/object:Item 
   attributes: 
     name: Boots of the Renewed Flight
-    updated_at: 2010-02-12 16:45:59
+    updated_at: 2010-02-12 16:58:35
     id: "244"
     wowarmory_id: "40549"
     dps: "174.21"
-    quality: epic
-    created_at: 2010-02-12 16:45:59
+    inventory_type: "8"
+    quality: "4"
+    created_at: 2010-02-12 16:58:35
   attributes_cache: {}
 
 - !ruby/object:Item 
   attributes: 
     name: Brass-lined Boots
-    updated_at: 2010-02-12 16:45:59
+    updated_at: 2010-02-12 16:58:35
     id: "245"
     wowarmory_id: "45249"
     dps: "165"
-    quality: epic
-    created_at: 2010-02-12 16:45:59
+    inventory_type: "8"
+    quality: "4"
+    created_at: 2010-02-12 16:58:35
   attributes_cache: {}
 
 - !ruby/object:Item 
   attributes: 
     name: Muddied Boots of Brill
-    updated_at: 2010-02-12 16:45:59
+    updated_at: 2010-02-12 16:58:35
     id: "246"
     wowarmory_id: "49831"
     dps: "159.64"
-    quality: epic
-    created_at: 2010-02-12 16:45:59
+    inventory_type: "8"
+    quality: "4"
+    created_at: 2010-02-12 16:58:35
   attributes_cache: {}
 
 - !ruby/object:Item 
   attributes: 
     name: Boots of Unsettled Prey
-    updated_at: 2010-02-12 16:45:59
+    updated_at: 2010-02-12 16:58:36
     id: "247"
     wowarmory_id: "46346"
     dps: "158.78"
-    quality: epic
-    created_at: 2010-02-12 16:45:59
+    inventory_type: "8"
+    quality: "4"
+    created_at: 2010-02-12 16:58:36
   attributes_cache: {}
 
 - !ruby/object:Item 
   attributes: 
     name: Crippled Treads
-    updated_at: 2010-02-12 16:45:59
+    updated_at: 2010-02-12 16:58:36
     id: "248"
     wowarmory_id: "40184"
     dps: "151.7"
-    quality: epic
-    created_at: 2010-02-12 16:45:59
+    inventory_type: "8"
+    quality: "4"
+    created_at: 2010-02-12 16:58:36
   attributes_cache: {}
 
 - !ruby/object:Item 
   attributes: 
     name: Boots of the Great Construct
-    updated_at: 2010-02-12 16:45:59
+    updated_at: 2010-02-12 16:58:36
     id: "249"
     wowarmory_id: "40367"
     dps: "150.56"
-    quality: epic
-    created_at: 2010-02-12 16:45:59
+    inventory_type: "8"
+    quality: "4"
+    created_at: 2010-02-12 16:58:36
   attributes_cache: {}
 
 - !ruby/object:Item 
   attributes: 
     name: Pack-Ice Striders
-    updated_at: 2010-02-12 16:45:59
+    updated_at: 2010-02-12 16:58:36
     id: "250"
     wowarmory_id: "40746"
     dps: "150.12"
-    quality: epic
-    created_at: 2010-02-12 16:45:59
+    inventory_type: "8"
+    quality: "4"
+    created_at: 2010-02-12 16:58:36
   attributes_cache: {}
 
 - !ruby/object:Item 
   attributes: 
     name: Furious Gladiator's Sabatons of Triumph
-    updated_at: 2010-02-12 16:45:59
+    updated_at: 2010-02-12 16:58:36
     id: "251"
     wowarmory_id: "41230"
     dps: "148.8"
-    quality: epic
-    created_at: 2010-02-12 16:45:59
+    inventory_type: "8"
+    quality: "4"
+    created_at: 2010-02-12 16:58:36
   attributes_cache: {}
 
 - !ruby/object:Item 
   attributes: 
     name: Scale Boots of the Outlander
-    updated_at: 2010-02-12 16:45:59
+    updated_at: 2010-02-12 16:58:36
     id: "252"
     wowarmory_id: "47175"
     dps: "136.11"
-    quality: epic
-    created_at: 2010-02-12 16:45:59
+    inventory_type: "8"
+    quality: "4"
+    created_at: 2010-02-12 16:58:36
   attributes_cache: {}
 
 - !ruby/object:Item 
   attributes: 
     name: Deadly Gladiator's Sabatons of Triumph
-    updated_at: 2010-02-12 16:45:59
+    updated_at: 2010-02-12 16:58:36
     id: "253"
     wowarmory_id: "41229"
     dps: "127.66"
-    quality: epic
-    created_at: 2010-02-12 16:45:59
+    inventory_type: "8"
+    quality: "4"
+    created_at: 2010-02-12 16:58:36
   attributes_cache: {}
 
 - !ruby/object:Item 
   attributes: 
     name: Trespasser's Boots
-    updated_at: 2010-02-12 16:46:00
+    updated_at: 2010-02-12 16:58:36
     id: "254"
     wowarmory_id: "39236"
     dps: "121.47"
-    quality: epic
-    created_at: 2010-02-12 16:46:00
+    inventory_type: "8"
+    quality: "4"
+    created_at: 2010-02-12 16:58:36
   attributes_cache: {}
 
 - !ruby/object:Item 
   attributes: 
     name: Titan-Forged Sabatons of Triumph
-    updated_at: 2010-02-12 16:46:00
+    updated_at: 2010-02-12 16:58:36
     id: "255"
     wowarmory_id: "44898"
     dps: "119.21"
-    quality: epic
-    created_at: 2010-02-12 16:46:00
+    inventory_type: "8"
+    quality: "4"
+    created_at: 2010-02-12 16:58:36
   attributes_cache: {}
 
 - !ruby/object:Item 
   attributes: 
     name: Hateful Gladiator's Sabatons of Triumph
-    updated_at: 2010-02-12 16:46:00
+    updated_at: 2010-02-12 16:58:36
     id: "256"
     wowarmory_id: "41228"
     dps: "114.96"
-    quality: epic
-    created_at: 2010-02-12 16:46:00
+    inventory_type: "8"
+    quality: "4"
+    created_at: 2010-02-12 16:58:36
   attributes_cache: {}
 
 - !ruby/object:Item 
   attributes: 
     name: Ashen Band of Endless Vengeance
-    updated_at: 2010-02-12 16:46:00
+    updated_at: 2010-02-12 16:58:36
     id: "257"
     wowarmory_id: "50402"
     dps: "242.66"
-    quality: epic
-    created_at: 2010-02-12 16:46:00
+    inventory_type: "11"
+    quality: "4"
+    created_at: 2010-02-12 16:58:36
   attributes_cache: {}
 
 - !ruby/object:Item 
   attributes: 
     name: Ashen Band of Unmatched Vengeance
-    updated_at: 2010-02-12 16:46:00
+    updated_at: 2010-02-12 16:58:36
     id: "258"
     wowarmory_id: "50401"
     dps: "217.49"
-    quality: epic
-    created_at: 2010-02-12 16:46:00
+    inventory_type: "11"
+    quality: "4"
+    created_at: 2010-02-12 16:58:36
   attributes_cache: {}
 
 - !ruby/object:Item 
   attributes: 
     name: Band of the Bone Colossus
-    updated_at: 2010-02-12 16:46:00
+    updated_at: 2010-02-12 16:58:37
     id: "259"
     wowarmory_id: "50604"
     dps: "212.85"
-    quality: epic
-    created_at: 2010-02-12 16:46:00
+    inventory_type: "11"
+    quality: "4"
+    created_at: 2010-02-12 16:58:37
   attributes_cache: {}
 
 - !ruby/object:Item 
   attributes: 
     name: Frostbrood Sapphire Ring
-    updated_at: 2010-02-12 16:46:00
+    updated_at: 2010-02-12 16:58:37
     id: "260"
     wowarmory_id: "50618"
     dps: "211.37"
-    quality: epic
-    created_at: 2010-02-12 16:46:00
+    inventory_type: "11"
+    quality: "4"
+    created_at: 2010-02-12 16:58:37
   attributes_cache: {}
 
 - !ruby/object:Item 
   attributes: 
     name: Seal of Many Mouths
-    updated_at: 2010-02-12 16:46:00
+    updated_at: 2010-02-12 16:58:37
     id: "261"
     wowarmory_id: "50678"
     dps: "188.66"
-    quality: epic
-    created_at: 2010-02-12 16:46:00
+    inventory_type: "11"
+    quality: "4"
+    created_at: 2010-02-12 16:58:37
   attributes_cache: {}
 
 - !ruby/object:Item 
   attributes: 
     name: Frostbrood Sapphire Ring
-    updated_at: 2010-02-12 16:46:00
+    updated_at: 2010-02-12 16:58:37
     id: "262"
     wowarmory_id: "50186"
     dps: "187.63"
-    quality: epic
-    created_at: 2010-02-12 16:46:00
+    inventory_type: "11"
+    quality: "4"
+    created_at: 2010-02-12 16:58:37
   attributes_cache: {}
 
 - !ruby/object:Item 
   attributes: 
     name: Ashen Band of Greater Vengeance
-    updated_at: 2010-02-12 16:46:00
+    updated_at: 2010-02-12 16:58:37
     id: "263"
     wowarmory_id: "50387"
     dps: "187.36"
-    quality: epic
-    created_at: 2010-02-12 16:46:00
+    inventory_type: "11"
+    quality: "4"
+    created_at: 2010-02-12 16:58:37
   attributes_cache: {}
 
 - !ruby/object:Item 
   attributes: 
     name: Band of the Bone Colossus
-    updated_at: 2010-02-12 16:46:00
+    updated_at: 2010-02-12 16:58:37
     id: "264"
     wowarmory_id: "49949"
     dps: "182.55"
-    quality: epic
-    created_at: 2010-02-12 16:46:00
+    inventory_type: "11"
+    quality: "4"
+    created_at: 2010-02-12 16:58:37
   attributes_cache: {}
 
 - !ruby/object:Item 
   attributes: 
     name: Seal of the Twilight Queen
-    updated_at: 2010-02-12 16:46:00
+    updated_at: 2010-02-12 16:58:37
     id: "265"
     wowarmory_id: "51843"
     dps: "182.47"
-    quality: epic
-    created_at: 2010-02-12 16:46:00
+    inventory_type: "11"
+    quality: "4"
+    created_at: 2010-02-12 16:58:37
   attributes_cache: {}
 
 - !ruby/object:Item 
   attributes: 
     name: Saurfang's Cold-Forged Band
-    updated_at: 2010-02-12 16:46:00
+    updated_at: 2010-02-12 16:58:37
     id: "266"
     wowarmory_id: "51900"
     dps: "174.79"
-    quality: epic
-    created_at: 2010-02-12 16:46:00
+    inventory_type: "11"
+    quality: "4"
+    created_at: 2010-02-12 16:58:37
   attributes_cache: {}
 
 - !ruby/object:Item 
   attributes: 
     name: Ashen Band of Vengeance
-    updated_at: 2010-02-12 16:46:00
+    updated_at: 2010-02-12 16:58:37
     id: "267"
     wowarmory_id: "50376"
     dps: "174.03"
-    quality: epic
-    created_at: 2010-02-12 16:46:00
+    inventory_type: "11"
+    quality: "4"
+    created_at: 2010-02-12 16:58:37
   attributes_cache: {}
 
 - !ruby/object:Item 
   attributes: 
     name: Ring of Callous Aggression
-    updated_at: 2010-02-12 16:46:00
+    updated_at: 2010-02-12 16:58:37
     id: "268"
     wowarmory_id: "47075"
     dps: "171.81"
-    quality: epic
-    created_at: 2010-02-12 16:46:00
+    inventory_type: "11"
+    quality: "4"
+    created_at: 2010-02-12 16:58:37
   attributes_cache: {}
 
 - !ruby/object:Item 
   attributes: 
     name: Seal of Many Mouths
-    updated_at: 2010-02-12 16:46:00
+    updated_at: 2010-02-12 16:58:37
     id: "269"
     wowarmory_id: "50025"
     dps: "168.12"
-    quality: epic
-    created_at: 2010-02-12 16:46:00
+    inventory_type: "11"
+    quality: "4"
+    created_at: 2010-02-12 16:58:37
   attributes_cache: {}
 
 - !ruby/object:Item 
   attributes: 
     name: Planestalker Signet
-    updated_at: 2010-02-12 16:46:01
+    updated_at: 2010-02-12 16:58:37
     id: "270"
     wowarmory_id: "47934"
     dps: "167.34"
-    quality: epic
-    created_at: 2010-02-12 16:46:01
+    inventory_type: "11"
+    quality: "4"
+    created_at: 2010-02-12 16:58:37
   attributes_cache: {}
 
 - !ruby/object:Item 
   attributes: 
     name: Seal of the Twilight Queen
-    updated_at: 2010-02-12 16:46:01
+    updated_at: 2010-02-12 16:58:37
     id: "271"
     wowarmory_id: "51387"
     dps: "162.26"
-    quality: epic
-    created_at: 2010-02-12 16:46:01
+    inventory_type: "11"
+    quality: "4"
+    created_at: 2010-02-12 16:58:37
   attributes_cache: {}
 
 - !ruby/object:Item 
   attributes: 
     name: Saurfang's Cold-Forged Band
-    updated_at: 2010-02-12 16:46:01
+    updated_at: 2010-02-12 16:58:37
     id: "272"
     wowarmory_id: "50803"
     dps: "156.45"
-    quality: epic
-    created_at: 2010-02-12 16:46:01
+    inventory_type: "11"
+    quality: "4"
+    created_at: 2010-02-12 16:58:37
   attributes_cache: {}
 
 - !ruby/object:Item 
   attributes: 
     name: Runed Band of the Kirin Tor
-    updated_at: 2010-02-12 16:46:01
+    updated_at: 2010-02-12 16:58:37
     id: "273"
     wowarmory_id: "51560"
     dps: "150.51"
-    quality: epic
-    created_at: 2010-02-12 16:46:01
+    inventory_type: "11"
+    quality: "4"
+    created_at: 2010-02-12 16:58:37
   attributes_cache: {}
 
 - !ruby/object:Item 
   attributes: 
     name: Planestalker Signet
-    updated_at: 2010-02-12 16:46:01
+    updated_at: 2010-02-12 16:58:38
     id: "274"
     wowarmory_id: "47703"
     dps: "148.84"
-    quality: epic
-    created_at: 2010-02-12 16:46:01
+    inventory_type: "11"
+    quality: "4"
+    created_at: 2010-02-12 16:58:38
   attributes_cache: {}
 
 - !ruby/object:Item 
   attributes: 
     name: Ring of Callous Aggression
-    updated_at: 2010-02-12 16:46:01
+    updated_at: 2010-02-12 16:58:38
     id: "275"
     wowarmory_id: "47070"
     dps: "148.3"
-    quality: epic
-    created_at: 2010-02-12 16:46:01
+    inventory_type: "11"
+    quality: "4"
+    created_at: 2010-02-12 16:58:38
   attributes_cache: {}
 
 - !ruby/object:Item 
   attributes: 
     name: Band of Lights
-    updated_at: 2010-02-12 16:46:01
+    updated_at: 2010-02-12 16:58:38
     id: "276"
     wowarmory_id: "46048"
     dps: "143.61"
-    quality: epic
-    created_at: 2010-02-12 16:46:01
+    inventory_type: "11"
+    quality: "4"
+    created_at: 2010-02-12 16:58:38
   attributes_cache: {}
 
 - !ruby/object:Item 
   attributes: 
     name: Brann's Signet Ring
-    updated_at: 2010-02-12 16:46:01
+    updated_at: 2010-02-12 16:58:38
     id: "277"
     wowarmory_id: "45608"
     dps: "143.51"
-    quality: epic
-    created_at: 2010-02-12 16:46:01
+    inventory_type: "11"
+    quality: "4"
+    created_at: 2010-02-12 16:58:38
   attributes_cache: {}
 
 - !ruby/object:Item 
   attributes: 
     name: Dexterous Brightstone Ring
-    updated_at: 2010-02-12 16:46:01
+    updated_at: 2010-02-12 16:58:38
     id: "278"
     wowarmory_id: "47730"
     dps: "140.16"
-    quality: epic
-    created_at: 2010-02-12 16:46:01
+    inventory_type: "11"
+    quality: "4"
+    created_at: 2010-02-12 16:58:38
   attributes_cache: {}
 
 - !ruby/object:Item 
   attributes: 
     name: Loop of the Agile
-    updated_at: 2010-02-12 16:46:01
+    updated_at: 2010-02-12 16:58:38
     id: "279"
     wowarmory_id: "45456"
     dps: "133.92"
-    quality: epic
-    created_at: 2010-02-12 16:46:01
+    inventory_type: "11"
+    quality: "4"
+    created_at: 2010-02-12 16:58:38
   attributes_cache: {}
 
 - !ruby/object:Item 
   attributes: 
     name: Band of Stained Souls
-    updated_at: 2010-02-12 16:46:01
+    updated_at: 2010-02-12 16:58:38
     id: "280"
     wowarmory_id: "50271"
     dps: "133.59"
-    quality: epic
-    created_at: 2010-02-12 16:46:01
+    inventory_type: "11"
+    quality: "4"
+    created_at: 2010-02-12 16:58:38
   attributes_cache: {}
 
 - !ruby/object:Item 
   attributes: 
     name: Brann's Sealing Ring
-    updated_at: 2010-02-12 16:46:01
+    updated_at: 2010-02-12 16:58:38
     id: "281"
     wowarmory_id: "46322"
     dps: "131.65"
-    quality: epic
-    created_at: 2010-02-12 16:46:01
+    inventory_type: "11"
+    quality: "4"
+    created_at: 2010-02-12 16:58:38
   attributes_cache: {}
 
 - !ruby/object:Item 
   attributes: 
     name: Cindershard Ring
-    updated_at: 2010-02-12 16:46:01
+    updated_at: 2010-02-12 16:58:38
     id: "282"
     wowarmory_id: "45157"
     dps: "130.44"
-    quality: epic
-    created_at: 2010-02-12 16:46:01
+    inventory_type: "11"
+    quality: "4"
+    created_at: 2010-02-12 16:58:38
   attributes_cache: {}
 
 - !ruby/object:Item 
   attributes: 
     name: Metallic Loop of the Sufferer
-    updated_at: 2010-02-12 16:46:01
+    updated_at: 2010-02-12 16:58:38
     id: "283"
     wowarmory_id: "45503"
     dps: "123.43"
-    quality: epic
-    created_at: 2010-02-12 16:46:01
+    inventory_type: "11"
+    quality: "4"
+    created_at: 2010-02-12 16:58:38
   attributes_cache: {}
 
 - !ruby/object:Item 
   attributes: 
     name: Etched Band of the Kirin Tor
-    updated_at: 2010-02-12 16:46:01
+    updated_at: 2010-02-12 16:58:38
     id: "284"
     wowarmory_id: "48954"
     dps: "118.21"
-    quality: epic
-    created_at: 2010-02-12 16:46:01
+    inventory_type: "11"
+    quality: "4"
+    created_at: 2010-02-12 16:58:38
   attributes_cache: {}
 
 - !ruby/object:Item 
   attributes: 
     name: Surge Needle Ring
-    updated_at: 2010-02-12 16:46:01
+    updated_at: 2010-02-12 16:58:38
     id: "285"
     wowarmory_id: "40474"
     dps: "118.03"
-    quality: epic
-    created_at: 2010-02-12 16:46:01
+    inventory_type: "11"
+    quality: "4"
+    created_at: 2010-02-12 16:58:38
   attributes_cache: {}
 
 - !ruby/object:Item 
   attributes: 
     name: Ring of Carnelian and Bone
-    updated_at: 2010-02-12 16:46:01
+    updated_at: 2010-02-12 16:58:38
     id: "286"
     wowarmory_id: "49803"
     dps: "116.23"
-    quality: epic
-    created_at: 2010-02-12 16:46:01
+    inventory_type: "11"
+    quality: "4"
+    created_at: 2010-02-12 16:58:38
   attributes_cache: {}
 
 - !ruby/object:Item 
   attributes: 
     name: Whispering Fanged Skull
-    updated_at: 2010-02-12 16:46:02
+    updated_at: 2010-02-12 16:58:38
     id: "287"
     wowarmory_id: "50343"
     dps: "194.61"
-    quality: epic
-    created_at: 2010-02-12 16:46:02
+    inventory_type: "12"
+    quality: "4"
+    created_at: 2010-02-12 16:58:38
   attributes_cache: {}
 
 - !ruby/object:Item 
   attributes: 
     name: Death's Verdict
-    updated_at: 2010-02-12 16:46:02
+    updated_at: 2010-02-12 16:58:38
     id: "288"
     wowarmory_id: "47131"
     dps: "189.91"
-    quality: epic
-    created_at: 2010-02-12 16:46:02
+    inventory_type: "12"
+    quality: "4"
+    created_at: 2010-02-12 16:58:38
   attributes_cache: {}
 
 - !ruby/object:Item 
   attributes: 
     name: Whispering Fanged Skull
-    updated_at: 2010-02-12 16:46:02
+    updated_at: 2010-02-12 16:58:38
     id: "289"
     wowarmory_id: "50342"
     dps: "179.77"
-    quality: epic
-    created_at: 2010-02-12 16:46:02
+    inventory_type: "12"
+    quality: "4"
+    created_at: 2010-02-12 16:58:38
   attributes_cache: {}
 
 - !ruby/object:Item 
   attributes: 
     name: Death's Verdict
-    updated_at: 2010-02-12 16:46:02
+    updated_at: 2010-02-12 16:58:38
     id: "290"
     wowarmory_id: "47115"
     dps: "168.17"
-    quality: epic
-    created_at: 2010-02-12 16:46:02
+    inventory_type: "12"
+    quality: "4"
+    created_at: 2010-02-12 16:58:38
   attributes_cache: {}
 
 - !ruby/object:Item 
   attributes: 
     name: Herkuml War Token
-    updated_at: 2010-02-12 16:46:02
+    updated_at: 2010-02-12 16:58:38
     id: "291"
     wowarmory_id: "50355"
     dps: "143.04"
-    quality: epic
-    created_at: 2010-02-12 16:46:02
+    inventory_type: "12"
+    quality: "4"
+    created_at: 2010-02-12 16:58:38
   attributes_cache: {}
 
 - !ruby/object:Item 
   attributes: 
     name: "Darkmoon Card: Greatness"
-    updated_at: 2010-02-12 16:46:02
+    updated_at: 2010-02-12 16:58:39
     id: "292"
     wowarmory_id: "44253"
     dps: "134.59"
-    quality: epic
-    created_at: 2010-02-12 16:46:02
+    inventory_type: "12"
+    quality: "4"
+    created_at: 2010-02-12 16:58:39
   attributes_cache: {}
 
 - !ruby/object:Item 
   attributes: 
     name: Mark of Supremacy
-    updated_at: 2010-02-12 16:46:02
+    updated_at: 2010-02-12 16:58:39
     id: "293"
     wowarmory_id: "47734"
     dps: "133.85"
-    quality: epic
-    created_at: 2010-02-12 16:46:02
+    inventory_type: "12"
+    quality: "4"
+    created_at: 2010-02-12 16:58:39
   attributes_cache: {}
 
 - !ruby/object:Item 
   attributes: 
     name: Blood of the Old God
-    updated_at: 2010-02-12 16:46:02
+    updated_at: 2010-02-12 16:58:39
     id: "294"
     wowarmory_id: "45522"
     dps: "124.98"
-    quality: epic
-    created_at: 2010-02-12 16:46:02
+    inventory_type: "12"
+    quality: "4"
+    created_at: 2010-02-12 16:58:39
   attributes_cache: {}
 
 - !ruby/object:Item 
   attributes: 
     name: Dark Matter
-    updated_at: 2010-02-12 16:46:02
+    updated_at: 2010-02-12 16:58:39
     id: "295"
     wowarmory_id: "46038"
     dps: "114.42"
-    quality: epic
-    created_at: 2010-02-12 16:46:02
+    inventory_type: "12"
+    quality: "4"
+    created_at: 2010-02-12 16:58:39
   attributes_cache: {}
 
 - !ruby/object:Item 
   attributes: 
     name: Pyrite Infuser
-    updated_at: 2010-02-12 16:46:02
+    updated_at: 2010-02-12 16:58:39
     id: "296"
     wowarmory_id: "45286"
     dps: "114.4"
-    quality: epic
-    created_at: 2010-02-12 16:46:02
+    inventory_type: "12"
+    quality: "4"
+    created_at: 2010-02-12 16:58:39
   attributes_cache: {}
 
 - !ruby/object:Item 
   attributes: 
     name: Shard of the Crystal Heart
-    updated_at: 2010-02-12 16:46:02
+    updated_at: 2010-02-12 16:58:39
     id: "297"
     wowarmory_id: "48722"
     dps: "111.27"
-    quality: epic
-    created_at: 2010-02-12 16:46:02
+    inventory_type: "12"
+    quality: "4"
+    created_at: 2010-02-12 16:58:39
   attributes_cache: {}
 
 - !ruby/object:Item 
   attributes: 
     name: Needle-Encrusted Scorpion
-    updated_at: 2010-02-12 16:46:02
+    updated_at: 2010-02-12 16:58:39
     id: "298"
     wowarmory_id: "50198"
     dps: "108.73"
-    quality: epic
-    created_at: 2010-02-12 16:46:02
+    inventory_type: "12"
+    quality: "4"
+    created_at: 2010-02-12 16:58:39
   attributes_cache: {}
 
 - !ruby/object:Item 
   attributes: 
     name: Wrathstone
-    updated_at: 2010-02-12 16:46:02
+    updated_at: 2010-02-12 16:58:39
     id: "299"
     wowarmory_id: "45263"
     dps: "102.68"
-    quality: epic
-    created_at: 2010-02-12 16:46:02
+    inventory_type: "12"
+    quality: "4"
+    created_at: 2010-02-12 16:58:39
   attributes_cache: {}
 
 - !ruby/object:Item 
   attributes: 
     name: Mjolnir Runestone
-    updated_at: 2010-02-12 16:46:02
+    updated_at: 2010-02-12 16:58:39
     id: "300"
     wowarmory_id: "45931"
     dps: "101.24"
-    quality: epic
-    created_at: 2010-02-12 16:46:02
+    inventory_type: "12"
+    quality: "4"
+    created_at: 2010-02-12 16:58:39
   attributes_cache: {}
 
 - !ruby/object:Item 
   attributes: 
     name: Coren's Chromium Coaster
-    updated_at: 2010-02-12 16:46:02
+    updated_at: 2010-02-12 16:58:39
     id: "301"
     wowarmory_id: "49074"
     dps: "96.42"
-    quality: epic
-    created_at: 2010-02-12 16:46:02
+    inventory_type: "12"
+    quality: "4"
+    created_at: 2010-02-12 16:58:39
   attributes_cache: {}
 
 - !ruby/object:Item 
   attributes: 
     name: Mirror of Truth
-    updated_at: 2010-02-12 16:46:02
+    updated_at: 2010-02-12 16:58:39
     id: "302"
     wowarmory_id: "40684"
     dps: "96.42"
-    quality: epic
-    created_at: 2010-02-12 16:46:02
+    inventory_type: "12"
+    quality: "4"
+    created_at: 2010-02-12 16:58:39
   attributes_cache: {}
 
 - !ruby/object:Item 
   attributes: 
     name: Fury of the Five Flights
-    updated_at: 2010-02-12 16:46:02
+    updated_at: 2010-02-12 16:58:39
     id: "303"
     wowarmory_id: "40431"
     dps: "94.99"
-    quality: epic
-    created_at: 2010-02-12 16:46:02
+    inventory_type: "12"
+    quality: "4"
+    created_at: 2010-02-12 16:58:39
   attributes_cache: {}
 
 - !ruby/object:Item 
   attributes: 
     name: Grim Toll
-    updated_at: 2010-02-12 16:46:02
+    updated_at: 2010-02-12 16:58:39
     id: "304"
     wowarmory_id: "40256"
     dps: "89.06"
-    quality: epic
-    created_at: 2010-02-12 16:46:02
+    inventory_type: "12"
+    quality: "4"
+    created_at: 2010-02-12 16:58:39
   attributes_cache: {}
 
 - !ruby/object:Item 
   attributes: 
     name: Banner of Victory
-    updated_at: 2010-02-12 16:46:02
+    updated_at: 2010-02-12 16:58:39
     id: "305"
     wowarmory_id: "47214"
     dps: "83.44"
-    quality: epic
-    created_at: 2010-02-12 16:46:02
+    inventory_type: "12"
+    quality: "4"
+    created_at: 2010-02-12 16:58:39
   attributes_cache: {}
 
 - !ruby/object:Item 
   attributes: 
     name: Loatheb's Shadow
-    updated_at: 2010-02-12 16:46:02
+    updated_at: 2010-02-12 16:58:39
     id: "306"
     wowarmory_id: "39257"
     dps: "80.09"
-    quality: epic
-    created_at: 2010-02-12 16:46:02
+    inventory_type: "12"
+    quality: "4"
+    created_at: 2010-02-12 16:58:39
   attributes_cache: {}
 
 - !ruby/object:Item 
   attributes: 
     name: Vanquished Clutches of Yogg-Saron
-    updated_at: 2010-02-12 16:46:02
+    updated_at: 2010-02-12 16:58:39
     id: "307"
     wowarmory_id: "46312"
     dps: "70.83"
-    quality: epic
-    created_at: 2010-02-12 16:46:02
+    inventory_type: "12"
+    quality: "4"
+    created_at: 2010-02-12 16:58:39
   attributes_cache: {}
 
 - !ruby/object:Item 
   attributes: 
     name: "Darkmoon Card: Death"
-    updated_at: 2010-02-12 16:46:03
+    updated_at: 2010-02-12 16:58:39
     id: "308"
     wowarmory_id: "42990"
     dps: "69.25"
-    quality: epic
-    created_at: 2010-02-12 16:46:03
+    inventory_type: "12"
+    quality: "4"
+    created_at: 2010-02-12 16:58:39
   attributes_cache: {}
 
 - !ruby/object:Item 
   attributes: 
     name: Titan-Forged Rune of Accuracy
-    updated_at: 2010-02-12 16:46:03
+    updated_at: 2010-02-12 16:58:39
     id: "309"
     wowarmory_id: "46083"
     dps: "62.15"
-    quality: epic
-    created_at: 2010-02-12 16:46:03
+    inventory_type: "12"
+    quality: "4"
+    created_at: 2010-02-12 16:58:39
   attributes_cache: {}
 
 - !ruby/object:Item 
   attributes: 
     name: Titan-Forged Rune of Determination
-    updated_at: 2010-02-12 16:46:03
+    updated_at: 2010-02-12 16:58:39
     id: "310"
     wowarmory_id: "46082"
     dps: "56.4"
-    quality: epic
-    created_at: 2010-02-12 16:46:03
+    inventory_type: "12"
+    quality: "4"
+    created_at: 2010-02-12 16:58:39
   attributes_cache: {}
 
 - !ruby/object:Item 
   attributes: 
     name: Abomination Knuckles
-    updated_at: 2010-02-12 16:46:03
+    updated_at: 2010-02-12 16:58:40
     id: "311"
     wowarmory_id: "51876"
     dps: "135.41"
-    quality: epic
-    created_at: 2010-02-12 16:46:03
+    inventory_type: "21"
+    quality: "4"
+    created_at: 2010-02-12 16:58:40
   attributes_cache: {}
 
 - !ruby/object:Item 
   attributes: 
     name: The Spinebreaker
-    updated_at: 2010-02-12 16:46:03
+    updated_at: 2010-02-12 16:58:40
     id: "312"
     wowarmory_id: "48712"
     dps: "129.42"
-    quality: epic
-    created_at: 2010-02-12 16:46:03
+    inventory_type: "21"
+    quality: "4"
+    created_at: 2010-02-12 16:58:40
   attributes_cache: {}
 
 - !ruby/object:Item 
   attributes: 
     name: Golden Saronite Dragon
-    updated_at: 2010-02-12 16:46:03
+    updated_at: 2010-02-12 16:58:40
     id: "313"
     wowarmory_id: "45132"
     dps: "115.44"
-    quality: epic
-    created_at: 2010-02-12 16:46:03
+    inventory_type: "21"
+    quality: "4"
+    created_at: 2010-02-12 16:58:40
   attributes_cache: {}
 
 - !ruby/object:Item 
   attributes: 
     name: Abomination Knuckles
-    updated_at: 2010-02-12 16:46:03
+    updated_at: 2010-02-12 16:58:40
     id: "314"
     wowarmory_id: "51003"
     dps: "114.64"
-    quality: epic
-    created_at: 2010-02-12 16:46:03
+    inventory_type: "21"
+    quality: "4"
+    created_at: 2010-02-12 16:58:40
   attributes_cache: {}
 
 - !ruby/object:Item 
   attributes: 
     name: Pugius, Fist of Defiance
-    updated_at: 2010-02-12 16:46:03
+    updated_at: 2010-02-12 16:58:40
     id: "315"
     wowarmory_id: "51941"
     dps: "112.26"
-    quality: epic
-    created_at: 2010-02-12 16:46:03
+    inventory_type: "21"
+    quality: "4"
+    created_at: 2010-02-12 16:58:40
   attributes_cache: {}
 
 - !ruby/object:Item 
   attributes: 
     name: The Masticator
-    updated_at: 2010-02-12 16:46:03
+    updated_at: 2010-02-12 16:58:40
     id: "316"
     wowarmory_id: "45449"
     dps: "111.11"
-    quality: epic
-    created_at: 2010-02-12 16:46:03
+    inventory_type: "21"
+    quality: "4"
+    created_at: 2010-02-12 16:58:40
   attributes_cache: {}
 
 - !ruby/object:Item 
   attributes: 
     name: Seven-Fingered Claws
-    updated_at: 2010-02-12 16:46:03
+    updated_at: 2010-02-12 16:58:40
     id: "317"
     wowarmory_id: "50315"
     dps: "110.15"
-    quality: epic
-    created_at: 2010-02-12 16:46:03
+    inventory_type: "21"
+    quality: "4"
+    created_at: 2010-02-12 16:58:40
   attributes_cache: {}
 
 - !ruby/object:Item 
   attributes: 
     name: Calamity's Grasp
-    updated_at: 2010-02-12 16:46:03
+    updated_at: 2010-02-12 16:58:40
     id: "318"
     wowarmory_id: "40383"
     dps: "93.47"
-    quality: epic
-    created_at: 2010-02-12 16:46:03
+    inventory_type: "21"
+    quality: "4"
+    created_at: 2010-02-12 16:58:40
   attributes_cache: {}
 
 - !ruby/object:Item 
   attributes: 
     name: Insanity's Grip
-    updated_at: 2010-02-12 16:46:03
+    updated_at: 2010-02-12 16:58:40
     id: "319"
     wowarmory_id: "45489"
     dps: "92.92"
-    quality: epic
-    created_at: 2010-02-12 16:46:03
+    inventory_type: "21"
+    quality: "4"
+    created_at: 2010-02-12 16:58:40
   attributes_cache: {}
 
 - !ruby/object:Item 
   attributes: 
     name: Pugius, Fist of Defiance
-    updated_at: 2010-02-12 16:46:03
+    updated_at: 2010-02-12 16:58:40
     id: "320"
     wowarmory_id: "51801"
     dps: "91.17"
-    quality: epic
-    created_at: 2010-02-12 16:46:03
+    inventory_type: "21"
+    quality: "4"
+    created_at: 2010-02-12 16:58:40
   attributes_cache: {}
 
 - !ruby/object:Item 
   attributes: 
     name: Relentless Gladiator's Grasp
-    updated_at: 2010-02-12 16:46:03
+    updated_at: 2010-02-12 16:58:40
     id: "321"
     wowarmory_id: "48515"
     dps: "85.66"
-    quality: epic
-    created_at: 2010-02-12 16:46:03
+    inventory_type: "21"
+    quality: "4"
+    created_at: 2010-02-12 16:58:40
   attributes_cache: {}
 
 - !ruby/object:Item 
   attributes: 
     name: Relentless Gladiator's Right Ripper
-    updated_at: 2010-02-12 16:46:03
+    updated_at: 2010-02-12 16:58:40
     id: "322"
     wowarmory_id: "42262"
     dps: "77.04"
-    quality: epic
-    created_at: 2010-02-12 16:46:03
+    inventory_type: "21"
+    quality: "4"
+    created_at: 2010-02-12 16:58:40
   attributes_cache: {}
 
 - !ruby/object:Item 
   attributes: 
     name: Kel'Thuzad's Reach
-    updated_at: 2010-02-12 16:46:04
+    updated_at: 2010-02-12 16:58:40
     id: "323"
     wowarmory_id: "39416"
     dps: "75.81"
-    quality: epic
-    created_at: 2010-02-12 16:46:04
+    inventory_type: "21"
+    quality: "4"
+    created_at: 2010-02-12 16:58:40
   attributes_cache: {}
 
 - !ruby/object:Item 
   attributes: 
     name: Crimson Steel
-    updated_at: 2010-02-12 16:46:04
+    updated_at: 2010-02-12 16:58:41
     id: "324"
     wowarmory_id: "40429"
     dps: "73.02"
-    quality: epic
-    created_at: 2010-02-12 16:46:04
+    inventory_type: "21"
+    quality: "4"
+    created_at: 2010-02-12 16:58:41
   attributes_cache: {}
 
 - !ruby/object:Item 
   attributes: 
     name: Furious Gladiator's Grasp
-    updated_at: 2010-02-12 16:46:04
+    updated_at: 2010-02-12 16:58:41
     id: "325"
     wowarmory_id: "45969"
     dps: "72.93"
-    quality: epic
-    created_at: 2010-02-12 16:46:04
+    inventory_type: "21"
+    quality: "4"
+    created_at: 2010-02-12 16:58:41
   attributes_cache: {}
 
 - !ruby/object:Item 
   attributes: 
     name: Furious Gladiator's Right Ripper
-    updated_at: 2010-02-12 16:46:04
+    updated_at: 2010-02-12 16:58:41
     id: "326"
     wowarmory_id: "42261"
     dps: "68.27"
-    quality: epic
-    created_at: 2010-02-12 16:46:04
+    inventory_type: "21"
+    quality: "4"
+    created_at: 2010-02-12 16:58:41
   attributes_cache: {}
 
 - !ruby/object:Item 
   attributes: 
     name: The Horseman's Baleful Blade
-    updated_at: 2010-02-12 16:46:04
+    updated_at: 2010-02-12 16:58:41
     id: "327"
     wowarmory_id: "49128"
     dps: "66.89"
-    quality: epic
-    created_at: 2010-02-12 16:46:04
+    inventory_type: "21"
+    quality: "4"
+    created_at: 2010-02-12 16:58:41
   attributes_cache: {}
 
 - !ruby/object:Item 
   attributes: 
     name: Greed
-    updated_at: 2010-02-12 16:46:04
+    updated_at: 2010-02-12 16:58:41
     id: "328"
     wowarmory_id: "37693"
     dps: "64.91"
-    quality: epic
-    created_at: 2010-02-12 16:46:04
+    inventory_type: "21"
+    quality: "4"
+    created_at: 2010-02-12 16:58:41
   attributes_cache: {}
 
 - !ruby/object:Item 
   attributes: 
     name: Deadly Gladiator's Right Ripper
-    updated_at: 2010-02-12 16:46:04
+    updated_at: 2010-02-12 16:58:41
     id: "329"
     wowarmory_id: "42260"
     dps: "51.49"
-    quality: epic
-    created_at: 2010-02-12 16:46:04
+    inventory_type: "21"
+    quality: "4"
+    created_at: 2010-02-12 16:58:41
   attributes_cache: {}
 
 - !ruby/object:Item 
   attributes: 
     name: Wraith Strike
-    updated_at: 2010-02-12 16:46:04
+    updated_at: 2010-02-12 16:58:41
     id: "330"
     wowarmory_id: "39763"
     dps: "50.92"
-    quality: epic
-    created_at: 2010-02-12 16:46:04
+    inventory_type: "21"
+    quality: "4"
+    created_at: 2010-02-12 16:58:41
   attributes_cache: {}
 
 - !ruby/object:Item 
   attributes: 
     name: Hateful Gladiator's Right Ripper
-    updated_at: 2010-02-12 16:46:04
+    updated_at: 2010-02-12 16:58:41
     id: "331"
     wowarmory_id: "42259"
     dps: "45.93"
-    quality: epic
-    created_at: 2010-02-12 16:46:04
+    inventory_type: "21"
+    quality: "4"
+    created_at: 2010-02-12 16:58:41
   attributes_cache: {}
 
 - !ruby/object:Item 
   attributes: 
     name: Brutal Gladiator's Right Ripper
-    updated_at: 2010-02-12 16:46:04
+    updated_at: 2010-02-12 16:58:41
     id: "332"
     wowarmory_id: "35076"
     dps: "36.97"
-    quality: epic
-    created_at: 2010-02-12 16:46:04
+    inventory_type: "21"
+    quality: "4"
+    created_at: 2010-02-12 16:58:41
   attributes_cache: {}
 
 - !ruby/object:Item 
   attributes: 
     name: Brutal Gladiator's Waraxe
-    updated_at: 2010-02-12 16:46:04
+    updated_at: 2010-02-12 16:58:41
     id: "333"
     wowarmory_id: "35110"
     dps: "36.65"
-    quality: epic
-    created_at: 2010-02-12 16:46:04
+    inventory_type: "21"
+    quality: "4"
+    created_at: 2010-02-12 16:58:41
   attributes_cache: {}
 
 - !ruby/object:Item 
   attributes: 
     name: Vengeful Gladiator's Right Ripper
-    updated_at: 2010-02-12 16:46:04
+    updated_at: 2010-02-12 16:58:41
     id: "334"
     wowarmory_id: "33737"
     dps: "34.42"
-    quality: epic
-    created_at: 2010-02-12 16:46:04
+    inventory_type: "21"
+    quality: "4"
+    created_at: 2010-02-12 16:58:41
   attributes_cache: {}
 
 - !ruby/object:Item 
   attributes: 
     name: Merciless Gladiator's Right Ripper
-    updated_at: 2010-02-12 16:46:04
+    updated_at: 2010-02-12 16:58:41
     id: "335"
     wowarmory_id: "32028"
     dps: "30.17"
-    quality: epic
-    created_at: 2010-02-12 16:46:04
+    inventory_type: "21"
+    quality: "4"
+    created_at: 2010-02-12 16:58:41
   attributes_cache: {}
 
 - !ruby/object:Item 
   attributes: 
     name: Gladiator's Right Ripper
-    updated_at: 2010-02-12 16:46:04
+    updated_at: 2010-02-12 16:58:41
     id: "336"
     wowarmory_id: "28313"
     dps: "25.78"
-    quality: epic
-    created_at: 2010-02-12 16:46:04
+    inventory_type: "21"
+    quality: "4"
+    created_at: 2010-02-12 16:58:41
   attributes_cache: {}
 
 - !ruby/object:Item 
   attributes: 
     name: Bloodvenom Blade
-    updated_at: 2010-02-12 16:46:05
+    updated_at: 2010-02-12 16:58:42
     id: "337"
     wowarmory_id: "50672"
     dps: "167.81"
-    quality: epic
-    created_at: 2010-02-12 16:46:05
+    inventory_type: "13"
+    quality: "4"
+    created_at: 2010-02-12 16:58:42
   attributes_cache: {}
 
 - !ruby/object:Item 
   attributes: 
     name: Scourgeborne Waraxe
-    updated_at: 2010-02-12 16:46:05
+    updated_at: 2010-02-12 16:58:42
     id: "338"
     wowarmory_id: "50654"
     dps: "164.57"
-    quality: epic
-    created_at: 2010-02-12 16:46:05
+    inventory_type: "13"
+    quality: "4"
+    created_at: 2010-02-12 16:58:42
   attributes_cache: {}
 
 - !ruby/object:Item 
   attributes: 
     name: Lungbreaker
-    updated_at: 2010-02-12 16:46:05
+    updated_at: 2010-02-12 16:58:42
     id: "339"
     wowarmory_id: "50621"
     dps: "164.57"
-    quality: epic
-    created_at: 2010-02-12 16:46:05
+    inventory_type: "13"
+    quality: "4"
+    created_at: 2010-02-12 16:58:42
   attributes_cache: {}
 
 - !ruby/object:Item 
   attributes: 
     name: Rib Spreader
-    updated_at: 2010-02-12 16:46:05
+    updated_at: 2010-02-12 16:58:42
     id: "340"
     wowarmory_id: "50676"
     dps: "161.58"
-    quality: epic
-    created_at: 2010-02-12 16:46:05
+    inventory_type: "13"
+    quality: "4"
+    created_at: 2010-02-12 16:58:42
   attributes_cache: {}
 
 - !ruby/object:Item 
   attributes: 
     name: Frost Giant's Cleaver
-    updated_at: 2010-02-12 16:46:05
+    updated_at: 2010-02-12 16:58:42
     id: "341"
     wowarmory_id: "51916"
     dps: "148.29"
-    quality: epic
-    created_at: 2010-02-12 16:46:05
+    inventory_type: "13"
+    quality: "4"
+    created_at: 2010-02-12 16:58:42
   attributes_cache: {}
 
 - !ruby/object:Item 
   attributes: 
     name: Bloodsipper
-    updated_at: 2010-02-12 16:46:05
+    updated_at: 2010-02-12 16:58:42
     id: "342"
     wowarmory_id: "51846"
     dps: "144.32"
-    quality: epic
-    created_at: 2010-02-12 16:46:05
+    inventory_type: "13"
+    quality: "4"
+    created_at: 2010-02-12 16:58:42
   attributes_cache: {}
 
 - !ruby/object:Item 
   attributes: 
     name: Twin Spike
-    updated_at: 2010-02-12 16:46:05
+    updated_at: 2010-02-12 16:58:42
     id: "343"
     wowarmory_id: "47113"
     dps: "143.67"
-    quality: epic
-    created_at: 2010-02-12 16:46:05
+    inventory_type: "13"
+    quality: "4"
+    created_at: 2010-02-12 16:58:42
   attributes_cache: {}
 
 - !ruby/object:Item 
   attributes: 
     name: Bloodvenom Blade
-    updated_at: 2010-02-12 16:46:05
+    updated_at: 2010-02-12 16:58:42
     id: "344"
     wowarmory_id: "50412"
     dps: "142.92"
-    quality: epic
-    created_at: 2010-02-12 16:46:05
+    inventory_type: "13"
+    quality: "4"
+    created_at: 2010-02-12 16:58:42
   attributes_cache: {}
 
 - !ruby/object:Item 
   attributes: 
     name: Soulbreaker
-    updated_at: 2010-02-12 16:46:05
+    updated_at: 2010-02-12 16:58:42
     id: "345"
     wowarmory_id: "51858"
     dps: "142.21"
-    quality: epic
-    created_at: 2010-02-12 16:46:05
+    inventory_type: "13"
+    quality: "4"
+    created_at: 2010-02-12 16:58:42
   attributes_cache: {}
 
 - !ruby/object:Item 
   attributes: 
     name: Steel Bladebreaker
-    updated_at: 2010-02-12 16:46:05
+    updated_at: 2010-02-12 16:58:42
     id: "346"
     wowarmory_id: "46969"
     dps: "141.37"
-    quality: epic
-    created_at: 2010-02-12 16:46:05
+    inventory_type: "13"
+    quality: "4"
+    created_at: 2010-02-12 16:58:42
   attributes_cache: {}
 
 - !ruby/object:Item 
   attributes: 
     name: Lionhead Slasher
-    updated_at: 2010-02-12 16:46:05
+    updated_at: 2010-02-12 16:58:42
     id: "347"
     wowarmory_id: "47001"
     dps: "140.92"
-    quality: epic
-    created_at: 2010-02-12 16:46:05
+    inventory_type: "13"
+    quality: "4"
+    created_at: 2010-02-12 16:58:42
   attributes_cache: {}
 
 - !ruby/object:Item 
   attributes: 
     name: Stormpike Cleaver
-    updated_at: 2010-02-12 16:46:05
+    updated_at: 2010-02-12 16:58:42
     id: "348"
     wowarmory_id: "47156"
     dps: "140.11"
-    quality: epic
-    created_at: 2010-02-12 16:46:05
+    inventory_type: "13"
+    quality: "4"
+    created_at: 2010-02-12 16:58:42
   attributes_cache: {}
 
 - !ruby/object:Item 
   attributes: 
     name: Scourgeborne Waraxe
-    updated_at: 2010-02-12 16:46:05
+    updated_at: 2010-02-12 16:58:42
     id: "349"
     wowarmory_id: "50411"
     dps: "138.48"
-    quality: epic
-    created_at: 2010-02-12 16:46:05
+    inventory_type: "13"
+    quality: "4"
+    created_at: 2010-02-12 16:58:42
   attributes_cache: {}
 
 - !ruby/object:Item 
   attributes: 
     name: Lungbreaker
-    updated_at: 2010-02-12 16:46:05
+    updated_at: 2010-02-12 16:58:42
     id: "350"
     wowarmory_id: "50183"
     dps: "138.48"
-    quality: epic
-    created_at: 2010-02-12 16:46:05
+    inventory_type: "13"
+    quality: "4"
+    created_at: 2010-02-12 16:58:42
   attributes_cache: {}
 
 - !ruby/object:Item 
   attributes: 
     name: Rib Spreader
-    updated_at: 2010-02-12 16:46:05
+    updated_at: 2010-02-12 16:58:42
     id: "351"
     wowarmory_id: "50016"
     dps: "135.35"
-    quality: epic
-    created_at: 2010-02-12 16:46:05
+    inventory_type: "13"
+    quality: "4"
+    created_at: 2010-02-12 16:58:42
   attributes_cache: {}
 
 - !ruby/object:Item 
   attributes: 
     name: Bone Warden's Splitter
-    updated_at: 2010-02-12 16:46:05
+    updated_at: 2010-02-12 16:58:42
     id: "352"
     wowarmory_id: "51938"
     dps: "134.67"
-    quality: epic
-    created_at: 2010-02-12 16:46:05
+    inventory_type: "13"
+    quality: "4"
+    created_at: 2010-02-12 16:58:42
   attributes_cache: {}
 
 - !ruby/object:Item 
   attributes: 
     name: Flesh-Carving Scalpel
-    updated_at: 2010-02-12 16:46:05
+    updated_at: 2010-02-12 16:58:43
     id: "353"
     wowarmory_id: "51868"
     dps: "132.09"
-    quality: epic
-    created_at: 2010-02-12 16:46:05
+    inventory_type: "13"
+    quality: "4"
+    created_at: 2010-02-12 16:58:43
   attributes_cache: {}
 
 - !ruby/object:Item 
   attributes: 
     name: Dirk of the Night Watch
-    updated_at: 2010-02-12 16:46:05
+    updated_at: 2010-02-12 16:58:43
     id: "354"
     wowarmory_id: "47938"
     dps: "131.02"
-    quality: epic
-    created_at: 2010-02-12 16:46:05
+    inventory_type: "13"
+    quality: "4"
+    created_at: 2010-02-12 16:58:43
   attributes_cache: {}
 
 - !ruby/object:Item 
   attributes: 
     name: Icefall Blade
-    updated_at: 2010-02-12 16:46:05
+    updated_at: 2010-02-12 16:58:43
     id: "355"
     wowarmory_id: "47953"
     dps: "127.02"
-    quality: epic
-    created_at: 2010-02-12 16:46:05
+    inventory_type: "13"
+    quality: "4"
+    created_at: 2010-02-12 16:58:43
   attributes_cache: {}
 
 - !ruby/object:Item 
   attributes: 
     name: Havoc's Call, Blade of Lordaeron Kings
-    updated_at: 2010-02-12 16:46:06
+    updated_at: 2010-02-12 16:58:43
     id: "356"
     wowarmory_id: "50737"
     dps: "125.88"
-    quality: epic
-    created_at: 2010-02-12 16:46:06
+    inventory_type: "13"
+    quality: "4"
+    created_at: 2010-02-12 16:58:43
   attributes_cache: {}
 
 - !ruby/object:Item 
   attributes: 
     name: The Lion's Maw
-    updated_at: 2010-02-12 16:46:06
+    updated_at: 2010-02-12 16:58:43
     id: "357"
     wowarmory_id: "47966"
     dps: "125.45"
-    quality: epic
-    created_at: 2010-02-12 16:46:06
+    inventory_type: "13"
+    quality: "4"
+    created_at: 2010-02-12 16:58:43
   attributes_cache: {}
 
 - !ruby/object:Item 
   attributes: 
     name: Frost Giant's Cleaver
-    updated_at: 2010-02-12 16:46:06
+    updated_at: 2010-02-12 16:58:43
     id: "358"
     wowarmory_id: "50787"
     dps: "124.75"
-    quality: epic
-    created_at: 2010-02-12 16:46:06
+    inventory_type: "13"
+    quality: "4"
+    created_at: 2010-02-12 16:58:43
   attributes_cache: {}
 
 - !ruby/object:Item 
   attributes: 
     name: Westfall Saber
-    updated_at: 2010-02-12 16:46:06
+    updated_at: 2010-02-12 16:58:43
     id: "359"
     wowarmory_id: "47971"
     dps: "124.25"
-    quality: epic
-    created_at: 2010-02-12 16:46:06
+    inventory_type: "13"
+    quality: "4"
+    created_at: 2010-02-12 16:58:43
   attributes_cache: {}
 
 - !ruby/object:Item 
   attributes: 
     name: Heaven's Fall, Kryss of a Thousand Lies
-    updated_at: 2010-02-12 16:46:06
+    updated_at: 2010-02-12 16:58:43
     id: "360"
     wowarmory_id: "50736"
     dps: "124.1"
-    quality: epic
-    created_at: 2010-02-12 16:46:06
+    inventory_type: "13"
+    quality: "4"
+    created_at: 2010-02-12 16:58:43
   attributes_cache: {}
 
 - !ruby/object:Item 
   attributes: 
     name: Quel'Delar, Cunning of the Shadows
-    updated_at: 2010-02-12 16:46:06
+    updated_at: 2010-02-12 16:58:43
     id: "361"
     wowarmory_id: "50046"
     dps: "123.96"
-    quality: epic
-    created_at: 2010-02-12 16:46:06
+    inventory_type: "13"
+    quality: "4"
+    created_at: 2010-02-12 16:58:43
   attributes_cache: {}
 
 - !ruby/object:Item 
   attributes: 
     name: Soulbreaker
-    updated_at: 2010-02-12 16:46:06
+    updated_at: 2010-02-12 16:58:43
     id: "362"
     wowarmory_id: "51021"
     dps: "122.24"
-    quality: epic
-    created_at: 2010-02-12 16:46:06
+    inventory_type: "13"
+    quality: "4"
+    created_at: 2010-02-12 16:58:43
   attributes_cache: {}
 
 - !ruby/object:Item 
   attributes: 
     name: Bloodsipper
-    updated_at: 2010-02-12 16:46:06
+    updated_at: 2010-02-12 16:58:43
     id: "363"
     wowarmory_id: "51384"
     dps: "122.02"
-    quality: epic
-    created_at: 2010-02-12 16:46:06
+    inventory_type: "13"
+    quality: "4"
+    created_at: 2010-02-12 16:58:43
   attributes_cache: {}
 
 - !ruby/object:Item 
   attributes: 
     name: Twin Spike
-    updated_at: 2010-02-12 16:46:06
+    updated_at: 2010-02-12 16:58:43
     id: "364"
     wowarmory_id: "47104"
     dps: "121.04"
-    quality: epic
-    created_at: 2010-02-12 16:46:06
+    inventory_type: "13"
+    quality: "4"
+    created_at: 2010-02-12 16:58:43
   attributes_cache: {}
 
 - !ruby/object:Item 
   attributes: 
     name: Steel Bladebreaker
-    updated_at: 2010-02-12 16:46:06
+    updated_at: 2010-02-12 16:58:43
     id: "365"
     wowarmory_id: "46958"
     dps: "119.12"
-    quality: epic
-    created_at: 2010-02-12 16:46:06
+    inventory_type: "13"
+    quality: "4"
+    created_at: 2010-02-12 16:58:43
   attributes_cache: {}
 
 - !ruby/object:Item 
   attributes: 
     name: Stormpike Cleaver
-    updated_at: 2010-02-12 16:46:06
+    updated_at: 2010-02-12 16:58:43
     id: "366"
     wowarmory_id: "47148"
     dps: "117.78"
-    quality: epic
-    created_at: 2010-02-12 16:46:06
+    inventory_type: "13"
+    quality: "4"
+    created_at: 2010-02-12 16:58:43
   attributes_cache: {}
 
 - !ruby/object:Item 
   attributes: 
     name: Bloodfall
-    updated_at: 2010-02-12 16:46:06
+    updated_at: 2010-02-12 16:58:44
     id: "367"
     wowarmory_id: "50727"
     dps: "383.14"
-    quality: epic
-    created_at: 2010-02-12 16:46:06
+    inventory_type: "17"
+    quality: "4"
+    created_at: 2010-02-12 16:58:44
   attributes_cache: {}
 
 - !ruby/object:Item 
   attributes: 
     name: Distant Land
-    updated_at: 2010-02-12 16:46:07
+    updated_at: 2010-02-12 16:58:44
     id: "368"
     wowarmory_id: "50695"
     dps: "382.04"
-    quality: epic
-    created_at: 2010-02-12 16:46:07
+    inventory_type: "17"
+    quality: "4"
+    created_at: 2010-02-12 16:58:44
   attributes_cache: {}
 
 - !ruby/object:Item 
   attributes: 
     name: Shaft of Glacial Ice
-    updated_at: 2010-02-12 16:46:07
+    updated_at: 2010-02-12 16:58:44
     id: "369"
     wowarmory_id: "51881"
     dps: "362.44"
-    quality: epic
-    created_at: 2010-02-12 16:46:07
+    inventory_type: "17"
+    quality: "4"
+    created_at: 2010-02-12 16:58:44
   attributes_cache: {}
 
 - !ruby/object:Item 
   attributes: 
     name: Decimation
-    updated_at: 2010-02-12 16:46:07
+    updated_at: 2010-02-12 16:58:44
     id: "370"
     wowarmory_id: "47515"
     dps: "344.56"
-    quality: epic
-    created_at: 2010-02-12 16:46:07
+    inventory_type: "17"
+    quality: "4"
+    created_at: 2010-02-12 16:58:44
   attributes_cache: {}
 
 - !ruby/object:Item 
   attributes: 
     name: Distant Land
-    updated_at: 2010-02-12 16:46:07
+    updated_at: 2010-02-12 16:58:44
     id: "371"
     wowarmory_id: "50040"
     dps: "332.98"
-    quality: epic
-    created_at: 2010-02-12 16:46:07
+    inventory_type: "17"
+    quality: "4"
+    created_at: 2010-02-12 16:58:44
   attributes_cache: {}
 
 - !ruby/object:Item 
   attributes: 
     name: Hersir's Greatspear
-    updated_at: 2010-02-12 16:46:07
+    updated_at: 2010-02-12 16:58:44
     id: "372"
     wowarmory_id: "51857"
     dps: "332.75"
-    quality: epic
-    created_at: 2010-02-12 16:46:07
+    inventory_type: "17"
+    quality: "4"
+    created_at: 2010-02-12 16:58:44
   attributes_cache: {}
 
 - !ruby/object:Item 
   attributes: 
     name: Archon Glaive
-    updated_at: 2010-02-12 16:46:07
+    updated_at: 2010-02-12 16:58:44
     id: "373"
     wowarmory_id: "47239"
     dps: "319.97"
-    quality: epic
-    created_at: 2010-02-12 16:46:07
+    inventory_type: "17"
+    quality: "4"
+    created_at: 2010-02-12 16:58:44
   attributes_cache: {}
 
 - !ruby/object:Item 
   attributes: 
     name: Shaft of Glacial Ice
-    updated_at: 2010-02-12 16:46:07
+    updated_at: 2010-02-12 16:58:44
     id: "374"
     wowarmory_id: "50998"
     dps: "318.34"
-    quality: epic
-    created_at: 2010-02-12 16:46:07
+    inventory_type: "17"
+    quality: "4"
+    created_at: 2010-02-12 16:58:44
   attributes_cache: {}
 
 - !ruby/object:Item 
   attributes: 
     name: Lupine Longstaff
-    updated_at: 2010-02-12 16:46:07
+    updated_at: 2010-02-12 16:58:44
     id: "375"
     wowarmory_id: "47130"
     dps: "297.88"
-    quality: epic
-    created_at: 2010-02-12 16:46:07
+    inventory_type: "17"
+    quality: "4"
+    created_at: 2010-02-12 16:58:44
   attributes_cache: {}
 
 - !ruby/object:Item 
   attributes: 
     name: Oathbinder, Charge of the Ranger-General
-    updated_at: 2010-02-12 16:46:07
+    updated_at: 2010-02-12 16:58:44
     id: "376"
     wowarmory_id: "50735"
     dps: "292.45"
-    quality: epic
-    created_at: 2010-02-12 16:46:07
+    inventory_type: "17"
+    quality: "4"
+    created_at: 2010-02-12 16:58:44
   attributes_cache: {}
 
 - !ruby/object:Item 
   attributes: 
     name: Quel'Delar, Ferocity of the Scorned
-    updated_at: 2010-02-12 16:46:07
+    updated_at: 2010-02-12 16:58:44
     id: "377"
     wowarmory_id: "50049"
     dps: "288.31"
-    quality: epic
-    created_at: 2010-02-12 16:46:07
+    inventory_type: "17"
+    quality: "4"
+    created_at: 2010-02-12 16:58:44
   attributes_cache: {}
 
 - !ruby/object:Item 
   attributes: 
     name: Archon Glaive
-    updated_at: 2010-02-12 16:46:07
+    updated_at: 2010-02-12 16:58:44
     id: "378"
     wowarmory_id: "47233"
     dps: "277.41"
-    quality: epic
-    created_at: 2010-02-12 16:46:07
+    inventory_type: "17"
+    quality: "4"
+    created_at: 2010-02-12 16:58:44
   attributes_cache: {}
 
 - !ruby/object:Item 
   attributes: 
     name: Orca-Hunter's Harpoon
-    updated_at: 2010-02-12 16:46:07
+    updated_at: 2010-02-12 16:58:44
     id: "379"
     wowarmory_id: "50296"
     dps: "267.82"
-    quality: epic
-    created_at: 2010-02-12 16:46:07
+    inventory_type: "17"
+    quality: "4"
+    created_at: 2010-02-12 16:58:44
   attributes_cache: {}
 
 - !ruby/object:Item 
   attributes: 
     name: Reckoning
-    updated_at: 2010-02-12 16:46:07
+    updated_at: 2010-02-12 16:58:44
     id: "380"
     wowarmory_id: "47951"
     dps: "267.06"
-    quality: epic
-    created_at: 2010-02-12 16:46:07
+    inventory_type: "17"
+    quality: "4"
+    created_at: 2010-02-12 16:58:44
   attributes_cache: {}
 
 - !ruby/object:Item 
   attributes: 
     name: Tainted Twig of Nordrassil
-    updated_at: 2010-02-12 16:46:07
+    updated_at: 2010-02-12 16:58:44
     id: "381"
     wowarmory_id: "51945"
     dps: "266.77"
-    quality: epic
-    created_at: 2010-02-12 16:46:07
+    inventory_type: "17"
+    quality: "4"
+    created_at: 2010-02-12 16:58:44
   attributes_cache: {}
 
 - !ruby/object:Item 
   attributes: 
     name: Dark Edge of Depravity
-    updated_at: 2010-02-12 16:46:07
+    updated_at: 2010-02-12 16:58:45
     id: "382"
     wowarmory_id: "45533"
     dps: "262.45"
-    quality: epic
-    created_at: 2010-02-12 16:46:07
+    inventory_type: "17"
+    quality: "4"
+    created_at: 2010-02-12 16:58:45
   attributes_cache: {}
 
 - !ruby/object:Item 
   attributes: 
     name: Lupine Longstaff
-    updated_at: 2010-02-12 16:46:07
+    updated_at: 2010-02-12 16:58:45
     id: "383"
     wowarmory_id: "47114"
     dps: "257.86"
-    quality: epic
-    created_at: 2010-02-12 16:46:07
+    inventory_type: "17"
+    quality: "4"
+    created_at: 2010-02-12 16:58:45
   attributes_cache: {}
 
 - !ruby/object:Item 
   attributes: 
     name: Twisted Visage
-    updated_at: 2010-02-12 16:46:07
+    updated_at: 2010-02-12 16:58:45
     id: "384"
     wowarmory_id: "45256"
     dps: "257.64"
-    quality: epic
-    created_at: 2010-02-12 16:46:07
+    inventory_type: "17"
+    quality: "4"
+    created_at: 2010-02-12 16:58:45
   attributes_cache: {}
 
 - !ruby/object:Item 
   attributes: 
     name: Oathbinder, Charge of the Ranger-General
-    updated_at: 2010-02-12 16:46:07
+    updated_at: 2010-02-12 16:58:45
     id: "385"
     wowarmory_id: "50425"
     dps: "255.72"
-    quality: epic
-    created_at: 2010-02-12 16:46:07
+    inventory_type: "17"
+    quality: "4"
+    created_at: 2010-02-12 16:58:45
   attributes_cache: {}
 
 - !ruby/object:Item 
   attributes: 
     name: Paragon's Breadth
-    updated_at: 2010-02-12 16:46:07
+    updated_at: 2010-02-12 16:58:45
     id: "386"
     wowarmory_id: "48710"
     dps: "254.57"
-    quality: epic
-    created_at: 2010-02-12 16:46:07
+    inventory_type: "17"
+    quality: "4"
+    created_at: 2010-02-12 16:58:45
   attributes_cache: {}
 
 - !ruby/object:Item 
   attributes: 
     name: Fordragon Blades
-    updated_at: 2010-02-12 16:46:08
+    updated_at: 2010-02-12 16:58:45
     id: "387"
     wowarmory_id: "47979"
     dps: "251.74"
-    quality: epic
-    created_at: 2010-02-12 16:46:08
+    inventory_type: "17"
+    quality: "4"
+    created_at: 2010-02-12 16:58:45
   attributes_cache: {}
 
 - !ruby/object:Item 
   attributes: 
     name: Tortured Earth
-    updated_at: 2010-02-12 16:46:08
+    updated_at: 2010-02-12 16:58:45
     id: "388"
     wowarmory_id: "46033"
     dps: "246.68"
-    quality: epic
-    created_at: 2010-02-12 16:46:08
+    inventory_type: "17"
+    quality: "4"
+    created_at: 2010-02-12 16:58:45
   attributes_cache: {}
 
 - !ruby/object:Item 
   attributes: 
     name: Bloodfall
-    updated_at: 2010-02-12 16:46:08
+    updated_at: 2010-02-12 16:58:45
     id: "389"
     wowarmory_id: "50178"
     dps: "244.16"
-    quality: epic
-    created_at: 2010-02-12 16:46:08
+    inventory_type: "17"
+    quality: "4"
+    created_at: 2010-02-12 16:58:45
   attributes_cache: {}
 
 - !ruby/object:Item 
   attributes: 
     name: Dreambinder
-    updated_at: 2010-02-12 16:46:08
+    updated_at: 2010-02-12 16:58:45
     id: "390"
     wowarmory_id: "45613"
     dps: "244.08"
-    quality: epic
-    created_at: 2010-02-12 16:46:08
+    inventory_type: "17"
+    quality: "4"
+    created_at: 2010-02-12 16:58:45
   attributes_cache: {}
 
 - !ruby/object:Item 
   attributes: 
     name: Lotrafen, Spear of the Damned
-    updated_at: 2010-02-12 16:46:08
+    updated_at: 2010-02-12 16:58:45
     id: "391"
     wowarmory_id: "45498"
     dps: "241.92"
-    quality: epic
-    created_at: 2010-02-12 16:46:08
+    inventory_type: "17"
+    quality: "4"
+    created_at: 2010-02-12 16:58:45
   attributes_cache: {}
 
 - !ruby/object:Item 
   attributes: 
     name: Stormrune Edge
-    updated_at: 2010-02-12 16:46:08
+    updated_at: 2010-02-12 16:58:45
     id: "392"
     wowarmory_id: "45233"
     dps: "240.48"
-    quality: epic
-    created_at: 2010-02-12 16:46:08
+    inventory_type: "17"
+    quality: "4"
+    created_at: 2010-02-12 16:58:45
   attributes_cache: {}
 
 - !ruby/object:Item 
   attributes: 
     name: Reinforced Shadowstrike
-    updated_at: 2010-02-12 16:46:08
+    updated_at: 2010-02-12 16:58:45
     id: "393"
     wowarmory_id: "49496"
     dps: "240.03"
-    quality: epic
-    created_at: 2010-02-12 16:46:08
+    inventory_type: "17"
+    quality: "4"
+    created_at: 2010-02-12 16:58:45
   attributes_cache: {}
 
 - !ruby/object:Item 
   attributes: 
     name: Reckoning
-    updated_at: 2010-02-12 16:46:08
+    updated_at: 2010-02-12 16:58:45
     id: "394"
     wowarmory_id: "47737"
     dps: "230.99"
-    quality: epic
-    created_at: 2010-02-12 16:46:08
+    inventory_type: "17"
+    quality: "4"
+    created_at: 2010-02-12 16:58:45
   attributes_cache: {}
 
 - !ruby/object:Item 
   attributes: 
     name: Tower of the Mouldering Corpse
-    updated_at: 2010-02-12 16:46:08
+    updated_at: 2010-02-12 16:58:45
     id: "395"
     wowarmory_id: "49793"
     dps: "230.95"
-    quality: epic
-    created_at: 2010-02-12 16:46:08
+    inventory_type: "17"
+    quality: "4"
+    created_at: 2010-02-12 16:58:45
   attributes_cache: {}
 
 - !ruby/object:Item 
   attributes: 
     name: Tainted Twig of Nordrassil
-    updated_at: 2010-02-12 16:46:08
+    updated_at: 2010-02-12 16:58:45
     id: "396"
     wowarmory_id: "51797"
     dps: "229.6"
-    quality: epic
-    created_at: 2010-02-12 16:46:08
+    inventory_type: "17"
+    quality: "4"
+    created_at: 2010-02-12 16:58:45
   attributes_cache: {}
 
 - !ruby/object:Item 
   attributes: 
     name: Keleseth's Seducer
-    updated_at: 2010-02-12 16:46:08
+    updated_at: 2010-02-12 16:58:46
     id: "397"
     wowarmory_id: "50710"
     dps: "164.02"
-    quality: epic
-    created_at: 2010-02-12 16:46:08
+    inventory_type: "22"
+    quality: "4"
+    created_at: 2010-02-12 16:58:46
   attributes_cache: {}
 
 - !ruby/object:Item 
   attributes: 
     name: Keleseth's Seducer
-    updated_at: 2010-02-12 16:46:08
+    updated_at: 2010-02-12 16:58:46
     id: "398"
     wowarmory_id: "50184"
     dps: "139.79"
-    quality: epic
-    created_at: 2010-02-12 16:46:08
+    inventory_type: "22"
+    quality: "4"
+    created_at: 2010-02-12 16:58:46
   attributes_cache: {}
 
 - !ruby/object:Item 
   attributes: 
     name: Splintershard
-    updated_at: 2010-02-12 16:46:08
+    updated_at: 2010-02-12 16:58:46
     id: "399"
     wowarmory_id: "51819"
     dps: "135.21"
-    quality: epic
-    created_at: 2010-02-12 16:46:08
+    inventory_type: "22"
+    quality: "4"
+    created_at: 2010-02-12 16:58:46
   attributes_cache: {}
 
 - !ruby/object:Item 
   attributes: 
     name: Splintershard
-    updated_at: 2010-02-12 16:46:09
+    updated_at: 2010-02-12 16:58:46
     id: "400"
     wowarmory_id: "51784"
     dps: "114.37"
-    quality: epic
-    created_at: 2010-02-12 16:46:09
+    inventory_type: "22"
+    quality: "4"
+    created_at: 2010-02-12 16:58:46
   attributes_cache: {}
 
 - !ruby/object:Item 
   attributes: 
     name: Delirium's Touch
-    updated_at: 2010-02-12 16:46:09
+    updated_at: 2010-02-12 16:58:46
     id: "401"
     wowarmory_id: "45494"
     dps: "111.48"
-    quality: epic
-    created_at: 2010-02-12 16:46:09
+    inventory_type: "22"
+    quality: "4"
+    created_at: 2010-02-12 16:58:46
   attributes_cache: {}
 
 - !ruby/object:Item 
   attributes: 
     name: Kinetic Ripper
-    updated_at: 2010-02-12 16:46:09
+    updated_at: 2010-02-12 16:58:46
     id: "402"
     wowarmory_id: "45284"
     dps: "89.78"
-    quality: epic
-    created_at: 2010-02-12 16:46:09
+    inventory_type: "22"
+    quality: "4"
+    created_at: 2010-02-12 16:58:46
   attributes_cache: {}
 
 - !ruby/object:Item 
   attributes: 
     name: The Hand of Nerub
-    updated_at: 2010-02-12 16:46:09
+    updated_at: 2010-02-12 16:58:46
     id: "403"
     wowarmory_id: "40239"
     dps: "88.78"
-    quality: epic
-    created_at: 2010-02-12 16:46:09
+    inventory_type: "22"
+    quality: "4"
+    created_at: 2010-02-12 16:58:46
   attributes_cache: {}
 
 - !ruby/object:Item 
   attributes: 
     name: Relentless Gladiator's Chopper
-    updated_at: 2010-02-12 16:46:09
+    updated_at: 2010-02-12 16:58:46
     id: "404"
     wowarmory_id: "42234"
     dps: "86.25"
-    quality: epic
-    created_at: 2010-02-12 16:46:09
+    inventory_type: "22"
+    quality: "4"
+    created_at: 2010-02-12 16:58:46
   attributes_cache: {}
 
 - !ruby/object:Item 
   attributes: 
     name: Relentless Gladiator's Hacker
-    updated_at: 2010-02-12 16:46:09
+    updated_at: 2010-02-12 16:58:46
     id: "405"
     wowarmory_id: "42229"
     dps: "86.25"
-    quality: epic
-    created_at: 2010-02-12 16:46:09
+    inventory_type: "22"
+    quality: "4"
+    created_at: 2010-02-12 16:58:46
   attributes_cache: {}
 
 - !ruby/object:Item 
   attributes: 
     name: Relentless Gladiator's Left Claw
-    updated_at: 2010-02-12 16:46:09
+    updated_at: 2010-02-12 16:58:46
     id: "406"
     wowarmory_id: "48444"
     dps: "85.66"
-    quality: epic
-    created_at: 2010-02-12 16:46:09
+    inventory_type: "22"
+    quality: "4"
+    created_at: 2010-02-12 16:58:46
   attributes_cache: {}
 
 - !ruby/object:Item 
   attributes: 
     name: Relentless Gladiator's Left Razor
-    updated_at: 2010-02-12 16:46:09
+    updated_at: 2010-02-12 16:58:46
     id: "407"
     wowarmory_id: "48432"
     dps: "85.66"
-    quality: epic
-    created_at: 2010-02-12 16:46:09
+    inventory_type: "22"
+    quality: "4"
+    created_at: 2010-02-12 16:58:46
   attributes_cache: {}
 
 - !ruby/object:Item 
   attributes: 
     name: Relentless Gladiator's Dicer
-    updated_at: 2010-02-12 16:46:09
+    updated_at: 2010-02-12 16:58:46
     id: "408"
     wowarmory_id: "48426"
     dps: "85.66"
-    quality: epic
-    created_at: 2010-02-12 16:46:09
+    inventory_type: "22"
+    quality: "4"
+    created_at: 2010-02-12 16:58:46
   attributes_cache: {}
 
 - !ruby/object:Item 
   attributes: 
     name: Relentless Gladiator's Eviscerator
-    updated_at: 2010-02-12 16:46:09
+    updated_at: 2010-02-12 16:58:46
     id: "409"
     wowarmory_id: "48442"
     dps: "85.66"
-    quality: epic
-    created_at: 2010-02-12 16:46:09
+    inventory_type: "22"
+    quality: "4"
+    created_at: 2010-02-12 16:58:46
   attributes_cache: {}
 
 - !ruby/object:Item 
   attributes: 
     name: Relentless Gladiator's Dirk
-    updated_at: 2010-02-12 16:46:09
+    updated_at: 2010-02-12 16:58:46
     id: "410"
     wowarmory_id: "48428"
     dps: "85.66"
-    quality: epic
-    created_at: 2010-02-12 16:46:09
+    inventory_type: "22"
+    quality: "4"
+    created_at: 2010-02-12 16:58:46
   attributes_cache: {}
 
 - !ruby/object:Item 
   attributes: 
     name: Relentless Gladiator's Swiftblade
-    updated_at: 2010-02-12 16:46:09
+    updated_at: 2010-02-12 16:58:46
     id: "411"
     wowarmory_id: "48438"
     dps: "85.66"
-    quality: epic
-    created_at: 2010-02-12 16:46:09
+    inventory_type: "22"
+    quality: "4"
+    created_at: 2010-02-12 16:58:46
   attributes_cache: {}
 
 - !ruby/object:Item 
   attributes: 
     name: Relentless Gladiator's Splitter
-    updated_at: 2010-02-12 16:46:09
+    updated_at: 2010-02-12 16:58:46
     id: "412"
     wowarmory_id: "48440"
     dps: "85.66"
-    quality: epic
-    created_at: 2010-02-12 16:46:09
+    inventory_type: "22"
+    quality: "4"
+    created_at: 2010-02-12 16:58:46
   attributes_cache: {}
 
 - !ruby/object:Item 
   attributes: 
     name: Relentless Gladiator's Left Render
-    updated_at: 2010-02-12 16:46:09
+    updated_at: 2010-02-12 16:58:47
     id: "413"
     wowarmory_id: "42267"
     dps: "77.04"
-    quality: epic
-    created_at: 2010-02-12 16:46:09
+    inventory_type: "22"
+    quality: "4"
+    created_at: 2010-02-12 16:58:47
   attributes_cache: {}
 
 - !ruby/object:Item 
   attributes: 
     name: Relentless Gladiator's Shiv
-    updated_at: 2010-02-12 16:46:09
+    updated_at: 2010-02-12 16:58:47
     id: "414"
     wowarmory_id: "42250"
     dps: "77.04"
-    quality: epic
-    created_at: 2010-02-12 16:46:09
+    inventory_type: "22"
+    quality: "4"
+    created_at: 2010-02-12 16:58:47
   attributes_cache: {}
 
 - !ruby/object:Item 
   attributes: 
     name: Relentless Gladiator's Mutilator
-    updated_at: 2010-02-12 16:46:09
+    updated_at: 2010-02-12 16:58:47
     id: "415"
     wowarmory_id: "42257"
     dps: "77.04"
-    quality: epic
-    created_at: 2010-02-12 16:46:09
+    inventory_type: "22"
+    quality: "4"
+    created_at: 2010-02-12 16:58:47
   attributes_cache: {}
 
 - !ruby/object:Item 
   attributes: 
     name: Relentless Gladiator's Quickblade
-    updated_at: 2010-02-12 16:46:09
+    updated_at: 2010-02-12 16:58:47
     id: "416"
     wowarmory_id: "42292"
     dps: "77.04"
-    quality: epic
-    created_at: 2010-02-12 16:46:09
+    inventory_type: "22"
+    quality: "4"
+    created_at: 2010-02-12 16:58:47
   attributes_cache: {}
 
 - !ruby/object:Item 
   attributes: 
     name: Relentless Gladiator's Left Ripper
-    updated_at: 2010-02-12 16:46:09
+    updated_at: 2010-02-12 16:58:47
     id: "417"
     wowarmory_id: "42272"
     dps: "77.04"
-    quality: epic
-    created_at: 2010-02-12 16:46:09
+    inventory_type: "22"
+    quality: "4"
+    created_at: 2010-02-12 16:58:47
   attributes_cache: {}
 
 - !ruby/object:Item 
   attributes: 
     name: Furious Gladiator's Left Razor
-    updated_at: 2010-02-12 16:46:09
+    updated_at: 2010-02-12 16:58:47
     id: "418"
     wowarmory_id: "45963"
     dps: "72.93"
-    quality: epic
-    created_at: 2010-02-12 16:46:09
+    inventory_type: "22"
+    quality: "4"
+    created_at: 2010-02-12 16:58:47
   attributes_cache: {}
 
 - !ruby/object:Item 
   attributes: 
     name: Furious Gladiator's Dicer
-    updated_at: 2010-02-12 16:46:09
+    updated_at: 2010-02-12 16:58:47
     id: "419"
     wowarmory_id: "45961"
     dps: "72.93"
-    quality: epic
-    created_at: 2010-02-12 16:46:09
+    inventory_type: "22"
+    quality: "4"
+    created_at: 2010-02-12 16:58:47
   attributes_cache: {}
 
 - !ruby/object:Item 
   attributes: 
     name: Furious Gladiator's Eviscerator
-    updated_at: 2010-02-12 16:46:09
+    updated_at: 2010-02-12 16:58:47
     id: "420"
     wowarmory_id: "45967"
     dps: "72.93"
-    quality: epic
-    created_at: 2010-02-12 16:46:09
+    inventory_type: "22"
+    quality: "4"
+    created_at: 2010-02-12 16:58:47
   attributes_cache: {}
 
 - !ruby/object:Item 
   attributes: 
     name: Furious Gladiator's Dirk
-    updated_at: 2010-02-12 16:46:09
+    updated_at: 2010-02-12 16:58:47
     id: "421"
     wowarmory_id: "45962"
     dps: "72.93"
-    quality: epic
-    created_at: 2010-02-12 16:46:09
+    inventory_type: "22"
+    quality: "4"
+    created_at: 2010-02-12 16:58:47
   attributes_cache: {}
 
 - !ruby/object:Item 
   attributes: 
     name: The Stray
-    updated_at: 2010-02-12 16:46:10
+    updated_at: 2010-02-12 16:58:47
     id: "422"
     wowarmory_id: "39468"
     dps: "72.75"
-    quality: epic
-    created_at: 2010-02-12 16:46:10
+    inventory_type: "22"
+    quality: "4"
+    created_at: 2010-02-12 16:58:47
   attributes_cache: {}
 
 - !ruby/object:Item 
   attributes: 
     name: Grasscutter
-    updated_at: 2010-02-12 16:46:10
+    updated_at: 2010-02-12 16:58:47
     id: "423"
     wowarmory_id: "40703"
     dps: "70.11"
-    quality: epic
-    created_at: 2010-02-12 16:46:10
+    inventory_type: "22"
+    quality: "4"
+    created_at: 2010-02-12 16:58:47
   attributes_cache: {}
 
 - !ruby/object:Item 
   attributes: 
     name: Furious Gladiator's Hacker
-    updated_at: 2010-02-12 16:46:10
+    updated_at: 2010-02-12 16:58:47
     id: "424"
     wowarmory_id: "42228"
     dps: "68.27"
-    quality: epic
-    created_at: 2010-02-12 16:46:10
+    inventory_type: "22"
+    quality: "4"
+    created_at: 2010-02-12 16:58:47
   attributes_cache: {}
 
 - !ruby/object:Item 
   attributes: 
     name: Furious Gladiator's Shiv
-    updated_at: 2010-02-12 16:46:10
+    updated_at: 2010-02-12 16:58:47
     id: "425"
     wowarmory_id: "42249"
     dps: "68.27"
-    quality: epic
-    created_at: 2010-02-12 16:46:10
+    inventory_type: "22"
+    quality: "4"
+    created_at: 2010-02-12 16:58:47
   attributes_cache: {}
 
 - !ruby/object:Item 
   attributes: 
     name: Furious Gladiator's Left Ripper
-    updated_at: 2010-02-12 16:46:10
+    updated_at: 2010-02-12 16:58:47
     id: "426"
     wowarmory_id: "42271"
     dps: "68.27"
-    quality: epic
-    created_at: 2010-02-12 16:46:10
+    inventory_type: "22"
+    quality: "4"
+    created_at: 2010-02-12 16:58:47
   attributes_cache: {}
 
 - !ruby/object:Item 
   attributes: 
     name: Njordnar Bone Bow
-    updated_at: 2010-02-12 16:46:10
+    updated_at: 2010-02-12 16:58:48
     id: "427"
     wowarmory_id: "51927"
     dps: "115.63"
-    quality: epic
-    created_at: 2010-02-12 16:46:10
+    inventory_type: "15"
+    quality: "4"
+    created_at: 2010-02-12 16:58:48
   attributes_cache: {}
 
 - !ruby/object:Item 
   attributes: 
     name: BRK-1000
-    updated_at: 2010-02-12 16:46:10
+    updated_at: 2010-02-12 16:58:48
     id: "428"
     wowarmory_id: "47521"
     dps: "104.8"
-    quality: epic
-    created_at: 2010-02-12 16:46:10
+    inventory_type: "26"
+    quality: "4"
+    created_at: 2010-02-12 16:58:48
   attributes_cache: {}
 
 - !ruby/object:Item 
   attributes: 
     name: Stakethrower
-    updated_at: 2010-02-12 16:46:10
+    updated_at: 2010-02-12 16:58:48
     id: "429"
     wowarmory_id: "51845"
     dps: "102.36"
-    quality: epic
-    created_at: 2010-02-12 16:46:10
+    inventory_type: "26"
+    quality: "4"
+    created_at: 2010-02-12 16:58:48
   attributes_cache: {}
 
 - !ruby/object:Item 
   attributes: 
     name: The Diplomat
-    updated_at: 2010-02-12 16:46:10
+    updated_at: 2010-02-12 16:58:48
     id: "430"
     wowarmory_id: "47950"
     dps: "102.21"
-    quality: epic
-    created_at: 2010-02-12 16:46:10
+    inventory_type: "26"
+    quality: "4"
+    created_at: 2010-02-12 16:58:48
   attributes_cache: {}
 
 - !ruby/object:Item 
   attributes: 
     name: Rhok'shalla, the Shadow's Bane
-    updated_at: 2010-02-12 16:46:10
+    updated_at: 2010-02-12 16:58:48
     id: "431"
     wowarmory_id: "48711"
     dps: "96.23"
-    quality: epic
-    created_at: 2010-02-12 16:46:10
+    inventory_type: "15"
+    quality: "4"
+    created_at: 2010-02-12 16:58:48
   attributes_cache: {}
 
 - !ruby/object:Item 
   attributes: 
     name: Fal'inrush, Defender of Quel'thalas
-    updated_at: 2010-02-12 16:46:10
+    updated_at: 2010-02-12 16:58:48
     id: "432"
     wowarmory_id: "50733"
     dps: "95.96"
-    quality: epic
-    created_at: 2010-02-12 16:46:10
+    inventory_type: "26"
+    quality: "4"
+    created_at: 2010-02-12 16:58:48
   attributes_cache: {}
 
 - !ruby/object:Item 
   attributes: 
     name: Talonstrike
-    updated_at: 2010-02-12 16:46:11
+    updated_at: 2010-02-12 16:58:48
     id: "433"
     wowarmory_id: "46995"
     dps: "94.23"
-    quality: epic
-    created_at: 2010-02-12 16:46:11
+    inventory_type: "26"
+    quality: "4"
+    created_at: 2010-02-12 16:58:48
   attributes_cache: {}
 
 - !ruby/object:Item 
   attributes: 
     name: Baelgun's Heavy Crossbow
-    updated_at: 2010-02-12 16:46:11
+    updated_at: 2010-02-12 16:58:48
     id: "434"
     wowarmory_id: "47975"
     dps: "92.71"
-    quality: epic
-    created_at: 2010-02-12 16:46:11
+    inventory_type: "26"
+    quality: "4"
+    created_at: 2010-02-12 16:58:48
   attributes_cache: {}
 
 - !ruby/object:Item 
   attributes: 
     name: The Diplomat
-    updated_at: 2010-02-12 16:46:11
+    updated_at: 2010-02-12 16:58:48
     id: "435"
     wowarmory_id: "47740"
     dps: "91.4"
-    quality: epic
-    created_at: 2010-02-12 16:46:11
+    inventory_type: "26"
+    quality: "4"
+    created_at: 2010-02-12 16:58:48
   attributes_cache: {}
 
 - !ruby/object:Item 
   attributes: 
     name: Skyforge Crossbow
-    updated_at: 2010-02-12 16:46:11
+    updated_at: 2010-02-12 16:58:48
     id: "436"
     wowarmory_id: "45570"
     dps: "86.62"
-    quality: epic
-    created_at: 2010-02-12 16:46:11
+    inventory_type: "26"
+    quality: "4"
+    created_at: 2010-02-12 16:58:48
   attributes_cache: {}
 
 - !ruby/object:Item 
   attributes: 
     name: Windrunner's Heartseeker
-    updated_at: 2010-02-12 16:46:11
+    updated_at: 2010-02-12 16:58:48
     id: "437"
     wowarmory_id: "51940"
     dps: "85.81"
-    quality: epic
-    created_at: 2010-02-12 16:46:11
+    inventory_type: "26"
+    quality: "4"
+    created_at: 2010-02-12 16:58:48
   attributes_cache: {}
 
 - !ruby/object:Item 
   attributes: 
     name: Stakethrower
-    updated_at: 2010-02-12 16:46:11
+    updated_at: 2010-02-12 16:58:48
     id: "438"
     wowarmory_id: "51385"
     dps: "84.05"
-    quality: epic
-    created_at: 2010-02-12 16:46:11
+    inventory_type: "26"
+    quality: "4"
+    created_at: 2010-02-12 16:58:48
   attributes_cache: {}
 
 - !ruby/object:Item 
   attributes: 
     name: Rifled Blastershot Launcher
-    updated_at: 2010-02-12 16:46:11
+    updated_at: 2010-02-12 16:58:48
     id: "439"
     wowarmory_id: "49493"
     dps: "82.53"
-    quality: epic
-    created_at: 2010-02-12 16:46:11
+    inventory_type: "26"
+    quality: "4"
+    created_at: 2010-02-12 16:58:48
   attributes_cache: {}
 
 - !ruby/object:Item 
   attributes: 
     name: Felglacier Bolter
-    updated_at: 2010-02-12 16:46:11
+    updated_at: 2010-02-12 16:58:48
     id: "440"
     wowarmory_id: "50262"
     dps: "82.12"
-    quality: epic
-    created_at: 2010-02-12 16:46:11
+    inventory_type: "26"
+    quality: "4"
+    created_at: 2010-02-12 16:58:48
   attributes_cache: {}
 
 - !ruby/object:Item 
   attributes: 
     name: Talonstrike
-    updated_at: 2010-02-12 16:46:11
+    updated_at: 2010-02-12 16:58:48
     id: "441"
     wowarmory_id: "46994"
     dps: "79.04"
-    quality: epic
-    created_at: 2010-02-12 16:46:11
+    inventory_type: "26"
+    quality: "4"
+    created_at: 2010-02-12 16:58:48
   attributes_cache: {}
 
 - !ruby/object:Item 
   attributes: 
     name: Magnetized Projectile Emitter
-    updated_at: 2010-02-12 16:46:11
+    updated_at: 2010-02-12 16:58:48
     id: "442"
     wowarmory_id: "45870"
     dps: "78.85"
-    quality: epic
-    created_at: 2010-02-12 16:46:11
+    inventory_type: "26"
+    quality: "4"
+    created_at: 2010-02-12 16:58:48
   attributes_cache: {}
 
 - !ruby/object:Item 
   attributes: 
     name: Baelgun's Heavy Crossbow
-    updated_at: 2010-02-12 16:46:11
+    updated_at: 2010-02-12 16:58:48
     id: "443"
     wowarmory_id: "47741"
     dps: "73.78"
-    quality: epic
-    created_at: 2010-02-12 16:46:11
+    inventory_type: "26"
+    quality: "4"
+    created_at: 2010-02-12 16:58:48
   attributes_cache: {}
 
 - !ruby/object:Item 
   attributes: 
     name: Siren's Cry
-    updated_at: 2010-02-12 16:46:11
+    updated_at: 2010-02-12 16:58:48
     id: "444"
     wowarmory_id: "45327"
     dps: "73.77"
-    quality: epic
-    created_at: 2010-02-12 16:46:11
+    inventory_type: "15"
+    quality: "4"
+    created_at: 2010-02-12 16:58:48
   attributes_cache: {}
 
 - !ruby/object:Item 
   attributes: 
     name: Fal'inrush, Defender of Quel'thalas
-    updated_at: 2010-02-12 16:46:11
+    updated_at: 2010-02-12 16:58:49
     id: "445"
     wowarmory_id: "49981"
     dps: "73.68"
-    quality: epic
-    created_at: 2010-02-12 16:46:11
+    inventory_type: "26"
+    quality: "4"
+    created_at: 2010-02-12 16:58:49
   attributes_cache: {}
 
 - !ruby/object:Item 
   attributes: 
     name: Snub-Nose Blastershot Launcher
-    updated_at: 2010-02-12 16:46:11
+    updated_at: 2010-02-12 16:58:49
     id: "446"
     wowarmory_id: "49305"
     dps: "73.27"
-    quality: epic
-    created_at: 2010-02-12 16:46:11
+    inventory_type: "26"
+    quality: "4"
+    created_at: 2010-02-12 16:58:49
   attributes_cache: {}
 
 - !ruby/object:Item 
   attributes: 
     name: Envoy of Mortality
-    updated_at: 2010-02-12 16:46:11
+    updated_at: 2010-02-12 16:58:49
     id: "447"
     wowarmory_id: "40385"
     dps: "69.83"
-    quality: epic
-    created_at: 2010-02-12 16:46:11
+    inventory_type: "26"
+    quality: "4"
+    created_at: 2010-02-12 16:58:49
   attributes_cache: {}
 
 - !ruby/object:Item 
   attributes: 
     name: Giant's Bane
-    updated_at: 2010-02-12 16:46:11
+    updated_at: 2010-02-12 16:58:49
     id: "448"
     wowarmory_id: "45261"
     dps: "69.42"
-    quality: epic
-    created_at: 2010-02-12 16:46:11
+    inventory_type: "26"
+    quality: "4"
+    created_at: 2010-02-12 16:58:49
   attributes_cache: {}
 
 - !ruby/object:Item 
   attributes: 
     name: Crypt Fiend Slayer
-    updated_at: 2010-02-12 16:46:11
+    updated_at: 2010-02-12 16:58:49
     id: "449"
     wowarmory_id: "49844"
     dps: "67.89"
-    quality: epic
-    created_at: 2010-02-12 16:46:11
+    inventory_type: "15"
+    quality: "4"
+    created_at: 2010-02-12 16:58:49
   attributes_cache: {}
 
 - !ruby/object:Item 
   attributes: 
     name: Windrunner's Heartseeker
-    updated_at: 2010-02-12 16:46:11
+    updated_at: 2010-02-12 16:58:49
     id: "450"
     wowarmory_id: "51802"
     dps: "66.06"
-    quality: epic
-    created_at: 2010-02-12 16:46:11
+    inventory_type: "26"
+    quality: "4"
+    created_at: 2010-02-12 16:58:49
   attributes_cache: {}
 
 - !ruby/object:Item 
   attributes: 
     name: Deliverance
-    updated_at: 2010-02-12 16:46:11
+    updated_at: 2010-02-12 16:58:49
     id: "451"
     wowarmory_id: "46018"
     dps: "65.05"
-    quality: epic
-    created_at: 2010-02-12 16:46:11
+    inventory_type: "26"
+    quality: "4"
+    created_at: 2010-02-12 16:58:49
   attributes_cache: {}
 
 - !ruby/object:Item 
   attributes: 
     name: Rimebane Rifle
-    updated_at: 2010-02-12 16:46:11
+    updated_at: 2010-02-12 16:58:49
     id: "452"
     wowarmory_id: "49813"
     dps: "64.03"
-    quality: epic
-    created_at: 2010-02-12 16:46:11
+    inventory_type: "26"
+    quality: "4"
+    created_at: 2010-02-12 16:58:49
   attributes_cache: {}
 
 - !ruby/object:Item 
   attributes: 
     name: Avalanche
-    updated_at: 2010-02-12 16:46:12
+    updated_at: 2010-02-12 16:58:49
     id: "453"
     wowarmory_id: "45872"
     dps: "64.02"
-    quality: epic
-    created_at: 2010-02-12 16:46:12
+    inventory_type: "15"
+    quality: "4"
+    created_at: 2010-02-12 16:58:49
   attributes_cache: {}
 
 - !ruby/object:Item 
   attributes: 
     name: Golemheart Longbow
-    updated_at: 2010-02-12 16:46:12
+    updated_at: 2010-02-12 16:58:49
     id: "454"
     wowarmory_id: "46342"
     dps: "63.31"
-    quality: epic
-    created_at: 2010-02-12 16:46:12
+    inventory_type: "15"
+    quality: "4"
+    created_at: 2010-02-12 16:58:49
   attributes_cache: {}
 
 - !ruby/object:Item 
   attributes: 
     name: Arrowsong
-    updated_at: 2010-02-12 16:46:12
+    updated_at: 2010-02-12 16:58:49
     id: "455"
     wowarmory_id: "40265"
     dps: "62.81"
-    quality: epic
-    created_at: 2010-02-12 16:46:12
+    inventory_type: "15"
+    quality: "4"
+    created_at: 2010-02-12 16:58:49
   attributes_cache: {}
 
 - !ruby/object:Item 
   attributes: 
     name: Njordnar Bone Bow
-    updated_at: 2010-02-12 16:46:12
+    updated_at: 2010-02-12 16:58:49
     id: "456"
     wowarmory_id: "50776"
     dps: "62.39"
-    quality: epic
-    created_at: 2010-02-12 16:46:12
+    inventory_type: "15"
+    quality: "4"
+    created_at: 2010-02-12 16:58:49
   attributes_cache: {}
 

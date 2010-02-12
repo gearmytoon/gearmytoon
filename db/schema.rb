@@ -9,7 +9,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20100212155424) do
+ActiveRecord::Schema.define(:version => 20100212165416) do
 
   create_table "characters", :force => true do |t|
     t.datetime "created_at"
@@ -19,10 +19,11 @@ ActiveRecord::Schema.define(:version => 20100212155424) do
   create_table "items", :force => true do |t|
     t.string   "name"
     t.integer  "wowarmory_id"
-    t.decimal  "dps",          :precision => 6, :scale => 2
-    t.string   "quality"
+    t.decimal  "dps"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.integer  "inventory_type"
+    t.integer  "quality"
   end
 
 end

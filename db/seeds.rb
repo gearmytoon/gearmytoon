@@ -21,7 +21,7 @@ slots.each do |slot|
     wowarmory_id = wowhead_href.delete("http://www.wowhead.com/?item=")
     dps = dps_element.text
     wowarmory_item = api.get_item(wowarmory_id)
-    Item.create!(:wowarmory_id => wowarmory_id, :dps => dps, :name => wowarmory_item.name, :quality => WowHelpers.quality_adjective_for(wowarmory_item))
+    Item.create!(:wowarmory_id => wowarmory_id, :dps => dps, :name => wowarmory_item.name, :quality => wowarmory_item.quality, :inventory_type => wowarmory_item.equip_data.inventory_type)
   end
 end
 
