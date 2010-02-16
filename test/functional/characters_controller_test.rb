@@ -13,6 +13,7 @@ class CharactersControllerTest < ActionController::TestCase
     end
     
     should "show 3 upgrades under the frost emblem section" do
+      3.times {Factory(:item_from_emblem_of_frost)}
       get :show, :id => "merb"
       assert_select "#emblem_of_frost .upgrade", :count => 3
     end
@@ -23,8 +24,9 @@ class CharactersControllerTest < ActionController::TestCase
     end
     
     should "show 3 upgrades under the triumph emblem section" do
+      3.times {Factory(:item_from_emblem_of_triumph)}
       get :show, :id => "merb"
-      assert_select "#badge_of_triumph .upgrade", :count => 3
+      assert_select "#emblem_of_triumph .upgrade", :count => 3
     end
     
     should "show 3 upgrades and 3 sources under the heroic dungeon" do
