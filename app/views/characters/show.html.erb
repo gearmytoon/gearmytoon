@@ -7,6 +7,7 @@
     <h1>Your best upgrade from <%= stylized_item_name Item.badge_of_frost %> <%= wowhead_item_image_link Item.badge_of_frost %></h1>
     <% [50355,50117,50114].each do |frost_item_key| %>
       <% item = @api.get_item(frost_item_key) %>
+      <%=h item.inspect %>
       <div class="upgrade">
         <%= wowhead_item_image_link item %> <%= stylized_item_name item %>
       </div>

@@ -1,10 +1,16 @@
 class Item < ActiveRecord::Base
+  TRIUMPH_EMBLEM_ARMORY_ID = 47241
+  FROST_EMBLEM_ARMORY_ID = 49426
+  
+  named_scope :from_emblem_of_triumph, :conditions => {:source_item_id => TRIUMPH_EMBLEM_ARMORY_ID}
+  named_scope :from_emblem_of_frost, :conditions => {:source_item_id => FROST_EMBLEM_ARMORY_ID}
+
   def self.badge_of_frost
-    fetch_from_api(49426)
+    fetch_from_api(FROST_EMBLEM_ARMORY_ID)
   end
 
   def self.badge_of_triumph
-    fetch_from_api(47241)
+    fetch_from_api(TRIUMPH_EMBLEM_ARMORY_ID)
   end
 
   def self.fetch_from_api(item_id)
@@ -19,3 +25,4 @@ class WowHelpers
     QUALITY_ADJECTIVE_LOOKUP[item.quality]
   end
 end
+
