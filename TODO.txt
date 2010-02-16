@@ -24,3 +24,11 @@
 
 
 - autocomplete on realm
+
+
+
+
+
+TO TALK ABOUT:
+ - better data import/testing of it, mapper we did at hearst.
+ - mapping wowarmory magic numbers into meaningful names in our system? don't let their magic numbers in?
