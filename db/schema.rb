@@ -9,7 +9,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20100216060504) do
+ActiveRecord::Schema.define(:version => 20100216065616) do
 
   create_table "characters", :force => true do |t|
     t.datetime "created_at"
@@ -24,8 +24,8 @@ ActiveRecord::Schema.define(:version => 20100216060504) do
     t.datetime "updated_at"
     t.integer  "inventory_type"
     t.integer  "quality"
-    t.string   "source_type"
     t.integer  "source_item_id"
+    t.string   "icon"
   end
 
 end
