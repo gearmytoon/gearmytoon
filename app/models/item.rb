@@ -29,4 +29,3 @@ class WowHelpers
     QUALITY_ADJECTIVE_LOOKUP[item.quality]
   end
 end
-
