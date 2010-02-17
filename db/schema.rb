@@ -9,11 +9,20 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20100216072404) do
+ActiveRecord::Schema.define(:version => 20100217164945) do
+
+  create_table "character_items", :force => true do |t|
+    t.integer  "character_id"
+    t.integer  "item_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
 
   create_table "characters", :force => true do |t|
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.string   "name"
+    t.string   "realm"
   end
 
   create_table "items", :force => true do |t|
