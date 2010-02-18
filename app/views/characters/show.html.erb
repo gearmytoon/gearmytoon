@@ -1,13 +1,14 @@
 <div id="character_name">
   <%= @character.name %>
 </div>
-
 <div id="upgrades">
   <div class="upgrade_section" id="emblem_of_frost">
     <h1>Your best upgrade from <%= stylized_item_name Item.badge_of_frost %> <%= wowhead_item_image_link Item.badge_of_frost %></h1>
     <% Item.from_emblem_of_frost.each do |item| %>
       <div class="upgrade">
-        <%= wowhead_item_image_link item %> <%= stylized_item_name item %> <%= item.dps %>
+        <%= wowhead_item_image_link item %> <%= stylized_item_name item %>
+        <% # item.dps_compared_to(@character.equipped_items.item_in_same_slot_as(item))
+        %>
       </div>
     <% end %>
   </div>

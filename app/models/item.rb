@@ -4,6 +4,7 @@ class Item < ActiveRecord::Base
 
   named_scope :from_emblem_of_triumph, :conditions => {:source_item_id => TRIUMPH_EMBLEM_ARMORY_ID}, :order => ['items.dps DESC']
   named_scope :from_emblem_of_frost, :conditions => {:source_item_id => FROST_EMBLEM_ARMORY_ID}, :order => ['items.dps DESC']
+  named_scope :with_same_inventory_type, Proc.new {|item| {:conditions => {:inventory_type => item.inventory_type}}}
 
   def self.badge_of_frost
     fetch_from_api(FROST_EMBLEM_ARMORY_ID)
@@ -20,6 +21,10 @@ class Item < ActiveRecord::Base
   
   def item_id #to quack the same as wowr wowitems
     wowarmory_id
+  end
+  
+  def dps_compared_to(item)
+    dps - item.dps
   end
 end
 

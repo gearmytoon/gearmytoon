@@ -15,3 +15,8 @@ end
 Factory.define(:item_from_emblem_of_frost, :parent => :item) do |model|
   model.source_item_id Item::FROST_EMBLEM_ARMORY_ID
 end
+
+Factory.define(:character_item) do |model|
+  model.association :character
+  model.association :item
+end
