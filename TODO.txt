@@ -1,3 +1,11 @@
+TODO:
+- why is half of merbs gear missing?!? - both - 
+- tdd - character importer - nolan - 
+- search form for character and realm post :create to show, i think we need to change it to resources - nolan -
+
+- get the top 3 dps things for one reward type - adam - 
+- potentially invert the character item comparison  - adam - 
+
 - investigate rails 3? - rpxnow? delayed_job, wowr, mocha, cucumber, rspec
 - db - mongomapper? mysql?
 
@@ -19,16 +27,9 @@
 - rpxnow?
 - signup with wowcoach for account
 - 3 free previews, use it 3 times for free then upsell, here's one recommendation signup to see 2 more
-- 
-
-
-
 - autocomplete on realm
 
 
-
-
-
 TO TALK ABOUT:
- - better data import/testing of it, mapper we did at hearst.
- - mapping wowarmory magic numbers into meaningful names in our system? don't let their magic numbers in?
+ - mapping wowarmory magic numbers into meaningful names in our system? don't let their magic numbers in? (yes we like)
+ 
