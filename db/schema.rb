@@ -9,7 +9,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20100217164945) do
+ActiveRecord::Schema.define(:version => 20100219170745) do
 
   create_table "character_items", :force => true do |t|
     t.integer  "character_id"
@@ -35,7 +35,6 @@ ActiveRecord::Schema.define(:version => 20100217164945) do
     t.integer  "quality"
     t.integer  "source_item_id"
     t.string   "icon"
-    t.integer  "slot"
   end
 
 end
