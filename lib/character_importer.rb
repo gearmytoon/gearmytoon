@@ -10,7 +10,6 @@ class CharacterImporter
                           :caching => true) # defaults to true
 
     wow_armor_character = api.get_character
-    p wow_armor_character.public_methods(false)
     equipped_items = wow_armor_character.items.map{|item| Item.find_by_wowarmory_id(item.instance_variable_get(:@id))}
     equipped_items.compact!
     character.equipped_items = equipped_items
