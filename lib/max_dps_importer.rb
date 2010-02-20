@@ -1,0 +1,36 @@
+class MaxDpsImporter
+  attr_reader :agent
+  
+  def initialize
+    @agent = WWW::Mechanize.new
+    @agent.get("http://www.maxdps.com/hunter/survival.php")
+  end
+
+  def import_from_max_dps
+    slots = (1..17).to_a - [13] # hunters don't use maxdps's slot 13
+    slots.each do |slot| 
+      puts "importing slot #{slot} from maxdps"
+      import_max_dps_for_item_slot(slot)
+    end
+    backup_items
+  end
+  
+  def import_max_dps_for_item_slot(slot)
+    page = @agent.get("http://www.maxdps.com/hunter/survival_read.php?slotID=#{slot}&tabID=0")
+    page.parser.css(".ex .qu5").each do |wowhead_link|
+      item_row = wowhead_link.parent.parent
+      dps_element = item_row.css(".mainCell")
+      wowhead_href = wowhead_link['href']
+      wowarmory_id = wowhead_href.delete("http://www.wowhead.com/?item=")
+      dps = dps_element.text
+      ItemImporter.import_from_wowarmory!(wowarmory_id, dps)
+    end
+  end
+  
+  def backup_items
+    puts "backing up item list"
+    item_yaml_path = "#{RAILS_ROOT}/db/data/items.yml"
+    File.open(item_yaml_path, 'w') { |f| f.puts Item.all.to_yaml }
+    puts "backup saved to: #{item_yaml_path}"
+  end
+end
