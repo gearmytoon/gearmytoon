@@ -3,10 +3,7 @@ require File.dirname(__FILE__) + '/../test_helper'
 class CharacterImporterTest < ActiveSupport::TestCase
   context "import_from_wowarmory!" do
     should "import basic item attributes" do
-      item = nil
-      assert_difference "Item.count" do
-        item = ItemImporter.import_from_wowarmory!(50270)
-      end
+      item = ItemImporter.import_from_wowarmory!(50270)
       assert_equal "Belt of Rotted Fingernails", item.name
       assert_equal 6, item.inventory_type
       assert_equal 4, item.quality
@@ -23,13 +20,16 @@ class CharacterImporterTest < ActiveSupport::TestCase
     end
 
     should "set dps if one is provided" do
-      item = nil
-      assert_difference "Item.count" do
-        item = ItemImporter.import_from_wowarmory!(47732, 121)
-      end
+      item = ItemImporter.import_from_wowarmory!(47732, 121)
       assert_equal "Band of the Invoker", item.name
       assert_equal 121.0, item.dps
     end
 
+    should "import a items bonuses" do
+      item = ItemImporter.import_from_wowarmory!(50270)
+      expected_bonuses = {:intellect=>37, :attack_power=>130, :haste=>54, :agility=>89, :hit=>47, :stamina=>76}
+      item.reload
+      assert_equal expected_bonuses, item.bonuses
+    end
   end
 end
