@@ -4,7 +4,7 @@
 <div id="upgrades">
     <div class="upgrade_section" id="emblem_of_frost">
     <h1>Your best upgrade from <%= stylized_item_name Item.badge_of_frost %> <%= wowhead_item_image_link Item.badge_of_frost %></h1>
-    <% Item.from_emblem_of_frost.each do |item| %>
+    <% @character.top_3_frost_upgrades.each do |item| %>
       <div class="upgrade">
         <%= wowhead_item_image_link item %> <%= stylized_item_name item %> <%= item.dps %>
       </div>
@@ -22,16 +22,5 @@
 
   <div class="upgrade_section" id="heroic_dungeon">
     <h1>Your best upgrade from Heroic Dungeon's</h1>
-    <% [50270,50228,50197].each do |frost_item_key| %>
-      <% item = @api.get_item(frost_item_key) %>
-      <div>
-        <span class="upgrade">
-          <%= wowhead_item_image_link item %> <%= stylized_item_name item %>
-        </span>
-        <span class="source">
-          Dropped by <%= wowhead_npc_link item.drop_creatures.first %> in <%= item.drop_creatures.first.area %>
-        </span>
-      </div>
-    <% end %>
   </div>
 </div>
