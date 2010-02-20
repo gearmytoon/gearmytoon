@@ -19,11 +19,9 @@ class MaxDpsImporter
     page = @agent.get("http://www.maxdps.com/hunter/survival_read.php?slotID=#{slot}&tabID=0")
     page.parser.css(".ex .qu5").each do |wowhead_link|
       item_row = wowhead_link.parent.parent
-      dps_element = item_row.css(".mainCell")
       wowhead_href = wowhead_link['href']
       wowarmory_id = wowhead_href.delete("http://www.wowhead.com/?item=")
-      dps = dps_element.text
-      ItemImporter.import_from_wowarmory!(wowarmory_id, dps)
+      ItemImporter.import_from_wowarmory!(wowarmory_id)
     end
   end
   

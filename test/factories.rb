@@ -5,7 +5,7 @@ Factory.define(:item) do |model|
   model.name "Factory Item"
   model.icon "Factory_icon.png"
   model.wowarmory_id 1
-  model.dps 1
+  model.bonuses :attack_power => 100
 end
 
 Factory.define(:item_from_emblem_of_triumph, :parent => :item) do |model|

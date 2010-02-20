@@ -19,12 +19,6 @@ class CharacterImporterTest < ActiveSupport::TestCase
       assert_equal 47241, item.source_item_id
     end
 
-    should "set dps if one is provided" do
-      item = ItemImporter.import_from_wowarmory!(47732, 121)
-      assert_equal "Band of the Invoker", item.name
-      assert_equal 121.0, item.dps
-    end
-
     should "import a items bonuses" do
       item = ItemImporter.import_from_wowarmory!(50270)
       expected_bonuses = {:intellect=>37, :attack_power=>130, :haste=>54, :agility=>89, :hit=>47, :stamina=>76}
