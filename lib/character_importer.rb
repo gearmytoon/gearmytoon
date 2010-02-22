@@ -5,7 +5,7 @@ class CharacterImporter
 
   def self.import_character_and_all_items(name, realm)
     returning import(name, realm) do |character|
-      api = Wowr::API.new(:character_name => 'Merb', :realm => 'Baelgun', 
+      api = Wowr::API.new(:character_name => name, :realm => realm, 
                             :local => "tw", :caching => true)
       wow_armor_character = api.get_character
       equipped_items = wow_armor_character.items.map do |equipped_item|
@@ -14,7 +14,7 @@ class CharacterImporter
         item.nil? ? ItemImporter.import_from_wowarmory!(wow_armory_id) : item
       end
       equipped_items.compact!
-      character.equipped_items = equipped_items
+      character.update_attributes(:equipped_items => equipped_items, :wow_class => WowClass.find_or_create_by_name(wow_armor_character.klass))
       character.save!
     end
   end

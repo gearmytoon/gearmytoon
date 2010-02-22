@@ -28,6 +28,6 @@ class CharacterImporterTest < ActiveSupport::TestCase
         CharacterImporter.import("Merb", "Diablo")
       end
     end
-
+    
   end
 end

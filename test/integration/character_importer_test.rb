@@ -8,7 +8,12 @@ class CharacterImporterTest < ActiveSupport::TestCase
         assert_difference "Character.count" do
           character = CharacterImporter.import_character_and_all_items("Rails", "Baelgun")
         end
-        assert_equal character, Character.last
+        rails = Character.last
+        assert_equal character, rails
+        assert !rails.equipped_items.empty?
+        assert_equal "Rails", rails.name
+        assert_equal "Baelgun", rails.realm
+        assert_equal "Paladin", rails.wow_class_name
       end
     end
   end
