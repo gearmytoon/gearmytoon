@@ -1,35 +1,29 @@
 TODO:
-- why is half of merbs gear missing?!? - both - 
-- tdd - character importer - nolan - 
-- search form for character and realm post :create to show, i think we need to change it to resources - nolan -
+- implement the stat standardized dps units for each class - when you ask a item for dps you will pass in it's multiplier object
+- expand the maxdps.com import to cover all classes - we just use this to initially seed good items, maybe there is a better way to seed items?
+- map wowarmory magic numbers, quality, inventory type, etc into meaningful names, ie quality = 4 should be quality = 'epic'
+- find a way to identify items that drop from heroics/raids etc, there is likely a item source attribute you can backtrace.
 
 - get the top 3 dps things for one reward type - adam - 
 - potentially invert the character item comparison  - adam - 
 
-- investigate rails 3? - rpxnow? delayed_job, wowr, mocha, cucumber, rspec
-- db - mongomapper? mysql?
 
-- import data from maxdps for hunter
-  - same for remaining classes
+- add local to the search, i.e. support euro and oceanic servers.
+
 - show item cost in badges on the character show page
 - populate real data by character name/realm on a class basis
 - find real recommendations for frost badges
 - find real recommendations for triumph badges
 - find real recommendations for heroics
-
-
-- run real forumla's for classes - start with hunter
+- run real forumla's for classes - start with hunter - STARTED
 - take racials into account
+- take trinkets cooldown effects into account *** ie 1024 attack power for 20 seconds with a 2 min cooldown = (1024 * (20/120)) * attack_power_multiplier
 
 
-
-- setup recurring payments
-- rpxnow?
+- setup recurring payments - http://www.braintreepaymentsolutions.com/
+- rpxnow? for signin/signup
 - signup with wowcoach for account
 - 3 free previews, use it 3 times for free then upsell, here's one recommendation signup to see 2 more
 - autocomplete on realm
 
-
-TO TALK ABOUT:
- - mapping wowarmory magic numbers into meaningful names in our system? don't let their magic numbers in? (yes we like)
- 
+- investigate rails 3? - rpxnow? delayed_job, wowr, mocha, cucumber, rspec
