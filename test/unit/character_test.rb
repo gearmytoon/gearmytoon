@@ -13,11 +13,11 @@ class CharacterTest < ActiveSupport::TestCase
 
   context "top_3_frost_upgrades" do
     should "order the upgrades by the dps increase" do
-      character_item = Factory(:character_item, :item => Factory(:item, :inventory_type => 2, :bonuses => {:attack_power => 100.0}))
+      character = Factory(:character_item, :item => Factory(:item, :inventory_type => 2, :bonuses => {:attack_power => 100.0})).character
       mid_upgrade = Factory(:item_from_emblem_of_frost, :bonuses => {:attack_power => 200.0}, :inventory_type => 2)
       upgrade = Factory(:item_from_emblem_of_frost, :bonuses => {:attack_power => 500.0}, :inventory_type => 2)
       upgrades = [upgrade, mid_upgrade]
-      assert_equal upgrades.map(&:id), character_item.character.top_3_frost_upgrades.map(&:id)
+      assert_equal upgrades.map(&:id), character.top_3_frost_upgrades.map(&:id)
     end
 
     should "find a characters upgrades from frost badges" do
@@ -37,11 +37,11 @@ class CharacterTest < ActiveSupport::TestCase
 
   context "top_3_triumph_upgrades" do
     should "order the upgrades by the dps increase" do
-      character_item = Factory(:character_item, :item => Factory(:item, :inventory_type => 2, :bonuses => {:attack_power => 100.0}))
+      character = Factory(:character_item, :item => Factory(:item, :inventory_type => 2, :bonuses => {:attack_power => 100.0})).character
       mid_upgrade = Factory(:item_from_emblem_of_triumph, :bonuses => {:attack_power => 200.0}, :inventory_type => 2)
       upgrade = Factory(:item_from_emblem_of_triumph, :bonuses => {:attack_power => 500.0}, :inventory_type => 2)
       upgrades = [upgrade, mid_upgrade]
-      assert_equal upgrades.map(&:id), character_item.character.top_3_triumph_upgrades.map(&:id)
+      assert_equal upgrades.map(&:id), character.top_3_triumph_upgrades.map(&:id)
     end
 
     should "find a characters upgrades from frost badges" do

@@ -4,19 +4,18 @@ class Character < ActiveRecord::Base
   has_many :equipped_items, :through => :character_items, :source => :item
 
   def top_3_frost_upgrades
-    upgrades = Item.from_emblem_of_frost.select do |emblem_of_frost_item|
-      emblem_of_frost_item.dps_compared_to(equipped_items.with_same_inventory_type(emblem_of_frost_item).first) > 0
-    end
-    upgrades = upgrades.sort_by do |upgrade|
-      upgrade.dps_compared_to(equipped_items.with_same_inventory_type(upgrade).first)
-    end.reverse.slice(0, 3)
+    top_3_upgrades_for(Item.from_emblem_of_frost)
   end
   
   def top_3_triumph_upgrades
-    upgrades = Item.from_emblem_of_triumph.select do |emblem_of_triumph_item|
-      emblem_of_triumph_item.dps_compared_to(equipped_items.with_same_inventory_type(emblem_of_triumph_item).first) > 0
+    top_3_upgrades_for(Item.from_emblem_of_triumph)
+  end
+  
+  def top_3_upgrades_for(potential_upgrades)
+    upgrades = potential_upgrades.select do |potential_upgrade|
+      potential_upgrade.dps_compared_to(equipped_items.with_same_inventory_type(potential_upgrade).first) > 0
     end
-    upgrades = upgrades.sort_by do |upgrade|
+    upgrades.sort_by do |upgrade|
       upgrade.dps_compared_to(equipped_items.with_same_inventory_type(upgrade).first)
     end.reverse.slice(0, 3)
   end
