@@ -12,12 +12,15 @@ class Character < ActiveRecord::Base
   end
   
   def top_3_upgrades_for(potential_upgrades)
-    upgrades = potential_upgrades.select do |potential_upgrade|
-      potential_upgrade.dps_compared_to(equipped_items.with_same_inventory_type(potential_upgrade).first) > 0
+    upgrades = potential_upgrades.inject([]) do |found_upgrades, potential_upgrade|
+      equipped_item = equipped_items.with_same_inventory_type(potential_upgrade).first
+      if potential_upgrade.dps_compared_to(equipped_item) > 0
+        found_upgrades << Upgrade.new(potential_upgrade, equipped_item)
+      else
+        found_upgrades
+      end
     end
-    upgrades.sort_by do |upgrade|
-      upgrade.dps_compared_to(equipped_items.with_same_inventory_type(upgrade).first)
-    end.reverse.slice(0, 3)
+    upgrades.sort_by(&:dps_change).reverse.slice(0, 3)
   end
   
   def wow_class_name

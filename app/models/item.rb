@@ -24,6 +24,7 @@ class Item < ActiveRecord::Base
   end
   
   def dps_compared_to(item)
+    return dps if item.nil?
     dps - item.dps
   end
   

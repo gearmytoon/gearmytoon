@@ -1,0 +1,8 @@
+<div class="upgrade">
+  <%= wowhead_item_icon_link_with_stylized_item_name upgrade.new_item %> : <%= upgrade.dps_change %> from 
+  <% if upgrade.old_item.nil? #TODO: not happy with this if check in the view, should it be here? %>
+    <%= content_tag :span, "Empty Slot", :class => "old_item" %>
+  <% else %>
+    <%= content_tag :span, wowhead_item_icon_link_with_stylized_item_name(upgrade.old_item), :class => "old_item" %>
+  <% end %>
+</div>

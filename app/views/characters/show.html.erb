@@ -4,19 +4,15 @@
 <div id="upgrades">
     <div class="upgrade_section" id="emblem_of_frost">
     <h1>Your best upgrade from <%= stylized_item_name Item.badge_of_frost %> <%= wowhead_item_image_link Item.badge_of_frost %></h1>
-    <% @character.top_3_frost_upgrades.each do |item| %>
-      <div class="upgrade">
-        <%= wowhead_item_image_link item %> <%= stylized_item_name item %> <%= item.dps %>
-      </div>
+    <% @character.top_3_frost_upgrades.each do |upgrade| %>
+      <%= render 'upgrade', :upgrade => upgrade %>
     <% end %>
   </div>
 
   <div class="upgrade_section" id="emblem_of_triumph">
     <h1>Your best upgrade from <%= stylized_item_name Item.badge_of_triumph %> <%= wowhead_item_image_link Item.badge_of_triumph %></h1>
-    <% @character.top_3_triumph_upgrades.each do |item| %>
-      <div class="upgrade">
-        <%= wowhead_item_image_link item %> <%= stylized_item_name item %> <%= item.dps %>
-      </div>
+    <% @character.top_3_triumph_upgrades.each do |upgrade| %>
+      <%= render 'upgrade', :upgrade => upgrade %>
     <% end %>
   </div>
 

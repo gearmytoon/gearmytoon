@@ -12,12 +12,18 @@ class CharacterTest < ActiveSupport::TestCase
   end
 
   context "top_3_frost_upgrades" do
+    should "find a upgrade if you do not have a inventory item in that slot" do
+      character = Factory(:character)
+      upgrade = Factory(:item_from_emblem_of_frost, :bonuses => {:attack_power => 500.0}, :inventory_type => 2)
+      assert_equal upgrade, character.top_3_frost_upgrades.first.new_item
+    end
+    
     should "order the upgrades by the dps increase" do
       character = Factory(:character_item, :item => Factory(:item, :inventory_type => 2, :bonuses => {:attack_power => 100.0})).character
       mid_upgrade = Factory(:item_from_emblem_of_frost, :bonuses => {:attack_power => 200.0}, :inventory_type => 2)
       upgrade = Factory(:item_from_emblem_of_frost, :bonuses => {:attack_power => 500.0}, :inventory_type => 2)
       upgrades = [upgrade, mid_upgrade]
-      assert_equal upgrades.map(&:id), character.top_3_frost_upgrades.map(&:id)
+      assert_equal upgrades.map(&:id), character.top_3_frost_upgrades.map(&:new_item).map(&:id)
     end
 
     should "find a characters upgrades from frost badges" do
@@ -25,7 +31,7 @@ class CharacterTest < ActiveSupport::TestCase
       Factory(:item_from_emblem_of_frost, :bonuses => {:attack_power => 50.0}, :inventory_type => 2)
       upgrade = Factory(:item_from_emblem_of_frost, :bonuses => {:attack_power => 500.0}, :inventory_type => 2)
       assert_equal 1, character.top_3_frost_upgrades.length
-      assert_equal upgrade, character.top_3_frost_upgrades.first
+      assert_equal upgrade, character.top_3_frost_upgrades.first.new_item
     end
 
     should "find the first 3 upgrades" do
@@ -41,7 +47,7 @@ class CharacterTest < ActiveSupport::TestCase
       mid_upgrade = Factory(:item_from_emblem_of_triumph, :bonuses => {:attack_power => 200.0}, :inventory_type => 2)
       upgrade = Factory(:item_from_emblem_of_triumph, :bonuses => {:attack_power => 500.0}, :inventory_type => 2)
       upgrades = [upgrade, mid_upgrade]
-      assert_equal upgrades.map(&:id), character.top_3_triumph_upgrades.map(&:id)
+      assert_equal upgrades.map(&:id), character.top_3_triumph_upgrades.map(&:new_item).map(&:id)
     end
 
     should "find a characters upgrades from frost badges" do
@@ -49,7 +55,7 @@ class CharacterTest < ActiveSupport::TestCase
       Factory(:item_from_emblem_of_triumph, :bonuses => {:attack_power => 50.0}, :inventory_type => 2)
       upgrade = Factory(:item_from_emblem_of_triumph, :bonuses => {:attack_power => 500.0}, :inventory_type => 2)
       assert_equal 1, character.top_3_triumph_upgrades.length
-      assert_equal upgrade, character.top_3_triumph_upgrades.first
+      assert_equal upgrade, character.top_3_triumph_upgrades.first.new_item
     end
 
     should "find the first 3 upgrades" do

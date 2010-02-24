@@ -11,4 +11,8 @@ module CharactersHelper
     #TODO: npc.id is broken, need to parse from the @url attr, fix ItemDropCreature class
     link_to npc.name, "http://www.wowhead.com/?npc=#{npc.id}"
   end
+  
+  def wowhead_item_icon_link_with_stylized_item_name(item)
+    wowhead_item_image_link(item) + " " + stylized_item_name(item)
+  end
 end
