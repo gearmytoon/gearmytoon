@@ -4,7 +4,12 @@ class Character < ActiveRecord::Base
   has_many :equipped_items, :through => :character_items, :source => :item
 
   def top_3_frost_upgrades
-    Item.from_emblem_of_frost
+    upgrades = Item.from_emblem_of_frost.select do |emblem_of_frost_item|
+      emblem_of_frost_item.dps_compared_to(equipped_items.with_same_inventory_type(emblem_of_frost_item).first) > 0
+    end
+    upgrades = upgrades.sort_by do |upgrade|
+      upgrade.dps_compared_to(equipped_items.with_same_inventory_type(upgrade).first)
+    end.reverse.slice(0, 3)
   end
   
   def wow_class_name
