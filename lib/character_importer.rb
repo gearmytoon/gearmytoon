@@ -6,7 +6,7 @@ class CharacterImporter
   def self.import_character_and_all_items(name, realm)
     returning import(name, realm) do |character|
       api = Wowr::API.new(:character_name => name, :realm => realm, 
-                            :local => "tw", :caching => true)
+                            :local => "tw", :caching => false)
       wow_armor_character = api.get_character
       equipped_items = wow_armor_character.items.map do |equipped_item|
         wow_armory_id = equipped_item.instance_variable_get(:@id)

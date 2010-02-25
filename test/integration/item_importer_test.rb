@@ -19,6 +19,15 @@ class CharacterImporterTest < ActiveSupport::TestCase
       assert_equal 47241, item.source_item_id
     end
 
+    should_eventually "import a items cost" do
+      item = nil
+      assert_difference "Item.count" do
+        item = ItemImporter.import_from_wowarmory!(50979)
+      end
+      assert_equal "Logsplitters", item.name
+      assert_equal 60, item.source_item_cost
+    end
+
     should "import a items bonuses" do
       item = ItemImporter.import_from_wowarmory!(50270)
       expected_bonuses = {:intellect=>37, :attack_power=>130, :haste=>54, :agility=>89, :hit=>47, :stamina=>76}
