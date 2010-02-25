@@ -3,9 +3,9 @@ TODO:
 - expand the maxdps.com import to cover all classes - we just use this to initially seed good items, maybe there is a better way to seed items?
 - map wowarmory magic numbers, quality, inventory type, etc into meaningful names, ie quality = 4 should be quality = 'epic'
 - find a way to identify items that drop from heroics/raids etc, there is likely a item source attribute you can backtrace.
+- consider gems slots and gem bonus upgrades when comparing items
+- do the item sources properly, there are two source types: vendor and drop
 
-- get the top 3 dps things for one reward type - adam - 
-- potentially invert the character item comparison  - adam - 
 
 
 - add local to the search, i.e. support euro and oceanic servers.
