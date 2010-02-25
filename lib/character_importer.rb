@@ -13,7 +13,6 @@ class CharacterImporter
         item = Item.find_by_wowarmory_id(wow_armory_id)
         item.nil? ? ItemImporter.import_from_wowarmory!(wow_armory_id) : item
       end
-      equipped_items.compact!
       character.update_attributes(:equipped_items => equipped_items, :wow_class => WowClass.find_or_create_by_name(wow_armor_character.klass))
       character.save!
     end

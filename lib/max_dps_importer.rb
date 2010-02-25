@@ -12,7 +12,6 @@ class MaxDpsImporter
       puts "importing slot #{slot} from maxdps"
       import_max_dps_for_item_slot(slot)
     end
-    backup_items
   end
   
   def import_max_dps_for_item_slot(slot)
@@ -23,12 +22,5 @@ class MaxDpsImporter
       wowarmory_id = wowhead_href.delete("http://www.wowhead.com/?item=")
       ItemImporter.import_from_wowarmory!(wowarmory_id)
     end
-  end
-  
-  def backup_items
-    puts "backing up item list"
-    item_yaml_path = "#{RAILS_ROOT}/db/data/items.yml"
-    File.open(item_yaml_path, 'w') { |f| f.puts Item.all.to_yaml }
-    puts "backup saved to: #{item_yaml_path}"
   end
 end

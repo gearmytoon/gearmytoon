@@ -20,3 +20,6 @@ Factory.define(:character_item) do |model|
   model.association :character
   model.association :item
 end
+
+Factory.define(:wow_class) do |model|
+end

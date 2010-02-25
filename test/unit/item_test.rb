@@ -37,32 +37,32 @@ class ItemTest < ActiveSupport::TestCase
   context "convert_bonuses_to_dps" do
     should "attack power should be worth 0.5 dps" do
       item = Factory(:item, :bonuses => {:attack_power => 130})
-      assert_equal 65.0, item.convert_bonuses_to_dps
+      assert_equal 65.0, item.dps
     end
 
     should "agility should be worth 1 dps" do
       item = Factory(:item, :bonuses => {:agility => 89})
-      assert_equal 89.0, item.convert_bonuses_to_dps
+      assert_equal 89.0, item.dps
     end
 
     should "hit should be worth 0.8 dps" do
       item = Factory(:item, :bonuses => {:hit => 50})
-      assert_equal 40.0, item.convert_bonuses_to_dps
+      assert_equal 40.0, item.dps
     end
 
     should "haste should be worth 0.7 dps" do
       item = Factory(:item, :bonuses => {:haste => 50})
-      assert_equal 35.0, item.convert_bonuses_to_dps
+      assert_equal 35.0, item.dps
     end
 
     should "crit should be worth 0.75 dps" do
       item = Factory(:item, :bonuses => {:crit => 50})
-      assert_equal 37.5, item.convert_bonuses_to_dps
+      assert_equal 37.5, item.dps
     end
 
     should "armor_penetration should be worth 1.1 dps" do
       item = Factory(:item, :bonuses => {:armor_penetration => 50})
-      assert_equal 55, item.convert_bonuses_to_dps.to_i
+      assert_equal 55, item.dps.to_i
     end
 
   end
