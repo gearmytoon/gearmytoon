@@ -9,7 +9,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20100222161302) do
+ActiveRecord::Schema.define(:version => 20100225030905) do
 
   create_table "character_items", :force => true do |t|
     t.integer  "character_id"
@@ -36,6 +36,7 @@ ActiveRecord::Schema.define(:version => 20100222161302) do
     t.integer  "source_item_id"
     t.string   "icon"
     t.text     "bonuses"
+    t.string   "armor_type"
   end
 
   create_table "wow_classes", :force => true do |t|

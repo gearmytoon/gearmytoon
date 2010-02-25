@@ -10,6 +10,7 @@ class ItemImporter
     end
     Item.create!(:wowarmory_id => wowarmory_id, :name => wowarmory_item.name,
                   :quality => wowarmory_item.quality, :inventory_type => wowarmory_item.equip_data.inventory_type,
-                  :source_item_id => source_item_id, :icon => wowarmory_item.icon, :bonuses => wowarmory_item.bonuses)
+                  :source_item_id => source_item_id, :icon => wowarmory_item.icon, :bonuses => wowarmory_item.bonuses,
+                  :armor_type => wowarmory_item.equip_data.subclass_name)
   end
 end
