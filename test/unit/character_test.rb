@@ -26,7 +26,7 @@ class CharacterTest < ActiveSupport::TestCase
       upgrade = Factory(:item_from_emblem_of_frost, :bonuses => {:attack_power => 500.0}, :inventory_type => 2)
       assert_equal upgrade, character.top_3_frost_upgrades.first.new_item
     end
-    
+
     should "order the upgrades by the dps increase" do
       character = Factory(:character_item, :item => Factory(:item, :inventory_type => 2, :bonuses => {:attack_power => 100.0})).character
       mid_upgrade = Factory(:item_from_emblem_of_frost, :bonuses => {:attack_power => 200.0}, :inventory_type => 2)
@@ -91,4 +91,15 @@ class CharacterTest < ActiveSupport::TestCase
     end
   end
 
+  context "top_3_heroic_dungeon_upgrades" do
+    should "return three upgrades" do
+      character = Factory(:character_item, :item => Factory(:item, :inventory_type => 2, :bonuses => {:attack_power => 100.0})).character
+      4.times { Factory(:item_from_heroic_dungeon, :bonuses => {:attack_power => 500.0}, :inventory_type => 2) }
+      upgrades = character.top_3_heroic_dungeon_upgrades
+      assert_equal 3, upgrades.size
+      upgrades.each do |upgrade|
+        assert_kind_of Upgrade, upgrade
+      end
+    end
+  end
 end

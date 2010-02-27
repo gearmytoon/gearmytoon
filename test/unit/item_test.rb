@@ -17,6 +17,14 @@ class ItemTest < ActiveSupport::TestCase
     end
   end
 
+  context "from_heroic_dungeon" do
+    should "find all items that are dropped inside a heroic dungeon" do
+      item = Factory(:item_from_heroic_dungeon)
+      Factory(:item)
+      assert_equal [item], Item.from_heroic_dungeon
+    end
+  end
+
   context "dps_compared_to" do
     should "return the difference in dps with what the character is wearing" do
       fifty_dps = Factory(:item, :inventory_type => 0, :bonuses => {:attack_power => 100.0})
@@ -24,7 +32,7 @@ class ItemTest < ActiveSupport::TestCase
       assert_equal 50.0, one_hundred_dps.dps_compared_to(fifty_dps)
     end
   end
-  
+
   context "in_same_slot_as" do
     should "find all items in the same slot" do
       item = Factory(:item, :inventory_type => 0)
@@ -32,7 +40,7 @@ class ItemTest < ActiveSupport::TestCase
       assert_equal [item], Item.with_same_inventory_type(item)
     end
   end
-  
+
   #this should go to a hunter dps forumla class eventually, it's own model
   context "convert_bonuses_to_dps" do
     should "attack power should be worth 0.5 dps" do
@@ -66,12 +74,12 @@ class ItemTest < ActiveSupport::TestCase
     end
 
   end
-  
+
   context "dps" do
     should "know the relative dps for a item" do
       item = Factory(:item, :bonuses => {:attack_power => 130, :agility => 89, :hit => 47, :stamina => 76})
       assert_equal 191.6, item.dps
     end
   end
-  
+
 end

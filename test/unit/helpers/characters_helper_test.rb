@@ -10,7 +10,7 @@ class CharactersHelperTest < ActionView::TestCase
       assert_equal "<a href=\"http://www.wowhead.com/?item=4864\"><img alt=\"Minshina's Skull\" border=\"0\" src=\"http://www.wowarmory.com/some_item_thumb\" /></a>", tag
     end
   end
-  
+
   context "wowhead_npc_link" do
     should "generate a link to wowhead for the npc" do
       tag = wowhead_npc_link(stub_everything(:name => "Bronjahm", :id => 36497))
@@ -19,7 +19,7 @@ class CharactersHelperTest < ActionView::TestCase
       assert_equal "<a href=\"http://www.wowhead.com/?npc=2\">Kong</a>", tag
     end
   end
-  
+
   context "stylized_item_name" do
     should "provide a span with the item name and its quality" do
       item = OpenStruct.new(:quality => 4, :name => "Minshina's Skull")
@@ -27,5 +27,12 @@ class CharactersHelperTest < ActionView::TestCase
       assert_equal "<span class=\"epic\">Minshina's Skull</span>", tag
     end
   end
-  
+
+  context "wowhead_zone_link" do
+    should "link to a zone" do
+      tag = wowhead_zone_link(1234)
+      assert_equal "<a href=\"http://www.wowhead.com/?zone=1234\">1234</a>", tag
+    end
+  end
+
 end

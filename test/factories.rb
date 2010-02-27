@@ -18,6 +18,10 @@ Factory.define(:item_from_emblem_of_triumph, :parent => :item) do |model|
   model.source_item_id Item::TRIUMPH_EMBLEM_ARMORY_ID
 end
 
+Factory.define(:item_from_heroic_dungeon, :parent => :item) do |model|
+  model.sequence(:dungeon_id) {|n| 4567+n}
+end
+
 Factory.define(:item_from_emblem_of_frost, :parent => :item) do |model|
   model.source_item_id Item::FROST_EMBLEM_ARMORY_ID
 end

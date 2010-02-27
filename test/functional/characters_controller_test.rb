@@ -38,7 +38,7 @@ class CharactersControllerTest < ActionController::TestCase
       get :show, :id => character.id
       assert_select ".upgrade_section h1 .epic", :text => "Emblem of Frost"
     end
-    
+
     should "show 3 upgrades under the frost emblem section" do
       3.times {Factory(:item_from_emblem_of_frost)}
       character = Factory(:character)
@@ -73,14 +73,15 @@ class CharactersControllerTest < ActionController::TestCase
       get :show, :id => character.id
       assert_select "#emblem_of_triumph .upgrade", :count => 3
     end
-    
-    should_eventually "show 3 upgrades and 3 sources under the heroic dungeon" do
+
+    should "show 3 upgrades and 3 sources under the heroic dungeon" do
+      3.times {Factory(:item_from_heroic_dungeon)}
       character = Factory(:character)
       get :show, :id => character.id
       assert_select "#heroic_dungeon .upgrade", :count => 3
       assert_select "#heroic_dungeon .source", :count => 3
     end
-    
+
   end
 end
 
