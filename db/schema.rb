@@ -9,7 +9,13 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20100225055512) do
+ActiveRecord::Schema.define(:version => 20100227202555) do
+
+  create_table "armor_types", :force => true do |t|
+    t.string   "name"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
 
   create_table "character_items", :force => true do |t|
     t.integer  "character_id"
@@ -36,7 +42,7 @@ ActiveRecord::Schema.define(:version => 20100225055512) do
     t.integer  "source_item_id"
     t.string   "icon"
     t.text     "bonuses"
-    t.string   "armor_type"
+    t.integer  "armor_type_id"
   end
 
   create_table "wow_classes", :force => true do |t|
@@ -44,6 +50,7 @@ ActiveRecord::Schema.define(:version => 20100225055512) do
     t.datetime "created_at"
     t.datetime "updated_at"
     t.text     "stat_multipliers"
+    t.integer  "primary_armor_type_id"
   end
 
 end

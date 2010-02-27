@@ -5,6 +5,7 @@ class Item < ActiveRecord::Base
   named_scope :from_emblem_of_triumph, :conditions => {:source_item_id => TRIUMPH_EMBLEM_ARMORY_ID}
   named_scope :from_emblem_of_frost, :conditions => {:source_item_id => FROST_EMBLEM_ARMORY_ID}
   named_scope :with_same_inventory_type, Proc.new {|item| {:conditions => {:inventory_type => item.inventory_type}}}
+  belongs_to :armor_type
 
   def self.badge_of_frost
     fetch_from_api(FROST_EMBLEM_ARMORY_ID)

@@ -9,6 +9,7 @@ class WowClassImporterTest < ActiveSupport::TestCase
       WowClass.all.each do |wow_class|
         assert_not_nil wow_class.name
         assert_not_nil wow_class.stat_multipliers
+        assert_not_nil wow_class.primary_armor_type
       end
     end
   end
