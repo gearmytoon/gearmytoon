@@ -5,6 +5,8 @@ class Item < ActiveRecord::Base
   named_scope :from_emblem_of_triumph, :conditions => {:source_item_id => TRIUMPH_EMBLEM_ARMORY_ID}
   named_scope :from_emblem_of_frost, :conditions => {:source_item_id => FROST_EMBLEM_ARMORY_ID}
   named_scope :with_same_inventory_type, Proc.new {|item| {:conditions => {:inventory_type => item.inventory_type}}}
+
+  named_scope :usable_by, Proc.new {|wow_class| {:conditions => {:armor_type_id => [ArmorType.Miscellaneous.id, wow_class.primary_armor_type.id]}}}
   belongs_to :armor_type
 
   def self.badge_of_frost

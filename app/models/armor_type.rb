@@ -3,7 +3,7 @@ class ArmorType < ActiveRecord::Base
   has_many :items
   
   class << self
-    ["Leather", "Plate", "Mail", "Cloth"].each do |armor_type|
+    ["Leather", "Plate", "Mail", "Cloth", "Miscellaneous"].each do |armor_type|
       define_method(armor_type) do
         ArmorType.find_or_create_by_name(armor_type)
       end

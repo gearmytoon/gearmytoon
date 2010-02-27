@@ -1,9 +1,10 @@
 TODO:
 - change the import process to build a list of items we care about from max dps and have a seperate task to refresh/build the list from wowarmory
-- readd ring/trinket/cloak support
 - add weapon upgrade support
 - add specific dps multipliers based on class spec's
 - add class specific armor types (ie some mail is only usable by hunters)
+- add faction to character and item
+- don't import items more then once
 
 - import all items for all classes
 - implement the stat standardized dps units for each class - when you ask a item for dps you will pass in it's multiplier object

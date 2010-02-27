@@ -2,7 +2,10 @@ class WowClass < ActiveRecord::Base
   has_many :characters
   serialize :stat_multipliers
   belongs_to :primary_armor_type, :class_name => "ArmorType"
-  has_many :equippable_items, :through => :primary_armor_type, :source => :items
+  
+  def equippable_items
+    Item.usable_by(self)
+  end
   
   module WowClassConstants
     DeathKnight = {:name => "Death Knight", :primary_armor_type => ArmorType.Plate,
