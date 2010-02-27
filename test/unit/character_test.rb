@@ -12,6 +12,15 @@ class CharacterTest < ActiveSupport::TestCase
   end
 
   context "top_3_frost_upgrades" do
+    
+    should "find upgrades of the same armor type" do
+      rogue = Factory(:a_rogue)
+      plate_upgrade = Factory(:item_from_emblem_of_frost, :bonuses => {:attack_power => 500.0}, :inventory_type => 2, :armor_type => ArmorType.Plate)
+      leather_upgrade = Factory(:item_from_emblem_of_frost, :bonuses => {:attack_power => 500.0}, :inventory_type => 2, :armor_type => ArmorType.Leather)
+      assert_equal 1, rogue.top_3_frost_upgrades.size
+      assert_equal leather_upgrade, rogue.top_3_frost_upgrades.first.new_item
+    end
+
     should "find a upgrade if you do not have a inventory item in that slot" do
       character = Factory(:character)
       upgrade = Factory(:item_from_emblem_of_frost, :bonuses => {:attack_power => 500.0}, :inventory_type => 2)
@@ -42,6 +51,15 @@ class CharacterTest < ActiveSupport::TestCase
   end
 
   context "top_3_triumph_upgrades" do
+
+    should "find upgrades of the same armor type" do
+      rogue = Factory(:a_rogue)
+      plate_upgrade = Factory(:item_from_emblem_of_triumph, :bonuses => {:attack_power => 500.0}, :inventory_type => 2, :armor_type => ArmorType.Plate)
+      leather_upgrade = Factory(:item_from_emblem_of_triumph, :bonuses => {:attack_power => 500.0}, :inventory_type => 2, :armor_type => ArmorType.Leather)
+      assert_equal 1, rogue.top_3_triumph_upgrades.size
+      assert_equal leather_upgrade, rogue.top_3_triumph_upgrades.first.new_item
+    end
+
     should "order the upgrades by the dps increase" do
       character = Factory(:character_item, :item => Factory(:item, :inventory_type => 2, :bonuses => {:attack_power => 100.0})).character
       mid_upgrade = Factory(:item_from_emblem_of_triumph, :bonuses => {:attack_power => 200.0}, :inventory_type => 2)

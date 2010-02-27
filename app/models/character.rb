@@ -4,11 +4,11 @@ class Character < ActiveRecord::Base
   has_many :equipped_items, :through => :character_items, :source => :item
 
   def top_3_frost_upgrades
-    top_3_upgrades_for(Item.from_emblem_of_frost)
+    top_3_upgrades_for(wow_class.equippable_items.from_emblem_of_frost)
   end
   
   def top_3_triumph_upgrades
-    top_3_upgrades_for(Item.from_emblem_of_triumph)
+    top_3_upgrades_for(wow_class.equippable_items.from_emblem_of_triumph)
   end
   
   def top_3_upgrades_for(potential_upgrades)

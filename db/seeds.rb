@@ -1,2 +1,3 @@
 WowClassImporter.import_all_classes
-MaxDpsImporter.new.import_from_max_dps
+MaxDpsImporter.new(MaxDpsImporter::Hunter).import_from_max_dps
+MaxDpsImporter.new(MaxDpsImporter::Rogue).import_from_max_dps
