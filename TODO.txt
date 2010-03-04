@@ -15,8 +15,6 @@ TODO:
 - map wowarmory magic numbers, quality, inventory type, etc into meaningful names, ie quality = 4 should be quality = 'epic'
 - consider gems slots and gem bonus upgrades when comparing items
 
-- BUG in item importer: duplicate items being found if they exist on both toon pages
-
 - add local to the search, i.e. support euro and oceanic servers.
 
 - take racials into account

@@ -2,6 +2,13 @@ require File.dirname(__FILE__) + '/../test_helper'
 
 class CharacterImporterTest < ActiveSupport::TestCase
   context "import_from_wowarmory!" do
+    should "not import duplicates" do
+      ItemImporter.import_from_wowarmory!(50270)
+      assert_no_difference "Item.count" do
+        ItemImporter.import_from_wowarmory!(50270)
+      end
+    end
+    
     should "import basic item attributes" do
       item = ItemImporter.import_from_wowarmory!(50270)
       assert_equal "Belt of Rotted Fingernails", item.name
