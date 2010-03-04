@@ -19,7 +19,7 @@ Factory.define(:item_from_emblem_of_triumph, :parent => :item) do |model|
 end
 
 Factory.define(:item_from_heroic_dungeon, :parent => :item) do |model|
-  model.sequence(:dungeon_id) {|n| 4567+n}
+  model.association :area
 end
 
 Factory.define(:item_from_emblem_of_frost, :parent => :item) do |model|
@@ -33,4 +33,9 @@ end
 
 Factory.define(:wow_class) do |model|
   model.primary_armor_type ArmorType.Mail
+end
+
+Factory.define(:area) do |model|
+  model.name "Super Fun Unicorn Land"
+  model.sequence(:wowarmory_id) {|n| n}
 end

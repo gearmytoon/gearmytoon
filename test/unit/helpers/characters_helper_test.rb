@@ -27,12 +27,4 @@ class CharactersHelperTest < ActionView::TestCase
       assert_equal "<span class=\"epic\">Minshina's Skull</span>", tag
     end
   end
-
-  context "wowhead_zone_link" do
-    should "link to a zone" do
-      tag = wowhead_zone_link(1234)
-      assert_equal "<a href=\"http://www.wowhead.com/?zone=1234\">1234</a>", tag
-    end
-  end
-
 end

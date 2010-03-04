@@ -1,0 +1,2 @@
+class Dungeon < Area
+end
