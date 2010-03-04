@@ -46,10 +46,11 @@ class CharactersControllerTest < ActionController::TestCase
       assert_select "#emblem_of_frost .upgrade", :count => 3
     end
 
-    should_eventually "show how much the item costs" do
+    should "show how much the item costs" do
+      Factory(:item_from_emblem_of_frost, :token_cost => 27)
       character = Factory(:character)
       get :show, :id => character.id
-      assert_select "#emblem_of_frost .upgrade .cost", :text => "60"
+      assert_select "#emblem_of_frost .upgrade .cost", :text => "27"
     end
 
     should "show what you are upgrade from in the upgrade section" do

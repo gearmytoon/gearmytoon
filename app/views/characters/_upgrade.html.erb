@@ -7,5 +7,7 @@
   <% end %>
   <% if upgrade.new_item.dungeon_id.present? %>
     <span class="source">Drops in Dungeon: <%= wowhead_zone_link(upgrade.new_item.dungeon_id) %></span>
+  <% elsif upgrade.new_item.source_item_id.present? %>
+    Will cost you: <%= content_tag :span, upgrade.new_item.token_cost, :class => "cost" %> emblem's.
   <% end %>
 </div>

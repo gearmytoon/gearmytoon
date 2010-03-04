@@ -12,21 +12,28 @@ class CharacterImporterTest < ActiveSupport::TestCase
     end
 
     should "import a items source" do
-      item = nil
       assert_difference "Item.count" do
         item = ItemImporter.import_from_wowarmory!(47732)
+        assert_equal "Band of the Invoker", item.name
+        assert_equal 47241, item.source_item_id
       end
-      assert_equal "Band of the Invoker", item.name
-      assert_equal 47241, item.source_item_id
     end
 
-    should_eventually "import a items cost" do
-      item = nil
+    should "not import items that cost more then triumph badges" do
+      assert_no_difference "Item.from_emblem_of_triumph.count" do
+        assert_difference "Item.count" do
+          item = ItemImporter.import_from_wowarmory!(48223)
+          assert_equal "VanCleef's Breastplate of Triumph", item.name
+        end
+      end
+    end
+
+    should "import a items cost" do
       assert_difference "Item.count" do
         item = ItemImporter.import_from_wowarmory!(50979)
+        assert_equal "Logsplitters", item.name
+        assert_equal 60, item.token_cost
       end
-      assert_equal "Logsplitters", item.name
-      assert_equal 60, item.source_item_cost
     end
 
     should "import a items bonuses" do

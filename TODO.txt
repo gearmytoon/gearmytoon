@@ -15,16 +15,12 @@ TODO:
 - map wowarmory magic numbers, quality, inventory type, etc into meaningful names, ie quality = 4 should be quality = 'epic'
 - consider gems slots and gem bonus upgrades when comparing items
 
-
+- BUG in item importer: duplicate items being found if they exist on both toon pages
 
 - add local to the search, i.e. support euro and oceanic servers.
 
-- show item cost in badges on the character show page
-- populate real data by character name/realm on a class basis
-- run real forumla's for classes - start with hunter - STARTED
 - take racials into account
 - take trinkets cooldown effects into account *** ie 1024 attack power for 20 seconds with a 2 min cooldown = (1024 * (20/120)) * attack_power_multiplier
-
 
 - setup recurring payments - http://www.braintreepaymentsolutions.com/
 - rpxnow? for signin/signup
