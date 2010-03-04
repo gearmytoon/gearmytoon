@@ -3,6 +3,9 @@
   <% form_for(:character) do |f| %>
     <%= f.label :name %>
     <%= f.text_field :name %>
+    <br/>
+    <%= f.label :realm %>
+    <%= f.text_field :realm %>
     <%= f.submit "Search" %>
   <% end %>
 </div>

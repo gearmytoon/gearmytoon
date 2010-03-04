@@ -39,7 +39,6 @@ ActiveRecord::Schema.define(:version => 20100227202555) do
     t.datetime "updated_at"
     t.integer  "inventory_type"
     t.integer  "quality"
-    t.integer  "cost"
     t.integer  "source_item_id"
     t.string   "icon"
     t.text     "bonuses"

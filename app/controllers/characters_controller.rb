@@ -1,10 +1,11 @@
 class CharactersController < ApplicationController
   
   def index
+    @character = Character.new(:realm => "Baelgun")
   end
   
   def create
-    @character = Character.find_by_name_or_create_from_wowarmory(params[:character][:name])
+    @character = Character.find_by_name_and_realm_or_create_from_wowarmory(params[:character][:name], params[:character][:realm])
     redirect_to character_path(@character)
   end
   

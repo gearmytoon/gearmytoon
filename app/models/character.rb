@@ -31,12 +31,12 @@ class Character < ActiveRecord::Base
     wow_class.name
   end
 
-  def self.find_by_name_or_create_from_wowarmory(name)
-    character = Character.find_by_name(name)
+  def self.find_by_name_and_realm_or_create_from_wowarmory(name, realm)
+    character = Character.find_by_name_and_realm(name, realm)
     if character
       return character
     else
-      CharacterImporter.import_character_and_all_items(name, "Baelgun") #TODO LOOKUP BY REALM AND REGION!
+      CharacterImporter.import_character_and_all_items(name, realm) #TODO LOOKUP BY REALM AND REGION!
     end
   end
 end
