@@ -375,7 +375,7 @@ module Wowr
 				@type 	= (elem%'damage'%'type').html.to_i
 				@min 		= (elem%'damage'%'min').html.to_i
 				@max 		= (elem%'damage'%'max').html.to_i
-				@speed 	= (elem%'speed').html.to_i	if (elem%'speed')
+				@speed 	= (elem%'speed').html.to_f	if (elem%'speed')
 				@dps 		= (elem%'dps').html.to_f		if (elem%'dps')
 			end
 		end

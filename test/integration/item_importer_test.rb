@@ -9,6 +9,14 @@ class CharacterImporterTest < ActiveSupport::TestCase
       end
     end
     
+    should "import melee weapon dps" do
+      item = ItemImporter.import_from_wowarmory!(49682)
+      assert_equal "Black Knight's Rondel", item.name
+      assert_equal 235, item.bonuses[:melee_min_damage]
+      assert_equal 353, item.bonuses[:melee_max_damage]
+      assert_equal 1.8, item.bonuses[:melee_attack_speed]
+    end
+    
     should "import basic item attributes" do
       item = ItemImporter.import_from_wowarmory!(50270)
       assert_equal "Belt of Rotted Fingernails", item.name
