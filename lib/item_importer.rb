@@ -17,7 +17,6 @@ class ItemImporter
       end
       bonuses = wowarmory_item.bonuses
       if damage = wowarmory_item.instance_variable_get(:@tooltip).instance_variable_get(:@damage) #wow wtf wowr gem you fucking suck, seriously.
-        p wowarmory_item.instance_variable_get(:@tooltip)
         bonuses[:melee_min_damage] = damage.min
         bonuses[:melee_max_damage] = damage.max
         bonuses[:melee_attack_speed] = damage.speed
