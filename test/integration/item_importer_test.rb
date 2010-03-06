@@ -16,7 +16,15 @@ class CharacterImporterTest < ActiveSupport::TestCase
       assert_equal 353, item.bonuses[:melee_max_damage]
       assert_equal 1.8, item.bonuses[:melee_attack_speed]
     end
-    
+
+    should "import ranged weapon dps" do
+      item = ItemImporter.import_from_wowarmory!(50776)
+      assert_equal "Njordnar Bone Bow", item.name
+      assert_equal 490, item.bonuses[:ranged_min_damage]
+      assert_equal 814, item.bonuses[:ranged_max_damage]
+      assert_equal 2.9, item.bonuses[:ranged_attack_speed]
+    end
+
     should "import basic item attributes" do
       item = ItemImporter.import_from_wowarmory!(50270)
       assert_equal "Belt of Rotted Fingernails", item.name
