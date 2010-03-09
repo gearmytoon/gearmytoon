@@ -42,6 +42,14 @@ class CharacterImporterTest < ActiveSupport::TestCase
       end
     end
 
+    should "import a items dungeon" do
+      item = ItemImporter.import_from_wowarmory!(49682)
+      assert_equal "Black Knight's Rondel", item.name
+      assert_not_nil item.area
+      assert Area::DUNGEONS.include?(item.area.wowarmory_id)
+      assert_equal "Trial of the Champion", item.area.name
+    end
+
     should "not import items that cost more then triumph badges" do
       assert_no_difference "Item.from_emblem_of_triumph.count" do
         assert_difference "Item.count" do
