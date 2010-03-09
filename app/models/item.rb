@@ -1,17 +1,17 @@
 class Item < ActiveRecord::Base
   TRIUMPH_EMBLEM_ARMORY_ID = 47241
   FROST_EMBLEM_ARMORY_ID = 49426
-  DUNGEONS = [206,4120,3477,4494,4196,4415,4375,4264,1196,4272,4228,4809,4813,4820,4723,4100]
-  RAIDS = [4603,4273,4493,4500,2159,3456,4812,4722]
 
   serialize :bonuses
   named_scope :from_emblem_of_triumph, :conditions => {:source_item_id => TRIUMPH_EMBLEM_ARMORY_ID}
   named_scope :from_emblem_of_frost, :conditions => {:source_item_id => FROST_EMBLEM_ARMORY_ID}
-  named_scope :from_heroic_dungeon, :conditions => {:dungeon_id => DUNGEONS}
+  # named_scope :from_heroic_dungeon, :conditions => {:dungeon_id => DUNGEONS}
+  named_scope :from_heroic_dungeon, :conditions => ['area_id IS NOT NULL']
   named_scope :with_same_inventory_type, Proc.new {|item| {:conditions => {:inventory_type => item.inventory_type}}}
 
   named_scope :usable_by, Proc.new {|wow_class| {:conditions => {:armor_type_id => [ArmorType.Miscellaneous.id, wow_class.primary_armor_type.id]}}}
   belongs_to :armor_type
+  belongs_to :area
 
   def self.badge_of_frost
     fetch_from_api(FROST_EMBLEM_ARMORY_ID)

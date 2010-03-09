@@ -1,0 +1,2 @@
+class Raid < Area
+end

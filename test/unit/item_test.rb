@@ -1,6 +1,8 @@
 require File.dirname(__FILE__) + '/../test_helper'
 
 class ItemTest < ActiveSupport::TestCase
+  should_belong_to :area
+
   context "from_emblem_of_triumph" do
     should "find all items that can be purchased with emblem_of_triumph" do
       item_from_emblem_of_triumph = Factory(:item_from_emblem_of_triumph)
