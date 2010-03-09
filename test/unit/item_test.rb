@@ -33,11 +33,11 @@ class ItemTest < ActiveSupport::TestCase
     
   end
 
-  context "dps_compared_to" do
+  context "dps_compared_to_for_class" do
     should "return the difference in dps with what the character is wearing" do
       fifty_dps = Factory(:item, :inventory_type => 0, :bonuses => {:attack_power => 100.0})
       one_hundred_dps = Factory(:item, :inventory_type => 0, :bonuses => {:attack_power => 200.0})
-      assert_equal 50.0, one_hundred_dps.dps_compared_to(fifty_dps)
+      assert_equal 50.0, one_hundred_dps.dps_compared_to_for_class(fifty_dps, Factory(:a_rogue).wow_class)
     end
   end
 
@@ -46,47 +46,6 @@ class ItemTest < ActiveSupport::TestCase
       item = Factory(:item, :inventory_type => 0)
       Factory(:item, :inventory_type => 1)
       assert_equal [item], Item.with_same_inventory_type(item)
-    end
-  end
-
-  #this should go to a hunter dps forumla class eventually, it's own model
-  context "convert_bonuses_to_dps" do
-    should "attack power should be worth 0.5 dps" do
-      item = Factory(:item, :bonuses => {:attack_power => 130})
-      assert_equal 65.0, item.dps
-    end
-
-    should "agility should be worth 1 dps" do
-      item = Factory(:item, :bonuses => {:agility => 89})
-      assert_equal 89.0, item.dps
-    end
-
-    should "hit should be worth 0.8 dps" do
-      item = Factory(:item, :bonuses => {:hit => 50})
-      assert_equal 40.0, item.dps
-    end
-
-    should "haste should be worth 0.7 dps" do
-      item = Factory(:item, :bonuses => {:haste => 50})
-      assert_equal 35.0, item.dps
-    end
-
-    should "crit should be worth 0.75 dps" do
-      item = Factory(:item, :bonuses => {:crit => 50})
-      assert_equal 37.5, item.dps
-    end
-
-    should "armor_penetration should be worth 1.1 dps" do
-      item = Factory(:item, :bonuses => {:armor_penetration => 50})
-      assert_equal 55, item.dps.to_i
-    end
-
-  end
-
-  context "dps" do
-    should "know the relative dps for a item" do
-      item = Factory(:item, :bonuses => {:attack_power => 130, :agility => 89, :hit => 47, :stamina => 76})
-      assert_equal 191.6, item.dps
     end
   end
 

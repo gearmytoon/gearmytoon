@@ -30,7 +30,7 @@ class ItemImporter
     end
   end
 
-  RANGED_WEAPONS = ["Bow", "Gun", "Crossbow"]
+  RANGED_WEAPONS = ["Bow", "Gun", "Crossbow", "Thrown"]
 
   def self.get_item_bonuses(wowarmory_item)
     returning wowarmory_item.bonuses do |bonuses|

@@ -29,21 +29,9 @@ class Item < ActiveRecord::Base
     wowarmory_item_id
   end
 
-  def dps_compared_to(item)
-    return dps if item.nil?
-    dps - item.dps
-  end
-
-  def dps
-    convert_bonuses_to_dps({:attack_power => 0.5, :agility => 1, :armor_penetration => 1.1, :crit => 0.75, :haste => 0.7, :hit => 0.8})
-  end
-
-  #this should become a relation of the character class(ruby class) through the characters class(wow class)
-  def convert_bonuses_to_dps(relative_bonus_dps_values)
-    relative_bonus_dps_values.inject(0) do |total_dps, relative_bonus_dps_value|
-      stat_name, relative_dps_value = relative_bonus_dps_value
-      total_dps += relative_dps_value * (bonuses[stat_name] ? bonuses[stat_name] : 0)
-    end
+  def dps_compared_to_for_class(item, wow_class)
+    return wow_class.dps_for(self.bonuses) if item.nil?
+    wow_class.dps_for(self.bonuses) - wow_class.dps_for(item.bonuses)
   end
 
 end
