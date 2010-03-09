@@ -19,7 +19,7 @@ Factory.define(:item_from_emblem_of_triumph, :parent => :item) do |model|
 end
 
 Factory.define(:item_from_heroic_dungeon, :parent => :item) do |model|
-  model.sequence(:dungeon_id) {|n| 4567+n}
+  model.dungeon_id Item::DUNGEONS.first
 end
 
 Factory.define(:item_from_emblem_of_frost, :parent => :item) do |model|
