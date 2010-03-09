@@ -9,13 +9,13 @@ end
 Factory.define(:item) do |model|
   model.name "Factory Item"
   model.icon "Factory_icon.png"
-  model.wowarmory_id 1
+  model.wowarmory_item_id 1
   model.bonuses :attack_power => 100
   model.armor_type ArmorType.Mail
 end
 
 Factory.define(:item_from_emblem_of_triumph, :parent => :item) do |model|
-  model.source_item_id Item::TRIUMPH_EMBLEM_ARMORY_ID
+  model.source_wowarmory_item_id Item::TRIUMPH_EMBLEM_ARMORY_ID
 end
 
 Factory.define(:item_from_heroic_dungeon, :parent => :item) do |model|
@@ -27,7 +27,7 @@ Factory.define(:item_from_heroic_raid, :parent => :item) do |model|
 end
 
 Factory.define(:item_from_emblem_of_frost, :parent => :item) do |model|
-  model.source_item_id Item::FROST_EMBLEM_ARMORY_ID
+  model.source_wowarmory_item_id Item::FROST_EMBLEM_ARMORY_ID
 end
 
 Factory.define(:character_item) do |model|

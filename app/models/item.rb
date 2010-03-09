@@ -3,8 +3,8 @@ class Item < ActiveRecord::Base
   FROST_EMBLEM_ARMORY_ID = 49426
 
   serialize :bonuses
-  named_scope :from_emblem_of_triumph, :conditions => {:source_item_id => TRIUMPH_EMBLEM_ARMORY_ID}
-  named_scope :from_emblem_of_frost, :conditions => {:source_item_id => FROST_EMBLEM_ARMORY_ID}
+  named_scope :from_emblem_of_triumph, :conditions => {:source_wowarmory_item_id => TRIUMPH_EMBLEM_ARMORY_ID}
+  named_scope :from_emblem_of_frost, :conditions => {:source_wowarmory_item_id => FROST_EMBLEM_ARMORY_ID}
   named_scope :from_heroic_dungeon, Proc.new {{:conditions => {:source_area_id => Area.dungeons.map(&:id)}}} #delaying evaluation
   named_scope :with_same_inventory_type, Proc.new {|item| {:conditions => {:inventory_type => item.inventory_type}}}
 
@@ -26,7 +26,7 @@ class Item < ActiveRecord::Base
   end
 
   def item_id #to quack the same as wowr wowitems
-    wowarmory_id
+    wowarmory_item_id
   end
 
   def dps_compared_to(item)

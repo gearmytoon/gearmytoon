@@ -38,7 +38,7 @@ class CharacterImporterTest < ActiveSupport::TestCase
       assert_difference "Item.count" do
         item = ItemImporter.import_from_wowarmory!(47732)
         assert_equal "Band of the Invoker", item.name
-        assert_equal 47241, item.source_item_id
+        assert_equal 47241, item.source_wowarmory_item_id
       end
     end
 

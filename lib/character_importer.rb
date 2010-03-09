@@ -9,9 +9,9 @@ class CharacterImporter
                             :local => "tw", :caching => false)
       wow_armor_character = api.get_character
       equipped_items = wow_armor_character.items.map do |equipped_item|
-        wow_armory_id = equipped_item.instance_variable_get(:@id)
-        item = Item.find_by_wowarmory_id(wow_armory_id)
-        item.nil? ? ItemImporter.import_from_wowarmory!(wow_armory_id) : item
+        wow_armory_item_id = equipped_item.instance_variable_get(:@id)
+        item = Item.find_by_wowarmory_item_id(wow_armory_item_id)
+        item.nil? ? ItemImporter.import_from_wowarmory!(wow_armory_item_id) : item
       end
       character.update_attributes(:equipped_items => equipped_items, :wow_class => WowClass.find_by_name(wow_armor_character.klass))
       character.save!

@@ -7,7 +7,7 @@
   <% end %>
   <% if upgrade.new_item.source_area.present? %>
     <span class="source">Found in: <%= wowhead_area_link(upgrade.new_item.source_area) %></span>
-  <% elsif upgrade.new_item.source_item_id.present? %>
+  <% elsif upgrade.new_item.source_wowarmory_item_id.present? %>
     Will cost you: <%= content_tag :span, upgrade.new_item.token_cost, :class => "cost" %> emblem's.
   <% end %>
 </div>
