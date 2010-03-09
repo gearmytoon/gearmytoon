@@ -4,6 +4,9 @@ class Area < ActiveRecord::Base
 
   TYPES = ['Area','Dungeon','Raid']
 
+  named_scope :dungeons, :conditions => {:wowarmory_id => DUNGEONS}
+  named_scope :raids, :conditions => {:wowarmory_id => RAIDS}
+
   after_create :set_name
 
   def set_name

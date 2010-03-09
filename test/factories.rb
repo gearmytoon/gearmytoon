@@ -19,7 +19,11 @@ Factory.define(:item_from_emblem_of_triumph, :parent => :item) do |model|
 end
 
 Factory.define(:item_from_heroic_dungeon, :parent => :item) do |model|
-  model.association :area
+  model.association :area, :factory => :dungeon
+end
+
+Factory.define(:item_from_heroic_raid, :parent => :item) do |model|
+  model.association :area, :factory => :raid
 end
 
 Factory.define(:item_from_emblem_of_frost, :parent => :item) do |model|
@@ -35,7 +39,13 @@ Factory.define(:wow_class) do |model|
   model.primary_armor_type ArmorType.Mail
 end
 
-Factory.define(:area) do |model|
+Factory.define(:dungeon, :class => :area) do |model|
   model.name "Super Fun Unicorn Land"
   model.wowarmory_id Area::DUNGEONS.first
 end
+
+Factory.define(:raid, :class => :area) do |model|
+  model.name "Super DUPER Fun Unicorn Land"
+  model.wowarmory_id Area::RAIDS.first
+end
+ 

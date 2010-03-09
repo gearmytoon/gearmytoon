@@ -25,6 +25,12 @@ class ItemTest < ActiveSupport::TestCase
       Factory(:item)
       assert_equal [item], Item.from_heroic_dungeon
     end
+    
+    should "not find items that are dropped inside a heroic raid" do
+      Factory(:item_from_heroic_raid)
+      assert_equal [], Item.from_heroic_dungeon
+    end
+    
   end
 
   context "dps_compared_to" do

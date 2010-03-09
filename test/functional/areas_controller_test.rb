@@ -1,4 +1,4 @@
-require 'test_helper'
+require File.dirname(__FILE__) + '/../test_helper'
 
 class AreasControllerTest < ActionController::TestCase
   context "GET index" do
@@ -10,7 +10,7 @@ class AreasControllerTest < ActionController::TestCase
 
   context "GET show" do
     setup do
-      area = Factory(:area)
+      area = Factory(:dungeon)
       get :show, :id => area.id
     end
 
@@ -27,7 +27,7 @@ class AreasControllerTest < ActionController::TestCase
 
   context "GET edit" do
     setup do
-      area = Factory(:area)
+      area = Factory(:dungeon)
       get :edit, :id => area.id
     end
 
@@ -84,7 +84,7 @@ class AreasControllerTest < ActionController::TestCase
 
   context "POST update" do
     setup do
-      @area = Factory(:area)
+      @area = Factory(:dungeon)
       post :update, :id => @area.id, :area => {:name => "Lol Town", :wowarmory_id => 1234}
     end
 

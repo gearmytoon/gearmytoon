@@ -1,11 +1,11 @@
-require 'test_helper'
+require File.dirname(__FILE__) + '/../../test_helper'
 
 class AreasHelperTest < ActionView::TestCase
   context "wowhead_area_link" do
     should "link to a area" do
-      area = Factory(:area)
-      tag = wowhead_area_link(area)
-      assert_equal "<a href=\"http://www.wowhead.com/?zone=#{area.wowarmory_id}\">#{area.name}</a>", tag
+      dungeon = Factory(:dungeon)
+      tag = wowhead_area_link(dungeon)
+      assert_equal "<a href=\"http://www.wowhead.com/?zone=#{dungeon.wowarmory_id}\">#{dungeon.name}</a>", tag
     end
   end
 end
