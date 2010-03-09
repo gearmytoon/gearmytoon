@@ -15,15 +15,15 @@ class ItemImporter
         end
         if wowarmory_item.drop_creatures.try(:first) && wowarmory_item.item_source.difficulty == 'h'
           area_id = wowarmory_item.item_source.area_id
-          area = Area.find_or_create_by_wowarmory_id(area_id)
-          area.update_attributes(:name => wowarmory_item.item_source.area_name)
+          source_area = Area.find_or_create_by_wowarmory_area_id(area_id)
+          source_area.update_attributes(:name => wowarmory_item.item_source.area_name)
         end
         armor_type_name = wowarmory_item.equip_data.subclass_name ? wowarmory_item.equip_data.subclass_name : "Miscellaneous"
         Item.create!(:wowarmory_id => wowarmory_id, :name => wowarmory_item.name,
                      :quality => wowarmory_item.quality, :inventory_type => wowarmory_item.equip_data.inventory_type,
                      :source_item_id => source_item_id, :icon => wowarmory_item.icon, :bonuses => get_item_bonuses(wowarmory_item),
                      :armor_type => ArmorType.find_or_create_by_name(armor_type_name), :token_cost => token_cost,
-                     :area => area)
+                     :source_area => source_area)
       rescue Wowr::Exceptions::ItemNotFound => e
         STDERR.puts e
       end

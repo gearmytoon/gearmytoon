@@ -1,7 +1,7 @@
 require File.dirname(__FILE__) + '/../test_helper'
 
 class ItemTest < ActiveSupport::TestCase
-  should_belong_to :area
+  should_belong_to :source_area
 
   context "from_emblem_of_triumph" do
     should "find all items that can be purchased with emblem_of_triumph" do

@@ -45,9 +45,9 @@ class CharacterImporterTest < ActiveSupport::TestCase
     should "import a items dungeon" do
       item = ItemImporter.import_from_wowarmory!(49682)
       assert_equal "Black Knight's Rondel", item.name
-      assert_not_nil item.area
-      assert Area::DUNGEONS.include?(item.area.wowarmory_id)
-      assert_equal "Trial of the Champion", item.area.name
+      assert_not_nil item.source_area
+      assert Area::DUNGEONS.include?(item.source_area.wowarmory_area_id)
+      assert_equal "Trial of the Champion", item.source_area.name
     end
 
     should "not import items that cost more then triumph badges" do

@@ -5,7 +5,7 @@ class AreasHelperTest < ActionView::TestCase
     should "link to a area" do
       dungeon = Factory(:dungeon)
       tag = wowhead_area_link(dungeon)
-      assert_equal "<a href=\"http://www.wowhead.com/?zone=#{dungeon.wowarmory_id}\">#{dungeon.name}</a>", tag
+      assert_equal "<a href=\"http://www.wowhead.com/?zone=#{dungeon.wowarmory_area_id}\">#{dungeon.name}</a>", tag
     end
   end
 end

@@ -5,8 +5,8 @@
   <% else %>
     <%= content_tag :span, wowhead_item_icon_link_with_stylized_item_name(upgrade.old_item), :class => "old_item" %>
   <% end %>
-  <% if upgrade.new_item.area.present? %>
-    <span class="source">Found in: <%= wowhead_area_link(upgrade.new_item.area) %></span>
+  <% if upgrade.new_item.source_area.present? %>
+    <span class="source">Found in: <%= wowhead_area_link(upgrade.new_item.source_area) %></span>
   <% elsif upgrade.new_item.source_item_id.present? %>
     Will cost you: <%= content_tag :span, upgrade.new_item.token_cost, :class => "cost" %> emblem's.
   <% end %>

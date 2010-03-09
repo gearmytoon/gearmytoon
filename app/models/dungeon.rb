@@ -1,2 +1,0 @@
-class Dungeon < Area
-end

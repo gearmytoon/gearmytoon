@@ -1,2 +1,0 @@
-class Raid < Area
-end

@@ -9,12 +9,11 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20100307213839) do
+ActiveRecord::Schema.define(:version => 20100309060846) do
 
   create_table "areas", :force => true do |t|
     t.string   "name"
-    t.integer  "wowarmory_id"
-    t.string   "type"
+    t.integer  "wowarmory_area_id"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
@@ -53,7 +52,7 @@ ActiveRecord::Schema.define(:version => 20100307213839) do
     t.integer  "dungeon_id"
     t.integer  "armor_type_id"
     t.integer  "token_cost"
-    t.integer  "area_id"
+    t.integer  "source_area_id"
   end
 
   create_table "wow_classes", :force => true do |t|
