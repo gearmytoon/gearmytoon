@@ -27,3 +27,8 @@ TODO:
 - autocomplete on realm
 
 - investigate rails 3? - rpxnow? delayed_job, wowr, mocha, cucumber, rspec
+
+
+- multipliers by talents
+- hit rating cap, def rating cap
+- x (i am not interested in a item, or check I already have an item)
