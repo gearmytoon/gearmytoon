@@ -18,8 +18,8 @@ class Character < ActiveRecord::Base
   def top_3_upgrades_for(potential_upgrades)
     upgrades = potential_upgrades.inject([]) do |found_upgrades, potential_upgrade|
       equipped_item = equipped_items.with_same_inventory_type(potential_upgrade).first
-      if potential_upgrade.dps_compared_to_for_class(equipped_item, wow_class) > 0
-        found_upgrades << Upgrade.new(wow_class, potential_upgrade, equipped_item)
+      if potential_upgrade.dps_compared_to_for_character(equipped_item, self) > 0
+        found_upgrades << Upgrade.new(self, potential_upgrade, equipped_item)
       else
         found_upgrades
       end
@@ -31,8 +31,11 @@ class Character < ActiveRecord::Base
     wow_class.name
   end
 
-  def dps_for(item)
-    wow_class.dps_for(item)
+  def dps_for(item_bonuses)
+    wow_class.stat_multipliers.inject(0) do |total_dps, relative_bonus_dps_value|
+      stat_name, relative_dps_value = relative_bonus_dps_value
+      total_dps += relative_dps_value * (item_bonuses[stat_name] ? item_bonuses[stat_name] : 0)
+    end
   end
 
   def self.find_by_name_and_realm_or_create_from_wowarmory(name, realm)

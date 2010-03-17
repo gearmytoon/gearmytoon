@@ -33,11 +33,11 @@ class ItemTest < ActiveSupport::TestCase
     
   end
 
-  context "dps_compared_to_for_class" do
+  context "dps_compared_to_for_character" do
     should "return the difference in dps with what the character is wearing" do
       fifty_dps = Factory(:item, :inventory_type => 0, :bonuses => {:attack_power => 100.0})
       one_hundred_dps = Factory(:item, :inventory_type => 0, :bonuses => {:attack_power => 200.0})
-      assert_equal 50.0, one_hundred_dps.dps_compared_to_for_class(fifty_dps, Factory(:a_rogue).wow_class)
+      assert_equal 50.0, one_hundred_dps.dps_compared_to_for_character(fifty_dps, Factory(:a_rogue))
     end
   end
 

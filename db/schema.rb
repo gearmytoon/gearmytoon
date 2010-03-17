@@ -49,7 +49,6 @@ ActiveRecord::Schema.define(:version => 20100309061955) do
     t.integer  "source_wowarmory_item_id"
     t.string   "icon"
     t.text     "bonuses"
-    t.integer  "dungeon_id"
     t.integer  "armor_type_id"
     t.integer  "token_cost"
     t.integer  "source_area_id"

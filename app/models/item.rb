@@ -29,9 +29,9 @@ class Item < ActiveRecord::Base
     wowarmory_item_id
   end
 
-  def dps_compared_to_for_class(item, wow_class)
-    return wow_class.dps_for(self.bonuses) if item.nil?
-    wow_class.dps_for(self.bonuses) - wow_class.dps_for(item.bonuses)
+  def dps_compared_to_for_character(item, character)
+    return character.dps_for(self.bonuses) if item.nil?
+    character.dps_for(self.bonuses) - character.dps_for(item.bonuses)
   end
 
 end

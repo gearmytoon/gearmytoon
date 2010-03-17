@@ -7,17 +7,10 @@ class WowClass < ActiveRecord::Base
     Item.usable_by(self)
   end
   
-  def dps_for(item_bonuses)
-    stat_multipliers.inject(0) do |total_dps, relative_bonus_dps_value|
-      stat_name, relative_dps_value = relative_bonus_dps_value
-      total_dps += relative_dps_value * (item_bonuses[stat_name] ? item_bonuses[stat_name] : 0)
-    end
-  end
- 
   module WowClassConstants
     DeathKnight = {:name => "Death Knight", :primary_armor_type => ArmorType.Plate, :stat_multipliers => {:attack_power => 0.5, :agility => 1, :armor_penetration => 1.1, :crit => 0.75, :haste => 0.7, :hit => 0.8}}
     Druid = {:name => "Druid", :primary_armor_type => ArmorType.Leather, :stat_multipliers => {:attack_power => 0.5, :agility => 1, :armor_penetration => 1.1, :crit => 0.75, :haste => 0.7, :hit => 0.8}}
-    Hunter = {:name => "Hunter", :primary_armor_type => ArmorType.Mail, :stat_multipliers => {:attack_power => 0.5, :agility => 1, :armor_penetration => 1.1, :crit => 0.75, :haste => 0.7, :hit => 0.8}}
+    Hunter = {:name => "Hunter", :primary_armor_type => ArmorType.Mail, :stat_multipliers => {:ranged_min_damage => 900, :ranged_max_damage => 910, :ranged_attack_speed => 50, :hit => 100, :agility => 76, :crit => 42, :intellect => 35, :haste => 31, :attack_power => 29, :armor_penetration => 26}}
     Mage = {:name => "Mage", :primary_armor_type => ArmorType.Cloth, :stat_multipliers => {:attack_power => 0.5, :agility => 1, :armor_penetration => 1.1, :crit => 0.75, :haste => 0.7, :hit => 0.8}}
     Paladin = {:name => "Paladin", :primary_armor_type => ArmorType.Plate, :stat_multipliers => {:attack_power => 0.5, :agility => 1, :armor_penetration => 1.1, :crit => 0.75, :haste => 0.7, :hit => 0.8}}
     Priest = {:name => "Priest", :primary_armor_type => ArmorType.Cloth, :stat_multipliers => {:attack_power => 0.5, :agility => 1, :armor_penetration => 1.1, :crit => 0.75, :haste => 0.7, :hit => 0.8}}
