@@ -16,6 +16,7 @@ class CharacterImporterTest < ActiveSupport::TestCase
         assert_equal "Rails", rails.name
         assert_equal "Baelgun", rails.realm
         assert_equal "Paladin", rails.wow_class_name
+        assert_equal "Protection", rails.primary_spec
       end
     end
   end

@@ -146,5 +146,4 @@ class CharacterTest < ActiveSupport::TestCase
     end
   end
 
-
 end

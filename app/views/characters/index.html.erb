@@ -10,12 +10,6 @@
   <% end %>
 </div>
 
-<%=h Wowr::API.new().get_item(47659).inspect %>
-<br/>
-<br/>
-<%=h Wowr::API.new().get_item(50776).inspect %>
-<br/>
-<br/>
-<%=h Wowr::API.new().get_item(51325).inspect %>
+<%=h Wowr::API.new().get_character("Merb", :realm => "Baelgun").inspect %>
 <br/>
 <br/>

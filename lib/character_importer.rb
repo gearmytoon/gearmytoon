@@ -13,7 +13,9 @@ class CharacterImporter
         item = Item.find_by_wowarmory_item_id(wow_armory_item_id)
         item.nil? ? ItemImporter.import_from_wowarmory!(wow_armory_item_id) : item
       end
-      character.update_attributes(:equipped_items => equipped_items, :wow_class => WowClass.find_by_name(wow_armor_character.klass))
+      primary_spec = wow_armor_character.talent_spec.primary
+      character.update_attributes(:equipped_items => equipped_items, :wow_class => WowClass.find_by_name(wow_armor_character.klass), 
+        :primary_spec => primary_spec)
       character.save!
     end
   end
