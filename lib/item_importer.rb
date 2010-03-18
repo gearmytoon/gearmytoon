@@ -31,9 +31,7 @@ class ItemImporter
   def self.get_dungeon_source(wowarmory_item)
     if wowarmory_item.drop_creatures.try(:first)
       area_id = wowarmory_item.item_source.area_id
-      returning Area.find_or_create_by_wowarmory_area_id_and_difficulty_and_name(area_id, wowarmory_item.item_source.difficulty, wowarmory_item.item_source.area_name) do |source_area|
-        source_area.update_attributes(:name => wowarmory_item.item_source.area_name)
-      end
+      Area.find_or_create_by_wowarmory_area_id_and_difficulty_and_name(area_id, wowarmory_item.item_source.difficulty, wowarmory_item.item_source.area_name)
     end
   end
 
