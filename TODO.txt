@@ -4,7 +4,6 @@ TODO:
 - add specific dps multipliers based on class spec's
 - add class specific armor types (ie some mail is only usable by hunters)
 - add faction to character and item
-- don't import items more then once
 - Import these dungeons: 206,4120,3477,4494,4196,4415,4375,4264,1196,4272,4228,4809,4813,4820,4723,4100
 - Import these raids: 4603,4273,4493,4500,2159,3456,4812,4722
 
@@ -27,7 +26,6 @@ TODO:
 - autocomplete on realm
 
 - investigate rails 3? - rpxnow? delayed_job, wowr, mocha, cucumber, rspec
-
 
 - multipliers by talents
 - hit rating cap, def rating cap
