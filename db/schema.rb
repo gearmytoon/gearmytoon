@@ -9,13 +9,14 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20100317150708) do
+ActiveRecord::Schema.define(:version => 20100318054549) do
 
   create_table "areas", :force => true do |t|
     t.string   "name"
     t.integer  "wowarmory_area_id"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.string   "difficulty"
   end
 
   create_table "armor_types", :force => true do |t|

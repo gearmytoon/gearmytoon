@@ -50,14 +50,50 @@ class CharacterImporterTest < ActiveSupport::TestCase
       end
     end
 
-    should "import a items dungeon" do
-      item = ItemImporter.import_from_wowarmory!(49682)
-      assert_equal "Black Knight's Rondel", item.name
+    should "import a items normal mode dungeon" do
+      item = ItemImporter.import_from_wowarmory!(47232)
+      assert_equal "Drape of the Undefeated", item.name
       assert_not_nil item.source_area
       assert Area::DUNGEONS.include?(item.source_area.wowarmory_area_id)
       assert_equal "Trial of the Champion", item.source_area.name
+      assert_equal "n", item.source_area.difficulty
     end
 
+    should "import a items heroic dungeon" do
+      rondel = ItemImporter.import_from_wowarmory!(49682)
+      drape = ItemImporter.import_from_wowarmory!(47232)
+      assert_equal "Black Knight's Rondel", rondel.name
+      assert_not_nil rondel.source_area
+      assert_not_equal rondel.source_area, drape.source_area
+      assert Area::DUNGEONS.include?(rondel.source_area.wowarmory_area_id)
+      assert_equal "Trial of the Champion", rondel.source_area.name
+      assert_equal "h", rondel.source_area.difficulty
+    end
+
+    should "import items from a normal 10 and 25 man raid" do
+      ten_man_item = ItemImporter.import_from_wowarmory!(50966)
+      twenty_five_man_item = ItemImporter.import_from_wowarmory!(50429)
+      assert_equal "Abracadaver", ten_man_item.name
+      assert_equal "Archus, Greatstaff of Antonidas", twenty_five_man_item.name
+      assert_not_equal ten_man_item.source_area, twenty_five_man_item.source_area
+      assert Area::RAIDS.include?(ten_man_item.source_area.wowarmory_area_id)
+      assert Area::RAIDS.include?(twenty_five_man_item.source_area.wowarmory_area_id)
+      assert_equal "Icecrown Citadel (10)", ten_man_item.source_area.name
+      assert_equal "Icecrown Citadel (25)", twenty_five_man_item.source_area.name
+      assert_equal "n", ten_man_item.source_area.difficulty
+      assert_equal "n", twenty_five_man_item.source_area.difficulty
+    end
+     should "import items from a heroic 10 and 25 man raid" do
+        ten_man_item = ItemImporter.import_from_wowarmory!(51876)
+        twenty_five_man_item = ItemImporter.import_from_wowarmory!(50731)
+        assert_not_equal ten_man_item.source_area, twenty_five_man_item.source_area
+        assert Area::RAIDS.include?(ten_man_item.source_area.wowarmory_area_id)
+        assert Area::RAIDS.include?(twenty_five_man_item.source_area.wowarmory_area_id)
+        assert_equal "Icecrown Citadel (10)", ten_man_item.source_area.name
+        assert_equal "Icecrown Citadel (25)", twenty_five_man_item.source_area.name
+        assert_equal "h", ten_man_item.source_area.difficulty
+        assert_equal "h", twenty_five_man_item.source_area.difficulty
+      end
     should "not import items that cost more then triumph badges" do
       assert_no_difference "Item.from_emblem_of_triumph.count" do
         assert_difference "Item.count" do
@@ -83,3 +119,4 @@ class CharacterImporterTest < ActiveSupport::TestCase
     end
   end
 end
+

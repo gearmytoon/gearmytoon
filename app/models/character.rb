@@ -3,6 +3,10 @@ class Character < ActiveRecord::Base
   has_many :character_items
   has_many :equipped_items, :through => :character_items, :source => :item
 
+  def upgrades_in(area)
+    top_3_upgrades_for(area.items_dropped_in)
+  end
+
   def top_3_frost_upgrades
     top_3_upgrades_for(wow_class.equippable_items.from_emblem_of_frost)
   end

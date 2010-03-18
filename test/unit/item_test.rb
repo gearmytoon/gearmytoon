@@ -18,7 +18,7 @@ class ItemTest < ActiveSupport::TestCase
       assert_equal [item_from_emblem_of_frost], Item.from_emblem_of_frost
     end
   end
-
+  
   context "from_heroic_dungeon" do
     should "find all items that are dropped inside a heroic dungeon" do
       item = Factory(:item_from_heroic_dungeon)

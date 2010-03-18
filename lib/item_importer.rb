@@ -13,11 +13,7 @@ class ItemImporter
             token_cost = wowarmory_item.cost.tokens.first.count
           end
         end
-        if wowarmory_item.drop_creatures.try(:first) && wowarmory_item.item_source.difficulty == 'h'
-          area_id = wowarmory_item.item_source.area_id
-          source_area = Area.find_or_create_by_wowarmory_area_id(area_id)
-          source_area.update_attributes(:name => wowarmory_item.item_source.area_name)
-        end
+        source_area = get_dungeon_source(wowarmory_item)
         armor_type_name = wowarmory_item.equip_data.subclass_name ? wowarmory_item.equip_data.subclass_name : "Miscellaneous"
         Item.create!(:wowarmory_item_id => wowarmory_item_id, :name => wowarmory_item.name,
                      :quality => wowarmory_item.quality, :inventory_type => wowarmory_item.equip_data.inventory_type,
@@ -31,6 +27,15 @@ class ItemImporter
   end
 
   RANGED_WEAPONS = ["Bow", "Gun", "Crossbow", "Thrown"]
+
+  def self.get_dungeon_source(wowarmory_item)
+    if wowarmory_item.drop_creatures.try(:first)
+      area_id = wowarmory_item.item_source.area_id
+      returning Area.find_or_create_by_wowarmory_area_id_and_difficulty_and_name(area_id, wowarmory_item.item_source.difficulty, wowarmory_item.item_source.area_name) do |source_area|
+        source_area.update_attributes(:name => wowarmory_item.item_source.area_name)
+      end
+    end
+  end
 
   def self.get_item_bonuses(wowarmory_item)
     returning wowarmory_item.bonuses do |bonuses|
