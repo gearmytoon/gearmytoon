@@ -3,6 +3,15 @@ require File.dirname(__FILE__) + '/../test_helper'
 class ItemTest < ActiveSupport::TestCase
   should_belong_to :source_area
 
+  context "with_same_inventory_type" do
+    should "treat crossbows, bows, guns, and thrown the same" do
+      Factory(:item, :inventory_type => 25)#thrown
+      xbow = Factory(:item, :inventory_type => 15)#bow
+      Factory(:item, :inventory_type => 26)#gun/xbow
+      assert_equal 3, Item.with_same_inventory_type(xbow).length
+    end
+  end
+
   context "from_emblem_of_triumph" do
     should "find all items that can be purchased with emblem_of_triumph" do
       item_from_emblem_of_triumph = Factory(:item_from_emblem_of_triumph)

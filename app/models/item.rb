@@ -6,7 +6,14 @@ class Item < ActiveRecord::Base
   named_scope :from_emblem_of_triumph, :conditions => {:source_wowarmory_item_id => TRIUMPH_EMBLEM_ARMORY_ID}
   named_scope :from_emblem_of_frost, :conditions => {:source_wowarmory_item_id => FROST_EMBLEM_ARMORY_ID}
   named_scope :from_heroic_dungeon, Proc.new {{:conditions => {:source_area_id => Area.dungeons.map(&:id)}}} #delaying evaluation
-  named_scope :with_same_inventory_type, Proc.new {|item| {:conditions => {:inventory_type => item.inventory_type}}}
+  named_scope :with_same_inventory_type, Proc.new { |item|
+    ranged_weapon_inventory_types = [15,25,26]
+    if ranged_weapon_inventory_types.include?(item.inventory_type)
+      {:conditions => {:inventory_type => ranged_weapon_inventory_types}}
+    else
+      {:conditions => {:inventory_type => item.inventory_type}}
+    end
+  }
 
   named_scope :usable_by, Proc.new {|wow_class| {:conditions => {:armor_type_id => [ArmorType.Miscellaneous.id, wow_class.primary_armor_type.id]}}}
   belongs_to :armor_type

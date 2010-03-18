@@ -4,7 +4,7 @@ class Character < ActiveRecord::Base
   has_many :equipped_items, :through => :character_items, :source => :item
 
   def upgrades_in(area)
-    top_3_upgrades_for(area.items_dropped_in)
+    top_upgrades_for(area.items_dropped_in)
   end
 
   def top_3_frost_upgrades
@@ -19,7 +19,7 @@ class Character < ActiveRecord::Base
     top_3_upgrades_for(wow_class.equippable_items.from_heroic_dungeon)
   end
 
-  def top_3_upgrades_for(potential_upgrades)
+  def top_upgrades_for(potential_upgrades)
     upgrades = potential_upgrades.inject([]) do |found_upgrades, potential_upgrade|
       equipped_item = equipped_items.with_same_inventory_type(potential_upgrade).first
       if potential_upgrade.dps_compared_to_for_character(equipped_item, self) > 0
@@ -27,8 +27,11 @@ class Character < ActiveRecord::Base
       else
         found_upgrades
       end
-    end
-    upgrades.sort_by(&:dps_change).reverse.slice(0, 3)
+    end.sort_by(&:dps_change).reverse
+  end
+
+  def top_3_upgrades_for(potential_upgrades)
+    top_upgrades_for(potential_upgrades).slice(0, 3)
   end
 
   def wow_class_name
