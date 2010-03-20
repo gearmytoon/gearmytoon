@@ -19,12 +19,16 @@ class Character < ActiveRecord::Base
     top_upgrades_for(wow_class.equippable_items.from_emblem_of_triumph)
   end
 
+  def dungeon_upgrades
+    top_upgrades_for(wow_class.equippable_items.from_heroic_dungeon)
+  end
+
   def top_3_triumph_upgrades
     triumph_upgrades.slice(0,3)
   end
 
   def top_3_heroic_dungeon_upgrades
-    top_3_upgrades_for(wow_class.equippable_items.from_heroic_dungeon)
+    dungeon_upgrades.slice(0,3)
   end
 
   def top_upgrades_for(potential_upgrades)

@@ -12,4 +12,11 @@ class UpgradesController < ApplicationController
       format.html
     end
   end
+  
+  def from_dungeons
+    @character = Character.find(params[:character_id])
+    respond_to do |format|
+      format.html
+    end
+  end
 end

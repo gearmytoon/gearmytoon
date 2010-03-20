@@ -23,4 +23,14 @@ class UpgradesControllerTest < ActionController::TestCase
     end
   end
 
+  context "get from_dungeons" do
+    should "show all upgrades from emblems of frost" do
+      character = Factory(:a_hunter)
+      4.times {Factory(:item_from_heroic_dungeon)}
+      Factory(:item_from_emblem_of_frost)
+      get :from_dungeons, :character_id => character.id
+      assert_response :success
+      assert_select ".upgrade", :count => 4
+    end
+  end
 end
