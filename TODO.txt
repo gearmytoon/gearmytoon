@@ -31,3 +31,13 @@ TODO:
 - hit rating cap, def rating cap
 - x (i am not interested in a item, or check I already have an item)
 - wow like item comparison
+
+
+
+
+
+
+
+Cleanup::::
+.slice(0,3) -> extension method
+from_upgrade views and character show, extract a partial layout
