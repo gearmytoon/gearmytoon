@@ -8,11 +8,19 @@ class Character < ActiveRecord::Base
   end
 
   def top_3_frost_upgrades
-    top_3_upgrades_for(wow_class.equippable_items.from_emblem_of_frost)
+    frost_upgrades.slice(0,3)
+  end
+  
+  def frost_upgrades
+    top_upgrades_for(wow_class.equippable_items.from_emblem_of_frost)
+  end
+
+  def triumph_upgrades
+    top_upgrades_for(wow_class.equippable_items.from_emblem_of_triumph)
   end
 
   def top_3_triumph_upgrades
-    top_3_upgrades_for(wow_class.equippable_items.from_emblem_of_triumph)
+    triumph_upgrades.slice(0,3)
   end
 
   def top_3_heroic_dungeon_upgrades

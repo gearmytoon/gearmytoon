@@ -6,6 +6,10 @@ Factory.define(:a_rogue, :parent => :character) do |model|
   model.wow_class WowClass.create!(WowClass::WowClassConstants::Rogue)
 end
 
+Factory.define(:a_hunter, :parent => :character) do |model|
+  model.wow_class WowClass.create!(WowClass::WowClassConstants::Hunter)
+end
+
 Factory.define(:item) do |model|
   model.name "Factory Item"
   model.icon "Factory_icon.png"

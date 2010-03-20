@@ -6,7 +6,6 @@ class RaidsController < ApplicationController
     @raids = Area.raids
     respond_to do |format|
       format.html # index.html.erb
-      format.xml  { render :xml => @zones }
     end
   end
 
@@ -17,7 +16,7 @@ class RaidsController < ApplicationController
     @raid = Area.find(params[:id])
     respond_to do |format|
       format.html # show.html.erb
-      format.xml  { render :xml => @zone }
     end
   end
 end
+  

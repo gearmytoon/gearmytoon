@@ -1,0 +1,8 @@
+<div id="upgrades">
+  <div class="upgrade_section" id="emblem_of_frost">
+    <h1>Your best upgrades from <%= stylized_item_name Item.badge_of_frost %> <%= wowhead_item_image_link Item.badge_of_frost %></h1>
+    <% @character.triumph_upgrades.each do |upgrade| %>
+      <%= render 'characters/upgrade', :upgrade => upgrade %>
+    <% end %>
+  </div>
+</div>
