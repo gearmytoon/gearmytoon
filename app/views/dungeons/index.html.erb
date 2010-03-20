@@ -1,0 +1,6 @@
+<h1>dungeons</h1>
+<% @dungeons.each do |dungeon| %>
+  <div class="zone_upgrade">
+    <%= link_to dungeon.full_name, character_raid_path(@character, dungeon) %>
+  </div>
+<% end %>
