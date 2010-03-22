@@ -146,4 +146,12 @@ class CharacterTest < ActiveSupport::TestCase
     end
   end
 
+  context "primary_spec" do
+    should "be used to determine the characters multipliers" do
+      survival_hunter = Factory(:survival_hunter)
+      marks_hunter = Factory(:marksmanship_hunter)
+      item = Factory(:item)
+      assert_not_equal marks_hunter.dps_for(item.bonuses), survival_hunter.dps_for(item.bonuses)
+    end
+  end
 end
