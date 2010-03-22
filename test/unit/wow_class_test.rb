@@ -4,17 +4,17 @@ class WowClassTest < ActiveSupport::TestCase
   context "associations" do
     should_belong_to :primary_armor_type
     
-    should "serialize stat_multipliers" do
+    should "get stat_multipliers based on class_name" do
       expected_stat_multipliers = {:a => 1}
-      wow_class = Factory(:wow_class, :stat_multipliers => expected_stat_multipliers)
-      assert_equal expected_stat_multipliers, wow_class.reload.stat_multipliers
+      wow_class = WowClass.create_class!("Rogue")
+      assert_equal WowClass::WowClassConstants::Rogue.stat_multipliers, wow_class.reload.stat_multipliers
     end
     
   end
 
   context "equippable_items" do
     should "find upgrades of the same armor type" do
-      rogue = WowClass.create!(WowClass::WowClassConstants::Rogue)
+      rogue = WowClass.create_class!("Rogue")
       plate_upgrade = Factory(:item_from_emblem_of_frost, :bonuses => {:attack_power => 500.0}, :inventory_type => 2, :armor_type => ArmorType.Plate)
       leather_upgrade = Factory(:item_from_emblem_of_frost, :bonuses => {:attack_power => 500.0}, :inventory_type => 2, :armor_type => ArmorType.Leather)
       assert_equal 1, rogue.equippable_items.size

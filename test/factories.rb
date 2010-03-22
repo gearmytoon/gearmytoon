@@ -1,13 +1,13 @@
 Factory.define(:character) do |model|
-  model.wow_class WowClass.create!(WowClass::WowClassConstants::Hunter)
+  model.wow_class WowClass.create_class!("Hunter")
 end
 
 Factory.define(:a_rogue, :parent => :character) do |model|
-  model.wow_class WowClass.create!(WowClass::WowClassConstants::Rogue)
+  model.wow_class WowClass.create_class!("Druid")
 end
 
 Factory.define(:a_hunter, :parent => :character) do |model|
-  model.wow_class WowClass.create!(WowClass::WowClassConstants::Hunter)
+  model.wow_class WowClass.create_class!("Hunter")
 end
 
 Factory.define(:item) do |model|

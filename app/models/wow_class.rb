@@ -1,23 +1,91 @@
 class WowClass < ActiveRecord::Base
+  CLASS_NAMES = {"Death Knight" => {:primary_armor_type => ArmorType.Plate},
+                 "Druid" => {:primary_armor_type => ArmorType.Leather}, 
+                 "Hunter" => {:primary_armor_type => ArmorType.Mail}, 
+                 "Paladin" => {:primary_armor_type => ArmorType.Plate}, 
+                 "Priest" => {:primary_armor_type => ArmorType.Cloth}, 
+                 "Rogue" => {:primary_armor_type => ArmorType.Leather}, 
+                 "Shaman" => {:primary_armor_type => ArmorType.Mail}, 
+                 "Warlock" => {:primary_armor_type => ArmorType.Cloth}, 
+                 "Warrior" => {:primary_armor_type => ArmorType.Plate}}
   has_many :characters
-  serialize :stat_multipliers
   belongs_to :primary_armor_type, :class_name => "ArmorType"
   
   def equippable_items
     Item.usable_by(self)
   end
   
+  def stat_multipliers
+    "WowClass::WowClassConstants::#{self.name.gsub(/\s/,"")}".constantize.stat_multipliers
+  end
+  
+  def self.create_all_classes!
+    CLASS_NAMES.keys.map do |class_name|
+      create_class!(class_name)
+    end
+  end
+  
+  def self.create_class!(class_name)
+    WowClass.create!({:name => class_name}.merge(CLASS_NAMES[class_name]))
+  end
+  
   module WowClassConstants
-    DeathKnight = {:name => "Death Knight", :primary_armor_type => ArmorType.Plate, :stat_multipliers => {:attack_power => 0.5, :agility => 1, :armor_penetration => 1.1, :crit => 0.75, :haste => 0.7, :hit => 0.8}}
-    Druid = {:name => "Druid", :primary_armor_type => ArmorType.Leather, :stat_multipliers => {:attack_power => 0.5, :agility => 1, :armor_penetration => 1.1, :crit => 0.75, :haste => 0.7, :hit => 0.8}}
-    Hunter = {:name => "Hunter", :primary_armor_type => ArmorType.Mail, :stat_multipliers => {:ranged_min_damage => 900, :ranged_max_damage => 910, :ranged_attack_speed => 50, :hit => 100, :agility => 76, :crit => 42, :intellect => 35, :haste => 31, :attack_power => 29, :armor_penetration => 26}}
-    Mage = {:name => "Mage", :primary_armor_type => ArmorType.Cloth, :stat_multipliers => {:attack_power => 0.5, :agility => 1, :armor_penetration => 1.1, :crit => 0.75, :haste => 0.7, :hit => 0.8}}
-    Paladin = {:name => "Paladin", :primary_armor_type => ArmorType.Plate, :stat_multipliers => {:attack_power => 0.5, :agility => 1, :armor_penetration => 1.1, :crit => 0.75, :haste => 0.7, :hit => 0.8}}
-    Priest = {:name => "Priest", :primary_armor_type => ArmorType.Cloth, :stat_multipliers => {:attack_power => 0.5, :agility => 1, :armor_penetration => 1.1, :crit => 0.75, :haste => 0.7, :hit => 0.8}}
-    Rogue = {:name => "Rogue", :primary_armor_type => ArmorType.Leather, :stat_multipliers => {:attack_power => 0.5, :agility => 1, :armor_penetration => 1.1, :crit => 0.75, :haste => 0.7, :hit => 0.8}}
-    Shaman = {:name => "Shaman", :primary_armor_type => ArmorType.Mail, :stat_multipliers => {:attack_power => 0.5, :agility => 1, :armor_penetration => 1.1, :crit => 0.75, :haste => 0.7, :hit => 0.8}}
-    Warlock = {:name => "Warlock", :primary_armor_type => ArmorType.Cloth, :stat_multipliers => {:attack_power => 0.5, :agility => 1, :armor_penetration => 1.1, :crit => 0.75, :haste => 0.7, :hit => 0.8}}
-    Warrior = {:name => "Warrior", :primary_armor_type => ArmorType.Plate, :stat_multipliers => {:attack_power => 0.5, :agility => 1, :armor_penetration => 1.1, :crit => 0.75, :haste => 0.7, :hit => 0.8}}
+    module Rogue
+      def self.stat_multipliers
+        {:attack_power => 0.5, :agility => 1, :armor_penetration => 1.1, :crit => 0.75, :haste => 0.7, :hit => 0.8}
+      end
+    end
+
+    module Hunter
+      def self.stat_multipliers
+        {:ranged_min_damage => 900, :ranged_max_damage => 910, :ranged_attack_speed => 50, :hit => 100, :agility => 76, :crit => 42, :intellect => 35, :haste => 31, :attack_power => 29, :armor_penetration => 26}
+      end
+    end
+    
+    module DeathKnight
+      def self.stat_multipliers
+        {:attack_power => 0.5, :agility => 1, :armor_penetration => 1.1, :crit => 0.75, :haste => 0.7, :hit => 0.8}
+      end
+    end
+    module Druid
+      def self.stat_multipliers
+        {:attack_power => 0.5, :agility => 1, :armor_penetration => 1.1, :crit => 0.75, :haste => 0.7, :hit => 0.8}
+      end
+    end
+    module Mage
+      def self.stat_multipliers
+        {:attack_power => 0.5, :agility => 1, :armor_penetration => 1.1, :crit => 0.75, :haste => 0.7, :hit => 0.8}
+      end
+    end
+    module Paladin
+      def self.stat_multipliers
+        {:attack_power => 0.5, :agility => 1, :armor_penetration => 1.1, :crit => 0.75, :haste => 0.7, :hit => 0.8}
+      end
+    end
+    module Priest
+      def self.stat_multipliers
+        {:attack_power => 0.5, :agility => 1, :armor_penetration => 1.1, :crit => 0.75, :haste => 0.7, :hit => 0.8}
+      end
+    end
+
+    module Shaman
+      def self.stat_multipliers
+        {:attack_power => 0.5, :agility => 1, :armor_penetration => 1.1, :crit => 0.75, :haste => 0.7, :hit => 0.8}
+      end
+    end
+
+    module Warlock
+      def self.stat_multipliers
+        {:attack_power => 0.5, :agility => 1, :armor_penetration => 1.1, :crit => 0.75, :haste => 0.7, :hit => 0.8}
+      end
+    end
+
+    module Warrior
+      def self.stat_multipliers
+        {:attack_power => 0.5, :agility => 1, :armor_penetration => 1.1, :crit => 0.75, :haste => 0.7, :hit => 0.8}
+      end
+    end
   end
   
 end
+
