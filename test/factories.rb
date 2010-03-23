@@ -1,13 +1,16 @@
 Factory.define(:character) do |model|
+  model.name "Merb"
   model.wow_class WowClass.create_class!("Hunter")
 end
 
 Factory.define(:survival_hunter, :class => "Character") do |model|
+  model.name "Merb"
   model.wow_class WowClass.create_class!("Hunter")
   model.primary_spec "Survival"
 end
 
 Factory.define(:marksmanship_hunter, :class => "Character") do |model|
+  model.name "Merb"
   model.wow_class WowClass.create_class!("Hunter")
   model.primary_spec "Marksmanship"
 end

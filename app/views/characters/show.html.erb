@@ -1,5 +1,16 @@
-<div id="character_name">
-  <%= @character.name %>
+<div id="character_info">
+  <span id="portrait"><%= character_icon @character %></span>
+  <div id="summary_details">
+    <div id="character_name">
+      <%= @character.name.capitalize %>
+    </div>
+    <div class="guild">
+      <%=h "<Guild Name>" %>
+    </div>
+    <div id="realm_and_battlegroup">
+      <%= @character.realm %>, <%=h "BattleGroup" %>
+    </div>
+  </div>
 </div>
 <div>
   <%= link_to "Upgrades From Raids", character_raids_path(@character) %>

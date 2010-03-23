@@ -4,3 +4,31 @@
 .see_more {
   font-size:0.7em;
 }
+#character_info{
+  float:left;
+  width:100%;
+}
+#portrait {
+  padding-left:20px;
+  padding-top:20px;
+  float:left;
+  width:100px;
+  height:100px;
+}
+#character_info #character_name {
+  float:left;
+  width:200px;
+  font-size:24px;
+  font-weight:bold;
+}
+#character_info .guild, #character_info #realm_and_battlegroup{
+  padding-top:12px;
+  color:#FFD200;
+  font-size:16px;
+  float:left;
+  width:200px;
+}
+#character_info #summary_details {
+  float:left;
+  width:200px;
+}

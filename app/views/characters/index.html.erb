@@ -9,17 +9,7 @@
     <%= f.submit "Search" %>
   <% end %>
 </div>
-
-
-<%=h Wowr::API.new().get_item(49493).inspect %>
-<br/>
-<br/>
-<%=h Wowr::API.new().get_item(50733).inspect %>
-<br/>
-<br/>
-<%=h Wowr::API.new().get_item(45086).inspect %>
-<br/>
-<br/>
+<%= image_tag Wowr::API.new().get_character("Merb", :realm => "Baelgun").icon %>
 <%=h Wowr::API.new().get_character("Merb", :realm => "Baelgun").inspect %>
 <br/>
 <br/>

@@ -9,7 +9,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20100322153135) do
+ActiveRecord::Schema.define(:version => 20100323025048) do
 
   create_table "areas", :force => true do |t|
     t.string   "name"
@@ -39,6 +39,11 @@ ActiveRecord::Schema.define(:version => 20100322153135) do
     t.string   "realm"
     t.integer  "wow_class_id"
     t.string   "primary_spec"
+    t.integer  "wowarmory_gender_id"
+    t.string   "gender"
+    t.integer  "wowarmory_race_id"
+    t.string   "race"
+    t.integer  "wowarmory_class_id"
   end
 
   create_table "items", :force => true do |t|

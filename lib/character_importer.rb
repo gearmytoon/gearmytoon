@@ -15,7 +15,8 @@ class CharacterImporter
       end
       primary_spec = wow_armor_character.talent_spec.primary
       character.update_attributes(:equipped_items => equipped_items, :wow_class => WowClass.find_by_name(wow_armor_character.klass), 
-        :primary_spec => primary_spec)
+        :primary_spec => primary_spec, :wowarmory_gender_id => wow_armor_character.gender_id, :gender => wow_armor_character.gender, 
+        :wowarmory_race_id => wow_armor_character.race_id, :race => wow_armor_character.race, :wowarmory_class_id => wow_armor_character.klass_id)
       character.save!
     end
   end

@@ -3,6 +3,10 @@ module CharactersHelper
     link_to image_tag(item.icon, :alt => item.name, :border => 0), "http://www.wowhead.com/?item=#{item.item_id}"
   end
 
+  def character_icon(character)
+    image_tag "http://www.wowarmory.com/_images/portraits/wow-80/#{character.wowarmory_gender_id}-#{character.wowarmory_race_id}-#{character.wowarmory_class_id}.gif", :alt => character.name
+  end
+
   def stylized_item_name(item)
     content_tag(:span, item.name, :class => WowHelpers.quality_adjective_for(item))
   end

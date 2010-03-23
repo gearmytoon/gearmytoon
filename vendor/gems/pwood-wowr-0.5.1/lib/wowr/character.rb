@@ -31,9 +31,9 @@ module Wowr
 			alias_method :to_s, :name
 			alias_method :to_i, :level
 			
-			@@race_icon_url_base = 'images/icons/race/'
-			@@class_icon_url_base = 'images/icons/class/'
-			@@portrait_url_base = 'images/portraits/'
+			@@race_icon_url_base = '_images/icons/race/'
+			@@class_icon_url_base = '_images/icons/class/'
+			@@portrait_url_base = '_images/portraits/'
 			@@icon_types = {:default => 'wow-default', 70 => 'wow-70', :other => 'wow'}
 			
 			def initialize(elem, api = nil)
