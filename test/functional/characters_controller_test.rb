@@ -1,24 +1,17 @@
 require File.dirname(__FILE__) + '/../test_helper'
 
 class CharactersControllerTest < ActionController::TestCase
-  context "get index" do
-    should "respond with success" do
-      get :index
-      assert_response :success
-    end
-  end
-
   context "post create" do
     should "find a character if it exists and redirect show" do
       character = Factory(:character, :name => "merb")
-      post :create, :character => {:name => "merb"}
+      post :create, :character => {:name => "merb", :realm => "Baelgun"}
       assert_redirected_to character_path(character)
     end
 
     should "lookup character if it doesn't exist and redirect show" do
       assert_difference "Item.count", 19 do
         assert_difference "Character.count" do
-          post :create, :character => {:name => "merb", :realm => "Baelgun"}
+          post :create, :character => {:name => "Merb", :realm => "Baelgun"}
         end
       end
       assert_redirected_to character_path(Character.last)
