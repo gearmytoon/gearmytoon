@@ -6,7 +6,7 @@ class CharactersController < ApplicationController
   end
 
   def create
-    @character = Character.find_by_name_and_realm_or_create_from_wowarmory(params[:character][:name], params[:character][:realm])
+    @character = Character.find_by_name_and_realm_or_create_from_wowarmory(params[:character][:name].capitalize, params[:character][:realm].capitalize)
     redirect_to character_path(@character)
   end
 

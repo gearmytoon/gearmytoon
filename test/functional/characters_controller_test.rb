@@ -3,8 +3,14 @@ require File.dirname(__FILE__) + '/../test_helper'
 class CharactersControllerTest < ActionController::TestCase
   context "post create" do
     should "find a character if it exists and redirect show" do
-      character = Factory(:character, :name => "merb")
-      post :create, :character => {:name => "merb", :realm => "Baelgun"}
+      character = Factory(:character, :name => "Merb", :realm => "Thunderlord")
+      post :create, :character => {:name => "merb", :realm => "Thunderlord"}
+      assert_redirected_to character_path(character)
+    end
+
+    should "not care about character names casing" do
+      character = Factory(:character, :name => "Merb", :realm => "Lothar")
+      post :create, :character => {:name => "mERb", :realm => "LOTHar"}
       assert_redirected_to character_path(character)
     end
 
