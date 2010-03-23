@@ -33,6 +33,8 @@ class CharactersControllerTest < ActionController::TestCase
       assert_response :success
       assert_select "#character_name", :text => "Merb"
       assert_select "#character_info .guild", :text => "&lt;Special Circumstances&gt;"
+      assert_select "#character_info .level", :text => "80"
+      assert_select "#character_info .klass", :text => "Hunter"
       assert_select "#realm_and_battlegroup", :text => "Baelgun, Shadowburn"
     end
     

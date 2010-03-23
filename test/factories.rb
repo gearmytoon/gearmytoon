@@ -3,6 +3,7 @@ Factory.define(:character) do |model|
   model.realm "Baelgun"
   model.battle_group "Shadowburn"
   model.guild "Special Circumstances"
+  model.level 80
   model.wow_class WowClass.create_class!("Hunter")
 end
 

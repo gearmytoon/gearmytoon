@@ -9,7 +9,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20100323050032) do
+ActiveRecord::Schema.define(:version => 20100323051603) do
 
   create_table "areas", :force => true do |t|
     t.string   "name"
@@ -47,6 +47,7 @@ ActiveRecord::Schema.define(:version => 20100323050032) do
     t.string   "guild"
     t.string   "battle_group"
     t.string   "guild_url"
+    t.integer  "level"
   end
 
   create_table "items", :force => true do |t|

@@ -14,6 +14,7 @@ class CharacterImporterTest < ActiveSupport::TestCase
         assert_equal character, rails
         assert !rails.equipped_items.empty?
         assert_equal "Rails", rails.name
+        assert_equal 80, rails.level
         assert_equal "Blood Elf", rails.race
         assert_equal 10, rails.wowarmory_race_id
         assert_equal "Male", rails.gender
