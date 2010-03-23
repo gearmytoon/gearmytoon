@@ -2,6 +2,7 @@ class WowClass < ActiveRecord::Base
   CLASS_NAMES = {"Death Knight" => {:primary_armor_type => ArmorType.Plate},
                  "Druid" => {:primary_armor_type => ArmorType.Leather}, 
                  "Hunter" => {:primary_armor_type => ArmorType.Mail}, 
+                 "Mage" => {:primary_armor_type => ArmorType.Cloth}, 
                  "Paladin" => {:primary_armor_type => ArmorType.Plate}, 
                  "Priest" => {:primary_armor_type => ArmorType.Cloth}, 
                  "Rogue" => {:primary_armor_type => ArmorType.Leather}, 
@@ -92,7 +93,14 @@ class WowClass < ActiveRecord::Base
     end
     module Priest
       def self.stat_multipliers(primary_spec)
-        {:attack_power => 0.5, :agility => 1, :armor_penetration => 1.1, :crit => 0.75, :haste => 0.7, :hit => 0.8}
+        case primary_spec
+        when "Holy"
+          {:mana_regen => 100, :intellect => 69, :spell_power => 60, :spirit => 52, :crit => 38, :haste => 31}
+        when "Shadow"
+          {:hit => 100, :spell_power => 76, :crit => 54, :haste => 50, :spirit => 16, :intellect => 16}
+        else #Discipline
+          {:spell_power => 100, :mana_regen => 67, :intellect => 65, :haste => 59, :crit => 48, :spirit => 22}
+        end
       end
     end
 
