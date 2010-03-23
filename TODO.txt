@@ -31,8 +31,8 @@ TODO:
 - x (i am not interested in a item, or check I already have an item)
 - wow like item comparison
 - fix hunters RangedDps and the item import
-
-
+- find a way to import shield block value
+- check what # ["ArcaneSpellDamage"] = 49, ["FrostSpellDamage"] = 24, ["FireSpellDamage"] = 24  maps to
 
 
 

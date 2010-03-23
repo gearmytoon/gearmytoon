@@ -32,7 +32,14 @@ class WowClass < ActiveRecord::Base
   module WowClassConstants
     module Rogue
       def self.stat_multipliers(primary_spec)
-        {:attack_power => 0.5, :agility => 1, :armor_penetration => 1.1, :crit => 0.75, :haste => 0.7, :hit => 0.8}
+        case primary_spec
+        when "Assassination"
+          {:melee_dps => 170, :agility => 100, :expertise => 87, :hit => 83, :crit => 81, :attack_power => 65, :armor_penetration => 65, :haste => 64, :strength => 55}
+        when "Combat"
+          {:melee_dps => 220, :armor_penetration => 100, :agility => 100, :expertise => 82, :hit => 80, :crit => 75, :haste => 73, :strength => 55, :attack_power => 50}
+        else # "Subtlety"
+          {:melee_dps => 228, :expertise => 100, :agility => 100, :hit => 80, :armor_penetration => 75, :crit => 75, :haste => 75, :strength => 55, :attack_power => 50}
+        end
       end
     end
 
@@ -61,12 +68,26 @@ class WowClass < ActiveRecord::Base
     end
     module Mage
       def self.stat_multipliers(primary_spec)
-        {:attack_power => 0.5, :agility => 1, :armor_penetration => 1.1, :crit => 0.75, :haste => 0.7, :hit => 0.8}
+        case primary_spec
+        when "Arcane"
+          {:hit => 100, :haste => 54, :spell_power => 49, :crit => 37, :intellect => 34, :spirit => 14}
+        when "Frost"
+          {:hit => 100, :haste => 42, :spell_power => 39, :crit => 19, :intellect => 6}
+        else # Fire
+          {:hit => 100, :haste => 53, :spell_power => 46, :crit => 43, :intellect => 13}
+        end
       end
     end
     module Paladin
       def self.stat_multipliers(primary_spec)
-        {:attack_power => 0.5, :agility => 1, :armor_penetration => 1.1, :crit => 0.75, :haste => 0.7, :hit => 0.8}
+        case primary_spec
+        when "Protection"
+          {:stamina => 100, :agility => 60, :expertise => 59, :dodge => 55, :defense => 45, :parry => 30, :strength => 16, :armor => 8, :block => 7, :block_value => 6}
+        when "Holy"
+          {:intellect => 100, :mana_regen => 88, :spell_power => 58, :crit => 46, :haste => 35}
+        else #assume Retribution
+          {:melee_dps => 470, :hit => 100, :strength => 80, :expertise => 66, :crit => 40, :attack_power => 34, :agility => 32, :haste => 30, :armor_penetration => 22, :spell_power => 9}
+        end
       end
     end
     module Priest

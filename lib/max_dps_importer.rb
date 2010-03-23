@@ -1,6 +1,7 @@
 class MaxDpsImporter
   attr_reader :agent
   Hunter = {:base_url => "http://www.maxdps.com/hunter/survival.php", :slot_url_template => "http://www.maxdps.com/hunter/survival_read.php?slotID=", :slots => ((1..17).to_a - [13])}
+  Mage = {:base_url => "http://www.maxdps.com/mage/fire.php", :slot_url_template => "http://www.maxdps.com/mage/fire_read.php?slotID=", :slots => (1..14).to_a}
   Rogue = {:base_url => "http://www.maxdps.com/rogue/combat.php", :slot_url_template => "http://www.maxdps.com/rogue/combat_read.php?slotID=", :slots => ((1..17).to_a - [13, 15])}
 
   def initialize(klass=:hunter)
