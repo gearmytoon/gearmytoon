@@ -1,5 +1,8 @@
 Factory.define(:character) do |model|
   model.name "Merb"
+  model.realm "Baelgun"
+  model.battle_group "Shadowburn"
+  model.guild "Special Circumstances"
   model.wow_class WowClass.create_class!("Hunter")
 end
 

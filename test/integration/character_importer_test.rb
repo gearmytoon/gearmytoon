@@ -20,6 +20,9 @@ class CharacterImporterTest < ActiveSupport::TestCase
         assert_equal 0, rails.wowarmory_gender_id
         assert_equal 2, rails.wowarmory_class_id
         assert_equal "Baelgun", rails.realm
+        assert_equal "Shadowburn", rails.battle_group
+        assert_equal "Special Circumstances", rails.guild
+        assert_equal "r=Baelgun&gn=Special+Circumstances", rails.guild_url
         assert_equal "Paladin", rails.wow_class_name
         assert_equal "Protection", rails.primary_spec
       end

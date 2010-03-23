@@ -5,10 +5,10 @@
       <%= @character.name.capitalize %>
     </div>
     <div class="guild">
-      <%=h "<Guild Name>" %>
+      <%=h "<#{@character.guild}>" %>
     </div>
     <div id="realm_and_battlegroup">
-      <%= @character.realm %>, <%=h "BattleGroup" %>
+      <%= @character.realm %>, <%= @character.battle_group %>
     </div>
   </div>
 </div>

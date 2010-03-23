@@ -28,12 +28,12 @@ class CharactersControllerTest < ActionController::TestCase
 
   context "get show" do
     should "display character info" do
-      character = Factory(:character, :name => "merb", :realm => "Baelgun")
+      character = Factory(:character, :name => "merb", :realm => "Baelgun", :battle_group => "Shadowburn", :guild => "Special Circumstances")
       get :show, :id => character.id
       assert_response :success
       assert_select "#character_name", :text => "Merb"
-      assert_select "#realm_and_battlegroup", :text => "Baelgun, BattleGroup"
-
+      assert_select "#character_info .guild", :text => "&lt;Special Circumstances&gt;"
+      assert_select "#realm_and_battlegroup", :text => "Baelgun, Shadowburn"
     end
     
     should "have an upgrade section for emblems of frost" do
