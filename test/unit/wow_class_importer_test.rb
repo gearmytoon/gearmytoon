@@ -2,8 +2,8 @@ require File.dirname(__FILE__) + '/../test_helper'
 
 class WowClassImporterTest < ActiveSupport::TestCase
   context "import_all_classes" do
-    should "import 9 classes" do
-      assert_difference "WowClass.count", 9 do
+    should "import all 10 classes" do
+      assert_difference "WowClass.count", 10 do
         WowClassImporter.import_all_classes
       end
       WowClass.all.each do |wow_class|
