@@ -15,6 +15,7 @@ class CharacterImporterTest < ActiveSupport::TestCase
       assert_equal 235, item.bonuses[:melee_min_damage]
       assert_equal 353, item.bonuses[:melee_max_damage]
       assert_equal 1.8, item.bonuses[:melee_attack_speed]
+      assert_equal 163.33, item.bonuses[:melee_dps]
     end
 
     should "import ranged bow weapon dps" do
@@ -23,6 +24,7 @@ class CharacterImporterTest < ActiveSupport::TestCase
       assert_equal 490, item.bonuses[:ranged_min_damage]
       assert_equal 814, item.bonuses[:ranged_max_damage]
       assert_equal 2.9, item.bonuses[:ranged_attack_speed]
+      assert_equal 224.89, item.bonuses[:ranged_dps]
     end
 
     should "import ranged thrown weapon dps" do
