@@ -47,7 +47,6 @@ class ItemImporter
         bonuses["#{weapon_type}_max_damage".to_sym] = damage.max
         bonuses["#{weapon_type}_attack_speed".to_sym] = damage.speed
         bonuses["#{weapon_type}_dps".to_sym] = damage.dps
-        
       end
     end
   end

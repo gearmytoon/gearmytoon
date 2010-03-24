@@ -9,7 +9,6 @@ TODO:
 
 - import all items for all classes
 - implement the stat standardized dps units for each class - when you ask a item for dps you will pass in it's multiplier object
-- change multipliers based on spec (ie 15% more agility or 100% attack power from intellect, etc)
 - add in hard caps for multipliers
 - map wowarmory magic numbers, quality, inventory type, etc into meaningful names, ie quality = 4 should be quality = 'epic'
 - consider gems slots and gem bonus upgrades when comparing items
@@ -24,9 +23,6 @@ TODO:
 - signup with wowcoach for account
 - 3 free previews, use it 3 times for free then upsell, here's one recommendation signup to see 2 more
 - autocomplete on realm
-
-- investigate rails 3? - rpxnow? delayed_job, wowr, mocha, cucumber, rspec
-
 - hit rating cap, def rating cap
 - x (i am not interested in a item, or check I already have an item)
 - wow like item comparison
@@ -35,7 +31,9 @@ TODO:
 - check what # ["ArcaneSpellDamage"] = 49, ["FrostSpellDamage"] = 24, ["FireSpellDamage"] = 24  maps to
 
 
-
+- add multipliers for druid tanks and dk tanks
+- add feral_attack_power to item import
+- add armor to bonuses
 
 Cleanup::::
 .slice(0,3) -> extension method

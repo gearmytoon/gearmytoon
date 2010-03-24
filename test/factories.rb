@@ -20,7 +20,7 @@ Factory.define(:marksmanship_hunter, :class => "Character") do |model|
 end
 
 Factory.define(:a_rogue, :parent => :character) do |model|
-  model.wow_class WowClass.create_class!("Druid")
+  model.wow_class WowClass.create_class!("Rogue")
 end
 
 Factory.define(:a_hunter, :parent => :character) do |model|

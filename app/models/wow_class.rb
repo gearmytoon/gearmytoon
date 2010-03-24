@@ -59,14 +59,30 @@ class WowClass < ActiveRecord::Base
     
     module DeathKnight
       def self.stat_multipliers(primary_spec)
-        {:attack_power => 0.5, :agility => 1, :armor_penetration => 1.1, :crit => 0.75, :haste => 0.7, :hit => 0.8}
+        case primary_spec
+        when "Frost"
+          {:melee_dps => 337, :hit => 100, :strength => 97, :expertise => 81, :armor_penetration => 61, :crit => 45, :attack_power => 35, :haste => 28, :armor => 1}
+        when "Unholy"
+          {:melee_dps => 209, :strength => 100, :hit => 66, :expertise => 51, :haste => 48, :crit => 45, :attack_power => 34, :armor_penetration => 32, :armor => 1}
+        else #Blood
+          {:melee_dps => 360, :armor_penetration => 100, :strength => 99, :hit => 91, :expertise => 90, :crit => 57, :haste => 55, :attack_power => 36, :armor => 1}
+        end
       end
     end
+    
     module Druid
       def self.stat_multipliers(primary_spec)
-        {:attack_power => 0.5, :agility => 1, :armor_penetration => 1.1, :crit => 0.75, :haste => 0.7, :hit => 0.8}
+        case primary_spec
+        when "Balance"
+          {:hit => 100, :spell_power => 66, :haste => 54, :crit => 43, :spirit => 22, :intellect => 22}
+        when "Restoration"
+          {:spell_power => 100, :mana_regen => 73, :haste => 57, :intellect => 51, :spirit => 32, :crit => 11}
+        else #Feral Combat - dps
+          {:agility => 100, :armor_penetration => 90, :strength => 80, :crit => 55, :expertise => 50, :hit => 50, :feral_attack_power => 40, :attack_power => 40, :haste => 35}
+        end
       end
     end
+    
     module Mage
       def self.stat_multipliers(primary_spec)
         case primary_spec
@@ -79,6 +95,7 @@ class WowClass < ActiveRecord::Base
         end
       end
     end
+    
     module Paladin
       def self.stat_multipliers(primary_spec)
         case primary_spec
@@ -91,6 +108,7 @@ class WowClass < ActiveRecord::Base
         end
       end
     end
+    
     module Priest
       def self.stat_multipliers(primary_spec)
         case primary_spec
@@ -106,19 +124,38 @@ class WowClass < ActiveRecord::Base
 
     module Shaman
       def self.stat_multipliers(primary_spec)
-        {:attack_power => 0.5, :agility => 1, :armor_penetration => 1.1, :crit => 0.75, :haste => 0.7, :hit => 0.8}
+        case primary_spec
+        when "Enhancement"
+          {:melee_dps => 135, :hit => 100, :expertise => 84, :agility => 55, :intellect => 55, :crit => 55, :haste => 42, :strength => 35, :attack_power => 32, :spell_power => 29, :armor_penetration => 26}
+        when "Restoration"
+          {:mana_regen => 100, :intellect => 85, :spell_power => 77, :crit => 62, :haste => 35}
+        else #Elemental
+          {:hit => 100, :spell_power => 60, :haste => 56, :crit => 40, :intellect => 11}
+        end
       end
     end
 
     module Warlock
       def self.stat_multipliers(primary_spec)
-        {:attack_power => 0.5, :agility => 1, :armor_penetration => 1.1, :crit => 0.75, :haste => 0.7, :hit => 0.8}
+        case primary_spec
+        when "Destruction"
+          {:hit => 100, :spell_power => 47, :haste => 46, :spirit => 26, :crit => 16, :intellect => 13}
+        when "Demonology"
+          {:hit => 100, :haste => 50, :spell_power => 45, :crit => 31, :spirit => 29, :intellect => 13}
+        else #Affliction
+          {:hit => 100, :spell_power => 72, :haste => 61, :crit => 38, :spirit => 34, :intellect => 15}
+        end
       end
     end
 
     module Warrior
       def self.stat_multipliers(primary_spec)
-        {:attack_power => 0.5, :agility => 1, :armor_penetration => 1.1, :crit => 0.75, :haste => 0.7, :hit => 0.8}
+        case primary_spec
+        when "Protection"
+          {:stamina => 100, :dodge => 90, :defense => 86, :block_value => 81, :agility => 67, :parry => 67, :block => 48, :strength => 48, :expertise => 19, :hit => 10, :armor_penetration => 10, :crit => 7, :armor => 6, :haste => 1, :attack_power => 1}
+        else #fury and arms
+          {:expertise => 100, :strength => 82, :crit => 66, :agility => 53, :armor_penetration => 52, :hit => 48, :haste => 36, :attack_power => 31, :armor => 5}
+        end
       end
     end
   end
