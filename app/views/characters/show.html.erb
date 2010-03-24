@@ -1,7 +1,3 @@
-<div>
-  <%= link_to "Upgrades From Raids", character_raids_path(@character) %>
-  <%= link_to "Upgrades From Dungeons", character_dungeons_path(@character) %>
-</div>
 <div id="upgrades">
     <div class="upgrade_section" id="emblem_of_frost">
     <h1>Your best upgrades from <%= stylized_item_name Item.badge_of_frost %> <%= wowhead_item_image_link Item.badge_of_frost %> <span class="see_more"><%= link_to "more upgrades", from_frost_emblems_character_upgrades_path(@character) %></span></h1>
