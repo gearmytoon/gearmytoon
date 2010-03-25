@@ -34,7 +34,6 @@ Rails::Initializer.run do |config|
   # Set Time.zone default to the specified zone and make Active Record auto-convert to this zone.
   # Run "rake -D time" for a list of tasks for finding time zone names.
   config.time_zone = 'UTC'
-  config.gem "pwood-wowr", :version => "0.5.1", :lib => "wowr", :source => "http://gems.github.com"
   config.gem "json", :version => "1.2.0"
   config.gem "mechanize", :version => "0.9.3"
   # The default locale is :en and all translations from config/locales/*.rb,yml are auto loaded.
