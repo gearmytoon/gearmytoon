@@ -8,3 +8,10 @@ require 'rake/testtask'
 require 'rake/rdoctask'
 
 require 'tasks/rails'
+
+begin
+  require 'vlad'
+  Vlad.load :scm => :git
+rescue LoadError
+  STDERR.puts "You need to install the vlad gem. 'gem install vlad vlad-git'"
+end
