@@ -1,40 +1,42 @@
-TODO:
+**TODOS**
+
+IMPORT PROCESS:
 - change the import process to build a list of items we care about from max dps and have a seperate task to refresh/build the list from wowarmory
-- add weapon upgrade support
-- add specific dps multipliers based on class spec's
-- add class specific armor types (ie some mail is only usable by hunters)
-- add faction to character and item
-- Import these dungeons: 206,4120,3477,4494,4196,4415,4375,4264,1196,4272,4228,4809,4813,4820,4723,4100
-- Import these raids: 4603,4273,4493,4500,2159,3456,4812,4722
-
 - import all items for all classes
-- implement the stat standardized dps units for each class - when you ask a item for dps you will pass in it's multiplier object
-- add in hard caps for multipliers
 - map wowarmory magic numbers, quality, inventory type, etc into meaningful names, ie quality = 4 should be quality = 'epic'
-- consider gems slots and gem bonus upgrades when comparing items
 
+CHARACTER SUPPORT:
 - add local to the search, i.e. support euro and oceanic servers.
+- add multipliers for druid tanks and dk tanks
 
+DPS CHANGES:
+- add in hard caps for multipliers(hit rating cap, def rating cap)
 - take racials into account
 - take trinkets cooldown effects into account *** ie 1024 attack power for 20 seconds with a 2 min cooldown = (1024 * (20/120)) * attack_power_multiplier
-
-- setup recurring payments - http://www.braintreepaymentsolutions.com/
-- rpxnow? for signin/signup
-- signup with wowcoach for account
-- 3 free previews, use it 3 times for free then upsell, here's one recommendation signup to see 2 more
-- autocomplete on realm
-- hit rating cap, def rating cap
-- x (i am not interested in a item, or check I already have an item)
-- wow like item comparison
-- fix hunters RangedDps and the item import
 - find a way to import shield block value
-- check what # ["ArcaneSpellDamage"] = 49, ["FrostSpellDamage"] = 24, ["FireSpellDamage"] = 24  maps to
-
-
-- add multipliers for druid tanks and dk tanks
 - add feral_attack_power to item import
 - add armor to bonuses
 
-Cleanup::::
+ITEM CHANGES:
+- add class specific armor types (ie some mail is only usable by hunters)
+- add weapon upgrade support
+- add faction to character and item
+- consider gems slots and gem bonus upgrades when comparing items
+
+PAYMENT CHANGES:
+- setup recurring payments - http://www.braintreepaymentsolutions.com/
+- 3 free previews, use it 3 times for free then upsell, here's one recommendation signup to see 2 more
+
+LOGIN CHANGES:
+- rpxnow? for signin/signup
+- signup with wowcoach for account
+
+USABILITY CHANGES:
+- autocomplete on realm
+- x (i am not interested in a item, or check I already have an item)
+- wow like item comparison
+
+
+THINGS TO CLEANUP:
 .slice(0,3) -> extension method
 from_upgrade views and character show, extract a partial layout

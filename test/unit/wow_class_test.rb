@@ -31,5 +31,31 @@ class WowClassTest < ActiveSupport::TestCase
       assert_equal leather_upgrade, rogue.equippable_items.first
     end
   end
-
+  
+  {:DeathKnight => ["Blood", "Frost", "Unholy"],
+   :Druid => ["Balance", "Feral Combat", "Restoration"],
+   :Hunter => ["Beast Mastery", "Marksmanship", "Survival"],
+   :Mage => ["Frost", "Fire", "Arcane"],
+   :Paladin => ["Protection", "Holy", "Retribution"],
+   :Priest => ["Holy", "Shadow", "Discipline"],
+   :Rogue => ["Assassination", "Combat", "Subtlety"],
+   :Shaman => ["Elemental", "Enhancement", "Restoration"],
+   :Warlock => ["Demonology", "Destruction", "Affliction"],
+   :Warrior => ["Arms", "Fury", "Protection"]}.each do |wow_class, possible_specs|
+    context "WowClassConstants" do
+      (possible_specs << "Hybrid").each do |possible_spec|
+        should "#{wow_class} #{possible_spec} have valid multipliers" do
+          valid_multipliers = [:agility, :strength, :expertise, :intellect, :attack_power, 
+                              :melee_dps, :haste, :hit, :crit, :armor_penetration, :armor,
+                              :spirit, :spell_power, :dodge, :parry, :mana_regen,
+                              :block_value, :defense, :stamina, :block,
+                              :ranged_max_damage, :ranged_attack_speed, :ranged_min_damage, 
+                              :feral_attack_power]
+          actual_multipliers = "WowClass::WowClassConstants::#{wow_class.to_s}".constantize.stat_multipliers(possible_spec)
+          unknown_multipliers = actual_multipliers.keys - valid_multipliers
+          assert unknown_multipliers.empty?, "For class #{wow_class} found invalid multipliers #{unknown_multipliers.join(",")}"
+        end
+      end
+    end
+  end
 end
