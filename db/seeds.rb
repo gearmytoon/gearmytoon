@@ -1,4 +1,3 @@
 WowClassImporter.import_all_classes
-MaxDpsImporter.new(:hunter).import_from_max_dps
-MaxDpsImporter.new(:mage).import_from_max_dps
-MaxDpsImporter.new(:rogue).import_from_max_dps
+FromTextFileItemImporter.import!("#{RAILS_ROOT}/db/data/items/hunter.txt")
+FromTextFileItemImporter.import!("#{RAILS_ROOT}/db/data/items/rogue.txt")
