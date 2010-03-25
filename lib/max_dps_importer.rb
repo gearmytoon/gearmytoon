@@ -33,7 +33,9 @@ class MaxDpsImporter
   end
 
   def import_from_max_dps
-    File.open(File.join("#{RAILS_ROOT}/db/data/items", "#{@max_dps_class_name.underscore}.txt"),"w+") do |file|
+    file_name = File.join("#{RAILS_ROOT}/db/data/items", "#{@max_dps_class_name.underscore}.txt")
+    File.delete(file_name) if File.exists?(file_name)
+    File.open(file_name,"w+") do |file|
       slots = @max_dps_class[:slots]
       slots.each do |slot|
         puts "building item list for slot #{slot} for #{@max_dps_class_name} from maxdps"

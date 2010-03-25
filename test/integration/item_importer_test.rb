@@ -1,6 +1,6 @@
 require File.dirname(__FILE__) + '/../test_helper'
 
-class CharacterImporterTest < ActiveSupport::TestCase
+class ItemImporterTest < ActiveSupport::TestCase
   context "import_from_wowarmory!" do
     should "not import duplicates" do
       ItemImporter.import_from_wowarmory!(50270)
@@ -20,7 +20,7 @@ class CharacterImporterTest < ActiveSupport::TestCase
 
     should "import ranged bow weapon dps" do
       item = ItemImporter.import_from_wowarmory!(50776)
-      assert_equal "Njordnar Bone Bow", item.name
+      assert_equal "Njorndar Bone Bow", item.name
       assert_equal 490, item.bonuses[:ranged_min_damage]
       assert_equal 814, item.bonuses[:ranged_max_damage]
       assert_equal 2.9, item.bonuses[:ranged_attack_speed]
