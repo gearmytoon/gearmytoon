@@ -2,7 +2,7 @@
 
 IMPORT PROCESS:
 - change the import process to build a list of items we care about from max dps and have a seperate task to refresh/build the list from wowarmory
-- import all items for all classes
+- missing classes/specs (paly tanks, dk tanks, druid tanks)
 - map wowarmory magic numbers, quality, inventory type, etc into meaningful names, ie quality = 4 should be quality = 'epic'
 
 CHARACTER SUPPORT:

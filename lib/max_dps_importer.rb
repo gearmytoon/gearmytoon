@@ -4,6 +4,7 @@ class MaxDpsImporter
   Mage = {:base_url => "http://www.maxdps.com/mage/fire.php", :slot_url_template => "http://www.maxdps.com/mage/fire_read.php?slotID=", :slots => (1..14).to_a}
   Rogue = {:base_url => "http://www.maxdps.com/rogue/combat.php", :slot_url_template => "http://www.maxdps.com/rogue/combat_read.php?slotID=", :slots => ((1..17).to_a - [13, 15])}
   FuryWarrior = {:base_url => "http://www.maxdps.com/warrior/fury.php", :slot_url_template => "http://www.maxdps.com/warrior/fury_read.php?slotID=", :slots => (1..14).to_a}
+  ProtectionWarrior = {:base_url => "http://www.maxdps.com/warrior/protection.php", :slot_url_template => "http://www.maxdps.com/warrior/protection_read.php?slotID=", :slots => (1..14).to_a}
   AfflictionWarlock = {:base_url => "http://www.maxdps.com/warlock/affliction.php", :slot_url_template => "http://www.maxdps.com/warlock/affliction_read.php?slotID=", :slots => (1..14).to_a}
   RetPaladin = {:base_url => "http://www.maxdps.com/paladin/retribution.php", :slot_url_template => "http://www.maxdps.com/paladin/retribution_read.php?slotID=", :slots => (1..14).to_a}
   HolyPaladin = {:base_url => "http://www.maxdps.com/paladin/holy.php", :slot_url_template => "http://www.maxdps.com/paladin/holy_read.php?slotID=", :slots => (1..14).to_a}
