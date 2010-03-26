@@ -9,7 +9,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20100323051603) do
+ActiveRecord::Schema.define(:version => 20100326150731) do
 
   create_table "areas", :force => true do |t|
     t.string   "name"
@@ -18,6 +18,8 @@ ActiveRecord::Schema.define(:version => 20100323051603) do
     t.datetime "updated_at"
     t.string   "difficulty"
   end
+
+  add_index "areas", ["wowarmory_area_id"], :name => "index_areas_on_wowarmory_area_id"
 
   create_table "armor_types", :force => true do |t|
     t.string   "name"
@@ -31,6 +33,9 @@ ActiveRecord::Schema.define(:version => 20100323051603) do
     t.datetime "created_at"
     t.datetime "updated_at"
   end
+
+  add_index "character_items", ["character_id"], :name => "index_character_items_on_character_id"
+  add_index "character_items", ["item_id"], :name => "index_character_items_on_item_id"
 
   create_table "characters", :force => true do |t|
     t.datetime "created_at"
@@ -50,6 +55,11 @@ ActiveRecord::Schema.define(:version => 20100323051603) do
     t.integer  "level"
   end
 
+  add_index "characters", ["name", "realm"], :name => "index_characters_on_name_and_realm"
+  add_index "characters", ["name"], :name => "index_characters_on_name"
+  add_index "characters", ["realm", "name"], :name => "index_characters_on_realm_and_name"
+  add_index "characters", ["wow_class_id"], :name => "index_characters_on_wow_class_id"
+
   create_table "items", :force => true do |t|
     t.string   "name"
     t.integer  "wowarmory_item_id"
@@ -65,11 +75,19 @@ ActiveRecord::Schema.define(:version => 20100323051603) do
     t.integer  "source_area_id"
   end
 
+  add_index "items", ["armor_type_id"], :name => "index_items_on_armor_type_id"
+  add_index "items", ["inventory_type"], :name => "index_items_on_inventory_type"
+  add_index "items", ["source_area_id"], :name => "index_items_on_source_area_id"
+  add_index "items", ["source_wowarmory_item_id"], :name => "index_items_on_source_wowarmory_item_id"
+  add_index "items", ["wowarmory_item_id"], :name => "index_items_on_wowarmory_item_id"
+
   create_table "wow_classes", :force => true do |t|
     t.string   "name"
     t.datetime "created_at"
     t.datetime "updated_at"
     t.integer  "primary_armor_type_id"
   end
+
+  add_index "wow_classes", ["primary_armor_type_id"], :name => "index_wow_classes_on_primary_armor_type_id"
 
 end
