@@ -9,6 +9,15 @@ class ItemImporterTest < ActiveSupport::TestCase
       end
     end
     
+    should_eventually "import items with multiple drops correctly" do
+      item = ItemImporter.import_from_wowarmory!(45543)
+      p item
+      p item.source_area
+      assert_not_nil item.source_area.name
+      assert_equal "Ulduar", item.source_area.name
+      assert_equal "h", item.source_area.difficulty #25 man ulduar
+    end
+    
     should "import melee weapon dps" do
       item = ItemImporter.import_from_wowarmory!(49682)
       assert_equal "Black Knight's Rondel", item.name
