@@ -5,7 +5,9 @@ RAILS_GEM_VERSION = '2.3.5' unless defined? RAILS_GEM_VERSION
 
 # Bootstrap the Rails environment, frameworks, and default configuration
 require File.join(File.dirname(__FILE__), 'boot')
-
+def require_all_files_in(path)
+  Dir[File.join(path, "*.rb")].each {|file| require file }
+end
 Rails::Initializer.run do |config|
   # Settings in config/environments/* take precedence over those specified here.
   # Application configuration should go into files in config/initializers
@@ -16,6 +18,9 @@ Rails::Initializer.run do |config|
   config.load_paths += Dir["#{RAILS_ROOT}/vendor/gems/**"].map do |dir| 
     File.directory?(lib = "#{dir}/lib") ? lib : dir
   end
+
+  require_all_files_in("#{RAILS_ROOT}/lib/extensions")
+  
   # Specify gems that this application depends on and have them installed with rake gems:install
   # config.gem "bj"
   # config.gem "hpricot", :version => '0.6', :source => "http://code.whytheluckystiff.net"
