@@ -10,6 +10,6 @@ task :build_a_specific_list_from_max_dps => :environment do
 end
 
 desc "import a text file via wow armory"
-task :import_a_text_file => :environment do
+task :import_a_items_text_file => :environment do
   FromTextFileItemImporter.import!("#{RAILS_ROOT}/db/data/items/#{ENV['NAME']}")
 end

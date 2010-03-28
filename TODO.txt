@@ -16,6 +16,7 @@ IMPORT PROCESS:
 CHARACTER SUPPORT:
 - add local to the search, i.e. support euro and oceanic servers.
 - add multipliers for druid tanks and dk tanks
+- don't explode when wow armory is down
 
 DPS CHANGES:
 - add in hard caps for multipliers(hit rating cap, def rating cap)
