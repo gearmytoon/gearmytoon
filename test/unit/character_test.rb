@@ -106,16 +106,7 @@ class CharacterTest < ActiveSupport::TestCase
       end
     end
   end
-  
-  context "find_by_name_or_create_from_wowarmory" do
-    should "find character by name and realm" do
-      assert_difference "Character.count" do
-        rails = Character.find_by_name_and_realm_or_create_from_wowarmory("Rails", "Baelgun")
-        assert_equal "Rails", rails.name
-        assert_equal "Baelgun", rails.realm
-      end
-    end
-  end
+
   #this should go to a hunter dps forumla class eventually, it's own model
   context "convert_bonuses_to_dps" do
     setup do
@@ -180,7 +171,6 @@ class CharacterTest < ActiveSupport::TestCase
     end
 
   end
-  
 
   context "primary_spec" do
     should "be used to determine the characters multipliers" do
