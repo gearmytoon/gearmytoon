@@ -1,5 +1,11 @@
 **TODOS**
 
+DEPLOYMENT:
+- nolan can't deploy
+- http://www.gearmytoon.com/ point to wedding site
+- account to deploy as? (admin?)
+- rake:remote tasks to reseed items
+
 IMPORT PROCESS:
 - change the import process to build a list of items we care about from max dps and have a seperate task to refresh/build the list from wowarmory
 - missing classes/specs (paly tanks, dk tanks, druid tanks)
