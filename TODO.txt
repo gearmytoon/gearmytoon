@@ -7,9 +7,11 @@ DEPLOYMENT:
 - rake:remote tasks to reseed items
 
 IMPORT PROCESS:
-- change the import process to build a list of items we care about from max dps and have a seperate task to refresh/build the list from wowarmory
 - missing classes/specs (paly tanks, dk tanks, druid tanks)
 - map wowarmory magic numbers, quality, inventory type, etc into meaningful names, ie quality = 4 should be quality = 'epic'
+- fixing the import process for certain items, the ones that drop from chests need to be mapped to a boss
+ - trinkets need to have their dps or stats fixed based on their spell
+ - set bonuses need to be taken into account
 
 CHARACTER SUPPORT:
 - add local to the search, i.e. support euro and oceanic servers.
