@@ -2,6 +2,10 @@ require File.dirname(__FILE__) + '/../test_helper'
 
 class CharacterTest < ActiveSupport::TestCase
   context "associations" do
+    should "serialize total_item_bonuses" do
+      character = Factory(:character, :total_item_bonuses => {:hit => 25})
+      assert_equal({:hit => 25}, character.reload.total_item_bonuses)
+    end
     should_have_many :equipped_items
     should_have_many :character_items
     should_belong_to :wow_class
@@ -144,11 +148,39 @@ class CharacterTest < ActiveSupport::TestCase
 
   end
 
-  context "dps" do
+  context "dps_for" do
     should "know the relative dps for a item" do
       assert_equal 191.6, Factory(:a_rogue).dps_for(:attack_power => 130, :agility => 89, :hit => 47, :stamina => 76)
     end
   end
+
+  context "stat_change_between" do
+    should "know the change in stats between two items" do
+      character = Factory(:character)
+      expected_result = {:agility => 10.0, :attack_power => -10.0}
+      old_item = Factory(:item, :bonuses => {:agility => 10.0, :attack_power => 20.0})
+      new_item = Factory(:item, :bonuses => {:agility => 20.0, :attack_power => 10.0})
+      assert_equal expected_result, character.stat_change_between(new_item, old_item)
+    end
+
+    should "know the change in stats between two items after the hit cap" do
+      character = Factory(:character, :total_item_bonuses => {:hit => 251})
+      expected_result = {:hit => 12.0, :agility=>0.0, :attack_power => -10.0}
+      old_item = Factory(:item, :bonuses => {:agility => 10.0, :hit => 251, :attack_power => 20.0})
+      new_item = Factory(:item, :bonuses => {:agility => 10.0, :hit => 300, :attack_power => 10.0})
+      assert_equal expected_result, character.stat_change_between(new_item, old_item)
+    end
+
+    should "know the change in stats between two items after the hit cap when the character is way above the hit cap" do
+      character = Factory(:character, :total_item_bonuses => {:hit => 300})
+      expected_result = {:hit => 0.0, :agility=>0.0, :attack_power => -10.0}
+      old_item = Factory(:item, :bonuses => {:agility => 10.0, :hit => 22, :attack_power => 20.0})
+      new_item = Factory(:item, :bonuses => {:agility => 10.0, :hit => 0, :attack_power => 10.0})
+      assert_equal expected_result, character.stat_change_between(new_item, old_item)
+    end
+
+  end
+  
 
   context "primary_spec" do
     should "be used to determine the characters multipliers" do

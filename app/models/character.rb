@@ -1,6 +1,7 @@
 class Character < ActiveRecord::Base
   belongs_to :wow_class
   has_many :character_items
+  serialize :total_item_bonuses
   has_many :equipped_items, :through => :character_items, :source => :item
 
   def upgrades_in(area)
@@ -34,7 +35,7 @@ class Character < ActiveRecord::Base
   def top_upgrades_for(potential_upgrades)
     upgrades = potential_upgrades.inject([]) do |found_upgrades, potential_upgrade|
       equipped_item = equipped_items.with_same_inventory_type(potential_upgrade).first
-      if (dps_change = dps_change_between(potential_upgrade, equipped_item)) > 0
+      if (dps_change = dps_for(stat_change_between(potential_upgrade, equipped_item))) > 0
         found_upgrades << Upgrade.new(potential_upgrade, equipped_item, dps_change)
       else
         found_upgrades
@@ -57,8 +58,22 @@ class Character < ActiveRecord::Base
     end
   end
 
-  def dps_change_between(new_item, old_item)
-    dps_for(new_item.change_in_stats_from(old_item))
+  def stat_change_between(new_item, old_item)
+    apply_hard_caps(new_item.change_in_stats_from(old_item))
+  end
+  
+  def apply_hard_caps(change_in_bonuses)
+    bonuses_after_hard_cap = {}
+    change_in_bonuses.slice(*hard_caps.keys).each do |key, value|
+      if((value + total_item_bonuses[key]) > hard_caps[key])
+        bonuses_after_hard_cap[key] = [hard_caps[key] - total_item_bonuses[key], 0].max
+      end
+    end
+    return change_in_bonuses.merge(bonuses_after_hard_cap)
+  end
+  
+  def hard_caps
+    {:hit => 263}
   end
 
   def self.find_by_name_and_realm_or_create_from_wowarmory(name, realm)

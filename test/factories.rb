@@ -1,5 +1,6 @@
 Factory.define(:character) do |model|
   model.name "Merb"
+  model.total_item_bonuses {}
   model.realm "Baelgun"
   model.battle_group "Shadowburn"
   model.guild "Special Circumstances"
