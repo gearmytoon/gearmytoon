@@ -11,5 +11,5 @@ end
 
 desc "import a text file via wow armory"
 task :import_a_items_text_file => :environment do
-  FromTextFileItemImporter.import!("#{RAILS_ROOT}/db/data/items/#{ENV['NAME']}")
+  FromTextFileItemImporter.import!("db/data/items/#{ENV['NAME']}")
 end
