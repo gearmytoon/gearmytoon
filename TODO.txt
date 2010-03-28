@@ -1,10 +1,6 @@
 **TODOS**
 
 DEPLOYMENT:
-- nolan can't deploy
-- http://www.gearmytoon.com/ point to wedding site
-- account to deploy as? (admin?)
-- rake:remote tasks to reseed items
 
 IMPORT PROCESS:
 - missing classes/specs (paly tanks, dk tanks, druid tanks)
