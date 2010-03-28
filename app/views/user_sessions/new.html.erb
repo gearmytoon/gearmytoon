@@ -1,0 +1,23 @@
+<h1>Sign in to your account</h1>
+<div class="column grid_6">
+  <%= RPXNow.embed_code('gearmytoon',rpx_token_sessions_url) %>
+</div>
+<div class="column grid_6">
+  <% form_for @user_session, :url => user_session_path do |f| %>
+    <%= f.error_messages :header_message => nil %>
+    <p>
+      <%= f.label :email %>
+      <%= f.text_field :email, :class => 'text' %>
+    </p>
+    <p>
+      <%= f.label :password %>
+      <%= f.password_field :password, :class => 'password' %>
+    </p>
+    <p>
+      <%= f.check_box :remember_me, :class => 'checkbox' %><%= f.label :remember_me %>
+    </p>
+    <p>
+      <%= f.submit "Login", :class => 'button' %>
+    </p>
+  <% end %>
+</div>

@@ -1,5 +1,6 @@
 class Character < ActiveRecord::Base
   belongs_to :wow_class
+  belongs_to :user
   has_many :character_items
   serialize :total_item_bonuses
   has_many :equipped_items, :through => :character_items, :source => :item
@@ -11,7 +12,7 @@ class Character < ActiveRecord::Base
   def top_3_frost_upgrades
     frost_upgrades.slice(0,3)
   end
-  
+
   def frost_upgrades
     top_upgrades_for(wow_class.equippable_items.from_emblem_of_frost)
   end
@@ -61,7 +62,7 @@ class Character < ActiveRecord::Base
   def stat_change_between(new_item, old_item)
     apply_hard_caps(new_item.change_in_stats_from(old_item))
   end
-  
+
   def apply_hard_caps(change_in_bonuses)
     bonuses_after_hard_cap = {}
     change_in_bonuses.slice(*hard_caps.keys).each do |key, value|
@@ -71,7 +72,7 @@ class Character < ActiveRecord::Base
     end
     return change_in_bonuses.merge(bonuses_after_hard_cap)
   end
-  
+
   def hard_caps
     wow_class.hard_caps
   end

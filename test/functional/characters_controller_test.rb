@@ -13,7 +13,15 @@ class CharactersControllerTest < ActionController::TestCase
       post :create, :character => {:name => "mERb", :realm => "LOTHar"}
       assert_redirected_to character_path(character)
     end
-    
+
+    should "link to current_user" do
+      activate_authlogic
+      user = Factory(:user)
+      character = Factory(:character, :name => "Merb", :realm => "Lothar")
+      post :create, :character => {:name => "Merb", :realm => "Lothar"}
+      assert_equal user, assigns(:character).user
+      assert_redirected_to account_url
+    end
   end
 
   context "get show" do

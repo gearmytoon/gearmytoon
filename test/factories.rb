@@ -8,6 +8,12 @@ Factory.define(:character) do |model|
   model.wow_class WowClass.create_class!("Hunter")
 end
 
+Factory.define(:user) do |f|
+  f.email "foo@foo.com"
+  f.password "password"
+  f.password_confirmation "password"
+end
+
 Factory.define(:survival_hunter, :class => "Character") do |model|
   model.name "Merb"
   model.wow_class WowClass.create_class!("Hunter")
@@ -70,4 +76,4 @@ Factory.define(:raid, :class => :area) do |model|
   model.name "Super DUPER Fun Unicorn Land"
   model.wowarmory_area_id Area::RAIDS.first
 end
- 
+

@@ -9,7 +9,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20100328180713) do
+ActiveRecord::Schema.define(:version => 20100329074750) do
 
   create_table "areas", :force => true do |t|
     t.string   "name"
@@ -54,6 +54,7 @@ ActiveRecord::Schema.define(:version => 20100328180713) do
     t.string   "guild_url"
     t.integer  "level"
     t.text     "total_item_bonuses"
+    t.integer  "user_id"
   end
 
   add_index "characters", ["name", "realm"], :name => "index_characters_on_name_and_realm"
@@ -81,6 +82,16 @@ ActiveRecord::Schema.define(:version => 20100328180713) do
   add_index "items", ["source_area_id"], :name => "index_items_on_source_area_id"
   add_index "items", ["source_wowarmory_item_id"], :name => "index_items_on_source_wowarmory_item_id"
   add_index "items", ["wowarmory_item_id"], :name => "index_items_on_wowarmory_item_id"
+
+  create_table "users", :force => true do |t|
+    t.string   "email",             :null => false
+    t.string   "crypted_password",  :null => false
+    t.string   "password_salt",     :null => false
+    t.string   "persistence_token", :null => false
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.string   "identity_url"
+  end
 
   create_table "wow_classes", :force => true do |t|
     t.string   "name"

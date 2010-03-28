@@ -1,0 +1,33 @@
+<div class="column grid_6">
+  <h2>Toons</h2>
+  <ul>
+    <% @user.characters.each do |c| -%>
+      <li><%= link_to c.name, character_path(c) %></li>
+    <% end -%>
+  </ul>
+  <h2>Add a Toon</h2>
+  <% form_for Character.new, new_character_path do |f| -%>
+    <p>
+      <%= f.label :name %>
+      <%= f.text_field :name, :class => 'text' %>
+    </p>
+    <p>
+      <%= f.label :realm %>
+      <%= f.text_field :realm, :class => 'text' %>
+    </p>
+    <p>
+      <%= f.submit "Add Toon", :class => 'button' %>
+    </p>
+  <% end %>
+</div>
+<div class="column grid_6">
+  <h2>Account Info</h2>
+  <p>
+    <b>E-Mail:</b> <%= @user.email %>
+  </p>
+  <% if @user.identity_url.present? -%>
+    <p>
+      <b>Identity URL:</b> <%= @user.identity_url %>
+    </p>
+  <% end -%>
+</div>

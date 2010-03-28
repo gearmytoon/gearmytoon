@@ -9,6 +9,7 @@ class CharacterTest < ActiveSupport::TestCase
     should_have_many :equipped_items
     should_have_many :character_items
     should_belong_to :wow_class
+    should_belong_to :user
     should "have many equipped items through character_items" do
       character_item = Factory(:character_item)
       assert_equal [character_item.item], character_item.character.equipped_items
@@ -16,7 +17,7 @@ class CharacterTest < ActiveSupport::TestCase
   end
 
   context "top_3_frost_upgrades" do
-    
+
     should "find upgrades of the same armor type" do
       rogue = Factory(:a_rogue)
       plate_upgrade = Factory(:item_from_emblem_of_frost, :bonuses => {:attack_power => 500.0}, :inventory_type => 2, :armor_type => ArmorType.Plate)
@@ -177,7 +178,7 @@ class CharacterTest < ActiveSupport::TestCase
       character = Factory(:a_hunter)
       assert_equal 263, character.hard_caps[:hit]
     end
-    
+
     should "be 886 for hit for hunters" do
       character = Factory(:a_rogue)
       assert_equal 886, character.hard_caps[:hit]

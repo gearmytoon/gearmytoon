@@ -15,12 +15,12 @@ Rails::Initializer.run do |config|
 
   # Add additional load paths for your own custom dirs
   # config.load_paths += %W( #{RAILS_ROOT}/extras )
-  config.load_paths += Dir["#{RAILS_ROOT}/vendor/gems/**"].map do |dir| 
+  config.load_paths += Dir["#{RAILS_ROOT}/vendor/gems/**"].map do |dir|
     File.directory?(lib = "#{dir}/lib") ? lib : dir
   end
 
   require_all_files_in("#{RAILS_ROOT}/lib/extensions")
-  
+
   # Specify gems that this application depends on and have them installed with rake gems:install
   # config.gem "bj"
   # config.gem "hpricot", :version => '0.6', :source => "http://code.whytheluckystiff.net"
@@ -44,7 +44,13 @@ Rails::Initializer.run do |config|
   config.gem "pwood-wowr", :version => "0.5.1", :lib => "wowr", :source => "http://gems.github.com"
   config.gem "json", :version => "1.2.0"
   config.gem "mechanize", :version => "0.9.3"
+  config.gem 'ruby-openid', :lib => 'openid'
+  config.gem 'authlogic'
+  config.gem 'rpx_now'
   # The default locale is :en and all translations from config/locales/*.rb,yml are auto loaded.
   # config.i18n.load_path += Dir[Rails.root.join('my', 'locales', '*.{rb,yml}')]
   # config.i18n.default_locale = :de
+  config.after_initialize do
+    RPXNow.api_key = '65d9b768ba9f8c96a1d93691c53df7e59c738599'
+  end
 end
