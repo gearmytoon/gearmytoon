@@ -1,6 +1,7 @@
 **TODOS**
 
 DEPLOYMENT:
+- make the deploy users default rails env= production
 - the wowr item cache should go along with the deploy
 
 IMPORT PROCESS:
