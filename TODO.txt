@@ -1,6 +1,7 @@
 **TODOS**
 
 DEPLOYMENT:
+- the wowr item cache should go along with the deploy
 
 IMPORT PROCESS:
 - missing classes/specs (paly tanks, dk tanks, druid tanks)
