@@ -94,17 +94,17 @@ class ItemImporterTest < ActiveSupport::TestCase
       assert_equal "n", ten_man_item.source_area.difficulty
       assert_equal "n", twenty_five_man_item.source_area.difficulty
     end
-     should "import items from a heroic 10 and 25 man raid" do
-        ten_man_item = ItemImporter.import_from_wowarmory!(51876)
-        twenty_five_man_item = ItemImporter.import_from_wowarmory!(50731)
-        assert_not_equal ten_man_item.source_area, twenty_five_man_item.source_area
-        assert Area::RAIDS.include?(ten_man_item.source_area.wowarmory_area_id)
-        assert Area::RAIDS.include?(twenty_five_man_item.source_area.wowarmory_area_id)
-        assert_equal "Icecrown Citadel (10)", ten_man_item.source_area.name
-        assert_equal "Icecrown Citadel (25)", twenty_five_man_item.source_area.name
-        assert_equal "h", ten_man_item.source_area.difficulty
-        assert_equal "h", twenty_five_man_item.source_area.difficulty
-      end
+    should "import items from a heroic 10 and 25 man raid" do
+      ten_man_item = ItemImporter.import_from_wowarmory!(51876)
+      twenty_five_man_item = ItemImporter.import_from_wowarmory!(50731)
+      assert_not_equal ten_man_item.source_area, twenty_five_man_item.source_area
+      assert Area::RAIDS.include?(ten_man_item.source_area.wowarmory_area_id)
+      assert Area::RAIDS.include?(twenty_five_man_item.source_area.wowarmory_area_id)
+      assert_equal "Icecrown Citadel (10)", ten_man_item.source_area.name
+      assert_equal "Icecrown Citadel (25)", twenty_five_man_item.source_area.name
+      assert_equal "h", ten_man_item.source_area.difficulty
+      assert_equal "h", twenty_five_man_item.source_area.difficulty
+    end
     should "not import items that cost more then triumph badges" do
       assert_no_difference "Item.from_emblem_of_triumph.count" do
         assert_difference "Item.count" do
