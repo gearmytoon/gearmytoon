@@ -34,8 +34,8 @@ class Character < ActiveRecord::Base
   def top_upgrades_for(potential_upgrades)
     upgrades = potential_upgrades.inject([]) do |found_upgrades, potential_upgrade|
       equipped_item = equipped_items.with_same_inventory_type(potential_upgrade).first
-      if potential_upgrade.dps_compared_to_for_character(equipped_item, self) > 0
-        found_upgrades << Upgrade.new(self, potential_upgrade, equipped_item)
+      if (dps_change = dps_change_between(potential_upgrade, equipped_item)) > 0
+        found_upgrades << Upgrade.new(potential_upgrade, equipped_item, dps_change)
       else
         found_upgrades
       end
@@ -55,6 +55,10 @@ class Character < ActiveRecord::Base
       stat_name, relative_dps_value = relative_bonus_dps_value
       total_dps += relative_dps_value * (item_bonuses[stat_name] ? item_bonuses[stat_name] : 0)
     end
+  end
+
+  def dps_change_between(new_item, old_item)
+    dps_for(new_item.change_in_stats_from(old_item))
   end
 
   def self.find_by_name_and_realm_or_create_from_wowarmory(name, realm)

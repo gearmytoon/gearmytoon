@@ -41,19 +41,6 @@ class ItemTest < ActiveSupport::TestCase
     end
     
   end
-
-  context "dps_compared_to_for_character" do
-    setup do
-      test_multipliers = {:attack_power => 0.5, :agility => 1, :armor_penetration => 1.1, :crit => 0.75, :haste => 0.7, :hit => 0.8}
-      WowClass::WowClassConstants::Rogue.stubs(:stat_multipliers).returns(test_multipliers)
-    end
-
-    should "return the difference in dps with what the character is wearing" do
-      fifty_dps = Factory(:item, :inventory_type => 0, :bonuses => {:attack_power => 100.0})
-      one_hundred_dps = Factory(:item, :inventory_type => 0, :bonuses => {:attack_power => 200.0})
-      assert_equal 50.0, one_hundred_dps.dps_compared_to_for_character(fifty_dps, Factory(:a_rogue))
-    end
-  end
   
   context "change_in_stats_from" do
     should "return the change in stats between two items" do
@@ -62,6 +49,14 @@ class ItemTest < ActiveSupport::TestCase
       expected_difference = {:attack_power => 100.0, :stamina => -10.0, :spell_power => -45.0, :dodge => 20}
       assert_equal expected_difference, new_item.change_in_stats_from(old_item)
     end
+
+    should "return new_item's bonuses if the old item is nil" do
+      old_item = nil
+      new_item = Factory(:item, :inventory_type => 0, :bonuses => {:attack_power => 200.0, :stamina => 10.0, :dodge => 20})
+      expected_difference = {:attack_power => 200.0, :stamina => 10.0, :dodge => 20}
+      assert_equal expected_difference, new_item.change_in_stats_from(old_item)
+    end
+
   end
 
   context "in_same_slot_as" do

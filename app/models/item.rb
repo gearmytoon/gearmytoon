@@ -36,12 +36,8 @@ class Item < ActiveRecord::Base
     wowarmory_item_id
   end
 
-  def dps_compared_to_for_character(item, character)
-    return character.dps_for(self.bonuses) if item.nil?
-    character.dps_for(self.bonuses) - character.dps_for(item.bonuses)
-  end
-  
   def change_in_stats_from(other_item)
+    return self.bonuses if other_item.nil?
     self.bonuses.subtract_values(other_item.bonuses)
   end
 end
