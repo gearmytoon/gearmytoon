@@ -37,6 +37,13 @@ class CharactersControllerTest < ActionController::TestCase
       assert_select "#realm_and_battlegroup", :text => "Baelgun, Shadowburn"
       assert_select "#character_info .primary_spec", :text => "Survival"
     end
+
+    should_eventually "display no such character page if we cannot find the character" do
+      character = Factory(:character, :name => "mmmmmmmmmmmferb", :realm => "Baelgun", :battle_group => "Shadowburn", :guild => "Special Circumstances", :primary_spec => "Survival")
+      get :show, :id => character.id
+      assert_response :redirect
+      assert_select "#error .message", :text => "sorry we could not locate your character on wow armory"
+    end
     
     should "have an upgrade section for emblems of frost" do
       character = Factory(:character)
@@ -58,10 +65,10 @@ class CharactersControllerTest < ActionController::TestCase
       assert_select "#emblem_of_frost .upgrade .cost", :text => "27"
     end
 
-    should "show what you are upgrade from in the upgrade section" do
+    should "show what you are upgrading from in the upgrade section" do
       Factory(:item_from_emblem_of_triumph, :inventory_type => 2, :bonuses => {:attack_power => 400.0})
-      character = Factory(:character_item, :item => Factory(:item, :name => "Stoppable Force", :inventory_type => 2, :bonuses => {:attack_power => 100.0}))
-      get :show, :id => character.id
+      character_item = Factory(:character_item, :item => Factory(:item, :name => "Stoppable Force", :inventory_type => 2, :bonuses => {:attack_power => 100.0}))
+      get :show, :id => character_item.character.id
       assert_select "#emblem_of_triumph .upgrade .old_item", :text => "Stoppable Force"
     end
 
