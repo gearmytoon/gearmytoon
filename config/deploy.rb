@@ -1,5 +1,5 @@
 set :application, "project"
-set :domain, "wow.telcobox.net"
+set :domain, "deploy@wow.telcobox.net"
 set :deploy_to, "/var/public_html/wow.telcobox.net/"
 set :repository, 'git@github.com:nolman/wowcoach.git'
 set :ssh_flags, ['-p 60322']
@@ -13,7 +13,7 @@ namespace :vlad do
     vlad:migrate
     vlad:start
   ]
-  
+
   desc "import a text file via wow armory on production"
   remote_task :import_a_items_text_file do
     run "cd #{current_path} && RAILS_ENV=production rake import_a_items_text_file NAME=#{ENV['NAME']}}"
