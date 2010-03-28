@@ -1,5 +1,5 @@
 ActionController::Routing::Routes.draw do |map|
-  map.resource :home
+  map.resource :home, :member => {:no_such_character => :get}
   map.resources :areas
   map.resources :characters do |character|
     character.resources :raids

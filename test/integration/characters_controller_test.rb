@@ -6,9 +6,14 @@ class CharactersControllerTest < ActionController::TestCase
       assert_difference "Item.count", 19 do
         assert_difference "Character.count" do
           post :create, :character => {:name => "Merb", :realm => "Baelgun"}
+          assert_redirected_to character_path(Character.last)
         end
       end
-      assert_redirected_to character_path(Character.last)
+    end
+    
+    should "display no such character page if we cannot find the character" do
+      post :create, :character => {:name => "zzzzzzzzzzerb", :realm => "Thunderlord"}
+      assert_redirected_to no_such_character_home_path(:name => "Zzzzzzzzzzerb", :realm => "Thunderlord")
     end
   end
   

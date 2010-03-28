@@ -13,7 +13,8 @@ class CharactersControllerTest < ActionController::TestCase
       post :create, :character => {:name => "mERb", :realm => "LOTHar"}
       assert_redirected_to character_path(character)
     end
-    end
+    
+  end
 
   context "get show" do
     should "display character info" do
@@ -28,13 +29,6 @@ class CharactersControllerTest < ActionController::TestCase
       assert_select "#character_info .primary_spec", :text => "Survival"
     end
 
-    should_eventually "display no such character page if we cannot find the character" do
-      character = Factory(:character, :name => "mmmmmmmmmmmferb", :realm => "Baelgun", :battle_group => "Shadowburn", :guild => "Special Circumstances", :primary_spec => "Survival")
-      get :show, :id => character.id
-      assert_response :redirect
-      assert_select "#error .message", :text => "sorry we could not locate your character on wow armory"
-    end
-    
     should "have an upgrade section for emblems of frost" do
       character = Factory(:character)
       get :show, :id => character.id

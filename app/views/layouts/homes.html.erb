@@ -12,6 +12,7 @@
   </head>
   <body>
     <p style="color: green"><%= flash[:notice] %></p>
+    <p id="error" style="color: red"><span class="message"><%= flash[:error] %></span></p>
     <%= yield %>
   </body>
 </html>
