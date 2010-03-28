@@ -18,7 +18,7 @@ class CharacterImporter
         :primary_spec => primary_spec, :wowarmory_gender_id => wow_armor_character.gender_id, :gender => wow_armor_character.gender, 
         :wowarmory_race_id => wow_armor_character.race_id, :race => wow_armor_character.race, :wowarmory_class_id => wow_armor_character.klass_id,
         :guild => wow_armor_character.guild, :battle_group => wow_armor_character.battle_group, :guild_url => wow_armor_character.guild_url, 
-        :level => wow_armor_character.level)
+        :level => wow_armor_character.level, :total_item_bonuses => {})
       character.save!
     end
   end
