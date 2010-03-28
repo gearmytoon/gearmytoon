@@ -172,6 +172,19 @@ class CharacterTest < ActiveSupport::TestCase
 
   end
 
+  context "hard_cap" do
+    should "be 263 for hit for hunters" do
+      character = Factory(:a_hunter)
+      assert_equal 263, character.hard_caps[:hit]
+    end
+    
+    should "be 886 for hit for hunters" do
+      character = Factory(:a_rogue)
+      assert_equal 886, character.hard_caps[:hit]
+    end
+
+  end
+
   context "primary_spec" do
     should "be used to determine the characters multipliers" do
       survival_hunter = Factory(:survival_hunter)

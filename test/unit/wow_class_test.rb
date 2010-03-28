@@ -43,6 +43,11 @@ class WowClassTest < ActiveSupport::TestCase
    :Warlock => ["Demonology", "Destruction", "Affliction"],
    :Warrior => ["Arms", "Fury", "Protection"]}.each do |wow_class, possible_specs|
     context "WowClassConstants" do
+      
+      should "#{wow_class} have hard_caps" do
+        assert_not_nil "WowClass::WowClassConstants::#{wow_class.to_s}".constantize.hard_caps
+      end
+      
       (possible_specs << "Hybrid").each do |possible_spec|
         should "#{wow_class} #{possible_spec} have valid multipliers" do
           valid_multipliers = [:agility, :strength, :expertise, :intellect, :attack_power, 

@@ -17,7 +17,15 @@ class WowClass < ActiveRecord::Base
   end
   
   def stat_multipliers(primary_spec)
-    "WowClass::WowClassConstants::#{self.name.gsub(/\s/,"")}".constantize.stat_multipliers(primary_spec)
+    wow_class_multipliers.stat_multipliers(primary_spec)
+  end
+  
+  def wow_class_multipliers
+    "WowClass::WowClassConstants::#{self.name.gsub(/\s/,"")}".constantize
+  end
+  
+  def hard_caps
+    wow_class_multipliers.hard_caps
   end
   
   def self.create_all_classes!
@@ -32,6 +40,10 @@ class WowClass < ActiveRecord::Base
   
   module WowClassConstants
     module Rogue
+      def self.hard_caps
+        {:hit => 886}
+      end
+      
       def self.stat_multipliers(primary_spec)
         case primary_spec
         when "Assassination"
@@ -45,6 +57,10 @@ class WowClass < ActiveRecord::Base
     end
 
     module Hunter
+      def self.hard_caps
+        {:hit => 263}
+      end
+      
       def self.stat_multipliers(primary_spec)
         case primary_spec
         when "Survival"
@@ -58,6 +74,10 @@ class WowClass < ActiveRecord::Base
     end
     
     module DeathKnight
+      def self.hard_caps
+        {:hit => 263}
+      end
+    
       def self.stat_multipliers(primary_spec)
         case primary_spec
         when "Frost"
@@ -71,6 +91,10 @@ class WowClass < ActiveRecord::Base
     end
     
     module Druid
+      def self.hard_caps
+        {:hit => 263}
+      end
+    
       def self.stat_multipliers(primary_spec)
         case primary_spec
         when "Balance"
@@ -84,6 +108,10 @@ class WowClass < ActiveRecord::Base
     end
     
     module Mage
+      def self.hard_caps
+        {:hit => 263}
+      end
+    
       def self.stat_multipliers(primary_spec)
         case primary_spec
         when "Arcane"
@@ -97,6 +125,10 @@ class WowClass < ActiveRecord::Base
     end
     
     module Paladin
+      def self.hard_caps
+        {:hit => 263}
+      end
+    
       def self.stat_multipliers(primary_spec)
         case primary_spec
         when "Protection"
@@ -110,6 +142,10 @@ class WowClass < ActiveRecord::Base
     end
     
     module Priest
+      def self.hard_caps
+        {:hit => 263}
+      end
+    
       def self.stat_multipliers(primary_spec)
         case primary_spec
         when "Holy"
@@ -123,6 +159,10 @@ class WowClass < ActiveRecord::Base
     end
 
     module Shaman
+      def self.hard_caps
+        {:hit => 263}
+      end
+    
       def self.stat_multipliers(primary_spec)
         case primary_spec
         when "Enhancement"
@@ -136,6 +176,10 @@ class WowClass < ActiveRecord::Base
     end
 
     module Warlock
+      def self.hard_caps
+        {:hit => 263}
+      end
+    
       def self.stat_multipliers(primary_spec)
         case primary_spec
         when "Destruction"
@@ -149,6 +193,10 @@ class WowClass < ActiveRecord::Base
     end
 
     module Warrior
+      def self.hard_caps
+        {:hit => 263}
+      end
+    
       def self.stat_multipliers(primary_spec)
         case primary_spec
         when "Protection"

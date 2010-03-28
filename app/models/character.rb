@@ -73,7 +73,7 @@ class Character < ActiveRecord::Base
   end
   
   def hard_caps
-    {:hit => 263}
+    wow_class.hard_caps
   end
 
   def self.find_by_name_and_realm_or_create_from_wowarmory(name, realm)
