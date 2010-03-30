@@ -8,7 +8,7 @@ module CharactersHelper
   end
 
   def stylized_item_name(item)
-    content_tag(:span, item.name, :class => WowHelpers.quality_adjective_for(item))
+    content_tag(:span, item.name, :class => item.quality)
   end
 
   def wowhead_npc_link(npc)

@@ -54,7 +54,7 @@ class ItemImporterTest < ActiveSupport::TestCase
       item = ItemImporter.import_from_wowarmory!(50270)
       assert_equal "Belt of Rotted Fingernails", item.name
       assert_equal 6, item.inventory_type
-      assert_equal 4, item.quality
+      assert_equal "epic", item.quality
       assert_equal "http://www.wowarmory.com/wow-icons/_images/43x43/inv_belt_69.png", item.icon
       assert_equal "Mail", item.armor_type.name
     end

@@ -41,10 +41,3 @@ class Item < ActiveRecord::Base
     self.bonuses.subtract_values(other_item.bonuses)
   end
 end
-
-class WowHelpers
-  QUALITY_ADJECTIVE_LOOKUP = {0 => "poor", 1 => "common", 2 => "uncommon", 3 => "rare", 4 => "epic", 5 => "legendary", 6 => "artifact", 7 => "heirloom"}
-  def self.quality_adjective_for(item)  
-    QUALITY_ADJECTIVE_LOOKUP[item.quality]
-  end
-end
