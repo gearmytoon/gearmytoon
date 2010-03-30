@@ -1,15 +1,9 @@
 require File.dirname(__FILE__) + '/../test_helper'
 
 class ItemTest < ActiveSupport::TestCase
-  should_belong_to :source_area
 
-  context "with_same_inventory_type" do
-    should "treat crossbows, bows, guns, and thrown the same" do
-      Factory(:item, :inventory_type => 25)#thrown
-      xbow = Factory(:item, :inventory_type => 15)#bow
-      Factory(:item, :inventory_type => 26)#gun/xbow
-      assert_equal 3, Item.with_same_inventory_type(xbow).length
-    end
+  context "associations" do
+    should_belong_to :source_area
   end
 
   context "from_emblem_of_triumph" do
@@ -59,11 +53,11 @@ class ItemTest < ActiveSupport::TestCase
 
   end
 
-  context "in_same_slot_as" do
+  context "usable_in_same_slot_as" do
     should "find all items in the same slot" do
-      item = Factory(:item, :inventory_type => 0)
-      Factory(:item, :inventory_type => 1)
-      assert_equal [item], Item.with_same_inventory_type(item)
+      item = Factory(:item, :slot => "Head")
+      Factory(:item, :slot => "Wrist")
+      assert_equal [item], Item.usable_in_same_slot_as(item)
     end
   end
 

@@ -1,12 +1,32 @@
 require File.dirname(__FILE__) + '/../test_helper'
 
 class ItemImporterTest < ActiveSupport::TestCase
+
   context "import_from_wowarmory!" do
     should "not import duplicates" do
       ItemImporter.import_from_wowarmory!(50270)
       assert_no_difference "Item.count" do
         ItemImporter.import_from_wowarmory!(50270)
       end
+    end
+    
+    should "import bows crossbows guns and thrown as ranged slot" do
+      bow = ItemImporter.import_from_wowarmory!(50776)
+      assert_equal "Ranged", bow.slot
+      crossbow = ItemImporter.import_from_wowarmory!(19361)
+      assert_equal "Ranged", crossbow.slot
+      gun = ItemImporter.import_from_wowarmory!(29949)
+      assert_equal "Ranged", gun.slot
+      thrown = ItemImporter.import_from_wowarmory!(34349)
+      assert_equal "Ranged", thrown.slot
+      wand = ItemImporter.import_from_wowarmory!(28588)
+      assert_equal "Ranged", wand.slot
+    end
+    
+    should "import wands correctly" do
+      wand = ItemImporter.import_from_wowarmory!(28588)
+      assert_equal "Ranged", wand.slot
+      assert_equal "Wand", wand.armor_type.name
     end
 
     should "import libram totem and idols correctly" do

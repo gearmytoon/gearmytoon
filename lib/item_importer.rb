@@ -4,7 +4,7 @@ class ItemImporter
   #Unknown 18, 23, 27
   SLOT_CONVERSION = {1 => "Helm", 2 => "Amulet", 3 => "Shoulder", 4 => "Shirt", 5 => "Chest", 6 => "Waist", 7 => "Legs", 8 => "Feet", 
     9 => "Wrist", 10 => "Hands", 11 => "Finger", 12 => "Trinket", 13 => "One-Hand", 14 => "Off Hand", 15 => "Ranged", 16 => "Back", 
-    17 => "Two-Hand", 19 => "Tabard", 20 => "Chest", 21 => "Main Hand", 22 => "Off Hand (Weapon)", 24 => "Projectile", 25 => "Thrown", 
+    17 => "Two-Hand", 19 => "Tabard", 20 => "Chest", 21 => "Main Hand", 22 => "Off Hand (Weapon)", 24 => "Projectile", 25 => "Ranged", 
     26 => "Ranged", 28 => "Relic"}
   attr_reader :wowarmory_item, :wowarmory_item_id
   def initialize(wowarmory_item, wowarmory_item_id)
