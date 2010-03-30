@@ -9,6 +9,12 @@ class ItemImporterTest < ActiveSupport::TestCase
       end
     end
     
+    should_eventually "treat dress chests and breastplates as the same kind of chest" do
+      vest = ItemImporter.import_from_wowarmory!(50087)
+      dress = ItemImporter.import_from_wowarmory!(51145)
+      assert_equal dress.inventory_type, vest.inventory_type
+    end
+
     should_eventually "import items with multiple drops correctly" do
       item = ItemImporter.import_from_wowarmory!(45543)
       p item
