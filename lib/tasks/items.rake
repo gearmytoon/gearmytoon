@@ -16,7 +16,7 @@ end
 
 desc "import all item text files via wow armory"
 task :import_all_item_text_files => :environment do
-  Dir['db/data/items'].each do |file|
+  Dir['db/data/items/*.txt'].each do |file|
     FromTextFileItemImporter.import!("db/data/items/#{File.basename(file)}")
   end
 end
