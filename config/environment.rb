@@ -44,9 +44,9 @@ Rails::Initializer.run do |config|
   config.gem "pwood-wowr", :version => "0.5.1", :lib => "wowr", :source => "http://gems.github.com"
   config.gem "json", :version => "1.2.0"
   config.gem "mechanize", :version => "0.9.3"
-  config.gem 'ruby-openid', :lib => 'openid'
-  config.gem 'authlogic'
-  config.gem 'rpx_now'
+  config.gem 'ruby-openid', :lib => 'openid', :version => '2.1.7'
+  config.gem 'authlogic', :version => '2.1.3'
+  config.gem 'rpx_now', :version => '0.6.17'
   # The default locale is :en and all translations from config/locales/*.rb,yml are auto loaded.
   # config.i18n.load_path += Dir[Rails.root.join('my', 'locales', '*.{rb,yml}')]
   # config.i18n.default_locale = :de
