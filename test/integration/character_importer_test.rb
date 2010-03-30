@@ -2,8 +2,7 @@ require File.dirname(__FILE__) + '/../test_helper'
 
 class CharacterImporterTest < ActiveSupport::TestCase
   context "import_character_and_all_items" do
-    should "import rails and all of his equipped items" do
-      Factory(:wow_class, :name => "Hunter")
+    should_eventually "import rails and all of his equipped items" do
       Factory(:wow_class, :name => "Paladin")
       character = nil
       assert_difference "Item.count", 19 do
@@ -28,6 +27,12 @@ class CharacterImporterTest < ActiveSupport::TestCase
       assert_equal "Paladin", rails.wow_class_name
       assert_equal "Protection", rails.primary_spec
     end
-    should_eventually "import a characters total_item_bonuses"
+    should_eventually "import a characters total_item_bonuses" do
+      Factory(:wow_class, :name => "Rogue")
+      character = CharacterImporter.import_character_and_all_items("Ming", "Stonemaul")
+      assert_not_nil character.total_item_bonuses[:hit]
+      assert_not_nil character.total_item_bonuses[:agility]
+      assert_not_nil character.total_item_bonuses[:strength]
+    end
   end
 end

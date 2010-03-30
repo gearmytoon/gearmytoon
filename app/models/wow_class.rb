@@ -39,7 +39,7 @@ class WowClass < ActiveRecord::Base
   end
   
   module WowClassConstants
-    module Rogue
+    class Rogue
       def self.hard_caps
         {:hit => 886}
       end
@@ -56,7 +56,7 @@ class WowClass < ActiveRecord::Base
       end
     end
 
-    module Hunter
+    class Hunter
       def self.hard_caps
         {:hit => 263}
       end
@@ -73,7 +73,7 @@ class WowClass < ActiveRecord::Base
       end
     end
     
-    module DeathKnight
+    class DeathKnight
       def self.hard_caps
         {:hit => 263}
       end
@@ -90,7 +90,7 @@ class WowClass < ActiveRecord::Base
       end
     end
     
-    module Druid
+    class Druid
       def self.hard_caps
         {:hit => 263}
       end
@@ -107,7 +107,7 @@ class WowClass < ActiveRecord::Base
       end
     end
     
-    module Mage
+    class Mage
       def self.hard_caps
         {:hit => 263}
       end
@@ -124,7 +124,7 @@ class WowClass < ActiveRecord::Base
       end
     end
     
-    module Paladin
+    class Paladin
       def self.hard_caps
         {:hit => 263}
       end
@@ -141,7 +141,7 @@ class WowClass < ActiveRecord::Base
       end
     end
     
-    module Priest
+    class Priest
       def self.hard_caps
         {:hit => 263}
       end
@@ -158,7 +158,7 @@ class WowClass < ActiveRecord::Base
       end
     end
 
-    module Shaman
+    class Shaman
       def self.hard_caps
         {:hit => 263}
       end
@@ -175,7 +175,7 @@ class WowClass < ActiveRecord::Base
       end
     end
 
-    module Warlock
+    class Warlock
       def self.hard_caps
         {:hit => 263}
       end
@@ -192,7 +192,7 @@ class WowClass < ActiveRecord::Base
       end
     end
 
-    module Warrior
+    class Warrior
       def self.hard_caps
         {:hit => 263}
       end
