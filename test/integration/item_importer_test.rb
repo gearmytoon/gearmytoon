@@ -8,17 +8,51 @@ class ItemImporterTest < ActiveSupport::TestCase
         ItemImporter.import_from_wowarmory!(50270)
       end
     end
+
+    should "import libram totem and idols correctly" do
+      libram = ItemImporter.import_from_wowarmory!(50461)
+      assert_equal "Libram", libram.armor_type.name
+      assert_equal "Relic", libram.slot
+      idol = ItemImporter.import_from_wowarmory!(35019)
+      assert_equal "Idol", idol.armor_type.name
+      assert_equal "Relic", idol.slot
+      totem = ItemImporter.import_from_wowarmory!(50458)
+      assert_equal "Totem", totem.armor_type.name
+      assert_equal "Relic", totem.slot
+      sigil = ItemImporter.import_from_wowarmory!(40207)
+      assert_equal "Sigil", sigil.armor_type.name
+      assert_equal "Relic", sigil.slot
+    end
+
+    should "import trinkets correctly" do
+      trinket = ItemImporter.import_from_wowarmory!(50353)
+      assert_equal "Miscellaneous", trinket.armor_type.name
+      assert_equal "Trinket", trinket.slot
+    end
+
+    should "import polearms correctly" do
+      polearm = ItemImporter.import_from_wowarmory!(50727)
+      assert_equal "Polearm", polearm.armor_type.name
+      assert_equal "Two-Hand", polearm.slot
+    end
+
+    should "import fist weapons correctly" do
+      fist_weapon = ItemImporter.import_from_wowarmory!(51876)
+      assert_equal "Fist Weapon", fist_weapon.armor_type.name
+      assert_equal "Main Hand", fist_weapon.slot
+    end
     
-    should_eventually "treat dress chests and breastplates as the same kind of chest" do
+    should "treat dress chests and breastplates as the same kind of chest" do
       vest = ItemImporter.import_from_wowarmory!(50087)
       dress = ItemImporter.import_from_wowarmory!(51145)
-      assert_equal dress.inventory_type, vest.inventory_type
+      assert_equal "Leather", vest.armor_type.name
+      assert_equal "Leather", dress.armor_type.name
+      assert_equal "Chest", vest.slot
+      assert_equal "Chest", dress.slot
     end
 
     should_eventually "import items with multiple drops correctly" do
       item = ItemImporter.import_from_wowarmory!(45543)
-      p item
-      p item.source_area
       assert_not_nil item.source_area.name
       assert_equal "Ulduar", item.source_area.name
       assert_equal "h", item.source_area.difficulty #25 man ulduar
@@ -27,6 +61,8 @@ class ItemImporterTest < ActiveSupport::TestCase
     should "import melee weapon dps" do
       item = ItemImporter.import_from_wowarmory!(49682)
       assert_equal "Black Knight's Rondel", item.name
+      assert_equal "Dagger", item.armor_type.name
+      assert_equal "One-Hand", item.slot
       assert_equal 235, item.bonuses[:melee_min_damage]
       assert_equal 353, item.bonuses[:melee_max_damage]
       assert_equal 1.8, item.bonuses[:melee_attack_speed]
@@ -36,6 +72,7 @@ class ItemImporterTest < ActiveSupport::TestCase
     should "import ranged bow weapon dps" do
       item = ItemImporter.import_from_wowarmory!(50776)
       assert_equal "Njorndar Bone Bow", item.name
+      assert_equal "Bow", item.armor_type.name
       assert_equal 490, item.bonuses[:ranged_min_damage]
       assert_equal 814, item.bonuses[:ranged_max_damage]
       assert_equal 2.9, item.bonuses[:ranged_attack_speed]
@@ -45,6 +82,7 @@ class ItemImporterTest < ActiveSupport::TestCase
     should "import ranged thrown weapon dps" do
       item = ItemImporter.import_from_wowarmory!(47659)
       assert_equal "Crimson Star", item.name
+      assert_equal "Thrown", item.armor_type.name
       assert_equal 368, item.bonuses[:ranged_min_damage]
       assert_equal 552, item.bonuses[:ranged_max_damage]
       assert_equal 1.8, item.bonuses[:ranged_attack_speed]
@@ -53,6 +91,7 @@ class ItemImporterTest < ActiveSupport::TestCase
     should "import basic item attributes" do
       item = ItemImporter.import_from_wowarmory!(50270)
       assert_equal "Belt of Rotted Fingernails", item.name
+      assert_equal "Mail", item.armor_type.name
       assert_equal 6, item.inventory_type
       assert_equal "epic", item.quality
       assert_equal "http://www.wowarmory.com/wow-icons/_images/43x43/inv_belt_69.png", item.icon
@@ -100,6 +139,7 @@ class ItemImporterTest < ActiveSupport::TestCase
       assert_equal "n", ten_man_item.source_area.difficulty
       assert_equal "n", twenty_five_man_item.source_area.difficulty
     end
+    
     should "import items from a heroic 10 and 25 man raid" do
       ten_man_item = ItemImporter.import_from_wowarmory!(51876)
       twenty_five_man_item = ItemImporter.import_from_wowarmory!(50731)
@@ -111,6 +151,7 @@ class ItemImporterTest < ActiveSupport::TestCase
       assert_equal "h", ten_man_item.source_area.difficulty
       assert_equal "h", twenty_five_man_item.source_area.difficulty
     end
+    
     should "not import items that cost more then triumph badges" do
       assert_no_difference "Item.from_emblem_of_triumph.count" do
         assert_difference "Item.count" do

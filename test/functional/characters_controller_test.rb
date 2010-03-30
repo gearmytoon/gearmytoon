@@ -37,7 +37,9 @@ class CharactersControllerTest < ActionController::TestCase
       assert_select "#character_info .primary_spec", :text => "Survival"
     end
 
-    should "have an upgrade section for emblems of frost" do
+    #broke with the quality string upgrade
+    should_eventually "have an upgrade section for emblems of frost" do
+      Factory(:item_from_emblem_of_frost)
       character = Factory(:character)
       get :show, :id => character.id
       assert_select ".upgrade_section h1 .epic", :text => "Emblem of Frost"

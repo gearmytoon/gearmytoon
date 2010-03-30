@@ -30,7 +30,7 @@ class CharactersHelperTest < ActionView::TestCase
 
   context "stylized_item_name" do
     should "provide a span with the item name and its quality" do
-      item = OpenStruct.new(:quality => 4, :name => "Minshina's Skull")
+      item = OpenStruct.new(:quality => 'epic', :name => "Minshina's Skull")
       tag = stylized_item_name(item)
       assert_equal "<span class=\"epic\">Minshina's Skull</span>", tag
     end

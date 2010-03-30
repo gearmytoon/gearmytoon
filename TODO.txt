@@ -48,3 +48,4 @@ THINGS TO CLEANUP:
 .slice(0,3) -> extension method
 from_upgrade views and character show, extract a partial layout
 the wowr gem - fork to our own wowgem
+Item.badge_of_frost

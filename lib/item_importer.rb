@@ -1,7 +1,11 @@
 class ItemImporter
   QUALITY_ADJECTIVE_LOOKUP = {0 => "poor", 1 => "common", 2 => "uncommon", 3 => "rare", 4 => "epic", 5 => "legendary", 6 => "artifact", 7 => "heirloom"}
   RANGED_WEAPONS = ["Bow", "Gun", "Crossbow", "Thrown"]
-
+  #Unknown 18, 23, 27
+  SLOT_CONVERSION = {1 => "Helm", 2 => "Amulet", 3 => "Shoulder", 4 => "Shirt", 5 => "Chest", 6 => "Waist", 7 => "Legs", 8 => "Feet", 
+    9 => "Wrist", 10 => "Hands", 11 => "Finger", 12 => "Trinket", 13 => "One-Hand", 14 => "Off Hand", 15 => "Ranged", 16 => "Back", 
+    17 => "Two-Hand", 19 => "Tabard", 20 => "Chest", 21 => "Main Hand", 22 => "Off Hand (Weapon)", 24 => "Projectile", 25 => "Thrown", 
+    26 => "Ranged", 28 => "Relic"}
   attr_reader :wowarmory_item, :wowarmory_item_id
   def initialize(wowarmory_item, wowarmory_item_id)
     @wowarmory_item = wowarmory_item
@@ -16,14 +20,20 @@ class ItemImporter
       end
     end
     source_area = get_dungeon_source
-    armor_type_name = wowarmory_item.equip_data.subclass_name ? wowarmory_item.equip_data.subclass_name : "Miscellaneous"
     Item.create!(:wowarmory_item_id => wowarmory_item_id, :name => wowarmory_item.name,
                  :quality => quality, :inventory_type => wowarmory_item.equip_data.inventory_type,
                  :source_wowarmory_item_id => source_wowarmory_item_id, :icon => wowarmory_item.icon, :bonuses => get_item_bonuses,
                  :armor_type => ArmorType.find_or_create_by_name(armor_type_name), :token_cost => token_cost,
-                 :source_area => source_area)
+                 :source_area => source_area, :slot => slot)
+  end
+  
+  def armor_type_name
+    wowarmory_item.equip_data.subclass_name ? wowarmory_item.equip_data.subclass_name : "Miscellaneous"
   end
 
+  def slot
+    SLOT_CONVERSION[wowarmory_item.equip_data.inventory_type]
+  end
   def get_dungeon_source
     if wowarmory_item.drop_creatures.try(:first)
       area_id = wowarmory_item.item_source.area_id
