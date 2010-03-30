@@ -170,6 +170,14 @@ class CharacterTest < ActiveSupport::TestCase
       new_item = Factory(:item, :bonuses => {:agility => 10.0, :hit => 0, :attack_power => 10.0})
       assert_equal expected_result, character.stat_change_between(new_item, old_item)
     end
+    
+    should "be okay if the total hit can't be imported for a character" do
+      character = Factory(:character, :total_item_bonuses => {})
+      expected_result = {:hit => -22.0, :agility=>0.0, :attack_power => -10.0}
+      old_item = Factory(:item, :bonuses => {:agility => 10.0, :hit => 22, :attack_power => 20.0})
+      new_item = Factory(:item, :bonuses => {:agility => 10.0, :hit => 0, :attack_power => 10.0})
+      assert_equal expected_result, character.stat_change_between(new_item, old_item)
+    end
 
   end
 

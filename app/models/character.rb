@@ -66,8 +66,9 @@ class Character < ActiveRecord::Base
   def apply_hard_caps(change_in_bonuses)
     bonuses_after_hard_cap = {}
     change_in_bonuses.slice(*hard_caps.keys).each do |key, value|
-      if((value + total_item_bonuses[key]) > hard_caps[key])
-        bonuses_after_hard_cap[key] = [hard_caps[key] - total_item_bonuses[key], 0].max
+      total_bonus_for_stat = total_item_bonuses.has_key?(key) ? total_item_bonuses[key] : 0.0
+      if((value + total_bonus_for_stat) > hard_caps[key])
+        bonuses_after_hard_cap[key] = [hard_caps[key] - total_bonus_for_stat, 0].max
       end
     end
     return change_in_bonuses.merge(bonuses_after_hard_cap)
