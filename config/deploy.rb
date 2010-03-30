@@ -20,7 +20,7 @@ namespace :vlad do
   end
 
   desc "import all text files via wow armory on production"
-  remote_task :import_a_items_text_file do
+  remote_task :import_all_items_text_file do
     run "cd #{current_path} && RAILS_ENV=production rake import_all_item_text_files"
   end
 
