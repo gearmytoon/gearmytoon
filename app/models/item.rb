@@ -10,7 +10,7 @@ class Item < ActiveRecord::Base
     {:conditions => {:slot => item.slot}}
   }
 
-  named_scope :usable_by, Proc.new {|wow_class| {:conditions => {:armor_type_id => [ArmorType.miscellaneous.id, wow_class.primary_armor_type.id]}}}
+  named_scope :usable_by, Proc.new {|wow_class| {:conditions => {:armor_type_id => wow_class.usable_armor_types}}}
   belongs_to :armor_type
   belongs_to :source_area, :class_name => "Area"
 

@@ -60,5 +60,28 @@ class ItemTest < ActiveSupport::TestCase
       assert_equal [item], Item.usable_in_same_slot_as(item)
     end
   end
+  
+  context "usable_by" do
+    should "know that a rogue cannot use staffs" do
+      rogue = Factory(:a_rogue)
+      mace = Factory(:item, :slot => "Main Hand", :armor_type => ArmorType.mace)
+      staff = Factory(:item, :slot => "Two-Hand", :armor_type => ArmorType.staff)
+      assert_equal [mace], Item.usable_by(rogue.wow_class)
+    end
 
+    should "know that a rogue cannot use maces" do
+      hunter = Factory(:a_hunter)
+      mace = Factory(:item, :slot => "Main Hand", :armor_type => ArmorType.mace)
+      staff = Factory(:item, :slot => "Two-Hand", :armor_type => ArmorType.staff)
+      assert_equal [staff], Item.usable_by(hunter.wow_class)
+    end
+
+    should_eventually "know thata rogue cannot use 2h maces" do
+      rogue = Factory(:a_rogue)
+      mace = Factory(:item, :slot => "Main Hand", :armor_type => ArmorType.mace)
+      two_handed_mace = Factory(:item, :slot => "Two-Hand", :armor_type => ArmorType.mace)
+      assert_equal [mace], Item.usable_by(rogue.wow_class)
+    end
+
+  end
 end
