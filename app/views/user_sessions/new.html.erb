@@ -1,8 +1,14 @@
-<h1>Sign in to your account</h1>
-<div class="column grid_6">
-  <%= RPXNow.embed_code('gearmytoon',rpx_token_sessions_url) %>
+<div class="column grid_5">
+  <h2>Login or signup</h2>
+  <div id="rpx_now_widget">
+    <%= RPXNow.embed_code('gearmytoon',rpx_token_sessions_url) %>
+  </div>
 </div>
-<div class="column grid_6">
+<div id="or" class="column grid_2">
+  <p>&mdash;or&mdash;</p>
+</div>
+<div class="column grid_5">
+  <h2>Login using a GearMyToon account</h2>
   <% form_for @user_session, :url => user_session_path do |f| %>
     <%= f.error_messages :header_message => nil %>
     <p>
@@ -20,4 +26,7 @@
       <%= f.submit "Login", :class => 'button' %>
     </p>
   <% end %>
+  <p>
+    Want a GearMyToon Account? <%= link_to "Signup", signup_path %>
+  </p>
 </div>

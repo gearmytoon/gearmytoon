@@ -1,8 +1,5 @@
 <h1>Sign up today!</h1>
-<div class="column grid_6">
-  <%= RPXNow.embed_code('gearmytoon',rpx_token_sessions_url) %>
-</div>
-<div class="column grid_6">
+<div class="column grid_12">
   <% form_for @user, :url => account_path do |f| %>
     <%= f.error_messages :header_message => nil %>
     <p>
