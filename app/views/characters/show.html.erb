@@ -1,5 +1,25 @@
+<div id="character_info">
+  <span id="portrait"><%= character_icon @character %></span>
+  <div id="summary_details">
+    <div id="character_details">
+      <span id="character_name"><%= @character.name.capitalize %></span> <span>Level <span class="level"><%= @character.level %></span> <span class="primary_spec"><%= @character.primary_spec %></span> <span class="klass"><%= @character.wow_class.name %></span></span>
+    </div>
+    <div class="guild">
+      <%=h "<#{@character.guild}>" %>
+    </div>
+    <div id="realm_and_battlegroup">
+      <%= @character.realm.capitalize %>, <%= @character.battle_group %>
+    </div>
+  </div>
+</div>
+<div>
+  <%= link_to "Upgrades Summary", character_path(@character) %>
+  <%= link_to "Upgrades From Raids", character_raids_path(@character) %>
+  <%= link_to "Upgrades From Dungeons", character_dungeons_path(@character) %>
+</div>
+
 <div id="upgrades">
-    <div class="upgrade_section" id="emblem_of_frost">
+  <div class="upgrade_section" id="emblem_of_frost">
     <h1>Your best upgrades from <%= stylized_item_name Item.badge_of_frost %> <%= wowhead_item_image_link Item.badge_of_frost %> <span class="see_more"><%= link_to "more upgrades", from_frost_emblems_character_upgrades_path(@character) %></span></h1>
     <% @character.top_3_frost_upgrades.each do |upgrade| %>
       <%= render 'shared/upgrade', :upgrade => upgrade %>

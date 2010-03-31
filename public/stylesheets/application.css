@@ -20,12 +20,22 @@
 /* END 1KB GRID */
 
 body { font-size: 62.5%; font-family: Verdana, Arial, sans-serif; color: #FFF; background-color: #222; }
+a { color: #FFF; }
+a:visited { color: #FFF; }
+a:hover { color: #FFF; }
 h1 { text-align: center; font-size: 4.8em; }
 form p { margin-bottom: 20px; }
 label { display: block; font-size: 2.4em; margin-bottom: 8px; }
 input.text, input.password { font-size: 2.4em; width: 380px; padding: 5px; }
 input.button { font-size: 2.4em; }
 input.checkbox { float: left; margin: 10px 5px 0 0; }
+
+#header { font-size: 1.8em; }
+#header h1 { font-size: 1.8em; margin: 0; }
+#header h1 a { text-decoration: none; float: left; }
+#header #user_controls { float: right; margin: 10px 0 0 0; }
+#flash { background-color: #666; margin-top: 20px; }
+#flash p { padding: 0 10px 0 10px; font-size: 1.6em; }
 
 form#new_character p { margin: 0 10px 0 0; float: left; }
 form#new_character label { display: block; font-size: 1em; margin-bottom: 3px; }

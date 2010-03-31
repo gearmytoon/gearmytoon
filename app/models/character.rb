@@ -1,9 +1,16 @@
 class Character < ActiveRecord::Base
+  attr_accessor :dont_use_wow_armory
+
   belongs_to :wow_class
   belongs_to :user
   has_many :character_items
   serialize :total_item_bonuses
   has_many :equipped_items, :through => :character_items, :source => :item
+
+  before_save :import_items_from_wow_armory
+
+  before_validation :capitalize_name_and_realm
+  validates_uniqueness_of :name, :scope => :realm
 
   def upgrades_in(area)
     top_upgrades_for(area.items_dropped_in)
@@ -83,7 +90,17 @@ class Character < ActiveRecord::Base
     if character
       return character
     else
-      CharacterImporter.import_character_and_all_items(name, realm) #TODO LOOKUP BY REALM AND REGION!
+      import_items_from_wow_armory
     end
+  end
+
+  private
+  def import_items_from_wow_armory
+    CharacterImporter.import_character_and_all_items(self) unless dont_use_wow_armory
+  end
+
+  def capitalize_name_and_realm
+    self.name.capitalize!
+    self.realm.capitalize!
   end
 end

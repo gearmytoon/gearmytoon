@@ -1,22 +1,25 @@
 class CharactersController < ApplicationController
-  layout 'characters'
   helper :areas
+  before_filter :require_user, :except => :show
 
   def index
-    @character = Character.new(:realm => "Baelgun")
+    @characters = Character.all
   end
 
   def create
-    @character = Character.find_by_name_and_realm_or_create_from_wowarmory(params[:character][:name].capitalize, params[:character][:realm].capitalize)
-    if current_user
+    if c = Character.find_by_name_and_realm(params[:character][:name].upcase,params[:character][:realm].upcase)
+      redirect_to character_path(c)
+    else
+      @character = Character.new(params[:character])
       @character.user = current_user
-      @character.save
-      flash[:notice] = "Toon added successfully!"
-      redirect_to account_url and return
+      if @character.save
+        flash[:notice] = "Toon added successfully!"
+        redirect_to character_path(@character)
+      else
+        flash[:error] = "There was a problem adding that character"
+        redirect_to account_url
+      end
     end
-    redirect_to character_path(@character)
-    rescue Wowr::Exceptions::CharacterNotFound
-      redirect_to no_such_character_home_path(:name => params[:character][:name].capitalize, :realm => params[:character][:realm].capitalize)
   end
 
   def show
@@ -26,5 +29,4 @@ class CharactersController < ApplicationController
       format.xml  { render :xml => @character }
     end
   end
-
 end

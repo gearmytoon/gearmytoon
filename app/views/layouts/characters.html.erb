@@ -11,26 +11,6 @@
 
   </head>
   <body>
-    <div id="character_info">
-      <span id="portrait"><%= character_icon @character %></span>
-      <div id="summary_details">
-        <div id="character_details">
-          <span id="character_name"><%= @character.name.capitalize %></span> <span>Level <span class="level"><%= @character.level %></span> <span class="primary_spec"><%= @character.primary_spec %></span> <span class="klass"><%= @character.wow_class.name %></span></span>
-        </div>
-        <div class="guild">
-          <%=h "<#{@character.guild}>" %>
-        </div>
-        <div id="realm_and_battlegroup">
-          <%= @character.realm.capitalize %>, <%= @character.battle_group %>
-        </div>
-      </div>
-    </div>
-    <div>
-      <%= link_to "Upgrades Summary", character_path(@character) %>
-      <%= link_to "Upgrades From Raids", character_raids_path(@character) %>
-      <%= link_to "Upgrades From Dungeons", character_dungeons_path(@character) %>
-    </div>
-    
     <p style="color: green"><%= flash[:notice] %></p>
     <%= yield %>
   </body>

@@ -6,6 +6,7 @@ Factory.define(:character) do |model|
   model.guild "Special Circumstances"
   model.level 80
   model.wow_class WowClass.create_class!("Hunter")
+  model.dont_use_wow_armory true
 end
 
 Factory.define(:user) do |f|
@@ -14,14 +15,14 @@ Factory.define(:user) do |f|
   f.password_confirmation "password"
 end
 
-Factory.define(:survival_hunter, :class => "Character") do |model|
+Factory.define(:survival_hunter, :parent => :character) do |model|
   model.name "Merb"
   model.wow_class WowClass.create_class!("Hunter")
   model.primary_spec "Survival"
 end
 
-Factory.define(:marksmanship_hunter, :class => "Character") do |model|
-  model.name "Merb"
+Factory.define(:marksmanship_hunter, :parent => :character) do |model|
+  model.name "Ecma"
   model.wow_class WowClass.create_class!("Hunter")
   model.primary_spec "Marksmanship"
 end

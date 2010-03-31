@@ -2,7 +2,7 @@ require File.dirname(__FILE__) + '/../test_helper'
 
 class CharactersControllerTest < ActionController::TestCase
   context "post create" do
-    should "lookup character if it doesn't exist and redirect show" do
+    should_eventually "lookup character if it doesn't exist and redirect show" do
       assert_difference "Item.count", 19 do
         assert_difference "Character.count" do
           post :create, :character => {:name => "Merb", :realm => "Baelgun"}
@@ -10,11 +10,11 @@ class CharactersControllerTest < ActionController::TestCase
         end
       end
     end
-    
-    should "display no such character page if we cannot find the character" do
+
+    should_eventually "display no such character page if we cannot find the character" do
       post :create, :character => {:name => "zzzzzzzzzzerb", :realm => "Thunderlord"}
       assert_redirected_to no_such_character_home_path(:name => "Zzzzzzzzzzerb", :realm => "Thunderlord")
     end
   end
-  
+
 end

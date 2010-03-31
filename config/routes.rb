@@ -1,5 +1,5 @@
 ActionController::Routing::Routes.draw do |map|
-  map.resource :home, :member => {:no_such_character => :get}
+  map.resource :home
   map.resources :areas
   map.resources :characters do |character|
     character.resources :raids
@@ -12,5 +12,5 @@ ActionController::Routing::Routes.draw do |map|
   map.signup 'signup', :controller => 'users', :action => 'new'
   map.rpx_token_sessions 'rpx_token_sessions', :controller =>"user_sessions", :action => "rpx_create"
 
-  map.root :controller => "homes", :action => "show"
+  map.root :controller => "home"
 end

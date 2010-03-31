@@ -16,6 +16,20 @@ class CharacterTest < ActiveSupport::TestCase
     end
   end
 
+  context "validations" do
+    should "not allow more than one character name per realm" do
+      character1 = Factory(:character, :name => 'Ecma', :realm => 'Baelgun')
+      character2 = Character.new(:name => 'Ecma', :realm => 'Baelgun')
+      assert !character2.valid?
+    end
+
+    should "allow characters with same name and different realm" do
+      character1 = Factory(:character, :name => 'Ecma', :realm => 'Baelgun')
+      character2 = Character.new(:name => 'Ecma', :realm => 'Footown')
+      assert character2.valid?
+    end
+  end
+
   context "top_3_frost_upgrades" do
 
     should "find upgrades of the same armor type" do
@@ -169,7 +183,7 @@ class CharacterTest < ActiveSupport::TestCase
       new_item = Factory(:item, :bonuses => {:agility => 10.0, :hit => 0, :attack_power => 10.0})
       assert_equal expected_result, character.stat_change_between(new_item, old_item)
     end
-    
+
     should "be okay if the total hit can't be imported for a character" do
       character = Factory(:character, :total_item_bonuses => {})
       expected_result = {:hit => -22.0, :agility=>0.0, :attack_power => -10.0}

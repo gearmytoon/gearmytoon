@@ -2,6 +2,11 @@ require File.dirname(__FILE__) + '/../test_helper'
 
 class CharactersControllerTest < ActionController::TestCase
   context "post create" do
+    setup do
+      activate_authlogic
+      @user = Factory(:user)
+    end
+
     should "find a character if it exists and redirect show" do
       character = Factory(:character, :name => "Merb", :realm => "Thunderlord")
       post :create, :character => {:name => "merb", :realm => "Thunderlord"}
@@ -15,12 +20,8 @@ class CharactersControllerTest < ActionController::TestCase
     end
 
     should "link to current_user" do
-      activate_authlogic
-      user = Factory(:user)
-      character = Factory(:character, :name => "Merb", :realm => "Lothar")
       post :create, :character => {:name => "Merb", :realm => "Lothar"}
-      assert_equal user, assigns(:character).user
-      assert_redirected_to account_url
+      assert_equal @user, assigns(:character).user
     end
   end
 
