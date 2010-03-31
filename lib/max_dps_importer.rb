@@ -10,9 +10,9 @@ class MaxDpsImporter
   HolyPaladin = {:base_url => "http://www.maxdps.com/paladin/holy.php", :slot_url_template => "http://www.maxdps.com/paladin/holy_read.php?slotID=", :slots => (1..14).to_a}
   ShadowPreist = {:base_url => "http://www.maxdps.com/priest/shadow.php", :slot_url_template => "http://www.maxdps.com/priest/shadow_read.php?slotID=", :slots => (1..14).to_a}
   HolyPreist = {:base_url => "http://www.maxdps.com/priest/holy.php", :slot_url_template => "http://www.maxdps.com/priest/holy_read.php?slotID=", :slots => (1..14).to_a}
-  EnhancementShaman = {:base_url => "http://www.maxdps.com/shaman/enhancement.php", :slot_url_template => "http://www.maxdps.com/shaman/enhance_read.php?slotID=", :slots => (1..14).to_a}
-  ElementalShaman = {:base_url => "http://www.maxdps.com/shaman/elemental.php", :slot_url_template => "http://www.maxdps.com/shaman/ele_read.php?slotID=", :slots => (1..14).to_a}
-  RestorationShaman = {:base_url => "http://www.maxdps.com/shaman/restoration.php", :slot_url_template => "http://www.maxdps.com/shaman/resto_read.php?slotID=", :slots => (1..14).to_a}
+  EnhancementShaman = {:base_url => "http://www.maxdps.com/shaman/enhancement.php", :slot_url_template => "http://www.maxdps.com/shaman/enhance_read.php?slotID=", :slots => ((1..14).to_a + ['MH', "OH", 22])}
+  ElementalShaman = {:base_url => "http://www.maxdps.com/shaman/elemental.php", :slot_url_template => "http://www.maxdps.com/shaman/ele_read.php?slotID=", :slots => ((1..14).to_a + ['weap', 16, 22])}
+  RestorationShaman = {:base_url => "http://www.maxdps.com/shaman/restoration.php", :slot_url_template => "http://www.maxdps.com/shaman/resto_read.php?slotID=", :slots => ((1..14).to_a + ['weap', 16, 22])}
   Boomkin = {:base_url => "http://www.maxdps.com/druid/moonkin.php", :slot_url_template => "http://www.maxdps.com/druid/moonkin_read.php?slotID=", :slots => (1..14).to_a}
   RestorationDruid = {:base_url => "http://www.maxdps.com/druid/restoration.php", :slot_url_template => "http://www.maxdps.com/druid/resto_read.php?slotID=", :slots => (1..14).to_a}
   FeralDruid = {:base_url => "http://www.maxdps.com/druid/feral.php", :slot_url_template => "http://www.maxdps.com/druid/feral_read.php?slotID=", :slots => (1..14).to_a}
