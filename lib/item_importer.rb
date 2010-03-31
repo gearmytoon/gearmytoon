@@ -19,12 +19,10 @@ class ItemImporter
         token_cost = wowarmory_item.cost.tokens.first.count
       end
     end
-    source_area = get_dungeon_source
     Item.create!(:wowarmory_item_id => wowarmory_item_id, :name => wowarmory_item.name,
-                 :quality => quality, :inventory_type => wowarmory_item.equip_data.inventory_type,
-                 :source_wowarmory_item_id => source_wowarmory_item_id, :icon => wowarmory_item.icon, :bonuses => get_item_bonuses,
-                 :armor_type => ArmorType.find_or_create_by_name(armor_type_name), :token_cost => token_cost,
-                 :source_area => source_area, :slot => slot)
+                 :quality => quality, :source_wowarmory_item_id => source_wowarmory_item_id, :icon => wowarmory_item.icon, 
+                 :bonuses => get_item_bonuses, :armor_type => ArmorType.find_or_create_by_name(armor_type_name), :token_cost => token_cost,
+                 :source_area => get_dungeon_source, :slot => slot)
   end
   
   def armor_type_name

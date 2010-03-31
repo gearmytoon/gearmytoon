@@ -60,14 +60,14 @@ class CharactersControllerTest < ActionController::TestCase
     end
 
     should "show what you are upgrading from in the upgrade section" do
-      Factory(:item_from_emblem_of_triumph, :inventory_type => 2, :bonuses => {:attack_power => 400.0})
-      character_item = Factory(:character_item, :item => Factory(:item, :name => "Stoppable Force", :inventory_type => 2, :bonuses => {:attack_power => 100.0}))
+      Factory(:item_from_emblem_of_triumph, :slot => "Head", :bonuses => {:attack_power => 400.0})
+      character_item = Factory(:character_item, :item => Factory(:item, :name => "Stoppable Force", :slot => "Head", :bonuses => {:attack_power => 100.0}))
       get :show, :id => character_item.character.id
       assert_select "#emblem_of_triumph .upgrade .old_item", :text => "Stoppable Force"
     end
 
     should "not show old item if you did not have an item equipped before" do
-      Factory(:item_from_emblem_of_triumph, :inventory_type => 2, :bonuses => {:attack_power => 400.0})
+      Factory(:item_from_emblem_of_triumph, :slot => "Head", :bonuses => {:attack_power => 400.0})
       character = Factory(:character)
       get :show, :id => character.id
       assert_select "#emblem_of_triumph .upgrade"

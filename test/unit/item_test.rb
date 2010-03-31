@@ -38,15 +38,15 @@ class ItemTest < ActiveSupport::TestCase
   
   context "change_in_stats_from" do
     should "return the change in stats between two items" do
-      old_item = Factory(:item, :inventory_type => 0, :bonuses => {:attack_power => 100.0, :spell_power => 45, :stamina => 20})
-      new_item = Factory(:item, :inventory_type => 0, :bonuses => {:attack_power => 200.0, :stamina => 10.0, :dodge => 20})
+      old_item = Factory(:item, :bonuses => {:attack_power => 100.0, :spell_power => 45, :stamina => 20})
+      new_item = Factory(:item, :bonuses => {:attack_power => 200.0, :stamina => 10.0, :dodge => 20})
       expected_difference = {:attack_power => 100.0, :stamina => -10.0, :spell_power => -45.0, :dodge => 20}
       assert_equal expected_difference, new_item.change_in_stats_from(old_item)
     end
 
     should "return new_item's bonuses if the old item is nil" do
       old_item = nil
-      new_item = Factory(:item, :inventory_type => 0, :bonuses => {:attack_power => 200.0, :stamina => 10.0, :dodge => 20})
+      new_item = Factory(:item, :bonuses => {:attack_power => 200.0, :stamina => 10.0, :dodge => 20})
       expected_difference = {:attack_power => 200.0, :stamina => 10.0, :dodge => 20}
       assert_equal expected_difference, new_item.change_in_stats_from(old_item)
     end

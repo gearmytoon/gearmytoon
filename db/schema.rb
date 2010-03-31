@@ -9,7 +9,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20100330150749) do
+ActiveRecord::Schema.define(:version => 20100331015625) do
 
   create_table "areas", :force => true do |t|
     t.string   "name"
@@ -67,7 +67,6 @@ ActiveRecord::Schema.define(:version => 20100330150749) do
     t.integer  "wowarmory_item_id"
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.integer  "inventory_type"
     t.integer  "source_wowarmory_item_id"
     t.string   "icon"
     t.text     "bonuses"
@@ -79,7 +78,6 @@ ActiveRecord::Schema.define(:version => 20100330150749) do
   end
 
   add_index "items", ["armor_type_id"], :name => "index_items_on_armor_type_id"
-  add_index "items", ["inventory_type"], :name => "index_items_on_inventory_type"
   add_index "items", ["source_area_id"], :name => "index_items_on_source_area_id"
   add_index "items", ["source_wowarmory_item_id"], :name => "index_items_on_source_wowarmory_item_id"
   add_index "items", ["wowarmory_item_id"], :name => "index_items_on_wowarmory_item_id"
