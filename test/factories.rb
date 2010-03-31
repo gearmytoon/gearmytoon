@@ -39,7 +39,7 @@ Factory.define(:item) do |model|
   model.icon "Factory_icon.png"
   model.wowarmory_item_id 1
   model.bonuses :attack_power => 100
-  model.armor_type ArmorType.Mail
+  model.armor_type ArmorType.mail
 end
 
 Factory.define(:item_from_emblem_of_triumph, :parent => :item) do |model|
@@ -64,7 +64,7 @@ Factory.define(:character_item) do |model|
 end
 
 Factory.define(:wow_class) do |model|
-  model.primary_armor_type ArmorType.Mail
+  model.primary_armor_type ArmorType.mail
 end
 
 Factory.define(:dungeon, :class => :area) do |model|

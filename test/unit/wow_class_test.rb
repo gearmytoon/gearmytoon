@@ -8,6 +8,12 @@ class WowClassTest < ActiveSupport::TestCase
       assert_equal WowClass::WowClassConstants::Rogue.stat_multipliers("Combat"), wow_class.reload.stat_multipliers("Combat")
     end
   end
+  
+  context "usable_armor_types" do
+    should "know all the usable armor types for a rogue" do
+      assert_equal 11, WowClass.create_class!("Rogue").usable_armor_types.length
+    end
+  end
 
   context "stat_multipliers" do
     should "be based on a character spec" do
@@ -25,8 +31,8 @@ class WowClassTest < ActiveSupport::TestCase
   context "equippable_items" do
     should "find upgrades of the same armor type" do
       rogue = WowClass.create_class!("Rogue")
-      plate_upgrade = Factory(:item_from_emblem_of_frost, :bonuses => {:attack_power => 500.0}, :armor_type => ArmorType.Plate)
-      leather_upgrade = Factory(:item_from_emblem_of_frost, :bonuses => {:attack_power => 500.0}, :armor_type => ArmorType.Leather)
+      plate_upgrade = Factory(:item_from_emblem_of_frost, :bonuses => {:attack_power => 500.0}, :armor_type => ArmorType.plate)
+      leather_upgrade = Factory(:item_from_emblem_of_frost, :bonuses => {:attack_power => 500.0}, :armor_type => ArmorType.leather)
       assert_equal 1, rogue.equippable_items.size
       assert_equal leather_upgrade, rogue.equippable_items.first
     end
@@ -56,8 +62,11 @@ class WowClassTest < ActiveSupport::TestCase
                               :block_value, :defense, :stamina, :block,
                               :ranged_max_damage, :ranged_attack_speed, :ranged_min_damage, 
                               :feral_attack_power]
-          actual_multipliers = "WowClass::WowClassConstants::#{wow_class.to_s}".constantize.stat_multipliers(possible_spec)
+          klass = "WowClass::WowClassConstants::#{wow_class.to_s}".constantize
+          klass.armor_types
+          actual_multipliers = klass.stat_multipliers(possible_spec)
           unknown_multipliers = actual_multipliers.keys - valid_multipliers
+          
           assert unknown_multipliers.empty?, "For class #{wow_class} found invalid multipliers #{unknown_multipliers.join(",")}"
         end
       end

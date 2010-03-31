@@ -1,14 +1,14 @@
 class WowClass < ActiveRecord::Base
-  CLASS_NAMES = {"Death Knight" => {:primary_armor_type => ArmorType.Plate},
-                 "Druid" => {:primary_armor_type => ArmorType.Leather}, 
-                 "Hunter" => {:primary_armor_type => ArmorType.Mail}, 
-                 "Mage" => {:primary_armor_type => ArmorType.Cloth}, 
-                 "Paladin" => {:primary_armor_type => ArmorType.Plate}, 
-                 "Priest" => {:primary_armor_type => ArmorType.Cloth}, 
-                 "Rogue" => {:primary_armor_type => ArmorType.Leather}, 
-                 "Shaman" => {:primary_armor_type => ArmorType.Mail}, 
-                 "Warlock" => {:primary_armor_type => ArmorType.Cloth}, 
-                 "Warrior" => {:primary_armor_type => ArmorType.Plate}}
+  CLASS_NAMES = {"Death Knight" => {:primary_armor_type => ArmorType.plate},
+                 "Druid" => {:primary_armor_type => ArmorType.leather}, 
+                 "Hunter" => {:primary_armor_type => ArmorType.mail}, 
+                 "Mage" => {:primary_armor_type => ArmorType.cloth}, 
+                 "Paladin" => {:primary_armor_type => ArmorType.plate}, 
+                 "Priest" => {:primary_armor_type => ArmorType.cloth}, 
+                 "Rogue" => {:primary_armor_type => ArmorType.leather}, 
+                 "Shaman" => {:primary_armor_type => ArmorType.mail}, 
+                 "Warlock" => {:primary_armor_type => ArmorType.cloth}, 
+                 "Warrior" => {:primary_armor_type => ArmorType.plate}}
   has_many :characters
   belongs_to :primary_armor_type, :class_name => "ArmorType"
   
@@ -22,6 +22,10 @@ class WowClass < ActiveRecord::Base
   
   def wow_class_multipliers
     "WowClass::WowClassConstants::#{self.name.gsub(/\s/,"")}".constantize
+  end
+  
+  def usable_armor_types
+    wow_class_multipliers.armor_types + [primary_armor_type, ArmorType.miscellaneous]
   end
   
   def hard_caps
@@ -40,6 +44,11 @@ class WowClass < ActiveRecord::Base
   
   module WowClassConstants
     class Rogue
+      def self.armor_types
+        [ArmorType.fist_weapon, ArmorType.sword, ArmorType.dagger, ArmorType.axe, 
+          ArmorType.bow, ArmorType.gun, ArmorType.crossbow, ArmorType.mace, ArmorType.thrown]
+      end
+      
       def self.hard_caps
         {:hit => 886}
       end
@@ -57,6 +66,11 @@ class WowClass < ActiveRecord::Base
     end
 
     class Hunter
+      def self.armor_types
+        [ArmorType.fist_weapon, ArmorType.sword, ArmorType.dagger, ArmorType.axe, ArmorType.bow, 
+          ArmorType.gun, ArmorType.crossbow, ArmorType.thrown, ArmorType.staff, ArmorType.polearm]
+      end
+
       def self.hard_caps
         {:hit => 263}
       end
@@ -74,6 +88,10 @@ class WowClass < ActiveRecord::Base
     end
     
     class DeathKnight
+      def self.armor_types
+        [ArmorType.axe, ArmorType.mace, ArmorType.sword, ArmorType.sigil]
+      end
+
       def self.hard_caps
         {:hit => 263}
       end
@@ -91,6 +109,10 @@ class WowClass < ActiveRecord::Base
     end
     
     class Druid
+      def self.armor_types
+        [ArmorType.dagger, ArmorType.fist_weapon, ArmorType.mace, ArmorType.polearm, ArmorType.staff, ArmorType.idol]
+      end
+      
       def self.hard_caps
         {:hit => 263}
       end
@@ -108,6 +130,10 @@ class WowClass < ActiveRecord::Base
     end
     
     class Mage
+      def self.armor_types
+        [ArmorType.dagger, ArmorType.sword, ArmorType.staff, ArmorType.wand]
+      end
+
       def self.hard_caps
         {:hit => 263}
       end
@@ -125,6 +151,9 @@ class WowClass < ActiveRecord::Base
     end
     
     class Paladin
+      def self.armor_types
+        [ArmorType.axe, ArmorType.mace, ArmorType.sword, ArmorType.polearm, ArmorType.libram]
+      end
       def self.hard_caps
         {:hit => 263}
       end
@@ -142,6 +171,10 @@ class WowClass < ActiveRecord::Base
     end
     
     class Priest
+      def self.armor_types
+        [ArmorType.dagger, ArmorType.mace, ArmorType.staff, ArmorType.wand]
+      end
+
       def self.hard_caps
         {:hit => 263}
       end
@@ -159,6 +192,11 @@ class WowClass < ActiveRecord::Base
     end
 
     class Shaman
+      def self.armor_types
+        [ArmorType.axe, ArmorType.dagger, ArmorType.mace, ArmorType.fist_weapon,
+          ArmorType.staff, ArmorType.totem]
+      end
+      
       def self.hard_caps
         {:hit => 263}
       end
@@ -176,6 +214,10 @@ class WowClass < ActiveRecord::Base
     end
 
     class Warlock
+      def self.armor_types
+        [ArmorType.dagger, ArmorType.staff, ArmorType.sword, ArmorType.wand]
+      end
+      
       def self.hard_caps
         {:hit => 263}
       end
@@ -193,6 +235,12 @@ class WowClass < ActiveRecord::Base
     end
 
     class Warrior
+
+      def self.armor_types
+        [ArmorType.sword, ArmorType.axe, ArmorType.dagger, ArmorType.mace, ArmorType.fist_weapon, ArmorType.staff,
+          ArmorType.gun, ArmorType.bow, ArmorType.crossbow, ArmorType.thrown]
+      end
+
       def self.hard_caps
         {:hit => 263}
       end

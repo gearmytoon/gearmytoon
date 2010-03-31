@@ -49,6 +49,8 @@ THINGS TO CLEANUP:
 from_upgrade views and character show, extract a partial layout
 the wowr gem - fork to our own wowgem
 Item.badge_of_frost
+"WowClass::WowClassConstants::#{self.name.gsub(/\s/,"")}".constantize
 
 Bugs:
 Ahn'Kahar Blood Hunter's Handguards : 7598.0 from   Windrunner's Handguards of Conquest Found in: - displayed under frost badges
+totems, librams, sigils and idols are missing from the import

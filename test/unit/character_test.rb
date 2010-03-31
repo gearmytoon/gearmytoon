@@ -20,8 +20,8 @@ class CharacterTest < ActiveSupport::TestCase
 
     should "find upgrades of the same armor type" do
       rogue = Factory(:a_rogue)
-      plate_upgrade = Factory(:item_from_emblem_of_frost, :bonuses => {:attack_power => 500.0}, :armor_type => ArmorType.Plate)
-      leather_upgrade = Factory(:item_from_emblem_of_frost, :bonuses => {:attack_power => 500.0}, :armor_type => ArmorType.Leather)
+      plate_upgrade = Factory(:item_from_emblem_of_frost, :bonuses => {:attack_power => 500.0}, :armor_type => ArmorType.plate)
+      leather_upgrade = Factory(:item_from_emblem_of_frost, :bonuses => {:attack_power => 500.0}, :armor_type => ArmorType.leather)
       assert_equal 1, rogue.top_3_frost_upgrades.size
       assert_equal leather_upgrade, rogue.top_3_frost_upgrades.first.new_item
     end
@@ -59,15 +59,15 @@ class CharacterTest < ActiveSupport::TestCase
 
     should "find upgrades of the Miscellaneous armor type for any character" do
       rogue = Factory(:a_rogue)
-      leather_upgrade = Factory(:item_from_emblem_of_triumph, :bonuses => {:attack_power => 500.0}, :armor_type => ArmorType.Miscellaneous)
+      leather_upgrade = Factory(:item_from_emblem_of_triumph, :bonuses => {:attack_power => 500.0}, :armor_type => ArmorType.miscellaneous)
       assert_equal 1, rogue.top_3_triumph_upgrades.size
       assert_equal leather_upgrade, rogue.top_3_triumph_upgrades.first.new_item
     end
 
     should "find upgrades of the same armor type" do
       rogue = Factory(:a_rogue)
-      plate_upgrade = Factory(:item_from_emblem_of_triumph, :bonuses => {:attack_power => 500.0}, :armor_type => ArmorType.Plate)
-      leather_upgrade = Factory(:item_from_emblem_of_triumph, :bonuses => {:attack_power => 500.0}, :armor_type => ArmorType.Leather)
+      plate_upgrade = Factory(:item_from_emblem_of_triumph, :bonuses => {:attack_power => 500.0}, :armor_type => ArmorType.plate)
+      leather_upgrade = Factory(:item_from_emblem_of_triumph, :bonuses => {:attack_power => 500.0}, :armor_type => ArmorType.leather)
       assert_equal 1, rogue.top_3_triumph_upgrades.size
       assert_equal leather_upgrade, rogue.top_3_triumph_upgrades.first.new_item
     end
