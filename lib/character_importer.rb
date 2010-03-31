@@ -1,7 +1,6 @@
 class CharacterImporter
   def self.import(character)
-    self.import_character_and_all_items(character)
-    character.save!
+    self.import_character_and_all_items(character).save!
   end
 
   def self.import_character_and_all_items(character)
