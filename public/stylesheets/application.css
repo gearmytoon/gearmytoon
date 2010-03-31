@@ -20,22 +20,24 @@
 /* END 1KB GRID */
 
 body { font-size: 62.5%; font-family: Verdana, Arial, sans-serif; color: #FFF; background-color: #222; }
-a { color: #FFF; }
+a { color: #FFF; font-size: 1.4em; }
 a:visited { color: #FFF; }
 a:hover { color: #FFF; }
-h1 { text-align: center; font-size: 4.8em; }
+h1 { text-align: center; font-size: 4em; }
 form p { margin-bottom: 20px; }
 label { display: block; font-size: 1.8em; margin-bottom: 8px; }
 input.text, input.password { font-size: 1.8em; padding: 5px; }
 input.button { font-size: 1.8em; }
 input.checkbox { float: left; margin: 10px 5px 0 0; }
 
-#header { font-size: 1.8em; }
-#header h1 { font-size: 1.8em; margin: 0; }
+#header { margin-bottom: 20px; }
+#header h1 { font-size: 3em; margin: 0; }
 #header h1 a { text-decoration: none; float: left; }
 #header #user_controls { float: right; margin: 10px 0 0 0; }
 #flash { background-color: #666; margin-top: 20px; }
 #flash p { padding: 0 10px 0 10px; font-size: 1.6em; }
+
+#content { clear: both; }
 
 #or { font-size: 1.6em; margin-top: 160px; text-align: center; }
 
@@ -48,3 +50,40 @@ form#new_character input.checkbox { float: left; margin: 10px 5px 0 0; }
 form#new_user_session { border: 1px solid white; padding: 15px 15px 0 15px; }
 form#new_user_session input.text, form#new_user_session input.password { width: 90%; }
 #rpx_now_widget { border: 1px solid white; padding: 15px 0; }
+
+/* Errors */
+.fieldWithErrors {
+  padding: 2px;
+  background-color: red;
+  display: table;
+}
+
+#errorExplanation {
+  width: 400px;
+  border: 2px solid red;
+  padding: 7px;
+  padding-bottom: 12px;
+  margin-bottom: 20px;
+  background-color: #f0f0f0;
+}
+
+#errorExplanation h2 {
+  text-align: left;
+  font-weight: bold;
+  padding: 5px 5px 5px 15px;
+  font-size: 12px;
+  margin: -7px;
+  background-color: #c00;
+  color: #fff;
+}
+
+#errorExplanation p {
+  color: #333;
+  margin-bottom: 0;
+  padding: 5px;
+}
+
+#errorExplanation ul li {
+  font-size: 12px;
+  list-style: square;
+}
