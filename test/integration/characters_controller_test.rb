@@ -2,9 +2,11 @@ require File.dirname(__FILE__) + '/../test_helper'
 
 class CharactersControllerTest < ActionController::TestCase
   context "post create" do
-    should_eventually "lookup character if it doesn't exist and redirect show" do
+    should "lookup character if it doesn't exist and redirect show" do
       assert_difference "Item.count", 19 do
         assert_difference "Character.count" do
+          activate_authlogic
+          Factory(:user)
           post :create, :character => {:name => "Merb", :realm => "Baelgun"}
           assert_redirected_to character_path(Character.last)
         end
