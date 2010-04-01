@@ -1,10 +1,30 @@
 require File.dirname(__FILE__) + '/../test_helper'
-
 class CharactersControllerTest < ActionController::TestCase
   context "post create" do
     setup do
       activate_authlogic
       @user = Factory(:user)
+      Character.any_instance.stubs(:import_items_from_wow_armory)
+    end
+
+    should "create a character if none exists" do
+      assert_difference "Character.count" do
+        post :create, :character => {:name => "Merb", :realm => "Baelgun"}
+      end
+    end
+
+    should "not create a character if it already exists" do
+      character = Factory(:character, :name => "Merb", :realm => "Baelgun")
+      assert_no_difference "Character.count" do
+        post :create, :character => {:name => "Merb", :realm => "Baelgun"}
+      end
+    end
+
+    should "create a character if it isn't the first on a realm" do
+      Factory(:character, :name => "Derb", :realm => "Diablo")
+      assert_difference "Character.count" do
+        post :create, :character => {:name => "Merb", :realm => "Diablo"}
+      end
     end
 
     should "find a character if it exists and redirect show" do
