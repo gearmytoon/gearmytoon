@@ -41,6 +41,7 @@ input.checkbox { float: left; margin: 10px 5px 0 0; }
 
 #or { font-size: 1.6em; margin-top: 160px; text-align: center; }
 
+form p.why { background-color: #222; padding: 10px; -moz-border-radius: 10px; -webkit-border-radius: 10px; border-radius: 10px; font-size: 1em; text-align: center; }
 form#new_character p { margin: 0 10px 0 0; float: left; }
 form#new_character label { display: block; font-size: 1em; margin-bottom: 3px; }
 form#new_character input.text { font-size: 1em; width: 100px; padding: 2px; }
@@ -50,6 +51,13 @@ form#new_character input.checkbox { float: left; margin: 10px 5px 0 0; }
 form#new_user_session { border: 1px solid white; padding: 15px 15px 0 15px; }
 form#new_user_session input.text, form#new_user_session input.password { width: 90%; }
 #rpx_now_widget { border: 1px solid white; padding: 15px 0; }
+
+#welcome_page { display: block; margin: 0 auto; background-color: #666; padding: 20px; }
+#welcome_page h1 { margin-top: 0; }
+#welcome_page form p { float: none; margin: 20px 0 0 0; }
+#welcome_page form label { float: none; font-size: 2em; margin: 20px 0 0 0; }
+#welcome_page form input.text { font-size: 4.8em; width: 11em; }
+#welcome_page form input.button { font-size: 3.6em; text-align: center; display: block; margin: 0 auto; }
 
 /* Errors */
 .fieldWithErrors {
