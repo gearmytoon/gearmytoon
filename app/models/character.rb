@@ -6,11 +6,16 @@ class Character < ActiveRecord::Base
   has_many :character_items
   serialize :total_item_bonuses
   has_many :equipped_items, :through => :character_items, :source => :item
+  has_friendly_id :name_and_realm, :use_slug => true
 
   before_save :import_items_from_wow_armory
 
   before_validation :capitalize_name_and_realm
   validates_uniqueness_of :name, :scope => :realm
+
+  def name_and_realm
+    "#{name} #{realm}"
+  end
 
   def upgrades_in(area)
     top_upgrades_for(area.items_dropped_in)

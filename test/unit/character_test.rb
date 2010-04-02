@@ -233,4 +233,11 @@ class CharacterTest < ActiveSupport::TestCase
       assert_not_equal marks_hunter.dps_for(item.bonuses), survival_hunter.dps_for(item.bonuses)
     end
   end
+
+  context "friendly_id" do
+    should "be composed of name and realm" do
+      c = Factory(:character, :name => "Foo", :realm => "Bar")
+      assert_equal "foo-bar", c.friendly_id
+    end
+  end
 end

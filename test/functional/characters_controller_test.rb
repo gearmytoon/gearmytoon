@@ -58,6 +58,13 @@ class CharactersControllerTest < ActionController::TestCase
       assert_select "#character_info .primary_spec", :text => "Survival"
     end
 
+    should "find a character by slug" do
+      character = Factory(:character, :name => "Foo", :realm => "Bar")
+      get :show, :id => character.friendly_id
+      assert_response :success
+      assert_equal character, assigns(:character)
+    end
+
     #broke with the quality string upgrade
     should_eventually "have an upgrade section for emblems of frost" do
       Factory(:item_from_emblem_of_frost)

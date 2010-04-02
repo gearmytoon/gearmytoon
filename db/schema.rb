@@ -9,7 +9,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20100331025357) do
+ActiveRecord::Schema.define(:version => 20100402064258) do
 
   create_table "areas", :force => true do |t|
     t.string   "name"
@@ -55,6 +55,7 @@ ActiveRecord::Schema.define(:version => 20100331025357) do
     t.integer  "level"
     t.text     "total_item_bonuses"
     t.integer  "user_id"
+    t.string   "cached_slug"
   end
 
   add_index "characters", ["name", "realm"], :name => "index_characters_on_name_and_realm"
@@ -82,6 +83,18 @@ ActiveRecord::Schema.define(:version => 20100331025357) do
   add_index "items", ["source_area_id"], :name => "index_items_on_source_area_id"
   add_index "items", ["source_wowarmory_item_id"], :name => "index_items_on_source_wowarmory_item_id"
   add_index "items", ["wowarmory_item_id"], :name => "index_items_on_wowarmory_item_id"
+
+  create_table "slugs", :force => true do |t|
+    t.string   "name"
+    t.integer  "sluggable_id"
+    t.integer  "sequence",                     :default => 1, :null => false
+    t.string   "sluggable_type", :limit => 40
+    t.string   "scope"
+    t.datetime "created_at"
+  end
+
+  add_index "slugs", ["name", "sluggable_type", "sequence", "scope"], :name => "index_slugs_on_n_s_s_and_s", :unique => true
+  add_index "slugs", ["sluggable_id"], :name => "index_slugs_on_sluggable_id"
 
   create_table "users", :force => true do |t|
     t.string   "email",             :null => false
