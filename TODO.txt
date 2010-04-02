@@ -1,38 +1,13 @@
-**TODOS**
-
-DEPLOYMENT:
-- make the deploy users default rails env= production
-- the wowr item cache should go along with the deploy
-
-IMPORT PROCESS:
-- missing classes/specs (paly tanks, dk tanks, druid tanks)
-- map wowarmory magic numbers, quality, inventory type, etc into meaningful names, ie quality = 4 should be quality = 'epic'
-- fixing the import process for certain items, the ones that drop from chests need to be mapped to a boss
- - trinkets need to have their dps or stats fixed based on their spell
- - set bonuses need to be taken into account
-
-CHARACTER SUPPORT:
-- add local to the search, i.e. support euro and oceanic servers.
-- add multipliers for druid tanks and dk tanks
-- don't explode when wow armory is down
-
-DPS CHANGES:
-- add in hard caps for multipliers(hit rating cap, def rating cap)
-- take racials into account
-- take trinkets cooldown effects into account *** ie 1024 attack power for 20 seconds with a 2 min cooldown = (1024 * (20/120)) * attack_power_multiplier
-- find a way to import shield block value
-- add feral_attack_power to item import
-- add armor to bonuses
-
-ITEM CHANGES:
-- add class specific armor types (ie some mail is only usable by hunters)
-- add weapon upgrade support
-- add faction to character and item
-- consider gems slots and gem bonus upgrades when comparing items
-
-PAYMENT CHANGES:
+ PAYMENT CHANGES:
 - setup recurring payments - http://www.braintreepaymentsolutions.com/
 - 3 free previews, use it 3 times for free then upsell, here's one recommendation signup to see 2 more
+find the best gems for a item
+consider gems slots and gem bonus upgrades when comparing items
+add faction to character and item
+
+
+
+
 
 LOGIN CHANGES:
 - rpxnow? for signin/signup
@@ -55,10 +30,6 @@ clothed character factory
 Bugs:
 Ahn'Kahar Blood Hunter's Handguards : 7598.0 from   Windrunner's Handguards of Conquest Found in: - displayed under frost badges
 totems, librams, sigils and idols are missing from the import+totems, librams, sigils and idols are missing from the import
-Mainhand/onehand issue:
-Greed : 27288.2 from Empty Slot Found in: h Culling of Stratholme
-Barbed Ymirheim Choker : 17503.0 from   Choker of the Betrayer Found in: h Pit of Saron
-Nighttime : 11922.7 from   Titansteel Shanker Found in: h Forge of Souls
 check that quilts become legs
 won't find second ring or trinket upgrades
 character empty slots on their person
