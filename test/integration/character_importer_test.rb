@@ -29,7 +29,8 @@ class CharacterImporterTest < ActiveSupport::TestCase
     end
     should_eventually "import a characters total_item_bonuses" do
       Factory(:wow_class, :name => "Rogue")
-      character = CharacterImporter.import_character_and_all_items("Ming", "Stonemaul")
+      character = Factory.build(:character, :name => "Ming", :realm => "Stonemaul")
+      CharacterImporter.import_character_and_all_items(character)
       assert_not_nil character.total_item_bonuses[:hit]
       assert_not_nil character.total_item_bonuses[:agility]
       assert_not_nil character.total_item_bonuses[:strength]
