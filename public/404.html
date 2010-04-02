@@ -1,30 +1,83 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
-       "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>404 Not Found &mdash; gearmytoon.com</title>
+    <style>
+      /* ================ */
+      /* = The 1Kb Grid = */     /* 12 columns, 60 pixels each, with 20 pixel gutter */
+      /* ================ */
+      .grid_1       { width:60px;  }
+      .grid_2       { width:140px; }
+      .grid_3       { width:220px; }
+      .grid_4       { width:300px; }
+      .grid_5       { width:380px; }
+      .grid_6       { width:460px; }
+      .grid_7       { width:540px; }
+      .grid_8       { width:620px; }
+      .grid_9       { width:700px; }
+      .grid_10      { width:780px; }
+      .grid_11      { width:860px; }
+      .grid_12      { width:940px; }
+      .column       { margin: 0; overflow: hidden; float: left; display: inline; }
+      .row          { width: 960px; margin: 0 auto; overflow: hidden; }
+      .row .row     { margin: 0 -10px; width: auto; display: inline-block; }
+      .visible_grid { background-image: url(/images/grid.png); background-repeat: repeat; background-position: 10px 10px; }
+      /* END 1KB GRID */
 
-<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+      body { font-size: 62.5%; font-family: Verdana, Arial, sans-serif; color: #FFF; background-color: #222; }
+      a { color: #FFF; font-size: 1.2em; }
+      a:visited { color: #FFF; }
+      a:hover { color: #FFF; }
+      h1 { text-align: center; font-size: 4em; }
+      form p { margin-bottom: 20px; }
+      label { display: block; font-size: 1.8em; margin-bottom: 8px; }
+      input.text, input.password { font-size: 1.8em; padding: 5px; }
+      input.button { font-size: 1.8em; }
+      input.checkbox { float: left; margin: 10px 5px 0 0; }
 
-<head>
-  <meta http-equiv="content-type" content="text/html; charset=UTF-8" />
-  <title>The page you were looking for doesn't exist (404)</title>
-	<style type="text/css">
-		body { background-color: #fff; color: #666; text-align: center; font-family: arial, sans-serif; }
-		div.dialog {
-			width: 25em;
-			padding: 0 4em;
-			margin: 4em auto 0 auto;
-			border: 1px solid #ccc;
-			border-right-color: #999;
-			border-bottom-color: #999;
-		}
-		h1 { font-size: 100%; color: #f00; line-height: 1.5em; }
-	</style>
-</head>
+      #header { margin-bottom: 20px; }
+      #header h1 { font-size: 3em; margin: 0; }
+      #header h1 a { text-decoration: none; float: left; }
 
-<body>
-  <!-- This file lives in public/404.html -->
-  <div class="dialog">
-    <h1>The page you were looking for doesn't exist.</h1>
-    <p>You may have mistyped the address or the page may have moved.</p>
-  </div>
-</body>
+      #content { clear: both; }
+      #content .error p { padding: 0 3em 0 0; font-size: 1.8em; line-height: 1.6em; }
+
+      form#new_character p { margin: 0 10px 0 0; float: left; }
+      form#new_character label { display: block; font-size: 1em; margin-bottom: 3px; }
+      form#new_character input.text { font-size: 1em; width: 100px; padding: 2px; }
+      form#new_character input.button { font-size: 1em; margin-top: 20px; }
+      form#new_character input.checkbox { float: left; margin: 10px 5px 0 0; }
+    </style>
+  </head>
+  <body>
+    <div id="header" class="row grid_12">
+      <h1><a href="/">gearmytoon.com</a></h1>
+    </div>
+    <div id="content" class="row">
+      <h1>404 Page Not Found</h1>
+      <div class="column grid_7 error">
+        <p>Unfortunately, we could not find the page you were looking for.</p>
+        <p>If there's supposed to be something here <a href="http://twitter.com/gearmytoon">let us know</a>.</p>
+      </div>
+      <div class="column grid_5">
+        <h2>Search for a Character</h2>
+        <form action="/characters" class="new_character" id="new_character" method="post">
+          <p>
+            <label for="character_name">Name</label>
+            <input class="text" id="character_name" name="character[name]" size="30" type="text" />
+          </p>
+          <p>
+            <label for="character_realm">Realm</label>
+            <input class="text" id="character_realm" name="character[realm]" size="30" type="text" />
+          </p>
+          <p>
+            <input class="button" id="character_submit" name="commit" type="submit" value="Search" />
+          </p>
+        </form>
+      </div>
+    </div>
+    <div id="footer" class="row">
+    </div>
+    <script src="/javascripts/application.js?1264844559" type="text/javascript"></script>
+  </body>
 </html>
