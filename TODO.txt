@@ -50,6 +50,7 @@ from_upgrade views and character show, extract a partial layout
 the wowr gem - fork to our own wowgem
 Item.badge_of_frost
 "WowClass::WowClassConstants::#{self.name.gsub(/\s/,"")}".constantize
+clothed character factory
 
 Bugs:
 Ahn'Kahar Blood Hunter's Handguards : 7598.0 from   Windrunner's Handguards of Conquest Found in: - displayed under frost badges
@@ -58,3 +59,7 @@ Mainhand/onehand issue:
 Greed : 27288.2 from Empty Slot Found in: h Culling of Stratholme
 Barbed Ymirheim Choker : 17503.0 from   Choker of the Betrayer Found in: h Pit of Saron
 Nighttime : 11922.7 from   Titansteel Shanker Found in: h Forge of Souls
+check that quilts become legs
+won't find second ring or trinket upgrades
+character empty slots on their person
+unique equipped rings and trinkets

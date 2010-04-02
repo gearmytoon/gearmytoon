@@ -42,12 +42,12 @@ class Character < ActiveRecord::Base
 
   def top_upgrades_for(potential_upgrades)
     upgrades = potential_upgrades.inject([]) do |found_upgrades, potential_upgrade|
-      equipped_item = equipped_items.usable_in_same_slot_as(potential_upgrade).first
-      if (dps_change = dps_for(stat_change_between(potential_upgrade, equipped_item))) > 0
-        found_upgrades << Upgrade.new(potential_upgrade, equipped_item, dps_change)
-      else
-        found_upgrades
+      equipped_items.usable_in_same_slot_as(potential_upgrade).each do |equipped_item|
+        if (dps_change = dps_for(stat_change_between(potential_upgrade, equipped_item))) > 0
+          found_upgrades << Upgrade.new(potential_upgrade, equipped_item, dps_change)
+        end
       end
+      found_upgrades
     end.sort_by(&:dps_change).reverse
   end
 

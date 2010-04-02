@@ -43,14 +43,6 @@ class ItemTest < ActiveSupport::TestCase
       expected_difference = {:attack_power => 100.0, :stamina => -10.0, :spell_power => -45.0, :dodge => 20}
       assert_equal expected_difference, new_item.change_in_stats_from(old_item)
     end
-
-    should "return new_item's bonuses if the old item is nil" do
-      old_item = nil
-      new_item = Factory(:item, :bonuses => {:attack_power => 200.0, :stamina => 10.0, :dodge => 20})
-      expected_difference = {:attack_power => 200.0, :stamina => 10.0, :dodge => 20}
-      assert_equal expected_difference, new_item.change_in_stats_from(old_item)
-    end
-
   end
 
   context "usable_in_same_slot_as" do
@@ -59,6 +51,7 @@ class ItemTest < ActiveSupport::TestCase
       Factory(:item, :slot => "Wrist")
       assert_equal [item], Item.usable_in_same_slot_as(item)
     end
+    
   end
   
   context "usable_by" do

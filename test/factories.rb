@@ -43,20 +43,42 @@ Factory.define(:item) do |model|
   model.armor_type ArmorType.mail
 end
 
+Factory.define(:ring, :parent => :item) do |model|
+  model.armor_type ArmorType.miscellaneous
+  model.slot "Finger"
+end
+Factory.define(:ring_from_frost_emblem, :parent => :ring) do |model|
+  model.source_wowarmory_item_id Item::FROST_EMBLEM_ARMORY_ID
+end
+
+Factory.define(:polearm, :parent => :item) do |model|
+  model.armor_type ArmorType.polearm
+  model.slot "Two-Hand"
+end
+
 Factory.define(:item_from_emblem_of_triumph, :parent => :item) do |model|
   model.source_wowarmory_item_id Item::TRIUMPH_EMBLEM_ARMORY_ID
+  model.bonuses :attack_power => 200
 end
 
 Factory.define(:item_from_heroic_dungeon, :parent => :item) do |model|
   model.association :source_area, :factory => :dungeon
+  model.bonuses :attack_power => 200
 end
 
 Factory.define(:item_from_heroic_raid, :parent => :item) do |model|
   model.association :source_area, :factory => :raid
+  model.bonuses :attack_power => 200
 end
 
 Factory.define(:item_from_emblem_of_frost, :parent => :item) do |model|
   model.source_wowarmory_item_id Item::FROST_EMBLEM_ARMORY_ID
+  model.bonuses :attack_power => 200
+end
+
+Factory.define(:fist_from_emblem_of_frost, :parent => :item_from_emblem_of_frost) do |model|
+  model.armor_type ArmorType.fist_weapon
+  model.slot "One-Hand"
 end
 
 Factory.define(:character_item) do |model|

@@ -32,8 +32,26 @@ class CharacterTest < ActiveSupport::TestCase
 
   context "top_3_frost_upgrades" do
 
+    should "not find empty slot upgrades if the toon has a two handed weapon" do
+      character = Factory(:a_hunter)
+      Factory(:character_item, :character => character, :item => Factory(:polearm))
+      Factory(:fist_from_emblem_of_frost)
+      assert_equal [], character.frost_upgrades
+    end
+
+    should "find two upgrades for both rings" do
+      character = Factory(:a_hunter)
+      no_dps_ring = Factory(:ring_from_frost_emblem, :bonuses => {:attack_power => 0.0})
+      Factory(:character_item, :character => character, :item => no_dps_ring)
+      Factory(:character_item, :character => character, :item => no_dps_ring)
+      new_dps_ring = Factory(:ring_from_frost_emblem, :bonuses => {:attack_power => 500.0})
+      assert_equal 2, character.frost_upgrades.length
+      assert_equal no_dps_ring, character.frost_upgrades.first.old_item
+      assert_equal new_dps_ring, character.frost_upgrades.first.new_item
+    end
+
     should "find upgrades of the same armor type" do
-      rogue = Factory(:a_rogue)
+      rogue = Factory(:character_item, :character => Factory(:a_rogue)).character
       plate_upgrade = Factory(:item_from_emblem_of_frost, :bonuses => {:attack_power => 500.0}, :armor_type => ArmorType.plate)
       leather_upgrade = Factory(:item_from_emblem_of_frost, :bonuses => {:attack_power => 500.0}, :armor_type => ArmorType.leather)
       assert_equal 1, rogue.top_3_frost_upgrades.size
@@ -41,8 +59,8 @@ class CharacterTest < ActiveSupport::TestCase
     end
 
     should "find a upgrade if you do not have a inventory item in that slot" do
-      character = Factory(:character)
-      upgrade = Factory(:item_from_emblem_of_frost, :bonuses => {:attack_power => 500.0}, :slot => "Back")
+      character = Factory(:character_item).character
+      upgrade = Factory(:item_from_emblem_of_frost, :bonuses => {:attack_power => 500.0})
       assert_equal upgrade, character.top_3_frost_upgrades.first.new_item
     end
 
@@ -72,14 +90,14 @@ class CharacterTest < ActiveSupport::TestCase
   context "top_3_triumph_upgrades" do
 
     should "find upgrades of the Miscellaneous armor type for any character" do
-      rogue = Factory(:a_rogue)
+      rogue = Factory(:character_item, :character => Factory(:a_rogue)).character
       leather_upgrade = Factory(:item_from_emblem_of_triumph, :bonuses => {:attack_power => 500.0}, :armor_type => ArmorType.miscellaneous)
       assert_equal 1, rogue.top_3_triumph_upgrades.size
       assert_equal leather_upgrade, rogue.top_3_triumph_upgrades.first.new_item
     end
 
     should "find upgrades of the same armor type" do
-      rogue = Factory(:a_rogue)
+      rogue = Factory(:character_item, :character => Factory(:a_rogue)).character
       plate_upgrade = Factory(:item_from_emblem_of_triumph, :bonuses => {:attack_power => 500.0}, :armor_type => ArmorType.plate)
       leather_upgrade = Factory(:item_from_emblem_of_triumph, :bonuses => {:attack_power => 500.0}, :armor_type => ArmorType.leather)
       assert_equal 1, rogue.top_3_triumph_upgrades.size

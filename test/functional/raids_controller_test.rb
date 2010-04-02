@@ -14,10 +14,10 @@ class RaidsControllerTest < ActionController::TestCase
 
   context "get show" do
     should "show the upgrades from a zone" do
-      character = Factory(:a_rogue)
+      character = Factory(:character_item, :character => Factory(:a_rogue)).character
       raid = Factory(:raid)
-      Factory(:item, :source_area => raid)
-      Factory(:item, :source_area => Factory(:raid))
+      Factory(:item_from_heroic_raid, :source_area => raid)
+      Factory(:item_from_heroic_raid, :source_area => Factory(:raid))
       get :show, :character_id => character.id, :id => raid
       assert_response :success
       assert_select ".upgrade", :count => 1

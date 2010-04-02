@@ -68,14 +68,14 @@ class CharactersControllerTest < ActionController::TestCase
 
     should "show 3 upgrades under the frost emblem section" do
       3.times {Factory(:item_from_emblem_of_frost)}
-      character = Factory(:character)
+      character = Factory(:character_item).character
       get :show, :id => character.id
       assert_select "#emblem_of_frost .upgrade", :count => 3
     end
 
     should "show how much the item costs" do
       Factory(:item_from_emblem_of_frost, :token_cost => 27)
-      character = Factory(:character)
+      character = Factory(:character_item).character
       get :show, :id => character.id
       assert_select "#emblem_of_frost .upgrade .cost", :text => "27"
     end
@@ -87,7 +87,7 @@ class CharactersControllerTest < ActionController::TestCase
       assert_select "#emblem_of_triumph .upgrade .old_item", :text => "Stoppable Force"
     end
 
-    should "not show old item if you did not have an item equipped before" do
+    should_eventually "not show old item if you did not have an item equipped before" do
       Factory(:item_from_emblem_of_triumph, :slot => "Head", :bonuses => {:attack_power => 400.0})
       character = Factory(:character)
       get :show, :id => character.id
@@ -97,14 +97,14 @@ class CharactersControllerTest < ActionController::TestCase
 
     should "show 3 upgrades under the triumph emblem section" do
       3.times {Factory(:item_from_emblem_of_triumph)}
-      character = Factory(:character)
+      character = Factory(:character_item).character
       get :show, :id => character.id
       assert_select "#emblem_of_triumph .upgrade", :count => 3
     end
 
     should "show 3 upgrades and 3 sources under the heroic dungeon" do
       3.times {Factory(:item_from_heroic_dungeon)}
-      character = Factory(:character)
+      character = Factory(:character_item).character
       get :show, :id => character.id
       assert_select "#heroic_dungeon .upgrade", :count => 3
       assert_select "#heroic_dungeon .source", :count => 3

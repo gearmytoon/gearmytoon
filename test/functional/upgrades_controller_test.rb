@@ -3,7 +3,7 @@ require File.dirname(__FILE__) + '/../test_helper'
 class UpgradesControllerTest < ActionController::TestCase
   context "get from_frost_emblems" do
     should "show all upgrades from emblems of frost" do
-      character = Factory(:a_hunter)
+      character = Factory(:character_item, :character => Factory(:a_hunter)).character
       4.times {Factory(:item_from_emblem_of_frost)}
       Factory(:item_from_emblem_of_triumph)
       get :from_frost_emblems, :character_id => character.id
@@ -14,7 +14,7 @@ class UpgradesControllerTest < ActionController::TestCase
 
   context "get from_triumph_emblems" do
     should "show all upgrades from emblems of frost" do
-      character = Factory(:a_hunter)
+      character = Factory(:character_item, :character => Factory(:a_hunter)).character
       4.times {Factory(:item_from_emblem_of_triumph)}
       Factory(:item_from_emblem_of_frost)
       get :from_triumph_emblems, :character_id => character.id
@@ -25,7 +25,7 @@ class UpgradesControllerTest < ActionController::TestCase
 
   context "get from_dungeons" do
     should "show all upgrades from emblems of frost" do
-      character = Factory(:a_hunter)
+      character = Factory(:character_item, :character => Factory(:a_hunter)).character
       4.times {Factory(:item_from_heroic_dungeon)}
       Factory(:item_from_emblem_of_frost)
       get :from_dungeons, :character_id => character.id
