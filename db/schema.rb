@@ -9,7 +9,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20100402064258) do
+ActiveRecord::Schema.define(:version => 20100403071110) do
 
   create_table "areas", :force => true do |t|
     t.string   "name"
@@ -104,6 +104,7 @@ ActiveRecord::Schema.define(:version => 20100402064258) do
     t.datetime "created_at"
     t.datetime "updated_at"
     t.string   "identity_url"
+    t.boolean  "admin"
   end
 
   create_table "wow_classes", :force => true do |t|

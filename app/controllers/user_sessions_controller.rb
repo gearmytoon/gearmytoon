@@ -19,7 +19,8 @@ class UserSessionsController < ApplicationController
         @user.password = Digest::SHA1.hexdigest("--#{Time.now.to_s}--#{@user.email}--")[0, 6]
         @user.save
       end
-      UserSession.create(@user)
+      @user_session = UserSession.create(@user)
+      assign_admin_session if @user_session.record.admin
       successful_login
     end
   end
@@ -27,6 +28,7 @@ class UserSessionsController < ApplicationController
   def create
     @user_session = UserSession.new(params[:user_session])
     if @user_session.save
+      assign_admin_session if @user_session.record.admin
       successful_login
     else
       failed_login
@@ -34,7 +36,8 @@ class UserSessionsController < ApplicationController
   end
 
   def destroy
-    current_user_session.destroy
+    current_user_session.try(:destroy)
+    current_admin_session.try(:destroy)
     flash[:notice] = "Logout successful!"
     redirect_back_or_default new_user_session_url
   end
@@ -48,5 +51,11 @@ class UserSessionsController < ApplicationController
   def successful_login
     flash[:notice] = "Login successful!"
     redirect_back_or_default account_url
+  end
+
+  def assign_admin_session
+    @user_session = UserSession.new(@user)
+    @user_session.id = :admin
+    @user_session.save
   end
 end

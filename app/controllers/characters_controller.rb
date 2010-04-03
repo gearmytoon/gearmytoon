@@ -1,6 +1,7 @@
 class CharactersController < ApplicationController
   helper :areas
   before_filter :require_user, :except => :show
+  before_filter :require_admin, :only => :index
 
   def index
     @characters = Character.all

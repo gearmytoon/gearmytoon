@@ -1,5 +1,13 @@
 require File.dirname(__FILE__) + '/../test_helper'
 class CharactersControllerTest < ActionController::TestCase
+  context "get #index" do
+    should "not be visible to a normal user" do
+      activate_authlogic
+      Factory(:user)
+      get :index
+      assert_redirected_to root_url
+    end
+  end
   context "post create" do
     setup do
       activate_authlogic

@@ -4,7 +4,7 @@
 class ApplicationController < ActionController::Base
   helper :all # include all helpers, all the time
   protect_from_forgery # See ActionController::RequestForgeryProtection for details
-  helper_method :current_user_session, :current_user
+  helper_method :current_user_session, :current_user, :current_admin_session, :current_admin
   filter_parameter_logging :password, :password_confirmation
 
   private
@@ -43,5 +43,23 @@ class ApplicationController < ActionController::Base
   def redirect_back_or_default(default)
     redirect_to(session[:return_to] || default)
     session[:return_to] = nil
+  end
+
+  #admin
+  def current_admin_session
+    return @current_admin_session if defined?(@current_admin_session)
+    @current_admin_session = UserSession.find(:admin)
+  end
+
+  def current_admin
+    return @current_admin if defined?(@current_admin)
+    @current_admin = current_admin_session && current_admin_session.record
+  end
+
+  def require_admin
+    unless current_admin && current_admin.admin
+      redirect_to root_url
+      return false
+    end
   end
 end

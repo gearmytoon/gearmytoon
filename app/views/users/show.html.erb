@@ -30,6 +30,11 @@
       <b>Identity URL:</b> <%= @user.identity_url %>
     </p>
   <% end -%>
+  <% if @user.admin -%>
+    <p>
+      <b>Admin:</b> Yes
+    </p>
+  <% end -%>
   <p>
     <%= link_to "Logout", user_session_path, :method => :delete, :confirm => "Are you sure you want to logout?" %>
   </p>

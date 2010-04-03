@@ -15,6 +15,11 @@ Factory.define(:user) do |f|
   f.password_confirmation "password"
 end
 
+Factory.define(:admin, :parent => :user) do |f|
+  f.email "admin@gearmytoon.com"
+  f.admin true
+end
+
 Factory.define(:survival_hunter, :parent => :character) do |model|
   model.name "Merb"
   model.wow_class WowClass.create_class!("Hunter")
