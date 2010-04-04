@@ -24,6 +24,7 @@ a { color: #FFF; font-size: 1.4em; }
 a:visited { color: #FFF; }
 a:hover { color: #FFF; }
 h1 { text-align: center; font-size: 4em; }
+h2 { clear: both; margin: 40px 0 0 0; }
 form p { margin-bottom: 20px; }
 label { display: block; font-size: 1.8em; margin-bottom: 8px; }
 input.text, input.password { font-size: 1.8em; padding: 5px; }
@@ -42,11 +43,12 @@ input.checkbox { float: left; margin: 10px 5px 0 0; }
 #or { font-size: 1.6em; margin-top: 160px; text-align: center; }
 
 form p.why { background-color: #222; padding: 10px; -moz-border-radius: 10px; -webkit-border-radius: 10px; border-radius: 10px; font-size: 1em; text-align: center; }
-form#new_character p { margin: 0 10px 0 0; float: left; }
-form#new_character label { display: block; font-size: 1em; margin-bottom: 3px; }
-form#new_character input.text { font-size: 1em; width: 100px; padding: 2px; }
-form#new_character input.button { font-size: 1em; margin-top: 20px; }
-form#new_character input.checkbox { float: left; margin: 10px 5px 0 0; }
+form.inline { width: auto; overflow: hidden; }
+form.inline p { margin: 0 10px 0 0; float: left; }
+form.inline label { display: block; font-size: 1em; margin-bottom: 3px; }
+form.inline input.text { font-size: 1em; width: 100px; padding: 2px; }
+form.inline input.button { font-size: 1em; margin-top: 20px; }
+form.inline input.checkbox { float: left; margin: 10px 5px 0 0; }
 
 form#new_user_session { border: 1px solid white; padding: 15px 15px 0 15px; }
 form#new_user_session input.text, form#new_user_session input.password { width: 90%; }

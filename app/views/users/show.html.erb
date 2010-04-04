@@ -6,7 +6,7 @@
     <% end -%>
   </ul>
   <h2>Add a Toon</h2>
-  <% form_for Character.new, new_character_path do |f| -%>
+  <% form_for Character.new, :html => {:class => 'inline'} do |f| -%>
     <p>
       <%= f.label :name %>
       <%= f.text_field :name, :class => 'text' %>
@@ -17,6 +17,16 @@
     </p>
     <p>
       <%= f.submit "Add Toon", :class => 'button' %>
+    </p>
+  <% end %>
+  <h2>Invite a Friend</h2>
+  <% form_for Invite.new, :html => {:class => 'inline'} do |f| -%>
+    <p>
+      <%= f.label :email %>
+      <%= f.text_field :email, :class => 'text' %>
+    </p>
+    <p>
+      <%= f.submit "Send Invite", :class => 'button' %>
     </p>
   <% end %>
 </div>

@@ -9,7 +9,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20100403071110) do
+ActiveRecord::Schema.define(:version => 20100403084505) do
 
   create_table "areas", :force => true do |t|
     t.string   "name"
@@ -62,6 +62,13 @@ ActiveRecord::Schema.define(:version => 20100403071110) do
   add_index "characters", ["name"], :name => "index_characters_on_name"
   add_index "characters", ["realm", "name"], :name => "index_characters_on_realm_and_name"
   add_index "characters", ["wow_class_id"], :name => "index_characters_on_wow_class_id"
+
+  create_table "invites", :force => true do |t|
+    t.string   "email"
+    t.string   "token"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
 
   create_table "items", :force => true do |t|
     t.string   "name"

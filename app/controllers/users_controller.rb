@@ -1,6 +1,8 @@
 class UsersController < ApplicationController
   before_filter :require_no_user, :only => [:new, :create]
   before_filter :require_user, :only => [:show, :edit, :update]
+  before_filter :require_invite_token, :only => [:new, :create]
+  after_filter :destroy_invite, :only => [:create]
 
   def new
     @user = User.new
@@ -32,5 +34,19 @@ class UsersController < ApplicationController
     else
       render :action => :edit
     end
+  end
+
+  private
+  def require_invite_token
+    if params[:invite] && @invite = Invite.find_by_token(params[:invite][:token])
+      return true
+    else
+      redirect_to root_url
+      false
+    end
+  end
+
+  def destroy_invite
+    @invite.destroy if @invite && !@user.new_record?
   end
 end

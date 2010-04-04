@@ -23,7 +23,10 @@
       </div>
     </div>
     <% if flash[:notice].present? -%>
-      <div id="flash" class="row grid_12"><p><%= flash[:notice] %></p></div>
+      <div id="flash" class="notice row grid_12"><p><%= flash[:notice] %></p></div>
+    <% end -%>
+    <% if flash[:error].present? -%>
+      <div id="flash" class="error row grid_12"><p><%= flash[:error] %></p></div>
     <% end -%>
     <div id="content" class="row">
       <%= yield %>
