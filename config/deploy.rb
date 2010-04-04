@@ -9,12 +9,12 @@ set :web_command, 'touch /var/public_html/wow.telcobox.net/current/tmp/restart.t
 namespace :vlad do
   desc "deploy the app"
   task :deploy => %w[
-    gems:install
-    jobs:stop
+    vlad:gems:install
+    vlad:jobs:stop
     vlad:update
     vlad:migrate
     vlad:start
-    jobs:start
+    vlad:jobs:start
   ]
 
   desc "import a text file via wow armory on production"
@@ -27,4 +27,27 @@ namespace :vlad do
     run "cd #{current_path} && RAILS_ENV=production rake import_all_item_text_files"
   end
 
+  namespace :gems do
+    desc "install gems"
+    task :install do
+      run "cd #{current_path}; rake gems:install"
+    end
+  end
+
+  namespace :jobs do
+    desc "start delayed_job worker"
+    remote_task :start do
+      run "cd #{current_path}; script/delayed_job start RAILS_ENV=production"
+    end
+
+    desc "stop delayed_job worker"
+    remote_task :start do
+      run "cd #{current_path}; script/delayed_job stop RAILS_ENV=production"
+    end
+
+    desc "restart delayed_job worker"
+    remote_task :start do
+      run "cd #{current_path}; script/delayed_job restart RAILS_ENV=production"
+    end
+  end
 end
