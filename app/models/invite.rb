@@ -10,6 +10,6 @@ class Invite < ActiveRecord::Base
   end
 
   def send_invite_email
-    InviteMailer.deliver_invite(self)
+    InviteMailer.send_later :deliver_invite, self
   end
 end

@@ -9,9 +9,12 @@ set :web_command, 'touch /var/public_html/wow.telcobox.net/current/tmp/restart.t
 namespace :vlad do
   desc "deploy the app"
   task :deploy => %w[
+    gems:install
+    jobs:stop
     vlad:update
     vlad:migrate
     vlad:start
+    jobs:start
   ]
 
   desc "import a text file via wow armory on production"
