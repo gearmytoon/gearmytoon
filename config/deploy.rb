@@ -29,25 +29,25 @@ namespace :vlad do
 
   namespace :gems do
     desc "install gems"
-    task :install do
-      run "cd #{current_path}; rake gems:install"
+    remote_task :install do
+      run "cd #{current_path} && RAILS_ENV=production sudo rake gems:install"
     end
   end
 
   namespace :jobs do
     desc "start delayed_job worker"
     remote_task :start do
-      run "cd #{current_path}; script/delayed_job start RAILS_ENV=production"
+      run "cd #{current_path} && RAILS_ENV=production script/delayed_job start"
     end
 
     desc "stop delayed_job worker"
     remote_task :start do
-      run "cd #{current_path}; script/delayed_job stop RAILS_ENV=production"
+      run "cd #{current_path} && RAILS_ENV=production script/delayed_job stop"
     end
 
     desc "restart delayed_job worker"
     remote_task :start do
-      run "cd #{current_path}; script/delayed_job restart RAILS_ENV=production"
+      run "cd #{current_path} && RAILS_ENV=production script/delayed_job restart"
     end
   end
 end
