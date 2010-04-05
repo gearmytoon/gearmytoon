@@ -19,12 +19,11 @@
 .visible_grid { background-image: url(/images/grid.png); background-repeat: repeat; background-position: 10px 10px; }
 /* END 1KB GRID */
 
-body { font-size: 62.5%; font-family: Verdana, Arial, sans-serif; color: #FFF; background-color: #222; }
+body { font-size: 12px; font-family: Verdana, Arial, sans-serif; color: #FFF; background-color: #222; }
 a { color: #FFF; }
 a:visited { color: #FFF; }
 a:hover { color: #FFF; }
-h1 { text-align: center; font-size: 4em; }
-h2 { clear: both; margin: 40px 0 0 0; }
+h2 { clear: both; margin: 40px 0 0 0; font-size:16px;}
 form p { margin-bottom: 20px; }
 label { display: block; font-size: 1.8em; margin-bottom: 8px; }
 input.text, input.password { font-size: 1.8em; padding: 5px; }
@@ -32,11 +31,11 @@ input.button { font-size: 1.8em; }
 input.checkbox { float: left; margin: 10px 5px 0 0; }
 
 #header { margin-bottom: 20px; }
-#header h1 { font-size: 3em; margin: 0; }
+#header h1 { font-size: 2em; margin: 0; }
 #header h1 a { text-decoration: none; float: left; }
 #header #user_controls { float: right; margin: 10px 0 0 0; }
 #flash { background-color: #666; margin-top: 20px; }
-#flash p { padding: 0 10px 0 10px; font-size: 1.6em; }
+#flash p { padding: 0 10px 0 10px; font-size: 1.2em; }
 
 #content { clear: both; }
 
@@ -58,7 +57,7 @@ form#new_user_session input.text, form#new_user_session input.password { width: 
 #welcome_page h1 { margin-top: 0; }
 #welcome_page form p { float: none; margin: 20px 0 0 0; }
 #welcome_page form label { float: none; font-size: 2em; margin: 20px 0 0 0; }
-#welcome_page form input.text { font-size: 4.8em; width: 11em; }
+#welcome_page form input.text { font-size: 200%; width: 510px; }
 #welcome_page form input.button { font-size: 3.6em; text-align: center; display: block; margin: 0 auto; }
 
 /* Errors */
@@ -96,4 +95,7 @@ form#new_user_session input.text, form#new_user_session input.password { width: 
 #errorExplanation ul li {
   font-size: 12px;
   list-style: square;
+}
+.signin_header{
+  padding-bottom:10px;
 }

@@ -1,5 +1,5 @@
 <div class="column grid_5">
-  <h2>Login or signup</h2>
+  <h2 class="signin_header">Login or signup</h2>
   <div id="rpx_now_widget">
     <%= RPXNow.embed_code('gearmytoon',rpx_token_sessions_url) %>
   </div>
@@ -8,7 +8,7 @@
   <p>&mdash;or&mdash;</p>
 </div>
 <div class="column grid_5">
-  <h2>Login using a GearMyToon account</h2>
+  <h2 class="signin_header">Login using a GearMyToon account</h2>
   <% form_for @user_session, :url => user_session_path do |f| %>
     <%= f.error_messages :header_message => nil %>
     <p>
