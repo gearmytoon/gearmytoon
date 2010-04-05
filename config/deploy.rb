@@ -41,12 +41,12 @@ namespace :vlad do
     end
 
     desc "stop delayed_job worker"
-    remote_task :start do
+    remote_task :stop do
       run "cd #{current_path} && RAILS_ENV=production script/delayed_job stop"
     end
 
     desc "restart delayed_job worker"
-    remote_task :start do
+    remote_task :restart do
       run "cd #{current_path} && RAILS_ENV=production script/delayed_job restart"
     end
   end
