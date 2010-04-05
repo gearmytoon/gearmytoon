@@ -28,6 +28,11 @@ class ItemImporterTest < ActiveSupport::TestCase
       assert_equal "Ranged", wand.slot
       assert_equal "Wand", wand.armor_type.name
     end
+    
+    should "import quilts as legs slot" do
+      legs = ItemImporter.import_from_wowarmory!(45384)
+      assert_equal "Legs", legs.slot
+    end
 
     should "import libram totem and idols correctly" do
       libram = ItemImporter.import_from_wowarmory!(50461)
