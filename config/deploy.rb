@@ -4,7 +4,7 @@ set :deploy_to, "/var/public_html/wow.telcobox.net/"
 set :repository, 'git@github.com:nolman/wowcoach.git'
 set :ssh_flags, ['-p 60322']
 set :revision, 'master' # git branch to deploy
-set :web_command, 'touch /var/public_html/wow.telcobox.net/current/tmp/restart.txt' # command to start/stop apache
+set :web_command, 'sudo apache2ctl' # command to start/stop apache
 
 namespace :vlad do
   desc "deploy the app"
@@ -37,17 +37,17 @@ namespace :vlad do
   namespace :jobs do
     desc "start delayed_job worker"
     remote_task :start do
-      run "cd #{current_path} && RAILS_ENV=production script/delayed_job start"
+      run "cd #{current_path} && RAILS_ENV=production rake jobs:start"
     end
 
     desc "stop delayed_job worker"
     remote_task :stop do
-      run "cd #{current_path} && RAILS_ENV=production script/delayed_job stop"
+      run "cd #{current_path} && RAILS_ENV=production rake jobs:stop"
     end
 
     desc "restart delayed_job worker"
     remote_task :restart do
-      run "cd #{current_path} && RAILS_ENV=production script/delayed_job restart"
+      run "cd #{current_path} && RAILS_ENV=production rake jobs:restart"
     end
   end
 end
