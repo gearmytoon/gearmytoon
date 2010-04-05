@@ -20,7 +20,7 @@
 /* END 1KB GRID */
 
 body { font-size: 62.5%; font-family: Verdana, Arial, sans-serif; color: #FFF; background-color: #222; }
-a { color: #FFF; font-size: 1.4em; }
+a { color: #FFF; }
 a:visited { color: #FFF; }
 a:hover { color: #FFF; }
 h1 { text-align: center; font-size: 4em; }
