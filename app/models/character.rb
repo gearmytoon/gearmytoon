@@ -90,15 +90,6 @@ class Character < ActiveRecord::Base
     wow_class.hard_caps
   end
 
-  def self.find_by_name_and_realm_or_create_from_wowarmory(name, realm)
-    character = Character.find_by_name_and_realm(name, realm)
-    if character
-      return character
-    else
-      import_items_from_wow_armory
-    end
-  end
-
   private
   def import_items_from_wow_armory
     CharacterImporter.import_character_and_all_items(self) unless dont_use_wow_armory

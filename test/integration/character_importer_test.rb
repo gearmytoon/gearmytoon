@@ -28,6 +28,9 @@ class CharacterImporterTest < ActiveSupport::TestCase
       assert_equal "Paladin", rails.wow_class_name
       assert_equal "Protection", rails.primary_spec
     end
+    should_eventually "re-import/reparse a character if they already exist"
+    should_eventually "display a unable to fetch the latest data for your character, wow armory may be down"
+    
     should_eventually "import a characters total_item_bonuses" do
       Factory(:wow_class, :name => "Rogue")
       character = Factory.build(:character, :name => "Ming", :realm => "Stonemaul")
