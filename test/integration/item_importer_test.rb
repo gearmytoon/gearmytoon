@@ -1,6 +1,7 @@
 require File.dirname(__FILE__) + '/../test_helper'
 
 class ItemImporterTest < ActiveSupport::TestCase
+
   context "import_from_wowarmory!" do
     should "not import duplicates" do
       ItemImporter.import_from_wowarmory!(50270)

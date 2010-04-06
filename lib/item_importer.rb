@@ -19,10 +19,12 @@ class ItemImporter
         token_cost = wowarmory_item.cost.tokens.first.count
       end
     end
-    Item.create!(:wowarmory_item_id => wowarmory_item_id, :name => wowarmory_item.name,
-                 :quality => quality, :source_wowarmory_item_id => source_wowarmory_item_id, :icon => wowarmory_item.icon, 
-                 :bonuses => get_item_bonuses, :armor_type => ArmorType.find_or_create_by_name(armor_type_name), :token_cost => token_cost,
-                 :source_area => get_dungeon_source, :slot => slot, :restricted_to => get_restricted_to)
+    returning Item.find_or_create_by_wowarmory_item_id(wowarmory_item_id) do |item|
+      item.update_attributes!(:wowarmory_item_id => wowarmory_item_id, :name => wowarmory_item.name,
+                   :quality => quality, :source_wowarmory_item_id => source_wowarmory_item_id, :icon => wowarmory_item.icon, 
+                   :bonuses => get_item_bonuses, :armor_type => ArmorType.find_or_create_by_name(armor_type_name), :token_cost => token_cost,
+                   :source_area => get_dungeon_source, :slot => slot, :restricted_to => get_restricted_to)
+    end
   end
   
   def get_restricted_to
@@ -70,13 +72,11 @@ class ItemImporter
     @@api ||= Wowr::API.new()
   end
   def self.import_from_wowarmory!(wowarmory_item_id)
-    if Item.find_by_wowarmory_item_id(wowarmory_item_id).nil?
-      begin
-        wowarmory_item = api.get_item(wowarmory_item_id)
-        ItemImporter.new(wowarmory_item, wowarmory_item_id).import!
-      rescue Wowr::Exceptions::ItemNotFound => e
-        STDERR.puts e
-      end
+    begin
+      wowarmory_item = api.get_item(wowarmory_item_id)
+      ItemImporter.new(wowarmory_item, wowarmory_item_id).import!
+    rescue Wowr::Exceptions::ItemNotFound => e
+      STDERR.puts e
     end
   end
 
