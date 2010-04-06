@@ -1,14 +1,15 @@
 class Item < ActiveRecord::Base
   TRIUMPH_EMBLEM_ARMORY_ID = 47241
   FROST_EMBLEM_ARMORY_ID = 49426
-
+  RESTRICT_TO_NONE = "NONE"
+  
   serialize :bonuses
   named_scope :from_emblem_of_triumph, :conditions => {:source_wowarmory_item_id => TRIUMPH_EMBLEM_ARMORY_ID}
   named_scope :from_emblem_of_frost, :conditions => {:source_wowarmory_item_id => FROST_EMBLEM_ARMORY_ID}
   named_scope :from_heroic_dungeon, Proc.new {{:conditions => {:source_area_id => Area.dungeons.map(&:id)}}} #delaying evaluation
   named_scope :usable_in_same_slot_as, Proc.new { |item| {:conditions => {:slot => item.slot}} }
 
-  named_scope :usable_by, Proc.new {|wow_class| {:conditions => {:armor_type_id => wow_class.usable_armor_types}}}
+  named_scope :usable_by, Proc.new {|wow_class| {:conditions => {:armor_type_id => wow_class.usable_armor_types, :restricted_to => [RESTRICT_TO_NONE, wow_class.name]}}}
   belongs_to :armor_type
   belongs_to :source_area, :class_name => "Area"
 

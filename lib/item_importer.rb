@@ -22,7 +22,13 @@ class ItemImporter
     Item.create!(:wowarmory_item_id => wowarmory_item_id, :name => wowarmory_item.name,
                  :quality => quality, :source_wowarmory_item_id => source_wowarmory_item_id, :icon => wowarmory_item.icon, 
                  :bonuses => get_item_bonuses, :armor_type => ArmorType.find_or_create_by_name(armor_type_name), :token_cost => token_cost,
-                 :source_area => get_dungeon_source, :slot => slot)
+                 :source_area => get_dungeon_source, :slot => slot, :restricted_to => get_restricted_to)
+  end
+  
+  def get_restricted_to
+    allowable_classes = wowarmory_item.instance_variable_get(:@tooltip).allowable_classes
+    #if there is only one allowable class, we care
+    allowable_classes && allowable_classes.length == 1 ? allowable_classes.first : Item::RESTRICT_TO_NONE
   end
   
   def armor_type_name

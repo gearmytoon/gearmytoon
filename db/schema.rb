@@ -9,7 +9,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20100404220519) do
+ActiveRecord::Schema.define(:version => 20100406003433) do
 
   create_table "areas", :force => true do |t|
     t.string   "name"
@@ -98,9 +98,11 @@ ActiveRecord::Schema.define(:version => 20100404220519) do
     t.integer  "source_area_id"
     t.string   "quality"
     t.string   "slot"
+    t.string   "restricted_to",            :default => "NONE"
   end
 
   add_index "items", ["armor_type_id"], :name => "index_items_on_armor_type_id"
+  add_index "items", ["restricted_to"], :name => "index_items_on_restricted_to"
   add_index "items", ["slot"], :name => "index_items_on_slot"
   add_index "items", ["source_area_id"], :name => "index_items_on_source_area_id"
   add_index "items", ["source_wowarmory_item_id"], :name => "index_items_on_source_wowarmory_item_id"
