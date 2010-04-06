@@ -29,9 +29,9 @@ class CharactersControllerTest < ActionController::TestCase
     end
 
     should "create a character if it isn't the first on a realm" do
-      Factory(:character, :name => "Derb", :realm => "Diablo")
+      Factory(:character, :name => "Derb", :realm => "Baelgun")
       assert_difference "Character.count" do
-        post :create, :character => {:name => "Merb", :realm => "Diablo"}
+        post :create, :character => {:name => "Merb", :realm => "Baelgun"}
       end
     end
 
@@ -54,6 +54,17 @@ class CharactersControllerTest < ActionController::TestCase
   end
 
   context "get show" do
+    setup do
+      CharacterImporter.stubs(:refresh_character!)
+    end
+    should "refresh character info" do
+      character = Factory(:character)
+      #mocha wasn't evaluating "expects"
+      CharacterImporter.expects(:refresh_character!).raises("wtf")
+      assert_raises RuntimeError, "wtf" do
+        get :show, :id => character.id
+      end
+    end
     should "display character info" do
       character = Factory(:character, :name => "merb", :realm => "Baelgun", :battle_group => "Shadowburn", :guild => "Special Circumstances", :primary_spec => "Survival")
       get :show, :id => character.id

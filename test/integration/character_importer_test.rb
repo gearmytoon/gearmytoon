@@ -1,6 +1,21 @@
 require File.dirname(__FILE__) + '/../test_helper'
 
 class CharacterImporterTest < ActiveSupport::TestCase
+  context "refresh_character!" do
+    should "refresh a character" do
+      Factory(:wow_class, :name => "Paladin")
+      character = Factory.build(:character, :name => "Rails", :realm => "Baelgun")
+      character = CharacterImporter.import_character_and_all_items(character)
+      character.save!
+      character.character_items.first.delete
+      assert_no_difference "Item.count" do
+        assert_difference "character.character_items.reload.count", 1 do
+          CharacterImporter.refresh_character!(character)
+        end
+      end
+    end
+  end
+
   context "import_character_and_all_items" do
     should "import rails and all of his equipped items" do
       Factory(:wow_class, :name => "Paladin")
@@ -28,6 +43,7 @@ class CharacterImporterTest < ActiveSupport::TestCase
       assert_equal "Paladin", rails.wow_class_name
       assert_equal "Protection", rails.primary_spec
     end
+    
     should_eventually "re-import/reparse a character if they already exist"
     should_eventually "display a unable to fetch the latest data for your character, wow armory may be down"
     

@@ -14,6 +14,7 @@ class CharactersController < ApplicationController
       begin
         @character = Character.new(params[:character])
         @character.user = current_user
+        @character = CharacterImporter.import_character_and_all_items(@character)
         if @character.save
           flash[:notice] = "Toon added successfully!"
           redirect_to character_path(@character)
@@ -29,6 +30,7 @@ class CharactersController < ApplicationController
 
   def show
     @character = Character.find(params[:id])
+    CharacterImporter.refresh_character!(@character)
     respond_to do |format|
       format.html # show.html.erb
       format.xml  { render :xml => @character }

@@ -7,9 +7,7 @@ class Character < ActiveRecord::Base
   serialize :total_item_bonuses
   has_many :equipped_items, :through => :character_items, :source => :item
   has_friendly_id :name_and_realm, :use_slug => true
-
-  before_save :import_items_from_wow_armory
-
+  #TODO, do we need?
   before_validation :capitalize_name_and_realm
   validates_uniqueness_of :name, :scope => :realm
 
@@ -88,11 +86,6 @@ class Character < ActiveRecord::Base
 
   def hard_caps
     wow_class.hard_caps
-  end
-
-  private
-  def import_items_from_wow_armory
-    CharacterImporter.import_character_and_all_items(self) unless dont_use_wow_armory
   end
 
   def capitalize_name_and_realm
