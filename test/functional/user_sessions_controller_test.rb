@@ -25,17 +25,24 @@ class UserSessionsControllerTest < ActionController::TestCase
     setup do
       data = {:identifier => 'foo', :email => 'foo@bar.com'}
       RPXNow.stubs(:user_data).returns(data)
+      @invite = Factory(:invite)
     end
 
     should "require a valid invite token to create a new user" do
-      invite = Factory(:invite)
-      post :rpx_create, :invite => {:token => invite.token}
+      post :rpx_create, :invite => {:token => @invite.token}
       assert !assigns(:user).new_record?
     end
 
     should "not create a new user with an invalid invite token" do
       post :rpx_create, :invite => {:token => 'snatheuo'}
       assert assigns(:user).new_record?
+    end
+
+    should "create a user without an e-mail address" do
+      data = {:identifier => 'http://foo.com', :email => nil}
+      RPXNow.stubs(:user_data).returns(data)
+      post :rpx_create, :invite => {:token => @invite.token}
+      assert !assigns(:user).new_record?
     end
   end
 

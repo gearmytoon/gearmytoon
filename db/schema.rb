@@ -9,7 +9,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20100406003433) do
+ActiveRecord::Schema.define(:version => 20100407144835) do
 
   create_table "areas", :force => true do |t|
     t.string   "name"
@@ -121,7 +121,7 @@ ActiveRecord::Schema.define(:version => 20100406003433) do
   add_index "slugs", ["sluggable_id"], :name => "index_slugs_on_sluggable_id"
 
   create_table "users", :force => true do |t|
-    t.string   "email",             :null => false
+    t.string   "email"
     t.string   "crypted_password",  :null => false
     t.string   "password_salt",     :null => false
     t.string   "persistence_token", :null => false
