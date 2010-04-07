@@ -15,7 +15,7 @@ class CharacterImporterTest < ActiveSupport::TestCase
       end
     end
   end
-
+  
   context "import_character_and_all_items" do
     should "import rails and all of his equipped items" do
       Factory(:wow_class, :name => "Paladin")
@@ -43,17 +43,37 @@ class CharacterImporterTest < ActiveSupport::TestCase
       assert_equal "Paladin", rails.wow_class_name
       assert_equal "Protection", rails.primary_spec
     end
-    
-    should_eventually "re-import/reparse a character if they already exist"
+
     should_eventually "display a unable to fetch the latest data for your character, wow armory may be down"
     
-    should_eventually "import a characters total_item_bonuses" do
-      Factory(:wow_class, :name => "Rogue")
-      character = Factory.build(:character, :name => "Ming", :realm => "Stonemaul")
+    should "import a characters total_item_bonuses" do
+      Factory(:wow_class, :name => "Hunter")
+      character = Factory.build(:character, :name => "Merb", :realm => "Baelgun")
       CharacterImporter.import_character_and_all_items(character)
-      assert_not_nil character.total_item_bonuses[:hit]
       assert_not_nil character.total_item_bonuses[:agility]
       assert_not_nil character.total_item_bonuses[:strength]
+      assert_not_nil character.total_item_bonuses[:intellect]
+      assert_not_nil character.total_item_bonuses[:stamina]
+      assert_not_nil character.total_item_bonuses[:spirit]
+
+      assert_not_nil character.total_item_bonuses[:armor]
+      assert_not_nil character.total_item_bonuses[:defense]
+      assert_not_nil character.total_item_bonuses[:dodge]
+      assert_not_nil character.total_item_bonuses[:parry]
+      assert_not_nil character.total_item_bonuses[:block]
+      assert_not_nil character.total_item_bonuses[:resilience]
+
+      assert_not_nil character.total_item_bonuses[:hit]
+      assert_not_nil character.total_item_bonuses[:expertise]
+      assert_not_nil character.total_item_bonuses[:attack_power]
+      assert_not_nil character.total_item_bonuses[:haste]
+      assert_not_nil character.total_item_bonuses[:crit]
+
+      assert_not_nil character.total_item_bonuses[:mana_regen]
+      assert_not_nil character.total_item_bonuses[:spell_power]
+      assert_not_nil character.total_item_bonuses[:spell_penetration]
+      
+      assert_not_nil character.total_item_bonuses[:armor_penetration]
     end
   end
 end
