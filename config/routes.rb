@@ -2,6 +2,7 @@ ActionController::Routing::Routes.draw do |map|
   map.resource :home
   map.resources :areas
   map.resources :invites
+  map.resources :users
   map.resources :characters do |character|
     character.resources :raids
     character.resources :dungeons

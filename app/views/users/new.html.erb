@@ -1,5 +1,14 @@
-<h1>Sign up today!</h1>
-<div class="column grid_12">
+<div class="column grid_5">
+  <h2 class="signin_header">Register using one of these sites</h2>
+  <div id="rpx_now_widget">
+    <%= RPXNow.embed_code('gearmytoon',rpx_token_sessions_url(:invite => {:token => @invite.token})) %>
+  </div>
+</div>
+<div id="or" class="column grid_2">
+  <p>&mdash;or&mdash;</p>
+</div>
+<div class="column grid_5">
+  <h2 class="signin_header">Register directly with us</h2>
   <% form_for @user, :url => account_path do |f| %>
     <%= f.error_messages :header_message => nil %>
     <%= hidden_field_tag 'invite[token]', @invite.token %>

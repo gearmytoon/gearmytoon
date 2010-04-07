@@ -14,10 +14,14 @@ class UserSessionsController < ApplicationController
     else
       @user = User.find_or_initialize_by_identity_url(data[:identifier])
       if @user.new_record?
-        #@user.display_name = data[:name] || data[:displayName] || data[:nickName]
-        @user.email = data[:email] || data[:verifiedEmail]
-        @user.password = Digest::SHA1.hexdigest("--#{Time.now.to_s}--#{@user.email}--")[0, 6]
-        @user.save
+        if params[:invite] && invite = Invite.find_by_token(params[:invite][:token])
+          @user.email = data[:email] || data[:verifiedEmail]
+          @user.password = Digest::SHA1.hexdigest("--#{Time.now.to_s}--#{@user.email}--")[0, 6]
+          @user.save
+          invite.destroy
+        else
+          redirect_to root_url and return
+        end
       end
       @user_session = UserSession.create(@user)
       assign_admin_session if @user_session.record.admin
