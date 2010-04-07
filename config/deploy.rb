@@ -1,6 +1,6 @@
 set :application, "project"
 set :domain, "deploy@wow.telcobox.net"
-set :deploy_to, "/var/public_html/wow.telcobox.net/"
+set :deploy_to, "/var/public_html/gearmytoon.com/"
 set :repository, 'git@github.com:nolman/wowcoach.git'
 set :ssh_flags, ['-p 60322']
 set :revision, 'master' # git branch to deploy
