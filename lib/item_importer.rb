@@ -23,7 +23,25 @@ class ItemImporter
       item.update_attributes!(:wowarmory_item_id => wowarmory_item_id, :name => wowarmory_item.name,
                    :quality => quality, :source_wowarmory_item_id => source_wowarmory_item_id, :icon => wowarmory_item.icon, 
                    :bonuses => get_item_bonuses, :armor_type => ArmorType.find_or_create_by_name(armor_type_name), :token_cost => token_cost,
-                   :source_area => get_dungeon_source, :slot => slot, :restricted_to => get_restricted_to, :)
+                   :source_area => get_dungeon_source, :slot => slot, :restricted_to => get_restricted_to, :item_sources => get_item_sources(item))
+    end
+  end
+  
+  
+  def get_item_sources(item)
+    returning([]) do |sources|
+      if wowarmory_item.drop_creatures.try(:first)
+        area_id = wowarmory_item.item_source.area_id
+        area = Area.find_or_create_by_wowarmory_area_id_and_difficulty_and_name(area_id, wowarmory_item.item_source.difficulty, wowarmory_item.item_source.area_name)
+        sources << ItemSource.create(:source_area => area, :item => item)
+      end
+      if wowarmory_item.cost && wowarmory_item.cost.tokens
+        if wowarmory_item.cost.tokens.length == 1 #TODO: determine the cost of items that cost more then one kind of thing
+          source_wowarmory_item_id = wowarmory_item.cost.tokens.first.instance_variable_get(:@id)
+          token_cost = wowarmory_item.cost.tokens.first.count
+          sources << ItemSource.create(:wowarmory_item_id => source_wowarmory_item_id, :token_cost => token_cost, :item => item)
+        end
+      end
     end
   end
   
@@ -40,10 +58,11 @@ class ItemImporter
   def slot
     SLOT_CONVERSION[wowarmory_item.equip_data.inventory_type]
   end
+  
   def get_dungeon_source
     if wowarmory_item.drop_creatures.try(:first)
       area_id = wowarmory_item.item_source.area_id
-      Area.find_or_create_by_wowarmory_area_id_and_difficulty_and_name(area_id, wowarmory_item.item_source.difficulty, wowarmory_item.item_source.area_name)
+      area = Area.find_or_create_by_wowarmory_area_id_and_difficulty_and_name(area_id, wowarmory_item.item_source.difficulty, wowarmory_item.item_source.area_name)
     end
   end
 

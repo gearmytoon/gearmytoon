@@ -110,9 +110,9 @@ class ItemImporterTest < ActiveSupport::TestCase
       assert_equal "h", item.source_area.difficulty #25 man ulduar
     end
 
-    should_eventually "import items with multiple sources" do
+    should "import items with multiple sources" do
       item = ItemImporter.import_from_wowarmory!(50088)
-      assert_equal 2, item.sources.size
+      assert_equal 2, item.item_sources.size
       # one from raid one from vendor
     end
     
