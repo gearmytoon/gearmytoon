@@ -137,6 +137,16 @@ class CharacterTest < ActiveSupport::TestCase
         assert_kind_of Upgrade, upgrade
       end
     end
+    
+    should "only find items from heroic dungeons" do
+      character = Factory(:character_item, :item => Factory(:item, :bonuses => {:attack_power => 100.0})).character
+      heroic_upgrade = Factory(:item_from_heroic_dungeon, :bonuses => {:attack_power => 500.0})
+      Factory(:temp_item)
+      upgrades = character.top_3_heroic_dungeon_upgrades
+      assert_equal 1, upgrades.size
+      assert_equal heroic_upgrade, upgrades.first.new_item
+    end
+    
   end
 
   #this should go to a hunter dps forumla class eventually, it's own model

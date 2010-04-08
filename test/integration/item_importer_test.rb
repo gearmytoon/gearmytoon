@@ -1,7 +1,14 @@
 require File.dirname(__FILE__) + '/../test_helper'
 
 class ItemImporterTest < ActiveSupport::TestCase
-
+  should_eventually "import pvp items that are purchasable with honor" do
+    item = ItemImporter.import_from_wowarmory!(41087)
+    assert_equal 54500, item.honor_cost
+    # ItemImporter.import_from_wowarmory!(41143)
+    # ItemImporter.import_from_wowarmory!(51577)
+    # ItemImporter.import_from_wowarmory!(41144)
+    
+  end
   context "import_from_wowarmory!" do
     should "not import duplicates" do
       ItemImporter.import_from_wowarmory!(50270)
@@ -101,6 +108,12 @@ class ItemImporterTest < ActiveSupport::TestCase
       assert_not_nil item.source_area.name
       assert_equal "Ulduar", item.source_area.name
       assert_equal "h", item.source_area.difficulty #25 man ulduar
+    end
+
+    should_eventually "import items with multiple sources" do
+      item = ItemImporter.import_from_wowarmory!(50088)
+      assert_equal 2, item.sources.size
+      # one from raid one from vendor
     end
     
     should "import melee weapon dps" do

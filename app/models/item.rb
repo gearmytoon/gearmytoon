@@ -8,7 +8,9 @@ class Item < ActiveRecord::Base
   named_scope :from_emblem_of_frost, :conditions => {:source_wowarmory_item_id => FROST_EMBLEM_ARMORY_ID}
   named_scope :from_heroic_dungeon, Proc.new {{:conditions => {:source_area_id => Area.dungeons.map(&:id)}}} #delaying evaluation
   named_scope :usable_in_same_slot_as, Proc.new { |item| {:conditions => {:slot => item.slot}} }
-
+  named_scope :from_item_source, Proc.new {|item_sources| {:joins => :item_sources, :conditions => ["items.id = item_sources.item_id AND item_sources.id IN (?)",item_sources]}}
+  has_many :item_sources
+  #
   named_scope :usable_by, Proc.new {|wow_class| {:conditions => {:armor_type_id => wow_class.usable_armor_types, :restricted_to => [RESTRICT_TO_NONE, wow_class.name]}}}
   belongs_to :armor_type
   belongs_to :source_area, :class_name => "Area"

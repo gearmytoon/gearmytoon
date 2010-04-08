@@ -73,6 +73,16 @@ end
 Factory.define(:item_from_heroic_dungeon, :parent => :item) do |model|
   model.association :source_area, :factory => :dungeon
   model.bonuses :attack_power => 200
+  model.after_create do |item|
+    item.item_sources.create!(:source_area => item.source_area, :item => item)
+  end
+end
+Factory.define(:temp_item, :parent => :item) do |model|
+  model.bonuses :attack_power => 200
+  model.after_create do |item|
+    item.item_sources.create!(:item => item)
+  end
+  
 end
 
 Factory.define(:item_from_heroic_raid, :parent => :item) do |model|
