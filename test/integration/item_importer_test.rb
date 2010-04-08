@@ -110,10 +110,17 @@ class ItemImporterTest < ActiveSupport::TestCase
       assert_equal "h", item.source_area.difficulty #25 man ulduar
     end
 
+    should_eventually "import a item with multiple sources correctly" do
+      item = ItemImporter.import_from_wowarmory!(50088)
+      assert_equal "Vault of Archavon", DroppedSource.first.source_area.name
+    end
+
     should "import items with multiple sources" do
       item = ItemImporter.import_from_wowarmory!(50088)
-      assert_equal 2, item.item_sources.size
-      # one from raid one from vendor
+      assert_equal 2, item.reload.item_sources.size
+      assert_equal 1, DroppedSource.count
+      assert_equal 60, EmblemSource.first.token_cost
+      assert_equal 49426, EmblemSource.first.wowarmory_item_id #from emblem of frost
     end
     
     should "import melee weapon dps" do

@@ -32,7 +32,7 @@ class Character < ActiveRecord::Base
   end
 
   def dungeon_upgrades
-    top_upgrades_for(wow_class.equippable_items.from_item_source(ItemSource.from_dungeons))
+    top_upgrades_for(wow_class.equippable_items.from_item_source(DroppedSource.from_dungeons))
   end
 
   def top_3_triumph_upgrades

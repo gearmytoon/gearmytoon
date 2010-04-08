@@ -33,13 +33,13 @@ class ItemImporter
       if wowarmory_item.drop_creatures.try(:first)
         area_id = wowarmory_item.item_source.area_id
         area = Area.find_or_create_by_wowarmory_area_id_and_difficulty_and_name(area_id, wowarmory_item.item_source.difficulty, wowarmory_item.item_source.area_name)
-        sources << ItemSource.create(:source_area => area, :item => item)
+        sources << DroppedSource.create(:source_area => area, :item => item)
       end
       if wowarmory_item.cost && wowarmory_item.cost.tokens
         if wowarmory_item.cost.tokens.length == 1 #TODO: determine the cost of items that cost more then one kind of thing
           source_wowarmory_item_id = wowarmory_item.cost.tokens.first.instance_variable_get(:@id)
           token_cost = wowarmory_item.cost.tokens.first.count
-          sources << ItemSource.create(:wowarmory_item_id => source_wowarmory_item_id, :token_cost => token_cost, :item => item)
+          sources << EmblemSource.create(:wowarmory_item_id => source_wowarmory_item_id, :token_cost => token_cost, :item => item)
         end
       end
     end
