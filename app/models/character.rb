@@ -24,11 +24,11 @@ class Character < ActiveRecord::Base
   end
 
   def frost_upgrades
-    top_upgrades_for(wow_class.equippable_items.from_emblem_of_frost)
+    top_upgrades_for(wow_class.equippable_items.from_item_source(EmblemSource.from_emblem_of_frost))
   end
 
   def triumph_upgrades
-    top_upgrades_for(wow_class.equippable_items.from_emblem_of_triumph)
+    top_upgrades_for(wow_class.equippable_items.from_item_source(EmblemSource.from_emblem_of_triumph))
   end
 
   def dungeon_upgrades

@@ -1,40 +1,6 @@
 require File.dirname(__FILE__) + '/../test_helper'
 
 class ItemTest < ActiveSupport::TestCase
-
-  context "associations" do
-    should_belong_to :source_area
-  end
-
-  context "from_emblem_of_triumph" do
-    should "find all items that can be purchased with emblem_of_triumph" do
-      item_from_emblem_of_triumph = Factory(:item_from_emblem_of_triumph)
-      Factory(:item)
-      assert_equal [item_from_emblem_of_triumph], Item.from_emblem_of_triumph
-    end
-  end
-
-  context "from_emblem_of_frost" do
-    should "find all items that can be purchased with emblem_of_triumph" do
-      item_from_emblem_of_frost = Factory(:item_from_emblem_of_frost)
-      Factory(:item)
-      assert_equal [item_from_emblem_of_frost], Item.from_emblem_of_frost
-    end
-  end
-  
-  context "from_heroic_dungeon" do
-    should "find all items that are dropped inside a heroic dungeon" do
-      item = Factory(:item_from_heroic_dungeon)
-      Factory(:item)
-      assert_equal [item], Item.from_heroic_dungeon
-    end
-    
-    should "not find items that are dropped inside a heroic raid" do
-      Factory(:item_from_heroic_raid)
-      assert_equal [], Item.from_heroic_dungeon
-    end
-    
-  end
   
   context "change_in_stats_from" do
     should "return the change in stats between two items" do
@@ -51,9 +17,35 @@ class ItemTest < ActiveSupport::TestCase
       Factory(:item, :slot => "Wrist")
       assert_equal [item], Item.usable_in_same_slot_as(item)
     end
-    
   end
-  
+
+  context "dropped_item?" do
+    should "return true if the item is from a raid or dungeon" do
+      assert Factory(:item_from_heroic_dungeon).dropped_item?
+      assert Factory(:item_from_heroic_raid).dropped_item?
+      assert_false Factory(:item_from_emblem_of_triumph).dropped_item?
+    end
+    
+    should "know where the item drops from" do
+      item = Factory(:item_from_heroic_raid)
+      assert_equal item.dropped_sources.first.source_area, item.emblem_sources.first.
+    end
+  end
+
+  context "purchased_item?" do
+    should "return true if the item is from frost or triumph emblems" do
+      assert Factory(:item_from_emblem_of_triumph).purchased_item?
+      assert Factory(:item_from_emblem_of_frost).purchased_item?
+      assert_false Factory(:item_from_heroic_dungeon).purchased_item?
+      assert_false Factory(:item_from_heroic_raid).purchased_item?
+    end
+    
+    should "know how much the item costs" do
+      item = Factory(:item_from_emblem_of_frost)
+      assert_equal 60, item.token_cost
+    end
+  end
+
   context "usable_by" do
     should "know that a rogue cannot use staffs" do
       rogue = Factory(:a_rogue)

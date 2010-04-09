@@ -21,9 +21,9 @@ class ItemImporter
     end
     returning Item.find_or_create_by_wowarmory_item_id(wowarmory_item_id) do |item|
       item.update_attributes!(:wowarmory_item_id => wowarmory_item_id, :name => wowarmory_item.name,
-                   :quality => quality, :source_wowarmory_item_id => source_wowarmory_item_id, :icon => wowarmory_item.icon, 
-                   :bonuses => get_item_bonuses, :armor_type => ArmorType.find_or_create_by_name(armor_type_name), :token_cost => token_cost,
-                   :source_area => get_dungeon_source, :slot => slot, :restricted_to => get_restricted_to, :item_sources => get_item_sources(item))
+                   :quality => quality, :icon => wowarmory_item.icon, :bonuses => get_item_bonuses, 
+                   :armor_type => ArmorType.find_or_create_by_name(armor_type_name), :slot => slot, 
+                   :restricted_to => get_restricted_to, :item_sources => get_item_sources(item))
     end
   end
   
@@ -39,7 +39,7 @@ class ItemImporter
         if wowarmory_item.cost.tokens.length == 1 #TODO: determine the cost of items that cost more then one kind of thing
           source_wowarmory_item_id = wowarmory_item.cost.tokens.first.instance_variable_get(:@id)
           token_cost = wowarmory_item.cost.tokens.first.count
-          sources << EmblemSource.create(:wowarmory_item_id => source_wowarmory_item_id, :token_cost => token_cost, :item => item)
+          sources << EmblemSource.create(:wowarmory_token_item_id => source_wowarmory_item_id, :token_cost => token_cost, :item => item)
         end
       end
     end

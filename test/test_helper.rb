@@ -39,7 +39,9 @@ class ActiveSupport::TestCase
   # -- they do not yet inherit this setting
   fixtures :all
 
-  
+  def assert_false(value)
+    assert !value, "true is not false."
+  end
 
   # Add more helper methods to be used by all tests here...
   def stub_everything(hash)

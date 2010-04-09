@@ -9,7 +9,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20100407154446) do
+ActiveRecord::Schema.define(:version => 20100408195631) do
 
   create_table "areas", :force => true do |t|
     t.string   "name"
@@ -89,7 +89,7 @@ ActiveRecord::Schema.define(:version => 20100407154446) do
     t.string   "type"
     t.integer  "arena_point_cost"
     t.integer  "honor_point_cost"
-    t.integer  "wowarmory_item_id"
+    t.integer  "wowarmory_token_item_id"
     t.integer  "token_cost"
     t.integer  "source_area_id"
     t.integer  "item_id"
@@ -102,22 +102,17 @@ ActiveRecord::Schema.define(:version => 20100407154446) do
     t.integer  "wowarmory_item_id"
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.integer  "source_wowarmory_item_id"
     t.string   "icon"
     t.text     "bonuses"
     t.integer  "armor_type_id"
-    t.integer  "token_cost"
-    t.integer  "source_area_id"
     t.string   "quality"
     t.string   "slot"
-    t.string   "restricted_to",            :default => "NONE"
+    t.string   "restricted_to",     :default => "NONE"
   end
 
   add_index "items", ["armor_type_id"], :name => "index_items_on_armor_type_id"
   add_index "items", ["restricted_to"], :name => "index_items_on_restricted_to"
   add_index "items", ["slot"], :name => "index_items_on_slot"
-  add_index "items", ["source_area_id"], :name => "index_items_on_source_area_id"
-  add_index "items", ["source_wowarmory_item_id"], :name => "index_items_on_source_wowarmory_item_id"
   add_index "items", ["wowarmory_item_id"], :name => "index_items_on_wowarmory_item_id"
 
   create_table "slugs", :force => true do |t|

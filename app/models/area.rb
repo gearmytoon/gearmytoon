@@ -4,8 +4,8 @@ class Area < ActiveRecord::Base
 
   named_scope :dungeons, :conditions => {:wowarmory_area_id => DUNGEONS}
   named_scope :raids, :conditions => {:wowarmory_area_id => RAIDS}
-  has_many :items_dropped_in, :class_name => "Item", :foreign_key => "source_area_id"
-  
+  has_many :items_dropped_in, :through => :dropped_sources, :source => :item
+  has_many :dropped_sources, :foreign_key => :source_area_id
   def full_name
     "#{difficulty} #{name}"
   end

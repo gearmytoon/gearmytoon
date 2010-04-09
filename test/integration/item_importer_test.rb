@@ -120,7 +120,7 @@ class ItemImporterTest < ActiveSupport::TestCase
       assert_equal 2, item.reload.item_sources.size
       assert_equal 1, DroppedSource.count
       assert_equal 60, EmblemSource.first.token_cost
-      assert_equal 49426, EmblemSource.first.wowarmory_item_id #from emblem of frost
+      assert_equal 49426, EmblemSource.first.wowarmory_token_item_id #from emblem of frost
     end
     
     should "import melee weapon dps" do
@@ -167,7 +167,7 @@ class ItemImporterTest < ActiveSupport::TestCase
       assert_difference "Item.count" do
         item = ItemImporter.import_from_wowarmory!(47732)
         assert_equal "Band of the Invoker", item.name
-        assert_equal 47241, item.source_wowarmory_item_id
+        assert_equal 47241, item.emblem_sources.first.wowarmory_token_item_id
       end
     end
       
@@ -218,7 +218,7 @@ class ItemImporterTest < ActiveSupport::TestCase
     end
     
     should "not import items that cost more then triumph badges" do
-      assert_no_difference "Item.from_emblem_of_triumph.count" do
+      assert_no_difference "Item.from_item_source(EmblemSource.from_emblem_of_triumph).count" do
         assert_difference "Item.count" do
           item = ItemImporter.import_from_wowarmory!(48223)
           assert_equal "VanCleef's Breastplate of Triumph", item.name
