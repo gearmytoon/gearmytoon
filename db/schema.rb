@@ -133,7 +133,7 @@ ActiveRecord::Schema.define(:version => 20100409045723) do
   add_index "slugs", ["sluggable_id"], :name => "index_slugs_on_sluggable_id"
 
   create_table "users", :force => true do |t|
-    t.string   "email",             :null => false
+    t.string   "email"
     t.string   "crypted_password",  :null => false
     t.string   "password_salt",     :null => false
     t.string   "persistence_token", :null => false
