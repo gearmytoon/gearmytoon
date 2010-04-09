@@ -10,7 +10,7 @@ class ItemTest < ActiveSupport::TestCase
       assert_equal expected_difference, new_item.change_in_stats_from(old_item)
     end
   end
-
+  
   context "usable_in_same_slot_as" do
     should "find all items in the same slot" do
       item = Factory(:item, :slot => "Head")
@@ -18,7 +18,7 @@ class ItemTest < ActiveSupport::TestCase
       assert_equal [item], Item.usable_in_same_slot_as(item)
     end
   end
-
+  
   context "dropped_item?" do
     should "return true if the item is from a raid or dungeon" do
       assert Factory(:item_from_heroic_dungeon).dropped_item?
@@ -28,10 +28,10 @@ class ItemTest < ActiveSupport::TestCase
     
     should "know where the item drops from" do
       item = Factory(:item_from_heroic_raid)
-      assert_equal item.dropped_sources.first.source_area, item.emblem_sources.first.
+      assert_equal item.dropped_sources.first.source_area, item.source_area
     end
   end
-
+  
   context "purchased_item?" do
     should "return true if the item is from frost or triumph emblems" do
       assert Factory(:item_from_emblem_of_triumph).purchased_item?

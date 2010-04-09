@@ -9,7 +9,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20100408195631) do
+ActiveRecord::Schema.define(:version => 20100409045723) do
 
   create_table "areas", :force => true do |t|
     t.string   "name"
@@ -96,6 +96,11 @@ ActiveRecord::Schema.define(:version => 20100408195631) do
     t.datetime "created_at"
     t.datetime "updated_at"
   end
+
+  add_index "item_sources", ["item_id"], :name => "index_item_sources_on_item_id"
+  add_index "item_sources", ["source_area_id"], :name => "index_item_sources_on_source_area_id"
+  add_index "item_sources", ["type"], :name => "index_item_sources_on_type"
+  add_index "item_sources", ["wowarmory_token_item_id"], :name => "index_item_sources_on_wowarmory_token_item_id"
 
   create_table "items", :force => true do |t|
     t.string   "name"
