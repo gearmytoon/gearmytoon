@@ -137,5 +137,31 @@ class CharactersControllerTest < ActionController::TestCase
     end
 
   end
-end
 
+  context "get pvp" do
+    setup { get :pvp, :id => Factory(:character).id }
+    should_respond_with :success
+
+    context "upgrades sections" do
+      should "render Honor" do
+        assert_select "#honor_points"
+      end
+
+      should "render Wintergrasp" do
+        assert_select "#wintergrasp_mark_of_honor"
+      end
+
+      should "render Triumph" do
+        assert_select "#emblem_of_triumph"
+      end
+
+      should "render Arena" do
+        assert_select "#arena_points"
+      end
+
+      should "render Frost" do
+        assert_select "#emblem_of_frost"
+      end
+    end
+  end
+end

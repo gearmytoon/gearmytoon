@@ -1,0 +1,19 @@
+<%= render "shared/character_info", :character => @character %>
+<div>
+  <%= link_to "Upgrades Summary", character_path(@character) %>
+  <%= link_to "Upgrades From Raids", character_raids_path(@character) %>
+  <%= link_to "Upgrades From Dungeons", character_dungeons_path(@character) %>
+</div>
+
+<div id="upgrades">
+  <div class="upgrade_section" id="honor_points">
+  </div>
+  <div class="upgrade_section" id="wintergrasp_mark_of_honor">
+  </div>
+  <div class="upgrade_section" id="arena_points">
+  </div>
+  <div class="upgrade_section" id="emblem_of_triumph">
+  </div>
+  <div class="upgrade_section" id="emblem_of_frost">
+  </div>
+</div>

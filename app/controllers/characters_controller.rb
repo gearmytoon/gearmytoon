@@ -1,6 +1,6 @@
 class CharactersController < ApplicationController
   helper :areas
-  before_filter :require_user, :except => :show
+  before_filter :require_user, :except => [:show, :pvp]
   before_filter :require_admin, :only => :index
 
   def index
@@ -31,9 +31,9 @@ class CharactersController < ApplicationController
   def show
     @character = Character.find(params[:id])
     CharacterImporter.refresh_character!(@character)
-    respond_to do |format|
-      format.html # show.html.erb
-      format.xml  { render :xml => @character }
-    end
+  end
+  
+  def pvp
+    @character = Character.find(params[:id])
   end
 end

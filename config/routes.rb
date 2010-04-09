@@ -3,7 +3,7 @@ ActionController::Routing::Routes.draw do |map|
   map.resources :areas
   map.resources :invites
   map.resources :users
-  map.resources :characters do |character|
+  map.resources :characters, :member => {:pvp => :get} do |character|
     character.resources :raids
     character.resources :dungeons
     character.resource :upgrades, :member => {:from_frost_emblems => :get, :from_triumph_emblems => :get, :from_dungeons => :get}
