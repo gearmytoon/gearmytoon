@@ -1,15 +1,26 @@
 require File.dirname(__FILE__) + '/../test_helper'
 
 class ItemImporterTest < ActiveSupport::TestCase
-  should_eventually "import pvp items that are purchasable with honor" do
-    item = ItemImporter.import_from_wowarmory!(41087)
-    assert_equal 54500, item.honor_cost
-    # ItemImporter.import_from_wowarmory!(41143)
-    # ItemImporter.import_from_wowarmory!(51577)
-    # ItemImporter.import_from_wowarmory!(41144)
-    
-  end
   context "import_from_wowarmory!" do
+
+    should "import pvp items that are purchasable with honor" do
+      item = ItemImporter.import_from_wowarmory!(41087)
+      assert_equal 54500, item.item_sources.first.honor_point_cost
+      assert_equal item, HonorSource.first.item
+    end
+
+    # ItemImporter.import_from_wowarmory!(41144)
+    should_eventually "import gladiator gloves that have 4 sources" do
+      item = ItemImporter.import_from_wowarmory!(41143)
+    end
+    
+    should "import pvp items that cost wintergrasp emblems" do
+      item = ItemImporter.import_from_wowarmory!(51577)
+      assert_equal 40, item.item_sources.first.token_cost
+      assert_equal Item::WINTERGRASP_MARK_OF_HONOR, item.item_sources.first.wowarmory_token_item_id
+      assert_equal item, EmblemSource.first.item
+    end
+    
     should "not import duplicates" do
       ItemImporter.import_from_wowarmory!(50270)
       assert_no_difference "Item.count" do
@@ -109,12 +120,12 @@ class ItemImporterTest < ActiveSupport::TestCase
       assert_equal "Ulduar", item.source_area.name
       assert_equal "h", item.source_area.difficulty #25 man ulduar
     end
-
+    
     should_eventually "import a item with multiple sources correctly" do
       item = ItemImporter.import_from_wowarmory!(50088)
       assert_equal "Vault of Archavon", DroppedSource.first.source_area.name
     end
-
+    
     should "import items with multiple sources" do
       item = ItemImporter.import_from_wowarmory!(50088)
       assert_equal 2, item.reload.item_sources.size

@@ -1,0 +1,3 @@
+class HonorSource < ItemSource
+  
+end

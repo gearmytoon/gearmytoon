@@ -470,9 +470,10 @@ module Wowr
 		# 	<token icon="spell_holy_championsbond" id="29434" count="60"></token>
 		# </cost>
 		class ItemCost
-			attr_reader :buy_price, :sell_price, :tokens
+			attr_reader :buy_price, :sell_price, :tokens, :honor_price
 	
 			def initialize(elem)
+			  @honor_price = Money.new(elem[:honor].to_i) if elem[:honor]
 				@buy_price 	= Money.new(elem[:buyPrice].to_i)	if elem[:buyPrice]
 				@sell_price	= Money.new(elem[:sellPrice].to_i)	if elem[:sellPrice]
 		

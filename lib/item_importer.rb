@@ -13,12 +13,6 @@ class ItemImporter
   end
   
   def import!
-    if wowarmory_item.cost && wowarmory_item.cost.tokens
-      if wowarmory_item.cost.tokens.length == 1 #TODO: determine the cost of items that cost more then one kind of thing
-        source_wowarmory_item_id = wowarmory_item.cost.tokens.first.instance_variable_get(:@id)
-        token_cost = wowarmory_item.cost.tokens.first.count
-      end
-    end
     returning Item.find_or_create_by_wowarmory_item_id(wowarmory_item_id) do |item|
       item.update_attributes!(:wowarmory_item_id => wowarmory_item_id, :name => wowarmory_item.name,
                    :quality => quality, :icon => wowarmory_item.icon, :bonuses => get_item_bonuses, 
@@ -26,7 +20,6 @@ class ItemImporter
                    :restricted_to => get_restricted_to, :item_sources => get_item_sources(item))
     end
   end
-  
   
   def get_item_sources(item)
     returning([]) do |sources|
@@ -41,6 +34,9 @@ class ItemImporter
           token_cost = wowarmory_item.cost.tokens.first.count
           sources << EmblemSource.create(:wowarmory_token_item_id => source_wowarmory_item_id, :token_cost => token_cost, :item => item)
         end
+      end
+      if wowarmory_item.cost && wowarmory_item.cost.honor_price
+        sources << HonorSource.create(:honor_point_cost => wowarmory_item.cost.honor_price, :item => item)
       end
     end
   end
@@ -59,13 +55,6 @@ class ItemImporter
     SLOT_CONVERSION[wowarmory_item.equip_data.inventory_type]
   end
   
-  def get_dungeon_source
-    if wowarmory_item.drop_creatures.try(:first)
-      area_id = wowarmory_item.item_source.area_id
-      area = Area.find_or_create_by_wowarmory_area_id_and_difficulty_and_name(area_id, wowarmory_item.item_source.difficulty, wowarmory_item.item_source.area_name)
-    end
-  end
-
   def get_item_bonuses
     returning wowarmory_item.bonuses do |bonuses|
       if damage = wowarmory_item.instance_variable_get(:@tooltip).instance_variable_get(:@damage) #wow wtf wowr gem you fucking suck, seriously.

@@ -1,6 +1,7 @@
 class Item < ActiveRecord::Base
   TRIUMPH_EMBLEM_ARMORY_ID = 47241
   FROST_EMBLEM_ARMORY_ID = 49426
+  WINTERGRASP_MARK_OF_HONOR = 43589
   RESTRICT_TO_NONE = "NONE"
   
   serialize :bonuses
