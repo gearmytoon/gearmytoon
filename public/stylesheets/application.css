@@ -19,15 +19,17 @@
 .visible_grid { background-image: url(/images/grid.png); background-repeat: repeat; background-position: 10px 10px; }
 /* END 1KB GRID */
 
-body { font-size: 12px; font-family: Verdana, Arial, sans-serif; color: #FFF; background-color: #222; }
+body { font-family: Verdana, Arial, sans-serif; color: #FFF; background-color: #222; text-align: left; }
 a { color: #FFF; }
 a:visited { color: #FFF; }
 a:hover { color: #FFF; }
-h2 { clear: both; margin: 40px 0 0 0; font-size:16px;}
+h1, h2, h3, h4, h5 { clear: both; font-weight: bold; }
+h1 { clear: both; font-size: 24px; text-align: center; font-weight: bold; }
+h2 { clear: both; margin: 40px 0 0 0; font-size:16px; font-weight: bold; }
 form p { margin-bottom: 20px; }
-label { display: block; font-size: 1.8em; margin-bottom: 8px; }
-input.text, input.password { font-size: 1.8em; padding: 5px; }
-input.button { font-size: 1.8em; }
+label { display: block; font-size: 18px; margin-bottom: 8px; }
+input.text, input.password { font-size: 18px; padding: 5px; }
+input.button { font-size: 18px; }
 input.checkbox { float: left; margin: 10px 5px 0 0; }
 
 #header { margin-bottom: 20px; }
@@ -35,11 +37,11 @@ input.checkbox { float: left; margin: 10px 5px 0 0; }
 #header h1 a { text-decoration: none; float: left; }
 #header #user_controls { float: right; margin: 10px 0 0 0; }
 #flash { background-color: #666; margin-top: 20px; }
-#flash p { padding: 0 10px 0 10px; font-size: 1.2em; }
+#flash p { padding: 0 10px 0 10px; font-size: 12px; }
 
 #content { clear: both; }
 
-#or { font-size: 1.6em; margin-top: 160px; text-align: center; }
+#or { font-size: 16px; margin-top: 160px; text-align: center; }
 
 form p.why { background-color: #222; padding: 10px; -moz-border-radius: 10px; -webkit-border-radius: 10px; border-radius: 10px; font-size: 1em; text-align: center; }
 form.inline { width: auto; overflow: hidden; }
@@ -58,7 +60,7 @@ form#new_user_session input.text, form#new_user_session input.password { width: 
 #welcome_page form p { float: none; margin: 20px 0 0 0; }
 #welcome_page form label { float: none; font-size: 2em; margin: 20px 0 0 0; }
 #welcome_page form input.text { font-size: 200%; width: 510px; }
-#welcome_page form input.button { font-size: 3.6em; text-align: center; display: block; margin: 0 auto; }
+#welcome_page form input.button { font-size: 36px; text-align: center; display: block; margin: 0 auto; }
 
 /* Errors */
 .fieldWithErrors {
