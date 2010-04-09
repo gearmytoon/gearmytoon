@@ -1,5 +1,5 @@
 set :application, "project"
-set :domain, "deploy@wow.telcobox.net"
+set :domain, "deploy@gearmytoon.com"
 set :deploy_to, "/var/public_html/gearmytoon.com/"
 set :repository, 'git@github.com:nolman/wowcoach.git'
 set :ssh_flags, ['-p 60322']
