@@ -19,7 +19,7 @@
 .visible_grid { background-image: url(/images/grid.png); background-repeat: repeat; background-position: 10px 10px; }
 /* END 1KB GRID */
 
-body { font-family: Verdana, Arial, sans-serif; color: #FFF; background-color: #222; text-align: left; }
+html, body { font-family: Verdana, Arial, sans-serif; color: #FFF; background-color: #222; text-align: left; }
 a { color: #FFF; }
 a:visited { color: #FFF; }
 a:hover { color: #FFF; }
