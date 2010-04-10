@@ -1,18 +1,25 @@
 class Character < ActiveRecord::Base
   attr_accessor :dont_use_wow_armory
 
+  DEFAULT_LOCALE = 'us'
+  LOCALES = [['US','us'],['EU','eu'],['CN','cn'],['TW','tw'],['KR','kr']]
+
   belongs_to :wow_class
   belongs_to :user
   has_many :character_items
   serialize :total_item_bonuses
   has_many :equipped_items, :through => :character_items, :source => :item
-  has_friendly_id :name_and_realm, :use_slug => true
+  has_friendly_id :name_and_realm_and_locale, :use_slug => true
   #TODO, do we need?
   before_validation :capitalize_name_and_realm
-  validates_uniqueness_of :name, :scope => :realm
+  before_validation :set_locale_default
+  validates_uniqueness_of :name, :scope => [:realm, :locale]
+  validates_presence_of :name
+  validates_presence_of :realm
+  validates_presence_of :locale
 
-  def name_and_realm
-    "#{name} #{realm}"
+  def name_and_realm_and_locale
+    "#{name} #{realm} #{locale}"
   end
 
   def upgrades_in(area)
@@ -88,8 +95,13 @@ class Character < ActiveRecord::Base
     wow_class.hard_caps
   end
 
+  private
+  def set_locale_default
+    self.locale = 'us' if self.locale.blank?
+  end
+
   def capitalize_name_and_realm
-    self.name.capitalize!
-    self.realm.capitalize!
+    self.name.try(:capitalize!)
+    self.realm.try(:capitalize!)
   end
 end

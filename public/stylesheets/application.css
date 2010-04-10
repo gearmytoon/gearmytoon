@@ -31,6 +31,7 @@ label { display: block; font-size: 18px; margin-bottom: 8px; }
 input.text, input.password { font-size: 18px; padding: 5px; }
 input.button { font-size: 18px; }
 input.checkbox { float: left; margin: 10px 5px 0 0; }
+select { font-size: 18px; }
 
 #header { margin-bottom: 20px; }
 #header h1 { font-size: 2em; margin: 0; }
@@ -50,6 +51,7 @@ form.inline label { display: block; font-size: 1em; margin-bottom: 3px; }
 form.inline input.text { font-size: 1em; width: 100px; padding: 2px; }
 form.inline input.button { font-size: 1em; margin-top: 20px; }
 form.inline input.checkbox { float: left; margin: 10px 5px 0 0; }
+form.inline select { float: left; margin: 0; }
 
 form#new_user_session { border: 1px solid white; padding: 15px 15px 0 15px; }
 form#new_user_session input.text, form#new_user_session input.password { width: 90%; }
@@ -75,7 +77,6 @@ form#new_user_session input.text, form#new_user_session input.password { width: 
   padding: 7px;
   padding-bottom: 12px;
   margin-bottom: 20px;
-  background-color: #f0f0f0;
 }
 
 #errorExplanation h2 {
@@ -92,6 +93,12 @@ form#new_user_session input.text, form#new_user_session input.password { width: 
   color: #333;
   margin-bottom: 0;
   padding: 5px;
+  float: none;
+  display: none;
+}
+
+#errorExplanation ul {
+  margin: 15px 0 0 30px;
 }
 
 #errorExplanation ul li {

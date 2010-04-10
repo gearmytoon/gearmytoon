@@ -17,16 +17,25 @@ class CharacterTest < ActiveSupport::TestCase
   end
 
   context "validations" do
-    should "not allow more than one character name per realm" do
-      character1 = Factory(:character, :name => 'Ecma', :realm => 'Baelgun')
-      character2 = Character.new(:name => 'Ecma', :realm => 'Baelgun')
+    should "not allow more than one character name per realm per locale" do
+      character1 = Factory(:character, :name => 'Ecma', :realm => 'Baelgun', :locale => 'us')
+      character2 = Character.new(:name => 'Ecma', :realm => 'Baelgun', :locale => 'us')
       assert !character2.valid?
     end
 
-    should "allow characters with same name and different realm" do
-      character1 = Factory(:character, :name => 'Ecma', :realm => 'Baelgun')
-      character2 = Character.new(:name => 'Ecma', :realm => 'Footown')
+    should "allow characters with same name and same realm and different locale" do
+      character1 = Factory(:character, :name => 'Ecma', :realm => 'Baelgun', :locale => 'us')
+      character2 = Character.new(:name => 'Ecma', :realm => 'Baelgun', :locale => 'eu')
       assert character2.valid?
+    end
+
+    should_validate_presence_of :name
+    should_validate_presence_of :realm
+
+    should "set the locale to 'us' if not present" do
+      c = Character.new
+      c.valid?
+      assert_equal 'us', c.locale
     end
   end
 
@@ -137,7 +146,7 @@ class CharacterTest < ActiveSupport::TestCase
         assert_kind_of Upgrade, upgrade
       end
     end
-    
+
     should "only find items from heroic dungeons" do
       character = Factory(:character_item, :item => Factory(:item, :bonuses => {:attack_power => 100.0})).character
       heroic_upgrade = Factory(:item_from_heroic_dungeon, :bonuses => {:attack_power => 500.0})
@@ -146,7 +155,7 @@ class CharacterTest < ActiveSupport::TestCase
       assert_equal 1, upgrades.size
       assert_equal heroic_upgrade, upgrades.first.new_item
     end
-    
+
   end
 
   #this should go to a hunter dps forumla class eventually, it's own model
@@ -245,9 +254,9 @@ class CharacterTest < ActiveSupport::TestCase
   end
 
   context "friendly_id" do
-    should "be composed of name and realm" do
+    should "be composed of name, realm, and locale" do
       c = Factory(:character, :name => "Foo", :realm => "Bar")
-      assert_equal "foo-bar", c.friendly_id
+      assert_equal "foo-bar-us", c.friendly_id
     end
   end
 end

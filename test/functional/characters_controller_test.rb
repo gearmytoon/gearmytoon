@@ -36,20 +36,25 @@ class CharactersControllerTest < ActionController::TestCase
     end
 
     should "find a character if it exists and redirect show" do
-      character = Factory(:character, :name => "Merb", :realm => "Thunderlord")
-      post :create, :character => {:name => "merb", :realm => "Thunderlord"}
+      character = Factory(:character, :name => "Merb", :realm => "Thunderlord", :locale => 'us')
+      post :create, :character => {:name => "merb", :realm => "Thunderlord", :locale => 'us'}
       assert_redirected_to character_path(character)
     end
 
     should "not care about character names casing" do
-      character = Factory(:character, :name => "Merb", :realm => "Lothar")
-      post :create, :character => {:name => "mERb", :realm => "LOTHar"}
+      character = Factory(:character, :name => "Merb", :realm => "Lothar", :locale => 'us')
+      post :create, :character => {:name => "mERb", :realm => "LOTHar", :locale => 'us'}
       assert_redirected_to character_path(character)
     end
 
     should "link to current_user" do
       post :create, :character => {:name => "Merb", :realm => "Lothar"}
       assert_equal @user, assigns(:character).user
+    end
+
+    should "create a character with a locale" do
+      post :create, :character => {:name => 'Merb', :realm => 'Baelgun', :locale => 'us'}
+      assert_equal 'us', assigns(:character).locale
     end
   end
 
@@ -62,12 +67,12 @@ class CharactersControllerTest < ActionController::TestCase
       #mocha wasn't evaluating "expects"
       CharacterImporter.expects(:refresh_character!).raises("wtf")
       assert_raises RuntimeError, "wtf" do
-        get :show, :id => character.id
+        get :show, :id => character.friendly_id
       end
     end
     should "display character info" do
       character = Factory(:character, :name => "merb", :realm => "Baelgun", :battle_group => "Shadowburn", :guild => "Special Circumstances", :primary_spec => "Survival")
-      get :show, :id => character.id
+      get :show, :id => character.friendly_id
       assert_response :success
       assert_select "#character_name", :text => "Merb"
       assert_select "#character_info .guild", :text => "&lt;Special Circumstances&gt;"
@@ -95,28 +100,28 @@ class CharactersControllerTest < ActionController::TestCase
     should "show 3 upgrades under the frost emblem section" do
       3.times {Factory(:item_from_emblem_of_frost)}
       character = Factory(:character_item).character
-      get :show, :id => character.id
+      get :show, :id => character.friendly_id
       assert_select "#emblem_of_frost .upgrade", :count => 3
     end
 
     should "show how much the item costs" do
       item = Factory(:item_from_emblem_of_frost)
       character = Factory(:character_item).character
-      get :show, :id => character.id
+      get :show, :id => character.friendly_id
       assert_select "#emblem_of_frost .upgrade .cost", :text => item.token_cost.to_s
     end
 
     should "show what you are upgrading from in the upgrade section" do
       Factory(:item_from_emblem_of_triumph, :slot => "Head", :bonuses => {:attack_power => 400.0})
       character_item = Factory(:character_item, :item => Factory(:item, :name => "Stoppable Force", :slot => "Head", :bonuses => {:attack_power => 100.0}))
-      get :show, :id => character_item.character.id
+      get :show, :id => character_item.character.friendly_id
       assert_select "#emblem_of_triumph .upgrade .old_item", :text => "Stoppable Force"
     end
 
     should_eventually "not show old item if you did not have an item equipped before" do
       Factory(:item_from_emblem_of_triumph, :slot => "Head", :bonuses => {:attack_power => 400.0})
       character = Factory(:character)
-      get :show, :id => character.id
+      get :show, :id => character.friendly_id
       assert_select "#emblem_of_triumph .upgrade"
       assert_select "#emblem_of_triumph .upgrade .old_item", :text => "Empty Slot"
     end
@@ -124,18 +129,17 @@ class CharactersControllerTest < ActionController::TestCase
     should "show 3 upgrades under the triumph emblem section" do
       3.times {Factory(:item_from_emblem_of_triumph)}
       character = Factory(:character_item).character
-      get :show, :id => character.id
+      get :show, :id => character.friendly_id
       assert_select "#emblem_of_triumph .upgrade", :count => 3
     end
 
     should "show 3 upgrades and 3 sources under the heroic dungeon" do
       3.times {Factory(:item_from_heroic_dungeon)}
       character = Factory(:character_item).character
-      get :show, :id => character.id
+      get :show, :id => character.friendly_id
       assert_select "#heroic_dungeon .upgrade", :count => 3
       assert_select "#heroic_dungeon .source", :count => 3
     end
 
   end
 end
-

@@ -15,6 +15,17 @@ class UsersControllerTest < ActionController::TestCase
     end
   end
 
+  context "get #show" do
+    setup do
+      activate_authlogic
+      Factory(:user)
+      get :show
+    end
+
+    should_assign_to :user
+    should_assign_to :character
+  end
+
   context "post #create" do
     should "require a valid invite token" do
       invite = Invite.create(:email => 'foo@bar.com')

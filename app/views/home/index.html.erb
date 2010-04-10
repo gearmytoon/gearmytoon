@@ -2,6 +2,7 @@
   <h1>Find your Toon</h1>
   <% form_for Character.new, new_character_path do |f| -%>
     <p class="why"><a href="/reasons">Why should I gear my toon?</a></p>
+    <%= f.error_messages %>
     <p>
       <%= f.label :name %>
       <%= f.text_field :name, :class => 'text' %>
@@ -9,6 +10,10 @@
     <p>
       <%= f.label :realm %>
       <%= f.text_field :realm, :class => 'text' %>
+    </p>
+    <p>
+      <%= f.label :locale %>
+      <%= f.select :locale, Character::LOCALES %>
     </p>
     <p>
       <%= f.submit "Gear Me!", :class => 'button' %>

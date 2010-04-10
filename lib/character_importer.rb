@@ -11,7 +11,7 @@ class CharacterImporter
   def self.import_character_and_all_items(character)
     returning character do |c|
       api = Wowr::API.new(:character_name => c.name, :realm => c.realm,
-      :local => "tw", :caching => false)
+      :locale => c.locale, :caching => false)
       wow_armory_character = api.get_character
       wow_armory_character.items.each do |equipped_item|
         wow_armory_item_id = equipped_item.instance_variable_get(:@id)
@@ -31,15 +31,15 @@ class CharacterImporter
   def self.get_total_stats(wow_armory_character)
     #need to calc the effective, bug in the wowr gem
     attack_power = wow_armory_character.melee.power.haste_rating - wow_armory_character.melee.power.base
-     {:hit => wow_armory_character.melee.hit_rating.value, :agility => wow_armory_character.agility.effective, 
-      :strength => wow_armory_character.strength.effective, :intellect => wow_armory_character.intellect.effective, 
-      :spirit => wow_armory_character.spirit.effective, :stamina => wow_armory_character.stamina.effective, 
+     {:hit => wow_armory_character.melee.hit_rating.value, :agility => wow_armory_character.agility.effective,
+      :strength => wow_armory_character.strength.effective, :intellect => wow_armory_character.intellect.effective,
+      :spirit => wow_armory_character.spirit.effective, :stamina => wow_armory_character.stamina.effective,
       :armor => wow_armory_character.defenses.armor.effective, :defense => wow_armory_character.defenses.defense.value,
       :dodge => wow_armory_character.defenses.dodge.rating, :parry => wow_armory_character.defenses.parry.rating,
       :block => wow_armory_character.defenses.block.rating, :resilience => wow_armory_character.defenses.resilience.value,
       :expertise => wow_armory_character.melee.expertise.value, :attack_power => attack_power,
-      :crit => wow_armory_character.melee.crit_chance.rating, :haste => wow_armory_character.spell.speed.haste_rating, 
-      :mana_regen => wow_armory_character.spell.mana_regen.not_casting, :spell_power => wow_armory_character.spell.bonus_healing, 
+      :crit => wow_armory_character.melee.crit_chance.rating, :haste => wow_armory_character.spell.speed.haste_rating,
+      :mana_regen => wow_armory_character.spell.mana_regen.not_casting, :spell_power => wow_armory_character.spell.bonus_healing,
       :spell_penetration => wow_armory_character.spell.penetration, :armor_penetration => wow_armory_character.melee.hit_rating.armor_penetration}
   end
 end

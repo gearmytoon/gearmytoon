@@ -9,7 +9,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20100409045723) do
+ActiveRecord::Schema.define(:version => 20100410180403) do
 
   create_table "areas", :force => true do |t|
     t.string   "name"
@@ -56,6 +56,7 @@ ActiveRecord::Schema.define(:version => 20100409045723) do
     t.text     "total_item_bonuses"
     t.integer  "user_id"
     t.string   "cached_slug"
+    t.string   "locale"
   end
 
   add_index "characters", ["name", "realm"], :name => "index_characters_on_name_and_realm"
