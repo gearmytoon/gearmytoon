@@ -24,21 +24,32 @@ class Character < ActiveRecord::Base
   end
 
   def frost_upgrades
-    top_upgrades_for(wow_class.equippable_items.from_item_source(EmblemSource.from_emblem_of_frost))
+    top_upgrades_from(EmblemSource.from_emblem_of_frost)
   end
 
   def triumph_upgrades
-    top_upgrades_for(wow_class.equippable_items.from_item_source(EmblemSource.from_emblem_of_triumph))
+    top_upgrades_from(EmblemSource.from_emblem_of_triumph)
   end
 
   def dungeon_upgrades
-    top_upgrades_for(wow_class.equippable_items.from_item_source(DroppedSource.from_dungeons))
+    top_upgrades_from(DroppedSource.from_dungeons)
   end
 
+  def honor_point_upgrades
+    top_upgrades_from(HonorSource.all)
+  end
+  
+  def top_upgrades_from(item_sources)
+    top_upgrades_for(wow_class.equippable_items.from_item_source(item_sources))
+  end
+
+  def top_3_honor_point_upgrades
+    honor_point_upgrades.slice(0,3)
+  end
+  
   def top_3_triumph_upgrades
     triumph_upgrades.slice(0,3)
   end
-
   def top_3_heroic_dungeon_upgrades
     dungeon_upgrades.slice(0,3)
   end

@@ -149,6 +149,24 @@ class CharacterTest < ActiveSupport::TestCase
     
   end
 
+  context "top_3_honor_upgrades" do
+    should "find top 3" do
+      character = Factory(:character_item, :item => Factory(:item, :bonuses => {:attack_power => 100.0})).character
+      4.times{Factory(:item_from_honor_points)}
+      upgrades = character.top_3_honor_point_upgrades
+      assert_equal 3, upgrades.size
+    end
+
+    should "only find items from honor points" do
+      character = Factory(:character_item, :item => Factory(:item, :bonuses => {:attack_power => 100.0})).character
+      honor_item = Factory(:item_from_honor_points)
+      Factory(:item_from_emblem_of_triumph)
+      upgrades = character.top_3_honor_point_upgrades
+      assert_equal 1, upgrades.size
+      assert_equal honor_item, upgrades.first.new_item
+    end
+  end
+
   #this should go to a hunter dps forumla class eventually, it's own model
   context "convert_bonuses_to_dps" do
     setup do

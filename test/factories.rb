@@ -68,10 +68,16 @@ Factory.define(:frost_emblem_source, :class => :emblem_source) do |model|
   model.token_cost 60
   model.wowarmory_token_item_id Item::FROST_EMBLEM_ARMORY_ID
 end
+
 Factory.define(:triumph_emblem_source, :class => :emblem_source) do |model|
   model.token_cost 45
   model.wowarmory_token_item_id Item::TRIUMPH_EMBLEM_ARMORY_ID
 end
+
+Factory.define(:honor_point_source, :class => :honor_source) do |model|
+  model.honor_point_cost 45000
+end
+
 
 Factory.define(:dungeon, :class => :area) do |model|
   model.name "Super Fun Unicorn Land"

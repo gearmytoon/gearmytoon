@@ -7,6 +7,10 @@
 
 <div id="upgrades">
   <div class="upgrade_section" id="honor_points">
+    <h2>Your best upgrades from Honor <span class="see_more"><%= link_to "more upgrades", from_honor_points_character_upgrades_path(@character) %></span></h2>
+    <% @character.top_3_honor_point_upgrades.each do |upgrade| %>
+      <%= render 'shared/upgrade', :upgrade => upgrade %>
+    <% end %>
   </div>
   <div class="upgrade_section" id="wintergrasp_mark_of_honor">
   </div>
