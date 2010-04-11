@@ -194,34 +194,34 @@ class CharacterTest < ActiveSupport::TestCase
       WowClass::WowClassConstants::Rogue.stubs(:stat_multipliers).returns(test_multipliers)
     end
     should "attack power should be worth 0.5 dps" do
-      assert_equal 65.0, Factory(:a_rogue).dps_for(:attack_power => 130)
+      assert_equal 65.0, Factory(:a_rogue).dps_for({:attack_power => 130},false)
     end
 
     should "agility should be worth 1 dps" do
-      assert_equal 89.0, Factory(:a_rogue).dps_for(:agility => 89)
+      assert_equal 89.0, Factory(:a_rogue).dps_for({:agility => 89},false)
     end
 
     should "hit should be worth 0.8 dps" do
-      assert_equal 40.0, Factory(:a_rogue).dps_for(:hit => 50)
+      assert_equal 40.0, Factory(:a_rogue).dps_for({:hit => 50},false)
     end
 
     should "haste should be worth 0.7 dps" do
-      assert_equal 35.0, Factory(:a_rogue).dps_for(:haste => 50)
+      assert_equal 35.0, Factory(:a_rogue).dps_for({:haste => 50},false)
     end
 
     should "crit should be worth 0.75 dps" do
-      assert_equal 37.5, Factory(:a_rogue).dps_for(:crit => 50)
+      assert_equal 37.5, Factory(:a_rogue).dps_for({:crit => 50},false)
     end
 
     should "armor_penetration should be worth 1.1 dps" do
-      assert_equal 55, Factory(:a_rogue).dps_for(:armor_penetration => 50).to_i
+      assert_equal 55, Factory(:a_rogue).dps_for({:armor_penetration => 50},false).to_i
     end
 
   end
 
   context "dps_for" do
     should "know the relative dps for a item" do
-      assert_equal 191.6, Factory(:a_rogue).dps_for(:attack_power => 130, :agility => 89, :hit => 47, :stamina => 76)
+      assert_equal 191.6, Factory(:a_rogue).dps_for({:attack_power => 130, :agility => 89, :hit => 47, :stamina => 76},false)
     end
   end
 
@@ -278,7 +278,7 @@ class CharacterTest < ActiveSupport::TestCase
       survival_hunter = Factory(:survival_hunter)
       marks_hunter = Factory(:marksmanship_hunter)
       item = Factory(:item)
-      assert_not_equal marks_hunter.dps_for(item.bonuses), survival_hunter.dps_for(item.bonuses)
+      assert_not_equal marks_hunter.dps_for(item.bonuses,false), survival_hunter.dps_for(item.bonuses,false)
     end
   end
 

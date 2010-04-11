@@ -16,8 +16,8 @@ class WowClass < ActiveRecord::Base
     Item.usable_by(self)
   end
   
-  def stat_multipliers(primary_spec)
-    wow_class_multipliers.stat_multipliers(primary_spec)
+  def stat_multipliers(primary_spec, for_pvp)
+    wow_class_multipliers.stat_multipliers(primary_spec, for_pvp)
   end
   
   def wow_class_multipliers
@@ -53,7 +53,7 @@ class WowClass < ActiveRecord::Base
         {:hit => 886}
       end
       
-      def self.stat_multipliers(primary_spec)
+      def self.stat_multipliers(primary_spec, for_pvp)
         case primary_spec
         when "Assassination"
           {:melee_dps => 170, :agility => 100, :expertise => 87, :hit => 83, :crit => 81, :attack_power => 65, :armor_penetration => 65, :haste => 64, :strength => 55}
@@ -75,7 +75,7 @@ class WowClass < ActiveRecord::Base
         {:hit => 263}
       end
       
-      def self.stat_multipliers(primary_spec)
+      def self.stat_multipliers(primary_spec, for_pvp)
         case primary_spec
         when "Survival"
           {:ranged_min_damage => 900, :ranged_max_damage => 910, :ranged_attack_speed => 50, :hit => 100, :agility => 76, :crit => 42, :intellect => 35, :haste => 31, :attack_power => 29, :armor_penetration => 26}
@@ -96,7 +96,7 @@ class WowClass < ActiveRecord::Base
         {:hit => 263}
       end
     
-      def self.stat_multipliers(primary_spec)
+      def self.stat_multipliers(primary_spec, for_pvp)
         case primary_spec
         when "Frost"
           {:melee_dps => 337, :hit => 100, :strength => 97, :expertise => 81, :armor_penetration => 61, :crit => 45, :attack_power => 35, :haste => 28, :armor => 1}
@@ -117,7 +117,7 @@ class WowClass < ActiveRecord::Base
         {:hit => 263}
       end
     
-      def self.stat_multipliers(primary_spec)
+      def self.stat_multipliers(primary_spec, for_pvp)
         case primary_spec
         when "Balance"
           {:hit => 100, :spell_power => 66, :haste => 54, :crit => 43, :spirit => 22, :intellect => 22}
@@ -138,7 +138,7 @@ class WowClass < ActiveRecord::Base
         {:hit => 263}
       end
     
-      def self.stat_multipliers(primary_spec)
+      def self.stat_multipliers(primary_spec, for_pvp)
         case primary_spec
         when "Arcane"
           {:hit => 100, :haste => 54, :spell_power => 49, :crit => 37, :intellect => 34, :spirit => 14}
@@ -158,7 +158,7 @@ class WowClass < ActiveRecord::Base
         {:hit => 263}
       end
     
-      def self.stat_multipliers(primary_spec)
+      def self.stat_multipliers(primary_spec, for_pvp)
         case primary_spec
         when "Protection"
           {:stamina => 100, :agility => 60, :expertise => 59, :dodge => 55, :defense => 45, :parry => 30, :strength => 16, :armor => 8, :block => 7, :block_value => 6}
@@ -179,7 +179,7 @@ class WowClass < ActiveRecord::Base
         {:hit => 263}
       end
     
-      def self.stat_multipliers(primary_spec)
+      def self.stat_multipliers(primary_spec, for_pvp)
         case primary_spec
         when "Holy"
           {:mana_regen => 100, :intellect => 69, :spell_power => 60, :spirit => 52, :crit => 38, :haste => 31}
@@ -201,7 +201,7 @@ class WowClass < ActiveRecord::Base
         {:hit => 263}
       end
     
-      def self.stat_multipliers(primary_spec)
+      def self.stat_multipliers(primary_spec, for_pvp)
         case primary_spec
         when "Enhancement"
           {:melee_dps => 135, :hit => 100, :expertise => 84, :agility => 55, :intellect => 55, :crit => 55, :haste => 42, :strength => 35, :attack_power => 32, :spell_power => 29, :armor_penetration => 26}
@@ -222,7 +222,7 @@ class WowClass < ActiveRecord::Base
         {:hit => 263}
       end
     
-      def self.stat_multipliers(primary_spec)
+      def self.stat_multipliers(primary_spec, for_pvp)
         case primary_spec
         when "Destruction"
           {:hit => 100, :spell_power => 47, :haste => 46, :spirit => 26, :crit => 16, :intellect => 13}
@@ -245,7 +245,7 @@ class WowClass < ActiveRecord::Base
         {:hit => 263}
       end
     
-      def self.stat_multipliers(primary_spec)
+      def self.stat_multipliers(primary_spec, for_pvp)
         case primary_spec
         when "Protection"
           {:stamina => 100, :dodge => 90, :defense => 86, :block_value => 81, :agility => 67, :parry => 67, :block => 48, :strength => 48, :expertise => 19, :hit => 10, :armor_penetration => 10, :crit => 7, :armor => 6, :haste => 1, :attack_power => 1}
