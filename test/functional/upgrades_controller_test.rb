@@ -44,4 +44,14 @@ class UpgradesControllerTest < ActionController::TestCase
       assert_select ".upgrade", :count => 4
     end
   end
+  context "get from_wintergrasp_marks" do
+    should "show all upgrades from honor points" do
+      character = Factory(:character_item, :character => Factory(:a_hunter)).character
+      4.times {Factory(:item_from_wintergrasp_marks)}
+      Factory(:item_from_emblem_of_frost)
+      get :from_wintergrasp_marks, :character_id => character.id
+      assert_response :success
+      assert_select "#wintergrasp_mark_of_honor .upgrade", :count => 4
+    end
+  end
 end
