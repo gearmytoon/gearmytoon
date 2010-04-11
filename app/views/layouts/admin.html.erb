@@ -20,9 +20,7 @@
     <% if flash[:error].present? -%>
       <div id="flash" class="error row grid_12"><p><%= flash[:error] %></p></div>
     <% end -%>
-    <div id="content" class="row">
-      <%= yield %>
-    </div>
+    <%= yield %>
     <div id="footer" class="row">
     </div>
   </body>
