@@ -1,4 +1,21 @@
 class Character < ActiveRecord::Base
+  def self.has_upgrades_from(kind_of_upgrade, item_sources)
+    all_upgrades_method_name = "#{kind_of_upgrade}_upgrades"
+    define_method(all_upgrades_method_name) do
+      top_upgrades_from(item_sources.call)
+    end
+    define_method("top_3_#{kind_of_upgrade}_upgrades") do
+      send(all_upgrades_method_name).first(3)
+    end
+  end
+  
+  has_upgrades_from :frost, Proc.new{EmblemSource.from_emblem_of_frost}
+  has_upgrades_from :triumph, Proc.new{EmblemSource.from_emblem_of_triumph}
+  has_upgrades_from :heroic_dungeon, Proc.new{DroppedSource.from_dungeons}
+  has_upgrades_from :raid, Proc.new{DroppedSource.from_raids}
+  has_upgrades_from :honor_point, Proc.new{HonorSource.all}
+  has_upgrades_from :wintergrasp_mark, Proc.new{EmblemSource.from_wintergrasp_mark_of_honor}
+  
   attr_accessor :dont_use_wow_armory
 
   belongs_to :wow_class
@@ -15,51 +32,8 @@ class Character < ActiveRecord::Base
     "#{name} #{realm}"
   end
 
-  def upgrades_in(area)
-    top_upgrades_for(area.items_dropped_in)
-  end
-
-  def top_3_frost_upgrades
-    frost_upgrades.first(3)
-  end
-
-  def frost_upgrades
-    top_upgrades_from(EmblemSource.from_emblem_of_frost)
-  end
-
-  def triumph_upgrades
-    top_upgrades_from(EmblemSource.from_emblem_of_triumph)
-  end
-
-  def dungeon_upgrades
-    top_upgrades_from(DroppedSource.from_dungeons)
-  end
-
-  def honor_point_upgrades
-    top_upgrades_from(HonorSource.all)
-  end
-  
   def top_upgrades_from(item_sources)
     top_upgrades_for(wow_class.equippable_items.from_item_source(item_sources))
-  end
-
-  def wintergrasp_mark_upgrades
-    top_upgrades_from(EmblemSource.from_wintergrasp_mark_of_honor)
-  end
-
-  def top_3_wintergrasp_mark_upgrades
-    wintergrasp_mark_upgrades.first(3)
-  end
-
-  def top_3_honor_point_upgrades
-    honor_point_upgrades.first(3)
-  end
-  
-  def top_3_triumph_upgrades
-    triumph_upgrades.first(3)
-  end
-  def top_3_heroic_dungeon_upgrades
-    dungeon_upgrades.first(3)
   end
 
   def top_upgrades_for(potential_upgrades)
