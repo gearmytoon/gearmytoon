@@ -43,6 +43,14 @@ class Character < ActiveRecord::Base
     top_upgrades_for(wow_class.equippable_items.from_item_source(item_sources))
   end
 
+  def wintergrasp_mark_upgrades
+    top_upgrades_from(EmblemSource.from_wintergrasp_mark_of_honor)
+  end
+
+  def top_3_wintergrasp_mark_upgrades
+    wintergrasp_mark_upgrades.first(3)
+  end
+
   def top_3_honor_point_upgrades
     honor_point_upgrades.first(3)
   end

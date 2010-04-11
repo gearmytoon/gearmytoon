@@ -78,6 +78,10 @@ Factory.define(:honor_point_source, :class => :honor_source) do |model|
   model.honor_point_cost 45000
 end
 
+Factory.define(:wintergrasp_source, :class => :emblem_source) do |model|
+  model.token_cost 15
+  model.wowarmory_token_item_id Item::WINTERGRASP_MARK_OF_HONOR
+end
 
 Factory.define(:dungeon, :class => :area) do |model|
   model.name "Super Fun Unicorn Land"

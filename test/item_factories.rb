@@ -57,6 +57,13 @@ Factory.define(:item_from_honor_points, :parent => :item) do |model|
   end
 end
 
+Factory.define(:item_from_wintergrasp_marks, :parent => :item) do |model|
+  model.bonuses :attack_power => 200
+  model.after_create do |item|
+    dropped_source = Factory(:wintergrasp_source, :item => item)
+  end
+end
+
 Factory.define(:fist_from_emblem_of_frost, :parent => :item_from_emblem_of_frost) do |model|
   model.armor_type ArmorType.fist_weapon
   model.slot "One-Hand"

@@ -150,9 +150,11 @@ class CharactersControllerTest < ActionController::TestCase
       end
 
       should "render Wintergrasp" do
-        character = Factory(:character)
+        character = Factory(:character_item, :item => Factory(:item, :bonuses => {:attack_power => 100.0})).character
+        3.times{Factory(:item_from_wintergrasp_marks)}
         get :pvp, :id => character.id
         assert_select "#wintergrasp_mark_of_honor"
+        assert_select "#wintergrasp_mark_of_honor .upgrade", :count => 3
       end
 
       should "render Triumph" do
