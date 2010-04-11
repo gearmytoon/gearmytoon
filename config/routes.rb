@@ -14,5 +14,10 @@ ActionController::Routing::Routes.draw do |map|
   map.signup 'signup', :controller => 'users', :action => 'new'
   map.rpx_token_sessions 'rpx_token_sessions', :controller =>"user_sessions", :action => "rpx_create"
 
+  map.namespace 'admin' do |admin|
+    admin.resources :users, :characters, :items, :character_items, :active_scaffold => true
+  end
+  map.admin 'admin', :controller => 'admin', :action => 'index'
+
   map.root :controller => "home"
 end

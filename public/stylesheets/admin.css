@@ -1,0 +1,47 @@
+/* ================ */
+/* = The 1Kb Grid = */     /* 12 columns, 60 pixels each, with 20 pixel gutter */
+/* ================ */
+.grid_1       { width:60px;  }
+.grid_2       { width:140px; }
+.grid_3       { width:220px; }
+.grid_4       { width:300px; }
+.grid_5       { width:380px; }
+.grid_6       { width:460px; }
+.grid_7       { width:540px; }
+.grid_8       { width:620px; }
+.grid_9       { width:700px; }
+.grid_10      { width:780px; }
+.grid_11      { width:860px; }
+.grid_12      { width:940px; }
+.column       { margin: 0; overflow: hidden; float: left; display: inline; }
+.row          { width: 960px; margin: 0 auto; overflow: hidden; }
+.row .row     { margin: 0 -10px; width: auto; display: inline-block; }
+.visible_grid { background-image: url(/images/grid.png); background-repeat: repeat; background-position: 10px 10px; }
+/* END 1KB GRID */
+
+html, body { font-family: Verdana, Arial, sans-serif; color: #FFF; background-color: #222; text-align: left; }
+a { color: #FFF; }
+a:visited { color: #FFF; }
+a:hover { color: #FFF; }
+h1, h2, h3, h4, h5 { clear: both; font-weight: bold; }
+h1 { clear: both; font-size: 24px; text-align: center; font-weight: bold; }
+h2 { clear: both; margin: 40px 0 0 0; font-size:16px; font-weight: bold; }
+form p { margin-bottom: 20px; }
+label { display: block; font-size: 18px; margin-bottom: 8px; }
+input.text, input.password { font-size: 18px; padding: 5px; }
+input.button { font-size: 18px; }
+input.checkbox { float: left; margin: 10px 5px 0 0; }
+select { font-size: 18px; }
+
+#header { margin-bottom: 20px; }
+#header h1 { font-size: 2em; margin: 0; }
+#header h1 a { text-decoration: none; float: left; }
+#header #user_controls { float: right; margin: 10px 0 0 0; }
+#flash { background-color: #666; margin-top: 20px; }
+#flash p { padding: 0 10px 0 10px; font-size: 12px; }
+
+#content { clear: both; }
+
+.active-scaffold { color: black; }
+.active-scaffold-footer { color: white; }
+.active-scaffold-header div.actions { background-color: white; padding: 5px 5px 4px 0; right: 0; }

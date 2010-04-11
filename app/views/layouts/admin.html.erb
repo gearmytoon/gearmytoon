@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>gearmytoon.com</title>
+    <%= javascript_include_tag 'vendor/rails/prototype', 'vendor/rails/effects', 'vendor/rails/dragdrop', 'vendor/rails/controls' %>
+    <%= active_scaffold_includes %>
+    <%= stylesheet_link_tag 'admin' %>
+  </head>
+  <body>
+    <div id="header" class="row grid_12">
+      <h1><%= link_to "gearmytoon.com", root_url %></h1>
+      <div id="user_controls">
+        <%= link_to "My Account", account_path %>
+        <%= link_to "Logout", user_session_path, :method => :delete %>
+      </div>
+    </div>
+    <% if flash[:notice].present? -%>
+      <div id="flash" class="notice row grid_12"><p><%= flash[:notice] %></p></div>
+    <% end -%>
+    <% if flash[:error].present? -%>
+      <div id="flash" class="error row grid_12"><p><%= flash[:error] %></p></div>
+    <% end -%>
+    <div id="content" class="row">
+      <%= yield %>
+    </div>
+    <div id="footer" class="row">
+    </div>
+  </body>
+</html>
