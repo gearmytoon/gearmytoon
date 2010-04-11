@@ -6,12 +6,10 @@
 </div>
 
 <div id="upgrades">
-  <div class="upgrade_section" id="honor_points">
-    <h2>Your best upgrades from Honor Points <span class="see_more"><%= link_to "more upgrades", from_honor_points_character_upgrades_path(@character) %></span></h2>
-    <% @character.top_3_honor_point_upgrades.each do |upgrade| %>
-      <%= render 'shared/upgrade', :upgrade => upgrade %>
-    <% end %>
-  </div>
+  <% render :layout => "shared/upgrade_section", :locals => {:kind_of_upgrade => "honor_points", :upgrades => @character.top_3_honor_point_upgrades} do %>
+    Honor Points <span class="see_more"><%= link_to "more upgrades", from_honor_points_character_upgrades_path(@character) %></span>
+  <% end %>
+  
   <div class="upgrade_section" id="wintergrasp_mark_of_honor">
   </div>
   <div class="upgrade_section" id="arena_points">

@@ -1,8 +1,1 @@
-<div id="upgrades">
-  <div class="upgrade_section" id="emblem_of_frost">
-    <h1>Your best upgrades from Honor Points</h1>
-    <% @character.honor_point_upgrades.each do |upgrade| %>
-      <%= render 'shared/upgrade', :upgrade => upgrade %>
-    <% end %>
-  </div>
-</div>
+<% render :layout => "shared/upgrade_section", :locals => {:kind_of_upgrade => "honor_points", :upgrades => @character.honor_point_upgrades} do %>Honor Points<% end %>

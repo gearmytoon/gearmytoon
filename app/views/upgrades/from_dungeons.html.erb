@@ -1,8 +1,1 @@
-<div id="upgrades">
-  <div class="upgrade_section" id="heroic_dungeon">
-    <h1>Your best upgrades from Heroic Dungeon's</h1>
-    <% @character.dungeon_upgrades.each do |upgrade| %>
-      <%= render 'shared/upgrade', :upgrade => upgrade %>
-    <% end %>
-  </div>
-</div>
+<% render :layout => "shared/upgrade_section", :locals => {:kind_of_upgrade => "heroic_dungeon", :upgrades => @character.dungeon_upgrades} do %>Dungeon's<% end %>
