@@ -20,7 +20,7 @@ class Character < ActiveRecord::Base
   end
 
   def top_3_frost_upgrades
-    frost_upgrades.slice(0,3)
+    frost_upgrades.first(3)
   end
 
   def frost_upgrades
@@ -44,14 +44,14 @@ class Character < ActiveRecord::Base
   end
 
   def top_3_honor_point_upgrades
-    honor_point_upgrades.slice(0,3)
+    honor_point_upgrades.first(3)
   end
   
   def top_3_triumph_upgrades
-    triumph_upgrades.slice(0,3)
+    triumph_upgrades.first(3)
   end
   def top_3_heroic_dungeon_upgrades
-    dungeon_upgrades.slice(0,3)
+    dungeon_upgrades.first(3)
   end
 
   def top_upgrades_for(potential_upgrades)
@@ -63,10 +63,6 @@ class Character < ActiveRecord::Base
       end
       found_upgrades
     end.sort_by(&:dps_change).reverse
-  end
-
-  def top_3_upgrades_for(potential_upgrades)
-    top_upgrades_for(potential_upgrades).slice(0, 3)
   end
 
   def wow_class_name
