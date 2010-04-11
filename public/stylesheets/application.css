@@ -74,8 +74,8 @@ a { color: #FFF; }
 a:visited { color: #FFF; }
 a:hover { color: #FFF; }
 h1, h2, h3, h4, h5 { clear: both; font-weight: bold; }
-h1 { clear: both; font-size: 24px; text-align: center; font-weight: bold; }
-h2 { clear: both; margin: 40px 0 0 0; font-size:16px; font-weight: bold; }
+h1 { clear: both; font-size: 24px; font-weight: bold; margin-bottom: 12px; }
+h2 { clear: both; margin: 0 0 8px 0; font-size:16px; font-weight: bold; }
 form p { margin-bottom: 20px; }
 label { display: block; font-size: 18px; margin-bottom: 8px; }
 input.text, input.password { font-size: 18px; padding: 5px; }
@@ -83,23 +83,28 @@ input.button { font-size: 18px; }
 input.checkbox { float: left; margin: 10px 5px 0 0; }
 select { font-size: 18px; }
 
-#header { margin-bottom: 20px; }
-#header h1 { font-size: 2em; margin: 0; }
+#header { margin: 0 auto 20px auto; padding: 20px; background-color: black; height: 60px; border-bottom: 5px solid #888; }
+#header h1 { font-size: 20px; margin: 0; }
 #header h1 a { text-decoration: none; float: left; }
 #header #user_controls { float: right; margin: 10px 0 0 0; }
+#footer { margin: 20px auto 0 auto; padding: 20px; background-color: black; height: 100px; text-align: center; }
+#footer ul { text-align: center; }
+#footer ul li { float: left; padding: 0 20px; }
+#footer ul li a { text-decoration: none; }
 #flash { background-color: #666; margin-top: 20px; }
 #flash p { padding: 0 10px 0 10px; font-size: 12px; }
 
 #content { clear: both; }
+#interested { margin-top: 60px; }
 
 #or { font-size: 16px; margin-top: 160px; text-align: center; }
 
-form p.why { background-color: #222; padding: 10px; -moz-border-radius: 10px; -webkit-border-radius: 10px; border-radius: 10px; font-size: 1em; text-align: center; }
+form p.why { background-color: #222; padding: 10px; -moz-border-radius: 10px; -webkit-border-radius: 10px; border-radius: 10px; font-size: 10px; text-align: center; }
 form.inline { width: auto; overflow: hidden; }
 form.inline p { margin: 0 10px 0 0; float: left; }
-form.inline label { display: block; font-size: 1em; margin-bottom: 3px; }
-form.inline input.text { font-size: 1em; width: 100px; padding: 2px; }
-form.inline input.button { font-size: 1em; margin-top: 20px; }
+form.inline label { display: block; font-size: 10px; margin-bottom: 3px; }
+form.inline input.text { font-size: 10px; width: 100px; padding: 2px; }
+form.inline input.button { font-size: 10px; margin-top: 20px; }
 form.inline input.checkbox { float: left; margin: 10px 5px 0 0; }
 form.inline select { float: left; margin: 0; }
 
@@ -107,10 +112,14 @@ form#new_user_session { border: 1px solid white; padding: 15px 15px 0 15px; }
 form#new_user_session input.text, form#new_user_session input.password { width: 90%; }
 #rpx_now_widget { border: 1px solid white; padding: 15px 0; }
 
+form#new_beta_participant { width: auto; overflow: hidden; background-color: #555; padding: 20px; margin: 30px; -moz-border-radius: 10px; -webkit-border-radius: 10px; border-radius: 10px; }
+form#new_beta_participant input.text { width: 265px; }
+form#new_beta_participant input.button { float: right; }
+
 #welcome_page { display: block; margin: 0 auto; background-color: #666; padding: 20px; }
 #welcome_page h1 { margin-top: 0; }
 #welcome_page form p { float: none; margin: 20px 0 0 0; }
-#welcome_page form label { float: none; font-size: 2em; margin: 20px 0 0 0; }
+#welcome_page form label { float: none; font-size: 20px; margin: 20px 0 0 0; }
 #welcome_page form input.text { font-size: 200%; width: 510px; }
 #welcome_page form input.button { font-size: 36px; text-align: center; display: block; margin: 0 auto; }
 
@@ -122,7 +131,7 @@ form#new_user_session input.text, form#new_user_session input.password { width: 
 }
 
 #errorExplanation {
-  width: 400px;
+  width: 90%;
   border: 2px solid red;
   padding: 7px;
   padding-bottom: 12px;

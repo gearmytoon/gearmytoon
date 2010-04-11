@@ -19,5 +19,6 @@ ActionController::Routing::Routes.draw do |map|
   end
   map.admin 'admin', :controller => 'admin', :action => 'index'
 
+  map.interested 'interested', :controller => 'home', :action => 'interested'
   map.root :controller => "home"
 end

@@ -1,0 +1,22 @@
+<div class="column grid_7">
+  <%= image_tag "interested.jpg" %>
+</div>
+<div id="interested" class="column grid_5">
+  <h1>Interested in joining?</h1>
+  <p>
+    We're currently in private beta, but if you have a level 80
+    World of Warcraft character and want gear recommendations
+    tailored just for your toon then leave us your e-mail and we will
+    let you know when we start our public beta.
+  </p>
+  <% form_for @beta_participant, :url => '/interested' do |f| -%>
+    <%= f.error_messages %>
+    <p>
+      <%= f.label :email %>
+      <%= f.text_field :email, :class => 'text' %>
+    </p>
+    <p>
+      <%= submit_tag 'submit', :class => 'button' %>
+    </p>
+  <% end -%>
+</div>
