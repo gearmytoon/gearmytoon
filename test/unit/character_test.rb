@@ -191,7 +191,7 @@ class CharacterTest < ActiveSupport::TestCase
   context "convert_bonuses_to_dps" do
     setup do
       test_multipliers = {:attack_power => 0.5, :agility => 1, :armor_penetration => 1.1, :crit => 0.75, :haste => 0.7, :hit => 0.8}
-      WowClass::WowClassConstants::Rogue.stubs(:stat_multipliers).returns(test_multipliers)
+      Rogue.any_instance.stubs(:stat_multipliers).returns(test_multipliers)
     end
     should "attack power should be worth 0.5 dps" do
       assert_equal 65.0, Factory(:a_rogue).dps_for({:attack_power => 130},false)

@@ -5,7 +5,7 @@ class WowClassTest < ActiveSupport::TestCase
     should_belong_to :primary_armor_type
     should "get stat_multipliers based on class_name" do
       wow_class = WowClass.create_class!("Rogue")
-      assert_equal WowClass::WowClassConstants::Rogue.stat_multipliers("Combat",false), wow_class.reload.stat_multipliers("Combat",false)
+      assert_equal Rogue.new.stat_multipliers("Combat",false), wow_class.reload.stat_multipliers("Combat",false)
     end
   end
   
@@ -38,20 +38,20 @@ class WowClassTest < ActiveSupport::TestCase
     end
   end
   
-  {:DeathKnight => ["Blood", "Frost", "Unholy"],
-   :Druid => ["Balance", "Feral Combat", "Restoration"],
-   :Hunter => ["Beast Mastery", "Marksmanship", "Survival"],
-   :Mage => ["Frost", "Fire", "Arcane"],
-   :Paladin => ["Protection", "Holy", "Retribution"],
-   :Priest => ["Holy", "Shadow", "Discipline"],
-   :Rogue => ["Assassination", "Combat", "Subtlety"],
-   :Shaman => ["Elemental", "Enhancement", "Restoration"],
-   :Warlock => ["Demonology", "Destruction", "Affliction"],
-   :Warrior => ["Arms", "Fury", "Protection"]}.each do |wow_class, possible_specs|
+  {"Death Knight" => ["Blood", "Frost", "Unholy"],
+   "Druid" => ["Balance", "Feral Combat", "Restoration"],
+   "Hunter" => ["Beast Mastery", "Marksmanship", "Survival"],
+   "Mage" => ["Frost", "Fire", "Arcane"],
+   "Paladin" => ["Protection", "Holy", "Retribution"],
+   "Priest" => ["Holy", "Shadow", "Discipline"],
+   "Rogue" => ["Assassination", "Combat", "Subtlety"],
+   "Shaman" => ["Elemental", "Enhancement", "Restoration"],
+   "Warlock" => ["Demonology", "Destruction", "Affliction"],
+   "Warrior" => ["Arms", "Fury", "Protection"]}.each do |wow_class, possible_specs|
     context "WowClassConstants" do
       
       should "#{wow_class} have hard_caps" do
-        assert_not_nil "WowClass::WowClassConstants::#{wow_class.to_s}".constantize.hard_caps
+        assert_not_nil WowClass.create_class!(wow_class).hard_caps
       end
       
       (possible_specs << "Hybrid").each do |possible_spec|
@@ -62,7 +62,7 @@ class WowClassTest < ActiveSupport::TestCase
                               :block_value, :defense, :stamina, :block,
                               :ranged_max_damage, :ranged_attack_speed, :ranged_min_damage, 
                               :feral_attack_power]
-          klass = "WowClass::WowClassConstants::#{wow_class.to_s}".constantize
+          klass = WowClass.create_class!(wow_class)
           klass.armor_types
           actual_multipliers = klass.stat_multipliers(possible_spec,false)
           unknown_multipliers = actual_multipliers.keys - valid_multipliers
