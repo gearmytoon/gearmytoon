@@ -75,7 +75,7 @@ a:visited { color: #FFF; }
 a:hover { color: #FFF; }
 h1, h2, h3, h4, h5 { clear: both; font-weight: bold; }
 h1 { clear: both; font-size: 24px; font-weight: bold; margin-bottom: 12px; }
-h2 { clear: both; margin: 0 0 8px 0; font-size:16px; font-weight: bold; }
+h2 { clear: both; margin: 8px 0 0 0; font-size:16px; font-weight: bold; }
 form p { margin-bottom: 20px; }
 label { display: block; font-size: 18px; margin-bottom: 8px; }
 input.text, input.password { font-size: 18px; padding: 5px; }
@@ -95,7 +95,8 @@ select { font-size: 18px; }
 #flash p { padding: 0 10px 0 10px; font-size: 12px; }
 
 #content { clear: both; }
-#interested { margin-top: 60px; }
+#interested { margin-top: 35px; }
+#interested p { line-height: 24px; }
 
 #or { font-size: 16px; margin-top: 160px; text-align: center; }
 

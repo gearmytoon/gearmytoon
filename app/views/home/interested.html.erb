@@ -2,12 +2,10 @@
   <%= image_tag "interested.jpg" %>
 </div>
 <div id="interested" class="column grid_5">
-  <h1>Interested in joining?</h1>
+  <h1>Join the Beta</h1>
   <p>
-    We're currently in private beta, but if you have a level 80
-    World of Warcraft character and want gear recommendations
-    tailored just for your toon then leave us your e-mail and we will
-    let you know when we start our public beta.
+    Want gear recommendations tailored just for your level 80 World of Warcraft character?
+    Leave us your e-mail, and we will let you know when we start our public beta.
   </p>
   <% form_for @beta_participant, :url => '/interested' do |f| -%>
     <%= f.error_messages %>
@@ -19,4 +17,10 @@
       <%= submit_tag 'submit', :class => 'button' %>
     </p>
   <% end -%>
+  <h1>Learn More</h1>
+  <p>
+    GearMyToon.com is a service providing gear recommendations
+    for your level 80 World of Warcraft characters. If you're still curious
+    check out some <%= link_to "reasons", "/reasons" %> you might enjoy such a service.
+  </p>
 </div>
