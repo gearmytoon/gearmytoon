@@ -2,7 +2,7 @@ require File.dirname(__FILE__) + '/../test_helper'
 
 class PvpUpgradesControllerTest < ActionController::TestCase
   context "get from_frost_emblems" do
-    should_eventually "show all upgrades from emblems of frost" do
+    should "show all upgrades from emblems of frost" do
       character = Factory(:character_item, :character => Factory(:a_hunter)).character
       4.times {Factory(:item_from_emblem_of_frost)}
       Factory(:item_from_emblem_of_triumph)
@@ -13,7 +13,7 @@ class PvpUpgradesControllerTest < ActionController::TestCase
   end
 
   context "get from_triumph_emblems" do
-    should_eventually "show all upgrades from emblems of frost" do
+    should "show all upgrades from emblems of frost" do
       character = Factory(:character_item, :character => Factory(:a_hunter)).character
       4.times {Factory(:item_from_emblem_of_triumph)}
       Factory(:item_from_emblem_of_frost)
