@@ -7,7 +7,7 @@ class Priest < WowClass
     {:hit => 263}
   end
 
-  def stat_multipliers(primary_spec, for_pvp)
+  def class_specific_multipliers(primary_spec, for_pvp)
     case primary_spec
     when "Holy"
       {:mana_regen => 100, :intellect => 69, :spell_power => 60, :spirit => 52, :crit => 38, :haste => 31}

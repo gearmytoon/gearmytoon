@@ -7,7 +7,7 @@ class DeathKnight < WowClass
     {:hit => 263}
   end
 
-  def stat_multipliers(primary_spec, for_pvp)
+  def class_specific_multipliers(primary_spec, for_pvp)
     case primary_spec
     when "Frost"
       {:melee_dps => 337, :hit => 100, :strength => 97, :expertise => 81, :armor_penetration => 61, :crit => 45, :attack_power => 35, :haste => 28, :armor => 1}

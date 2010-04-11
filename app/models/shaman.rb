@@ -8,7 +8,7 @@ class Shaman < WowClass
     {:hit => 263}
   end
 
-  def stat_multipliers(primary_spec, for_pvp)
+  def class_specific_multipliers(primary_spec, for_pvp)
     case primary_spec
     when "Enhancement"
       {:melee_dps => 135, :hit => 100, :expertise => 84, :agility => 55, :intellect => 55, :crit => 55, :haste => 42, :strength => 35, :attack_power => 32, :spell_power => 29, :armor_penetration => 26}

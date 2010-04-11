@@ -8,7 +8,7 @@ class Hunter < WowClass
     {:hit => 263}
   end
   
-  def stat_multipliers(primary_spec, for_pvp)
+  def class_specific_multipliers(primary_spec, for_pvp)
     case primary_spec
     when "Survival"
       {:ranged_min_damage => 900, :ranged_max_damage => 910, :ranged_attack_speed => 50, :hit => 100, :agility => 76, :crit => 42, :intellect => 35, :haste => 31, :attack_power => 29, :armor_penetration => 26}

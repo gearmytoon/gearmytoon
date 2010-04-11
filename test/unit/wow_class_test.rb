@@ -16,6 +16,12 @@ class WowClassTest < ActiveSupport::TestCase
   end
 
   context "stat_multipliers" do
+    should "return different multipliers for pvp specs" do
+      wow_class = WowClass.create_class!("Hunter")
+      assert_equal wow_class.stat_multipliers("Survival",false), wow_class.stat_multipliers("Survival",false)
+      assert_not_equal wow_class.stat_multipliers("Survival",true), wow_class.stat_multipliers("Survival",false)
+    end
+    
     should "be based on a character spec" do
       wow_class = WowClass.create_class!("Hunter")
       assert_not_equal wow_class.stat_multipliers("Survival",false), wow_class.stat_multipliers("Marksmanship",false)

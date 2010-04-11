@@ -8,7 +8,7 @@ class Rogue < WowClass
     {:hit => 886}
   end
   
-  def stat_multipliers(primary_spec, for_pvp)
+  def class_specific_multipliers(primary_spec, for_pvp)
     case primary_spec
     when "Assassination"
       {:melee_dps => 170, :agility => 100, :expertise => 87, :hit => 83, :crit => 81, :attack_power => 65, :armor_penetration => 65, :haste => 64, :strength => 55}

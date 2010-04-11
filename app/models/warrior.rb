@@ -9,7 +9,7 @@ class Warrior < WowClass
     {:hit => 263}
   end
 
-  def stat_multipliers(primary_spec, for_pvp)
+  def class_specific_multipliers(primary_spec, for_pvp)
     case primary_spec
     when "Protection"
       {:stamina => 100, :dodge => 90, :defense => 86, :block_value => 81, :agility => 67, :parry => 67, :block => 48, :strength => 48, :expertise => 19, :hit => 10, :armor_penetration => 10, :crit => 7, :armor => 6, :haste => 1, :attack_power => 1}

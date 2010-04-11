@@ -7,7 +7,7 @@ class Druid < WowClass
     {:hit => 263}
   end
 
-  def stat_multipliers(primary_spec, for_pvp)
+  def class_specific_multipliers(primary_spec, for_pvp)
     case primary_spec
     when "Balance"
       {:hit => 100, :spell_power => 66, :haste => 54, :crit => 43, :spirit => 22, :intellect => 22}
