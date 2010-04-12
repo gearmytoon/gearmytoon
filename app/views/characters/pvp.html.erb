@@ -1,0 +1,23 @@
+<%= render "shared/character_info", :character => @character %>
+<div>
+  <%= link_to "Upgrades Summary", character_path(@character) %>
+  <%= link_to "Upgrades From Raids", character_raids_path(@character) %>
+  <%= link_to "Upgrades From Dungeons", character_dungeons_path(@character) %>
+</div>
+
+<div id="upgrades">
+  <% render :layout => "shared/upgrade_section", :locals => {:kind_of_upgrade => "honor_points", :upgrades => @character.top_3_honor_point_pvp_upgrades} do %>
+    Honor Points <span class="see_more"><%= link_to "more upgrades", from_honor_points_character_pvp_upgrades_path(@character) %></span>
+  <% end %>
+
+  <% render :layout => "shared/upgrade_section", :locals => {:kind_of_upgrade => "wintergrasp_mark_of_honor", :upgrades => @character.top_3_wintergrasp_mark_pvp_upgrades} do %>
+    <%= stylized_item_name Item.wintergrasp_mark %> <%= wowhead_item_image_link Item.wintergrasp_mark %> <span class="see_more"><%= link_to "more upgrades", from_wintergrasp_marks_character_pvp_upgrades_path(@character) %></span>
+  <% end %>
+  
+  <div class="upgrade_section" id="arena_points">
+  </div>
+  <div class="upgrade_section" id="emblem_of_triumph">
+  </div>
+  <div class="upgrade_section" id="emblem_of_frost">
+  </div>
+</div>

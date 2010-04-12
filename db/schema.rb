@@ -9,7 +9,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20100411040353) do
+ActiveRecord::Schema.define(:version => 20100412145340) do
 
   create_table "areas", :force => true do |t|
     t.string   "name"
@@ -155,8 +155,11 @@ ActiveRecord::Schema.define(:version => 20100411040353) do
     t.datetime "created_at"
     t.datetime "updated_at"
     t.integer  "primary_armor_type_id"
+    t.string   "type"
   end
 
+  add_index "wow_classes", ["name"], :name => "index_wow_classes_on_name"
   add_index "wow_classes", ["primary_armor_type_id"], :name => "index_wow_classes_on_primary_armor_type_id"
+  add_index "wow_classes", ["type"], :name => "index_wow_classes_on_type"
 
 end

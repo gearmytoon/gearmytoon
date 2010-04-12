@@ -5,7 +5,7 @@ class WowClassTest < ActiveSupport::TestCase
     should_belong_to :primary_armor_type
     should "get stat_multipliers based on class_name" do
       wow_class = WowClass.create_class!("Rogue")
-      assert_equal WowClass::WowClassConstants::Rogue.stat_multipliers("Combat"), wow_class.reload.stat_multipliers("Combat")
+      assert_equal Rogue.new.stat_multipliers("Combat",false), wow_class.reload.stat_multipliers("Combat",false)
     end
   end
   
@@ -16,15 +16,21 @@ class WowClassTest < ActiveSupport::TestCase
   end
 
   context "stat_multipliers" do
+    should "return different multipliers for pvp specs" do
+      wow_class = WowClass.create_class!("Hunter")
+      assert_equal wow_class.stat_multipliers("Survival",false), wow_class.stat_multipliers("Survival",false)
+      assert_not_equal wow_class.stat_multipliers("Survival",true), wow_class.stat_multipliers("Survival",false)
+    end
+    
     should "be based on a character spec" do
       wow_class = WowClass.create_class!("Hunter")
-      assert_not_equal wow_class.stat_multipliers("Survival"), wow_class.stat_multipliers("Marksmanship")
-      assert_not_equal wow_class.stat_multipliers("Survival"), wow_class.stat_multipliers("Beast Mastery")
-      assert_not_equal wow_class.stat_multipliers("Marksmanship"), wow_class.stat_multipliers("Beast Mastery")
+      assert_not_equal wow_class.stat_multipliers("Survival",false), wow_class.stat_multipliers("Marksmanship",false)
+      assert_not_equal wow_class.stat_multipliers("Survival",false), wow_class.stat_multipliers("Beast Mastery",false)
+      assert_not_equal wow_class.stat_multipliers("Marksmanship",false), wow_class.stat_multipliers("Beast Mastery",false)
     end
     should "default to marksmanship for hunters who do not have a primary spec" do
       wow_class = WowClass.create_class!("Hunter")
-      assert_equal wow_class.stat_multipliers("NONE"), wow_class.stat_multipliers("Marksmanship")
+      assert_equal wow_class.stat_multipliers("NONE",false), wow_class.stat_multipliers("Marksmanship",false)
     end
   end
 
@@ -38,20 +44,20 @@ class WowClassTest < ActiveSupport::TestCase
     end
   end
   
-  {:DeathKnight => ["Blood", "Frost", "Unholy"],
-   :Druid => ["Balance", "Feral Combat", "Restoration"],
-   :Hunter => ["Beast Mastery", "Marksmanship", "Survival"],
-   :Mage => ["Frost", "Fire", "Arcane"],
-   :Paladin => ["Protection", "Holy", "Retribution"],
-   :Priest => ["Holy", "Shadow", "Discipline"],
-   :Rogue => ["Assassination", "Combat", "Subtlety"],
-   :Shaman => ["Elemental", "Enhancement", "Restoration"],
-   :Warlock => ["Demonology", "Destruction", "Affliction"],
-   :Warrior => ["Arms", "Fury", "Protection"]}.each do |wow_class, possible_specs|
+  {"Death Knight" => ["Blood", "Frost", "Unholy"],
+   "Druid" => ["Balance", "Feral Combat", "Restoration"],
+   "Hunter" => ["Beast Mastery", "Marksmanship", "Survival"],
+   "Mage" => ["Frost", "Fire", "Arcane"],
+   "Paladin" => ["Protection", "Holy", "Retribution"],
+   "Priest" => ["Holy", "Shadow", "Discipline"],
+   "Rogue" => ["Assassination", "Combat", "Subtlety"],
+   "Shaman" => ["Elemental", "Enhancement", "Restoration"],
+   "Warlock" => ["Demonology", "Destruction", "Affliction"],
+   "Warrior" => ["Arms", "Fury", "Protection"]}.each do |wow_class, possible_specs|
     context "WowClassConstants" do
       
       should "#{wow_class} have hard_caps" do
-        assert_not_nil "WowClass::WowClassConstants::#{wow_class.to_s}".constantize.hard_caps
+        assert_not_nil WowClass.create_class!(wow_class).hard_caps
       end
       
       (possible_specs << "Hybrid").each do |possible_spec|
@@ -62,9 +68,9 @@ class WowClassTest < ActiveSupport::TestCase
                               :block_value, :defense, :stamina, :block,
                               :ranged_max_damage, :ranged_attack_speed, :ranged_min_damage, 
                               :feral_attack_power]
-          klass = "WowClass::WowClassConstants::#{wow_class.to_s}".constantize
+          klass = WowClass.create_class!(wow_class)
           klass.armor_types
-          actual_multipliers = klass.stat_multipliers(possible_spec)
+          actual_multipliers = klass.stat_multipliers(possible_spec,false)
           unknown_multipliers = actual_multipliers.keys - valid_multipliers
           
           assert unknown_multipliers.empty?, "For class #{wow_class} found invalid multipliers #{unknown_multipliers.join(",")}"

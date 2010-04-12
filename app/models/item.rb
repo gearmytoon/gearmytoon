@@ -21,6 +21,10 @@ class Item < ActiveRecord::Base
   def self.badge_of_triumph
     fetch_from_api(TRIUMPH_EMBLEM_ARMORY_ID)
   end
+  
+  def self.wintergrasp_mark
+    fetch_from_api(WINTERGRASP_MARK_OF_HONOR)
+  end
 
   def self.fetch_from_api(item_id)
     api = Wowr::API.new

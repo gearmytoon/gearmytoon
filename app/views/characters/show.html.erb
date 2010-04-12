@@ -1,17 +1,4 @@
-<div id="character_info">
-  <span id="portrait"><%= character_icon @character %></span>
-  <div id="summary_details">
-    <div id="character_details">
-      <span id="character_name"><%= @character.name.capitalize %></span> <span>Level <span class="level"><%= @character.level %></span> <span class="primary_spec"><%= @character.primary_spec %></span> <span class="klass"><%= @character.wow_class.name %></span></span>
-    </div>
-    <div class="guild">
-      <%=h "<#{@character.guild}>" %>
-    </div>
-    <div id="realm_and_battlegroup">
-      <%= @character.realm.capitalize %>, <%= @character.battle_group %>
-    </div>
-  </div>
-</div>
+<%= render "shared/character_info", :character => @character %>
 <div>
   <%= link_to "Upgrades Summary", character_path(@character) %>
   <%= link_to "Upgrades From Raids", character_raids_path(@character) %>
@@ -19,24 +6,15 @@
 </div>
 
 <div id="upgrades">
-  <div class="upgrade_section" id="emblem_of_frost">
-    <h2>Your best upgrades from <%= stylized_item_name Item.badge_of_frost %> <%= wowhead_item_image_link Item.badge_of_frost %> <span class="see_more"><%= link_to "more upgrades", from_frost_emblems_character_upgrades_path(@character) %></span></h2>
-    <% @character.top_3_frost_upgrades.each do |upgrade| %>
-      <%= render 'shared/upgrade', :upgrade => upgrade %>
-    <% end %>
-  </div>
+  <% render :layout => "shared/upgrade_section", :locals => {:kind_of_upgrade => "emblem_of_frost", :upgrades => @character.top_3_frost_upgrades} do %>
+    <%= stylized_item_name Item.badge_of_frost %> <%= wowhead_item_image_link Item.badge_of_frost %> <span class="see_more"><%= link_to "more upgrades", from_frost_emblems_character_upgrades_path(@character) %></span>
+  <% end %>
 
-  <div class="upgrade_section" id="emblem_of_triumph">
-    <h2>Your best upgrades from <%= stylized_item_name Item.badge_of_triumph %> <%= wowhead_item_image_link Item.badge_of_triumph %> <span class="see_more"><%= link_to "more upgrades", from_triumph_emblems_character_upgrades_path(@character) %></span></h2>
-    <% @character.top_3_triumph_upgrades.each do |upgrade| %>
-      <%= render 'shared/upgrade', :upgrade => upgrade %>
-    <% end %>
-  </div>
+  <% render :layout => "shared/upgrade_section", :locals => {:kind_of_upgrade => "emblem_of_triumph", :upgrades => @character.top_3_triumph_upgrades} do %>
+    <%= stylized_item_name Item.badge_of_triumph %> <%= wowhead_item_image_link Item.badge_of_triumph %> <span class="see_more"><%= link_to "more upgrades", from_triumph_emblems_character_upgrades_path(@character) %></span>
+  <% end %>
 
-  <div class="upgrade_section" id="heroic_dungeon">
-    <h2>Your best upgrades from Heroic Dungeon's <span class="see_more"><%= link_to "more upgrades", from_dungeons_character_upgrades_path(@character) %></span></h2>
-    <% @character.top_3_heroic_dungeon_upgrades.each do |upgrade| %>
-      <%= render 'shared/upgrade', :upgrade => upgrade %>
-    <% end %>
-  </div>
+  <% render :layout => "shared/upgrade_section", :locals => {:kind_of_upgrade => "heroic_dungeon", :upgrades => @character.top_3_heroic_dungeon_upgrades} do %>
+    Heroic Dungeon's <span class="see_more"><%= link_to "more upgrades", from_dungeons_character_upgrades_path(@character) %></span>
+  <% end %>
 </div>

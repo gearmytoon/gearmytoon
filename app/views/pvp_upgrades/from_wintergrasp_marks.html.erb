@@ -1,0 +1,3 @@
+<% render :layout => "shared/upgrade_section", :locals => {:kind_of_upgrade => "wintergrasp_mark_of_honor", :upgrades => @character.wintergrasp_mark_pvp_upgrades} do %>
+  <%= stylized_item_name Item.wintergrasp_mark %> <%= wowhead_item_image_link Item.wintergrasp_mark %>
+<% end %>

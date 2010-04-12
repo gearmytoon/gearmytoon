@@ -1,4 +1,31 @@
 class Character < ActiveRecord::Base
+  def self.has_upgrades_from(kind_of_upgrade, item_sources)
+    all_upgrades_method_name = "#{kind_of_upgrade}_upgrades"
+    all_pvp_upgrades_method_name = "#{kind_of_upgrade}_pvp_upgrades"
+
+    define_method(all_pvp_upgrades_method_name) do
+      top_upgrades_from(item_sources.call, true)
+    end
+    define_method("top_3_#{kind_of_upgrade}_pvp_upgrades") do
+      send(all_pvp_upgrades_method_name).first(3)
+    end
+    
+    define_method(all_upgrades_method_name) do
+      top_upgrades_from(item_sources.call, false)
+    end
+    define_method("top_3_#{kind_of_upgrade}_upgrades") do
+      send(all_upgrades_method_name).first(3)
+    end
+
+  end
+  
+  has_upgrades_from :frost, Proc.new{EmblemSource.from_emblem_of_frost}
+  has_upgrades_from :triumph, Proc.new{EmblemSource.from_emblem_of_triumph}
+  has_upgrades_from :heroic_dungeon, Proc.new{DroppedSource.from_dungeons}
+  has_upgrades_from :raid, Proc.new{DroppedSource.from_raids}
+  has_upgrades_from :honor_point, Proc.new{HonorSource.all}
+  has_upgrades_from :wintergrasp_mark, Proc.new{EmblemSource.from_wintergrasp_mark_of_honor}
+  
   attr_accessor :dont_use_wow_armory
 
   DEFAULT_LOCALE = 'us'
@@ -22,38 +49,14 @@ class Character < ActiveRecord::Base
     "#{name} #{realm} #{locale}"
   end
 
-  def upgrades_in(area)
-    top_upgrades_for(area.items_dropped_in)
+  def top_upgrades_from(item_sources, for_pvp)
+    top_upgrades_for(wow_class.equippable_items.from_item_source(item_sources),for_pvp)
   end
 
-  def top_3_frost_upgrades
-    frost_upgrades.slice(0,3)
-  end
-
-  def frost_upgrades
-    top_upgrades_for(wow_class.equippable_items.from_item_source(EmblemSource.from_emblem_of_frost))
-  end
-
-  def triumph_upgrades
-    top_upgrades_for(wow_class.equippable_items.from_item_source(EmblemSource.from_emblem_of_triumph))
-  end
-
-  def dungeon_upgrades
-    top_upgrades_for(wow_class.equippable_items.from_item_source(DroppedSource.from_dungeons))
-  end
-
-  def top_3_triumph_upgrades
-    triumph_upgrades.slice(0,3)
-  end
-
-  def top_3_heroic_dungeon_upgrades
-    dungeon_upgrades.slice(0,3)
-  end
-
-  def top_upgrades_for(potential_upgrades)
+  def top_upgrades_for(potential_upgrades, for_pvp)
     upgrades = potential_upgrades.inject([]) do |found_upgrades, potential_upgrade|
       equipped_items.usable_in_same_slot_as(potential_upgrade).each do |equipped_item|
-        if (dps_change = dps_for(stat_change_between(potential_upgrade, equipped_item))) > 0
+        if (dps_change = dps_for(stat_change_between(potential_upgrade, equipped_item),for_pvp)) > 0
           found_upgrades << Upgrade.new(potential_upgrade, equipped_item, dps_change)
         end
       end
@@ -61,16 +64,12 @@ class Character < ActiveRecord::Base
     end.sort_by(&:dps_change).reverse
   end
 
-  def top_3_upgrades_for(potential_upgrades)
-    top_upgrades_for(potential_upgrades).slice(0, 3)
-  end
-
   def wow_class_name
     wow_class.name
   end
 
-  def dps_for(item_bonuses)
-    wow_class.stat_multipliers(primary_spec).inject(0) do |total_dps, relative_bonus_dps_value|
+  def dps_for(item_bonuses, for_pvp)
+    wow_class.stat_multipliers(primary_spec, for_pvp).inject(0) do |total_dps, relative_bonus_dps_value|
       stat_name, relative_dps_value = relative_bonus_dps_value
       total_dps += relative_dps_value * (item_bonuses[stat_name] ? item_bonuses[stat_name] : 0)
     end
