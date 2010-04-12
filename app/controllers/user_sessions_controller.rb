@@ -20,7 +20,8 @@ class UserSessionsController < ApplicationController
           @user.save
           invite.destroy
         else
-          redirect_to root_url and return
+          flash[:notice] = 'You need a valid invite to create an account'
+          redirect_to interested_url and return
         end
       end
       @user_session = UserSession.create(@user)

@@ -42,7 +42,8 @@ class UsersController < ApplicationController
     if params[:invite] && @invite = Invite.find_by_token(params[:invite][:token])
       return true
     else
-      redirect_to root_url
+      flash[:notice] = 'You need a valid invite to create an account'
+      redirect_to interested_url
       false
     end
   end

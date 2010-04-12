@@ -44,6 +44,14 @@ class UserSessionsControllerTest < ActionController::TestCase
       post :rpx_create, :invite => {:token => @invite.token}
       assert !assigns(:user).new_record?
     end
+
+    should "redirect to the interested page when trying to create a user without a valid invite token" do
+      data = {:identifier => 'http://foo.com', :email => nil}
+      RPXNow.stubs(:user_data).returns(data)
+      post :rpx_create, :invite => {:token => ''}
+      assert_redirected_to interested_url
+      assert_equal 'You need a valid invite to create an account', flash[:notice]
+    end
   end
 
   context "delete #destroy" do

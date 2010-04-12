@@ -8,10 +8,11 @@ class UsersControllerTest < ActionController::TestCase
       assert_response :success
     end
 
-    should "redirect to root_url for invalid invite token" do
+    should "redirect to interested page for invalid invite token" do
       invite = Invite.create(:email => 'foo@bar.com')
       get :new
-      assert_redirected_to root_url
+      assert_redirected_to interested_url
+      assert_equal 'You need a valid invite to create an account', flash[:notice]
     end
   end
 
@@ -47,10 +48,11 @@ class UsersControllerTest < ActionController::TestCase
       assert_not_nil Invite.find_by_id(invite.id)
     end
 
-    should "redirect to root_url for invalid invite token" do
+    should "redirect to interested page for invalid invite token" do
       invite = Invite.create(:email => 'foo@bar.com')
       post :create, :user => Factory.attributes_for(:user).to_param
-      assert_redirected_to root_url
+      assert_redirected_to interested_url
+      assert_equal 'You need a valid invite to create an account', flash[:notice]
     end
   end
 end
