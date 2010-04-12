@@ -91,8 +91,8 @@ select { font-size: 18px; }
 #footer ul { text-align: center; }
 #footer ul li { float: left; padding: 0 20px; }
 #footer ul li a { text-decoration: none; }
-#flash { background-color: #666; margin-top: 20px; }
-#flash p { padding: 0 10px 0 10px; font-size: 12px; }
+#flash { background: green url(/images/flash_notice.jpg); margin: -20px auto 20px auto; padding: 10px; -moz-border-radius: 0 0 10px 10px; }
+#flash p { padding: 0 10px; font-size: 22px; color: white; text-shadow: black 0.1em 0.1em 0.2em; }
 
 #content { clear: both; }
 #interested { margin-top: 35px; }
