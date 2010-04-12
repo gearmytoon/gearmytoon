@@ -97,6 +97,11 @@ select { font-size: 18px; }
 #content { clear: both; }
 #interested { margin-top: 35px; }
 #interested p { line-height: 24px; }
+#reasons { margin: 0 auto; }
+#reasons h1 { text-align: center; }
+#reasons h2 { margin-top: 40px; }
+#reasons p { line-height: 24px; padding-right: 30px; }
+#reasons .row { margin: 20px auto 0 auto; }
 
 #or { font-size: 16px; margin-top: 160px; text-align: center; }
 
