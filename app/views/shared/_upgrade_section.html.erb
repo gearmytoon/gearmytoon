@@ -1,6 +1,8 @@
 <div class="upgrade_section" id="<%= kind_of_upgrade %>">
   <h2>Your best upgrades from <%= yield %></h2>
+  <table class='upgrade_table'>
   <% upgrades.each do |upgrade| %>
     <%= render 'shared/upgrade', :upgrade => upgrade %>
   <% end %>
+  </table>
 </div>

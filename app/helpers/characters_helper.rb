@@ -5,7 +5,7 @@ module CharactersHelper
   end
   
   def wowhead_item_image_link(item)
-    link_to image_tag(item.icon, :alt => item.name, :border => 0), wowhead_item_path(item)
+    link_to image_tag(item.icon, :alt => item.name, :border => 0, :class => "item_icon"), wowhead_item_path(item)
   end
 
   def character_icon(character)

@@ -1,13 +1,14 @@
-<div class="upgrade">
-  <%= wowhead_item_icon_link_with_stylized_item_name upgrade.new_item %> : <%= upgrade.dps_change %> from
+<tr class="upgrade">
+  <td class="wow_item"><%= wowhead_item_icon_link_with_stylized_item_name upgrade.new_item %></td>
+  <td><%= upgrade.dps_change %></td>
   <% if upgrade.old_item.nil? #TODO: not happy with this if check in the view, should it be here? %>
-    <%= content_tag :span, "Empty Slot", :class => "old_item" %>
+    <td class="wow_item"><%= content_tag :span, "Empty Slot", :class => "old_item" %></td>
   <% else %>
-    <%= content_tag :span, wowhead_item_icon_link_with_stylized_item_name(upgrade.old_item), :class => "old_item" %>
+    <td class="wow_item"><%= content_tag :span, wowhead_item_icon_link_with_stylized_item_name(upgrade.old_item), :class => "old_item" %></td>
   <% end %>
   <% if upgrade.new_item.dropped_item? %>
-    <span class="source">Found in: <%= wowhead_area_link(upgrade.new_item.source_area) %></span>
+    <td class="upgrade_info"><span class="source">Found in: <%= wowhead_area_link(upgrade.new_item.source_area) %></span></td>
   <% elsif upgrade.new_item.purchased_item? %>
-    Will cost you: <%= content_tag :span, upgrade.new_item.token_cost, :class => "cost" %> emblem's.
+    <td class="upgrade_info">Will cost you: <%= content_tag :span, upgrade.new_item.token_cost, :class => "cost" %> emblem's.</td>
   <% end %>
-</div>
+</tr>

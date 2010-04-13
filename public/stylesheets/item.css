@@ -10,3 +10,29 @@
 .heirloom,a.heirloom:visited,a.heirloom:hover{
   color:#E5CC80;
 }
+.item_icon {
+  width:43px;
+  height:43px;
+}
+.upgrade .column{
+  vertical-align:middle;
+  display: table-cell;
+}
+.wow_item{
+  width:250px;
+  vertical-align:middle;
+}
+tr.upgrade td {
+  padding:5px;
+}
+.upgrade_info {
+  width:200px;
+}
+.upgrade_table{
+}
+.upgrade_section h2{
+  padding-bottom:7px;
+}
+td{
+  vertical-align:middle
+}
