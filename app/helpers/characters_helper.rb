@@ -1,6 +1,11 @@
 module CharactersHelper
+  
+  def wowhead_item_path(item)
+    "http://www.wowhead.com/?item=#{item.item_id}"
+  end
+  
   def wowhead_item_image_link(item)
-    link_to image_tag(item.icon, :alt => item.name, :border => 0), "http://www.wowhead.com/?item=#{item.item_id}"
+    link_to image_tag(item.icon, :alt => item.name, :border => 0), wowhead_item_path(item)
   end
 
   def character_icon(character)
@@ -8,7 +13,7 @@ module CharactersHelper
   end
 
   def stylized_item_name(item)
-    content_tag(:span, item.name, :class => item.quality)
+    link_to(item.name, wowhead_item_path(item), :class =>  "#{item.quality} wow_item")
   end
 
   def wowhead_npc_link(npc)

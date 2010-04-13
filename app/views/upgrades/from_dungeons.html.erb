@@ -1,1 +1,2 @@
+<%= render "shared/character_info", :character => @character %>
 <% render :layout => "shared/upgrade_section", :locals => {:kind_of_upgrade => "heroic_dungeon", :upgrades => @character.heroic_dungeon_upgrades} do %>Dungeon's<% end %>

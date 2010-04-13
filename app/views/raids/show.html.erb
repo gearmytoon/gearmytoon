@@ -1,3 +1,4 @@
+<%= render "shared/character_info", :character => @character %>
 <% @character.top_upgrades_for(@raid.items_dropped_in, false).each do |upgrade| %>
   <%= render 'shared/upgrade', :upgrade => upgrade %>
 <% end %>

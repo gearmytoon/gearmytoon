@@ -1,12 +1,12 @@
-.epic{
+.epic,a.epic:visited,a.epic:hover{
   color:#A335EE;
 }
-.rare{
+.rare,a.rare:visited,a.rare:hover{
   color:#0070DD;
 }
-.uncommon{
+.uncommon,a.uncommon:visited,a.uncommon:hover{
   color:#1EFF00;
 }
-.heirloom{
+.heirloom,a.heirloom:visited,a.heirloom:hover{
   color:#E5CC80;
 }

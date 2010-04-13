@@ -1,3 +1,4 @@
+<%= render "shared/character_info", :character => @character %>
 <% render :layout => "shared/upgrade_section", :locals => {:kind_of_upgrade => "emblem_of_frost", :upgrades => @character.frost_upgrades} do %>
   <%= stylized_item_name Item.badge_of_frost %> <%= wowhead_item_image_link Item.badge_of_frost %>
 <% end %>
