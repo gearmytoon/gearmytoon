@@ -20,3 +20,8 @@ task :import_all_item_text_files => :environment do
     FromTextFileItemImporter.import!("db/data/items/#{File.basename(file)}")
   end
 end
+
+desc "import all items that match a term from wow armory"
+task :import_by_wow_armory_search => :environment do
+  ItemImporter.import_all_items_that_contain!(ENV['TERM'])
+end

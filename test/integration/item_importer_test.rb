@@ -2,13 +2,17 @@ require File.dirname(__FILE__) + '/../test_helper'
 
 class ItemImporterTest < ActiveSupport::TestCase
   context "import_from_wowarmory!" do
+    should "not import previous seasons weapons with item sources" do
+      item = ItemImporter.import_from_wowarmory!(45966)
+      assert_equal [], item.item_sources
+    end
 
     should "import pvp items that are purchasable with honor" do
       item = ItemImporter.import_from_wowarmory!(41087)
       assert_equal 54500, item.item_sources.first.honor_point_cost
       assert_equal item, HonorSource.first.item
     end
-
+    
     # ItemImporter.import_from_wowarmory!(41144)
     should_eventually "import gladiator gloves that have 4 sources" do
       item = ItemImporter.import_from_wowarmory!(41143)

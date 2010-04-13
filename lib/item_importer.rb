@@ -79,12 +79,20 @@ class ItemImporter
   def self.api
     @@api ||= Wowr::API.new()
   end
+
   def self.import_from_wowarmory!(wowarmory_item_id)
     begin
       wowarmory_item = api.get_item(wowarmory_item_id)
       ItemImporter.new(wowarmory_item, wowarmory_item_id).import!
     rescue Wowr::Exceptions::ItemNotFound => e
       STDERR.puts e
+    end
+  end
+
+  def self.import_all_items_that_contain!(term)
+    items = api.search_items(term)
+    items.map do |item|
+      import_from_wowarmory!(item.id)
     end
   end
 
