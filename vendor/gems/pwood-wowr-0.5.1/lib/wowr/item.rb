@@ -103,7 +103,6 @@ module Wowr
 				# Cost can be in gold, or tokens
 				@cost = ItemCost.new(elem%'cost') if (elem%'cost')
 		
-		
 				# is costs really an array?
 				#@costs 		= []
 				#(elem/:cost).each do |cost|
@@ -470,10 +469,11 @@ module Wowr
 		# 	<token icon="spell_holy_championsbond" id="29434" count="60"></token>
 		# </cost>
 		class ItemCost
-			attr_reader :buy_price, :sell_price, :tokens, :honor_price
+			attr_reader :buy_price, :sell_price, :tokens, :honor_price, :arena_price
 	
 			def initialize(elem)
 			  @honor_price = Money.new(elem[:honor].to_i) if elem[:honor]
+			  @arena_price = Money.new(elem[:arena].to_i) if elem[:arena]
 				@buy_price 	= Money.new(elem[:buyPrice].to_i)	if elem[:buyPrice]
 				@sell_price	= Money.new(elem[:sellPrice].to_i)	if elem[:sellPrice]
 		

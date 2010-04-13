@@ -1,0 +1,3 @@
+class ArenaSource < ItemSource
+  
+end

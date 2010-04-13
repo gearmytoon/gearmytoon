@@ -25,7 +25,11 @@ class ItemImporter
     returning([]) do |sources|
       if wowarmory_item.drop_creatures.try(:first)
         area_id = wowarmory_item.item_source.area_id
-        area = Area.find_or_create_by_wowarmory_area_id_and_difficulty_and_name(area_id, wowarmory_item.item_source.difficulty, wowarmory_item.item_source.area_name)
+        if area_id.nil?
+          area = Area.find_by_name(wowarmory_item.drop_creatures.first.area)
+        else
+          area = Area.find_or_create_by_wowarmory_area_id_and_difficulty_and_name(area_id, wowarmory_item.item_source.difficulty, wowarmory_item.item_source.area_name)
+        end
         sources << DroppedSource.create(:source_area => area, :item => item)
       end
       if wowarmory_item.cost && wowarmory_item.cost.tokens
@@ -35,7 +39,9 @@ class ItemImporter
           sources << EmblemSource.create(:wowarmory_token_item_id => source_wowarmory_item_id, :token_cost => token_cost, :item => item)
         end
       end
-      if wowarmory_item.cost && wowarmory_item.cost.honor_price
+      if wowarmory_item.cost && wowarmory_item.cost.arena_price
+        sources << ArenaSource.create(:arena_point_cost => wowarmory_item.cost.arena_price,:honor_point_cost => wowarmory_item.cost.honor_price, :item => item)
+      elsif wowarmory_item.cost && wowarmory_item.cost.honor_price
         sources << HonorSource.create(:honor_point_cost => wowarmory_item.cost.honor_price, :item => item)
       end
     end
