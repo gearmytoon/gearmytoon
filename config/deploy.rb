@@ -27,6 +27,13 @@ namespace :vlad do
     run "cd #{current_path} && RAILS_ENV=production rake import_all_item_text_files"
   end
 
+  desc "import all items that match a term from wow armory on production"
+  remote_task :import_pvp_gear do
+    run "cd #{current_path} && RAILS_ENV=production rake import_by_wow_armory_search TERM=\"Relentless Gladiator's\""
+    run "cd #{current_path} && RAILS_ENV=production rake import_by_wow_armory_search TERM=\"furious Gladiator's\""
+    run "cd #{current_path} && RAILS_ENV=production rake import_by_wow_armory_search TERM=\"merciless Gladiator's\""
+  end
+
   namespace :gems do
     desc "install gems"
     remote_task :install do
