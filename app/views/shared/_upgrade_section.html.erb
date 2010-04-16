@@ -1,8 +1,20 @@
 <div class="upgrade_section" id="<%= kind_of_upgrade %>">
   <h2>Your best upgrades from <%= yield %></h2>
-  <table class='upgrade_table'>
-  <% upgrades.each do |upgrade| %>
-    <%= render 'shared/upgrade', :upgrade => upgrade %>
+  <% if upgrades.any? %>
+    <table class='upgrade_table'>
+      <thead>
+        <tr>
+          <th></th>
+          <th>Upgrade</th>
+          <th>DPS Value</th>
+          <th></th>
+          <th>Old Item</th>
+          <th>Upgrade Source</th>
+        </tr>
+      </thead>
+    <% upgrades.each do |upgrade| %>
+      <%= render 'shared/upgrade', :upgrade => upgrade %>
+    <% end %>
+    </table>
   <% end %>
-  </table>
 </div>
