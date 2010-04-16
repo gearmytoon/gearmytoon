@@ -5,7 +5,7 @@ class ItemSourceTest < ActiveSupport::TestCase
     should "find all items that can be purchased with emblem_of_triumph" do
       item_from_emblem_of_triumph = Factory(:item_from_emblem_of_triumph)
       Factory(:item)
-      assert_equal [item_from_emblem_of_triumph], Item.from_item_source(EmblemSource.from_emblem_of_triumph)
+      assert_equal [item_from_emblem_of_triumph], EmblemSource.from_emblem_of_triumph.map(&:item)
     end
   end
 
@@ -13,7 +13,7 @@ class ItemSourceTest < ActiveSupport::TestCase
     should "find all items that can be purchased with emblem_of_triumph" do
       item_from_emblem_of_frost = Factory(:item_from_emblem_of_frost)
       Factory(:item)
-      assert_equal [item_from_emblem_of_frost], Item.from_item_source(EmblemSource.from_emblem_of_frost)
+      assert_equal [item_from_emblem_of_frost], EmblemSource.from_emblem_of_frost.map(&:item)
     end
   end
   
@@ -21,14 +21,13 @@ class ItemSourceTest < ActiveSupport::TestCase
     should "find all items that are dropped inside a heroic dungeon" do
       item = Factory(:item_from_heroic_dungeon)
       Factory(:item)
-      assert_equal [item], Item.from_item_source(DroppedSource.from_dungeons)
+      assert_equal [item], DroppedSource.from_dungeons.map(&:item)
     end
     
     should "not find items that are dropped inside a heroic raid" do
       Factory(:item_from_heroic_raid)
-      assert_equal [], Item.from_item_source(DroppedSource.from_dungeons)
+      assert_equal [], DroppedSource.from_dungeons.map(&:item)
     end
-    
   end
   
 end

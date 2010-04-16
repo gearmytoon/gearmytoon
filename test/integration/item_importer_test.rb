@@ -258,7 +258,7 @@ class ItemImporterTest < ActiveSupport::TestCase
     end
     
     should "not import items that cost more then triumph badges" do
-      assert_no_difference "Item.from_item_source(EmblemSource.from_emblem_of_triumph).count" do
+      assert_no_difference "EmblemSource.from_emblem_of_triumph.count" do
         assert_difference "Item.count" do
           item = ItemImporter.import_from_wowarmory!(48223)
           assert_equal "VanCleef's Breastplate of Triumph", item.name

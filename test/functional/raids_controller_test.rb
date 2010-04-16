@@ -14,13 +14,22 @@ class RaidsControllerTest < ActionController::TestCase
 
   context "get show" do
     should "show the upgrades from a zone" do
-      character = Factory(:character_item, :character => Factory(:a_rogue)).character
+      character = Factory(:character_item).character
       Factory(:item_from_heroic_dungeon)
-      item = Factory(:item_from_heroic_raid)
-      get :show, :character_id => character.id, :id => item.source_area.id
+      raid = Factory(:item_from_heroic_raid)
+      get :show, :character_id => character.id, :id => raid.source_area.id
       assert_response :success
       assert_select ".upgrade", :count => 1
     end
+
+    should "not show any upgrades from a zone if your class does not have any" do
+      character = Factory(:character_item, :character => Factory(:a_rogue)).character
+      raid = Factory(:item_from_heroic_raid, :armor_type => ArmorType.plate)
+      get :show, :character_id => character.id, :id => raid.source_area.id
+      assert_response :success
+      assert_select ".upgrade", :count => 0
+    end
     
   end
+
 end
