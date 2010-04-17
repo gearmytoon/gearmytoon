@@ -13,20 +13,15 @@ class Item < ActiveRecord::Base
   belongs_to :armor_type
 
   def self.badge_of_frost
-    fetch_from_api(FROST_EMBLEM_ARMORY_ID)
+    find_by_wowarmory_item_id(FROST_EMBLEM_ARMORY_ID)
   end
 
   def self.badge_of_triumph
-    fetch_from_api(TRIUMPH_EMBLEM_ARMORY_ID)
+    find_by_wowarmory_item_id(TRIUMPH_EMBLEM_ARMORY_ID)
   end
   
   def self.wintergrasp_mark
-    fetch_from_api(WINTERGRASP_MARK_OF_HONOR)
-  end
-
-  def self.fetch_from_api(item_id)
-    api = Wowr::API.new
-    item = api.get_item(item_id)
+    find_by_wowarmory_item_id(WINTERGRASP_MARK_OF_HONOR)
   end
 
   def item_id #to quack the same as wowr wowitems

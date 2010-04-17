@@ -19,15 +19,6 @@ class CharactersHelperTest < ActionView::TestCase
     end
   end
 
-  context "wowhead_npc_link" do
-    should "generate a link to wowhead for the npc" do
-      tag = wowhead_npc_link(stub_everything(:name => "Bronjahm", :id => 36497))
-      assert_equal "<a href=\"http://www.wowhead.com/?npc=36497\">Bronjahm</a>", tag
-      tag = wowhead_npc_link(stub_everything(:name => "Kong", :id => 2))
-      assert_equal "<a href=\"http://www.wowhead.com/?npc=2\">Kong</a>", tag
-    end
-  end
-
   context "stylized_item_name" do
     should "provide a span with the item name and its quality" do
       item = OpenStruct.new(:quality => 'epic', :name => "Minshina's Skull")

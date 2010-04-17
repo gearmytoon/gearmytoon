@@ -5,6 +5,12 @@ require 'authlogic/test_case'
 
 class ActionController::TestCase
   include Authlogic::TestCase
+  
+  setup do
+    Factory(:item, :wowarmory_item_id => Item::TRIUMPH_EMBLEM_ARMORY_ID)
+    Factory(:item, :wowarmory_item_id => Item::FROST_EMBLEM_ARMORY_ID)
+    Factory(:item, :wowarmory_item_id => Item::WINTERGRASP_MARK_OF_HONOR)
+  end
 end
 
 class ActiveSupport::TestCase
@@ -44,11 +50,4 @@ class ActiveSupport::TestCase
   end
 
   # Add more helper methods to be used by all tests here...
-  def stub_everything(hash)
-    Ztub.new.stub_everything(hash)
-  end
-end
-
-class Ztub
-  include Mocha::API
 end

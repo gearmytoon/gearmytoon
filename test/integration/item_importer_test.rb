@@ -6,6 +6,11 @@ class ItemImporterTest < ActiveSupport::TestCase
       item = ItemImporter.import_from_wowarmory!(45966)
       assert_equal [], item.item_sources
     end
+
+    should "import emblem of frost correctly" do
+      item = ItemImporter.import_from_wowarmory!(Item::FROST_EMBLEM_ARMORY_ID)
+      assert_equal "epic", item.quality
+    end
     
     should "import pvp items that are purchasable with honor" do
       item = ItemImporter.import_from_wowarmory!(41087)
