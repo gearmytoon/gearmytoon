@@ -9,9 +9,5 @@
     <td><%= wowhead_item_image_link upgrade.old_item %></td>
     <td class="wow_item old_item"><%= stylized_item_name(upgrade.old_item) %></td>
   <% end %>
-  <% if upgrade.new_item.dropped_item? %>
-    <td class="upgrade_info"><span class="source">Found in: <%= wowhead_area_link(upgrade.new_item.source_area) %></span></td>
-  <% elsif upgrade.new_item.purchased_item? %>
-    <td class="upgrade_info">Will cost you: <%= content_tag :span, upgrade.new_item.token_cost, :class => "cost" %> emblem's.</td>
-  <% end %>
+  <td class="upgrade_info"><%= render "upgrades/#{upgrade.new_item_source_type}", :item_source => upgrade.new_item_source %></td>
 </tr>

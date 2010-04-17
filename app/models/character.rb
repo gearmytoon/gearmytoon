@@ -50,12 +50,11 @@ class Character < ActiveRecord::Base
   end
 
   def top_upgrades_from(item_sources, for_pvp)
-    potential_upgrades = item_sources.for_items(wow_class.equippable_items).map(&:item)
-
-    upgrades = potential_upgrades.inject([]) do |found_upgrades, potential_upgrade|
-      equipped_items.usable_in_same_slot_as(potential_upgrade).each do |equipped_item|
-        if (dps_change = dps_for(stat_change_between(potential_upgrade, equipped_item),for_pvp)) > 0
-          found_upgrades << Upgrade.new(potential_upgrade, equipped_item, dps_change)
+    potential_upgrade_sources = item_sources.for_items(wow_class.equippable_items)
+    upgrades = potential_upgrade_sources.inject([]) do |found_upgrades, potential_upgrade_source|
+      equipped_items.usable_in_same_slot_as(potential_upgrade_source.item).each do |equipped_item|
+        if (dps_change = dps_for(stat_change_between(potential_upgrade_source.item, equipped_item),for_pvp)) > 0
+          found_upgrades << Upgrade.new(potential_upgrade_source, equipped_item, dps_change)
         end
       end
       found_upgrades
