@@ -35,15 +35,46 @@
   font-size:14px;
   padding:13px;
 }
-
+#upgrades{
+  padding-top:20px;
+  float:left;
+}
 #tabs{
   float:left;
 }
 #active_tab{
   padding-left:10px;
+  -moz-border-radius: 5px;
+  -webkit-border-radius: 5px;
   float:left;
+  border:1px solid white;
 }
-#upgrades{
-  padding-top:20px;
-  float:left;
+.tab{
+  background:#121212;
+  -webkit-border-top-left-radius: 5px;
+  -webkit-border-bottom-left-radius: 5px;
+  -moz-border-radius-topleft: 5px;
+  -moz-border-radius-bottomleft: 5px;
+  padding:5px;
+  margin-top:3px;
+  border:1px solid white;
+  filter:alpha(opacity=50);
+  -moz-opacity:0.5;
+  -khtml-opacity: 0.5;
+  opacity: 0.5;
+}
+.tab:hover{
+  filter:alpha(opacity=80);
+  -moz-opacity:0.8;
+  -khtml-opacity: 0.8;
+  opacity: 0.8;
+  background:#303030;
+}
+#tabs .selected{
+  filter:alpha(opacity=1);
+  -moz-opacity:1;
+  -khtml-opacity: 1;
+  opacity: 1;
+  background:#222222;
+  border-right:none;
 }
