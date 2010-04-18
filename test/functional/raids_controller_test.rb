@@ -29,7 +29,6 @@ class RaidsControllerTest < ActionController::TestCase
       assert_response :success
       assert_select ".upgrade", :count => 0
     end
-    
   end
-
+  
 end

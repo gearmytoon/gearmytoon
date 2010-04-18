@@ -35,3 +35,15 @@
   font-size:14px;
   padding:13px;
 }
+
+#tabs{
+  float:left;
+}
+#active_tab{
+  padding-left:10px;
+  float:left;
+}
+#upgrades{
+  padding-top:20px;
+  float:left;
+}

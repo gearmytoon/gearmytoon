@@ -1,17 +1,17 @@
 class UpgradesController < ApplicationController
-  def from_frost_emblems
+  def frost
     @character = Character.find(params[:character_id])
     @upgrades = @character.frost_upgrades
     render "show"
   end
   
-  def from_triumph_emblems
+  def triumph
     @character = Character.find(params[:character_id])
     @upgrades = @character.triumph_upgrades
     render "show"
   end
   
-  def from_dungeons
+  def dungeon
     @character = Character.find(params[:character_id])
     @upgrades = @character.heroic_dungeon_upgrades
     render "show"

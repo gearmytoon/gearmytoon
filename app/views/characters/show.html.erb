@@ -1,19 +1,5 @@
 <%= render "shared/character_info", :character => @character %>
-<div>
-  <%= link_to "Upgrades Summary", character_path(@character) %>
-  <%= link_to "Upgrades From Raids", character_raids_path(@character) %>
-  <%= link_to "Upgrades From Dungeons", character_dungeons_path(@character) %>
-</div>
-
-<div id="upgrades">
-  <ul>
-    <li><%= link_to item_icon(Item.badge_of_frost),from_frost_emblems_character_upgrades_path(@character) %></li>
-    <li><%= link_to item_icon(Item.badge_of_triumph),from_triumph_emblems_character_upgrades_path(@character) %></li>
-    <li><%= link_to item_icon(Item.badge_of_triumph),from_dungeons_character_upgrades_path(@character) %></li>
-    <li><%= link_to item_icon(Item.badge_of_triumph),from_10_man_raids_character_upgrades_path(@character) %></li>
-    <li><%= link_to item_icon(Item.badge_of_triumph),from_25_man_raids_character_upgrades_path(@character) %></li>
-  </ul>
-  
+<% render :layout => "shared/pve_tabs" do %>
   <% render :layout => "shared/upgrade_section", :locals => {:kind_of_upgrade => "emblem_of_frost", :upgrades => @character.top_3_frost_upgrades} do %>
     <%= stylized_item_name Item.badge_of_frost %> <%= wowhead_item_image_link Item.badge_of_frost %> <span class="see_more"><%= link_to "more upgrades", from_frost_emblems_character_upgrades_path(@character) %></span>
   <% end %>
@@ -25,4 +11,4 @@
   <% render :layout => "shared/upgrade_section", :locals => {:kind_of_upgrade => "heroic_dungeon", :upgrades => @character.top_3_heroic_dungeon_upgrades} do %>
     Heroic Dungeon's <span class="see_more"><%= link_to "more upgrades", from_dungeons_character_upgrades_path(@character) %></span>
   <% end %>
-</div>
+<% end %>

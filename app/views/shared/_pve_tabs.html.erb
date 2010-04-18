@@ -1,0 +1,13 @@
+<div id="upgrades">
+  <ul id="tabs">
+    <li><%= link_to "S", character_path(@character) %></li>
+    <li><%= link_to item_icon(Item.badge_of_frost), frost_character_upgrades_path(@character) %></li>
+    <li><%= link_to item_icon(Item.badge_of_triumph), triumph_character_upgrades_path(@character) %></li>
+    <li><%= link_to item_icon(Item.badge_of_triumph), dungeon_character_upgrades_path(@character) %></li>
+    <li><%= link_to item_icon(Item.badge_of_triumph), raid_10_character_upgrades_path(@character) %></li>
+    <li><%= link_to item_icon(Item.badge_of_triumph), raid_25_character_upgrades_path(@character) %></li>
+  </ul>
+  <div id="active_tab">
+    <%= yield %>
+  </div>
+</div>
