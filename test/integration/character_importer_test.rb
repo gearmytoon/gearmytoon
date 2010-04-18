@@ -15,7 +15,7 @@ class CharacterImporterTest < ActiveSupport::TestCase
       end
     end
   end
-  
+
   context "import_character_and_all_items" do
     should "import rails and all of his equipped items" do
       Factory(:wow_class, :name => "Paladin")
@@ -45,7 +45,7 @@ class CharacterImporterTest < ActiveSupport::TestCase
     end
 
     should_eventually "display a unable to fetch the latest data for your character, wow armory may be down"
-    
+
     should "import a characters total_item_bonuses" do
       Factory(:wow_class, :name => "Hunter")
       character = Factory.build(:character, :name => "Merb", :realm => "Baelgun")
@@ -72,7 +72,7 @@ class CharacterImporterTest < ActiveSupport::TestCase
       assert_not_nil character.total_item_bonuses[:mana_regen]
       assert_not_nil character.total_item_bonuses[:spell_power]
       assert_not_nil character.total_item_bonuses[:spell_penetration]
-      
+
       assert_not_nil character.total_item_bonuses[:armor_penetration]
     end
   end

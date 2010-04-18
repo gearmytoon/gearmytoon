@@ -1,4 +1,4 @@
-<%= render "shared/character_info", :character => @character %>
+<%= render "shared/character_info", :character => @character, :pvp => false %>
 
 <% render :layout => 'shared/upgrade_section', :locals => {:kind_of_upgrade => "raid", :upgrades => @character.top_upgrades_from(@raid.dropped_sources, false)} do %>
   <%= @raid.name %>
