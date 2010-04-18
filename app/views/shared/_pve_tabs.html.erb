@@ -1,11 +1,11 @@
 <div id="upgrades">
   <ul id="tabs">
-    <%= tab_link("S", character_path(@character)) %>
-    <%= tab_link(item_icon(Item.badge_of_frost), frost_character_upgrades_path(@character)) %>
-    <%= tab_link(item_icon(Item.badge_of_triumph), triumph_character_upgrades_path(@character)) %>
-    <%= tab_link(item_icon(Item.badge_of_triumph), dungeon_character_upgrades_path(@character)) %>
-    <%= tab_link(item_icon(Item.badge_of_triumph), raid_10_character_upgrades_path(@character)) %>
-    <%= tab_link(item_icon(Item.badge_of_triumph), raid_25_character_upgrades_path(@character)) %>
+    <%= tab_link("S", character_path(@character), "Upgrade Summary") %>
+    <%= tab_link(item_icon(Item.badge_of_frost), frost_character_upgrades_path(@character), "Frost Emblem Upgrades") %>
+    <%= tab_link(item_icon(Item.badge_of_triumph), triumph_character_upgrades_path(@character), "Triumph Emblem Upgrades") %>
+    <%= tab_link(item_icon(Item.badge_of_triumph), dungeon_character_upgrades_path(@character), "Dungeon Upgrades") %>
+    <%= tab_link(item_icon(Item.badge_of_triumph), raid_10_character_upgrades_path(@character), "10 man Raid Upgrades") %>
+    <%= tab_link(item_icon(Item.badge_of_triumph), raid_25_character_upgrades_path(@character), "25 man Raid Upgrades") %>
   </ul>
   <div id="active_tab">
     <%= yield %>
