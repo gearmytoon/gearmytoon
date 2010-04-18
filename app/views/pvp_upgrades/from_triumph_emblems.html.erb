@@ -1,4 +1,0 @@
-<%= render "shared/character_info", :character => @character %>
-<% render :layout => "shared/upgrade_section", :locals => {:kind_of_upgrade => "emblem_of_triumph", :upgrades => @character.triumph_pvp_upgrades} do %>
-  <%= stylized_item_name Item.badge_of_triumph %> <%= wowhead_item_image_link Item.badge_of_triumph %>
-<% end %>

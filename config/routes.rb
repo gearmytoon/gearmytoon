@@ -7,8 +7,7 @@ ActionController::Routing::Routes.draw do |map|
     character.resources :raids
     character.resources :dungeons
     character.resource :upgrades, :member => {:frost => :get, :triumph => :get, :dungeon => :get, :raid_25 => :get, :raid_10 => :get}
-    character.resource :pvp_upgrades, :member => {:from_frost_emblems => :get, :from_triumph_emblems => :get, 
-                                              :from_honor_points => :get, :from_wintergrasp_marks => :get}
+    character.resource :pvp_upgrades, :member => {:frost => :get, :triumph => :get, :honor_points => :get, :wintergrasp => :get}
   end
   map.resource :account, :controller => 'users'
   map.resource :user_session

@@ -1,0 +1,12 @@
+<div id="upgrades">
+  <ul id="tabs">
+    <%= tab_link("S", pvp_character_path(@character), "PvP Upgrade Summary") %>
+    <%= tab_link("H", honor_points_character_pvp_upgrades_path(@character), "Honor Point Upgrades") %>
+    <%= tab_link(item_icon(Item.wintergrasp_mark), wintergrasp_character_pvp_upgrades_path(@character), "Wintergrasp Upgrades") %>
+    <%= tab_link(item_icon(Item.badge_of_triumph), triumph_character_pvp_upgrades_path(@character), "Triumph Emblem Upgrades") %>
+    <%= tab_link(item_icon(Item.badge_of_frost), frost_character_pvp_upgrades_path(@character), "Frost Emblem Upgrades") %>
+  </ul>
+  <div id="active_tab">
+    <%= yield %>
+  </div>
+</div>

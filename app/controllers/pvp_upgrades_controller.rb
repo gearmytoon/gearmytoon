@@ -1,17 +1,25 @@
 class PvpUpgradesController < ApplicationController
-  def from_frost_emblems
+  def frost
     @character = Character.find(params[:character_id])
+    @upgrades = @character.frost_upgrades
+    render "show"
   end
   
-  def from_triumph_emblems
+  def triumph
     @character = Character.find(params[:character_id])
+    @upgrades = @character.triumph_upgrades
+    render "show"
   end
 
-  def from_honor_points
+  def honor_points
     @character = Character.find(params[:character_id])
+    @upgrades = @character.honor_point_upgrades
+    render "show"
   end
   
-  def from_wintergrasp_marks
+  def wintergrasp
     @character = Character.find(params[:character_id])
+    @upgrades = @character.wintergrasp_mark_upgrades
+    render "show"
   end
 end
