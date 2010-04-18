@@ -1,7 +1,7 @@
 <div class="character <%= character.faction %> <%= 'pvp' if pvp %>">
-  <%= character_icon character %>
+  <%= link_to character_icon(character), character %>
   <div class="info">
-    <h1 class="name"><%= character.name %></h1>
+    <h1 class="name"><%= link_to character.name, character %></h1>
     <% if character.guild.present? || true -%>
       <p class="guild"><%= character.guild || "Wipes on Trash" %></p>
     <% end -%>
@@ -17,7 +17,7 @@
   </div>
 </div>
 <% if pvp -%>
-  <%= link_to "Show PvE Gear", character_path(character), :class => 'awesome large green' %>
+  <%= link_to "Show PvE Gear", character, :class => 'awesome large green' %>
 <% else -%>
   <%= link_to "Show PvP Gear", pvp_character_path(character), :class => 'awesome large red' %>
 <% end -%>

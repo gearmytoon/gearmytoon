@@ -10,6 +10,7 @@
 .character.pvp.alliance { background: #0202af url(/images/alliance_blue.png) no-repeat right top; }
 .character img { float: left; margin: 0 8px; border: 2px solid #000; -moz-border-radius: 6px; -webkit-border-radius: 6px; border-radius: 6px; }
 .character h1.name { font-size: 22px; color: white; line-height: 18px; font-weight: normal; margin: 0; }
+.character h1.name a { text-decoration: none; }
 .character .info { float: left; }
 .character .level { background-color: #000; color: #fff; font-size: 14px; position: absolute; top: 57px; right: 240px; text-align: center; width: 24px; height: 20px; border: 2px solid #000; -moz-border-radius: 12px; -webkit-border-radius: 12px; border-radius: 12px; }
 .character .guild { color: GoldenRod; }
