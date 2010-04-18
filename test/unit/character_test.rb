@@ -306,7 +306,7 @@ class CharacterTest < ActiveSupport::TestCase
     end
 
     should "be alliance for dwarf, gnome, human, night elf, dranei" do
-      ['dwarf', 'gnome', 'human', 'night elf', 'dranei'].each do |race|
+      ['dwarf', 'gnome', 'human', 'night elf', 'draenei'].each do |race|
         assert_equal 'alliance', Character.new(:race => race).faction
       end
     end

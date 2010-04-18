@@ -31,7 +31,7 @@ class Character < ActiveRecord::Base
   DEFAULT_LOCALE = 'us'
   LOCALES = [['US','us'],['EU','eu'],['CN','cn'],['TW','tw'],['KR','kr']]
   HORDE_RACES = ['orc', 'undead', 'troll', 'tauren', 'blood elf']
-  ALLIANCE_RACES = ['dwarf', 'gnome', 'human', 'night elf', 'dranei']
+  ALLIANCE_RACES = ['dwarf', 'gnome', 'human', 'night elf', 'draenei']
 
   belongs_to :wow_class
   belongs_to :user
