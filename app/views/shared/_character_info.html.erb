@@ -1,18 +1,23 @@
-<div id="character_info">
-  <span id="portrait"><%= character_icon character %></span>
-  <div id="summary_details">
-    <div id="character_details">
-      <span id="character_name"><%= character.name.capitalize %></span> <span>Level <span class="level"><%= character.level %></span> <span class="primary_spec"><%= character.primary_spec %></span> <span class="klass"><%= character.wow_class.name %></span></span>
-    </div>
-    <div class="guild">
-      <%=h "<#{character.guild}>" %>
-    </div>
-    <div id="realm_and_battlegroup">
-      <%= character.realm.capitalize %>, <%= character.battle_group %>
-    </div>
-  </div>
-  <div id="pve_pvp_toggle">
-    <%= link_to "PvE", character_path(character), :class => 'awesome large green' %>
-    <%= link_to "PvP", pvp_character_path(character), :class => 'awesome large red' %>
+<div class="character <%= character.faction %> <%= 'pvp' if pvp %>">
+  <%= character_icon character %>
+  <div class="info">
+    <h1 class="name"><%= character.name %></h1>
+    <% if character.guild.present? || true -%>
+      <p class="guild"><%= character.guild || "Wipes on Trash" %></p>
+    <% end -%>
+    <p class="level"><%= character.level %></p>
+    <p>
+      <span class="spec"><%= character.primary_spec %></span>
+      <span class="klass"><%= character.wow_class.name %></span>
+    </p>
+    <p>
+      <span class="realm"><%= character.realm.capitalize %></span> /
+      <span class="battlegroup"><%= character.battle_group %></span>
+    </p>
   </div>
 </div>
+<% if pvp -%>
+  <%= link_to "Show PvE Gear", character_path(character), :class => 'awesome large green' %>
+<% else -%>
+  <%= link_to "Show PvP Gear", pvp_character_path(character), :class => 'awesome large red' %>
+<% end -%>

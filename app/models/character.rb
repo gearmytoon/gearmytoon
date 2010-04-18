@@ -9,7 +9,7 @@ class Character < ActiveRecord::Base
     define_method("top_3_#{kind_of_upgrade}_pvp_upgrades") do
       send(all_pvp_upgrades_method_name).first(3)
     end
-    
+
     define_method(all_upgrades_method_name) do
       top_upgrades_from(item_sources.call, false)
     end
@@ -18,18 +18,20 @@ class Character < ActiveRecord::Base
     end
 
   end
-  
+
   has_upgrades_from :frost, Proc.new{EmblemSource.from_emblem_of_frost}
   has_upgrades_from :triumph, Proc.new{EmblemSource.from_emblem_of_triumph}
   has_upgrades_from :heroic_dungeon, Proc.new{DroppedSource.from_dungeons}
   has_upgrades_from :raid, Proc.new{DroppedSource.from_raids}
   has_upgrades_from :honor_point, Proc.new{HonorSource.all}
   has_upgrades_from :wintergrasp_mark, Proc.new{EmblemSource.from_wintergrasp_mark_of_honor}
-  
+
   attr_accessor :dont_use_wow_armory
 
   DEFAULT_LOCALE = 'us'
   LOCALES = [['US','us'],['EU','eu'],['CN','cn'],['TW','tw'],['KR','kr']]
+  HORDE_RACES = ['orc', 'undead', 'troll', 'tauren', 'blood elf']
+  ALLIANCE_RACES = ['dwarf', 'gnome', 'human', 'night elf', 'dranei']
 
   belongs_to :wow_class
   belongs_to :user
@@ -89,6 +91,11 @@ class Character < ActiveRecord::Base
 
   def hard_caps
     wow_class.hard_caps
+  end
+
+  def faction
+    return 'horde' if HORDE_RACES.include?(race.downcase)
+    return 'alliance' if ALLIANCE_RACES.include?(race.downcase)
   end
 
   private

@@ -7,6 +7,7 @@ Factory.define(:character) do |model|
   model.guild "Special Circumstances"
   model.level 80
   model.wow_class WowClass.create_class!("Hunter")
+  model.race 'Troll'
   model.dont_use_wow_armory true
 end
 

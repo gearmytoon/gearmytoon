@@ -167,7 +167,7 @@ class CharacterTest < ActiveSupport::TestCase
         assert_kind_of Upgrade, upgrade
       end
     end
-    
+
     should "only find items from raids" do
       character = Factory(:character_item, :item => Factory(:item, :bonuses => {:attack_power => 100.0})).character
       heroic_upgrade = Factory(:item_from_heroic_raid, :bonuses => {:attack_power => 500.0})
@@ -176,7 +176,7 @@ class CharacterTest < ActiveSupport::TestCase
       assert_equal 1, upgrades.size
       assert_equal heroic_upgrade, upgrades.first.new_item
     end
-    
+
   end
   context "top_3_honor_upgrades" do
     should "find top 3" do
@@ -295,6 +295,20 @@ class CharacterTest < ActiveSupport::TestCase
     should "be composed of name, realm, and locale" do
       c = Factory(:character, :name => "Foo", :realm => "Bar")
       assert_equal "foo-bar-us", c.friendly_id
+    end
+  end
+
+  context "faction" do
+    should "be horde for blood elf, orc, tauren, troll, undead" do
+      ['orc', 'undead', 'troll', 'tauren', 'blood elf'].each do |race|
+        assert_equal 'horde', Character.new(:race => race).faction
+      end
+    end
+
+    should "be alliance for dwarf, gnome, human, night elf, dranei" do
+      ['dwarf', 'gnome', 'human', 'night elf', 'dranei'].each do |race|
+        assert_equal 'alliance', Character.new(:race => race).faction
+      end
     end
   end
 end

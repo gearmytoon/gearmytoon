@@ -74,12 +74,13 @@ class CharactersControllerTest < ActionController::TestCase
       character = Factory(:character, :name => "merb", :realm => "Baelgun", :battle_group => "Shadowburn", :guild => "Special Circumstances", :primary_spec => "Survival")
       get :show, :id => character.friendly_id
       assert_response :success
-      assert_select "#character_name", :text => "Merb"
-      assert_select "#character_info .guild", :text => "&lt;Special Circumstances&gt;"
-      assert_select "#character_info .level", :text => "80"
-      assert_select "#character_info .klass", :text => "Hunter"
-      assert_select "#realm_and_battlegroup", :text => "Baelgun, Shadowburn"
-      assert_select "#character_info .primary_spec", :text => "Survival"
+      assert_select ".character .name", :text => "Merb"
+      assert_select ".character .guild", :text => "Special Circumstances"
+      assert_select ".character .level", :text => "80"
+      assert_select ".character .klass", :text => "Hunter"
+      assert_select ".character .realm", :text => "Baelgun"
+      assert_select ".character .battlegroup", :text => "Shadowburn"
+      assert_select ".character .spec", :text => "Survival"
     end
 
     should "find a character by slug" do
@@ -144,7 +145,7 @@ class CharactersControllerTest < ActionController::TestCase
   end
 
   context "get pvp" do
-    
+
     context "upgrades sections" do
       should "render Honor" do
         character = Factory(:character_item, :item => Factory(:item, :bonuses => {:attack_power => 100.0})).character
