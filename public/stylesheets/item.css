@@ -30,3 +30,8 @@
 .upgrade td {
   padding:2px;
 }
+.upgrade .cost {
+  float:left;
+  font-size:14px;
+  padding:13px;
+}

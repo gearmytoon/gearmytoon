@@ -61,10 +61,6 @@ Factory.define(:dungeon_dropped_source, :class => :dropped_source) do |model|
   model.association :source_area, :factory => :dungeon
 end
 
-Factory.define(:raid_dropped_source, :class => :dropped_source) do |model|
-  model.association :source_area, :factory => :raid
-end
-
 Factory.define(:frost_emblem_source, :class => :emblem_source) do |model|
   model.token_cost 60
   model.wowarmory_token_item_id Item::FROST_EMBLEM_ARMORY_ID
@@ -84,13 +80,31 @@ Factory.define(:wintergrasp_source, :class => :emblem_source) do |model|
   model.wowarmory_token_item_id Item::WINTERGRASP_MARK_OF_HONOR
 end
 
+Factory.define(:raid_dropped_source, :class => :dropped_source) do |model|
+  model.association :source_area, :factory => :raid_10
+end
+
+Factory.define(:twenty_five_man_raid_source, :class => :dropped_source) do |model|
+  model.association :source_area, :factory => :raid_25
+end
+
+Factory.define(:ten_man_raid_source, :class => :dropped_source) do |model|
+  model.association :source_area, :factory => :raid_10
+end
+
 Factory.define(:dungeon, :class => :area) do |model|
   model.name "Super Fun Unicorn Land"
   model.wowarmory_area_id Area::DUNGEONS.first
 end
 
-Factory.define(:raid, :class => :area) do |model|
+Factory.define(:raid_25, :class => :area) do |model|
   model.name "Super DUPER Fun Unicorn Land"
   model.wowarmory_area_id Area::RAIDS.first
+  model.players 25
 end
 
+Factory.define(:raid_10, :class => :area) do |model|
+  model.name "Super DUPER Fun Unicorn Land"
+  model.wowarmory_area_id Area::RAIDS.first
+  model.players 10
+end

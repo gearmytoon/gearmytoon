@@ -9,7 +9,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20100417182046) do
+ActiveRecord::Schema.define(:version => 20100418004144) do
 
   create_table "areas", :force => true do |t|
     t.string   "name"
@@ -17,6 +17,7 @@ ActiveRecord::Schema.define(:version => 20100417182046) do
     t.datetime "created_at"
     t.datetime "updated_at"
     t.string   "difficulty"
+    t.integer  "players"
   end
 
   add_index "areas", ["wowarmory_area_id"], :name => "index_areas_on_wowarmory_area_id"

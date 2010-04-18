@@ -6,6 +6,14 @@
 </div>
 
 <div id="upgrades">
+  <ul>
+    <li><%= link_to item_icon(Item.badge_of_frost),from_frost_emblems_character_upgrades_path(@character) %></li>
+    <li><%= link_to item_icon(Item.badge_of_triumph),from_triumph_emblems_character_upgrades_path(@character) %></li>
+    <li><%= link_to item_icon(Item.badge_of_triumph),from_dungeons_character_upgrades_path(@character) %></li>
+    <li><%= link_to item_icon(Item.badge_of_triumph),from_10_man_raids_character_upgrades_path(@character) %></li>
+    <li><%= link_to item_icon(Item.badge_of_triumph),from_25_man_raids_character_upgrades_path(@character) %></li>
+  </ul>
+  
   <% render :layout => "shared/upgrade_section", :locals => {:kind_of_upgrade => "emblem_of_frost", :upgrades => @character.top_3_frost_upgrades} do %>
     <%= stylized_item_name Item.badge_of_frost %> <%= wowhead_item_image_link Item.badge_of_frost %> <span class="see_more"><%= link_to "more upgrades", from_frost_emblems_character_upgrades_path(@character) %></span>
   <% end %>
