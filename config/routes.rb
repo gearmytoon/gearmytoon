@@ -22,5 +22,6 @@ ActionController::Routing::Routes.draw do |map|
 
   map.interested 'interested', :controller => 'home', :action => 'interested'
   map.reasons 'reasons', :controller => 'home', :action => 'reasons'
+  map.contact 'contact', :controller => 'home', :action => 'contact'
   map.root :controller => "home"
 end

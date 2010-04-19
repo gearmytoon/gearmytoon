@@ -196,6 +196,14 @@ select { font-size: 18px; }
 #header h1 { font-size: 20px; margin: 0; }
 #header h1 a { text-decoration: none; float: left; }
 #header #user_controls { float: right; margin: 10px 0 0 0; }
+ul#nav { float: left; margin: 10px 0 0 50px; font-size: 16px; }
+ul#nav li { display: inline; list-style: disc outside none; margin-right: 20px; }
+ul#nav li a { text-decoration: none; }
+ul#nav li a:hover { text-decoration: underline; }
+ul#social_links { position: absolute; top: 105px; right: 150px; font-size: 14px; text-align: center; padding: 0 4px; border: 2px solid white; border-top: 0; background-color: #888; -moz-border-radius: 0 0 10px 10px; -webkit-border-radius: 0 0 10px 10px; border-radius: 0 0 10px 10px; }
+ul#social_links p { margin-top: -4px; font-weight: bold; }
+ul#social_links li { display: inline; list-style: disc outside none; }
+ul#social_links li a { text-decoration: none; }
 #footer { margin: 20px auto 0 auto; padding: 20px; background-color: black; height: 100px; text-align: center; }
 #footer ul { text-align: center; }
 #footer ul li { float: left; padding: 0 20px; }

@@ -18,10 +18,23 @@
      <script src="http://static.wowhead.com/widgets/power.js" type="text/javascript"></script>
   </head>
   <body>
-    <div id="header" class="row grid_12">
-      <h1><%= link_to "gearmytoon.com", root_url %></h1>
-      <div id="user_controls">
-        <%= link_to "My Account", account_path %>
+    <div id="header">
+      <div class="row">
+        <h1><%= link_to "gearmytoon.com", root_url %></h1>
+        <ul id="nav">
+          <li><%= link_to "Home", root_path %></li>
+          <li><%= link_to "Doing the Math", reasons_path %></li>
+          <li><%= link_to "Gear your Toon", signup_path %></li>
+          <li><%= link_to "Contact", contact_path %></li>
+        </ul>
+        <div id="user_controls">
+          <%= link_to "My Account", account_path %>
+        </div>
+        <ul id="social_links">
+          <li><%= link_to image_tag('twitter.png'), "http://twitter.com/gearmytoon", :title => 'Follow Gear My Toon on Twitter' %></li>
+          <li><%= link_to image_tag('facebook.png'), "http://www.facebook.com/pages/Gear-My-Toon/116201925065981", :title => 'Become a Gear My Toon Fan on Facebook' %></li>
+          <p>follow us</p>
+        </ul>
       </div>
     </div>
     <% if flash[:notice].present? -%>
@@ -33,11 +46,13 @@
     <div id="content" class="row">
       <%= yield %>
     </div>
-    <div id="footer" class="row">
-      <%= link_to "home", root_url %> |
-      <%= link_to "public beta", interested_url %> |
-      <%= link_to "about us", reasons_url %>
-      <p class="copyright">Copyright &copy; 2010 GearMyToon.com</p>
+    <div id="footer">
+      <div class="row">
+        <%= link_to "home", root_url %> |
+        <%= link_to "public beta", interested_url %> |
+        <%= link_to "about us", reasons_url %>
+        <p class="copyright">Copyright &copy; 2010 GearMyToon.com</p>
+      </div>
     </div>
     <%= javascript_include_tag 'vendor/jquery-1.4.2.min', 'vendor/jquery.autocomplete.min', 'application' %>
   </body>
