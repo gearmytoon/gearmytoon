@@ -178,6 +178,48 @@
 
 /* END Awesome buttons */
 
+/* SPRITES */
+ul.features li { background-image: url(/images/large_sprites.png); background-repeat: no-repeat; padding-left: 36px; height: 32px; }
+.aegis { background-position: 0 0; height: 32px; }
+.mailbox1 { background-position: 0 -82px; height: 32px; }
+.mailbox1 { background-position: 0 -164px; height: 32px; }
+.anvil { background-position: 0 -246px; height: 32px; }
+.barrel { background-position: 0 -328px; height: 32px; }
+.beer_keg { background-position: 0 -410px; height: 32px; }
+.brother_ben { background-position: 0 -492px; height: 32px; }
+.brown_box { background-position: 0 -574px; height: 32px; }
+.cenarion_staff { background-position: 0 -656px; height: 32px; }
+.chair { background-position: 0 -738px; height: 32px; }
+.charger { background-position: 0 -820px; height: 32px; }
+.chest { background-position: 0 -902px; height: 32px; }
+.cleaver { background-position: 0 -984px; height: 32px; }
+.commander_ashlam { background-position: 0 -1066px; height: 32px; }
+.crest_of_darkshire { background-position: 0 -1148px; height: 32px; }
+.crest_of_retribution { background-position: 0 -1230px; height: 32px; }
+.crest_of_supremacy { background-position: 0 -1312px; height: 32px; }
+.dark_crate { background-position: 0 -1394px; height: 32px; }
+.dead_head { background-position: 0 -1476px; height: 32px; }
+.deep_dive_helmet { background-position: 0 -1558px; height: 32px; }
+.demon_armor { background-position: 0 -1640px; height: 32px; }
+.mace { background-position: 0 -1722px; height: 32px; }
+.elven_cupboard { background-position: 0 -1804px; height: 32px; }
+.finkles_lava { background-position: 0 -1886px; height: 32px; }
+.fire_shield { background-position: 0 -1968px; height: 32px; }
+.firegut_brute { background-position: 0 -2050px; height: 32px; }
+.firegut_ogre { background-position: 0 -2132px; height: 32px; }
+.firework_bucket { background-position: 0 -2214px; height: 32px; }
+.firework_launcher { background-position: 0 -2296px; height: 32px; }
+.frost_shield { background-position: 0 -2378px; height: 32px; }
+.general_zogs_mount { background-position: 0 -2460px; height: 32px; }
+.gunpowder { background-position: 0 -2542px; height: 32px; }
+.runed_shield { background-position: 0 -2624px; height: 32px; }
+.spaulders { background-position: 0 -2706px; height: 32px; }
+.jug { background-position: 0 -2788px; height: 32px; }
+.leonid { background-position: 0 -2870px; height: 32px; }
+.little_pot { background-position: 0 -2952px; height: 32px; }
+/* END Sprites */
+
+
 html, body { font-family: Verdana, Arial, sans-serif; color: #FFF; background-color: #222; text-align: left; }
 a { color: #FFF; }
 a:visited { color: #FFF; }
@@ -199,10 +241,11 @@ ul#nav { float: right; margin: 10px 0 0 0; }
 ul#nav li { display: inline; list-style: disc outside none; margin-right: 20px; }
 ul#nav li a { text-decoration: none; }
 ul#nav li a:hover { text-decoration: underline; }
-ul#social_links { position: absolute; top: 105px; right: 0; font-size: 14px; text-align: center; padding: 0 4px; border: 2px solid white; border-top: 0; border-right: 0; background-color: #888; -moz-border-radius: 0 0 0 10px; -webkit-border-radius: 0 0 0 10px; border-radius: 0 0 0 10px; }
+ul#social_links { position: absolute; top: 55px; right: 0; font-size: 12px; text-align: center; padding: 4px; border: 2px solid white; border-right: none; background-color: #888; -moz-border-radius: 4px 0 0 4px; -webkit-border-radius: 4px 0 0 4px; border-radius: 4px 0 0 4px; }
 ul#social_links p { margin-top: -4px; font-weight: bold; }
 ul#social_links li { display: inline; list-style: disc outside none; }
 ul#social_links li a { text-decoration: none; }
+ul#social_links li img { width: 32px; height: 32px; }
 #footer { margin: 20px auto 0 auto; padding: 20px; background-color: black; height: 100px; text-align: center; }
 #footer ul { text-align: center; }
 #footer ul li { float: left; padding: 0 20px; }
@@ -210,6 +253,73 @@ ul#social_links li a { text-decoration: none; }
 #footer .copyright { font-size: 8px; margin-top: 10px; width: 300px; margin: 30px auto 0 auto; }
 #flash { background: green url(/images/flash_notice.jpg); margin: -20px auto 20px auto; padding: 10px; -moz-border-radius: 0 0 10px 10px; }
 #flash p { padding: 0 10px; font-size: 22px; color: white; text-shadow: black 0.1em 0.1em 0.2em; }
+
+#welcome { width: auto; overflow: auto; background-color: black; padding: 10px 0; -moz-border-radius: 3px; -webkit-border-radius: 3px; border-radius: 3px; }
+#welcome .column { padding: 0 9px; }
+#welcome .copy p.large { font-size: 18px; margin-bottom: 20px; }
+#welcome .copy .testimonial { width: 300px; font-family: Georgia; font-size: 16px; margin-bottom: 20px; }
+#welcome .copy .testimonial.even { float: left; }
+#welcome .copy .testimonial.odd { float: right; }
+#welcome .copy .testimonial cite { margin: 10px 0 0 40px; display: block; }
+#welcome .copy .testimonial a { text-decoration: none; }
+#welcome .copy .testimonial a:hover { text-decoration: underline; }
+#welcome .copy .testimonial img { width: 24px; vertical-align: middle; margin-right: 10px; }
+#welcome .copy .testimonial blockquote {
+  position:relative;
+  padding:10px;
+  margin: 0;
+  color:#fff;
+  background:#e33100; /* default background for browsers without gradient support */
+  font-family: Georgia;
+
+  /* css3 */
+  -moz-border-radius:10px;
+  -webkit-border-radius:10px;
+  border-radius:10px;
+  /* note: webkit gradient implementation is not as per spec */
+  background:-webkit-gradient(linear, left top, left bottom, from(#2e88c4), to(#075698));
+  background:-moz-linear-gradient(top, #e36100, #e33100);
+  background:-o-linear-gradient(top, #2e88c4, #075698);
+  background:linear-gradient(top, #2e88c4, #075698);
+}
+
+/* creates triangle */
+#welcome .copy .testimonial blockquote:after {
+  content:"\00a0";
+  display:block; /* reduce the damage in ff3.0 */
+  position:absolute;
+  bottom:-40px; /* value = - border-top-width - border-bottom-width */
+  width:0;
+  height:0;
+  border-width:20px 0 20px 20px; /* vary these values to change the angle of the vertex */
+  border-style:solid;
+  border-color:#e33100 transparent transparent;
+}
+
+#welcome .copy .testimonial blockquote.right:after {
+  right: 12px;
+  border-width:20px 20px 20px 0px; /* vary these values to change the angle of the vertex */
+  border-color: #e33100 transparent transparent;
+}
+
+#welcome .copy ul.features { clear: both; border-top: 1px solid #333; padding: 10px 0; margin-top: 10px; }
+#welcome .copy ul.features li { list-style: none outside none; margin: 20px 0 0 0; font-size: 16px; }
+#welcome .copy ul.features li.anvil { margin-top: 0; }
+#welcome .actions { border-left: 1px solid #333; }
+#welcome .actions h3 { font-size: 16px; }
+#welcome .actions a { font-size: 12px; text-decoration: none; }
+#welcome .actions ul li { padding: 10px 100px 20px 10px; background-color: #666; margin-bottom: 10px; -moz-border-radius: 10px; -webkit-border-radius: 10px; border-radius: 10px; }
+#welcome .actions ul li.trial { background: ForestGreen url("/images/wow_icons/64x64/Little Pot.png") no-repeat top right; }
+#welcome .actions ul li.toon_search { background: SteelBlue url("/images/wow_icons/128x128/Leonid Barthalomew the Revered.png") no-repeat 10px 50px; padding-left: 150px; }
+#welcome .actions ul li.customers { background: #e33100 url("/images/wow_icons/64x64/Alliance Mailbox 1.png") no-repeat 394px 10px; }
+#welcome .actions ul li.math { background: SteelBlue url("/images/wow_icons/64x64/Finkle's Lava Dredger.png") no-repeat top right; }
+#welcome .actions ul li.toon_search form { padding-top: 10px; margin-bottom: 0; }
+#welcome .actions ul li.toon_search form a.submit { clear: both; display: block; width: 50%; margin-top: 10px; text-align: center; }
+#welcome .actions ul li.toon_search form p { margin-bottom: 0; }
+#welcome .actions ul li.toon_search form input { margin-bottom: 10px; width: 200px; }
+#welcome .actions ul li.toon_search form p.locale { float: left; margin: 10px 0; }
+#welcome .actions ul li.toon_search form p.locale label { float: left; margin-right: 10px; }
+#welcome .actions ul li.toon_search form input.example { color: #bbb; }
 
 #content { clear: both; }
 #interested { margin-top: 35px; }

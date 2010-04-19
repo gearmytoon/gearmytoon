@@ -1,22 +1,57 @@
-<div id="welcome_page" class="grid_7">
-  <h1>Find your Toon</h1>
-  <% form_for Character.new, new_character_path do |f| -%>
-    <p class="why"><a href="/reasons">Why should I gear my toon?</a></p>
-    <%= f.error_messages %>
-    <p>
-      <%= f.label :name %>
-      <%= f.text_field :name, :class => 'text' %>
-    </p>
-    <p>
-      <%= f.label :realm %>
-      <%= f.text_field :realm, :class => 'text' %>
-    </p>
-    <p>
-      <%= f.label :locale %>
-      <%= f.select :locale, Character::LOCALES %>
-    </p>
-    <p>
-      <%= f.submit "Gear Me!", :class => 'button' %>
-    </p>
-  <% end %>
+<div id="welcome">
+  <div class="copy column grid_6">
+    <h1>Your source for the best gear</h1>
+    <p class="large">Gear my Toon provides gear recommendations tailored just for your toons. We do the math so you don't have to.</p>
+    <div class="testimonial even">
+      <blockquote>Gear My Toon is amazing. I wouldn't play WoW without it.</blockquote>
+      <cite><img alt="Merb" src="http://www.wowarmory.com/_images/portraits/wow-80/0-8-3.gif" /><a href="/characters/merb-baelgun-us">Merb &mdash; Level 80 Hunter</a></cite>
+    </div>
+    <div class="testimonial odd">
+      <blockquote class="right">I love seeing the gear that is best for my rogue.</blockquote>
+      <cite><img alt="Ecma" src="http://www.wowarmory.com/_images/portraits/wow-80/0-5-4.gif" /><a href="/characters/ecma-baelgun-us">Ecma &mdash; Level 70 Rogue</a></cite>
+    </div>
+    <ul class="features">
+      <li class="anvil"><a href="#">Get the best gear</a> &mdash; our algorithm is customized to <em>your</em> toon</li>
+      <li class="deep_dive_helmet"><a href="#">Keep your head in the game</a> &mdash; no need to spend all your time studying spreadsheets</li>
+      <li class="frost_shield"><a href="#">Spend your badges wisely</a> &mdash; we'll show the best gear you can buy</li>
+      <li class="aegis"><a href="#">Swing both ways</a> &mdash; we find gear for whatever mood you're in &mdash; PvP or PvE</li>
+    </ul>
+  </div>
+  <div class="actions column grid_6">
+    <ul>
+      <li class="trial">
+        <h3>Join for a day</h3>
+        <p><a href="#">Give us a shot. Join for only <strong>$1</strong></a></p>
+      </li>
+      <li class="toon_search">
+        <h3>Find your Toon</h3>
+        <% form_for @character do |f| -%>
+          <%= f.error_messages %>
+          <p>
+            <%= f.label :name %>
+            <%= f.text_field :name, :class => 'text' %>
+          </p>
+          <p>
+            <%= f.label :realm %>
+            <%= f.text_field :realm, :class => 'text' %>
+          </p>
+          <p class="locale">
+            <%= f.label :locale %>
+            <%= f.select :locale, Character::LOCALES %>
+          </p>
+          <p>
+            <%= f.submit "Gear Me!", :class => 'button' %>
+          </p>
+        <% end %>
+      </li>
+      <li class="customers">
+        <h3>Hear from our customers</h3>
+        <p><a href="#">Read testimonials from satisfied customers and view their character pages.</a></p>
+      </li>
+      <li class="math">
+        <h3>Check our math</h3>
+        <p><a href="#">Still don't believe us? Check out our algorithm.</a></p>
+      </li>
+    </ul>
+  </div>
 </div>

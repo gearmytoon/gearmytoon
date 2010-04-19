@@ -1,6 +1,6 @@
 class HomeController < ApplicationController
   def index
-    @character = Character.new(:realm => "Baelgun")
+    @character = Character.new
   end
 
   def interested
