@@ -33,10 +33,14 @@ class AreaTest < ActiveSupport::TestCase
     end
   end
 
-  context "full name" do
-    should "contain the difficulty and the name" do
-      raid = Factory(:raid, :name => "foo", :difficulty => "bar")
-      assert_equal "bar foo", raid.full_name
+  context "full_name" do
+    should "convert H to heroic" do
+      raid = Factory(:raid, :name => "Foo", :difficulty => "h")
+      assert_equal "Heroic Foo", raid.full_name
+    end
+    should "convert n to empty string" do
+      raid = Factory(:raid, :name => "foo", :difficulty => "n")
+      assert_equal "foo", raid.full_name
     end
   end
 end
