@@ -1,7 +1,7 @@
 require File.dirname(__FILE__) + '/../test_helper'
 
 class PvpUpgradesControllerTest < ActionController::TestCase
-  context "get from_frost_emblems" do
+  context "get frost" do
     should "show all upgrades from emblems of frost" do
       character = Factory(:character_item, :character => Factory(:a_hunter)).character
       4.times {Factory(:item_from_emblem_of_frost)}
@@ -12,7 +12,18 @@ class PvpUpgradesControllerTest < ActionController::TestCase
     end
   end
 
-  context "get from_triumph_emblems" do
+  context "get arena" do
+    should "show all upgrades from emblems of frost" do
+      character = Factory(:character_item, :character => Factory(:a_hunter)).character
+      4.times {Factory(:item_from_arena_points)}
+      Factory(:item_from_honor_points)
+      get :arena, :character_id => character.id
+      assert_response :success
+      assert_select ".upgrade", :count => 4
+    end
+  end
+
+  context "get triumph" do
     should "show all upgrades from emblems of frost" do
       character = Factory(:character_item, :character => Factory(:a_hunter)).character
       4.times {Factory(:item_from_emblem_of_triumph)}
@@ -23,7 +34,7 @@ class PvpUpgradesControllerTest < ActionController::TestCase
     end
   end
   
-  context "get from_honor_points" do
+  context "get honor" do
     should "show all upgrades from honor points" do
       character = Factory(:character_item, :character => Factory(:a_hunter)).character
       4.times {Factory(:item_from_honor_points)}
@@ -33,7 +44,8 @@ class PvpUpgradesControllerTest < ActionController::TestCase
       assert_select ".upgrade", :count => 4
     end
   end
-  context "get from_wintergrasp_marks" do
+  
+  context "get wintergrasp" do
     should "show all upgrades from honor points" do
       character = Factory(:character_item, :character => Factory(:a_hunter)).character
       4.times {Factory(:item_from_wintergrasp_marks)}

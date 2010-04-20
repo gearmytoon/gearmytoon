@@ -24,6 +24,7 @@ class Character < ActiveRecord::Base
   has_upgrades_from :heroic_dungeon, Proc.new{DroppedSource.from_dungeons}
   has_upgrades_from :raid, Proc.new{DroppedSource.from_raids}
   has_upgrades_from :honor_point, Proc.new{HonorSource.all}
+  has_upgrades_from :arena_point, Proc.new{ArenaSource.all}
   has_upgrades_from :wintergrasp_mark, Proc.new{EmblemSource.from_wintergrasp_mark_of_honor}
 
   attr_accessor :dont_use_wow_armory

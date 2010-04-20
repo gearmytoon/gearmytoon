@@ -57,6 +57,13 @@ Factory.define(:item_from_honor_points, :parent => :item) do |model|
   end
 end
 
+Factory.define(:item_from_arena_points, :parent => :item) do |model|
+  model.bonuses :attack_power => 200
+  model.after_create do |item|
+    Factory(:arena_point_source, :item => item)
+  end
+end
+
 Factory.define(:item_from_wintergrasp_marks, :parent => :item) do |model|
   model.bonuses :attack_power => 200
   model.after_create do |item|

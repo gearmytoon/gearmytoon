@@ -76,6 +76,11 @@ Factory.define(:honor_point_source, :class => :honor_source) do |model|
   model.honor_point_cost 45000
 end
 
+Factory.define(:arena_point_source, :class => :arena_source) do |model|
+  model.arena_point_cost 1000
+  model.honor_point_cost 12300
+end
+
 Factory.define(:wintergrasp_source, :class => :emblem_source) do |model|
   model.token_cost 15
   model.wowarmory_token_item_id Item::WINTERGRASP_MARK_OF_HONOR
