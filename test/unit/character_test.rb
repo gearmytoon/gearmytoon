@@ -157,11 +157,11 @@ class CharacterTest < ActiveSupport::TestCase
     end
 
   end
-  context "top_3_raid_upgrades" do
+  context "top_3_raid_10_upgrades" do
     should "return three upgrades" do
       character = Factory(:character_item, :item => Factory(:item, :bonuses => {:attack_power => 100.0})).character
       4.times { Factory(:item_from_heroic_raid, :bonuses => {:attack_power => 500.0}) }
-      upgrades = character.top_3_raid_upgrades
+      upgrades = character.top_3_raid_10_upgrades
       assert_equal 3, upgrades.size
       upgrades.each do |upgrade|
         assert_kind_of Upgrade, upgrade
@@ -172,7 +172,7 @@ class CharacterTest < ActiveSupport::TestCase
       character = Factory(:character_item, :item => Factory(:item, :bonuses => {:attack_power => 100.0})).character
       heroic_upgrade = Factory(:item_from_heroic_raid, :bonuses => {:attack_power => 500.0})
       Factory(:item_from_heroic_dungeon)
-      upgrades = character.top_3_raid_upgrades
+      upgrades = character.top_3_raid_10_upgrades
       assert_equal 1, upgrades.size
       assert_equal heroic_upgrade, upgrades.first.new_item
     end

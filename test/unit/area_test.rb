@@ -17,11 +17,19 @@ class AreaTest < ActiveSupport::TestCase
     end
   end
 
-  context "raids" do
+  context "raids_10" do
     should "find all the dungeons" do
-      dungeon = Factory(:dungeon)
-      raid = Factory(:raid)
-      assert_equal [raid], Area.raids
+      Factory(:raid_25)
+      raid = Factory(:raid_10)
+      assert_equal [raid], Area.raids_10
+    end
+  end
+
+  context "raids_25" do
+    should "find all the dungeons" do
+      Factory(:raid_10)
+      raid = Factory(:raid_25)
+      assert_equal [raid], Area.raids_25
     end
   end
 

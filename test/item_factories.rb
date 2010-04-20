@@ -71,14 +71,14 @@ Factory.define(:item_from_wintergrasp_marks, :parent => :item) do |model|
   end
 end
 
-Factory.define(:item_from_25_man_raids, :parent => :item) do |model|
+Factory.define(:item_from_25_man_raid, :parent => :item) do |model|
   model.bonuses :attack_power => 200
   model.after_create do |item|
     Factory(:twenty_five_man_raid_source, :item => item)
   end
 end
 
-Factory.define(:item_from_10_man_raids, :parent => :item) do |model|
+Factory.define(:item_from_10_man_raid, :parent => :item) do |model|
   model.bonuses :attack_power => 200
   model.after_create do |item|
     Factory(:ten_man_raid_source, :item => item)

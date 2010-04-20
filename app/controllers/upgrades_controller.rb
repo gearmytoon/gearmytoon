@@ -15,5 +15,15 @@ class UpgradesController < ApplicationController
     @upgrades = @character.heroic_dungeon_upgrades
     render "show"
   end
+
+  def raid_25
+    @upgrades = @character.raid_25_upgrades
+    render "show"
+  end
+
+  def raid_10
+    @upgrades = @character.raid_10_upgrades
+    render "show"
+  end
   
 end

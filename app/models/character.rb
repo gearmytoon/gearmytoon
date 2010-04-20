@@ -22,11 +22,12 @@ class Character < ActiveRecord::Base
   has_upgrades_from :frost, Proc.new{EmblemSource.from_emblem_of_frost}
   has_upgrades_from :triumph, Proc.new{EmblemSource.from_emblem_of_triumph}
   has_upgrades_from :heroic_dungeon, Proc.new{DroppedSource.from_dungeons}
-  has_upgrades_from :raid, Proc.new{DroppedSource.from_raids}
   has_upgrades_from :honor_point, Proc.new{HonorSource.all}
   has_upgrades_from :arena_point, Proc.new{ArenaSource.all}
   has_upgrades_from :wintergrasp_mark, Proc.new{EmblemSource.from_wintergrasp_mark_of_honor}
-
+  has_upgrades_from :raid_25, Proc.new{DroppedSource.from_raids_25}
+  has_upgrades_from :raid_10, Proc.new{DroppedSource.from_raids_10}
+  
   attr_accessor :dont_use_wow_armory
 
   DEFAULT_LOCALE = 'us'

@@ -4,8 +4,6 @@ ActionController::Routing::Routes.draw do |map|
   map.resources :invites
   map.resources :users
   map.resources :characters, :member => {:pvp => :get} do |character|
-    character.resources :raids
-    character.resources :dungeons
     character.resource :upgrades, :member => {:frost => :get, :triumph => :get, :dungeon => :get, :raid_25 => :get, :raid_10 => :get}
     character.resource :pvp_upgrades, :member => {:frost => :get, :triumph => :get, :honor => :get, :wintergrasp => :get, :arena => :get}
   end

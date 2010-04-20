@@ -1,7 +1,7 @@
 require File.dirname(__FILE__) + '/../test_helper'
 
 class UpgradesControllerTest < ActionController::TestCase
-  context "get from_frost_emblems" do
+  context "get frost" do
     should "show all upgrades" do
       character = Factory(:character_item, :character => Factory(:a_hunter)).character
       4.times {Factory(:item_from_emblem_of_frost)}
@@ -12,7 +12,7 @@ class UpgradesControllerTest < ActionController::TestCase
     end
   end
 
-  context "get from_triumph_emblems" do
+  context "get triumph" do
     should "show all upgrades" do
       character = Factory(:character_item, :character => Factory(:a_hunter)).character
       4.times {Factory(:item_from_emblem_of_triumph)}
@@ -23,7 +23,7 @@ class UpgradesControllerTest < ActionController::TestCase
     end
   end
 
-  context "get from_dungeons" do
+  context "get dungeon" do
     should "show all upgrades" do
       character = Factory(:character_item, :character => Factory(:a_hunter)).character
       4.times {Factory(:item_from_heroic_dungeon)}
@@ -34,25 +34,25 @@ class UpgradesControllerTest < ActionController::TestCase
     end
   end
   
-  context "get from_25_man_raids" do
-    should_eventually "show all upgrades" do
+  context "get raid_25" do
+    should "show all upgrades" do
       character = Factory(:character_item, :character => Factory(:a_hunter)).character
-      Factory(:item_from_25_man_raids)
-      Factory(:item_from_10_man_raids)
+      2.times{Factory(:item_from_25_man_raid)}
+      Factory(:item_from_10_man_raid)
       get :raid_25, :character_id => character.id
       assert_response :success
-      assert_select ".upgrade", :count => 1
+      assert_select ".upgrade", :count => 2
     end
   end
 
-  context "get from_10_man_raids" do
-    should_eventually "show all upgrades" do
+  context "get raid_10" do
+    should "show all upgrades" do
       character = Factory(:character_item, :character => Factory(:a_hunter)).character
-      Factory(:item_from_10_man_raids)
-      Factory(:item_from_25_man_raids)
+      2.times{Factory(:item_from_10_man_raid)}
+      Factory(:item_from_25_man_raid)
       get :raid_10, :character_id => character.id
       assert_response :success
-      assert_select ".upgrade", :count => 1
+      assert_select ".upgrade", :count => 2
     end
   end
 
