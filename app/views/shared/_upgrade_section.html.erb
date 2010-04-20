@@ -2,13 +2,13 @@
   <% if upgrades.any? %>
     <table class='upgrade_table'>
       <thead>
-        <tr>
+        <tr class="upgrade_headers">
           <th></th>
           <th>Upgrade</th>
           <th>GMT points</th>
           <th></th>
           <th>Old Item</th>
-          <th>Upgrade Source</th>
+          <th class="upgrade_source">Source</th>
         </tr>
       </thead>
     <% upgrades.each do |upgrade| %>

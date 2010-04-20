@@ -1,5 +1,5 @@
 <tr class="upgrade">
-  <td><%= wowhead_item_image_link upgrade.new_item %></td>
+  <td class="upgrade_icon"><%= wowhead_item_image_link upgrade.new_item %></td>
   <td class="wow_item"><%= stylized_item_name(upgrade.new_item) %></td>
   <td><%= upgrade.dps_change %></td>
   <% if upgrade.old_item.nil? #TODO: not happy with this if check in the view, should it be here? %>

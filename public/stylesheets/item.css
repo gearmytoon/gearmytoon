@@ -19,13 +19,22 @@
   vertical-align:middle;
 }
 .upgrade_info {
-  width:200px;
+  width:150px;
+}
+.upgrade_source{
+  padding-left:45px;
 }
 .upgrade_section h2{
   padding-bottom:7px;
 }
 .upgrade{
   vertical-align:middle;
+  background-color:#1A1A1A;
+  border:1px solid black;
+}
+.upgrade_headers th{
+  padding-bottom:10px;
+  padding-top:10px;
 }
 .upgrade td {
   padding:2px;
@@ -47,9 +56,16 @@
   -moz-border-radius: 5px;
   -webkit-border-radius: 5px;
   float:left;
-  border:1px solid white;
+  position:relative;
+  z-index:1;
+  left:-2px;
+  border:2px solid white;
+  min-height:400px;
+  min-width:850px;
 }
 .tab{
+  position:relative;
+  z-index:2;
   background:#121212;
   -webkit-border-top-left-radius: 5px;
   -webkit-border-bottom-left-radius: 5px;
@@ -57,7 +73,7 @@
   -moz-border-radius-bottomleft: 5px;
   padding:5px;
   margin-top:3px;
-  border:1px solid white;
+  border:2px solid white;
   filter:alpha(opacity=50);
   -moz-opacity:0.5;
   -khtml-opacity: 0.5;
@@ -71,10 +87,11 @@
   background:#303030;
 }
 #tabs .selected{
+  border-right:none;
   filter:alpha(opacity=1);
   -moz-opacity:1;
   -khtml-opacity: 1;
   opacity: 1;
   background:#222222;
-  border-right:none;
+
 }
