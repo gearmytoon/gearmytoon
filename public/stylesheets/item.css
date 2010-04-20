@@ -50,6 +50,7 @@
 }
 #tabs{
   float:left;
+  padding-top:15px;
 }
 #active_tab{
   padding-left:10px;
