@@ -193,10 +193,9 @@ input.checkbox { float: left; margin: 10px 5px 0 0; }
 select { font-size: 18px; }
 
 #header { margin: 0 auto 20px auto; padding: 20px; background-color: black; height: 60px; border-bottom: 5px solid #888; }
-#header h1 { font-size: 20px; margin: 0; }
-#header h1 a { text-decoration: none; float: left; }
-#header #user_controls { float: right; margin: 10px 0 0 0; }
-ul#nav { float: left; margin: 10px 0 0 50px; font-size: 16px; }
+#header h1 { margin: -20px 0 0; float: left; }
+#header h1 a { text-decoration: none; background: url("/images/logo.png") no-repeat scroll 0 7px black; display: block; width: 172px; height: 100px; text-indent: -9999px; }
+ul#nav { float: right; margin: 10px 0 0 0; }
 ul#nav li { display: inline; list-style: disc outside none; margin-right: 20px; }
 ul#nav li a { text-decoration: none; }
 ul#nav li a:hover { text-decoration: underline; }
