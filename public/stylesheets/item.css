@@ -53,6 +53,7 @@
 }
 #active_tab{
   padding-left:10px;
+  padding-bottom:10px;
   -moz-border-radius: 5px;
   -webkit-border-radius: 5px;
   float:left;
