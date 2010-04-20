@@ -28,7 +28,7 @@ class PvpUpgradesControllerTest < ActionController::TestCase
       character = Factory(:character_item, :character => Factory(:a_hunter)).character
       4.times {Factory(:item_from_honor_points)}
       Factory(:item_from_emblem_of_frost)
-      get :honor_points, :character_id => character.id
+      get :honor, :character_id => character.id
       assert_response :success
       assert_select ".upgrade", :count => 4
     end

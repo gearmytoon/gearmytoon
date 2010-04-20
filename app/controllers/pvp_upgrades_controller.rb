@@ -11,7 +11,7 @@ class PvpUpgradesController < ApplicationController
     render "show"
   end
 
-  def honor_points
+  def honor
     @upgrades = @character.honor_point_upgrades
     render "show"
   end
