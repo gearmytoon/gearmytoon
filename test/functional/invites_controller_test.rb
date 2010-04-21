@@ -1,4 +1,4 @@
-require 'test/test_helper'
+require File.dirname(__FILE__) + '/../test_helper'
 
 class InvitesControllerTest < ActionController::TestCase
   context "post #create valid invitation" do

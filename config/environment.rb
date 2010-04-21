@@ -49,6 +49,8 @@ Rails::Initializer.run do |config|
   config.gem 'rpx_now', :version => '0.6.17'
   config.gem "friendly_id", :version => "~> 2.3"
   config.gem 'delayed_job', :version => '2.0.1'
+  config.gem 'remit', :version => '0.0.5'
+
   # The default locale is :en and all translations from config/locales/*.rb,yml are auto loaded.
   # config.i18n.load_path += Dir[Rails.root.join('my', 'locales', '*.{rb,yml}')]
   # config.i18n.default_locale = :de

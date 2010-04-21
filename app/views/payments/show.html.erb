@@ -1,0 +1,7 @@
+<h1>Check Out</h1>
+
+<% form_tag pay_payment_path do %>
+	<input type="hidden" name="caller_token" value="<%= @caller_token %>"/>
+	<input type="hidden" name="recipient_token" value="<%= @recipient_token %>"/>
+	<p><input type="submit" value="Check Out"></p>
+<% end %>
