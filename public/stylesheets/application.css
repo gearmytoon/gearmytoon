@@ -270,17 +270,17 @@ ul#social_links li img { width: 32px; height: 32px; }
   margin: 0;
   color:#fff;
   background:#e33100; /* default background for browsers without gradient support */
-  font-family: Georgia;
+  font-family: Georgia, serif;
 
   /* css3 */
   -moz-border-radius:10px;
   -webkit-border-radius:10px;
   border-radius:10px;
   /* note: webkit gradient implementation is not as per spec */
-  background:-webkit-gradient(linear, left top, left bottom, from(#2e88c4), to(#075698));
+  background:-webkit-gradient(linear, left top, left bottom, from(#e36100), to(#e33100));
   background:-moz-linear-gradient(top, #e36100, #e33100);
-  background:-o-linear-gradient(top, #2e88c4, #075698);
-  background:linear-gradient(top, #2e88c4, #075698);
+  background:-o-linear-gradient(top, #e36100, #e33100);
+  background:linear-gradient(top, #e36100, #e33100);
 }
 
 /* creates triangle */
