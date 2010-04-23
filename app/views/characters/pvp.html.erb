@@ -1,9 +1,9 @@
 <%= render "shared/character_info", :character => @character, :pvp => true %>
 <% render :layout => "shared/pvp_tabs" do %>
-  <%= render "shared/upgrade_section", :kind_of_upgrade => "honor_points", :upgrades => @character.top_3_honor_point_pvp_upgrades %>
-  <%= render "shared/upgrade_section", :kind_of_upgrade => "wintergrasp_mark_of_honor", :upgrades => @character.top_3_wintergrasp_mark_pvp_upgrades %>
-  <%= render "shared/upgrade_section", :kind_of_upgrade => "emblem_of_triumph", :upgrades => @character.top_3_triumph_pvp_upgrades %>
-  <%= render "shared/upgrade_section", :kind_of_upgrade => "emblem_of_frost", :upgrades => @character.top_3_frost_pvp_upgrades %>
+  <%= render "shared/upgrade_section", :kind_of_upgrade => "Honor Point", :upgrades => @character.top_3_honor_point_pvp_upgrades %>
+  <%= render "shared/upgrade_section", :kind_of_upgrade => "Wintergrasp Mark Of Honor", :upgrades => @character.top_3_wintergrasp_mark_pvp_upgrades %>
+  <%= render "shared/upgrade_section", :kind_of_upgrade => "Emblem of Triumph", :upgrades => @character.top_3_triumph_pvp_upgrades %>
+  <%= render "shared/upgrade_section", :kind_of_upgrade => "Emblem of Frost", :upgrades => @character.top_3_frost_pvp_upgrades %>
   <div class="upgrade_section" id="arena_points">
   </div>
 <% end %>

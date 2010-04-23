@@ -22,11 +22,11 @@ class UpgradeTest < ActiveSupport::TestCase
   
   context "kind_of_change" do
     should "know if it is an upgrade" do
-      upgrade = Upgrade.new(nil,Factory(:downgrade_item),Factory(:item))
+      upgrade = Upgrade.new(nil,nil,1)
       assert_equal "upgrade", upgrade.kind_of_change
     end
     should "know if it is an downgrade" do
-      upgrade = Upgrade.new(nil,Factory(:item),Factory(:downgrade_item))
+      upgrade = Upgrade.new(nil,nil,-1)
       assert_equal "downgrade", upgrade.kind_of_change
     end
   end

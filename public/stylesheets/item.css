@@ -101,5 +101,9 @@
   -khtml-opacity: 1;
   opacity: 1;
   background:#222222;
+}
+.upgrade_summary_header{
+  padding-top:15px;
 
+  margin:0;
 }
