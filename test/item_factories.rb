@@ -6,6 +6,16 @@ Factory.define(:item) do |model|
   model.armor_type ArmorType.mail
 end
 
+Factory.define(:downgrade_item, :parent => :item) do |model|
+  model.bonuses :attack_power => 1
+end
+
+Factory.define(:downgrade_item_from_frost_emblem, :parent => :downgrade_item) do |model|
+  model.after_create do |item|
+    dropped_source = Factory(:frost_emblem_source, :item => item)
+  end
+end
+
 Factory.define(:ring, :parent => :item) do |model|
   model.armor_type ArmorType.miscellaneous
   model.slot "Finger"

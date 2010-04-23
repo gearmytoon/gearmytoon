@@ -19,4 +19,15 @@ class UpgradeTest < ActiveSupport::TestCase
       assert_equal "dropped", upgrade.new_item_source_type
     end
   end
+  
+  context "kind_of_change" do
+    should "know if it is an upgrade" do
+      upgrade = Upgrade.new(nil,Factory(:downgrade_item),Factory(:item))
+      assert_equal "upgrade", upgrade.kind_of_change
+    end
+    should "know if it is an downgrade" do
+      upgrade = Upgrade.new(nil,Factory(:item),Factory(:downgrade_item))
+      assert_equal "downgrade", upgrade.kind_of_change
+    end
+  end
 end

@@ -81,14 +81,6 @@ class CharacterTest < ActiveSupport::TestCase
       assert_equal upgrades.map(&:id), character.top_3_frost_upgrades.map(&:new_item).map(&:id)
     end
 
-    should "find a characters upgrades from frost badges" do
-      character = Factory(:character_item, :item => Factory(:item, :bonuses => {:attack_power => 100.0})).character
-      Factory(:item_from_emblem_of_frost, :bonuses => {:attack_power => 50.0})
-      upgrade = Factory(:item_from_emblem_of_frost, :bonuses => {:attack_power => 500.0})
-      assert_equal 1, character.top_3_frost_upgrades.length
-      assert_equal upgrade, character.top_3_frost_upgrades.first.new_item
-    end
-
     should "find the first 3 upgrades" do
       character = Factory(:character_item, :item => Factory(:item, :bonuses => {:attack_power => 100.0})).character
       4.times { Factory(:item_from_emblem_of_frost, :bonuses => {:attack_power => 500.0}) }
@@ -119,14 +111,6 @@ class CharacterTest < ActiveSupport::TestCase
       upgrade = Factory(:item_from_emblem_of_triumph, :bonuses => {:attack_power => 500.0})
       upgrades = [upgrade, mid_upgrade]
       assert_equal upgrades.map(&:id), character.top_3_triumph_upgrades.map(&:new_item).map(&:id)
-    end
-
-    should "find a characters upgrades from frost badges" do
-      character = Factory(:character_item, :item => Factory(:item, :bonuses => {:attack_power => 100.0})).character
-      Factory(:item_from_emblem_of_triumph, :bonuses => {:attack_power => 50.0})
-      upgrade = Factory(:item_from_emblem_of_triumph, :bonuses => {:attack_power => 500.0})
-      assert_equal 1, character.top_3_triumph_upgrades.length
-      assert_equal upgrade, character.top_3_triumph_upgrades.first.new_item
     end
 
     should "find the first 3 upgrades" do

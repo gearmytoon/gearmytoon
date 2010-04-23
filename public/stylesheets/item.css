@@ -27,19 +27,25 @@
 .upgrade_section h2{
   padding-bottom:7px;
 }
-.upgrade{
-  vertical-align:middle;
-  background-color:#1A1A1A;
-  border:1px solid black;
-}
 .upgrade_headers th{
   padding-bottom:10px;
   padding-top:10px;
 }
-.upgrade td {
+.downgrade .gmt_points{
+  color:red;
+}
+.upgrade .gmt_points{
+  color:#1EFF00;
+}
+.upgrade, .downgrade{
+  vertical-align:middle;
+  background-color:#1A1A1A;
+  border:1px solid black;
+}
+.upgrade td, .downgrade td {
   padding:2px;
 }
-.upgrade .cost {
+.upgrade .cost, .downgrade .cost {
   float:left;
   font-size:14px;
   padding:13px;

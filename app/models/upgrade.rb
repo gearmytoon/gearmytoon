@@ -13,4 +13,8 @@ class Upgrade
   def new_item_source_type
     @new_item_source.class.name.gsub(/Source/,"").downcase
   end
+  
+  def kind_of_change
+    @dps_change > 0 ? "upgrade" : "downgrade"
+  end
 end

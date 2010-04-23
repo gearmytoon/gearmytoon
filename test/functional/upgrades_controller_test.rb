@@ -10,6 +10,14 @@ class UpgradesControllerTest < ActionController::TestCase
       assert_response :success
       assert_select ".upgrade", :count => 4
     end
+    
+    should "show frost downgrades" do
+      character = Factory(:character_item, :character => Factory(:a_hunter)).character
+      downgrade = Factory(:downgrade_item_from_frost_emblem)
+      get :frost, :character_id => character.id
+      assert_response :success
+      assert_select ".downgrade", :count => 1
+    end
   end
 
   context "get triumph" do

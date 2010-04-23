@@ -1,7 +1,7 @@
-<tr class="upgrade">
+<tr class="<%= upgrade.kind_of_change %>">
   <td class="upgrade_icon"><%= wowhead_item_image_link upgrade.new_item %></td>
   <td class="wow_item"><%= stylized_item_name(upgrade.new_item) %></td>
-  <td><%= upgrade.dps_change %></td>
+  <td class="gmt_points"><%= upgrade.dps_change %></td>
   <% if upgrade.old_item.nil? #TODO: not happy with this if check in the view, should it be here? %>
     <td></td>
     <td class="wow_item"><%= content_tag :span, "Empty Slot", :class => "old_item" %></td>
