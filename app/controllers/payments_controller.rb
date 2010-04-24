@@ -12,17 +12,21 @@ class PaymentsController < ApplicationController
       :recipient_token => @payment.recipient_token,
       :transaction_amount => 5,
       :recurring_period => "1 Month",
-      :return_url => reciept_payment_url,
+      :return_url => receipt_payment_url,
       :caller_key => FPS_ACCESS_KEY
     )
     redirect_to recurring_use_pipeline.url # this is the URL you want to send your users to
   end
   
-  def reciept
+  def receipt
     pipeline_response = Remit::PipelineResponse.new(request.request_uri,FPS_SECRET_KEY)
-    payment = Payment.find_by_caller_reference(params[:callerReference])
-    payment.pay! if pipeline_response.successful?
-    render :text => "hihi"
+    @payment = Payment.find_by_caller_reference(params[:callerReference])
+    if pipeline_response.successful?
+      @payment.pay!
+    else
+      flash.now[:error] = "We are sorry, we were not able to verify your payment from Amazon.com"
+      render "sorry"
+    end
   end
   
   private

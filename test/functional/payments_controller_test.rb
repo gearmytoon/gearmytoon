@@ -69,14 +69,25 @@ class PaymentsControllerTest < ActionController::TestCase
       @user = Factory(:user)
     end
     
-    should "show a user their reciept if payment was successful"
+    should "show a user their reciept if payment was successful" do
+      recipient_token = @controller.send(:get_recipient_token)
+      post :create, :payment => {:recipient_token => recipient_token}
+      new_payment = Payment.last
+      Remit::PipelineResponse.any_instance.stubs(:successful?).returns(true)
+      get :receipt, :callerReference => new_payment.caller_reference
+      assert_response :success
+      assert_select "#receipt .price", :text => "$5"
+      assert_select "#receipt .email", :text => @user.email
+      assert_select "#receipt .number_of_toons", :text => "5"
+      assert_select "#receipt .plan", :text => "Personal"
+    end
 
     should "mark a payment as paid if the payment was successful" do
       recipient_token = @controller.send(:get_recipient_token)
       post :create, :payment => {:recipient_token => recipient_token}
       new_payment = Payment.last
       Remit::PipelineResponse.any_instance.stubs(:successful?).returns(true)
-      get :reciept, :callerReference => new_payment.caller_reference
+      get :receipt, :callerReference => new_payment.caller_reference
       assert_response :success
       assert Payment.last.paid?
     end
@@ -86,8 +97,9 @@ class PaymentsControllerTest < ActionController::TestCase
       post :create, :payment => {:recipient_token => recipient_token}
       new_payment = Payment.last
       Remit::PipelineResponse.any_instance.stubs(:successful?).returns(false)
-      get :reciept, :callerReference => new_payment.caller_reference
+      get :receipt, :callerReference => new_payment.caller_reference
       assert_response :success
+      assert_template "sorry"
       assert_false Payment.last.paid?
     end
     
