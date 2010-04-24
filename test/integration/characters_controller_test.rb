@@ -5,7 +5,7 @@ class CharactersControllerTest < ActionController::TestCase
 
   context "post create" do
     should "lookup character if it doesn't exist and redirect show" do
-      assert_difference "Item.count", 19 do
+      assert_difference "Item.count", 18 do
         assert_difference "Character.count" do
           Factory(:user)
           post :create, :character => {:name => "Merb", :realm => "Baelgun"}
