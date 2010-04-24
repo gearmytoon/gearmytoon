@@ -1,12 +1,15 @@
 class PaymentsController < ApplicationController
+  before_filter :require_user
+
   def show
-    @recipient_token = get_recipient_token
+    @payment = Payment.new(:recipient_token => get_recipient_token)
   end
   
-  def pay
+  def create
+    @payment = current_user.payments.create!(params[:payment].merge(:caller_reference => Time.now.to_i.to_s))
     recurring_use_pipeline = remit.get_recurring_use_pipeline(
-      :caller_reference => Time.now.to_i.to_s,
-      :recipient_token => params[:recipient_token],
+      :caller_reference => @payment.caller_reference,
+      :recipient_token => @payment.recipient_token,
       :transaction_amount => 5,
       :recurring_period => "1 Month",
       :return_url => reciept_payment_url,
@@ -17,9 +20,8 @@ class PaymentsController < ApplicationController
   
   def reciept
     pipeline_response = Remit::PipelineResponse.new(request.request_uri,FPS_SECRET_KEY)
-    p" *********************"
-    p pipeline_response.successful?
-
+    payment = Payment.find_by_caller_reference(params[:callerReference])
+    payment.pay! if pipeline_response.successful?
     render :text => "hihi"
   end
   

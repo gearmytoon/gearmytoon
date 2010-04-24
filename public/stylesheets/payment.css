@@ -1,0 +1,17 @@
+#payment_plans{
+  margin:0 auto;
+}
+#payment_plans th{
+  text-align:center;
+  padding:4px;
+}
+
+.payment_plan{
+  font-size:14px;
+  vertical-align:middle;
+  background-color:#1A1A1A;
+  border:1px solid black;
+}
+.payment_plan td{
+  padding:10px 40px;
+}
