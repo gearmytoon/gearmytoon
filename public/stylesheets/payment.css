@@ -1,0 +1,27 @@
+#receipt_header {
+  font-size:18px;
+}
+#payment_plans, #receipt{
+  margin:0 auto;
+}
+#payment_plans th, #receipt th{
+  text-align:center;
+  padding:4px;
+}
+
+.payment_plan{
+  font-size:14px;
+  vertical-align:middle;
+  background-color:#1A1A1A;
+  border:1px solid black;
+}
+.payment_plan td{
+  padding:10px 40px;
+}
+
+#company_info{
+  padding-top:100px;
+}
+#goto_account{
+  padding:10px 0px 20px 0px;
+}

@@ -1,0 +1,16 @@
+<table id='payment_plans'>
+  <tr>
+    <th>Plan</th>
+    <th>Number of Toons</th>
+    <th>Price</th>
+  </tr>
+  <tr class="payment_plan">
+    <% form_for @payment, {:url => payment_path} do |f| %>
+      <%= f.hidden_field :recipient_token %>
+      <td class="plan">Personal</td>
+      <td class="number_of_toons">5</td>
+      <td class="price">$5/month</td>
+      <td class="checkout"><%= image_submit_tag "http://g-ecx.images-amazon.com/images/G/01/asp/golden_small_paynow_withlogo_darkbg.gif" %></td>
+    <% end %>
+  </tr>
+</table>

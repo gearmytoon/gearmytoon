@@ -9,7 +9,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20100418004144) do
+ActiveRecord::Schema.define(:version => 20100423142636) do
 
   create_table "areas", :force => true do |t|
     t.string   "name"
@@ -127,6 +127,15 @@ ActiveRecord::Schema.define(:version => 20100418004144) do
   add_index "items", ["restricted_to"], :name => "index_items_on_restricted_to"
   add_index "items", ["slot"], :name => "index_items_on_slot"
   add_index "items", ["wowarmory_item_id"], :name => "index_items_on_wowarmory_item_id"
+
+  create_table "payments", :force => true do |t|
+    t.string   "recipient_token"
+    t.string   "caller_reference"
+    t.integer  "purchaser_id"
+    t.string   "status"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
 
   create_table "slugs", :force => true do |t|
     t.string   "name"

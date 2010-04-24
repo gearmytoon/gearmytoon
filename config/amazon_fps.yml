@@ -1,0 +1,10 @@
+development: &sandbox
+  access_key: AKIAJDSU5CTXKVEMH6OA
+  secret_key: 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
+
+test:
+  <<: *sandbox
+
+production:
+  access_key: AKIAJDSU5CTXKVEMH6OA
+  secret_key: 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

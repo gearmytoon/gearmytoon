@@ -1,0 +1,22 @@
+<h1 id="receipt_header">Payment Receipt:</h1>
+<div id="goto_account">Continue to <%= link_to "your account", account_path %> to gear your toons!</div>
+<table id='receipt'>
+  <tr>
+    <th>Account</th>
+    <th>Plan</th>
+    <th>Number of Toons</th>
+    <th>Amount</th>
+  </tr>
+  <tr class="payment_plan">
+    <td class="email"><%= @payment.purchaser.email %></td>
+    <td class="plan">Personal</td>
+    <td class="number_of_toons">5</td>
+    <td class="price">$5</td>
+  </tr>
+</table>
+<div id="company_info">
+  <div>Gear My Toon Inc.</div>
+  <div>2134 Market St.</div>
+  <div>San Francisco</div>
+  <div>CA 94133</div>
+</div>
