@@ -227,6 +227,7 @@ a:hover { color: #FFF; }
 h1, h2, h3, h4, h5 { clear: both; font-weight: bold; }
 h1 { clear: both; font-size: 24px; font-weight: bold; margin-bottom: 12px; }
 h2 { clear: both; margin: 8px 0 0 0; font-size:16px; font-weight: bold; }
+hr { margin: 20px 0; }
 form p { margin-bottom: 20px; }
 label { display: block; font-size: 18px; margin-bottom: 8px; }
 input.text, input.password { font-size: 18px; padding: 5px; }
@@ -256,6 +257,7 @@ ul#social_links li img { width: 32px; height: 32px; }
 
 #welcome { width: auto; overflow: auto; background-color: black; padding: 10px 0; -moz-border-radius: 3px; -webkit-border-radius: 3px; border-radius: 3px; }
 #welcome .column { padding: 0 9px; }
+#welcome .copy { border-right: 1px solid #333; }
 #welcome .copy p.large { font-size: 18px; margin-bottom: 20px; }
 #welcome .copy .testimonial { width: 300px; font-family: Georgia; font-size: 16px; margin-bottom: 20px; }
 #welcome .copy .testimonial.even { float: left; }
@@ -302,10 +304,11 @@ ul#social_links li img { width: 32px; height: 32px; }
   border-color: #e33100 transparent transparent;
 }
 
+#welcome .copy strong { font-size: 18px; font-family: Helvetica, "Trebuchet MS", Arial, sans-serif; font-weight: bold; color: SkyBlue; }
+#welcome .copy em { font-style: italic; }
 #welcome .copy ul.features { clear: both; border-top: 1px solid #333; padding: 10px 0; margin-top: 10px; }
-#welcome .copy ul.features li { list-style: none outside none; margin: 20px 0 0 0; font-size: 16px; }
+#welcome .copy ul.features li { list-style: none outside none; margin: 28px 0 0 0; font-size: 16px; }
 #welcome .copy ul.features li.anvil { margin-top: 0; }
-#welcome .actions { border-left: 1px solid #333; }
 #welcome .actions h3 { font-size: 16px; }
 #welcome .actions a { font-size: 12px; text-decoration: none; }
 #welcome .actions ul li { padding: 10px 100px 20px 10px; background-color: #666; margin-bottom: 10px; -moz-border-radius: 10px; -webkit-border-radius: 10px; border-radius: 10px; }
@@ -320,6 +323,24 @@ ul#social_links li img { width: 32px; height: 32px; }
 #welcome .actions ul li.toon_search form p.locale { float: left; margin: 10px 0; }
 #welcome .actions ul li.toon_search form p.locale label { float: left; margin-right: 10px; }
 #welcome .actions ul li.toon_search form input.example { color: #bbb; }
+
+#math { width: auto; overflow: auto; padding: 0 50px; -moz-border-radius: 3px; -webkit-border-radius: 3px; border-radius: 3px; }
+#math .arrow { font-size: 48px; margin: 110px 0 0 0; text-align: center; }
+#math .box { -moz-border-radius: 10px; padding: 10px; text-shadow: 1px 2px 2px rgba(10,10,10,0.5); }
+#math h2 { font-size: 24px; margin-bottom: 10px; text-align: center; }
+#math h2 + p { font-size: 16px; margin-bottom: 20px; }
+#math h3 { margin: 0; font-size: 24px; }
+#math h3 + p { height: 70px; margin-bottom: 10px; }
+#math .box ul li { margin-bottom: 10px; }
+#math .box ul li ul li { margin: 0 0 0 10px; }
+#math .box ul li:before { content: "\2713"; padding-right: 10px; text-shadow: 1px 2px 2px rgba(10,10,10,0.5); }
+#math .box.toon { background:-moz-linear-gradient(top, IndianRed,FireBrick); }
+#math .box.toon img { float: left; margin-right: 10px; }
+#math .box.formula { background:-moz-linear-gradient(top, SteelBlue,RoyalBlue); }
+#math .box.results { background:-moz-linear-gradient(top, ForestGreen, DarkGreen); }
+#math .box.results ul li h4 { font-size: 14px; text-shadow: none; }
+#math .box.results ul li:before { content: none; }
+#math .box.results ul li ul li:before { content: "\2713"; }
 
 #content { clear: both; }
 #interested { margin-top: 35px; }

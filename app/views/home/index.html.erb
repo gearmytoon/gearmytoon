@@ -11,10 +11,10 @@
       <cite><img alt="Ecma" src="http://www.wowarmory.com/_images/portraits/wow-80/0-5-4.gif" /><a href="/characters/ecma-baelgun-us">Ecma &mdash; Level 70 Rogue</a></cite>
     </div>
     <ul class="features">
-      <li class="anvil"><a href="#">Get the best gear</a> &mdash; our algorithm is customized to <em>your</em> toon</li>
-      <li class="deep_dive_helmet"><a href="#">Keep your head in the game</a> &mdash; no need to spend all your time studying spreadsheets</li>
-      <li class="frost_shield"><a href="#">Spend your badges wisely</a> &mdash; we'll show the best gear you can buy</li>
-      <li class="aegis"><a href="#">Swing both ways</a> &mdash; we find gear for whatever mood you're in &mdash; PvP or PvE</li>
+      <li class="anvil"><strong>Get the best gear</strong> &mdash; our algorithm is customized to <em>your</em> toon</li>
+      <li class="deep_dive_helmet"><strong>Keep your head in the game</strong> &mdash; no need to spend all your time studying spreadsheets</li>
+      <li class="frost_shield"><strong>Spend your badges wisely</strong> &mdash; we'll show the best gear you can buy</li>
+      <li class="aegis"><strong>Swing both ways</strong> &mdash; we find gear for whatever mood you're in &mdash; PvP or PvE</li>
     </ul>
   </div>
   <div class="actions column grid_6">
@@ -46,12 +46,62 @@
       </li>
       <li class="customers">
         <h3>Hear from our customers</h3>
-        <p><a href="#">Read testimonials from satisfied customers and view their character pages.</a></p>
+        <p><%= link_to "Read testimonials from satisfied customers and view their character pages.", testimonials_path %></p>
       </li>
       <li class="math">
-        <h3>Check our math</h3>
-        <p><a href="#">Still don't believe us? Check out our algorithm.</a></p>
+        <h3>Learn more</h3>
+        <p><%= link_to "Check out how we customize results for your toon.", math_path %></p>
       </li>
     </ul>
+  </div>
+</div>
+<hr />
+<div id="math" name="math">
+  <h2>How this works</h2>
+  <p>
+    We know that every World of Warcraft character is built differently. Unlike other gear recommendation sites we take
+    all there is to know about the specifics of your character to build a unique set of upgrades for your toon. We sort
+    your character's upgrades and help you make informed decisions about how to spend your time in Azeroth.
+  </p>
+  <div class="column grid_4">
+    <h3>Your Toon</h3>
+    <p>We talk directly to Blizzard's WoW Armory to get the latest information about your character.</p>
+    <%= render 'shared/character_info', :character => Character.first, :size => 'small', :pvp => true %>
+  </div>
+  <div class="column grid_1 arrow">+</div>
+  <div class="column grid_3">
+    <h3>Our Formulas</h3>
+    <p>We do the math for the most important aspects of your character and ask the right questions about upgrades.</p>
+    <div class="box formula">
+      <ul>
+        <li>Stats</li>
+        <li>Hard and Soft Caps</li>
+        <li>Talent Build</li>
+        <li>Current Gear</li>
+        <li>PvP Status</li>
+      </ul>
+    </div>
+  </div>
+  <div class="column grid_1 arrow">=</div>
+  <div class="column grid_3">
+    <h3>Your Upgrades</h3>
+    <p>We hate information overload. We help you sort through all your potential upgrades.</p>
+    <div class="box results">
+      <ul>
+        <li><h4>Badges</h4>
+          <ul>
+            <li>Emblem of Frost</li>
+            <li>Emblem of Triumph</li>
+          </ul>
+        </li>
+        <li><h4>Raids and Dungeons</h4>
+          <ul>
+            <li>Ice Crown Citadel</li>
+            <li>Pit of Sauron</li>
+            <li>Trial of the Crusader</li>
+          </ul>
+        </li>
+      </ul>
+    </div>
   </div>
 </div>

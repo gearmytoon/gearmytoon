@@ -16,6 +16,7 @@
     $('#welcome .actions ul li.toon_search form input[type=text]').example(function() { return $(this).prev('label').text(); }).prev('label').hide();
     var gearMeLink =  $('<a href="#" class="submit awesome large red">Gear Me!</a>').click(function(){ $('#welcome .actions ul li.toon_search form').submit(); });
     $('#welcome .actions ul li.toon_search form input[type=submit]').replaceWith(gearMeLink);
+    $('#math .character').clickable();
   });
 })(jQuery);
 
