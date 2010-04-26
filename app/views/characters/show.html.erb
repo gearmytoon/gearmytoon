@@ -1,4 +1,5 @@
 <%= render "shared/character_info", :character => @character, :pvp => false %>
+<div style="clear:both"></div>
 <%= link_to "Show PvP Gear", pvp_character_path(@character), :class => 'awesome large red' %>
 <% render :layout => "shared/pve_tabs" do %>
   <% render :layout => "shared/upgrade_section", :locals => {:kind_of_upgrade => "Emblem Of Frost", :upgrades => @character.top_3_frost_upgrades} do %>

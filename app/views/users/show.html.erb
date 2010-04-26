@@ -1,56 +1,48 @@
-<div class="column grid_6">
-  <h2>Toons</h2>
-  <ul>
-    <% @user.characters.each do |c| -%>
-      <li><%= link_to c.name, character_path(c) %></li>
-    <% end -%>
-  </ul>
-  <h2>Add a Toon</h2>
-  <% form_for @character, :html => {:class => 'inline'} do |f| -%>
-    <%= f.error_messages %>
-    <p>
-      <%= f.label :name %>
-      <%= f.text_field :name, :class => 'text' %>
-    </p>
-    <p>
-      <%= f.label :realm %>
-      <%= f.text_field :realm, :class => 'text' %>
-    </p>
-    <p>
-      <%= f.label :locale %>
-      <%= f.select :locale, Character::LOCALES %>
-    </p>
-    <p>
-      <%= f.submit "Add Toon", :class => 'button' %>
-    </p>
-  <% end %>
-  <h2>Invite a Friend</h2>
-  <% form_for Invite.new, :html => {:class => 'inline'} do |f| -%>
-    <p>
-      <%= f.label :email %>
-      <%= f.text_field :email, :class => 'text' %>
-    </p>
-    <p>
-      <%= f.submit "Send Invite", :class => 'button' %>
-    </p>
-  <% end %>
-</div>
-<div class="column grid_6">
-  <h2>Account Info</h2>
-  <p>
-    <b>E-Mail:</b> <%= @user.email %>
-  </p>
-  <% if @user.identity_url.present? -%>
-    <p>
-      <b>Identity URL:</b> <%= @user.identity_url %>
-    </p>
-  <% end -%>
-  <% if @user.admin -%>
-    <p>
-      <b>Admin:</b> Yes
-    </p>
-  <% end -%>
-  <p>
+<div id="user">
+  <div class="toons column grid_8">
+    <h2>Your Toons</h2>
+    <% form_for @character, :html => {:class => 'inline'} do |f| -%>
+      <%= f.error_messages %>
+      <p>
+        <%= f.label :name %>
+        <%= f.text_field :name, :class => 'text' %>
+      </p>
+      <p>
+        <%= f.label :realm %>
+        <%= f.text_field :realm, :class => 'text' %>
+      </p>
+      <p>
+        <%= f.label :locale %>
+        <%= f.select :locale, Character::LOCALES %>
+      </p>
+      <p>
+        <%= f.submit "Add Toon", :class => 'button' %>
+      </p>
+    <% end %>
+    <ul>
+      <% @user.characters.each do |c| -%>
+        <li><%= render 'shared/character_info', :character => c, :size => 'small' %></li>
+        <li><%= render 'shared/character_info', :character => c, :size => 'small' %></li>
+      <% end -%>
+    </ul>
+  </div>
+  <div class="user_controls column grid_4">
+    <h2>Account Info</h2>
+    <p><%= @user.email %></p>
+    <br />
     <%= link_to "Logout", user_session_path, :method => :delete, :confirm => "Are you sure you want to logout?" %>
-  </p>
+    <br />
+    <br />
+    <h2>Payment Info</h2>
+    <p>
+      Payment Plan: <strong>5 toons</strong>
+    </p>
+    <p>
+      Your account will be billed again in <strong>3 days</strong>
+    </p>
+    <br />
+    <p>
+      <a href="#">Change Payment Plan</a>
+    </p>
+  </div>
 </div>
