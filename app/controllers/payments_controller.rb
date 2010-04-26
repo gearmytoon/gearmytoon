@@ -10,7 +10,7 @@ class PaymentsController < ApplicationController
     recurring_use_pipeline = remit.get_recurring_use_pipeline(
       :caller_reference => @payment.caller_reference,
       :recipient_token => @payment.recipient_token,
-      :transaction_amount => 5,
+      :transaction_amount => 1,
       :recurring_period => "1 Month",
       :return_url => receipt_payment_url,
       :caller_key => FPS_ACCESS_KEY
