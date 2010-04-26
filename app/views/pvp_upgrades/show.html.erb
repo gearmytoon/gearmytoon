@@ -1,5 +1,5 @@
 <%= render "shared/character_info", :character => @character, :pvp => true %>
-<%= link_to "Show PvE Gear", character, :class => 'awesome large green' %>
+<%= link_to "Show PvE Gear", @character, :class => 'awesome large green' %>
 <% render :layout => "shared/pvp_tabs" do %>
   <%= render "shared/upgrade_section", :kind_of_upgrade => @kind_of_upgrade, :upgrades => @upgrades %>
 <% end %>

@@ -1,4 +1,5 @@
 <%= render "shared/character_info", :character => @character, :pvp => true %>
+<%= link_to "Show PvE Gear", @character, :class => 'awesome large green' %>
 <% render :layout => "shared/pvp_tabs" do %>
   <%= render "shared/upgrade_section", :kind_of_upgrade => "Honor Point", :upgrades => @character.top_3_honor_point_pvp_upgrades %>
   <%= render "shared/upgrade_section", :kind_of_upgrade => "Wintergrasp Mark Of Honor", :upgrades => @character.top_3_wintergrasp_mark_pvp_upgrades %>

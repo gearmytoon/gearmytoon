@@ -66,7 +66,23 @@
   <div class="column grid_4">
     <h3>Your Toon</h3>
     <p>We talk directly to Blizzard's WoW Armory to get the latest information about your character.</p>
-    <%= render 'shared/character_info', :character => Character.first, :size => 'small', :pvp => true %>
+    <div class="character horde pvp small">
+      <a href="/characters/ecma-baelgun-us"><img alt="Ecma" src="http://www.wowarmory.com/_images/portraits/wow-80/0-5-4.gif" /></a>
+      <div class="info">
+
+        <p class="name"><a href="/characters/ecma-baelgun-us">Ecma</a></p>
+        <p class="level">72</p>
+        <p>
+          <span class="spec">Assassination</span>
+          <span class="klass">Rogue</span>
+        </p>
+        <p>
+
+          <span class="realm">Baelgun</span> /
+          <span class="battlegroup">Shadowburn</span>
+        </p>
+      </div>
+    </div>
   </div>
   <div class="column grid_1 arrow">+</div>
   <div class="column grid_3">

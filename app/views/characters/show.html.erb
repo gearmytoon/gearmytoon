@@ -1,5 +1,5 @@
 <%= render "shared/character_info", :character => @character, :pvp => false %>
-<%= link_to "Show PvP Gear", pvp_character_path(character), :class => 'awesome large red' %>
+<%= link_to "Show PvP Gear", pvp_character_path(@character), :class => 'awesome large red' %>
 <% render :layout => "shared/pve_tabs" do %>
   <% render :layout => "shared/upgrade_section", :locals => {:kind_of_upgrade => "Emblem Of Frost", :upgrades => @character.top_3_frost_upgrades} do %>
     <%= stylized_item_name Item.badge_of_frost %> <%= wowhead_item_image_link Item.badge_of_frost %> <span class="see_more"><%= link_to "more upgrades", from_frost_emblems_character_upgrades_path(@character) %></span>
