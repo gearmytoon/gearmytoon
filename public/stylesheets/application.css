@@ -326,21 +326,30 @@ ul#social_links li img { width: 32px; height: 32px; }
 
 #math { width: auto; overflow: auto; padding: 0 50px; -moz-border-radius: 3px; -webkit-border-radius: 3px; border-radius: 3px; }
 #math .arrow { font-size: 48px; margin: 110px 0 0 0; text-align: center; }
-#math .box { -moz-border-radius: 10px; padding: 10px; text-shadow: 1px 2px 2px rgba(10,10,10,0.5); }
+#math .box { padding: 10px; text-shadow: 1px 2px 2px rgba(10,10,10,0.5); -moz-border-radius: 10px; -webkit-border-radius: 10px; border-radius: 10px; }
 #math h2 { font-size: 24px; margin-bottom: 10px; text-align: center; }
 #math h2 + p { font-size: 16px; margin-bottom: 20px; }
 #math h3 { margin: 0; font-size: 24px; }
 #math h3 + p { height: 70px; margin-bottom: 10px; }
 #math .box ul li { margin-bottom: 10px; }
-#math .box ul li ul li { margin: 0 0 0 10px; }
 #math .box ul li:before { content: "\2713"; padding-right: 10px; text-shadow: 1px 2px 2px rgba(10,10,10,0.5); }
-#math .box.toon { background:-moz-linear-gradient(top, IndianRed,FireBrick); }
-#math .box.toon img { float: left; margin-right: 10px; }
-#math .box.formula { background:-moz-linear-gradient(top, SteelBlue,RoyalBlue); }
-#math .box.results { background:-moz-linear-gradient(top, ForestGreen, DarkGreen); }
-#math .box.results ul li h4 { font-size: 14px; text-shadow: none; }
-#math .box.results ul li:before { content: none; }
-#math .box.results ul li ul li:before { content: "\2713"; }
+#math .box.formula {
+  /* note: webkit gradient implementation is not as per spec */
+  background:-webkit-gradient(linear, left top, left bottom, from(SteelBlue), to(RoyalBlue));
+  background:-moz-linear-gradient(top, SteelBlue, RoyalBlue);
+  background:-o-linear-gradient(top, SteelBlue, RoyalBlue);
+  background:linear-gradient(top, SteelBlue, RoyalBlue);
+}
+#math .box.results {
+  /* note: webkit gradient implementation is not as per spec */
+  background:-webkit-gradient(linear, left top, left bottom, from(ForestGreen), to(DarkGreen));
+  background:-moz-linear-gradient(top, ForestGreen, DarkGreen);
+  background:-o-linear-gradient(top, ForestGreen, DarkGreen);
+  background:linear-gradient(top, ForestGreen, DarkGreen);
+}
+#math .box.results h4 { font-size: 14px; text-shadow: none; }
+#math .box.results ul { margin: 0 0 10px 10px; }
+#math .box.results ul li { margin: 0; }
 
 #content { clear: both; }
 #interested { margin-top: 35px; }
