@@ -18,7 +18,6 @@ module AWS_FPS
 
   # Set default params and AWS keys
   $KCODE            = "u"
-  RETURN_BASE       = config[:return_base]
   PIPELINE          = config[:pipeline]
   ENDPOINT          = config[:endpoint]
   VERSION           = config[:version]

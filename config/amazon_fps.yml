@@ -1,7 +1,6 @@
 development:
   access_key: 'AKIAJDSU5CTXKVEMH6OA'
   secret_access_key: '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'
-  return_base: 'http://localhost:3000'
   endpoint: 'https://fps.sandbox.amazonaws.com/'
   pipeline: 'https://authorize.payments-sandbox.amazon.com/cobranded-ui/actions/start?'
   version: '2007-01-08'
@@ -9,7 +8,6 @@ development:
 test:
   access_key: 'AKIAJDSU5CTXKVEMH6OA'
   secret_access_key: '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'
-  return_base: 'http://localhost:3000'
   endpoint: 'https://fps.sandbox.amazonaws.com/'
   pipeline: 'https://authorize.payments-sandbox.amazon.com/cobranded-ui/actions/start?'
   version: '2007-01-08'
@@ -17,7 +15,6 @@ test:
 production:
   access_key: 'AKIAJDSU5CTXKVEMH6OA'
   secret_access_key: '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'
-  return_base: 'http://localhost:3000'
   endpoint: 'https://fps.amazonaws.com/'
   pipeline: 'https://authorize.payments.amazon.com/cobranded-ui/actions/start?'
   version: '2007-01-08'

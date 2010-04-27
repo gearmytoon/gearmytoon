@@ -4,9 +4,9 @@ module AWS_FPS
   class Pipeline
     class << self
       include AWS_FPS::Signature
-      def make_url(pipeline_params, return_params, return_path)
+      def make_url(pipeline_params, return_params, return_url)
         # Create URL-encoded return_url param
-        return_url = RETURN_BASE + "/" + return_path + "?" + fps_join(return_params)
+        return_url = return_url + "?" + fps_join(return_params)
 
         # Add already URL-encoded 'returnURL' and Amazon Web Services Access Key
         params = { 'returnURL' => return_url, 'callerKey' => ACCESS_KEY }.merge pipeline_params
