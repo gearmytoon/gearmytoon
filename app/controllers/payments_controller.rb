@@ -53,7 +53,7 @@ class PaymentsController < ApplicationController
   end
   def fps_success?
     unique_id = UUID.new.generate
-    fps_call = AWS_FPS::Payment.prepare_call(params[:CallerTokenId], params[:tokenID], params[:RecipientTokenId], params[:Amount], unique_id, "Monthly subscription.")
+    fps_call = AWS_FPS::Payment.prepare_call(params[:CallerTokenId], params[:tokenID], params[:RecipientTokenId], "5", unique_id, "Monthly subscription.")
     # Make the payment call
     response_xml = REXML::Document.new(AWS_FPS::Query.do(fps_call))
     result = response_xml.root.elements
