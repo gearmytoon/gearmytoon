@@ -23,10 +23,11 @@ class PaymentsControllerTest < ActionController::TestCase
       @user = Factory(:user)
     end
     should "create a payment model" do
-      recipient_token = @controller.send(:get_recipient_token)
+      recipient_token = AWS_FPS::Tokens.get_recipient_token
+      caller_token = AWS_FPS::Tokens.get_caller_token
       assert_difference "@user.reload.payments.count" do
         assert_difference "Payment.count" do
-          post :create, :payment => {:recipient_token => recipient_token}
+          post :create, :payment => {:recipient_token => recipient_token, :caller_token => caller_token}
         end
       end
       new_payment = Payment.last
@@ -35,29 +36,33 @@ class PaymentsControllerTest < ActionController::TestCase
     end
     
     should "redirect to amazon" do
-      recipient_token = @controller.send(:get_recipient_token)
-      post :create, :payment => {:recipient_token => recipient_token}
+      recipient_token = AWS_FPS::Tokens.get_recipient_token
+      caller_token = AWS_FPS::Tokens.get_caller_token
+      post :create, :payment => {:recipient_token => recipient_token, :caller_token => caller_token}
       assert_response :redirect
       assert @response.header['Location'].starts_with?("https://authorize.payments-sandbox.amazon.com/cobranded-ui/actions/start?")
     end
     
     should "protect against mass assignment attacks" do
-      recipient_token = @controller.send(:get_recipient_token)
-      post :create, :payment => {:recipient_token => recipient_token, :status => "paid"}
+      recipient_token = AWS_FPS::Tokens.get_recipient_token
+      caller_token = AWS_FPS::Tokens.get_caller_token
+      post :create, :payment => {:recipient_token => recipient_token, :caller_token => caller_token}
       assert_response :redirect
       assert_not_equal "paid", Payment.last.status
     end
   
     should "move to the considering payment state" do
-      recipient_token = @controller.send(:get_recipient_token)
-      post :create, :payment => {:recipient_token => recipient_token}
+      recipient_token = AWS_FPS::Tokens.get_recipient_token
+      caller_token = AWS_FPS::Tokens.get_caller_token
+      post :create, :payment => {:recipient_token => recipient_token, :caller_token => caller_token}
       assert_response :redirect
       assert_equal "considering_payment", Payment.last.status
     end
     
     should "get assigned to login user" do
-      recipient_token = @controller.send(:get_recipient_token)
-      post :create, :payment => {:recipient_token => recipient_token}
+      recipient_token = AWS_FPS::Tokens.get_recipient_token
+      caller_token = AWS_FPS::Tokens.get_caller_token
+      post :create, :payment => {:recipient_token => recipient_token, :caller_token => caller_token}
       assert_response :redirect
       assert_equal @user, Payment.last.purchaser
     end
@@ -70,11 +75,9 @@ class PaymentsControllerTest < ActionController::TestCase
     end
     
     should "show a user their reciept if payment was successful" do
-      recipient_token = @controller.send(:get_recipient_token)
-      post :create, :payment => {:recipient_token => recipient_token}
-      new_payment = Payment.last
-      Remit::PipelineResponse.any_instance.stubs(:successful?).returns(true)
-      get :receipt, :callerReference => new_payment.caller_reference
+      payment = Factory(:considering_payment, :purchaser => @user)
+      @controller.stubs(:fps_success?).returns(true)
+      get :receipt, :callerReference => payment.caller_reference
       assert_response :success
       assert_select "#receipt .price", :text => "$5"
       assert_select "#receipt .email", :text => @user.email
@@ -83,21 +86,17 @@ class PaymentsControllerTest < ActionController::TestCase
     end
 
     should "mark a payment as paid if the payment was successful" do
-      recipient_token = @controller.send(:get_recipient_token)
-      post :create, :payment => {:recipient_token => recipient_token}
-      new_payment = Payment.last
-      Remit::PipelineResponse.any_instance.stubs(:successful?).returns(true)
-      get :receipt, :callerReference => new_payment.caller_reference
+      payment = Factory(:considering_payment)
+      @controller.stubs(:fps_success?).returns(true)
+      get :receipt, :callerReference => payment.caller_reference
       assert_response :success
       assert Payment.last.paid?
     end
     
     should "not mark a payment as paid if the payment wasn't successful" do
-      recipient_token = @controller.send(:get_recipient_token)
-      post :create, :payment => {:recipient_token => recipient_token}
-      new_payment = Payment.last
-      Remit::PipelineResponse.any_instance.stubs(:successful?).returns(false)
-      get :receipt, :callerReference => new_payment.caller_reference
+      payment = Factory(:considering_payment)
+      @controller.stubs(:fps_success?).returns(false)
+      get :receipt, :callerReference => payment.caller_reference
       assert_response :success
       assert_template "sorry"
       assert_false Payment.last.paid?

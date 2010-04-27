@@ -7,6 +7,7 @@
   <tr class="payment_plan">
     <% form_for @payment, {:url => payment_path} do |f| %>
       <%= f.hidden_field :recipient_token %>
+      <%= f.hidden_field :caller_token %>
       <td class="plan">Personal</td>
       <td class="number_of_toons">5</td>
       <td class="price">$5/month</td>

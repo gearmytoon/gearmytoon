@@ -12,7 +12,7 @@ Factory.define(:character) do |model|
 end
 
 Factory.define(:user) do |f|
-  f.email "foo@foo.com"
+  f.sequence(:email) {|n| "foo#{n}@foo.com" }
   f.password "password"
   f.password_confirmation "password"
 end
@@ -116,4 +116,11 @@ Factory.define(:raid_10, :class => :area) do |model|
 end
 
 Factory.define(:raid, :parent => :raid_10) do |model|
+end
+
+Factory.define(:considering_payment, :class => :payment) do |model|
+  model.recipient_token "recipient_token"
+  model.caller_reference "caller_reference"
+  model.caller_token "caller_token"
+  model.association :purchaser, :factory => :user
 end

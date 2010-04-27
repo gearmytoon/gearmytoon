@@ -6,5 +6,5 @@ class Payment < ActiveRecord::Base
   event :pay do
     transitions :to => :paid, :from => :considering_payment
   end
-  attr_accessible :recipient_token, :caller_reference
+  attr_accessible :recipient_token, :caller_reference, :caller_token
 end

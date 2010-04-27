@@ -1,0 +1,16 @@
+<h1>Transaction Results</h1>
+<% if @success %>
+	</div>
+	<h2 align='center'>Done!</h2>
+	<p>Please view the <a href="http://developer.amazonwebservices.com/connect/entry.jspa?externalID=913">Latest Tech Docs</a> on our resource center to know more about the different kinds of use-cases that can be built on top of FPS and also to get an idea on how to proceed with your use-case. If you need any clarification regarding your specific use-case, please feel free to contact us.</p>
+	<hr/>
+<% else %>
+			<hr/><p>Viewing Transaction Details failed. Please check your configuration (config/amazon_fps.yml).</p>
+			<strong>Contact us on the <a href="http://developer.amazonwebservices.com/connect/forum.jspa?forumID=35">Amazon FPS Forum</a>, if you need more help.</strong>Please provide the following information:";
+			<ol>
+				<li><strong>RequestId:</strong><%= @request_id %></li>
+				<li><strong>Timestamp:</strong><%= Time.now %></li>
+			</ol>
+			<hr/>
+<% end %>
+<%= link_to "Start Again", :action => 'index' %>

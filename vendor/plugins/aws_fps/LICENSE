@@ -1,0 +1,33 @@
+aws_fps plugin
+==============
+
+LICENSE
+
+Portions copyright 2009 - Phoreo, LLC
+Portions copyright 2007 - Amazon Technologies, Inc.
+
+This code is based on sample code provided by Amazon Technologies, Inc written
+by "Philip@AWS" on 10/26/2007.  See here for the original example:
+http://developer.amazonwebservices.com/connect/entry.jspa?externalID=1021
+
+This adapted plugin was written by C. Scott Andreas of Phoreo, LLC.
+There is no relationship between Amazon Technologies, Inc. and Phoreo, LLC.
+
+This file is distributed on an "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS
+OF ANY KIND, either express or implied.  Use of this plugin is entirely at your
+own risk and discretion.  Neither Amazon nor Phoreo, LLC assume any
+responsibility for misuse, fraud, financial or material loss, or loss/damages
+of any other kind.  See the License for the specific language governing
+permissions and limitations under the License.
+
+Licensed under the Apache License, Version 2.0 (the "License");
+you may not use this file except in compliance with the License.
+You may obtain a copy of the License at
+
+    http://www.apache.org/licenses/LICENSE-2.0
+
+Unless required by applicable law or agreed to in writing, software
+distributed under the License is distributed on an "AS IS" BASIS,
+WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+See the License for the specific language governing permissions and
+limitations under the License.
