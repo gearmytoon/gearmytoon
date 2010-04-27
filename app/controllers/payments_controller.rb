@@ -34,14 +34,14 @@ class PaymentsController < ApplicationController
   def make_payment_url(payment)
     begin
       # Prepare configuration for the Amazon Payments Pipeline
-      pipeline_params = { 'transactionAmount' => "1",
+      pipeline_params = { 'transactionAmount' => "5",
                           'pipelineName'      => 'Recurring',
                           'paymentReason'     => 'Monthly Subscription',
                           'recurringPeriod'   => '1 Month',
                           'callerReference'   => payment.caller_reference }
 
       # Params for the return URL after the request is processed.
-      return_params = { 'Amount'           => "1",
+      return_params = { 'Amount'           => "5",
                         'CallerTokenId'    => payment.caller_token,
                         'RecipientTokenId' => payment.recipient_token }
       AWS_FPS::Pipeline.make_url(pipeline_params, return_params, receipt_payment_url)
