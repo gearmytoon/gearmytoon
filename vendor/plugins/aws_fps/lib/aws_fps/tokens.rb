@@ -3,7 +3,7 @@ module AWS_FPS
 
   class Tokens
     def self.get_caller_token
-      unique_id = (Time.now.to_i + rand(1000)).to_s
+      unique_id = UUID.new.generate
       call = { 'Action' => 'InstallPaymentInstruction',
                'PaymentInstruction' => "MyRole == 'Caller' orSay 'Role does not match';",
                'CallerReference' => unique_id,
@@ -17,11 +17,13 @@ module AWS_FPS
   		unless elements["Status"].nil?
   		  @status = elements["Status"].text
     		return elements["TokenId"].text if @status == "Success"
+  		else
+  		  raise "wtf caller_token"
     	end
     end
 
     def self.get_recipient_token
-      unique_id = (Time.now.to_i + rand(1000)).to_s
+      unique_id = UUID.new.generate
       call = {'Action' => 'InstallPaymentInstruction',
         			'PaymentInstruction' => "MyRole == 'Recipient' orSay 'Roles do not match';",
         			'CallerReference' => unique_id,
@@ -36,6 +38,8 @@ module AWS_FPS
   		unless elements["Status"].nil?
   		  @status = elements["Status"].text
     		return elements["TokenId"].text if @status == "Success"
+  		else
+  		  raise "wtf recipient_token"
     	end
     end
 

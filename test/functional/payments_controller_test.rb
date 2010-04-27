@@ -100,6 +100,24 @@ class PaymentsControllerTest < ActionController::TestCase
       assert_response :success
       assert_template "sorry"
       assert_false Payment.last.paid?
+      assert Payment.last.failed?
+    end
+
+    should "not call fps success again if the payment is failed" do
+      payment = Factory(:failed_payment)
+      @controller.stubs(:fps_success?).raises("WTF")
+      get :receipt, :callerReference => payment.caller_reference
+      assert_response :success
+      assert_template "sorry"
+      assert Payment.last.failed?
+    end
+
+    should "not call fps success again if the payment is successful" do
+      payment = Factory(:paid_payment)
+      @controller.stubs(:fps_success?).raises("WTF")
+      get :receipt, :callerReference => payment.caller_reference
+      assert_response :success
+      assert Payment.last.paid?
     end
     
   end

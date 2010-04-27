@@ -21,6 +21,8 @@ Rails::Initializer.run do |config|
   config.gem "friendly_id", :version => "~> 2.3"
   config.gem 'delayed_job', :version => '2.0.1'
   config.gem "acts_as_state_machine", :version => "2.2.0"
+  config.gem "uuid", :version => "2.3.0"
+  config.gem "macaddr", :version => "1.0.0"
   config.after_initialize do
     RPXNow.api_key = '65d9b768ba9f8c96a1d93691c53df7e59c738599'
   end

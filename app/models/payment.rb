@@ -3,8 +3,12 @@ class Payment < ActiveRecord::Base
   acts_as_state_machine :initial => :considering_payment, :column => "status"
   state :considering_payment
   state :paid
+  state :failed
   event :pay do
     transitions :to => :paid, :from => :considering_payment
+  end
+  event :fail do
+    transitions :to => :failed, :from => :considering_payment
   end
   attr_accessible :recipient_token, :caller_reference, :caller_token
 end

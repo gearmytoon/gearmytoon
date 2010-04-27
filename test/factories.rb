@@ -124,3 +124,13 @@ Factory.define(:considering_payment, :class => :payment) do |model|
   model.caller_token "caller_token"
   model.association :purchaser, :factory => :user
 end
+Factory.define(:paid_payment, :parent => :considering_payment) do |model|
+  model.after_create do |payment|
+    payment.pay!
+  end
+end
+Factory.define(:failed_payment, :parent => :considering_payment) do |model|
+  model.after_create do |payment|
+    payment.fail!
+  end
+end
