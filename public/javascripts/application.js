@@ -14,8 +14,11 @@
     $('#character_realm').autocomplete(realms);
     $('#welcome .actions ul li:not(li.toon_search)').clickable();
     $('#welcome .actions ul li.toon_search form input[type=text]').example(function() { return $(this).prev('label').text(); }).prev('label').hide();
-    var gearMeLink =  $('<a href="#" class="submit awesome large red">Gear Me!</a>').click(function(){ $('#welcome .actions ul li.toon_search form').submit(); });
-    $('#welcome .actions ul li.toon_search form input[type=submit]').replaceWith(gearMeLink);
+    $('form input[type=submit]').each(function(i,button) {
+      var form = $(button).parents('form');
+      var gearMeLink =  $('<a href="#" class="submit awesome large red"></a>').text($(button).attr('value')).click(function(){ $(form).submit(); });
+      $(button).replaceWith(gearMeLink);
+    });
     $('#math .character').clickable();
   });
 })(jQuery);
