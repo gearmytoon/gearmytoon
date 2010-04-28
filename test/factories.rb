@@ -17,10 +17,6 @@ Factory.define(:user) do |f|
   f.password_confirmation "password"
 end
 
-Factory.define(:invite) do |f|
-  f.email "foo@bar.com"
-end
-
 Factory.define(:admin, :parent => :user) do |f|
   f.email "admin@gearmytoon.com"
   f.admin true

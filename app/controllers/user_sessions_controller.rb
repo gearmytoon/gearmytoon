@@ -14,15 +14,9 @@ class UserSessionsController < ApplicationController
     else
       @user = User.find_or_initialize_by_identity_url(data[:identifier])
       if @user.new_record?
-        if params[:invite] && invite = Invite.find_by_token(params[:invite][:token])
-          @user.email = data[:email] || data[:verifiedEmail]
-          @user.password = Digest::SHA1.hexdigest("--#{Time.now.to_s}--#{@user.email}--")[0, 6]
-          @user.save
-          invite.destroy
-        else
-          flash[:notice] = 'You need a valid invite to create an account'
-          redirect_to interested_url and return
-        end
+        @user.email = data[:email] || data[:verifiedEmail]
+        @user.password = Digest::SHA1.hexdigest("--#{Time.now.to_s}--#{@user.email}--")[0, 6]
+        @user.save
       end
       @user_session = UserSession.create(@user)
       assign_admin_session if @user_session.record.admin

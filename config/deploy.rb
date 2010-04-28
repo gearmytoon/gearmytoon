@@ -10,11 +10,9 @@ namespace :vlad do
   desc "deploy the app"
   task :deploy => %w[
     vlad:gems:install
-    vlad:jobs:stop
     vlad:update
     vlad:migrate
     vlad:start
-    vlad:jobs:start
   ]
 
   desc "import a text file via wow armory on production"
@@ -38,23 +36,6 @@ namespace :vlad do
     desc "install gems"
     remote_task :install do
       run "cd #{current_path} && RAILS_ENV=#{rails_env} sudo rake gems:install"
-    end
-  end
-
-  namespace :jobs do
-    desc "start delayed_job worker"
-    remote_task :start do
-      run "cd #{current_path} && RAILS_ENV=#{rails_env} rake jobs:start"
-    end
-
-    desc "stop delayed_job worker"
-    remote_task :stop do
-      run "cd #{current_path} && RAILS_ENV=#{rails_env} rake jobs:stop"
-    end
-
-    desc "restart delayed_job worker"
-    remote_task :restart do
-      run "cd #{current_path} && RAILS_ENV=#{rails_env} rake jobs:restart"
     end
   end
 end

@@ -1,7 +1,7 @@
 <div class="column grid_5">
   <h2 class="signin_header">Register using one of these sites</h2>
   <div id="rpx_now_widget">
-    <%= RPXNow.embed_code('gearmytoon',rpx_token_sessions_url(:invite => {:token => @invite.token})) %>
+    <%= RPXNow.embed_code('gearmytoon',rpx_token_sessions_url) %>
   </div>
 </div>
 <div id="or" class="column grid_2">
@@ -11,7 +11,6 @@
   <h2 class="signin_header">Register directly with us</h2>
   <% form_for @user, :url => account_path do |f| %>
     <%= f.error_messages :header_message => nil %>
-    <%= hidden_field_tag 'invite[token]', @invite.token %>
     <p>
       <%= f.label :email %>
       <%= f.text_field :email, :class => 'text' %>

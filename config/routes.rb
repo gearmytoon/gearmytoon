@@ -2,7 +2,6 @@ ActionController::Routing::Routes.draw do |map|
   map.resource :payment, :member => {:receipt => :get, :pay => :get}
   map.resource :home
   map.resources :areas
-  map.resources :invites
   map.resources :users
   map.resources :characters, :member => {:pvp => :get} do |character|
     character.resource :upgrades, :member => {:frost => :get, :triumph => :get, :dungeon => :get, :raid_25 => :get, :raid_10 => :get}

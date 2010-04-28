@@ -15,30 +15,3 @@ begin
 rescue LoadError
   STDERR.puts "You need to install the vlad gem. 'gem install vlad vlad-git'"
 end
-
-begin
-  require 'delayed/tasks'
-rescue LoadError
-  STDERR.puts "Run `rake gems:install` to install delayed_job"
-end
-
-namespace :jobs do
-  task :ensure_tmp_pids do
-    `mkdir tmp/pids`
-  end
-
-  desc "Start the delayed_job worker in the background."
-  task :start => :ensure_tmp_pids do
-    `script/delayed_job start`
-  end
-
-  desc "Restart the delayed_job worker."
-  task :restart => :ensure_tmp_pids do
-    `script/delayed_job restart`
-  end
-
-  desc "Stop the delayed_job worker."
-  task :stop => :ensure_tmp_pids do
-    `script/delayed_job stop`
-  end
-end
