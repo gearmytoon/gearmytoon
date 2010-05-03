@@ -1,8 +1,9 @@
-require 'test_helper'
+require File.dirname(__FILE__) + '/../test_helper'
 
-class UserCharactersTest < ActiveSupport::TestCase
-  # Replace this with your real tests.
-  test "the truth" do
-    assert true
+class UserCharacterTest < ActiveSupport::TestCase
+  should "belong_to subscriber" do
+    user = Factory(:user)
+    user_character = Factory(:user_character, :subscriber => user)
+    assert_equal user, user_character.reload.subscriber
   end
 end

@@ -9,7 +9,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20100502042048) do
+ActiveRecord::Schema.define(:version => 20100503021711) do
 
   create_table "areas", :force => true do |t|
     t.string   "name"
@@ -61,7 +61,6 @@ ActiveRecord::Schema.define(:version => 20100502042048) do
     t.string   "guild_url"
     t.integer  "level"
     t.text     "total_item_bonuses"
-    t.integer  "user_id"
     t.string   "cached_slug"
     t.string   "locale"
   end
@@ -131,7 +130,12 @@ ActiveRecord::Schema.define(:version => 20100502042048) do
   create_table "user_characters", :force => true do |t|
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.integer  "subscriber_id"
+    t.integer  "character_id"
   end
+
+  add_index "user_characters", ["character_id"], :name => "index_user_characters_on_character_id"
+  add_index "user_characters", ["subscriber_id"], :name => "index_user_characters_on_subscriber_id"
 
   create_table "users", :force => true do |t|
     t.string   "email"

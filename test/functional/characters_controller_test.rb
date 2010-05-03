@@ -48,8 +48,10 @@ class CharactersControllerTest < ActionController::TestCase
     end
 
     should "link to current_user" do
-      post :create, :character => {:name => "Merb", :realm => "Lothar"}
-      assert_equal @user, assigns(:character).user
+      assert_difference "@user.reload.characters.count" do
+        post :create, :character => {:name => "Merb", :realm => "Lothar"}
+      end
+      assert @user.reload.characters.include?(assigns(:character))
     end
 
     should "create a character with a locale" do

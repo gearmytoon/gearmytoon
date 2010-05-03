@@ -9,23 +9,19 @@ class CharactersController < ApplicationController
   end
 
   def create
-    if c = Character.find_by_name_and_realm_and_locale(params[:character][:name].upcase,params[:character][:realm].upcase,params[:character][:locale])
-      redirect_to character_path(c)
-    else
-      begin
-        @character = Character.new(params[:character])
-        @character.user = current_user
-        @character = CharacterImporter.import_character_and_all_items(@character) if @character.valid?
-        if @character.save
-          flash[:notice] = "Toon added successfully!"
-          redirect_to character_path(@character)
-        else
-          @user = @current_user
-          render 'users/show'
-        end
-      rescue Wowr::Exceptions::CharacterNotFound
-        render "#{RAILS_ROOT}/public/404.html", :status => 404
+    begin
+      @character = Character.find_or_create_by_name_and_realm_and_locale(params[:character][:name].upcase,params[:character][:realm].upcase,params[:character][:locale])
+      if @character.valid?
+        CharacterImporter.refresh_character!(@character)
+        @current_user.user_characters.create(:character => @character)
+        flash[:notice] = "Toon added successfully!"
+        redirect_to character_path(@character)
+      else
+        @user = @current_user
+        render 'users/show'
       end
+    rescue Wowr::Exceptions::CharacterNotFound
+      render "#{RAILS_ROOT}/public/404.html", :status => 404
     end
   end
 

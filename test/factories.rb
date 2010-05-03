@@ -130,3 +130,7 @@ Factory.define(:failed_payment, :parent => :considering_payment) do |model|
     payment.fail!
   end
 end
+Factory.define(:user_character) do |model|
+  model.association :subscriber, :factory => :user
+  model.association :character
+end
