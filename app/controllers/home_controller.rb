@@ -3,6 +3,9 @@ class HomeController < ApplicationController
     @character = Character.new
   end
 
+  def contact
+  end
+
   def interested
     if request.post?
       @beta_participant = BetaParticipant.new(params[:beta_participant])
