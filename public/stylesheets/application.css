@@ -319,6 +319,7 @@ ul#social_links li img { width: 32px; height: 32px; }
 #welcome .actions a { font-size: 12px; text-decoration: none; }
 #welcome .actions ul li { padding: 10px 100px 20px 10px; background-color: #666; margin-bottom: 10px; -moz-border-radius: 10px; -webkit-border-radius: 10px; border-radius: 10px; }
 #welcome .actions ul li.trial { background: ForestGreen url("/images/wow_icons/64x64/Little Pot.png") no-repeat top right; }
+#welcome .actions ul li.trial strong { font-family: Georgia; font-size: 24px; line-height: 0; }
 #welcome .actions ul li.toon_search { background: SteelBlue url("/images/wow_icons/128x128/Leonid Barthalomew the Revered.png") no-repeat 10px 50px; padding-left: 150px; }
 #welcome .actions ul li.customers { background: #e33100 url("/images/wow_icons/64x64/Alliance Mailbox 1.png") no-repeat 394px 10px; }
 #welcome .actions ul li.math { background: SteelBlue url("/images/wow_icons/64x64/Finkle's Lava Dredger.png") no-repeat top right; }
