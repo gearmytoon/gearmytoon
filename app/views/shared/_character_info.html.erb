@@ -3,13 +3,15 @@
   size ||= ''
 %>
 <div class="character <%= character.faction %> <%= 'pvp' if pvp%> <%= size %>">
-  <%= link_to character_icon(character), character %>
+  <div class="portrait">
+    <%= link_to character_icon(character), character %>
+    <p class="level"><%= character.level %></p>
+  </div>
   <div class="info">
     <p class="name"><%= link_to character.name, character %></p>
     <% if character.guild.present? -%>
       <p class="guild"><%= character.guild %></p>
     <% end -%>
-    <p class="level"><%= character.level %></p>
     <p>
       <span class="spec"><%= character.primary_spec %></span>
       <span class="klass"><%= character.wow_class.name %></span>

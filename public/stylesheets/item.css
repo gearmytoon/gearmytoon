@@ -86,6 +86,8 @@
   -moz-opacity:0.5;
   -khtml-opacity: 0.5;
   opacity: 0.5;
+  width: 42px;
+  overflow: hidden;
 }
 .tab:hover{
   filter:alpha(opacity=80);

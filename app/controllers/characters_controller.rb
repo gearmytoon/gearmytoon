@@ -29,7 +29,7 @@ class CharactersController < ApplicationController
     @character = Character.find(params[:id])
     CharacterImporter.refresh_character!(@character)
   end
-  
+
   def pvp
     @character = Character.find(params[:id])
   end

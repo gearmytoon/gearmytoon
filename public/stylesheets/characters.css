@@ -8,12 +8,13 @@
 .character { float: left; position:relative; color: white; text-shadow: 1px 1px 4px rgba(10,10,10,0.5); background: saddleBrown url(/images/character_glass.png) no-repeat right top; width: 320px; padding: 10px 0; margin: 0 10px 10px 0; -moz-border-radius: 10px; -webkit-border-radius: 10px; border-radius: 10px; }
 .character.pvp.horde { background: #af0202 url(/images/horde_red.png) no-repeat right top; }
 .character.pvp.alliance { background: #0202af url(/images/alliance_blue.png) no-repeat right top; }
-.character img { float: left; margin: 0 8px; border: 2px solid #000; -moz-border-radius: 6px; -webkit-border-radius: 6px; border-radius: 6px; }
-.character p.name { font-size: 22px; color: white; line-height: 18px; font-weight: normal; margin: 0; }
-.character p.name a { text-decoration: none; }
-.character .level { background-color: #000; color: #fff; font-size: 14px; position: absolute; top: 57px; left: 52px; text-align: center; width: 24px; height: 20px; border: 2px solid #000; -moz-border-radius: 12px; -webkit-border-radius: 12px; border-radius: 12px; }
-.character .guild { color: GoldenRod; }
-.character .guild:before { content: "<"; }
-.character .guild:after { content: ">"; }
+.character .portrait { position: relative; float: left; width: auto; overflow: visible; }
+.character .portrait .level { background-color: #000; color: #fff; font-size: 14px; position: absolute; bottom: -6px; right: 0px; text-align: center; width: 24px; height: 20px; border: 2px solid #000; -moz-border-radius: 12px; -webkit-border-radius: 12px; border-radius: 12px; }
+.character .portrait img { float: left; margin: 0 8px; width: 64px; height: 64px; border: 2px solid #000; -moz-border-radius: 6px; -webkit-border-radius: 6px; border-radius: 6px; }
+.character .info p.name { font-size: 22px; color: white; line-height: 18px; font-weight: normal; margin: 0; }
+.character .info p.name a { text-decoration: none; }
+.character .info .guild { color: GoldenRod; }
+.character .info .guild:before { content: "<"; }
+.character .info .guild:after { content: ">"; }
 
 .character.small { width: 300px; }
