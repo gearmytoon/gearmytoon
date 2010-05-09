@@ -40,6 +40,8 @@ class Character < ActiveRecord::Base
   has_many :character_items
   serialize :total_item_bonuses
   has_many :equipped_items, :through => :character_items, :source => :item
+  has_many :user_characters
+  has_many :subscribers, :through => :user_characters, :source => :subscriber
   has_friendly_id :name_and_realm_and_locale, :use_slug => true
   #TODO, do we need?
   before_validation :capitalize_name_and_realm
@@ -99,6 +101,10 @@ class Character < ActiveRecord::Base
   def faction
     return 'horde' if HORDE_RACES.include?(race.downcase)
     return 'alliance' if ALLIANCE_RACES.include?(race.downcase)
+  end
+
+  def paid?
+    subscribers.map(&:active_subscriber?).any?
   end
 
   private

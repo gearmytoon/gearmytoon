@@ -265,6 +265,23 @@ class CharacterTest < ActiveSupport::TestCase
 
   end
 
+  context "paid?" do
+    should "know if the character is paid for" do
+      purchaser = Factory(:user)
+      payment = Factory(:paid_payment, :purchaser => purchaser)
+      character = Factory(:user_character, :subscriber => purchaser).character
+      assert_equal [purchaser], character.subscribers
+      assert character.paid?
+    end
+    should "know if the character is not paid for" do
+      purchaser = Factory(:user)
+      payment = Factory(:considering_payment, :purchaser => purchaser)
+      character = Factory(:user_character, :subscriber => purchaser).character
+      assert_equal [purchaser], character.subscribers
+      assert_false character.paid?
+    end
+  end
+
   context "primary_spec" do
     should "be used to determine the characters multipliers" do
       survival_hunter = Factory(:survival_hunter)
