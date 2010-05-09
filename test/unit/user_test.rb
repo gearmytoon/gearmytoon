@@ -9,23 +9,29 @@ class UserTest < ActiveSupport::TestCase
   
   should "have a most recent payment" do
     purchaser = Factory(:user)
-    Factory(:paid_payment, :purchaser => purchaser, :paid_at => 1.day.ago)
-    Factory(:paid_payment, :purchaser => purchaser, :paid_at => 10.minutes.ago)
-    latest_payment = Factory(:paid_payment, :purchaser => purchaser, :paid_at => Time.now)
-    assert_equal latest_payment, purchaser.most_recent_payment
+    Factory(:paid_payment, :purchaser => purchaser).update_attribute(:paid_at, 1.day.ago)
+    Factory(:paid_payment, :purchaser => purchaser).update_attribute(:paid_at, 10.day.ago)
+    latest_payment = Factory(:paid_payment, :purchaser => purchaser)
+    assert_equal latest_payment, purchaser.most_recent_paid_payment
   end
 
   context "active_subscriber?" do
     should "know if a account has lapsed payment" do
       purchaser = Factory(:user)
-      Factory(:paid_payment, :purchaser => purchaser, :paid_at => 37.days.ago)
+      Factory(:paid_payment, :purchaser => purchaser).update_attribute(:paid_at, 37.day.ago)
       assert_false purchaser.active_subscriber?
     end
 
     should "know if a account is activily paying" do
       purchaser = Factory(:user)
-      Factory(:paid_payment, :purchaser => purchaser, :paid_at => Time.now)
+      Factory(:paid_payment, :purchaser => purchaser)
       assert purchaser.active_subscriber?
+    end
+
+    should "know if a account is not activily paying" do
+      purchaser = Factory(:user)
+      Factory(:considering_payment, :purchaser => purchaser)
+      assert_false purchaser.active_subscriber?
     end
   end
 end

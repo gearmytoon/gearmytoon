@@ -20,6 +20,12 @@ class ActiveSupport::TestCase
   def assert_false(value)
     assert !value, "true is not false."
   end
+  
+  def freeze_time
+    frozen_time = Time.now
+    Time.stubs(:now).returns(frozen_time)
+    frozen_time
+  end
 end
 
 class Net::HTTP

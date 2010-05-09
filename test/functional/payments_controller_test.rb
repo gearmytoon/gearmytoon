@@ -88,9 +88,11 @@ class PaymentsControllerTest < ActionController::TestCase
     should "mark a payment as paid if the payment was successful" do
       payment = Factory(:considering_payment)
       @controller.stubs(:fps_success?).returns(true)
+      frozen_time = freeze_time
       get :receipt, :callerReference => payment.caller_reference
       assert_response :success
-      assert Payment.last.paid?
+      assert payment.reload.paid?
+      assert_equal frozen_time.to_i, payment.paid_at.to_i
     end
     
     should "not mark a payment as paid if the payment wasn't successful" do
@@ -99,8 +101,8 @@ class PaymentsControllerTest < ActionController::TestCase
       get :receipt, :callerReference => payment.caller_reference
       assert_response :success
       assert_template "sorry"
-      assert_false Payment.last.paid?
-      assert Payment.last.failed?
+      assert_false payment.reload.paid?
+      assert payment.failed?
     end
 
     should "not call fps success again if the payment is failed" do
@@ -109,7 +111,7 @@ class PaymentsControllerTest < ActionController::TestCase
       get :receipt, :callerReference => payment.caller_reference
       assert_response :success
       assert_template "sorry"
-      assert Payment.last.failed?
+      assert payment.reload.failed?
     end
 
     should "not call fps success again if the payment is successful" do
@@ -117,7 +119,7 @@ class PaymentsControllerTest < ActionController::TestCase
       @controller.stubs(:fps_success?).raises("WTF")
       get :receipt, :callerReference => payment.caller_reference
       assert_response :success
-      assert Payment.last.paid?
+      assert payment.reload.paid?
     end
     
   end
