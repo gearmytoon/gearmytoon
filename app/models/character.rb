@@ -1,23 +1,9 @@
 class Character < ActiveRecord::Base
-  def self.has_upgrades_from(kind_of_upgrade, item_sources)
-    all_upgrades_method_name = "#{kind_of_upgrade}_upgrades"
-    all_pvp_upgrades_method_name = "#{kind_of_upgrade}_pvp_upgrades"
-
-    define_method(all_pvp_upgrades_method_name) do
-      top_upgrades_from(item_sources.call, true)
-    end
-    define_method("top_3_#{kind_of_upgrade}_pvp_upgrades") do
-      send(all_pvp_upgrades_method_name).first(3)
-    end
-
-    define_method(all_upgrades_method_name) do
-      top_upgrades_from(item_sources.call, false)
-    end
-    define_method("top_3_#{kind_of_upgrade}_upgrades") do
-      send(all_upgrades_method_name).first(3)
-    end
-
-  end
+  extend Upgradable
+  DEFAULT_LOCALE = 'us'
+  LOCALES = [['US','us'],['EU','eu'],['CN','cn'],['TW','tw'],['KR','kr']]
+  HORDE_RACES = ['orc', 'undead', 'troll', 'tauren', 'blood elf']
+  ALLIANCE_RACES = ['dwarf', 'gnome', 'human', 'night elf', 'draenei']
 
   has_upgrades_from :frost, Proc.new{EmblemSource.from_emblem_of_frost}
   has_upgrades_from :triumph, Proc.new{EmblemSource.from_emblem_of_triumph}
@@ -29,11 +15,6 @@ class Character < ActiveRecord::Base
   has_upgrades_from :raid_10, Proc.new{DroppedSource.from_raids_10}
   
   attr_accessor :dont_use_wow_armory
-
-  DEFAULT_LOCALE = 'us'
-  LOCALES = [['US','us'],['EU','eu'],['CN','cn'],['TW','tw'],['KR','kr']]
-  HORDE_RACES = ['orc', 'undead', 'troll', 'tauren', 'blood elf']
-  ALLIANCE_RACES = ['dwarf', 'gnome', 'human', 'night elf', 'draenei']
 
   belongs_to :wow_class
   belongs_to :user
