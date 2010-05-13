@@ -1,6 +1,6 @@
 ActionController::Routing::Routes.draw do |map|
   map.resource :payment, :member => {:receipt => :get, :pay => :get}
-  map.resource :home
+  map.resource :home, :member => {:contact => :get}
   map.resources :areas
   map.resources :users
   map.resources :characters, :member => {:pvp => :get} do |character|
@@ -17,10 +17,6 @@ ActionController::Routing::Routes.draw do |map|
     admin.resources :users, :characters, :items, :character_items, :active_scaffold => true
   end
   map.admin 'admin', :controller => 'admin', :action => 'index'
-
-  map.interested 'interested', :controller => 'home', :action => 'interested'
-  map.reasons 'reasons', :controller => 'home', :action => 'reasons'
-  map.contact 'contact', :controller => 'home', :action => 'contact'
   map.math '', :controller => 'home', :action => 'index', :anchor => 'math'
   map.testimonials '', :controller => 'home', :action => 'index', :anchor => 'testimonials'
   map.root :controller => "home"

@@ -24,7 +24,7 @@
           <li><%= link_to "Home", root_path %></li>
           <li><%= link_to "Doing the &fnof;(x)", math_path %></li>
           <li><%= link_to "Gear your Toon", signup_path %></li>
-          <li><%= link_to "Contact", contact_path %></li>
+          <li><%= link_to "Contact", contact_home_path %></li>
           <li><%= link_to "Your Account", account_path %></li>
         </ul>
         <ul id="social_links">
@@ -46,8 +46,7 @@
     <div id="footer">
       <div class="row">
         <%= link_to "home", root_url %> |
-        <%= link_to "public beta", interested_url %> |
-        <%= link_to "about us", reasons_url %>
+        <%= link_to "contact us", contact_home_url %>
         <p class="copyright">Copyright &copy; 2010 GearMyToon.com</p>
       </div>
     </div>
