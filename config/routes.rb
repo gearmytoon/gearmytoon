@@ -17,7 +17,7 @@ ActionController::Routing::Routes.draw do |map|
     admin.resources :users, :characters, :items, :character_items, :active_scaffold => true
   end
   map.admin 'admin', :controller => 'admin', :action => 'index'
-  map.math '', :controller => 'home', :action => 'index', :anchor => 'math'
-  map.testimonials '', :controller => 'home', :action => 'index', :anchor => 'testimonials'
-  map.root :controller => "home"
+  map.math '', :controller => 'home', :action => 'show', :anchor => 'math'
+  map.testimonials '', :controller => 'home', :action => 'show', :anchor => 'testimonials'
+  map.root :controller => "home", :action => "show"
 end
