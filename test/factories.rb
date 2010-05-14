@@ -11,6 +11,13 @@ Factory.define(:character) do |model|
   model.dont_use_wow_armory true
 end
 
+Factory.define(:free_access_user, :class => "User") do |f|
+  f.sequence(:email) {|n| "free_access_#{n}@foo.com" }
+  f.password "password"
+  f.password_confirmation "password"
+  f.free_access true
+end
+
 Factory.define(:user) do |f|
   f.sequence(:email) {|n| "foo#{n}@foo.com" }
   f.password "password"

@@ -33,5 +33,6 @@ class UserTest < ActiveSupport::TestCase
       Factory(:considering_payment, :purchaser => purchaser)
       assert_false purchaser.active_subscriber?
     end
+    
   end
 end

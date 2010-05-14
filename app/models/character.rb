@@ -85,7 +85,7 @@ class Character < ActiveRecord::Base
   end
 
   def paid?
-    subscribers.map(&:active_subscriber?).any?
+    subscribers.map(&:active_subscriber?).any? || subscribers.map(&:free_access).any?
   end
 
   private

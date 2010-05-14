@@ -280,6 +280,12 @@ class CharacterTest < ActiveSupport::TestCase
       assert_equal [purchaser], character.subscribers
       assert_false character.paid?
     end
+    should "know if the character is subscribed to by a free access account" do
+      free_access_user = Factory(:free_access_user)
+      character = Factory(:user_character, :subscriber => free_access_user).character
+      assert character.paid?
+    end
+    
   end
 
   context "primary_spec" do

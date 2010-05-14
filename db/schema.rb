@@ -9,7 +9,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20100508224649) do
+ActiveRecord::Schema.define(:version => 20100514204513) do
 
   create_table "areas", :force => true do |t|
     t.string   "name"
@@ -147,6 +147,7 @@ ActiveRecord::Schema.define(:version => 20100508224649) do
     t.datetime "updated_at"
     t.string   "identity_url"
     t.boolean  "admin"
+    t.boolean  "free_access"
   end
 
   create_table "wow_classes", :force => true do |t|
