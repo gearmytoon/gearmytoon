@@ -1,6 +1,6 @@
 ActionController::Routing::Routes.draw do |map|
   map.resource :payment, :member => {:receipt => :get, :pay => :get}
-  map.resource :home, :member => {:contact => :get}
+  map.resource :home, :controller => "home", :member => {:contact => :get}
   map.resources :areas
   map.resources :users
   map.resources :characters, :member => {:pvp => :get} do |character|

@@ -1,6 +1,6 @@
 require File.dirname(__FILE__) + '/../test_helper'
 
-class HomesControllerTest < ActionController::TestCase
+class HomeControllerTest < ActionController::TestCase
   context "get index" do
     should "respond with success" do
       get :show
