@@ -1,7 +1,7 @@
 <%= render "shared/character_info", :character => @character, :pvp => false %>
 <div style="clear:both"></div>
-<% if false %>
-  <% if @character.level < 79 -%>
+<% unless @character.paid? %>
+  <% if @character.level <= 79 -%>
     <div id="unpaid_character" class="low_level">
       <h2>Only <strong><%= pluralize(80 - @character.level, "level") %></strong> to go!</h2>
       <p>Currently we only support level 80 characters.<br />Want to sign up anyway?</p>

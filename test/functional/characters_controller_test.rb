@@ -63,7 +63,23 @@ class CharactersControllerTest < ActionController::TestCase
   context "get show" do
     setup do
       CharacterImporter.stubs(:refresh_character!)
+      Character.any_instance.stubs(:paid?).returns(true)
     end
+    
+    should "display the buy this character if the character not paid for" do
+      Character.any_instance.expects(:paid?).returns(false)
+      character = Factory(:character)
+      get :show, :id => character.friendly_id
+      assert_select "#unpaid_character"
+    end
+
+    should "display the not support if this character is level 80 and not paid for" do
+      Character.any_instance.expects(:paid?).returns(false)
+      character = Factory(:character, :level => 79)
+      get :show, :id => character.friendly_id
+      assert_select ".low_level"
+    end
+    
     should "refresh character info" do
       character = Factory(:character)
       #mocha wasn't evaluating "expects"
