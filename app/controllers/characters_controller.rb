@@ -3,8 +3,8 @@ class CharactersController < ApplicationController
   before_filter :require_user, :except => [:show, :pvp]
   before_filter :require_admin, :only => :index
   
+  before_filter :assign_character, :only => [:show, :pvp]
   before_filter :redirect_to_current_url, :only => :show
-  before_filter :assign_character, :only => :show
   before_filter :ensure_character_level_supported, :only => :show
   before_filter :ensure_character_paid_for, :only => :show
 
@@ -30,17 +30,14 @@ class CharactersController < ApplicationController
   end
 
   def show
-    @character = Character.find(params[:id])
     CharacterImporter.refresh_character!(@character)
   end
 
   def pvp
-    @character = Character.find(params[:id])
   end
 
   private
   def redirect_to_current_url
-    @character = Character.find(params[:id])
     redirect_to @character, :status => :moved_permanently unless @character.friendly_id_status.best?
   end
 end
