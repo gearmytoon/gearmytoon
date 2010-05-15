@@ -8,9 +8,17 @@ class ApplicationController < ActionController::Base
   filter_parameter_logging :password, :password_confirmation
 
   protected
+
+  def ensure_character_paid_for
+    render "characters/unpaid" unless @character.paid?
+  end
+  
+  def ensure_character_level_supported
+    render "characters/unsupported_level" unless @character.level == 80
+  end
   
   def assign_character
-    @character = Character.find(params[:character_id])
+    @character = params[:character_id] ? Character.find(params[:character_id]) : Character.find(params[:id])
   end
 
   private

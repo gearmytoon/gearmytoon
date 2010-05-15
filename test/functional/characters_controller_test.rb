@@ -79,6 +79,13 @@ class CharactersControllerTest < ActionController::TestCase
       get :show, :id => character.friendly_id
       assert_select ".low_level"
     end
+
+    should "display the not support if this character is level 80 and is paid for" do
+      Character.any_instance.expects(:paid?).returns(true)
+      character = Factory(:character, :level => 79)
+      get :show, :id => character.friendly_id
+      assert_select ".low_level"
+    end
     
     should "refresh character info" do
       character = Factory(:character)

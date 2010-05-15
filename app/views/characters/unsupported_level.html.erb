@@ -1,0 +1,13 @@
+<%= render "shared/character_info", :character => @character, :pvp => false %>
+<div style="clear:both"></div>
+
+<div id="unpaid_character" class="low_level">
+  <h2>Only <strong><%= pluralize(80 - @character.level, "level") %></strong> to go!</h2>
+  <p>Currently we only support level 80 characters.<br />Want to sign up anyway?</p>
+  <p class="top">Gear <strong><%= @character.name %></strong> and <strong>4</strong> other toons </p>
+  <p class="bottom">with a <a href="#">Personal Account &raquo;</a></p>
+  <% form_for Payment.new, {:url => payment_path} do |f| %>
+    <%= f.hidden_field :recipient_token %>
+    <%= image_submit_tag "http://g-ecx.images-amazon.com/images/G/01/asp/golden_small_paynow_withlogo_darkbg.gif" %>
+  <% end -%>
+</div>

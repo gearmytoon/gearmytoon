@@ -1,41 +1,16 @@
 <%= render "shared/character_info", :character => @character, :pvp => false %>
 <div style="clear:both"></div>
-<% unless @character.paid? %>
-  <% if @character.level <= 79 -%>
-    <div id="unpaid_character" class="low_level">
-      <h2>Only <strong><%= pluralize(80 - @character.level, "level") %></strong> to go!</h2>
-      <p>Currently we only support level 80 characters.<br />Want to sign up anyway?</p>
-      <p class="top">Gear <strong><%= @character.name %></strong> and <strong>4</strong> other toons </p>
-      <p class="bottom">with a <a href="#">Personal Account &raquo;</a></p>
-      <% form_for Payment.new, {:url => payment_path} do |f| %>
-        <%= f.hidden_field :recipient_token %>
-        <%= image_submit_tag "http://g-ecx.images-amazon.com/images/G/01/asp/golden_small_paynow_withlogo_darkbg.gif" %>
-      <% end -%>
-    </div>
-  <% else -%>
-    <div id="unpaid_character">
-      <h2>Sign up for only <strong>$3</strong> a month</h2>
-      <p class="top">Gear <strong><%= @character.name %></strong> and <strong>4</strong> other toons </p>
-      <p class="bottom">with a <a href="#">Personal Account &raquo;</a></p>
-      <% form_for Payment.new, {:url => payment_path} do |f| %>
-        <%= f.hidden_field :recipient_token %>
-        <%= image_submit_tag "http://g-ecx.images-amazon.com/images/G/01/asp/golden_small_paynow_withlogo_darkbg.gif" %>
-      <% end -%>
-    </div>
-  <% end -%>
-<% else -%>
-  <%= link_to "Show PvP Gear", pvp_character_path(@character), :class => 'awesome large red' %>
-  <% render :layout => "shared/pve_tabs" do %>
-    <% render :layout => "shared/upgrade_section", :locals => {:kind_of_upgrade => "Emblem Of Frost", :upgrades => @character.top_3_frost_upgrades} do %>
-      <%= stylized_item_name Item.badge_of_frost %> <%= wowhead_item_image_link Item.badge_of_frost %> <span class="see_more"><%= link_to "more upgrades", from_frost_emblems_character_upgrades_path(@character) %></span>
-    <% end %>
+<%= link_to "Show PvP Gear", pvp_character_path(@character), :class => 'awesome large red' %>
+<% render :layout => "shared/pve_tabs" do %>
+  <% render :layout => "shared/upgrade_section", :locals => {:kind_of_upgrade => "Emblem Of Frost", :upgrades => @character.top_3_frost_upgrades} do %>
+    <%= stylized_item_name Item.badge_of_frost %> <%= wowhead_item_image_link Item.badge_of_frost %> <span class="see_more"><%= link_to "more upgrades", from_frost_emblems_character_upgrades_path(@character) %></span>
+  <% end %>
 
-    <% render :layout => "shared/upgrade_section", :locals => {:kind_of_upgrade => "Emblem Of Triumph", :upgrades => @character.top_3_triumph_upgrades} do %>
-      <%= stylized_item_name Item.badge_of_triumph %> <%= wowhead_item_image_link Item.badge_of_triumph %> <span class="see_more"><%= link_to "more upgrades", from_triumph_emblems_character_upgrades_path(@character) %></span>
-    <% end %>
+  <% render :layout => "shared/upgrade_section", :locals => {:kind_of_upgrade => "Emblem Of Triumph", :upgrades => @character.top_3_triumph_upgrades} do %>
+    <%= stylized_item_name Item.badge_of_triumph %> <%= wowhead_item_image_link Item.badge_of_triumph %> <span class="see_more"><%= link_to "more upgrades", from_triumph_emblems_character_upgrades_path(@character) %></span>
+  <% end %>
 
-    <% render :layout => "shared/upgrade_section", :locals => {:kind_of_upgrade => "Heroic Dungeon", :upgrades => @character.top_3_heroic_dungeon_upgrades} do %>
-      Heroic Dungeon's <span class="see_more"><%= link_to "more upgrades", from_dungeons_character_upgrades_path(@character) %></span>
-    <% end %>
+  <% render :layout => "shared/upgrade_section", :locals => {:kind_of_upgrade => "Heroic Dungeon", :upgrades => @character.top_3_heroic_dungeon_upgrades} do %>
+    Heroic Dungeon's <span class="see_more"><%= link_to "more upgrades", from_dungeons_character_upgrades_path(@character) %></span>
   <% end %>
 <% end %>

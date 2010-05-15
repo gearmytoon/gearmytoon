@@ -2,7 +2,11 @@ class CharactersController < ApplicationController
   helper :areas
   before_filter :require_user, :except => [:show, :pvp]
   before_filter :require_admin, :only => :index
+  
   before_filter :redirect_to_current_url, :only => :show
+  before_filter :assign_character, :only => :show
+  before_filter :ensure_character_level_supported, :only => :show
+  before_filter :ensure_character_paid_for, :only => :show
 
   def index
     @characters = Character.all
