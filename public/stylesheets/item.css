@@ -97,7 +97,7 @@
   background:#303030;
 }
 #tabs .selected{
-  border-right:none;
+  border-right:3px solid #222222;
   filter:alpha(opacity=1);
   -moz-opacity:1;
   -khtml-opacity: 1;
