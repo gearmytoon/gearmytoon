@@ -2,6 +2,12 @@ require File.dirname(__FILE__) + '/../test_helper'
 
 class UpgradesControllerTest < ActionController::TestCase
   context "get frost" do
+    should "display the buy this character if the character not paid for" do
+      character = Factory(:unpaid_character)
+      get :frost, :character_id => character.friendly_id
+      assert_select "#unpaid_character"
+    end
+    
     should "show all upgrades" do
       character = Factory(:character_item, :character => Factory(:a_hunter)).character
       4.times {Factory(:item_from_emblem_of_frost)}
