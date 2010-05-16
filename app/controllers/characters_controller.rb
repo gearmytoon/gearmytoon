@@ -5,8 +5,6 @@ class CharactersController < ApplicationController
   
   before_filter :assign_character, :only => [:show, :pvp]
   before_filter :redirect_to_current_url, :only => :show
-  # before_filter :ensure_character_level_supported, :only => :show
-  # before_filter :ensure_character_paid_for, :only => :show
 
   def index
     @characters = Character.all
@@ -38,6 +36,6 @@ class CharactersController < ApplicationController
 
   private
   def redirect_to_current_url
-    redirect_to @character, :status => :moved_permanently unless @character.friendly_id_status.best?
+    redirect_to(@character, :status => :moved_permanently) unless @character.friendly_id_status.best?
   end
 end

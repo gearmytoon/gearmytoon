@@ -8,12 +8,6 @@ class ApplicationController < ActionController::Base
   filter_parameter_logging :password, :password_confirmation
 
   protected
-
-  def ensure_character_paid_for
-  end
-  
-  def ensure_character_level_supported
-  end
   
   def assign_character
     @character = params[:character_id] ? Character.find(params[:character_id]) : Character.find(params[:id])
