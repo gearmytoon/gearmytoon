@@ -1,7 +1,0 @@
-<%= render "shared/character_info", :character => @character, :pvp => false %>
-<h1>Dungeons</h1>
-<% @dungeons.each do |dungeon| %>
-  <div class="zone_upgrade">
-    <%= link_to dungeon.full_name, character_raid_path(@character, dungeon) %>
-  </div>
-<% end %>

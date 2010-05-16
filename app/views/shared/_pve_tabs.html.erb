@@ -1,3 +1,6 @@
+<%= render "shared/character_info", :character => @character, :pvp => false %>
+<div style="clear:both"></div>
+<%= link_to "Show PvP Gear", pvp_character_path(@character), :class => 'awesome large red' %>
 <div id="upgrades">
   <ul id="tabs">
     <%= tab_link(styled_wow_icon("game_icons/summary.png"), character_path(@character), "Upgrade Summary") %>
