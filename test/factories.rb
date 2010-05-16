@@ -1,4 +1,4 @@
-Factory.define(:character) do |model|
+Factory.define(:unpaid_character, :class => "Character") do |model|
   model.name "Merb"
   model.total_item_bonuses {}
   model.realm "Baelgun"
@@ -9,6 +9,13 @@ Factory.define(:character) do |model|
   model.wow_class WowClass.create_class!("Hunter")
   model.race 'Troll'
   model.dont_use_wow_armory true
+end
+
+Factory.define(:character, :parent => "unpaid_character") do |model|
+  model.after_create do |character|
+    character.subscribers = [Factory(:free_access_user)]
+    character.save!
+  end
 end
 
 Factory.define(:free_access_user, :class => "User") do |f|
@@ -139,5 +146,5 @@ Factory.define(:failed_payment, :parent => :considering_payment) do |model|
 end
 Factory.define(:user_character) do |model|
   model.association :subscriber, :factory => :user
-  model.association :character
+  model.association :character, :factory => :unpaid_character
 end

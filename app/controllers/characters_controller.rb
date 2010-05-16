@@ -5,8 +5,8 @@ class CharactersController < ApplicationController
   
   before_filter :assign_character, :only => [:show, :pvp]
   before_filter :redirect_to_current_url, :only => :show
-  before_filter :ensure_character_level_supported, :only => :show
-  before_filter :ensure_character_paid_for, :only => :show
+  # before_filter :ensure_character_level_supported, :only => :show
+  # before_filter :ensure_character_paid_for, :only => :show
 
   def index
     @characters = Character.all

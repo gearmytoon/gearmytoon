@@ -63,25 +63,21 @@ class CharactersControllerTest < ActionController::TestCase
   context "get show" do
     setup do
       CharacterImporter.stubs(:refresh_character!)
-      Character.any_instance.stubs(:paid?).returns(true)
     end
     
     should "display the buy this character if the character not paid for" do
-      Character.any_instance.expects(:paid?).returns(false)
-      character = Factory(:character)
+      character = Factory(:unpaid_character)
       get :show, :id => character.friendly_id
       assert_select "#unpaid_character"
     end
 
-    should "display the not support if this character is level 80 and not paid for" do
-      Character.any_instance.expects(:paid?).returns(false)
-      character = Factory(:character, :level => 79)
+    should "display the not support if this character is not level 80 and not paid for" do
+      character = Factory(:unpaid_character, :level => 79)
       get :show, :id => character.friendly_id
       assert_select ".low_level"
     end
 
-    should "display the not support if this character is level 80 and is paid for" do
-      Character.any_instance.expects(:paid?).returns(true)
+    should "display the not support if this character is not level 80 and is paid for" do
       character = Factory(:character, :level => 79)
       get :show, :id => character.friendly_id
       assert_select ".low_level"
@@ -170,6 +166,18 @@ class CharactersControllerTest < ActionController::TestCase
   end
 
   context "get pvp" do
+
+    should "display the buy this character if the character not paid for" do
+      character = Factory(:unpaid_character)
+      get :pvp, :id => character.friendly_id
+      assert_select "#unpaid_character"
+    end
+    
+    should "display the not support if this character is not level 80" do
+      character = Factory(:character, :level => 79)
+      get :pvp, :id => character.friendly_id
+      assert_select ".low_level"
+    end
 
     context "upgrades sections" do
       should "render Honor" do

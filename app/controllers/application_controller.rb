@@ -10,15 +10,15 @@ class ApplicationController < ActionController::Base
   protected
 
   def ensure_character_paid_for
-    render "characters/unpaid" unless @character.paid?
   end
   
   def ensure_character_level_supported
-    render "characters/unsupported_level" unless @character.level == 80
   end
   
   def assign_character
     @character = params[:character_id] ? Character.find(params[:character_id]) : Character.find(params[:id])
+    return(render "characters/unsupported_level") unless(@character.level == 80)
+    return(render "characters/unpaid") unless(@character.paid?)
   end
 
   private
