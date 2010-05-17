@@ -34,24 +34,23 @@
     <br />
     <h2>Payment Info</h2>
     <% if(@user.active_payment) %>
-    <p>
-      Payment Plan: <strong id="current_payment_plan">5 toons</strong>
-    </p>
-    <p>
-      Your account will be billed again in <strong id="days_until_billing"><%= time_ago_in_words(@user.active_payment.time_remaining) %></strong>
-    </p>
-    <br />
-    <p>
-      <a href="#">Change Payment Plan</a>
-    </p>
+      <p>
+        Payment Plan: <strong id="current_payment_plan">5 toons</strong>
+      </p>
+      <br />
+      <p>
+        Your account will be billed again in <strong id="days_until_billing"><%= time_ago_in_words(@user.active_payment.time_remaining) %></strong>
+      </p>
+      <br />
+      <a href="https://payments.amazon.com/sdui/sdui/managepa">Cancel your account</a>
     <% else %>
-    <p>
-      Payment Plan: <strong id="current_payment_plan">None</strong>
-    </p>
-    <br />
-    <p>
-      <%= link_to "Sign up for GearMyToon", payment_path %>
-    </p>
+      <p>
+        Payment Plan: <strong id="current_payment_plan">None</strong>
+      </p>
+      <br />
+      <p>
+        <%= link_to "Sign up for GearMyToon", payment_path %>
+      </p>
     <% end %>
   </div>
 </div>
