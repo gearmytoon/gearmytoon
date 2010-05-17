@@ -21,8 +21,8 @@ class ActiveSupport::TestCase
     assert !value, "true is not false."
   end
   
-  def freeze_time
-    frozen_time = Time.now
+  def freeze_time(frozen_time = nil)
+    frozen_time = Time.now unless frozen_time
     Time.stubs(:now).returns(frozen_time)
     frozen_time
   end

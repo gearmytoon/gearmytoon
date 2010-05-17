@@ -12,6 +12,10 @@ class Payment < ActiveRecord::Base
   event :fail do
     transitions :to => :failed, :from => :considering_payment
   end
+  
+  def time_remaining
+    (paid_at + 1.month)
+  end
 
   attr_accessible :recipient_token, :caller_reference, :caller_token
 end

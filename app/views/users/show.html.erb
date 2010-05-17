@@ -33,15 +33,25 @@
     <br />
     <br />
     <h2>Payment Info</h2>
+    <% if(@user.active_payment) %>
     <p>
-      Payment Plan: <strong>5 toons</strong>
+      Payment Plan: <strong id="current_payment_plan">5 toons</strong>
     </p>
     <p>
-      Your account will be billed again in <strong>3 days</strong>
+      Your account will be billed again in <strong id="days_until_billing"><%= time_ago_in_words(@user.active_payment.time_remaining) %></strong>
     </p>
     <br />
     <p>
       <a href="#">Change Payment Plan</a>
     </p>
+    <% else %>
+    <p>
+      Payment Plan: <strong id="current_payment_plan">None</strong>
+    </p>
+    <br />
+    <p>
+      <%= link_to "Sign up for GearMyToon", payment_path %>
+    </p>
+    <% end %>
   </div>
 </div>
