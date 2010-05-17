@@ -9,8 +9,8 @@ set :web_command, 'sudo apache2ctl' # command to start/stop apache
 namespace :vlad do
   desc "deploy the app"
   task :deploy => %w[
-    vlad:gems:install
     vlad:update
+    vlad:bundle:install
     vlad:migrate
     vlad:start
   ]
@@ -32,10 +32,10 @@ namespace :vlad do
     run "cd #{current_path} && RAILS_ENV=#{rails_env} rake import_by_wow_armory_search TERM=\"wrathful Gladiator's\""
   end
 
-  namespace :gems do
+  namespace :bundle do
     desc "install gems"
     remote_task :install do
-      run "cd #{current_path} && RAILS_ENV=#{rails_env} sudo rake gems:install"
+      run "cd #{current_path} && RAILS_ENV=#{rails_env} bundle install"
     end
   end
 end

@@ -12,17 +12,6 @@ Rails::Initializer.run do |config|
   require_all_files_in("#{RAILS_ROOT}/lib/extensions")
 
   config.time_zone = 'UTC'
-  config.gem "pwood-wowr", :version => "0.5.1", :lib => "wowr", :source => "http://gems.github.com"
-  config.gem "json", :version => "1.2.0"
-  config.gem "mechanize", :version => "0.9.3"
-  config.gem 'ruby-openid', :lib => 'openid', :version => '2.1.7'
-  config.gem 'authlogic', :version => '2.1.3'
-  config.gem 'rpx_now', :version => '0.6.17'
-  config.gem "friendly_id", :version => "~> 2.3"
-  config.gem 'delayed_job', :version => '2.0.1'
-  config.gem "acts_as_state_machine", :version => "2.2.0"
-  config.gem "uuid", :version => "2.3.0"
-  config.gem "macaddr", :version => "1.0.0"
   config.after_initialize do
     RPXNow.api_key = '65d9b768ba9f8c96a1d93691c53df7e59c738599'
   end
