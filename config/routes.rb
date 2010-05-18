@@ -3,6 +3,7 @@ ActionController::Routing::Routes.draw do |map|
   map.resource :home, :controller => "home", :member => {:contact => :get}
   map.resources :areas
   map.resources :users
+  map.resource :payment_receipts
   map.resources :characters, :member => {:pvp => :get} do |character|
     character.resource :upgrades, :member => {:frost => :get, :triumph => :get, :dungeon => :get, :raid_25 => :get, :raid_10 => :get}
     character.resource :pvp_upgrades, :member => {:frost => :get, :triumph => :get, :honor => :get, :wintergrasp => :get, :arena => :get}

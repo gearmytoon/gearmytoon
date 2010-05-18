@@ -5,7 +5,7 @@ class User < ActiveRecord::Base
   has_many :payments, :foreign_key => :purchaser_id
   has_many :user_characters, :foreign_key => :subscriber_id
   has_many :characters, :through => :user_characters
-
+  
   has_one :most_recent_paid_payment, :class_name => "Payment", :order => 'paid_at DESC', :foreign_key => :purchaser_id, :conditions => {:status => "paid"}
   
   attr_protected :admin

@@ -1,0 +1,14 @@
+<table>
+  <tr>
+    <th>Plan</th>
+    <th>Amount Paid</th>
+    <th>Paid On</th>
+  </tr>
+  <% @payments.each do |payment| %>
+    <tr class="payment_receipt">
+      <td class="plan">Personal</td>
+      <td class="amount">$3</td>
+      <td class="paid_at"><%= payment.paid_at %></td>
+    </tr>
+  <% end %>
+</table>
