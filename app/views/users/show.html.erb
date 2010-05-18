@@ -42,7 +42,9 @@
         Your account will be billed again in <strong id="days_until_billing"><%= time_ago_in_words(@user.active_payment.time_remaining) %></strong>
       </p>
       <br />
-      <a href="https://payments.amazon.com/sdui/sdui/managepa">Cancel your account</a>
+      <p><%= link_to "Payment History", payment_receipts_path %></p>
+      <br />
+      <p><a href="https://payments.amazon.com/sdui/sdui/managepa">Cancel your account</a></p>
     <% else %>
       <p>
         Payment Plan: <strong id="current_payment_plan">None</strong>
@@ -51,10 +53,8 @@
       <p>
         <%= link_to "Sign up for GearMyToon", payment_path %>
       </p>
+      <br />
+      <p><%= link_to "Payment History", payment_receipts_path %></p>
     <% end %>
-    <br />
-    <p>
-      <%= link_to "Payment History", payment_receipts_path %>
-    </p>
   </div>
 </div>
