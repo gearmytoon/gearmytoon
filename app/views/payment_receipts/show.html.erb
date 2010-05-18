@@ -1,4 +1,4 @@
-<table>
+<table id="payment_history">
   <tr>
     <th>Plan</th>
     <th>Amount Paid</th>
@@ -8,7 +8,7 @@
     <tr class="payment_receipt">
       <td class="plan">Personal</td>
       <td class="amount">$3</td>
-      <td class="paid_at"><%= payment.paid_at %></td>
+      <td class="paid_at"><%= payment.paid_at.to_date.to_s(:long) %></td>
     </tr>
   <% end %>
 </table>

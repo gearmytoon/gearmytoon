@@ -27,7 +27,7 @@ class PaymentReceiptsControllerTest < ActionController::TestCase
       assert_response :success
       assert_select ".payment_receipt .plan", :text => "Personal"
       assert_select ".payment_receipt .amount", :text => "$3"
-      assert_select ".payment_receipt .paid_at", :text => paid_date.to_s
+      assert_select ".payment_receipt .paid_at", :text => paid_date.to_date.to_s(:long)
     end
 
   end

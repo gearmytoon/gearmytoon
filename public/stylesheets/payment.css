@@ -9,13 +9,13 @@
   padding:4px;
 }
 
-.payment_plan{
+.payment_plan, .payment_receipt{
   font-size:14px;
   vertical-align:middle;
   background-color:#1A1A1A;
   border:1px solid black;
 }
-.payment_plan td{
+.payment_plan td, .payment_receipt td{
   padding:10px 40px;
 }
 
@@ -24,4 +24,11 @@
 }
 #goto_account{
   padding:10px 0px 20px 0px;
+}
+
+#payment_history {
+  margin-left:300px;
+}
+#payment_history th, td{
+  text-align:center;
 }
