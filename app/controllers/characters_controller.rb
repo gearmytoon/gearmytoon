@@ -14,7 +14,7 @@ class CharactersController < ApplicationController
     begin
       @character = Character.find_or_create_by_name_and_realm_and_locale(params[:character][:name].upcase,params[:character][:realm].upcase,params[:character][:locale])
       if @character.valid?
-        CharacterImporter.refresh_character!(@character)
+        Resque.enqueue(CharacterJob, @character.id)
         @current_user.user_characters.create(:character => @character)
         flash[:notice] = "Toon added successfully!"
         redirect_to character_path(@character)
@@ -28,7 +28,7 @@ class CharactersController < ApplicationController
   end
 
   def show
-    CharacterImporter.refresh_character!(@character)
+    Resque.enqueue(CharacterJob, @character.id)
   end
 
   def pvp
