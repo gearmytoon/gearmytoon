@@ -19,11 +19,5 @@ class CharactersControllerTest < ActionController::TestCase
       end
     end
 
-    should_eventually "display no such character page if we cannot find the character" do
-      Factory(:user)
-      post :create, :character => {:name => "zzzzzzzzzzerb", :realm => "Thunderlord"}
-      assert_template "#{RAILS_ROOT}/public/404.html"
-      assert_response 404
-    end
   end
 end

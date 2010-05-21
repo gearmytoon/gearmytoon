@@ -74,6 +74,20 @@ class CharactersControllerTest < ActionController::TestCase
 
   context "get show" do
     
+    should "display the new character page for a new character being loaded" do
+      character = Factory(:new_character)
+      get :show, :id => character.friendly_id
+      assert_template "characters/new_character.html.erb"
+      assert_select "#new_toon"
+    end
+    
+    should "display the no such character page if the character doesn't exist" do
+      character = Factory(:does_not_exist_character)
+      get :show, :id => character.friendly_id
+      assert_template "#{RAILS_ROOT}/public/404.html"
+      assert_response 404
+    end
+    
     should "display the buy this character if the character not paid for" do
       character = Factory(:unpaid_character)
       get :show, :id => character.friendly_id

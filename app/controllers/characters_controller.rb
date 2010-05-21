@@ -22,8 +22,6 @@ class CharactersController < ApplicationController
         @user = @current_user
         render 'users/show'
       end
-    rescue Wowr::Exceptions::CharacterNotFound
-      render "#{RAILS_ROOT}/public/404.html", :status => 404
     end
   end
 
