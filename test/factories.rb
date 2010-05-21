@@ -11,6 +11,9 @@ Factory.define(:unpaid_character, :class => "Character") do |model|
   model.dont_use_wow_armory true
 end
 
+Factory.define(:new_character, :parent => "unpaid_character") do |model|
+end
+
 Factory.define(:character, :parent => "unpaid_character") do |model|
   model.after_create do |character|
     character.subscribers = [Factory(:free_access_user)]

@@ -13,7 +13,18 @@ class Character < ActiveRecord::Base
   has_upgrades_from :wintergrasp_mark, Proc.new{EmblemSource.from_wintergrasp_mark_of_honor}
   has_upgrades_from :raid_25, Proc.new{DroppedSource.from_raids_25}
   has_upgrades_from :raid_10, Proc.new{DroppedSource.from_raids_10}
+  acts_as_state_machine :initial => :new, :column => "status"
   
+  state :new
+  state :found
+  state :does_not_exist
+  event :loaded do
+    transitions :to => :found, :from => [:new, :does_not_exist]
+  end
+  event :unable_to_load do
+    transitions :to => :does_not_exist, :from => [:new, :found]
+  end
+
   attr_accessor :dont_use_wow_armory
 
   belongs_to :wow_class

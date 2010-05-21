@@ -317,4 +317,29 @@ class CharacterTest < ActiveSupport::TestCase
       end
     end
   end
+  
+  context "status" do
+    should "start as new" do
+      character = Factory(:new_character)
+      assert_equal "new", character.status
+    end
+
+    should "transition to found" do
+      character = Factory(:new_character)
+      character.loaded!
+      assert_equal "found", character.status
+      character.unable_to_load!
+      assert_equal "does_not_exist", character.status
+      character.loaded!
+      assert_equal "found", character.status
+    end
+
+    should "transition to does not exist" do
+      character = Factory(:new_character)
+      character.unable_to_load!
+      assert_equal "does_not_exist", character.status
+      character.loaded!
+      assert_equal "found", character.status
+    end
+  end
 end
