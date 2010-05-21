@@ -1,4 +1,4 @@
-Factory.define(:character) do |model|
+Factory.define(:basic_character, :class => "Character") do |model|
   model.name "Merb"
   model.total_item_bonuses {}
   model.realm "Baelgun"
@@ -11,20 +11,20 @@ Factory.define(:character) do |model|
   model.dont_use_wow_armory true
 end
 
-Factory.define(:unpaid_character, :parent => "character") do |model|
+Factory.define(:unpaid_character, :parent => "basic_character") do |model|
   model.after_create do |character|
     character.loaded!
   end
 end
 
-Factory.define(:new_character, :parent => "character") do |model|
+Factory.define(:new_character, :parent => "basic_character") do |model|
   model.after_create do |character|
     character.subscribers = [Factory(:free_access_user)]
     character.save!
   end
 end
 
-Factory.define(:does_not_exist_character, :parent => "character") do |model|
+Factory.define(:does_not_exist_character, :parent => "basic_character") do |model|
   model.after_create do |character|
     character.subscribers = [Factory(:free_access_user)]
     character.save!
@@ -32,7 +32,7 @@ Factory.define(:does_not_exist_character, :parent => "character") do |model|
   end
 end
 
-Factory.define(:character, :parent => "character") do |model|
+Factory.define(:character, :parent => "basic_character") do |model|
   model.after_create do |character|
     character.subscribers = [Factory(:free_access_user)]
     character.save!
@@ -169,4 +169,8 @@ end
 Factory.define(:user_character) do |model|
   model.association :subscriber, :factory => :user
   model.association :character, :factory => :unpaid_character
+end
+
+Factory.define(:character_refresh) do |model|
+  model.association :character
 end

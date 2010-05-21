@@ -3,17 +3,17 @@ require File.dirname(__FILE__) + '/../test_helper'
 class CharacterJobTest < ActiveSupport::TestCase
 
   should "import a characters items" do
-    character = Factory(:character, :name => "Merb", :realm => "Baelgun")
+    character_refresh = Factory(:character_refresh, :character => Factory(:character, :name => "Merb", :realm => "Baelgun"))
     assert_difference "Item.count", 18 do
-      CharacterJob.perform(character.id)
+      CharacterJob.perform(character_refresh.id)
     end
-    assert_equal "found", character.reload.status
+    assert_equal "found", character_refresh.character.reload.status
   end
   
   should "know if the character does not exist" do
-    character = Factory(:character, :name => "zzzzzzzzzzzzzMerb", :realm => "Baelgun")
-    CharacterJob.perform(character.id)
-    assert_equal "does_not_exist", character.reload.status
+    character_refresh = Factory(:character_refresh, :character => Factory(:character, :name => "zzzzzzzzzzzzzMerb", :realm => "Baelgun"))
+    CharacterJob.perform(character_refresh.id)
+    assert_equal "does_not_exist", character_refresh.character.reload.status
   end
 end
 # 

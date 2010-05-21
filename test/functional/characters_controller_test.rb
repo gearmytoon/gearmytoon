@@ -15,6 +15,12 @@ class CharactersControllerTest < ActionController::TestCase
       Resque.remove_queue('character_jobs')
     end
 
+    should "create a character refresh to track the status of the toon being reloaded" do
+      assert_difference "CharacterRefresh.count" do
+        post :create, :character => {:name => "Merb", :realm => "Baelgun"}
+      end
+    end
+
     should "create a resque job to refresh the toon" do
       assert_difference "Resque.size('character_jobs')" do
         post :create, :character => {:name => "Merb", :realm => "Baelgun"}
