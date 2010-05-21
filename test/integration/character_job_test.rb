@@ -8,12 +8,14 @@ class CharacterJobTest < ActiveSupport::TestCase
       CharacterJob.perform(character_refresh.id)
     end
     assert_equal "found", character_refresh.character.reload.status
+    assert_equal "done", character_refresh.reload.status
   end
   
   should "know if the character does not exist" do
     character_refresh = Factory(:character_refresh, :character => Factory(:character, :name => "zzzzzzzzzzzzzMerb", :realm => "Baelgun"))
     CharacterJob.perform(character_refresh.id)
     assert_equal "does_not_exist", character_refresh.character.reload.status
+    assert_equal "done", character_refresh.reload.status
   end
 end
 # 

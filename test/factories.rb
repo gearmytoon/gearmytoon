@@ -172,5 +172,5 @@ Factory.define(:user_character) do |model|
 end
 
 Factory.define(:character_refresh) do |model|
-  model.association :character
+  model.association :character, :factory => :new_character
 end
