@@ -10,6 +10,8 @@ require 'rake/rdoctask'
 require 'tasks/rails'
 require 'resque/tasks'
 
+task "resque:setup" => :environment
+
 begin
   require 'vlad'
   Vlad.load :scm => :git
