@@ -21,6 +21,7 @@ namespace :vlad do
     vlad:bundle:install
     vlad:migrate
     vlad:start
+    vlad:notify_hoptoad
   ]
 
   desc "setup database"
@@ -65,4 +66,20 @@ namespace :vlad do
       run "cd #{current_path} && RAILS_ENV=#{rails_env} bundle install --without test"
     end
   end
+
+  # hoptoad
+  task :notify_hoptoad => [:git_user, :git_revision] do
+    notify_command = "rake hoptoad:deploy TO=#{rails_env} REVISION=#{current_sha} REPO=#{repository} USER='#{current_user}'"
+    puts "Notifying Hoptoad of Deploy (#{notify_command})"
+    `#{notify_command}`
+    puts "Hoptoad Notification Complete."
+  end
+end
+
+remote_task :git_revision do
+  set :current_sha, run("cd #{File.join(scm_path, 'repo')}; git rev-parse origin/master").strip
+end
+
+task :git_user do
+  set :current_user, `git config --get user.name`.strip
 end
