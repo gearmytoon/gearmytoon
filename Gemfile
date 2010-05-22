@@ -16,6 +16,7 @@ gem "tzinfo", "0.3.20"
 gem "acts_as_state_machine", "2.2.0"
 gem "uuid", "2.3.0"
 gem "macaddr", "1.0.0"
+gem "newrelic_rpm", :require => false
 
 group :test do
   gem "sqlite3-ruby", :require => "sqlite3"
