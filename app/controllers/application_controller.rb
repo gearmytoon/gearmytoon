@@ -11,6 +11,8 @@ class ApplicationController < ActionController::Base
   
   def assign_character
     @character = params[:character_id] ? Character.find(params[:character_id]) : Character.find(params[:id])
+    return(render "#{RAILS_ROOT}/public/404.html", :status => 404) if(@character.does_not_exist?)
+    return(render "characters/new_character") if(@character.new?)
     return(render "characters/unsupported_level") unless(@character.level == 80)
     return(render "characters/unpaid") unless(@character.paid?)
   end

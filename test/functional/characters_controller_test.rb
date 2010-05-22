@@ -12,7 +12,25 @@ class CharactersControllerTest < ActionController::TestCase
     setup do
       activate_authlogic
       @user = Factory(:user)
-      Character.any_instance.stubs(:import_items_from_wow_armory)
+      Resque.remove_queue('character_jobs')
+    end
+
+    should "create a character refresh to track the status of the toon being reloaded" do
+      assert_difference "CharacterRefresh.count" do
+        post :create, :character => {:name => "Merb", :realm => "Baelgun"}
+      end
+    end
+
+    should "create a resque job to refresh the toon" do
+      assert_difference "Resque.size('character_jobs')" do
+        post :create, :character => {:name => "Merb", :realm => "Baelgun"}
+      end
+    end
+
+    should "not create a resque job for invalid toons" do
+      assert_no_difference "Resque.size('character_jobs')" do
+        post :create, :character => {:name => "", :realm => "Baelgun"}
+      end
     end
 
     should "create a character if none exists" do
@@ -61,8 +79,19 @@ class CharactersControllerTest < ActionController::TestCase
   end
 
   context "get show" do
-    setup do
-      CharacterImporter.stubs(:refresh_character!)
+    
+    should "display the new character page for a new character being loaded" do
+      character = Factory(:new_character)
+      get :show, :id => character.friendly_id
+      assert_template "characters/new_character.html.erb"
+      assert_select "#new_toon"
+    end
+    
+    should "display the no such character page if the character doesn't exist" do
+      character = Factory(:does_not_exist_character)
+      get :show, :id => character.friendly_id
+      assert_template "#{RAILS_ROOT}/public/404.html"
+      assert_response 404
     end
     
     should "display the buy this character if the character not paid for" do
@@ -85,12 +114,11 @@ class CharactersControllerTest < ActionController::TestCase
     
     should "refresh character info" do
       character = Factory(:character)
-      #mocha wasn't evaluating "expects"
-      CharacterImporter.expects(:refresh_character!).raises("wtf")
-      assert_raises RuntimeError, "wtf" do
+      assert_difference "Resque.size('character_jobs')" do
         get :show, :id => character.friendly_id
       end
     end
+
     should "display character info" do
       character = Factory(:character, :name => "merb", :realm => "Baelgun", :battle_group => "Shadowburn", :guild => "Special Circumstances", :primary_spec => "Survival")
       get :show, :id => character.friendly_id
