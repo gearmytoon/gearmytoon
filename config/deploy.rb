@@ -58,6 +58,11 @@ namespace :vlad do
       run "cd #{current_path} && RAILS_ENV=#{rails_env} rake import_by_wow_armory_search TERM=\"furious Gladiator's\""
       run "cd #{current_path} && RAILS_ENV=#{rails_env} rake import_by_wow_armory_search TERM=\"wrathful Gladiator's\""
     end
+    
+    desc "kill all production workers"
+    task :kill_workers do
+      run "cd #{current_path} rake kill_workers"
+    end
   end
 
   namespace :bundle do
