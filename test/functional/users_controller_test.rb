@@ -1,6 +1,20 @@
 require File.dirname(__FILE__) + '/../test_helper'
 
 class UsersControllerTest < ActionController::TestCase
+  context "post create" do
+    should "not be able to mass assign free access or admin" do
+      activate_authlogic
+      email = "#{Time.now.to_i}@foo.com"
+      assert_difference "User.count" do
+        post :create, :user => {:email => email, :password => "hello_world", :password_confirmation => "hello_world", :free_access => "true", :admin => "true"}
+      end
+      new_user = User.find_by_email(email)
+      assert_false new_user.admin
+      assert_false new_user.free_access
+    end
+  end
+  
+  
   context "get #show" do
     should "show how much longer a users account is active for" do
       activate_authlogic

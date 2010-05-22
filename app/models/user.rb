@@ -8,7 +8,7 @@ class User < ActiveRecord::Base
   
   has_one :most_recent_paid_payment, :class_name => "Payment", :order => 'paid_at DESC', :foreign_key => :purchaser_id, :conditions => {:status => "paid"}
   
-  attr_protected :admin
+  attr_protected :admin, :free_access
   
   def active_payment
     if most_recent_paid_payment && most_recent_paid_payment.time_remaining > Time.now
