@@ -79,7 +79,7 @@ class PaymentsControllerTest < ActionController::TestCase
       @controller.stubs(:fps_success?).returns(true)
       get :receipt, :callerReference => payment.caller_reference
       assert_response :success
-      assert_select "#receipt .price", :text => "$5"
+      assert_select "#receipt .price", :text => "$3"
       assert_select "#receipt .email", :text => @user.email
       assert_select "#receipt .number_of_toons", :text => "5"
       assert_select "#receipt .plan", :text => "Personal"
