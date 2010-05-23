@@ -12,9 +12,9 @@ require 'resque/tasks'
 
 task "resque:setup" => :environment
 
-begin
-  require 'vlad'
-  Vlad.load :scm => :git
-rescue LoadError
-  STDERR.puts "You need to install the vlad gem. 'gem install vlad vlad-git'"
-end
+# begin
+#   require 'vlad'
+#   Vlad.load :scm => :git
+# rescue LoadError
+#   STDERR.puts "You need to install the vlad gem. 'gem install vlad vlad-git'"
+# end

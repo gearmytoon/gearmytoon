@@ -33,7 +33,7 @@ specs:
 - macaddr: 
     version: 1.0.0
 - nokogiri: 
-    version: 1.4.1
+    version: 1.4.2
 - mechanize: 
     version: 0.9.3
 - mocha: 
@@ -75,7 +75,7 @@ specs:
 - wowr: 
     version: 0.5.4
     source: 0
-hash: 05351ac40c3232593099ce407195fef8ef2abf8d
+hash: 0ed4d3894c46c395f783d4b8d9a49544cc0fc62d
 sources: 
 - Git: 
     uri: http://github.com/scudco/wowr.git
@@ -103,6 +103,8 @@ dependencies:
     - :default
   vlad-git: 
     version: = 2.1.0
+    require: []
+
     group: 
     - :default
   ruby-openid: 
@@ -155,6 +157,8 @@ dependencies:
     - :test
   resque: 
     version: = 1.8.5
+    require: []
+
     group: 
     - :default
   uuid: 
@@ -171,6 +175,8 @@ dependencies:
     - :default
   vlad: 
     version: = 2.0.0
+    require: []
+
     group: 
     - :default
   hoptoad_notifier: 

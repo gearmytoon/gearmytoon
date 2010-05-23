@@ -1,5 +1,5 @@
 set :application, "project"
-set :domain, "deploy@gmt-ec2"
+set :domain, "deploy@gearmytoon.com"
 set :deploy_to, "/var/www/gearmytoon.com/"
 set :repository, 'git@github.com:nolman/gearmytoon.git'
 set :revision, 'master' # git branch to deploy
