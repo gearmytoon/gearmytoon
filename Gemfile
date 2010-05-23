@@ -11,13 +11,14 @@ gem 'ruby-openid', "2.1.7", :require => 'openid'
 gem 'authlogic', '2.1.3'
 gem 'rpx_now', '0.6.17'
 gem "friendly_id", "~> 2.3"
-gem 'resque', '1.8.5', :require => false
+gem 'resque', '1.8.5'
 gem "tzinfo", "0.3.20"
 gem "acts_as_state_machine", "2.2.0"
 gem "uuid", "2.3.0"
 gem "macaddr", "1.0.0"
 gem "newrelic_rpm", :require => false
 gem "hoptoad_notifier"
+gem "i18n", "0.3.7"
 
 group :test do
   gem "sqlite3-ruby", :require => "sqlite3"

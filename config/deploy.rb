@@ -11,7 +11,6 @@ namespace :vlad do
     vlad:update
     vlad:bundle:install
     vlad:setup_db
-    vlad:migrate
     vlad:start
   ]
 
@@ -27,6 +26,7 @@ namespace :vlad do
   desc "setup database"
   task :setup_db => %w[
     vlad:db:create
+    vlad:migrate
     vlad:db:seed
     vlad:db:import_all_items_from_text_files
   ]
@@ -58,10 +58,10 @@ namespace :vlad do
       run "cd #{current_path} && RAILS_ENV=#{rails_env} rake import_by_wow_armory_search TERM=\"furious Gladiator's\""
       run "cd #{current_path} && RAILS_ENV=#{rails_env} rake import_by_wow_armory_search TERM=\"wrathful Gladiator's\""
     end
-    
+
     desc "kill all production workers"
-    task :kill_workers do
-      run "cd #{current_path} rake kill_workers"
+    remote_task :kill_workers do
+      run "cd #{current_path} && rake kill_workers"
     end
   end
 

@@ -7,7 +7,7 @@ class CharactersControllerTest < ActionController::TestCase
     setup do
       Resque.remove_queue('character_jobs')
     end
-    
+
     should "lookup character if it doesn't exist and redirect show" do
       assert_difference "Item.count", 18 do
         assert_difference "Character.count" do
