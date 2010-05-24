@@ -1,7 +1,7 @@
 source :rubygems
 source "http://gems.github.com"
 
-gem "rails", "~> 2.3.5"
+gem "rails", "2.3.6"
 gem "mysql", "2.8.1"
 gem "vlad", "2.0.0", :require => false
 gem "vlad-git", "2.1.0", :require => false

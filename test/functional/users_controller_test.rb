@@ -21,9 +21,9 @@ class UsersControllerTest < ActionController::TestCase
       freeze_time
       user = Factory(:user)
       payment = Factory(:paid_payment, :purchaser => user)
-      payment.update_attribute(:paid_at, 1.month.ago + 7.days)
+      payment.update_attribute(:paid_at, 1.month.ago + 1.day)
       get :show
-      assert_select "#days_until_billing", :text => "7 days"
+      assert_select "#days_until_billing", :text => "1 day"
       assert_select "#current_payment_plan", :text => "5 toons"
     end
 
