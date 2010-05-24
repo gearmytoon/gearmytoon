@@ -3,8 +3,6 @@ source "http://gems.github.com"
 
 gem "rails", "2.3.6"
 gem "mysql", "2.8.1"
-gem "vlad", "2.0.0", :require => false
-gem "vlad-git", "2.1.0", :require => false
 gem "wowr", :git => "http://github.com/scudco/wowr.git", :tag => "v0.5.4"
 gem "mechanize", "0.9.3"
 gem 'ruby-openid', "2.1.7", :require => 'openid'
@@ -25,4 +23,9 @@ group :test do
   gem "factory_girl", "1.2.3"
   gem "mocha", "0.9.8"
   gem "shoulda", "2.10.2"
+end
+
+group :deploy do
+  gem "vlad", "2.0.0"
+  gem "vlad-git", "2.1.0"
 end

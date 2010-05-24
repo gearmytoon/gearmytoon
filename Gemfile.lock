@@ -77,7 +77,7 @@ specs:
 - wowr: 
     version: 0.5.4
     source: 0
-hash: 5d8f29c2e8c5bc406870b5dbb81ac6bde00282ed
+hash: f0d1f7f0315287b6bfbc5a23416bc673e441a170
 sources: 
 - Git: 
     uri: http://github.com/scudco/wowr.git
@@ -97,10 +97,8 @@ dependencies:
     - :test
   vlad-git: 
     version: = 2.1.0
-    require: []
-
     group: 
-    - :default
+    - :deploy
   rails: 
     version: = 2.3.6
     group: 
@@ -175,10 +173,8 @@ dependencies:
     - :default
   vlad: 
     version: = 2.0.0
-    require: []
-
     group: 
-    - :default
+    - :deploy
   i18n: 
     version: = 0.3.7
     group: 
