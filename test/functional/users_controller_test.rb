@@ -14,7 +14,6 @@ class UsersControllerTest < ActionController::TestCase
     end
   end
   
-  
   context "get #show" do
     should "show how much longer a users account is active for" do
       activate_authlogic
