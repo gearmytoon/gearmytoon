@@ -342,6 +342,7 @@ ul#social_links li img { width: 32px; height: 32px; }
 #math .box ul li:before { content: "\2713"; padding-right: 10px; text-shadow: 1px 2px 2px rgba(10,10,10,0.5); }
 #math .box.formula {
   /* note: webkit gradient implementation is not as per spec */
+  background-color: RoyalBlue;
   background:-webkit-gradient(linear, left top, left bottom, from(SteelBlue), to(RoyalBlue));
   background:-moz-linear-gradient(top, SteelBlue, RoyalBlue);
   background:-o-linear-gradient(top, SteelBlue, RoyalBlue);
@@ -349,6 +350,7 @@ ul#social_links li img { width: 32px; height: 32px; }
 }
 #math .box.results {
   /* note: webkit gradient implementation is not as per spec */
+  background-color: DarkGreen;
   background:-webkit-gradient(linear, left top, left bottom, from(ForestGreen), to(DarkGreen));
   background:-moz-linear-gradient(top, ForestGreen, DarkGreen);
   background:-o-linear-gradient(top, ForestGreen, DarkGreen);
@@ -357,6 +359,15 @@ ul#social_links li img { width: 32px; height: 32px; }
 #math .box.results h4 { font-size: 14px; text-shadow: none; }
 #math .box.results ul { margin: 0 0 10px 10px; }
 #math .box.results ul li { margin: 0; }
+
+#contact h1 { font-size: 40px; text-align: center; }
+#contact h2 { font-size: 28px; text-align: center; }
+#contact h3 { font-size: 20px; text-align: center; }
+#contact ul.social { margin: 0 auto; width: 820px; overflow: hidden; border-bottom: 1px solid white; }
+#contact ul.social li { float: left; width: 228px; margin: 20px; text-align: center; color: SkyBlue; font-size: 32px; }
+#contact ul.social a { color: SkyBlue; text-decoration: none; }
+#contact ul.characters { margin: 0 auto; width: 720px; overflow: hidden; }
+#contact ul.characters li { float: left; margin: 20px; }
 
 #user h2 { font-size: 24px; margin-bottom: 10px; }
 #user .column { padding: 10px; }
