@@ -1,11 +1,63 @@
-<h2>Contact us</h2>
-<ul>
-  <li><a href="http://twitter.com/gearmytoon">@gearmytoon on Twitter</a></li>
-  <li><a href="http://www.facebook.com/pages/Gear-My-Toon/116201925065981">Become a Fan on Facebook</a></li>
-  <li><a href="mailto:gearmytoon@gmail.com">E-mail us</a></li>
-</ul>
-<h2>Find us in game</h2>
-<ul>
-  <li><a href="http://gearmytoon.com/characters/merb-baelgun-us">Nolan</a></li>
-  <li><a href="http://gearmytoon.com/characters/ecma-baelgun-us">Adam</a></li>
-</ul>
+<div id="contact">
+  <h1>Contact us</h1>
+  <ul class="social">
+    <li>
+      <a href="http://twitter.com/gearmytoon" title="Follow @gearmytoon on Twitter"><%= image_tag "twitter_medium.png" %><br />@gearmytoon</a>
+    </li>
+    <li>
+      <a href="http://www.facebook.com/pages/Gear-My-Toon/116201925065981" title="Become a Fan of Gear My Toon on Facebook"><%= image_tag "facebook_medium.png" %><br />facebook</a>
+    </li>
+    <li>
+      <a href="mailto:gearmytoon@gmail.com"><%= image_tag "wow_icons/128x128/Alliance Mailbox 2.png" %><br />email us</a>
+    </li>
+  </ul>
+  <h2>Find us in game</h2>
+  <ul class="characters">
+    <li>
+      <h3>Nolan</h3>
+      <div class="character horde pvp ">
+        <div class="portrait">
+          <a href="/characters/merb-baelgun-us"><img src="http://www.wowarmory.com/_images/portraits/wow-80/0-8-3.gif" alt="Merb"></a>
+          <p class="level">80</p>
+        </div>
+        <div class="info">
+          <p class="name"><a href="/characters/merb-baelgun-us">Merb</a></p>
+          <p class="guild">Blood on the Ground</p>
+          <p>
+            <span class="spec">Survival</span>
+            <span class="klass">Hunter</span>
+          </p>
+          <p>
+            <span class="realm">Baelgun</span> /
+            <span class="battlegroup">Shadowburn</span>
+          </p>
+        </div>
+      </div>
+    </li>
+    <li>
+      <h3>Adam</h3>
+      <div class="character horde pvp small">
+        <div class="portrait">
+          <a href="/characters/ecma-baelgun-us"><img alt="Ecma" src="http://www.wowarmory.com/_images/portraits/wow-80/0-5-4.gif" /></a>
+          <p class="level">74</p>
+        </div>
+        <div class="info">
+          <p class="name"><a href="/characters/ecma-baelgun-us">Ecma</a></p>
+          <p>
+            <span class="spec">Assassination</span>
+            <span class="klass">Rogue</span>
+          </p>
+          <p>
+            <span class="realm">Baelgun</span> /
+            <span class="battlegroup">Shadowburn</span>
+          </p>
+        </div>
+      </div>
+    </li>
+  </ul>
+</div>
+<script>
+  window.onload = function() {$(function(){
+    $('#contact li').clickable();
+});}
+</script>
