@@ -16,4 +16,13 @@ class Area < ActiveRecord::Base
   def difficulty_as_word
     difficulty == HEROIC ? "Heroic" : nil
   end
+  
+  before_create :determine_number_of_players
+  def determine_number_of_players
+    if name.match(/(\d+)/)
+      self.players = $1
+    else
+      self.players = self.difficulty == HEROIC ? '25' : '10'
+    end
+  end
 end
