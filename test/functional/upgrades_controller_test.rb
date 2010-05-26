@@ -57,6 +57,7 @@ class UpgradesControllerTest < ActionController::TestCase
       assert_response :success
       assert_select ".upgrade", :count => 2
       assert_select ".upgrade_section", :count => 2
+      assert_select ".upgrade_summary_header a", :count => 2
     end
   end
 
@@ -69,7 +70,7 @@ class UpgradesControllerTest < ActionController::TestCase
       assert_response :success
       assert_select ".upgrade", :count => 2
       assert_select ".upgrade_section", :count => 2
+      assert_select ".upgrade_summary_header a", :count => 2
     end
   end
-
 end

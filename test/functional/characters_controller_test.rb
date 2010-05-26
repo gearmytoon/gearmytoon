@@ -147,6 +147,15 @@ class CharactersControllerTest < ActionController::TestCase
       assert_select ".upgrade_section h1 .epic", :text => "Emblem of Frost"
     end
 
+    should "have links to all three upgrade sections" do
+      Factory(:item_from_emblem_of_frost)
+      Factory(:item_from_emblem_of_triumph)
+      Factory(:item_from_heroic_dungeon)
+      character = Factory(:character_item).character
+      get :show, :id => character.friendly_id
+      assert_select ".upgrade_summary_header a", :count => 3
+    end
+
     should "show 3 upgrades under the frost emblem section" do
       3.times {Factory(:item_from_emblem_of_frost)}
       character = Factory(:character_item).character
@@ -199,6 +208,16 @@ class CharactersControllerTest < ActionController::TestCase
       character = Factory(:unpaid_character)
       get :pvp, :id => character.friendly_id
       assert_select "#unpaid_character"
+    end
+    
+    should "have links to all three upgrade sections" do
+      Factory(:item_from_emblem_of_frost)
+      Factory(:item_from_emblem_of_triumph)
+      Factory(:item_from_wintergrasp_marks)
+      Factory(:item_from_honor_points)
+      character = Factory(:character_item).character
+      get :pvp, :id => character.friendly_id
+      assert_select ".upgrade_summary_header a", :count => 4
     end
     
     should "display the not support if this character is not level 80" do

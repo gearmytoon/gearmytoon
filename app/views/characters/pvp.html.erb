@@ -1,8 +1,8 @@
 <% render :layout => "shared/pvp_tabs" do %>
-  <%= render "shared/upgrade_section", :kind_of_upgrade => "Honor Point", :upgrades => @character.top_3_honor_point_pvp_upgrades %>
-  <%= render "shared/upgrade_section", :kind_of_upgrade => "Wintergrasp Mark Of Honor", :upgrades => @character.top_3_wintergrasp_mark_pvp_upgrades %>
-  <%= render "shared/upgrade_section", :kind_of_upgrade => "Emblem of Triumph", :upgrades => @character.top_3_triumph_pvp_upgrades %>
-  <%= render "shared/upgrade_section", :kind_of_upgrade => "Emblem of Frost", :upgrades => @character.top_3_frost_pvp_upgrades %>
+  <%= render "shared/upgrade_section", :kind_of_upgrade => "Honor Point", :upgrades => @character.top_3_honor_point_pvp_upgrades, :link_to_more => honor_character_pvp_upgrades_path(@character) %>
+  <%= render "shared/upgrade_section", :kind_of_upgrade => "Wintergrasp Mark Of Honor", :upgrades => @character.top_3_wintergrasp_mark_pvp_upgrades, :link_to_more => wintergrasp_character_pvp_upgrades_path(@character) %>
+  <%= render "shared/upgrade_section", :kind_of_upgrade => "Emblem of Triumph", :upgrades => @character.top_3_triumph_pvp_upgrades, :link_to_more => triumph_character_pvp_upgrades_path(@character) %>
+  <%= render "shared/upgrade_section", :kind_of_upgrade => "Emblem of Frost", :upgrades => @character.top_3_frost_pvp_upgrades, :link_to_more => frost_character_pvp_upgrades_path(@character) %>
   <div class="upgrade_section" id="arena_points">
   </div>
 <% end %>

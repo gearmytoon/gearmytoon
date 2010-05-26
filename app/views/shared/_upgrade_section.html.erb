@@ -1,6 +1,10 @@
 <div class="upgrade_section" id="<%= kind_of_upgrade.gsub(/\s/,"_").downcase %>">
   <% if upgrades.any? %>
-    <h1 class="upgrade_summary_header"><%= "#{kind_of_upgrade} Upgrades" %></h1>
+    <% if local_assigns[:link_to_more] %>
+      <h1 class="upgrade_summary_header"><%= link_to "#{kind_of_upgrade} Upgrades", link_to_more %></h1>
+    <% else %>
+      <h1 class="upgrade_summary_header"><%= "#{kind_of_upgrade} Upgrades" %></h1>
+    <% end %>
     <table class='upgrade_table'>
       <thead>
         <tr class="upgrade_headers">
