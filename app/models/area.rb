@@ -4,6 +4,7 @@ class Area < ActiveRecord::Base
   RAIDS = [4603,4273,4493,4500,2159,3456,4812,4722]
 
   named_scope :dungeons, :conditions => {:wowarmory_area_id => DUNGEONS}
+  named_scope :raids, :conditions => {:wowarmory_area_id => RAIDS}
   named_scope :raids_10, :conditions => {:wowarmory_area_id => RAIDS, :players => 10}
   named_scope :raids_25, :conditions => {:wowarmory_area_id => RAIDS, :players => 25}
   has_many :items_dropped_in, :through => :dropped_sources, :source => :item
