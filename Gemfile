@@ -1,7 +1,7 @@
 source :rubygems
 source "http://gems.github.com"
 
-gem "rails", "2.3.6"
+gem "rails", "~> 2.3.8"
 gem "mysql", "2.8.1"
 gem "wowr", :git => "http://github.com/scudco/wowr.git", :tag => "v0.5.4"
 gem "mechanize", "0.9.3"
