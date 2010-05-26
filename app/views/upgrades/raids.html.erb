@@ -1,0 +1,5 @@
+<% render :layout => "shared/pve_tabs" do %>
+  <% @raids.each do |raid| %>
+    <%= render "shared/upgrade_section", :kind_of_upgrade => raid.full_name, :upgrades => @character.top_3_area_upgrades(raid) %>
+  <% end %>
+<% end %>

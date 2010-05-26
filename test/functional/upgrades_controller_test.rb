@@ -49,13 +49,14 @@ class UpgradesControllerTest < ActionController::TestCase
   end
   
   context "get raid_25" do
-    should "show all upgrades" do
+    should "show all 25 man raids upgrades" do
       character = Factory(:character_item, :character => Factory(:a_hunter)).character
       2.times{Factory(:item_from_25_man_raid)}
       Factory(:item_from_10_man_raid)
       get :raid_25, :character_id => character.id
       assert_response :success
       assert_select ".upgrade", :count => 2
+      assert_select ".upgrade_section", :count => 2
     end
   end
 
@@ -67,6 +68,7 @@ class UpgradesControllerTest < ActionController::TestCase
       get :raid_10, :character_id => character.id
       assert_response :success
       assert_select ".upgrade", :count => 2
+      assert_select ".upgrade_section", :count => 2
     end
   end
 

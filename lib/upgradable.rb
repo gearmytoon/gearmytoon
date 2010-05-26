@@ -4,19 +4,21 @@ module Upgradable
     all_upgrades_method_name = "#{kind_of_upgrade}_upgrades"
     all_pvp_upgrades_method_name = "#{kind_of_upgrade}_pvp_upgrades"
 
-    define_method(all_pvp_upgrades_method_name) do
-      top_upgrades_from(item_sources.call, true)
+    define_upgrade_method(all_upgrades_method_name, item_sources, false)
+    define_upgrade_method(all_pvp_upgrades_method_name, item_sources, true)
+    define_top_3_upgrade_method("top_3_#{kind_of_upgrade}_upgrades", all_upgrades_method_name)
+    define_top_3_upgrade_method("top_3_#{kind_of_upgrade}_pvp_upgrades", all_pvp_upgrades_method_name)
+  end
+  
+  def define_upgrade_method(name, item_sources, pvp_flag)
+    define_method(name) do |*args|
+      top_upgrades_from(item_sources.call(args), pvp_flag)
     end
-    define_method("top_3_#{kind_of_upgrade}_pvp_upgrades") do
-      send(all_pvp_upgrades_method_name).first(3)
-    end
+  end
 
-    define_method(all_upgrades_method_name) do
-      top_upgrades_from(item_sources.call, false)
+  def define_top_3_upgrade_method(name, upgrade_method)
+    define_method(name) do |*args|
+      send(upgrade_method,*args).first(3)
     end
-    define_method("top_3_#{kind_of_upgrade}_upgrades") do
-      send(all_upgrades_method_name).first(3)
-    end
-
   end
 end

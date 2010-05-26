@@ -20,15 +20,13 @@ class UpgradesController < ApplicationController
   end
 
   def raid_25
-    @kind_of_upgrade = "25 man Raid"
-    @upgrades = @character.raid_25_upgrades
-    render "show"
+    @raids = Area.raids_25
+    render "raids"
   end
 
   def raid_10
-    @kind_of_upgrade = "10 man Raid"
-    @upgrades = @character.raid_10_upgrades
-    render "show"
+    @raids = Area.raids_10
+    render "raids"
   end
   
 end

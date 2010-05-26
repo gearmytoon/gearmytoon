@@ -12,6 +12,7 @@ class Character < ActiveRecord::Base
   has_upgrades_from :arena_point, Proc.new{ArenaSource.all}
   has_upgrades_from :wintergrasp_mark, Proc.new{EmblemSource.from_wintergrasp_mark_of_honor}
   has_upgrades_from :raid_25, Proc.new{DroppedSource.from_raids_25}
+  has_upgrades_from :area, Proc.new{ |area| DroppedSource.from_area(area)}
   has_upgrades_from :raid_10, Proc.new{DroppedSource.from_raids_10}
   acts_as_state_machine :initial => :new, :column => "status"
   

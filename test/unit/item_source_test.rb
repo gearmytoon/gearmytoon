@@ -36,4 +36,11 @@ class DroppedSourceTest < ActiveSupport::TestCase
   context "associations" do
     should_belong_to :source_area
   end
+  context "from_area" do
+    should "find all items that are dropped inside a heroic dungeon" do
+      item = Factory(:item_from_heroic_dungeon)
+      Factory(:item_from_heroic_dungeon)
+      assert_equal [item], DroppedSource.from_area(item.dropped_sources.first.source_area).map(&:item)
+    end
+  end
 end

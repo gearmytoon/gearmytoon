@@ -38,6 +38,20 @@ class CharacterTest < ActiveSupport::TestCase
     end
   end
 
+  context "top_3_upgrades_from_area" do
+    should "find upgrades from the specific area" do
+      character = Factory(:a_hunter)
+      no_dps_item = Factory(:item, :bonuses => {:attack_power => 0.0})
+      Factory(:character_item, :character => character, :item => no_dps_item)
+      item = Factory(:item_from_heroic_raid, :bonuses => {:attack_power => 500.0})
+      other_item = Factory(:item_from_heroic_raid, :bonuses => {:attack_power => 500.0})
+      upgrades = character.area_upgrades(item.dropped_sources.first.source_area)
+      assert_equal 1, upgrades.length
+      assert_equal item, upgrades.first.new_item
+      assert_equal upgrades.length, character.top_3_area_upgrades(item.dropped_sources.first.source_area).length
+    end
+  end
+
   context "top_3_frost_upgrades" do
 
     should "not find empty slot upgrades if the toon has a two handed weapon" do
