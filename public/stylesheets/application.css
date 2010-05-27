@@ -312,6 +312,20 @@ ul#social_links li img { width: 32px; height: 32px; }
 
 #welcome .copy strong { font-size: 18px; font-family: Helvetica, "Trebuchet MS", Arial, sans-serif; font-weight: bold; color: SkyBlue; }
 #welcome .copy em { font-style: italic; }
+#welcome .copy a { display: block; padding: 20px; width: 80%; margin: 0 auto; color: white; background-color: SteelBlue; font-size: 18px; text-decoration: none;
+  background:#e33100; /* default background for browsers without gradient support */
+
+  /* css3 */
+  -moz-border-radius:10px;
+  -webkit-border-radius:10px;
+  border-radius:10px;
+  /* note: webkit gradient implementation is not as per spec */
+  background:-webkit-gradient(linear, left top, left bottom, from(#e36100), to(#e33100));
+  background:-moz-linear-gradient(top, #e36100, #e33100);
+  background:-o-linear-gradient(top, #e36100, #e33100);
+  background:linear-gradient(top, #e36100, #e33100);
+}
+#welcome .copy a:hover { text-decoration: underline; }
 #welcome .copy ul.features { clear: both; border-top: 1px solid #333; padding: 10px 0; margin-top: 10px; }
 #welcome .copy ul.features li { list-style: none outside none; margin: 28px 0 0 0; font-size: 16px; }
 #welcome .copy ul.features li.anvil { margin-top: 0; }
@@ -322,7 +336,7 @@ ul#social_links li img { width: 32px; height: 32px; }
 #welcome .actions ul li.trial strong { font-family: Georgia; font-size: 24px; line-height: 0; }
 #welcome .actions ul li.toon_search { background: SteelBlue url("/images/wow_icons/128x128/Leonid Barthalomew the Revered.png") no-repeat 10px 50px; padding-left: 150px; }
 #welcome .actions ul li.customers { background: #e33100 url("/images/wow_icons/64x64/Alliance Mailbox 1.png") no-repeat 394px 10px; }
-#welcome .actions ul li.math { background: SteelBlue url("/images/wow_icons/64x64/Finkle's Lava Dredger.png") no-repeat top right; }
+#welcome .actions ul li.math { background: #e33100 url("/images/wow_icons/64x64/Finkle's Lava Dredger.png") no-repeat top right; }
 #welcome .actions ul li.toon_search form { padding-top: 10px; margin-bottom: 0; }
 #welcome .actions ul li.toon_search form a.submit { clear: both; display: block; width: 50%; margin-top: 10px; text-align: center; }
 #welcome .actions ul li.toon_search form p { margin-bottom: 0; }
@@ -331,9 +345,16 @@ ul#social_links li img { width: 32px; height: 32px; }
 #welcome .actions ul li.toon_search form p.locale label { float: left; margin-right: 10px; }
 #welcome .actions ul li.toon_search form input.example { color: #bbb; }
 
+#examples { width: auto; overflow: hidden; padding: 0 50px; -moz-border-radius: 3px; -webkit-border-radius: 3px; border-radius: 3px; }
+#examples .characters { width: 680px; margin: 0 auto; }
+#examples .characters .character { margin: 10px; width: 300px; }
+#examples h2 { font-size: 24px; margin-bottom: 10px; text-align: center; }
+#examples h2 + p { font-size: 16px; margin-bottom: 20px; }
+
 #math { width: auto; overflow: auto; padding: 0 50px; -moz-border-radius: 3px; -webkit-border-radius: 3px; border-radius: 3px; }
 #math .arrow { font-size: 48px; margin: 110px 0 0 0; text-align: center; }
 #math .box { padding: 10px; text-shadow: 1px 2px 2px rgba(10,10,10,0.5); -moz-border-radius: 10px; -webkit-border-radius: 10px; border-radius: 10px; }
+#math .character { width: 300px; }
 #math h2 { font-size: 24px; margin-bottom: 10px; text-align: center; }
 #math h2 + p { font-size: 16px; margin-bottom: 20px; }
 #math h3 { margin: 0; font-size: 24px; }

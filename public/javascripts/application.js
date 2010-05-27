@@ -19,7 +19,7 @@
       var gearMeLink =  $('<a href="#" class="submit awesome large red"></a>').text($(button).attr('value')).click(function(){ $(form).submit(); });
       $(button).replaceWith(gearMeLink);
     });
-    $('#math .character, #contact ul li').clickable();
+    $('.character, #contact ul li').clickable();
 
     $('#character_refresh').everyTime(1000,function(i){
       $.getJSON($(this).attr('href'), function(data){
