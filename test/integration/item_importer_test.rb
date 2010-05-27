@@ -17,6 +17,29 @@ class ItemImporterTest < ActiveSupport::TestCase
       assert_equal 54500, item.item_sources.first.honor_point_cost
       assert_equal item, HonorSource.first.item
     end
+
+    should "destroy items that are dependent on area" do
+      item = ItemImporter.import_from_wowarmory!(48258)
+      area = item.dropped_sources.first.source_area
+      assert_difference "Item.count", -1 do
+        assert_difference "ItemSource.count", item.item_sources.count * -1 do
+          area.destroy
+        end
+      end
+    end
+    
+    should "import tier 9 pants correctly" do
+      assert_difference "DroppedSource.count" do
+        item = ItemImporter.import_from_wowarmory!(48258)
+        assert_equal "Vault of Archavon", item.dropped_sources.first.source_area.name
+        assert_equal Area::NORMAL, item.dropped_sources.first.source_area.difficulty
+      end
+    end
+    
+    should "import items from events correctly" do
+      assert_equal "Shadowfang Keep", ItemImporter.import_from_wowarmory!(51807).dropped_sources.first.source_area.name
+      assert_equal "Blackrock Depths", ItemImporter.import_from_wowarmory!(49074).dropped_sources.first.source_area.name
+    end
     
     should "import gladiator gloves that have 4 sources" do
       raid = Factory(:raid, :name => "Vault of Archavon")

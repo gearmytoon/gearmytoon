@@ -6,7 +6,7 @@ class Item < ActiveRecord::Base
 
   serialize :bonuses
   named_scope :usable_in_same_slot_as, Proc.new { |item| {:conditions => {:slot => item.slot}} }
-  has_many :item_sources
+  has_many :item_sources, :dependent => :destroy
   has_many :dropped_sources
   has_many :emblem_sources
   named_scope :usable_by, Proc.new {|wow_class| {:conditions => {:armor_type_id => wow_class.usable_armor_types, :restricted_to => [RESTRICT_TO_NONE, wow_class.name]}}}

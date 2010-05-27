@@ -25,10 +25,12 @@ class ItemImporter
     returning([]) do |sources|
       if wowarmory_item.drop_creatures.try(:first)
         area_id = wowarmory_item.item_source.area_id
-        if area_id.nil?
+        if area_id.nil? #pvp items from VOA
           area = Area.find_by_name(wowarmory_item.drop_creatures.first.area)
         else
-          area = Area.find_or_create_by_wowarmory_area_id_and_difficulty_and_name(area_id, wowarmory_item.item_source.difficulty, wowarmory_item.item_source.area_name)
+          area_name = wowarmory_item.item_source.area_name.blank? ? wowarmory_item.drop_creatures.first.area : wowarmory_item.item_source.area_name
+          area_difficulty = wowarmory_item.item_source.difficulty.blank? ? Area::NORMAL : wowarmory_item.item_source.difficulty
+          area = Area.find_or_create_by_wowarmory_area_id_and_difficulty_and_name(area_id, area_difficulty, area_name)
         end
         sources << DroppedSource.create(:source_area => area, :item => item)
       end
