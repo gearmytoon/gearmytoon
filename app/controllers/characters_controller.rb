@@ -11,7 +11,7 @@ class CharactersController < ApplicationController
 
   def create
     begin
-      @character = Character.find_or_create_by_name_and_realm_and_locale(params[:character][:name].upcase,params[:character][:realm].upcase,params[:character][:locale])
+      @character = Character.find_or_create_by_name_and_realm_and_locale(params[:character][:name].downcase,params[:character][:realm].downcase,params[:character][:locale].downcase)
       if @character.valid?
         @character.refresh_in_background!
         current_user.user_characters.create(:character => @character) if current_user
