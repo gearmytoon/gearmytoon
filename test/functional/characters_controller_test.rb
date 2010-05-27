@@ -14,6 +14,15 @@ class CharactersControllerTest < ActionController::TestCase
       @user = Factory(:user)
       Resque.remove_queue('character_jobs')
     end
+    
+    should "not create more then one link between a user and a character" do
+      assert_difference "@user.reload.characters.count" do
+        post :create, :character => {:name => "Merb", :realm => "Baelgun", :locale => 'us'}
+      end
+      assert_no_difference "@user.reload.characters.count" do
+        post :create, :character => {:name => "Merb", :realm => "Baelgun", :locale => 'us'}
+      end
+    end
 
     should "create a character refresh to track the status of the toon being reloaded" do
       assert_difference "CharacterRefresh.count" do
