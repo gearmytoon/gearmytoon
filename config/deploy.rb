@@ -20,6 +20,7 @@ namespace :vlad do
     vlad:bundle:install
     vlad:migrate
     vlad:start
+    vlad:resque:restart
     vlad:notify_hoptoad
   ]
 
@@ -62,6 +63,13 @@ namespace :vlad do
     desc "kill all production workers"
     remote_task :kill_workers do
       run "cd #{current_path} && rake kill_workers"
+    end
+  end
+
+  namespace :resque do
+    desc "restart resque worker"
+    remote_task :restart do
+      run "sudo monit restart resque_worker_QUEUE"
     end
   end
 
