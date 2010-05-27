@@ -9,9 +9,14 @@ class HomeControllerTest < ActionController::TestCase
     end
 
     should "assign four characters" do
-      6.times {|i| Factory(:character, :name => "Foo#{i}") }
+      valid_characters = []
+      4.times do |i|
+        valid_characters << Factory(:character, :name => "Foo#{i}", :level => 80)
+        Factory(:character, :name => "Foo#{i+100}", :level => 70)
+        Factory(:character, :name => "Foo#{i+200}", :race => nil, :status => 'does_not_exist')
+      end
       get :show
-      assert_equal Character.all(:limit => 4), assigns(:characters)
+      assert_equal valid_characters, assigns(:characters)
     end
   end
 
