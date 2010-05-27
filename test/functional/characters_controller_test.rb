@@ -17,45 +17,45 @@ class CharactersControllerTest < ActionController::TestCase
 
     should "create a character refresh to track the status of the toon being reloaded" do
       assert_difference "CharacterRefresh.count" do
-        post :create, :character => {:name => "Merb", :realm => "Baelgun"}
+        post :create, :character => {:name => "Merb", :realm => "Baelgun", :locale => 'us'}
       end
     end
 
     should "create a resque job to refresh the toon" do
       assert_difference "Resque.size('character_jobs')" do
-        post :create, :character => {:name => "Merb", :realm => "Baelgun"}
+        post :create, :character => {:name => "Merb", :realm => "Baelgun", :locale => 'us'}
       end
     end
 
     should "not create a resque job for invalid toons" do
       assert_no_difference "Resque.size('character_jobs')" do
-        post :create, :character => {:name => "", :realm => "Baelgun"}
+        post :create, :character => {:name => "", :realm => "Baelgun", :locale => 'us'}
       end
     end
 
     should "create a character if none exists" do
       assert_difference "Character.count" do
-        post :create, :character => {:name => "Merb", :realm => "Baelgun"}
+        post :create, :character => {:name => "Merb", :realm => "Baelgun", :locale => 'us'}
       end
     end
 
     should "not create a character if it already exists" do
-      character = Factory(:character, :name => "Merb", :realm => "Baelgun")
+      character = Factory(:character, :name => "Merb", :realm => "Baelgun", :locale => 'us')
       assert_no_difference "Character.count" do
-        post :create, :character => {:name => "Merb", :realm => "Baelgun"}
+        post :create, :character => {:name => "Merb", :realm => "Baelgun", :locale => 'us'}
       end
     end
 
     should "create a character if it isn't the first on a realm" do
       Factory(:character, :name => "Derb", :realm => "Baelgun")
       assert_difference "Character.count" do
-        post :create, :character => {:name => "Merb", :realm => "Baelgun"}
+        post :create, :character => {:name => "Merb", :realm => "Baelgun", :locale => 'us'}
       end
     end
 
     should "find a character if it exists and redirect show" do
       character = Factory(:character, :name => "Merb", :realm => "Thunderlord", :locale => 'us')
-      post :create, :character => {:name => "merb", :realm => "Thunderlord", :locale => 'us'}
+      post :create, :character => {:name => "Merb", :realm => "Thunderlord", :locale => 'us'}
       assert_redirected_to character_path(character)
     end
 
@@ -67,7 +67,7 @@ class CharactersControllerTest < ActionController::TestCase
 
     should "link to current_user" do
       assert_difference "@user.reload.characters.count" do
-        post :create, :character => {:name => "Merb", :realm => "Lothar"}
+        post :create, :character => {:name => "Merb", :realm => "Lothar", :locale => 'us'}
       end
       assert @user.reload.characters.include?(assigns(:character))
     end
@@ -79,21 +79,21 @@ class CharactersControllerTest < ActionController::TestCase
   end
 
   context "get show" do
-    
+
     should "display the new character page for a new character being loaded" do
       character = Factory(:new_character)
       get :show, :id => character.friendly_id
       assert_template "characters/new_character.html.erb"
       assert_select "#new_toon"
     end
-    
+
     should "display the no such character page if the character doesn't exist" do
       character = Factory(:does_not_exist_character)
       get :show, :id => character.friendly_id
       assert_template "#{RAILS_ROOT}/public/404.html"
       assert_response 404
     end
-    
+
     should "display the buy this character if the character not paid for" do
       character = Factory(:unpaid_character)
       get :show, :id => character.friendly_id
@@ -111,7 +111,7 @@ class CharactersControllerTest < ActionController::TestCase
       get :show, :id => character.friendly_id
       assert_select ".low_level"
     end
-    
+
     should "refresh character info" do
       character = Factory(:character)
       assert_difference "Resque.size('character_jobs')" do
@@ -120,7 +120,7 @@ class CharactersControllerTest < ActionController::TestCase
     end
 
     should "display character info" do
-      character = Factory(:character, :name => "merb", :realm => "Baelgun", :battle_group => "Shadowburn", :guild => "Special Circumstances", :primary_spec => "Survival")
+      character = Factory(:character, :name => "Merb", :realm => "Baelgun", :battle_group => "Shadowburn", :guild => "Special Circumstances", :primary_spec => "Survival")
       get :show, :id => character.friendly_id
       assert_response :success
       assert_select ".character .name", :text => "Merb"
@@ -209,7 +209,7 @@ class CharactersControllerTest < ActionController::TestCase
       get :pvp, :id => character.friendly_id
       assert_select "#unpaid_character"
     end
-    
+
     should "have links to all three upgrade sections" do
       Factory(:item_from_emblem_of_frost)
       Factory(:item_from_emblem_of_triumph)
@@ -219,7 +219,7 @@ class CharactersControllerTest < ActionController::TestCase
       get :pvp, :id => character.friendly_id
       assert_select ".upgrade_summary_header a", :count => 4
     end
-    
+
     should "display the not support if this character is not level 80" do
       character = Factory(:character, :level => 79)
       get :pvp, :id => character.friendly_id

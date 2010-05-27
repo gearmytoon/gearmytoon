@@ -2,7 +2,7 @@ class CharactersController < ApplicationController
   helper :areas
   before_filter :require_user, :except => [:show, :pvp]
   before_filter :require_admin, :only => :index
-  
+
   before_filter :assign_character, :only => [:show, :pvp]
   before_filter :redirect_to_current_url, :only => :show
 

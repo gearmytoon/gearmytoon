@@ -30,12 +30,6 @@ class CharacterTest < ActiveSupport::TestCase
 
     should_validate_presence_of :name
     should_validate_presence_of :realm
-
-    should "set the locale to 'us' if not present" do
-      c = Character.new
-      c.valid?
-      assert_equal 'us', c.locale
-    end
   end
 
   context "top_3_upgrades_from_area" do
@@ -299,7 +293,7 @@ class CharacterTest < ActiveSupport::TestCase
       character = Factory(:user_character, :subscriber => free_access_user).character
       assert character.paid?
     end
-    
+
   end
 
   context "primary_spec" do
@@ -331,7 +325,7 @@ class CharacterTest < ActiveSupport::TestCase
       end
     end
   end
-  
+
   context "status" do
     should "start as new" do
       character = Factory(:new_character)

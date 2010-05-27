@@ -12,12 +12,11 @@ class CharactersControllerTest < ActionController::TestCase
       assert_difference "Item.count", 18 do
         assert_difference "Character.count" do
           Factory(:user)
-          post :create, :character => {:name => "Merb", :realm => "Baelgun"}
+          post :create, :character => {:name => "Merb", :realm => "Baelgun", :locale => 'us'}
           Resque.reserve('character_jobs').perform
           assert_redirected_to character_path(Character.last)
         end
       end
     end
-
   end
 end

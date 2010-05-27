@@ -15,7 +15,7 @@ class Character < ActiveRecord::Base
   has_upgrades_from :area, Proc.new{ |area| DroppedSource.from_area(area)}
   has_upgrades_from :raid_10, Proc.new{DroppedSource.from_raids_10}
   acts_as_state_machine :initial => :new, :column => "status"
-  
+
   state :new
   state :found
   state :does_not_exist
@@ -37,13 +37,12 @@ class Character < ActiveRecord::Base
   has_many :user_characters
   has_many :subscribers, :through => :user_characters, :source => :subscriber
   has_friendly_id :name_and_realm_and_locale, :use_slug => true
-  #TODO, do we need?
-  before_validation :capitalize_name_and_realm
-  before_validation :set_locale_default
   validates_uniqueness_of :name, :scope => [:realm, :locale]
   validates_presence_of :name
   validates_presence_of :realm
   validates_presence_of :locale
+
+  delegate :name, :to => :wow_class, :prefix => true
 
   def name_and_realm_and_locale
     "#{name} #{realm} #{locale}"
@@ -60,10 +59,6 @@ class Character < ActiveRecord::Base
       end
       found_upgrades
     end.sort_by(&:dps_change).reverse
-  end
-
-  def wow_class_name
-    wow_class.name
   end
 
   def dps_for(item_bonuses, for_pvp)
@@ -100,16 +95,12 @@ class Character < ActiveRecord::Base
   def paid?
     subscribers.map(&:active_subscriber?).any? || subscribers.map(&:free_access).any?
   end
-  
+
   def refresh_in_background!
     Resque.enqueue(CharacterJob, self.character_refreshes.create!.id)
   end
 
   private
-  def set_locale_default
-    self.locale = 'us' if self.locale.blank?
-  end
-
   def capitalize_name_and_realm
     self.name.try(:capitalize!)
     self.realm.try(:capitalize!)
