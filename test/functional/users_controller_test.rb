@@ -15,6 +15,17 @@ class UsersControllerTest < ActionController::TestCase
   end
   
   context "get #show" do
+    should "not display characters unless they are found" do
+      activate_authlogic
+      freeze_time
+      user = Factory(:user)
+      Factory(:user_character, :subscriber => user)
+      Factory(:user_character, :subscriber => user, :character => Factory(:new_character, :name => "foo")).character.unable_to_load!
+      Factory(:user_character, :subscriber => user, :character => Factory(:new_character, :name => "bar"))
+      get :show
+      assert_select ".character", :count => 1
+    end
+
     should "show how much longer a users account is active for" do
       activate_authlogic
       freeze_time

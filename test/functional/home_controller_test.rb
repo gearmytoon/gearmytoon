@@ -13,7 +13,7 @@ class HomeControllerTest < ActionController::TestCase
       4.times do |i|
         valid_characters << Factory(:character, :name => "Foo#{i}", :level => 80)
         Factory(:character, :name => "Foo#{i+100}", :level => 70)
-        Factory(:character, :name => "Foo#{i+200}", :race => nil, :status => 'does_not_exist')
+        Factory(:character, :name => "Foo#{i+200}").unable_to_load!
       end
       get :show
       assert_equal valid_characters, assigns(:characters)

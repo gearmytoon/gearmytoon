@@ -28,6 +28,9 @@ class Character < ActiveRecord::Base
 
   attr_accessor :dont_use_wow_armory
 
+  named_scope :found, :conditions => {:status => "found"}
+  named_scope :level_80, :conditions => {:level => "80"}
+
   belongs_to :wow_class
   belongs_to :user
   has_many :character_items
