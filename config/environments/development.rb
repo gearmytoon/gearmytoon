@@ -15,3 +15,5 @@ config.action_controller.perform_caching             = false
 
 # Don't care if the mailer can't send
 config.action_mailer.raise_delivery_errors = false
+
+config.middleware.use(Rack::Cache, :verbose => true, :metastore   => "file:#{RAILS_ROOT}/cache/rack/meta", :entitystore => "file:#{RAILS_ROOT}/cache/rack/body")
