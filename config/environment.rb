@@ -4,15 +4,9 @@ require File.join(File.dirname(__FILE__), 'boot')
 def require_all_files_in(path)
   Dir[File.join(path, "*.rb")].each {|file| require file }
 end
+
 Rails::Initializer.run do |config|
-  config.load_paths += Dir["#{RAILS_ROOT}/vendor/gems/**"].map do |dir|
-    File.directory?(lib = "#{dir}/lib") ? lib : dir
-  end
-
   require_all_files_in("#{RAILS_ROOT}/lib/extensions")
-
-  require 'rack/cache'
-  config.middleware.use(Rack::Cache, :verbose => true, :metastore   => "file:#{RAILS_ROOT}/cache/rack/meta", :entitystore => "file:#{RAILS_ROOT}/cache/rack/body")
 
   config.time_zone = 'UTC'
   config.after_initialize do

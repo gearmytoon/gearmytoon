@@ -76,7 +76,7 @@ namespace :vlad do
   namespace :bundle do
     desc "install gems"
     remote_task :install do
-      run "cd #{current_path} && RAILS_ENV=#{rails_env} bundle install --without test"
+      run "cd #{current_path} && RAILS_ENV=#{rails_env} bundle install --without test deploy development"
     end
   end
 
