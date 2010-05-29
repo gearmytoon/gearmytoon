@@ -25,7 +25,6 @@ class CharactersController < ApplicationController
   end
 
   def show
-    @character.refresh_in_background!
   end
 
   def pvp

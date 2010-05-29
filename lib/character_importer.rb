@@ -24,7 +24,7 @@ class CharacterImporter
         :primary_spec => primary_spec, :wowarmory_gender_id => wow_armory_character.gender_id, :gender => wow_armory_character.gender,
         :wowarmory_race_id => wow_armory_character.race_id, :race => wow_armory_character.race, :wowarmory_class_id => wow_armory_character.klass_id,
         :guild => wow_armory_character.guild, :battle_group => wow_armory_character.battle_group, :guild_url => wow_armory_character.guild_url,
-      :level => wow_armory_character.level, :total_item_bonuses => get_total_stats(wow_armory_character)}
+      :level => wow_armory_character.level, :total_item_bonuses => get_total_stats(wow_armory_character), :updated_at => Time.now.utc}
     end
   end
 

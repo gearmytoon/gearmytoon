@@ -17,12 +17,5 @@ class CharacterJobTest < ActiveSupport::TestCase
     assert_equal "does_not_exist", character_refresh.character.reload.status
     assert_equal "done", character_refresh.reload.status
   end
+  
 end
-# 
-# #/character_refresh/:id.json {:status => @character_refresh.status}
-# 
-# #character_refresh :id, :character_id, :status (:new, :done)
-# 
-# #character :id, ..., :status (:new, :unsupported, :found, :does_not_exist)
-# 
-# <%= render "characters/#{@character.status}" %>

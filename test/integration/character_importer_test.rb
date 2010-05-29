@@ -2,6 +2,15 @@ require File.dirname(__FILE__) + '/../test_helper'
 
 class CharacterImporterTest < ActiveSupport::TestCase
   context "refresh_character!" do
+    should "refresh a characters updated_at time" do
+      Factory(:wow_class, :name => "Paladin")
+      character = Factory(:character, :name => "Rails", :realm => "Baelgun")
+      CharacterImporter.import_character_and_all_items(character)
+      first_updated = character.updated_at
+      sleep 1
+      assert_not_equal first_updated, CharacterImporter.import_character_and_all_items(character).updated_at
+    end
+
     should "refresh a character" do
       Factory(:wow_class, :name => "Paladin")
       character = Factory.build(:character, :name => "Rails", :realm => "Baelgun")

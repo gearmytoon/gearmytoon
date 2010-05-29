@@ -122,7 +122,9 @@ class CharactersControllerTest < ActionController::TestCase
     end
 
     should "refresh character info" do
+      freeze_time(10.minutes.ago)
       character = Factory(:character)
+      freeze_time(10.minutes.from_now)
       assert_difference "Resque.size('character_jobs')" do
         get :show, :id => character.friendly_id
       end
@@ -213,6 +215,31 @@ class CharactersControllerTest < ActionController::TestCase
 
   context "get pvp" do
 
+    should "set cache headers" do
+      character = Factory(:character)
+      get :pvp, :id => character.friendly_id
+      assert_equal character.reload.updated_at.utc.httpdate, @response.headers['Last-Modified']
+      assert_equal "public, must-revalidate", @response.headers['Cache-Control']
+    end
+
+    should "refresh the toon if refresh was more then 5 minutes ago" do
+      freeze_time(10.minutes.ago)
+      character = Factory(:character)
+      freeze_time(10.minutes.from_now)
+      assert_difference "Resque.size('character_jobs')" do
+        get :pvp, :id => character.friendly_id
+      end
+    end
+    
+    should "not refresh the toon if refresh was less then 5 minutes ago" do
+      freeze_time(4.minutes.ago)
+      character = Factory(:character)
+      freeze_time(4.minutes.from_now)
+      assert_no_difference "Resque.size('character_jobs')" do
+        get :pvp, :id => character.friendly_id
+      end
+    end
+    
     should "display the buy this character if the character not paid for" do
       character = Factory(:unpaid_character)
       get :pvp, :id => character.friendly_id
