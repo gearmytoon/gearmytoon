@@ -8,7 +8,7 @@ class ApplicationController < ActionController::Base
   filter_parameter_logging :password, :password_confirmation
 
   protected
-  
+
   def assign_character
     headers['Cache-Control'] = 'public, must-revalidate'
     @character = params[:character_id] ? Character.find(params[:character_id]) : Character.find(params[:id])
