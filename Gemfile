@@ -20,6 +20,7 @@ gem "i18n", "0.3.7"
 
 group :development do
   gem "rack-cache", "0.5.2", :require => 'rack/cache'
+  gem "ruby-debug", "0.10.3"
 end
 
 group :test do
@@ -27,6 +28,7 @@ group :test do
   gem "factory_girl", "1.2.3"
   gem "mocha", "0.9.8"
   gem "shoulda", "2.10.2"
+  gem "ruby-debug", "0.10.3"
 end
 
 group :deploy do

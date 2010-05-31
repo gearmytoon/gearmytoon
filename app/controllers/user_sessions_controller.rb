@@ -14,6 +14,7 @@ class UserSessionsController < ApplicationController
     else
       @user = User.find_or_initialize_by_identity_url(data[:identifier])
       if @user.new_record?
+        @user.name = data[:displayName] || data[:name] || data[:username]
         @user.email = data[:email] || data[:verifiedEmail]
         @user.password = Digest::SHA1.hexdigest("--#{Time.now.to_s}--#{@user.email}--")[0, 6]
         @user.save
