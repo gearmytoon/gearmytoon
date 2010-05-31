@@ -9,7 +9,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20100527202306) do
+ActiveRecord::Schema.define(:version => 20100529192408) do
 
   create_table "areas", :force => true do |t|
     t.string   "name"
@@ -39,6 +39,9 @@ ActiveRecord::Schema.define(:version => 20100527202306) do
     t.integer  "item_id"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.integer  "gem_one_id"
+    t.integer  "gem_two_id"
+    t.integer  "gem_three_id"
   end
 
   add_index "character_items", ["character_id"], :name => "index_character_items_on_character_id"

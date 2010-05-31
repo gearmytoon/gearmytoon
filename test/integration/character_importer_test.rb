@@ -29,7 +29,7 @@ class CharacterImporterTest < ActiveSupport::TestCase
     should "import rails and all of his equipped items" do
       Factory(:wow_class, :name => "Paladin")
       character = Factory.build(:character, :name => "Rails", :realm => "Baelgun")
-      assert_difference "Item.count", 19 do
+      assert_difference "Item.count", 28 do
         assert_difference "Character.count" do
           character = CharacterImporter.import_character_and_all_items(character)
           character.save!
@@ -51,6 +51,16 @@ class CharacterImporterTest < ActiveSupport::TestCase
       assert_equal "r=Baelgun&gn=Blood+on+the+Ground", rails.guild_url
       assert_equal "Paladin", rails.wow_class_name
       assert_equal "Protection", rails.primary_spec
+    end
+
+    should "import a characters items with the gems that are equipped" do
+      Factory(:wow_class, :name => "Paladin")
+      character = Factory(:new_character, :name => "Rails", :realm => "Baelgun")
+      CharacterImporter.import(character)
+      character.reload
+      assert_equal 40032, character.character_item_on("Feet").first.gem_one.wowarmory_item_id
+      assert_equal 41380, character.character_item_on("Helm").first.gem_one.wowarmory_item_id
+      assert_equal 39976, character.character_item_on("Helm").first.gem_two.wowarmory_item_id
     end
 
     should_eventually "display a unable to fetch the latest data for your character, wow armory may be down"

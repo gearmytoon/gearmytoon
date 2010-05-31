@@ -4,7 +4,7 @@ class CharacterJobTest < ActiveSupport::TestCase
 
   should "import a characters items" do
     character_refresh = Factory(:character_refresh, :character => Factory(:character, :name => "Merb", :realm => "Baelgun"))
-    assert_difference "Item.count", 18 do
+    assert_difference "Item.count", 23 do
       CharacterJob.perform(character_refresh.id)
     end
     assert_equal "found", character_refresh.character.reload.status

@@ -36,6 +36,18 @@ class ItemImporterTest < ActiveSupport::TestCase
       end
     end
     
+    should "import gems correctly" do
+      gems = [40032, 41380, 39976]
+      gems.each do |gem|
+        assert_difference "Item.count" do
+          assert_no_difference "ItemSource.count" do
+            item = ItemImporter.import_from_wowarmory!(gem)
+            # assert_false item.bonuses.empty? #TODO, map gem properties to bonuses
+          end
+        end
+      end
+    end
+    
     should "import items from events correctly" do
       assert_equal "Shadowfang Keep", ItemImporter.import_from_wowarmory!(51807).dropped_sources.first.source_area.name
       assert_equal "Blackrock Depths", ItemImporter.import_from_wowarmory!(49074).dropped_sources.first.source_area.name

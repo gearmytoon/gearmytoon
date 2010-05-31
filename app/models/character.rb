@@ -104,6 +104,10 @@ class Character < ActiveRecord::Base
     Resque.enqueue(CharacterJob, self.character_refreshes.create!.id)
   end
 
+  def character_item_on(slot_name)
+    character_items.equipped_on(slot_name)
+  end
+
   private
   def capitalize_name_and_realm
     self.name.try(:capitalize!)
