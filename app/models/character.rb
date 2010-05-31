@@ -32,7 +32,6 @@ class Character < ActiveRecord::Base
   named_scope :level_80, :conditions => {:level => "80"}
 
   belongs_to :wow_class
-  belongs_to :user
   has_many :character_items
   has_many :character_refreshes
   serialize :total_item_bonuses
