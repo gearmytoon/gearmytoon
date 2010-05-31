@@ -15,7 +15,6 @@ class CharactersController < ApplicationController
       if @character.valid?
         @character.refresh_in_background!
         current_user.user_characters.find_or_create_by_character_id(:character_id => @character.id) if current_user
-        flash[:notice] = "Toon added successfully!"
         redirect_to character_path(@character)
       else
         @user = current_user
