@@ -99,8 +99,7 @@ class CharactersControllerTest < ActionController::TestCase
     should "display the no such character page if the character doesn't exist" do
       character = Factory(:does_not_exist_character)
       get :show, :id => character.friendly_id
-      assert_template "characters/not_found"
-      assert_response 404
+      assert_redirected_to not_found_character_path(character)
     end
 
     should "display the buy this character if the character not paid for" do

@@ -5,7 +5,7 @@ ActionController::Routing::Routes.draw do |map|
   map.resources :character_refreshes
   map.resources :users
   map.resource :payment_receipts
-  map.resources :characters, :member => {:pvp => :get} do |character|
+  map.resources :characters, :member => {:pvp => :get, :not_found => :get} do |character|
     character.resource :upgrades, :member => {:frost => :get, :triumph => :get, :dungeon => :get, :raid_25 => :get, :raid_10 => :get} do |upgrade|
       upgrade.resources :area, :controller => "area_upgrades"
     end
