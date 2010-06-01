@@ -65,7 +65,17 @@ class ItemImporter
   
   def get_item_bonuses
     returning wowarmory_item.bonuses do |bonuses|
-      if damage = wowarmory_item.instance_variable_get(:@tooltip).instance_variable_get(:@damage) #wow wtf wowr gem you fucking suck, seriously.
+      if wowarmory_item.gem_properties
+        wowarmory_item.gem_properties.split(" and ").each do |gem_property|
+          next if gem_property.include?("%")
+          gem_property.match(/\+?(\d+\%?)\s([^\z]+)/)
+          bonus_value = $1.to_i
+          bonuses_name = $2.downcase.gsub(/\s/, "_").gsub(/_*rating_*/, "")
+          bonuses_name = bonuses_name.starts_with?("mana") ? "mana_regen" : bonuses_name
+          bonuses_name = bonuses_name == "critical_strike" ? "crit" : bonuses_nameß
+          bonuses[bonuses_name.to_sym] = bonus_value
+        end
+      elsif damage = wowarmory_item.instance_variable_get(:@tooltip).instance_variable_get(:@damage) #wow wtf wowr gem you fucking suck, seriously.
         if RANGED_WEAPONS.include?(wowarmory_item.equip_data.subclass_name)
           weapon_type = "ranged"
         else

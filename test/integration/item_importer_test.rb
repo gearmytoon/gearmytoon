@@ -36,13 +36,40 @@ class ItemImporterTest < ActiveSupport::TestCase
       end
     end
     
+    should "import a gems distinct kind of bonus" do
+      item = ItemImporter.import_from_wowarmory!(45862)
+      assert_equal({:strength => 20}, item.bonuses)
+      item = ItemImporter.import_from_wowarmory!(40032)
+      assert_equal({:parry => 8, :stamina => 12}, item.bonuses)
+      item = ItemImporter.import_from_wowarmory!(40175)
+      assert_equal({:mana_regen => 5, :intellect => 10}, item.bonuses)
+      item = ItemImporter.import_from_wowarmory!(40175)
+      assert_equal({:mana_regen => 5, :intellect => 10}, item.bonuses)
+      item = ItemImporter.import_from_wowarmory!(32225)
+      assert_equal({:mana_regen => 3, :intellect => 5}, item.bonuses)
+      item = ItemImporter.import_from_wowarmory!(40147)
+      assert_equal({:agility => 10, :crit => 10}, item.bonuses)
+      item = ItemImporter.import_from_wowarmory!(40154)
+      assert_equal({:spell_power => 12, :resilience => 10}, item.bonuses)
+      item = ItemImporter.import_from_wowarmory!(40158)
+      assert_equal({:attack_power => 20, :resilience => 10}, item.bonuses)
+      item = ItemImporter.import_from_wowarmory!(40117)
+      assert_equal({:armor_penetration => 20}, item.bonuses)
+    end
+    
+    should "be able to import meta gems raw attributes" do
+      item = ItemImporter.import_from_wowarmory!(41380)
+      assert_equal({:stamina => 32}, item.bonuses)
+      item = ItemImporter.import_from_wowarmory!(44088)
+      assert_equal({:stamina => 26}, item.bonuses)
+    end
+
     should "import gems correctly" do
       gems = [40032, 41380, 39976]
       gems.each do |gem|
         assert_difference "Item.count" do
           assert_no_difference "ItemSource.count" do
             item = ItemImporter.import_from_wowarmory!(gem)
-            # assert_false item.bonuses.empty? #TODO, map gem properties to bonuses
           end
         end
       end
