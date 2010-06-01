@@ -64,6 +64,7 @@ class ItemImporterTest < ActiveSupport::TestCase
     should "be able to import meta gems raw attributes" do
       item = ItemImporter.import_from_wowarmory!(41380)
       assert_equal({:stamina => 32}, item.bonuses)
+      assert_equal("Meta", item.gem_color)
       item = ItemImporter.import_from_wowarmory!(44088)
       assert_equal({:stamina => 26}, item.bonuses)
     end
