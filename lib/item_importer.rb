@@ -17,7 +17,16 @@ class ItemImporter
       item.update_attributes!(:wowarmory_item_id => wowarmory_item_id, :name => wowarmory_item.name,
                    :quality => quality, :icon => wowarmory_item.icon, :bonuses => get_item_bonuses, 
                    :armor_type => ArmorType.find_or_create_by_name(armor_type_name), :slot => slot, 
-                   :restricted_to => get_restricted_to, :item_sources => get_item_sources(item))
+                   :restricted_to => get_restricted_to, :item_sources => get_item_sources(item), 
+                   :gem_color => get_gem_color)
+    end
+  end
+  
+  def get_gem_color
+    if wowarmory_item.gem_properties
+      wowarmory_item.instance_variable_get(:@info).instance_variable_get(:@type)
+    else
+      nil
     end
   end
   
@@ -72,7 +81,7 @@ class ItemImporter
           bonus_value = $1.to_i
           bonuses_name = $2.downcase.gsub(/\s/, "_").gsub(/_*rating_*/, "")
           bonuses_name = bonuses_name.starts_with?("mana") ? "mana_regen" : bonuses_name
-          bonuses_name = bonuses_name == "critical_strike" ? "crit" : bonuses_nameß
+          bonuses_name = bonuses_name == "critical_strike" ? "crit" : bonuses_name
           bonuses[bonuses_name.to_sym] = bonus_value
         end
       elsif damage = wowarmory_item.instance_variable_get(:@tooltip).instance_variable_get(:@damage) #wow wtf wowr gem you fucking suck, seriously.
