@@ -14,7 +14,7 @@ class CharactersControllerTest < ActionController::TestCase
       @user = Factory(:user)
       Resque.remove_queue('character_jobs')
     end
-    
+
     should "not create more then one link between a user and a character" do
       assert_difference "@user.reload.characters.count" do
         post :create, :character => {:name => "Merb", :realm => "Baelgun", :locale => 'us'}
@@ -99,7 +99,7 @@ class CharactersControllerTest < ActionController::TestCase
     should "display the no such character page if the character doesn't exist" do
       character = Factory(:does_not_exist_character)
       get :show, :id => character.friendly_id
-      assert_template "#{RAILS_ROOT}/public/404.html"
+      assert_template "characters/not_found"
       assert_response 404
     end
 
@@ -230,7 +230,7 @@ class CharactersControllerTest < ActionController::TestCase
         get :pvp, :id => character.friendly_id
       end
     end
-    
+
     should "not refresh the toon if refresh was less then 5 minutes ago" do
       freeze_time(4.minutes.ago)
       character = Factory(:character)
@@ -239,7 +239,7 @@ class CharactersControllerTest < ActionController::TestCase
         get :pvp, :id => character.friendly_id
       end
     end
-    
+
     should "display the buy this character if the character not paid for" do
       character = Factory(:unpaid_character)
       get :pvp, :id => character.friendly_id

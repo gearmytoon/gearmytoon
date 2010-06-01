@@ -1,0 +1,20 @@
+<h1>We couldn't find that toon.</h1>
+<p>Want to try your search again?</p>
+<% form_for Character.new do |f| -%>
+  <%= f.error_messages %>
+  <p>
+    <%= f.label :name %>
+    <%= f.text_field :name, :class => 'text' %>
+  </p>
+  <p>
+    <%= f.label :realm %>
+    <%= f.text_field :realm, :class => 'text' %>
+  </p>
+  <p class="locale">
+    <%= f.label :locale %>
+    <%= f.select :locale, Character::LOCALES %>
+  </p>
+  <p>
+    <%= f.submit "Gear Me!", :class => 'button' %>
+  </p>
+<% end %>

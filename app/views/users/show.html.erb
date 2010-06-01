@@ -27,6 +27,7 @@
   </div>
   <div class="user_controls column grid_4">
     <h2>Account Info</h2>
+    <p><%= @user.name %></p>
     <p><%= @user.email %></p>
     <br />
     <%= link_to "Logout", user_session_path, :method => :delete, :confirm => "Are you sure you want to logout?" %>

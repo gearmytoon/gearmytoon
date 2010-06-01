@@ -8,11 +8,11 @@ class ApplicationController < ActionController::Base
   filter_parameter_logging :password, :password_confirmation
 
   protected
-  
+
   def assign_character
     headers['Cache-Control'] = 'public, must-revalidate'
     @character = params[:character_id] ? Character.find(params[:character_id]) : Character.find(params[:id])
-    return(render "#{RAILS_ROOT}/public/404.html", :status => 404) if(@character.does_not_exist?)
+    return(render "characters/not_found", :status => 404) if @character.does_not_exist?
     @character.refresh_in_background! if @character.updated_at < 5.minutes.ago
     fresh_when :last_modified => @character.updated_at.utc
     return(render "characters/new_character") if(@character.new?)

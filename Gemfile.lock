@@ -4,6 +4,10 @@ dependencies:
     group: 
     - :default
     version: = 0.3.20
+  ruby-debug: 
+    group: 
+    - :test
+    version: = 0.10.3
   vlad-git: 
     group: 
     - :deploy
@@ -16,6 +20,12 @@ dependencies:
     group: 
     - :default
     version: ~> 2.3.8
+  sqlite3-ruby: 
+    group: 
+    - :test
+    version: ">= 0"
+    require: 
+    - sqlite3
   macaddr: 
     group: 
     - :default
@@ -34,16 +44,6 @@ dependencies:
     group: 
     - :default
     version: = 2.1.3
-  sqlite3-ruby: 
-    group: 
-    - :test
-    version: ">= 0"
-    require: 
-    - sqlite3
-  shoulda: 
-    group: 
-    - :test
-    version: = 2.10.2
   rack-cache: 
     group: 
     - :development
@@ -68,6 +68,10 @@ dependencies:
     version: ">= 0"
     require: []
 
+  shoulda: 
+    group: 
+    - :test
+    version: = 2.10.2
   resque: 
     group: 
     - :default
@@ -76,18 +80,18 @@ dependencies:
     group: 
     - :deploy
     version: = 2.0.0
-  factory_girl: 
-    group: 
-    - :test
-    version: = 1.2.3
-  friendly_id: 
-    group: 
-    - :default
-    version: ~> 2.3
   mocha: 
     group: 
     - :test
     version: = 0.9.8
+  friendly_id: 
+    group: 
+    - :default
+    version: ~> 2.3
+  factory_girl: 
+    group: 
+    - :test
+    version: = 1.2.3
   hoptoad_notifier: 
     group: 
     - :default
@@ -119,6 +123,8 @@ specs:
     version: 2.2.0
 - authlogic: 
     version: 2.1.3
+- columnize: 
+    version: 0.3.1
 - factory_girl: 
     version: 1.2.3
 - friendly_id: 
@@ -133,6 +139,8 @@ specs:
     version: 1.4.3
 - json_pure: 
     version: 1.4.3
+- linecache: 
+    version: "0.43"
 - macaddr: 
     version: 1.0.0
 - nokogiri: 
@@ -163,6 +171,10 @@ specs:
     version: 1.8.5
 - rpx_now: 
     version: 0.6.17
+- ruby-debug-base: 
+    version: 0.10.3
+- ruby-debug: 
+    version: 0.10.3
 - ruby-openid: 
     version: 2.1.7
 - shoulda: 
@@ -180,7 +192,7 @@ specs:
 - wowr: 
     version: 0.5.4
     source: 0
-hash: 216e0d49e7083695cf5ce93ea98577516f56f2fb
+hash: 3668baa25783f13454e74d2d69a606952db5dd92
 sources: 
 - Git: 
     uri: http://github.com/scudco/wowr.git
