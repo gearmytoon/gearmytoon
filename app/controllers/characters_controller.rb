@@ -23,6 +23,10 @@ class CharactersController < ApplicationController
     end
   end
 
+  def not_found
+    @character = Character.find(params[:id])
+  end
+
   def show
   end
 
