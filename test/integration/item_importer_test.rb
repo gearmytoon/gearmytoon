@@ -60,7 +60,17 @@ class ItemImporterTest < ActiveSupport::TestCase
       item = ItemImporter.import_from_wowarmory!(40117)
       assert_equal({:armor_penetration => 20}, item.bonuses)
     end
-    
+
+    should "import a item without sockets as a empty array" do
+      item = ItemImporter.import_from_wowarmory!(47272)
+      assert_equal([], item.reload.gem_sockets)
+    end
+
+    should "import a items sockets" do
+      item = ItemImporter.import_from_wowarmory!(50970)
+      assert_equal(['Red', "Yellow", "Blue"], item.reload.gem_sockets)
+    end
+
     should "be able to import meta gems raw attributes" do
       item = ItemImporter.import_from_wowarmory!(41380)
       assert_equal({:stamina => 32}, item.bonuses)

@@ -9,7 +9,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20100601035328) do
+ActiveRecord::Schema.define(:version => 20100603142624) do
 
   create_table "areas", :force => true do |t|
     t.string   "name"
@@ -110,6 +110,7 @@ ActiveRecord::Schema.define(:version => 20100601035328) do
     t.string   "slot"
     t.string   "restricted_to",     :default => "NONE"
     t.string   "gem_color"
+    t.text     "gem_sockets"
   end
 
   add_index "items", ["armor_type_id"], :name => "index_items_on_armor_type_id"

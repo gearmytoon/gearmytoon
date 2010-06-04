@@ -5,6 +5,7 @@ class Item < ActiveRecord::Base
   RESTRICT_TO_NONE = "NONE"
 
   serialize :bonuses
+  serialize :gem_sockets
   named_scope :usable_in_same_slot_as, Proc.new { |item| {:conditions => {:slot => item.slot}} }
   has_many :item_sources, :dependent => :destroy
   has_many :dropped_sources
