@@ -158,6 +158,8 @@ class ItemImporterTest < ActiveSupport::TestCase
       ItemImporter.import_from_wowarmory!(48277)
       #48250 - alliance hat
       ItemImporter.import_from_wowarmory!(48250)
+      #item for both sides
+      ItemImporter.import_from_wowarmory!(50776)
     end
     
     should "import bows crossbows guns and thrown as ranged slot" do
