@@ -18,7 +18,15 @@ class ItemImporter
                    :quality => quality, :icon => wowarmory_item.icon, :bonuses => get_item_bonuses, 
                    :armor_type => ArmorType.find_or_create_by_name(armor_type_name), :slot => slot, 
                    :restricted_to => get_restricted_to, :item_sources => get_item_sources(item), 
-                   :gem_color => get_gem_color, :gem_sockets => get_gem_sockets)
+                   :gem_color => get_gem_color, :gem_sockets => get_gem_sockets, :socket_bonuses => get_socket_bonuses)
+    end
+  end
+
+  def get_socket_bonuses
+    begin
+      ItemSocketImporter.new(wowarmory_item_id).get_socket_bonuses.extract_bonuses
+    rescue Exception => ex
+      Rails.logger.error(ex)
     end
   end
   
@@ -79,15 +87,7 @@ class ItemImporter
   def get_item_bonuses
     returning wowarmory_item.bonuses do |bonuses|
       if wowarmory_item.gem_properties
-        wowarmory_item.gem_properties.split(" and ").each do |gem_property|
-          next if gem_property.include?("%")
-          gem_property.match(/\+?(\d+\%?)\s([^\z]+)/)
-          bonus_value = $1.to_i
-          bonuses_name = $2.downcase.gsub(/\s/, "_").gsub(/_*rating_*/, "")
-          bonuses_name = bonuses_name.starts_with?("mana") ? "mana_regen" : bonuses_name
-          bonuses_name = bonuses_name == "critical_strike" ? "crit" : bonuses_name
-          bonuses[bonuses_name.to_sym] = bonus_value
-        end
+        bonuses.merge!(wowarmory_item.gem_properties.extract_bonuses)
       elsif damage = wowarmory_item.instance_variable_get(:@tooltip).instance_variable_get(:@damage) #wow wtf wowr gem you fucking suck, seriously.
         if RANGED_WEAPONS.include?(wowarmory_item.equip_data.subclass_name)
           weapon_type = "ranged"

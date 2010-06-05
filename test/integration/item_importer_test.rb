@@ -1,6 +1,13 @@
 require File.dirname(__FILE__) + '/../test_helper'
 
 class ItemImporterTest < ActiveSupport::TestCase
+  context "exceptions" do
+    should "be okay if thottbot errors out" do
+      ItemSocketImporter.any_instance.stubs(:new).with(32837).raises("wtf bbq")
+      item = ItemImporter.import_from_wowarmory!(32837)
+    end
+  end
+
   context "import_from_wowarmory!" do
     should "not import previous seasons weapons with item sources" do
       item = ItemImporter.import_from_wowarmory!(45966)
@@ -69,6 +76,7 @@ class ItemImporterTest < ActiveSupport::TestCase
     should "import a items sockets" do
       item = ItemImporter.import_from_wowarmory!(50970)
       assert_equal(['Red', "Yellow", "Blue"], item.reload.gem_sockets)
+      assert_equal({:agility => 8}, item.reload.socket_bonuses)
     end
 
     should "be able to import meta gems raw attributes" do
