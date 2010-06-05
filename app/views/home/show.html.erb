@@ -68,7 +68,7 @@
   <div class="column grid_4">
     <h3>Your Toon</h3>
     <p>We talk directly to Blizzard's WoW Armory to get the latest information about your character.</p>
-    <%= render "shared/character_info", :character => @characters.first, :pvp => true %>
+    <%= render("shared/character_info", :character => @characters.first, :pvp => true) if @characters.first %>
   </div>
   <div class="column grid_1 arrow">+</div>
   <div class="column grid_3">
