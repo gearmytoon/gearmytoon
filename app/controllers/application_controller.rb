@@ -10,11 +10,11 @@ class ApplicationController < ActionController::Base
   protected
 
   def assign_character
-    # headers['Cache-Control'] = 'public, must-revalidate'
+    headers['Cache-Control'] = 'public, must-revalidate'
     @character = params[:character_id] ? Character.find(params[:character_id]) : Character.find(params[:id])
     return(redirect_to not_found_character_url(@character)) if @character.does_not_exist?
     @character.refresh_in_background! if @character.updated_at < 5.minutes.ago
-    # fresh_when :last_modified => @character.updated_at.utc
+    fresh_when(:last_modified => @character.updated_at.utc)
     return(render "characters/new_character") if(@character.new?)
     return(render "characters/unsupported_level") unless(@character.level == 80)
     return(render "characters/unpaid") unless(@character.paid?)
