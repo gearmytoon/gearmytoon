@@ -158,53 +158,48 @@ class CharactersControllerTest < ActionController::TestCase
     end
 
     should "have links to all three upgrade sections" do
-      Factory(:item_from_emblem_of_frost)
-      Factory(:item_from_emblem_of_triumph)
-      Factory(:item_from_heroic_dungeon)
       character = Factory(:character_item).character
+      Factory(:upgrade_from_emblem_of_frost, :character => character)
+      Factory(:upgrade_from_emblem_of_triumph, :character => character)
+      Factory(:upgrade_from_heroic_dungeon, :character => character)
       get :show, :id => character.friendly_id
       assert_select ".upgrade_summary_header a", :count => 3
     end
 
     should "show 3 upgrades under the frost emblem section" do
-      3.times {Factory(:item_from_emblem_of_frost)}
       character = Factory(:character_item).character
+      3.times {Factory(:upgrade_from_emblem_of_frost, :character => character)}
       get :show, :id => character.friendly_id
       assert_select "#emblem_of_frost .upgrade", :count => 3
     end
 
     should "show how much the item costs" do
-      item = Factory(:item_from_emblem_of_frost)
       character = Factory(:character_item).character
+      item = Factory(:upgrade_from_emblem_of_frost, :character => character).new_item
       get :show, :id => character.friendly_id
       assert_select "#emblem_of_frost .upgrade .cost", :text => item.token_cost.to_s
     end
 
     should "show what you are upgrading from in the upgrade section" do
-      Factory(:item_from_emblem_of_triumph, :slot => "Head", :bonuses => {:attack_power => 400.0})
-      character_item = Factory(:character_item, :item => Factory(:item, :name => "Stoppable Force", :slot => "Head", :bonuses => {:attack_power => 100.0}))
-      get :show, :id => character_item.character.friendly_id
+      character = Factory(:a_hunter)
+      new_item_source = Factory(:triumph_emblem_source, :item => Factory(:item, :slot => "Head", :bonuses => {:attack_power => 400.0}))
+      Factory(:upgrade, :character => character, :new_item_source => new_item_source, :old_item => Factory(:item, :name => "Stoppable Force", :slot => "Head", :bonuses => {:attack_power => 100.0}))
+      get :show, :id => character.friendly_id
       assert_select "#emblem_of_triumph .upgrade .old_item", :text => "Stoppable Force"
     end
 
-    should_eventually "not show old item if you did not have an item equipped before" do
-      Factory(:item_from_emblem_of_triumph, :slot => "Head", :bonuses => {:attack_power => 400.0})
-      character = Factory(:character)
-      get :show, :id => character.friendly_id
-      assert_select "#emblem_of_triumph .upgrade"
-      assert_select "#emblem_of_triumph .upgrade .old_item", :text => "Empty Slot"
-    end
-
+    should_eventually "not show old item if you did not have an item equipped before"
+    
     should "show 3 upgrades under the triumph emblem section" do
-      3.times {Factory(:item_from_emblem_of_triumph)}
       character = Factory(:character_item).character
+      3.times {Factory(:upgrade_from_emblem_of_triumph, :character => character)}
       get :show, :id => character.friendly_id
       assert_select "#emblem_of_triumph .upgrade", :count => 3
     end
 
     should "show 3 upgrades and 3 sources under the heroic dungeon" do
-      3.times {Factory(:item_from_heroic_dungeon)}
       character = Factory(:character_item).character
+      3.times {Factory(:upgrade_from_heroic_dungeon, :character => character)}
       get :show, :id => character.friendly_id
       assert_select "#heroic_dungeon .upgrade", :count => 3
       assert_select "#heroic_dungeon .source", :count => 3
@@ -246,11 +241,11 @@ class CharactersControllerTest < ActionController::TestCase
     end
 
     should "have links to all three upgrade sections" do
-      Factory(:item_from_emblem_of_frost)
-      Factory(:item_from_emblem_of_triumph)
-      Factory(:item_from_wintergrasp_marks)
-      Factory(:item_from_honor_points)
       character = Factory(:character_item).character
+      Factory(:upgrade_from_emblem_of_frost, :character => character)
+      Factory(:upgrade_from_emblem_of_triumph, :character => character)
+      Factory(:upgrade_from_wintergrasp_marks, :character => character)
+      Factory(:upgrade_from_honor_points, :character => character)
       get :pvp, :id => character.friendly_id
       assert_select ".upgrade_summary_header a", :count => 4
     end
@@ -264,7 +259,7 @@ class CharactersControllerTest < ActionController::TestCase
     context "upgrades sections" do
       should "render Honor" do
         character = Factory(:character_item, :item => Factory(:item, :bonuses => {:attack_power => 100.0})).character
-        3.times{Factory(:item_from_honor_points)}
+        3.times{Factory(:upgrade_from_honor_points, :character => character)}
         get :pvp, :id => character.id
         assert_select "#honor_point"
         assert_select "#honor_point .upgrade", :count => 3
@@ -272,7 +267,7 @@ class CharactersControllerTest < ActionController::TestCase
 
       should "render Wintergrasp" do
         character = Factory(:character_item, :item => Factory(:item, :bonuses => {:attack_power => 100.0})).character
-        3.times{Factory(:item_from_wintergrasp_marks)}
+        3.times{Factory(:upgrade_from_wintergrasp_marks, :character => character)}
         get :pvp, :id => character.id
         assert_select "#wintergrasp_mark_of_honor"
         assert_select "#wintergrasp_mark_of_honor .upgrade", :count => 3

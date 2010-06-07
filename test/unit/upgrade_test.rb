@@ -3,31 +3,70 @@ require File.dirname(__FILE__) + '/../test_helper'
 class UpgradeTest < ActiveSupport::TestCase
   context "new_item_source_type" do
     should "be emblem for emblem_sources" do
-      upgrade = Upgrade.new(EmblemSource.new,nil,nil)
+      upgrade = Factory.build(:upgrade, :new_item_source => EmblemSource.new)
       assert_equal "emblem", upgrade.new_item_source_type
     end
     should "be honor for honor_sources" do
-      upgrade = Upgrade.new(HonorSource.new,nil,nil)
+      upgrade = Factory.build(:upgrade, :new_item_source => HonorSource.new)
       assert_equal "honor", upgrade.new_item_source_type
     end
     should "be arena for arena_sources" do
-      upgrade = Upgrade.new(ArenaSource.new,nil,nil)
+      upgrade = Factory.build(:upgrade, :new_item_source => ArenaSource.new)
       assert_equal "arena", upgrade.new_item_source_type
     end
     should "be dropped for dropped_sources" do
-      upgrade = Upgrade.new(DroppedSource.new,nil,nil)
+      upgrade = Factory.build(:upgrade, :new_item_source => DroppedSource.new)
       assert_equal "dropped", upgrade.new_item_source_type
     end
   end
   
   context "kind_of_change" do
     should "know if it is an upgrade" do
-      upgrade = Upgrade.new(nil,nil,1)
+      upgrade = Factory.build(:upgrade, :dps_change => 1)
       assert_equal "upgrade", upgrade.kind_of_change
     end
     should "know if it is an downgrade" do
-      upgrade = Upgrade.new(nil,nil,-1)
+      upgrade = Factory.build(:upgrade, :dps_change => -1)
       assert_equal "downgrade", upgrade.kind_of_change
     end
   end
+  
+  context "stat_change_between" do
+    should "know the change in stats between two items" do
+      old_item = Factory(:item, :bonuses => {:agility => 10.0, :attack_power => 20.0})
+      new_item = Factory(:item, :bonuses => {:agility => 20.0, :attack_power => 10.0})
+      upgrade = Factory(:upgrade, :old_item => old_item, :new_item_source => Factory(:frost_emblem_source, :item => new_item))
+      expected_result = {:agility => 10.0, :attack_power => -10.0}
+      assert_equal expected_result, upgrade.bonus_changes
+    end
+
+    should "know the change in stats between two items after the hit cap" do
+      character = Factory(:character, :total_item_bonuses => {:hit => 251})
+      old_item = Factory(:item, :bonuses => {:agility => 10.0, :hit => 251, :attack_power => 20.0})
+      new_item = Factory(:item, :bonuses => {:agility => 10.0, :hit => 300, :attack_power => 10.0})
+      upgrade = Factory(:upgrade, :character => character, :old_item => old_item, :new_item_source => Factory(:frost_emblem_source, :item => new_item))
+      expected_result = {:hit => 12.0, :agility=>0.0, :attack_power => -10.0}
+      assert_equal expected_result, upgrade.bonus_changes
+    end
+
+    should "know the change in stats between two items after the hit cap when the character is way above the hit cap" do
+      character = Factory(:character, :total_item_bonuses => {:hit => 300})
+      expected_result = {:hit => 0.0, :agility=>0.0, :attack_power => -10.0}
+      old_item = Factory(:item, :bonuses => {:agility => 10.0, :hit => 22, :attack_power => 20.0})
+      new_item = Factory(:item, :bonuses => {:agility => 10.0, :hit => 0, :attack_power => 10.0})
+      upgrade = Factory(:upgrade, :character => character, :old_item => old_item, :new_item_source => Factory(:frost_emblem_source, :item => new_item))
+      assert_equal expected_result, upgrade.bonus_changes
+    end
+
+    should "be okay if the total hit can't be imported for a character" do
+      character = Factory(:character, :total_item_bonuses => {})
+      expected_result = {:hit => -22.0, :agility=>0.0, :attack_power => -10.0}
+      old_item = Factory(:item, :bonuses => {:agility => 10.0, :hit => 22, :attack_power => 20.0})
+      new_item = Factory(:item, :bonuses => {:agility => 10.0, :hit => 0, :attack_power => 10.0})
+      upgrade = Factory(:upgrade, :character => character, :old_item => old_item, :new_item_source => Factory(:frost_emblem_source, :item => new_item))
+      assert_equal expected_result, upgrade.bonus_changes
+    end
+
+  end
+  
 end

@@ -24,16 +24,6 @@ class ItemImporterTest < ActiveSupport::TestCase
       assert_equal 54500, item.item_sources.first.honor_point_cost
       assert_equal item, HonorSource.first.item
     end
-
-    should "destroy items that are dependent on area" do
-      item = ItemImporter.import_from_wowarmory!(48258)
-      area = item.dropped_sources.first.source_area
-      assert_difference "Item.count", -1 do
-        assert_difference "ItemSource.count", item.item_sources.count * -1 do
-          area.destroy
-        end
-      end
-    end
     
     should "import tier 9 pants correctly" do
       assert_difference "DroppedSource.count" do

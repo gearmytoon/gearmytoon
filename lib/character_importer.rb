@@ -6,6 +6,8 @@ class CharacterImporter
   def self.refresh_character!(character)
     character.character_items.delete_all
     import_character_and_all_items(character).save!
+    character.generate_upgrades
+    character
   end
 
   def self.find_or_import_item(wow_armory_item_id)

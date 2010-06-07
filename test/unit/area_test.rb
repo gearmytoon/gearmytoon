@@ -27,19 +27,12 @@ class AreaTest < ActiveSupport::TestCase
     end
   end
 
-  context "associations" do
-    should "have many items dropped in through item source" do
-      item = Factory(:item_from_heroic_dungeon)
-      Factory(:item_from_emblem_of_triumph)
-      assert_equal [item], Area.first.items_dropped_in
-    end
-  end
-
   context "raids" do
     should "find all the raids" do
       dungeon = Factory(:dungeon)
       raid = Factory(:raid)
-      assert_equal [raid], Area.raids
+      assert Area.raids.include?(raid)
+      assert_false Area.raids.include?(dungeon)
     end
   end
 
@@ -47,23 +40,26 @@ class AreaTest < ActiveSupport::TestCase
     should "find all the dungeons" do
       dungeon = Factory(:dungeon)
       raid = Factory(:raid)
-      assert_equal [dungeon], Area.dungeons
+      assert Area.dungeons.include?(dungeon)
+      assert_false Area.dungeons.include?(raid)
     end
   end
 
   context "raids_10" do
     should "find all the dungeons" do
-      Factory(:raid_25)
-      raid = Factory(:raid_10)
-      assert_equal [raid], Area.raids_10
+      raid_25 = Factory(:raid_25)
+      raid_10 = Factory(:raid_10)
+      assert Area.raids_10.include?(raid_10)
+      assert_false Area.raids_10.include?(raid_25)
     end
   end
 
   context "raids_25" do
     should "find all the dungeons" do
-      Factory(:raid_10)
-      raid = Factory(:raid_25)
-      assert_equal [raid], Area.raids_25
+      raid_10 = Factory(:raid_10)
+      raid_25 = Factory(:raid_25)
+      assert Area.raids_25.include?(raid_25)
+      assert_false Area.raids_25.include?(raid_10)
     end
   end
 

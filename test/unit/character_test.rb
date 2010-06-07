@@ -33,157 +33,146 @@ class CharacterTest < ActiveSupport::TestCase
   end
 
   context "top_3_upgrades_from_area" do
-    should "find upgrades from the specific area" do
+    should_eventually "find upgrades from the specific area" do
       character = Factory(:a_hunter)
-      no_dps_item = Factory(:item, :bonuses => {:attack_power => 0.0})
-      Factory(:character_item, :character => character, :item => no_dps_item)
-      item = Factory(:item_from_heroic_raid, :bonuses => {:attack_power => 500.0})
-      other_item = Factory(:item_from_heroic_raid, :bonuses => {:attack_power => 500.0})
-      upgrades = character.area_upgrades(item.dropped_sources.first.source_area)
-      assert_equal 1, upgrades.length
-      assert_equal item, upgrades.first.new_item
-      assert_equal upgrades.length, character.top_3_area_upgrades(item.dropped_sources.first.source_area).length
+      upgrade = Factory(:upgrade_from_heroic_dungeon, :character => character)
+      Factory(:upgrade_from_10_raid, :character => character)
+      upgrades = character.area_upgrades(upgrade.new_item_source.source_area)
+      assert_equal [upgrade], upgrades
+      assert_equal upgrades.length, character.top_3_area_upgrades(upgrade.new_item_source.source_area).length
     end
   end
 
-  context "top_3_frost_upgrades" do
-
+  context "generate_upgrades" do
     should "not find empty slot upgrades if the toon has a two handed weapon" do
       character = Factory(:a_hunter)
       Factory(:character_item, :character => character, :item => Factory(:polearm))
-      Factory(:fist_from_emblem_of_frost)
-      assert_equal [], character.frost_upgrades
+      Factory(:frost_emblem_source, :item => Factory(:fist_weapon))
+      assert_no_difference "character.reload.upgrades.count" do
+        character.generate_upgrades
+      end
+      assert_equal [], character.reload.frost_upgrades
     end
 
     should "find two upgrades for both rings" do
       character = Factory(:a_hunter)
-      no_dps_ring = Factory(:ring_from_frost_emblem, :bonuses => {:attack_power => 0.0})
+      no_dps_ring = Factory(:ring, :bonuses => {:attack_power => 0.0})
       Factory(:character_item, :character => character, :item => no_dps_ring)
       Factory(:character_item, :character => character, :item => no_dps_ring)
-      new_dps_ring = Factory(:ring_from_frost_emblem, :bonuses => {:attack_power => 500.0})
-      assert_equal 2, character.frost_upgrades.length
+      new_dps_ring = Factory(:frost_emblem_source, :item => Factory(:ring, :bonuses => {:attack_power => 500.0})).item
+      assert_difference "character.reload.upgrades.count", 2 do
+        character.generate_upgrades
+        assert_equal 2, character.reload.frost_upgrades.length
+      end
       assert_equal no_dps_ring, character.frost_upgrades.first.old_item
       assert_equal new_dps_ring, character.frost_upgrades.first.new_item
     end
 
     should "find upgrades of the same armor type" do
       rogue = Factory(:character_item, :character => Factory(:a_rogue)).character
-      plate_upgrade = Factory(:item_from_emblem_of_frost, :bonuses => {:attack_power => 500.0}, :armor_type => ArmorType.plate)
-      leather_upgrade = Factory(:item_from_emblem_of_frost, :bonuses => {:attack_power => 500.0}, :armor_type => ArmorType.leather)
-      assert_equal 1, rogue.top_3_frost_upgrades.size
+      plate_upgrade = Factory(:frost_emblem_source, :item => Factory(:item, :bonuses => {:attack_power => 500.0}, :armor_type => ArmorType.plate)).item
+      leather_upgrade = Factory(:frost_emblem_source, :item => Factory(:item, :bonuses => {:attack_power => 500.0}, :armor_type => ArmorType.leather)).item
+      assert_difference "rogue.reload.upgrades.count", 1 do
+        rogue.generate_upgrades
+      end
+      assert_equal 1, rogue.reload.top_3_frost_upgrades.size
       assert_equal leather_upgrade, rogue.top_3_frost_upgrades.first.new_item
     end
 
-    should "find a upgrade if you do not have a inventory item in that slot" do
-      character = Factory(:character_item).character
-      upgrade = Factory(:item_from_emblem_of_frost, :bonuses => {:attack_power => 500.0})
-      assert_equal upgrade, character.top_3_frost_upgrades.first.new_item
-    end
+    should_eventually "find a upgrade if you do not have a inventory item in that slot"
 
+    should "find upgrades of the Miscellaneous armor type for any character" do
+      rogue = Factory(:character_item, :character => Factory(:a_rogue)).character
+      upgrade = Factory(:frost_emblem_source, :item => Factory(:item, :bonuses => {:attack_power => 500.0}, :armor_type => ArmorType.miscellaneous)).item
+      assert_difference "rogue.reload.upgrades.count", 1 do
+        rogue.generate_upgrades
+      end
+      assert_equal 1, rogue.top_3_frost_upgrades.size
+      assert_equal upgrade, rogue.top_3_frost_upgrades.first.new_item
+    end
+  end
+
+  context "top_3_frost_upgrades" do
     should "order the upgrades by the dps increase" do
-      character = Factory(:character_item, :item => Factory(:item, :bonuses => {:attack_power => 100.0})).character
-      mid_upgrade = Factory(:item_from_emblem_of_frost, :bonuses => {:attack_power => 200.0})
-      upgrade = Factory(:item_from_emblem_of_frost, :bonuses => {:attack_power => 500.0})
-      upgrades = [upgrade, mid_upgrade]
-      assert_equal upgrades.map(&:id), character.top_3_frost_upgrades.map(&:new_item).map(&:id)
+      mid_upgrade = Factory(:upgrade, :new_item_source => Factory(:frost_emblem_source, :item => Factory(:item, :bonuses => {:attack_power => 200.0})))
+      character = mid_upgrade.character
+      big_upgrade = Factory(:upgrade, :new_item_source => Factory(:frost_emblem_source, :item => Factory(:item, :bonuses => {:attack_power => 500.0})), :character => character)
+      upgrades = [big_upgrade, mid_upgrade]
+      assert_equal upgrades.map(&:id), character.top_3_frost_upgrades.map(&:id)
     end
 
-    should "find the first 3 upgrades" do
-      character = Factory(:character_item, :item => Factory(:item, :bonuses => {:attack_power => 100.0})).character
-      4.times { Factory(:item_from_emblem_of_frost, :bonuses => {:attack_power => 500.0}) }
+    should "find only the first 3 upgrades" do
+      character = Factory(:a_hunter)
+      4.times { Factory(:upgrade_from_emblem_of_frost,:character => character)}
       assert_equal 3, character.top_3_frost_upgrades.length
     end
   end
 
   context "top_3_triumph_upgrades" do
-
-    should "find upgrades of the Miscellaneous armor type for any character" do
-      rogue = Factory(:character_item, :character => Factory(:a_rogue)).character
-      leather_upgrade = Factory(:item_from_emblem_of_triumph, :bonuses => {:attack_power => 500.0}, :armor_type => ArmorType.miscellaneous)
-      assert_equal 1, rogue.top_3_triumph_upgrades.size
-      assert_equal leather_upgrade, rogue.top_3_triumph_upgrades.first.new_item
-    end
-
-    should "find upgrades of the same armor type" do
-      rogue = Factory(:character_item, :character => Factory(:a_rogue)).character
-      plate_upgrade = Factory(:item_from_emblem_of_triumph, :bonuses => {:attack_power => 500.0}, :armor_type => ArmorType.plate)
-      leather_upgrade = Factory(:item_from_emblem_of_triumph, :bonuses => {:attack_power => 500.0}, :armor_type => ArmorType.leather)
-      assert_equal 1, rogue.top_3_triumph_upgrades.size
-      assert_equal leather_upgrade, rogue.top_3_triumph_upgrades.first.new_item
-    end
-
     should "order the upgrades by the dps increase" do
-      character = Factory(:character_item, :item => Factory(:item, :bonuses => {:attack_power => 100.0})).character
-      mid_upgrade = Factory(:item_from_emblem_of_triumph, :bonuses => {:attack_power => 200.0})
-      upgrade = Factory(:item_from_emblem_of_triumph, :bonuses => {:attack_power => 500.0})
-      upgrades = [upgrade, mid_upgrade]
-      assert_equal upgrades.map(&:id), character.top_3_triumph_upgrades.map(&:new_item).map(&:id)
+      mid_upgrade = Factory(:upgrade, :new_item_source => Factory(:triumph_emblem_source, :item => Factory(:item, :bonuses => {:attack_power => 200.0})))
+      character = mid_upgrade.character
+      big_upgrade = Factory(:upgrade, :new_item_source => Factory(:triumph_emblem_source, :item => Factory(:item, :bonuses => {:attack_power => 500.0})), :character => character)
+      upgrades = [big_upgrade, mid_upgrade]
+      assert_equal upgrades.map(&:id), character.top_3_triumph_upgrades.map(&:id)
     end
 
     should "find the first 3 upgrades" do
-      character = Factory(:character_item, :item => Factory(:item, :bonuses => {:attack_power => 100.0})).character
-      4.times { Factory(:item_from_emblem_of_triumph, :bonuses => {:attack_power => 500.0}) }
+      character = Factory(:a_hunter)
+      4.times { Factory(:upgrade_from_emblem_of_triumph, :character => character) }
       assert_equal 3, character.top_3_triumph_upgrades.length
     end
   end
 
   context "top_3_heroic_dungeon_upgrades" do
     should "return three upgrades" do
-      character = Factory(:character_item, :item => Factory(:item, :bonuses => {:attack_power => 100.0})).character
-      4.times { Factory(:item_from_heroic_dungeon, :bonuses => {:attack_power => 500.0}) }
+      character = Factory(:a_hunter)
+      4.times { Factory(:upgrade_from_heroic_dungeon, :character => character) }
       upgrades = character.top_3_heroic_dungeon_upgrades
       assert_equal 3, upgrades.size
-      upgrades.each do |upgrade|
-        assert_kind_of Upgrade, upgrade
-      end
     end
 
     should "only find items from heroic dungeons" do
-      character = Factory(:character_item, :item => Factory(:item, :bonuses => {:attack_power => 100.0})).character
-      heroic_upgrade = Factory(:item_from_heroic_dungeon, :bonuses => {:attack_power => 500.0})
-      Factory(:item_from_emblem_of_triumph)
+      character = Factory(:a_hunter)
+      upgrade = Factory(:upgrade_from_heroic_dungeon, :character => character)
+      Factory(:upgrade_from_emblem_of_triumph, :character => character)
       upgrades = character.top_3_heroic_dungeon_upgrades
-      assert_equal 1, upgrades.size
-      assert_equal heroic_upgrade, upgrades.first.new_item
+      assert_equal [upgrade], upgrades
     end
-
   end
+
   context "top_3_raid_10_upgrades" do
     should "return three upgrades" do
-      character = Factory(:character_item, :item => Factory(:item, :bonuses => {:attack_power => 100.0})).character
-      4.times { Factory(:item_from_heroic_raid, :bonuses => {:attack_power => 500.0}) }
+      character = Factory(:a_hunter)
+      4.times { Factory(:upgrade_from_10_raid, :character => character) }
       upgrades = character.top_3_raid_10_upgrades
       assert_equal 3, upgrades.size
-      upgrades.each do |upgrade|
-        assert_kind_of Upgrade, upgrade
-      end
     end
 
     should "only find items from raids" do
-      character = Factory(:character_item, :item => Factory(:item, :bonuses => {:attack_power => 100.0})).character
-      heroic_upgrade = Factory(:item_from_heroic_raid, :bonuses => {:attack_power => 500.0})
-      Factory(:item_from_heroic_dungeon)
+      character = Factory(:a_hunter)
+      upgrade = Factory(:upgrade_from_10_raid, :character => character)
+      Factory(:upgrade_from_heroic_dungeon, :character => character)
       upgrades = character.top_3_raid_10_upgrades
-      assert_equal 1, upgrades.size
-      assert_equal heroic_upgrade, upgrades.first.new_item
+      assert_equal [upgrade], upgrades
     end
 
   end
   context "top_3_honor_upgrades" do
     should "find top 3" do
       character = Factory(:character_item, :item => Factory(:item, :bonuses => {:attack_power => 100.0})).character
-      4.times{Factory(:item_from_honor_points)}
+      4.times{Factory(:upgrade_from_honor_points, :character => character)}
       upgrades = character.top_3_honor_point_upgrades
       assert_equal 3, upgrades.size
     end
 
     should "only find items from honor points" do
-      character = Factory(:character_item, :item => Factory(:item, :bonuses => {:attack_power => 100.0})).character
-      honor_item = Factory(:item_from_honor_points)
-      Factory(:item_from_emblem_of_triumph)
+      upgrade = Factory(:upgrade_from_honor_points)
+      character = upgrade.character
+      Factory(:upgrade_from_emblem_of_triumph, :character => character)
       upgrades = character.top_3_honor_point_upgrades
       assert_equal 1, upgrades.size
-      assert_equal honor_item, upgrades.first.new_item
+      assert_equal upgrade.new_item, upgrades.first.new_item
     end
   end
 
@@ -218,55 +207,20 @@ class CharacterTest < ActiveSupport::TestCase
     end
 
   end
-
+  
   context "dps_for" do
     should "know the relative dps for a item" do
       assert_equal 191.6, Factory(:a_rogue).dps_for({:attack_power => 130, :agility => 89, :hit => 47, :stamina => 76},false)
     end
   end
-
-  context "stat_change_between" do
-    should "know the change in stats between two items" do
-      character = Factory(:character)
-      expected_result = {:agility => 10.0, :attack_power => -10.0}
-      old_item = Factory(:item, :bonuses => {:agility => 10.0, :attack_power => 20.0})
-      new_item = Factory(:item, :bonuses => {:agility => 20.0, :attack_power => 10.0})
-      assert_equal expected_result, character.stat_change_between(new_item, old_item)
-    end
-
-    should "know the change in stats between two items after the hit cap" do
-      character = Factory(:character, :total_item_bonuses => {:hit => 251})
-      expected_result = {:hit => 12.0, :agility=>0.0, :attack_power => -10.0}
-      old_item = Factory(:item, :bonuses => {:agility => 10.0, :hit => 251, :attack_power => 20.0})
-      new_item = Factory(:item, :bonuses => {:agility => 10.0, :hit => 300, :attack_power => 10.0})
-      assert_equal expected_result, character.stat_change_between(new_item, old_item)
-    end
-
-    should "know the change in stats between two items after the hit cap when the character is way above the hit cap" do
-      character = Factory(:character, :total_item_bonuses => {:hit => 300})
-      expected_result = {:hit => 0.0, :agility=>0.0, :attack_power => -10.0}
-      old_item = Factory(:item, :bonuses => {:agility => 10.0, :hit => 22, :attack_power => 20.0})
-      new_item = Factory(:item, :bonuses => {:agility => 10.0, :hit => 0, :attack_power => 10.0})
-      assert_equal expected_result, character.stat_change_between(new_item, old_item)
-    end
-
-    should "be okay if the total hit can't be imported for a character" do
-      character = Factory(:character, :total_item_bonuses => {})
-      expected_result = {:hit => -22.0, :agility=>0.0, :attack_power => -10.0}
-      old_item = Factory(:item, :bonuses => {:agility => 10.0, :hit => 22, :attack_power => 20.0})
-      new_item = Factory(:item, :bonuses => {:agility => 10.0, :hit => 0, :attack_power => 10.0})
-      assert_equal expected_result, character.stat_change_between(new_item, old_item)
-    end
-
-  end
-
+  
   context "hard_cap" do
     should "be 263 for hit for hunters" do
       character = Factory(:a_hunter)
       assert_equal 263, character.hard_caps[:hit]
     end
 
-    should "be 886 for hit for hunters" do
+    should "be 886 for hit for rogues" do
       character = Factory(:a_rogue)
       assert_equal 886, character.hard_caps[:hit]
     end

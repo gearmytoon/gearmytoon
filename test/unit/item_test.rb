@@ -19,31 +19,9 @@ class ItemTest < ActiveSupport::TestCase
     end
   end
   
-  context "dropped_item?" do
-    should "return true if the item is from a raid or dungeon" do
-      assert Factory(:item_from_heroic_dungeon).dropped_item?
-      assert Factory(:item_from_heroic_raid).dropped_item?
-      assert_false Factory(:item_from_emblem_of_triumph).dropped_item?
-    end
-    
-    should "know where the item drops from" do
-      item = Factory(:item_from_heroic_raid)
-      assert_equal item.dropped_sources.first.source_area, item.source_area
-    end
-  end
-  
-  context "purchased_item?" do
-    should "return true if the item is from frost or triumph emblems" do
-      assert Factory(:item_from_emblem_of_triumph).purchased_item?
-      assert Factory(:item_from_emblem_of_frost).purchased_item?
-      assert_false Factory(:item_from_heroic_dungeon).purchased_item?
-      assert_false Factory(:item_from_heroic_raid).purchased_item?
-    end
-    
-    should "know how much the item costs" do
-      item = Factory(:item_from_emblem_of_frost)
-      assert_equal 60, item.token_cost
-    end
+  should "know how much the item costs" do
+    item = Factory(:frost_emblem_source).item
+    assert_equal 60, item.token_cost
   end
 
   context "usable_by" do

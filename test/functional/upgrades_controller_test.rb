@@ -9,17 +9,18 @@ class UpgradesControllerTest < ActionController::TestCase
     end
     
     should "show all upgrades" do
-      character = Factory(:character_item, :character => Factory(:a_hunter)).character
-      4.times {Factory(:item_from_emblem_of_frost)}
-      Factory(:item_from_emblem_of_triumph)
+      character = Factory(:a_hunter)
+      4.times {Factory(:upgrade_from_emblem_of_frost, :character => character)}
+      Factory(:upgrade_from_emblem_of_triumph, :character => character)
       get :frost, :character_id => character.id
       assert_response :success
       assert_select ".upgrade", :count => 4
     end
     
     should "show frost downgrades" do
-      character = Factory(:character_item, :character => Factory(:a_hunter)).character
-      downgrade = Factory(:downgrade_item_from_frost_emblem)
+      character = Factory(:a_hunter)
+      downgrade_source = Factory(:frost_emblem_source, :item => Factory(:item, :bonuses => {}))
+      Factory(:upgrade, :new_item_source => downgrade_source, :character => character)
       get :frost, :character_id => character.id
       assert_response :success
       assert_select ".downgrade", :count => 1
@@ -28,9 +29,9 @@ class UpgradesControllerTest < ActionController::TestCase
 
   context "get triumph" do
     should "show all upgrades" do
-      character = Factory(:character_item, :character => Factory(:a_hunter)).character
-      4.times {Factory(:item_from_emblem_of_triumph)}
-      Factory(:item_from_emblem_of_frost)
+      character = Factory(:a_hunter)
+      4.times {Factory(:upgrade_from_emblem_of_triumph, :character => character)}
+      Factory(:upgrade_from_emblem_of_frost, :character => character)
       get :triumph, :character_id => character.id
       assert_response :success
       assert_select ".upgrade", :count => 4
@@ -39,9 +40,9 @@ class UpgradesControllerTest < ActionController::TestCase
 
   context "get dungeon" do
     should "show all upgrades" do
-      character = Factory(:character_item, :character => Factory(:a_hunter)).character
-      4.times {Factory(:item_from_heroic_dungeon)}
-      Factory(:item_from_emblem_of_frost)
+      character = Factory(:a_hunter)
+      4.times {Factory(:upgrade_from_heroic_dungeon, :character => character)}
+      Factory(:upgrade_from_emblem_of_frost, :character => character)
       get :dungeon, :character_id => character.id
       assert_response :success
       assert_select ".upgrade", :count => 4
@@ -49,10 +50,10 @@ class UpgradesControllerTest < ActionController::TestCase
   end
   
   context "get raid_25" do
-    should "show all 25 man raids upgrades" do
-      character = Factory(:character_item, :character => Factory(:a_hunter)).character
-      2.times{Factory(:item_from_25_man_raid)}
-      Factory(:item_from_10_man_raid)
+    should_eventually "show all 25 man raids upgrades" do
+      character = Factory(:a_hunter)
+      2.times{Factory(:upgrade_from_25_raid, :character => character)}
+      Factory(:upgrade_from_10_raid, :character => character)
       get :raid_25, :character_id => character.id
       assert_response :success
       assert_select ".upgrade", :count => 2
@@ -62,10 +63,10 @@ class UpgradesControllerTest < ActionController::TestCase
   end
 
   context "get raid_10" do
-    should "show all upgrades" do
-      character = Factory(:character_item, :character => Factory(:a_hunter)).character
-      2.times{Factory(:item_from_10_man_raid)}
-      Factory(:item_from_25_man_raid)
+    should_eventually "show all upgrades" do
+      character = Factory(:a_hunter)
+      2.times{Factory(:upgrade_from_10_raid, :character => character)}
+      Factory(:upgrade_from_25_raid, :character => character)
       get :raid_10, :character_id => character.id
       assert_response :success
       assert_select ".upgrade", :count => 2

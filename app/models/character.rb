@@ -1,5 +1,13 @@
 class Character < ActiveRecord::Base
   extend Upgradable
+
+  #TODO - cleanup
+  class << self
+    def upgrade_sources
+      @upgrade_sources ||= {}
+    end
+  end
+  
   DEFAULT_LOCALE = 'us'
   LOCALES = [['US','us'],['EU','eu'],['CN','cn'],['TW','tw'],['KR','kr']]
   HORDE_RACES = ['orc', 'undead', 'troll', 'tauren', 'blood elf']
@@ -12,7 +20,7 @@ class Character < ActiveRecord::Base
   has_upgrades_from :arena_point, Proc.new{ArenaSource.all}
   has_upgrades_from :wintergrasp_mark, Proc.new{EmblemSource.from_wintergrasp_mark_of_honor}
   has_upgrades_from :raid_25, Proc.new{DroppedSource.from_raids_25}
-  has_upgrades_from :area, Proc.new{ |area| DroppedSource.from_area(area)}
+  # has_upgrades_from :area, Proc.new{ |area| DroppedSource.from_area(area)}
   has_upgrades_from :raid_10, Proc.new{DroppedSource.from_raids_10}
   acts_as_state_machine :initial => :new, :column => "status"
 
@@ -34,6 +42,7 @@ class Character < ActiveRecord::Base
   belongs_to :wow_class
   has_many :character_items
   has_many :character_refreshes
+  has_many :upgrades
   serialize :total_item_bonuses
   has_many :equipped_items, :through => :character_items, :source => :item
   has_many :user_characters
@@ -50,18 +59,24 @@ class Character < ActiveRecord::Base
     "#{name} #{realm} #{locale}"
   end
 
+  def generate_upgrades
+    # [true,false].each do |for_pvp|
+    self.class.upgrade_sources.each do |name, item_sources|
+      top_upgrades_from(item_sources.call, false)
+    end
+    # end
+  end
+
   def top_upgrades_from(item_sources, for_pvp)
     potential_upgrade_sources = item_sources.for_items(wow_class.equippable_items)
-    upgrades = potential_upgrade_sources.inject([]) do |found_upgrades, potential_upgrade_source|
+    upgrades = potential_upgrade_sources.each do |potential_upgrade_source|
       all_equipped = equipped_items.all
       all_equipped.select {|equip| equip.slot == potential_upgrade_source.item.slot}.each do |equipped_item|
         if(equipped_item != potential_upgrade_source.item)
-          dps_change = dps_for(stat_change_between(potential_upgrade_source.item, equipped_item),for_pvp)
-          found_upgrades << Upgrade.new(potential_upgrade_source, equipped_item, dps_change)
+          Upgrade.create!(:character => self, :new_item_source => potential_upgrade_source, :old_item => equipped_item, :for_pvp => for_pvp)
         end
       end
-      found_upgrades
-    end.sort_by(&:dps_change).reverse
+    end
   end
 
   def dps_for(item_bonuses, for_pvp)
@@ -69,21 +84,6 @@ class Character < ActiveRecord::Base
       stat_name, relative_dps_value = relative_bonus_dps_value
       total_dps += relative_dps_value * (item_bonuses[stat_name] ? item_bonuses[stat_name] : 0)
     end
-  end
-
-  def stat_change_between(new_item, old_item)
-    apply_hard_caps(new_item.change_in_stats_from(old_item))
-  end
-
-  def apply_hard_caps(change_in_bonuses)
-    bonuses_after_hard_cap = {}
-    change_in_bonuses.slice(*hard_caps.keys).each do |key, value|
-      total_bonus_for_stat = total_item_bonuses.has_key?(key) ? total_item_bonuses[key] : 0.0
-      if((value + total_bonus_for_stat) > hard_caps[key])
-        bonuses_after_hard_cap[key] = [hard_caps[key] - total_bonus_for_stat, 0].max
-      end
-    end
-    return change_in_bonuses.merge(bonuses_after_hard_cap)
   end
 
   def hard_caps

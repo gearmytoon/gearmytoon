@@ -34,14 +34,6 @@ class Item < ActiveRecord::Base
     self.bonuses.subtract_values(other_item.bonuses)
   end
 
-  def dropped_item?
-    dropped_sources.any?
-  end
-
-  def purchased_item?
-    emblem_sources.any?
-  end
-
   def token_cost
     emblem_sources.first.token_cost
   end

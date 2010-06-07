@@ -8,7 +8,6 @@ class Area < ActiveRecord::Base
   named_scope :raids, :conditions => {:wowarmory_area_id => RAIDS}
   named_scope :raids_10, :conditions => {:wowarmory_area_id => RAIDS, :players => 10}
   named_scope :raids_25, :conditions => {:wowarmory_area_id => RAIDS, :players => 25}
-  has_many :items_dropped_in, :through => :dropped_sources, :source => :item, :dependent => :destroy
   has_many :dropped_sources, :foreign_key => :source_area_id
   
   def full_name

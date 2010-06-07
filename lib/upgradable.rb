@@ -1,6 +1,7 @@
 module Upgradable
-  
+
   def has_upgrades_from(kind_of_upgrade, item_sources)
+    self.upgrade_sources[kind_of_upgrade] = item_sources
     all_upgrades_method_name = "#{kind_of_upgrade}_upgrades"
     all_pvp_upgrades_method_name = "#{kind_of_upgrade}_pvp_upgrades"
 
@@ -12,7 +13,7 @@ module Upgradable
   
   def define_upgrade_method(name, item_sources, pvp_flag)
     define_method(name) do |*args|
-      top_upgrades_from(item_sources.call(args), pvp_flag)
+      upgrades.with_sources(item_sources.call(args))
     end
   end
 

@@ -9,7 +9,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20100604151459) do
+ActiveRecord::Schema.define(:version => 20100605165224) do
 
   create_table "areas", :force => true do |t|
     t.string   "name"
@@ -141,6 +141,17 @@ ActiveRecord::Schema.define(:version => 20100604151459) do
 
   add_index "slugs", ["name", "sluggable_type", "sequence", "scope"], :name => "index_slugs_on_n_s_s_and_s", :unique => true
   add_index "slugs", ["sluggable_id"], :name => "index_slugs_on_sluggable_id"
+
+  create_table "upgrades", :force => true do |t|
+    t.integer  "character_id"
+    t.integer  "old_item_id"
+    t.integer  "new_item_source_id"
+    t.decimal  "dps_change",         :precision => 8, :scale => 2
+    t.boolean  "for_pvp"
+    t.text     "bonus_changes"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
 
   create_table "user_characters", :force => true do |t|
     t.datetime "created_at"

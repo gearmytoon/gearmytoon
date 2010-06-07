@@ -2,8 +2,17 @@ require File.dirname(__FILE__) + '/../test_helper'
 
 class CharacterImporterTest < ActiveSupport::TestCase
   context "refresh_character!" do
+    should "build upgrades for a character" do
+      best_xbow_ingame = ItemImporter.import_from_wowarmory!(50733)
+      character = Factory(:character, :name => "Merb", :realm => "Baelgun")
+      upgrades_before = character.reload.upgrades.count
+      CharacterImporter.refresh_character!(character)
+      assert_not_equal upgrades_before, character.reload.upgrades.count
+      assert character.upgrades.map(&:new_item).include?(best_xbow_ingame)
+    end
+    
     should "refresh a characters updated_at time" do
-      Factory(:wow_class, :name => "Paladin")
+      WowClass.create_class!("Paladin")
       character = Factory(:character, :name => "Rails", :realm => "Baelgun")
       CharacterImporter.import_character_and_all_items(character)
       first_updated = character.updated_at
@@ -12,7 +21,7 @@ class CharacterImporterTest < ActiveSupport::TestCase
     end
 
     should "refresh a character" do
-      Factory(:wow_class, :name => "Paladin")
+      WowClass.create_class!("Paladin")
       character = Factory.build(:character, :name => "Rails", :realm => "Baelgun")
       character = CharacterImporter.import_character_and_all_items(character)
       character.save!

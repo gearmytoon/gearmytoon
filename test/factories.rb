@@ -89,45 +89,53 @@ Factory.define(:wow_class) do |model|
   model.primary_armor_type ArmorType.mail
 end
 
-
 Factory.define(:dungeon_dropped_source, :class => :dropped_source) do |model|
+  model.association :item
   model.association :source_area, :factory => :dungeon
 end
 
 Factory.define(:frost_emblem_source, :class => :emblem_source) do |model|
   model.token_cost 60
+  model.association :item
   model.wowarmory_token_item_id Item::FROST_EMBLEM_ARMORY_ID
 end
 
 Factory.define(:triumph_emblem_source, :class => :emblem_source) do |model|
   model.token_cost 45
+  model.association :item
   model.wowarmory_token_item_id Item::TRIUMPH_EMBLEM_ARMORY_ID
 end
 
 Factory.define(:honor_point_source, :class => :honor_source) do |model|
+  model.association :item
   model.honor_point_cost 45000
 end
 
 Factory.define(:arena_point_source, :class => :arena_source) do |model|
   model.arena_point_cost 1000
+  model.association :item
   model.honor_point_cost 12300
 end
 
 Factory.define(:wintergrasp_source, :class => :emblem_source) do |model|
   model.token_cost 15
   model.wowarmory_token_item_id Item::WINTERGRASP_MARK_OF_HONOR
+  model.association :item
 end
 
 Factory.define(:raid_dropped_source, :class => :dropped_source) do |model|
   model.association :source_area, :factory => :raid_10
+  model.association :item
 end
 
 Factory.define(:twenty_five_man_raid_source, :class => :dropped_source) do |model|
+  model.association :item
   model.association :source_area, :factory => :raid_25
 end
 
 Factory.define(:ten_man_raid_source, :class => :dropped_source) do |model|
   model.association :source_area, :factory => :raid_10
+  model.association :item
 end
 
 Factory.define(:dungeon, :class => :area) do |model|
@@ -173,4 +181,43 @@ end
 
 Factory.define(:character_refresh) do |model|
   model.association :character, :factory => :new_character
+end
+
+Factory.define(:upgrade) do |model|
+  model.association :character
+  model.association :new_item_source, :factory => :frost_emblem_source
+  model.association :old_item, :factory => :downgrade_item
+  model.for_pvp false
+end
+
+Factory.define(:upgrade_from_honor_points, :parent => :upgrade) do |model|
+  model.association :new_item_source, :factory => :honor_point_source
+end
+
+Factory.define(:upgrade_from_arena_points, :parent => :upgrade) do |model|
+  model.association :new_item_source, :factory => :arena_point_source
+end
+
+Factory.define(:upgrade_from_wintergrasp_marks, :parent => :upgrade) do |model|
+  model.association :new_item_source, :factory => :wintergrasp_source
+end
+
+Factory.define(:upgrade_from_emblem_of_triumph, :parent => :upgrade) do |model|
+  model.association :new_item_source, :factory => :triumph_emblem_source
+end
+
+Factory.define(:upgrade_from_emblem_of_frost, :parent => :upgrade) do |model|
+  model.association :new_item_source, :factory => :frost_emblem_source
+end
+
+Factory.define(:upgrade_from_heroic_dungeon, :parent => :upgrade) do |model|
+  model.association :new_item_source, :factory => :dungeon_dropped_source
+end
+
+Factory.define(:upgrade_from_10_raid, :parent => :upgrade) do |model|
+  model.association :new_item_source, :factory => :ten_man_raid_source
+end
+
+Factory.define(:upgrade_from_25_raid, :parent => :upgrade) do |model|
+  model.association :new_item_source, :factory => :twenty_five_man_raid_source
 end

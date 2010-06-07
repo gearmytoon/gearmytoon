@@ -37,8 +37,8 @@ class WowClassTest < ActiveSupport::TestCase
   context "equippable_items" do
     should "find upgrades of the same armor type" do
       rogue = WowClass.create_class!("Rogue")
-      plate_upgrade = Factory(:item_from_emblem_of_frost, :bonuses => {:attack_power => 500.0}, :armor_type => ArmorType.plate)
-      leather_upgrade = Factory(:item_from_emblem_of_frost, :bonuses => {:attack_power => 500.0}, :armor_type => ArmorType.leather)
+      plate_upgrade = Factory(:item, :bonuses => {:attack_power => 500.0}, :armor_type => ArmorType.plate)
+      leather_upgrade = Factory(:item, :bonuses => {:attack_power => 500.0}, :armor_type => ArmorType.leather)
       assert_equal 1, rogue.equippable_items.size
       assert_equal leather_upgrade, rogue.equippable_items.first
     end
