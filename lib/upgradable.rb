@@ -54,7 +54,7 @@ module Upgradable
 
     def define_top_3_upgrade_method(name, upgrade_method)
       define_method(name) do |*args|
-        send(upgrade_method,*args).first(3)
+        send(upgrade_method,*args).limited(3)
       end
     end
   end

@@ -7,6 +7,8 @@ class Upgrade < ActiveRecord::Base
   named_scope :with_sources, Proc.new {|item_sources, for_pvp| 
     {:include => [:old_item, {:new_item_source => :item}], :conditions => {:new_item_source_id => item_sources, :for_pvp => for_pvp}, :order => "dps_change DESC"}
   }
+  named_scope :limited, lambda { |num| { :limit => num } }
+  
   def stat_change_between(new_item, old_item)
     apply_hard_caps(new_item.change_in_stats_from(old_item))
   end
