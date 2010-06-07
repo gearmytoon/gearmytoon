@@ -141,6 +141,7 @@ end
 Factory.define(:dungeon, :class => :area) do |model|
   model.name "Super Fun Unicorn Land"
   model.wowarmory_area_id Area::DUNGEONS.first
+  model.players 5
 end
 
 Factory.define(:raid_25, :class => :area) do |model|

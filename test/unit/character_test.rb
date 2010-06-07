@@ -47,7 +47,7 @@ class CharacterTest < ActiveSupport::TestCase
   end
 
   context "top_3_upgrades_from_area" do
-    should_eventually "find upgrades from the specific area" do
+    should "find upgrades from the specific area" do
       character = Factory(:a_hunter)
       upgrade = Factory(:upgrade_from_heroic_dungeon, :character => character)
       Factory(:upgrade_from_10_raid, :character => character)
@@ -80,6 +80,16 @@ class CharacterTest < ActiveSupport::TestCase
       end
       assert_equal no_dps_ring, character.heroic_dungeon_upgrades.first.old_item
       assert_equal new_dps_ring, character.heroic_dungeon_upgrades.first.new_item
+    end
+
+    should "find upgrades from heroic dungeons" do
+      character = Factory(:a_hunter)
+      Factory(:character_item, :character => character, :item => Factory(:item, :bonuses => {:attack_power => 100.0}))
+      new_item_source = Factory(:dungeon_dropped_source, :item => Factory(:item, :bonuses => {:attack_power => 500.0}))
+      assert_difference "character.reload.upgrades.count", 1 do
+        character.generate_upgrades
+      end
+      assert_equal([new_item_source], character.reload.area_upgrades(new_item_source.source_area).map(&:new_item_source))
     end
 
     should "find upgrades for pve and pvp" do

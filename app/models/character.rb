@@ -13,7 +13,7 @@ class Character < ActiveRecord::Base
   has_upgrades_from :arena_point, Proc.new{ArenaSource.all}, :for => ['pvp']
   has_upgrades_from :wintergrasp_mark, Proc.new{EmblemSource.from_wintergrasp_mark_of_honor}, :for => ['pvp']
   has_upgrades_from :raid_25, Proc.new{DroppedSource.from_raids_25}, :for => ['pve']
-  # has_upgrades_from :area, Proc.new{ |area| DroppedSource.from_area(area)}
+  has_upgrades_from :area, Proc.new{ |area| DroppedSource.from_area(area)}, :for => ['pve'], :disable_upgrade_lookup => true
   has_upgrades_from :raid_10, Proc.new{DroppedSource.from_raids_10}, :for => ['pve']
   acts_as_state_machine :initial => :new, :column => "status"
 

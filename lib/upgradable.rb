@@ -6,9 +6,11 @@ module Upgradable
   
   def generate_upgrades
     self.class.upgrade_sources.each do |name, args|
-      item_sources = args[:item_sources]
-      top_upgrades_from(item_sources.call, false) if args[:for].include?("pve")
-      top_upgrades_from(item_sources.call, true) if args[:for].include?("pvp")
+      unless args[:disable_upgrade_lookup]
+        item_sources = args[:item_sources].call
+        top_upgrades_from(item_sources, false) if args[:for].include?("pve")
+        top_upgrades_from(item_sources, true) if args[:for].include?("pvp")
+      end
     end
   end
 
@@ -30,7 +32,7 @@ module Upgradable
     end
 
     def has_upgrades_from(kind_of_upgrade, item_sources, options = {:for => ["pve"]})
-      upgrade_sources[kind_of_upgrade] = {:item_sources => item_sources, :for => options[:for]}
+      upgrade_sources[kind_of_upgrade] = {:item_sources => item_sources, :for => options[:for], :disable_upgrade_lookup => options[:disable_upgrade_lookup]}
       if options[:for].include?("pvp")
         all_pvp_upgrades_method_name = "#{kind_of_upgrade}_pvp_upgrades"
         define_upgrade_method(all_pvp_upgrades_method_name, item_sources, true)

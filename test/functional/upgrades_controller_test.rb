@@ -50,7 +50,7 @@ class UpgradesControllerTest < ActionController::TestCase
   end
   
   context "get raid_25" do
-    should_eventually "show all 25 man raids upgrades" do
+    should "show all 25 man raids upgrades" do
       character = Factory(:a_hunter)
       2.times{Factory(:upgrade_from_25_raid, :character => character)}
       Factory(:upgrade_from_10_raid, :character => character)
@@ -63,7 +63,7 @@ class UpgradesControllerTest < ActionController::TestCase
   end
 
   context "get raid_10" do
-    should_eventually "show all upgrades" do
+    should "show all upgrades" do
       character = Factory(:a_hunter)
       2.times{Factory(:upgrade_from_10_raid, :character => character)}
       Factory(:upgrade_from_25_raid, :character => character)

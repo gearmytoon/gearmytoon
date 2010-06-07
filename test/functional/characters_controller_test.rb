@@ -149,14 +149,6 @@ class CharactersControllerTest < ActionController::TestCase
       assert_equal character, assigns(:character)
     end
 
-    #broke with the quality string upgrade
-    should_eventually "have an upgrade section for emblems of frost" do
-      Factory(:item_from_emblem_of_frost)
-      character = Factory(:character)
-      get :show, :id => character.id
-      assert_select ".upgrade_section h1 .epic", :text => "Emblem of Frost"
-    end
-
     should "have links to all three upgrade sections" do
       character = Factory(:character_item).character
       Factory(:upgrade_from_emblem_of_frost, :character => character)
