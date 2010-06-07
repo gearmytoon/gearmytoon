@@ -73,7 +73,9 @@ class Character < ActiveRecord::Base
   end
 
   def refresh_in_background!
-    Resque.enqueue(CharacterJob, self.character_refreshes.create!.id)
+    unless self.character_refreshes.active.any?
+      Resque.enqueue(CharacterJob, self.character_refreshes.create!.id)
+    end
   end
 
   def character_item_on(slot_name)

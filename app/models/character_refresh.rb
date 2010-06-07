@@ -1,6 +1,7 @@
 class CharacterRefresh < ActiveRecord::Base
   belongs_to :character
   acts_as_state_machine :initial => :new, :column => "status"
+  named_scope :active, :conditions => {:status => "new"}
   state :new
   state :done
   

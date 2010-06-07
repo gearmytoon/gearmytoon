@@ -208,6 +208,18 @@ class CharactersControllerTest < ActionController::TestCase
       assert_equal "public, must-revalidate", @response.headers['Cache-Control']
     end
 
+    should "not refresh the toon if there is already an active character refresh working" do
+      freeze_time(10.minutes.ago)
+      character = Factory(:character)
+      freeze_time(10.minutes.from_now)
+      assert_difference "Resque.size('character_jobs')" do
+        get :pvp, :id => character.friendly_id
+      end
+      assert_no_difference "Resque.size('character_jobs')" do
+        get :pvp, :id => character.friendly_id
+      end
+    end
+
     should "refresh the toon if refresh was more then 5 minutes ago" do
       freeze_time(10.minutes.ago)
       character = Factory(:character)
