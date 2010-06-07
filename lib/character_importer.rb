@@ -5,6 +5,7 @@ class CharacterImporter
 
   def self.refresh_character!(character)
     character.character_items.delete_all
+    character.upgrades.delete_all
     import_character_and_all_items(character).save!
     character.generate_upgrades
     character

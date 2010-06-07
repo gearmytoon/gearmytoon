@@ -11,6 +11,16 @@ class CharacterImporterTest < ActiveSupport::TestCase
       assert character.upgrades.map(&:new_item).include?(best_xbow_ingame)
     end
     
+    should "not duplicate character items or upgrades" do
+      character = Factory(:character, :name => "Merb", :realm => "Baelgun")
+      CharacterImporter.refresh_character!(character)
+      assert_no_difference "character.reload.upgrades.count" do
+        assert_no_difference "character.reload.character_items.count" do
+          CharacterImporter.refresh_character!(character)
+        end
+      end
+    end
+    
     should "refresh a characters updated_at time" do
       WowClass.create_class!("Paladin")
       character = Factory(:character, :name => "Rails", :realm => "Baelgun")
