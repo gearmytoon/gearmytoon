@@ -1,12 +1,5 @@
 class Character < ActiveRecord::Base
-  extend Upgradable
-
-  #TODO - cleanup
-  class << self
-    def upgrade_sources
-      @upgrade_sources ||= {}
-    end
-  end
+  include Upgradable
   
   DEFAULT_LOCALE = 'us'
   LOCALES = [['US','us'],['EU','eu'],['CN','cn'],['TW','tw'],['KR','kr']]
@@ -57,26 +50,6 @@ class Character < ActiveRecord::Base
 
   def name_and_realm_and_locale
     "#{name} #{realm} #{locale}"
-  end
-
-  def generate_upgrades
-    # [true,false].each do |for_pvp|
-    self.class.upgrade_sources.each do |name, item_sources|
-      top_upgrades_from(item_sources.call, false)
-    end
-    # end
-  end
-
-  def top_upgrades_from(item_sources, for_pvp)
-    potential_upgrade_sources = item_sources.for_items(wow_class.equippable_items)
-    upgrades = potential_upgrade_sources.each do |potential_upgrade_source|
-      all_equipped = equipped_items.all
-      all_equipped.select {|equip| equip.slot == potential_upgrade_source.item.slot}.each do |equipped_item|
-        if(equipped_item != potential_upgrade_source.item)
-          Upgrade.create!(:character => self, :new_item_source => potential_upgrade_source, :old_item => equipped_item, :for_pvp => for_pvp)
-        end
-      end
-    end
   end
 
   def dps_for(item_bonuses, for_pvp)
