@@ -5,8 +5,10 @@ module Upgradable
   end
   
   def generate_upgrades
-    self.class.upgrade_sources.each do |name, item_sources|
-      top_upgrades_from(item_sources.call, false)
+    self.class.upgrade_sources.each do |name, args|
+      item_sources = args[:item_sources]
+      top_upgrades_from(item_sources.call, false) if args[:for].include?("pve")
+      top_upgrades_from(item_sources.call, true) if args[:for].include?("pvp")
     end
   end
 
@@ -27,21 +29,24 @@ module Upgradable
       @upgrade_sources ||= {}
     end
 
-    def has_upgrades_from(kind_of_upgrade, item_sources)
-      upgrade_sources[kind_of_upgrade] = item_sources
-      all_upgrades_method_name = "#{kind_of_upgrade}_upgrades"
-      all_pvp_upgrades_method_name = "#{kind_of_upgrade}_pvp_upgrades"
-
-      define_upgrade_method(all_upgrades_method_name, item_sources, false)
-      define_upgrade_method(all_pvp_upgrades_method_name, item_sources, true)
-      define_top_3_upgrade_method("top_3_#{kind_of_upgrade}_upgrades", all_upgrades_method_name)
-      define_top_3_upgrade_method("top_3_#{kind_of_upgrade}_pvp_upgrades", all_pvp_upgrades_method_name)
+    def has_upgrades_from(kind_of_upgrade, item_sources, options = {:for => ["pve"]})
+      upgrade_sources[kind_of_upgrade] = {:item_sources => item_sources, :for => options[:for]}
+      if options[:for].include?("pvp")
+        all_pvp_upgrades_method_name = "#{kind_of_upgrade}_pvp_upgrades"
+        define_upgrade_method(all_pvp_upgrades_method_name, item_sources, true)
+        define_top_3_upgrade_method("top_3_#{kind_of_upgrade}_pvp_upgrades", all_pvp_upgrades_method_name)
+      end
+      if options[:for].include?("pve")
+        all_upgrades_method_name = "#{kind_of_upgrade}_upgrades"
+        define_upgrade_method(all_upgrades_method_name, item_sources, false)
+        define_top_3_upgrade_method("top_3_#{kind_of_upgrade}_upgrades", all_upgrades_method_name)
+      end
     end
 
     private
     def define_upgrade_method(name, item_sources, pvp_flag)
       define_method(name) do |*args|
-        upgrades.with_sources(item_sources.call(args))
+        upgrades.with_sources(item_sources.call(args), pvp_flag)
       end
     end
 

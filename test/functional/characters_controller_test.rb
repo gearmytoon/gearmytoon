@@ -242,8 +242,8 @@ class CharactersControllerTest < ActionController::TestCase
 
     should "have links to all three upgrade sections" do
       character = Factory(:character_item).character
-      Factory(:upgrade_from_emblem_of_frost, :character => character)
-      Factory(:upgrade_from_emblem_of_triumph, :character => character)
+      Factory(:upgrade_from_emblem_of_frost, :character => character, :for_pvp => true)
+      Factory(:upgrade_from_emblem_of_triumph, :character => character, :for_pvp => true)
       Factory(:upgrade_from_wintergrasp_marks, :character => character)
       Factory(:upgrade_from_honor_points, :character => character)
       get :pvp, :id => character.friendly_id

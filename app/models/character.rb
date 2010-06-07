@@ -6,15 +6,15 @@ class Character < ActiveRecord::Base
   HORDE_RACES = ['orc', 'undead', 'troll', 'tauren', 'blood elf']
   ALLIANCE_RACES = ['dwarf', 'gnome', 'human', 'night elf', 'draenei']
 
-  has_upgrades_from :frost, Proc.new{EmblemSource.from_emblem_of_frost}
-  has_upgrades_from :triumph, Proc.new{EmblemSource.from_emblem_of_triumph}
-  has_upgrades_from :heroic_dungeon, Proc.new{DroppedSource.from_dungeons}
-  has_upgrades_from :honor_point, Proc.new{HonorSource.all}
-  has_upgrades_from :arena_point, Proc.new{ArenaSource.all}
-  has_upgrades_from :wintergrasp_mark, Proc.new{EmblemSource.from_wintergrasp_mark_of_honor}
-  has_upgrades_from :raid_25, Proc.new{DroppedSource.from_raids_25}
+  has_upgrades_from :frost, Proc.new{EmblemSource.from_emblem_of_frost}, :for => ['pve', 'pvp']
+  has_upgrades_from :triumph, Proc.new{EmblemSource.from_emblem_of_triumph}, :for => ['pve', 'pvp']
+  has_upgrades_from :heroic_dungeon, Proc.new{DroppedSource.from_dungeons}, :for => ['pve']
+  has_upgrades_from :honor_point, Proc.new{HonorSource.all}, :for => ['pvp']
+  has_upgrades_from :arena_point, Proc.new{ArenaSource.all}, :for => ['pvp']
+  has_upgrades_from :wintergrasp_mark, Proc.new{EmblemSource.from_wintergrasp_mark_of_honor}, :for => ['pvp']
+  has_upgrades_from :raid_25, Proc.new{DroppedSource.from_raids_25}, :for => ['pve']
   # has_upgrades_from :area, Proc.new{ |area| DroppedSource.from_area(area)}
-  has_upgrades_from :raid_10, Proc.new{DroppedSource.from_raids_10}
+  has_upgrades_from :raid_10, Proc.new{DroppedSource.from_raids_10}, :for => ['pve']
   acts_as_state_machine :initial => :new, :column => "status"
 
   state :new

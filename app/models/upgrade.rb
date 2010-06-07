@@ -4,7 +4,9 @@ class Upgrade < ActiveRecord::Base
   belongs_to :old_item, :class_name => "Item"
   belongs_to :new_item_source, :class_name => "ItemSource"
   before_create :calculate_dps_change
-  named_scope :with_sources, Proc.new {|item_sources| {:conditions => {:new_item_source_id => item_sources}, :order => "dps_change DESC"}}
+  named_scope :with_sources, Proc.new {|item_sources, for_pvp| 
+    {:conditions => {:new_item_source_id => item_sources, :for_pvp => for_pvp}, :order => "dps_change DESC"}
+  }
   def stat_change_between(new_item, old_item)
     apply_hard_caps(new_item.change_in_stats_from(old_item))
   end

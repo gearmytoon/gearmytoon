@@ -191,14 +191,17 @@ Factory.define(:upgrade) do |model|
 end
 
 Factory.define(:upgrade_from_honor_points, :parent => :upgrade) do |model|
+  model.for_pvp true
   model.association :new_item_source, :factory => :honor_point_source
 end
 
 Factory.define(:upgrade_from_arena_points, :parent => :upgrade) do |model|
+  model.for_pvp true
   model.association :new_item_source, :factory => :arena_point_source
 end
 
 Factory.define(:upgrade_from_wintergrasp_marks, :parent => :upgrade) do |model|
+  model.for_pvp true
   model.association :new_item_source, :factory => :wintergrasp_source
 end
 

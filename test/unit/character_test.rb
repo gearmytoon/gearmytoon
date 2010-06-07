@@ -32,6 +32,20 @@ class CharacterTest < ActiveSupport::TestCase
     should_validate_presence_of :realm
   end
 
+  context "kind of upgrades" do
+    should "not have a pvp upgrades method if it is a pve only kind of upgrade" do
+      character = Factory(:a_hunter)
+      assert character.respond_to?(:heroic_dungeon_upgrades)
+      assert_false character.respond_to?(:heroic_dungeon_pvp_upgrades)
+    end
+    should "not have a pve upgrades method if it is a pvp only kind of upgrade" do
+      character = Factory(:a_hunter)
+      assert_false character.respond_to?(:honor_point_upgrades)
+      assert character.respond_to?(:honor_point_pvp_upgrades)
+    end
+    
+  end
+
   context "top_3_upgrades_from_area" do
     should_eventually "find upgrades from the specific area" do
       character = Factory(:a_hunter)
@@ -59,36 +73,49 @@ class CharacterTest < ActiveSupport::TestCase
       no_dps_ring = Factory(:ring, :bonuses => {:attack_power => 0.0})
       Factory(:character_item, :character => character, :item => no_dps_ring)
       Factory(:character_item, :character => character, :item => no_dps_ring)
-      new_dps_ring = Factory(:frost_emblem_source, :item => Factory(:ring, :bonuses => {:attack_power => 500.0})).item
+      new_dps_ring = Factory(:dungeon_dropped_source, :item => Factory(:ring, :bonuses => {:attack_power => 500.0})).item
       assert_difference "character.reload.upgrades.count", 2 do
         character.generate_upgrades
-        assert_equal 2, character.reload.frost_upgrades.length
+        assert_equal 2, character.reload.heroic_dungeon_upgrades.length
       end
-      assert_equal no_dps_ring, character.frost_upgrades.first.old_item
-      assert_equal new_dps_ring, character.frost_upgrades.first.new_item
+      assert_equal no_dps_ring, character.heroic_dungeon_upgrades.first.old_item
+      assert_equal new_dps_ring, character.heroic_dungeon_upgrades.first.new_item
+    end
+
+    should "find upgrades for pve and pvp" do
+      character = Factory(:a_hunter)
+      no_dps_ring = Factory(:ring, :bonuses => {:attack_power => 0.0})
+      Factory(:character_item, :character => character, :item => no_dps_ring)
+      Factory(:character_item, :character => character, :item => no_dps_ring)
+      new_dps_ring = Factory(:frost_emblem_source, :item => Factory(:ring, :bonuses => {:attack_power => 500.0})).item
+      assert_difference "character.reload.upgrades.count", 4 do
+        character.generate_upgrades
+      end
+      assert_equal 2, character.reload.frost_upgrades.length
+      assert_equal 2, character.reload.frost_pvp_upgrades.length
     end
 
     should "find upgrades of the same armor type" do
       rogue = Factory(:character_item, :character => Factory(:a_rogue)).character
-      plate_upgrade = Factory(:frost_emblem_source, :item => Factory(:item, :bonuses => {:attack_power => 500.0}, :armor_type => ArmorType.plate)).item
-      leather_upgrade = Factory(:frost_emblem_source, :item => Factory(:item, :bonuses => {:attack_power => 500.0}, :armor_type => ArmorType.leather)).item
+      plate_upgrade = Factory(:dungeon_dropped_source, :item => Factory(:item, :bonuses => {:attack_power => 500.0}, :armor_type => ArmorType.plate)).item
+      leather_upgrade = Factory(:dungeon_dropped_source, :item => Factory(:item, :bonuses => {:attack_power => 500.0}, :armor_type => ArmorType.leather)).item
       assert_difference "rogue.reload.upgrades.count", 1 do
         rogue.generate_upgrades
       end
-      assert_equal 1, rogue.reload.top_3_frost_upgrades.size
-      assert_equal leather_upgrade, rogue.top_3_frost_upgrades.first.new_item
+      assert_equal 1, rogue.reload.top_3_heroic_dungeon_upgrades.size
+      assert_equal leather_upgrade, rogue.top_3_heroic_dungeon_upgrades.first.new_item
     end
 
     should_eventually "find a upgrade if you do not have a inventory item in that slot"
 
     should "find upgrades of the Miscellaneous armor type for any character" do
       rogue = Factory(:character_item, :character => Factory(:a_rogue)).character
-      upgrade = Factory(:frost_emblem_source, :item => Factory(:item, :bonuses => {:attack_power => 500.0}, :armor_type => ArmorType.miscellaneous)).item
+      upgrade = Factory(:dungeon_dropped_source, :item => Factory(:item, :bonuses => {:attack_power => 500.0}, :armor_type => ArmorType.miscellaneous)).item
       assert_difference "rogue.reload.upgrades.count", 1 do
         rogue.generate_upgrades
       end
-      assert_equal 1, rogue.top_3_frost_upgrades.size
-      assert_equal upgrade, rogue.top_3_frost_upgrades.first.new_item
+      assert_equal 1, rogue.top_3_heroic_dungeon_upgrades.size
+      assert_equal upgrade, rogue.top_3_heroic_dungeon_upgrades.first.new_item
     end
   end
 
@@ -162,15 +189,15 @@ class CharacterTest < ActiveSupport::TestCase
     should "find top 3" do
       character = Factory(:character_item, :item => Factory(:item, :bonuses => {:attack_power => 100.0})).character
       4.times{Factory(:upgrade_from_honor_points, :character => character)}
-      upgrades = character.top_3_honor_point_upgrades
+      upgrades = character.top_3_honor_point_pvp_upgrades
       assert_equal 3, upgrades.size
     end
 
     should "only find items from honor points" do
       upgrade = Factory(:upgrade_from_honor_points)
       character = upgrade.character
-      Factory(:upgrade_from_emblem_of_triumph, :character => character)
-      upgrades = character.top_3_honor_point_upgrades
+      Factory(:upgrade_from_10_raid, :character => character)
+      upgrades = character.top_3_honor_point_pvp_upgrades
       assert_equal 1, upgrades.size
       assert_equal upgrade.new_item, upgrades.first.new_item
     end
