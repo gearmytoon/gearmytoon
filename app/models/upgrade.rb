@@ -1,4 +1,5 @@
 class Upgrade < ActiveRecord::Base
+  include Gemable
   serialize :bonus_changes
   belongs_to :character
   belongs_to :old_character_item, :class_name => "CharacterItem"
@@ -55,18 +56,6 @@ class Upgrade < ActiveRecord::Base
 
   def kind_of_change
     dps_change > 0 ? "upgrade" : "downgrade"
-  end
-
-  belongs_to :gem_one, :class_name => "Item"
-  belongs_to :gem_two, :class_name => "Item"
-  belongs_to :gem_three, :class_name => "Item"
-  def gems
-    [gem_one, gem_two, gem_three].compact
-  end
-  def gem_bonuses
-    gems.inject({}) do |memo, gem|
-      memo.add_values(gem.bonuses)
-    end
   end
   
 end
