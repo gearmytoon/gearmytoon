@@ -11,8 +11,8 @@ class Upgrade < ActiveRecord::Base
   named_scope :order_by_dps,  :order => "dps_change DESC"
   named_scope :limited, lambda { |num| { :limit => num } }
   
-  def stat_change_between(new_item, old_item)
-    apply_hard_caps(new_item.change_in_stats_from(old_item))
+  def change_in_stats
+    new_item_total_bonuses.subtract_values(old_character_item.bonuses)
   end
 
   def apply_hard_caps(change_in_bonuses)
@@ -29,12 +29,16 @@ class Upgrade < ActiveRecord::Base
   end
   
   def calculate_dps_change
-    self.bonus_changes = stat_change_between(new_item, old_character_item)
+    self.bonus_changes = apply_hard_caps(change_in_stats)
     self.dps_change = character.dps_for(self.bonus_changes,self.for_pvp)
   end
   
   def new_item
     new_item_source.item
+  end
+
+  def new_item_total_bonuses
+    new_item.bonuses.add_values(gem_bonuses)
   end
   
   def wow_class
@@ -52,4 +56,17 @@ class Upgrade < ActiveRecord::Base
   def kind_of_change
     dps_change > 0 ? "upgrade" : "downgrade"
   end
+
+  belongs_to :gem_one, :class_name => "Item"
+  belongs_to :gem_two, :class_name => "Item"
+  belongs_to :gem_three, :class_name => "Item"
+  def gems
+    [gem_one, gem_two, gem_three].compact
+  end
+  def gem_bonuses
+    gems.inject({}) do |memo, gem|
+      memo.add_values(gem.bonuses)
+    end
+  end
+  
 end

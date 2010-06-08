@@ -30,10 +30,6 @@ class Item < ActiveRecord::Base
     wowarmory_item_id
   end
 
-  def change_in_stats_from(other_item)
-    self.bonuses.subtract_values(other_item.bonuses)
-  end
-
   def token_cost
     emblem_sources.first.token_cost
   end

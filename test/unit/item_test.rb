@@ -2,15 +2,6 @@ require File.dirname(__FILE__) + '/../test_helper'
 
 class ItemTest < ActiveSupport::TestCase
   
-  context "change_in_stats_from" do
-    should "return the change in stats between two items" do
-      old_item = Factory(:item, :bonuses => {:attack_power => 100.0, :spell_power => 45, :stamina => 20})
-      new_item = Factory(:item, :bonuses => {:attack_power => 200.0, :stamina => 10.0, :dodge => 20})
-      expected_difference = {:attack_power => 100.0, :stamina => -10.0, :spell_power => -45.0, :dodge => 20}
-      assert_equal expected_difference, new_item.change_in_stats_from(old_item)
-    end
-  end
-  
   context "usable_in_same_slot_as" do
     should "find all items in the same slot" do
       item = Factory(:item, :slot => "Head")

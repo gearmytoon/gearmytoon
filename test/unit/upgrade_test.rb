@@ -41,6 +41,16 @@ class UpgradeTest < ActiveSupport::TestCase
       assert_equal expected_result, upgrade.bonus_changes
     end
 
+    should "know the change in stats between two items incuding new gems" do
+      character = Factory(:a_hunter)
+      old_item = Factory(:character_item, :item => Factory(:item, :bonuses => {:agility => 10.0, :attack_power => 20.0}), :character => character)
+      new_item = Factory(:item, :bonuses => {:agility => 20.0, :attack_power => 10.0})
+      upgrade = Factory(:upgrade, :old_character_item => old_item, :character => character, :new_item_source => Factory(:frost_emblem_source, :item => new_item),
+      :gem_one => Factory(:gem, :bonuses => {:attack_power => 3}), :gem_two => Factory(:gem, :bonuses => {:intellect => 3}), :gem_three => Factory(:gem, :bonuses => {:agility => 3}))
+      expected_result = {:agility => 13.0, :attack_power => -7.0, :intellect => 3}
+      assert_equal expected_result, upgrade.bonus_changes
+    end
+
     should "know the change in stats between two items including gems" do
       character = Factory(:a_hunter)
       old_item = Factory(:character_item, :item => Factory(:item, :bonuses => {:agility => 10.0, :attack_power => 20.0}), :character => character, :gem_one => Factory(:gem, :bonuses => {:agility => 3}), :gem_two => Factory(:gem, :bonuses => {:intellect => 5}))
@@ -77,6 +87,17 @@ class UpgradeTest < ActiveSupport::TestCase
       assert_equal expected_result, upgrade.bonus_changes
     end
 
+  end
+
+  context "change_in_stats" do
+    should "return the change in stats between two items" do
+      character = Factory(:character, :total_item_bonuses => {})
+      old_item = Factory(:character_item, :item => Factory(:item, :bonuses => {:attack_power => 100.0, :spell_power => 45, :stamina => 20}), :character => character)
+      new_item = Factory(:item, :bonuses => {:attack_power => 200.0, :stamina => 10.0, :dodge => 20})
+      upgrade = Factory(:upgrade, :character => character, :old_character_item => old_item, :new_item_source => Factory(:frost_emblem_source, :item => new_item))
+      expected_difference = {:attack_power => 100.0, :stamina => -10.0, :spell_power => -45.0, :dodge => 20}
+      assert_equal expected_difference, upgrade.change_in_stats
+    end
   end
   
 end
