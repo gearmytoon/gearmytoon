@@ -206,8 +206,29 @@ class CharacterTest < ActiveSupport::TestCase
     should "only find items from honor points" do
       upgrade = Factory(:upgrade_from_honor_points)
       character = upgrade.character
-      Factory(:upgrade_from_10_raid, :character => character)
+      Factory(:upgrade_from_10_raid, :character => character, :for_pvp => true)
       upgrades = character.top_3_honor_point_pvp_upgrades
+      assert_equal 1, upgrades.size
+      assert_equal upgrade.new_item, upgrades.first.new_item
+    end
+  end
+  context "top_3_wintergrasp_upgrades" do
+    should "only find items from honor points" do
+      upgrade = Factory(:upgrade_from_wintergrasp_marks)
+      character = upgrade.character
+      Factory(:upgrade_from_10_raid, :character => character, :for_pvp => true)
+      upgrades = character.top_3_wintergrasp_mark_pvp_upgrades
+      assert_equal 1, upgrades.size
+      assert_equal upgrade.new_item, upgrades.first.new_item
+    end
+  end
+
+  context "top_3_arena_point_upgrades" do
+    should "only find items from honor points" do
+      upgrade = Factory(:upgrade_from_arena_points)
+      character = upgrade.character
+      Factory(:upgrade_from_10_raid, :character => character, :for_pvp => true)
+      upgrades = character.top_3_arena_point_pvp_upgrades
       assert_equal 1, upgrades.size
       assert_equal upgrade.new_item, upgrades.first.new_item
     end

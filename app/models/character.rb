@@ -6,15 +6,18 @@ class Character < ActiveRecord::Base
   HORDE_RACES = ['orc', 'undead', 'troll', 'tauren', 'blood elf']
   ALLIANCE_RACES = ['dwarf', 'gnome', 'human', 'night elf', 'draenei']
 
-  has_upgrades_from :frost, Proc.new{EmblemSource.from_emblem_of_frost}, :for => ['pve', 'pvp']
-  has_upgrades_from :triumph, Proc.new{EmblemSource.from_emblem_of_triumph}, :for => ['pve', 'pvp']
-  has_upgrades_from :heroic_dungeon, Proc.new{DroppedSource.from_dungeons}, :for => ['pve']
-  has_upgrades_from :honor_point, Proc.new{HonorSource.all}, :for => ['pvp']
-  has_upgrades_from :arena_point, Proc.new{ArenaSource.all}, :for => ['pvp']
-  has_upgrades_from :wintergrasp_mark, Proc.new{EmblemSource.from_wintergrasp_mark_of_honor}, :for => ['pvp']
-  has_upgrades_from :raid_25, Proc.new{DroppedSource.from_raids_25}, :for => ['pve']
-  has_upgrades_from :area, Proc.new{ |area| DroppedSource.from_area(area)}, :for => ['pve'], :disable_upgrade_lookup => true
-  has_upgrades_from :raid_10, Proc.new{DroppedSource.from_raids_10}, :for => ['pve']
+  has_upgrades_from :frost, Proc.new{EmblemSource.from_emblem_of_frost}, Proc.new{['item_sources.wowarmory_token_item_id = ?', Item::FROST_EMBLEM_ARMORY_ID]}, :for => ['pve', 'pvp']
+  has_upgrades_from :triumph, Proc.new{EmblemSource.from_emblem_of_triumph}, Proc.new{['item_sources.wowarmory_token_item_id = ?', Item::TRIUMPH_EMBLEM_ARMORY_ID]}, :for => ['pve', 'pvp']
+  has_upgrades_from :heroic_dungeon, Proc.new{DroppedSource.from_dungeons}, Proc.new{
+      dungeons = Area.dungeons
+      dungeons.any? ? "item_sources.source_area_id IN (#{Area.dungeons.map(&:id).join(",")})" : []
+    }, :for => ['pve']
+  has_upgrades_from :honor_point, Proc.new{HonorSource.all}, Proc.new{"item_sources.type = 'HonorSource'"}, :for => ['pvp']
+  has_upgrades_from :arena_point, Proc.new{ArenaSource.all}, Proc.new{"item_sources.type = 'ArenaSource'"}, :for => ['pvp']
+  has_upgrades_from :wintergrasp_mark, Proc.new{EmblemSource.from_wintergrasp_mark_of_honor}, Proc.new{['item_sources.wowarmory_token_item_id = ?', Item::WINTERGRASP_MARK_OF_HONOR]}, :for => ['pvp']
+  has_upgrades_from :raid_25, Proc.new{DroppedSource.from_raids_25}, Proc.new{["item_sources.source_area_id IN (#{Area.raids_25.map(&:id).join(",")})"]}, :for => ['pve']
+  has_upgrades_from :area, Proc.new{ |area| DroppedSource.from_area(area)}, Proc.new{|area|["item_sources.source_area_id = ?",area]}, :for => ['pve'], :disable_upgrade_lookup => true
+  has_upgrades_from :raid_10, Proc.new{DroppedSource.from_raids_10}, Proc.new{["item_sources.source_area_id IN (#{Area.raids_10.map(&:id).join(",")})"]}, :for => ['pve']
   acts_as_state_machine :initial => :new, :column => "status"
 
   state :new

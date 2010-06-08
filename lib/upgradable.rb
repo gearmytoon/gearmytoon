@@ -31,24 +31,24 @@ module Upgradable
       @upgrade_sources ||= {}
     end
 
-    def has_upgrades_from(kind_of_upgrade, item_sources, options = {:for => ["pve"]})
+    def has_upgrades_from(kind_of_upgrade, item_sources, conditions_source, options = {:for => ["pve"]})
       upgrade_sources[kind_of_upgrade] = {:item_sources => item_sources, :for => options[:for], :disable_upgrade_lookup => options[:disable_upgrade_lookup]}
       if options[:for].include?("pvp")
         all_pvp_upgrades_method_name = "#{kind_of_upgrade}_pvp_upgrades"
-        define_upgrade_method(all_pvp_upgrades_method_name, item_sources, true)
+        define_upgrade_method(all_pvp_upgrades_method_name, conditions_source, true)
         define_top_3_upgrade_method("top_3_#{kind_of_upgrade}_pvp_upgrades", all_pvp_upgrades_method_name)
       end
       if options[:for].include?("pve")
         all_upgrades_method_name = "#{kind_of_upgrade}_upgrades"
-        define_upgrade_method(all_upgrades_method_name, item_sources, false)
+        define_upgrade_method(all_upgrades_method_name, conditions_source, false)
         define_top_3_upgrade_method("top_3_#{kind_of_upgrade}_upgrades", all_upgrades_method_name)
       end
     end
 
     private
-    def define_upgrade_method(name, item_sources, pvp_flag)
+    def define_upgrade_method(name, conditions_source, pvp_flag)
       define_method(name) do |*args|
-        upgrades.with_sources(item_sources.call(args), pvp_flag)
+        upgrades.with_sources(conditions_source.call(args)).pvp(pvp_flag).order_by_dps
       end
     end
 
