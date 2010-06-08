@@ -175,7 +175,8 @@ class CharactersControllerTest < ActionController::TestCase
     should "show what you are upgrading from in the upgrade section" do
       character = Factory(:a_hunter)
       new_item_source = Factory(:triumph_emblem_source, :item => Factory(:item, :slot => "Head", :bonuses => {:attack_power => 400.0}))
-      Factory(:upgrade, :character => character, :new_item_source => new_item_source, :old_item => Factory(:item, :name => "Stoppable Force", :slot => "Head", :bonuses => {:attack_power => 100.0}))
+      old_item = Factory(:character_item, :item => Factory(:item, :name => "Stoppable Force", :slot => "Head", :bonuses => {:attack_power => 100.0}), :character => character)
+      Factory(:upgrade, :character => character, :new_item_source => new_item_source, :old_character_item => old_item)
       get :show, :id => character.friendly_id
       assert_select "#emblem_of_triumph .upgrade .old_item", :text => "Stoppable Force"
     end

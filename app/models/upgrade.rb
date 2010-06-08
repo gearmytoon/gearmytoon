@@ -1,11 +1,11 @@
 class Upgrade < ActiveRecord::Base
   serialize :bonus_changes
   belongs_to :character
-  belongs_to :old_item, :class_name => "Item"
+  belongs_to :old_character_item, :class_name => "CharacterItem"
   belongs_to :new_item_source, :class_name => "ItemSource"
   before_create :calculate_dps_change
   named_scope :with_sources, Proc.new {|conditions|
-    {:include => [:old_item, {:new_item_source => :item}], :conditions => conditions}
+    {:include => [{:old_character_item => :item}, {:new_item_source => :item}], :conditions => conditions}
   }
   named_scope :pvp, lambda { |for_pvp| { :conditions => {:for_pvp => for_pvp} } }
   named_scope :order_by_dps,  :order => "dps_change DESC"
@@ -29,7 +29,7 @@ class Upgrade < ActiveRecord::Base
   end
   
   def calculate_dps_change
-    self.bonus_changes = stat_change_between(new_item, old_item)
+    self.bonus_changes = stat_change_between(new_item, old_character_item)
     self.dps_change = character.dps_for(self.bonus_changes,self.for_pvp)
   end
   
@@ -39,6 +39,10 @@ class Upgrade < ActiveRecord::Base
   
   def wow_class
     character.wow_class
+  end
+
+  def old_item
+    old_character_item.item
   end
   
   def new_item_source_type

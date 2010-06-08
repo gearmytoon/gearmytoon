@@ -187,7 +187,7 @@ end
 Factory.define(:upgrade) do |model|
   model.association :character
   model.association :new_item_source, :factory => :frost_emblem_source
-  model.association :old_item, :factory => :downgrade_item
+  model.old_character_item {|u| Factory(:character_item, :character => u.character, :item => Factory(:downgrade_item))}
   model.for_pvp false
 end
 

@@ -6,7 +6,7 @@ Factory.define(:item) do |model|
   model.armor_type ArmorType.mail
 end
 
-Factory.define(:red_gem, :class => "Item") do |model|
+Factory.define(:gem, :class => "Item") do |model|
   model.name "Factory Gem"
   model.icon "Factory_icon.png"
   model.wowarmory_item_id 999
@@ -15,6 +15,9 @@ Factory.define(:red_gem, :class => "Item") do |model|
   model.restricted_to "NONE"
   model.gem_color "Red"
   model.quality "rare"
+end
+
+Factory.define(:red_gem, :parent => :gem) do |model|
 end
 
 Factory.define(:downgrade_item, :parent => :item) do |model|

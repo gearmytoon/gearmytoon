@@ -17,10 +17,10 @@ module Upgradable
   def top_upgrades_from(item_sources, for_pvp)
     potential_upgrade_sources = item_sources.for_items(wow_class.equippable_items)
     upgrades = potential_upgrade_sources.each do |potential_upgrade_source|
-      all_equipped = equipped_items.all
-      all_equipped.select {|equip| equip.slot == potential_upgrade_source.item.slot}.each do |equipped_item|
-        if(equipped_item != potential_upgrade_source.item)
-          Upgrade.create!(:character => self, :new_item_source => potential_upgrade_source, :old_item => equipped_item, :for_pvp => for_pvp)
+      char_items = character_items.all
+      char_items.select {|character_item| character_item.item.slot == potential_upgrade_source.item.slot}.each do |character_item|
+        if(character_item != potential_upgrade_source.item)
+          Upgrade.create!(:character => self, :new_item_source => potential_upgrade_source, :old_character_item => character_item, :for_pvp => for_pvp)
         end
       end
     end
