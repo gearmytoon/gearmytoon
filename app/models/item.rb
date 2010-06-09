@@ -3,7 +3,6 @@ class Item < ActiveRecord::Base
   FROST_EMBLEM_ARMORY_ID = 49426
   WINTERGRASP_MARK_OF_HONOR = 43589
   RESTRICT_TO_NONE = "NONE"
-
   serialize :bonuses
   serialize :socket_bonuses
   serialize :gem_sockets

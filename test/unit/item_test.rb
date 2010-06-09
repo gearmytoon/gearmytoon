@@ -38,4 +38,12 @@ class ItemTest < ActiveSupport::TestCase
     end
 
   end
+  
+  context "gems" do
+    should "only find gems" do
+      gem_item = Factory(:gem)
+      Factory(:item)
+      assert_equal [gem_item], GemItem.all
+    end
+  end
 end

@@ -362,4 +362,5 @@ class CharacterTest < ActiveSupport::TestCase
       assert_equal "found", character.status
     end
   end
+
 end

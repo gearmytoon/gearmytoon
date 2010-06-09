@@ -1,0 +1,2 @@
+class GemItem < Item
+end

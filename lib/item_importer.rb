@@ -12,8 +12,16 @@ class ItemImporter
     @wowarmory_item_id = wowarmory_item_id
   end
   
+  def type_to_be_imported
+    if wowarmory_item.gem_properties
+      GemItem
+    else
+      Item
+    end
+  end
+  
   def import!
-    returning Item.find_or_create_by_wowarmory_item_id(wowarmory_item_id) do |item|
+    returning type_to_be_imported.find_or_create_by_wowarmory_item_id(wowarmory_item_id) do |item|
       item.update_attributes!(:wowarmory_item_id => wowarmory_item_id, :name => wowarmory_item.name,
                    :quality => quality, :icon => wowarmory_item.icon, :bonuses => get_item_bonuses, 
                    :armor_type => ArmorType.find_or_create_by_name(armor_type_name), :slot => slot, 

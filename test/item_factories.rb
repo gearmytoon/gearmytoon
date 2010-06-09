@@ -6,7 +6,16 @@ Factory.define(:item) do |model|
   model.armor_type ArmorType.mail
 end
 
-Factory.define(:gem, :class => "Item") do |model|
+Factory.define(:item_with_3_gem_sockets) do |model|
+  model.name "Factory Item"
+  model.icon "Factory_icon.png"
+  model.wowarmory_item_id 1
+  model.bonuses :attack_power => 100
+  model.armor_type ArmorType.mail
+  model.gem_sockets ["Red", "Blue", "Yellow"]
+end
+
+Factory.define(:gem, :class => "GemItem") do |model|
   model.name "Factory Gem"
   model.icon "Factory_icon.png"
   model.wowarmory_item_id 999
