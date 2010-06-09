@@ -76,7 +76,7 @@ class Character < ActiveRecord::Base
   end
 
   def refresh_in_background!
-    unless self.character_refreshes.active.any?
+    unless self.character_refreshes.recent.active.any?
       Resque.enqueue(CharacterJob, self.character_refreshes.create!.id)
     end
   end
