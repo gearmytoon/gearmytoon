@@ -1,6 +1,6 @@
 ActionController::Routing::Routes.draw do |map|
   map.resource :payment, :member => {:receipt => :get, :pay => :get}
-  map.resource :home, :controller => "home", :member => {:contact => :get}
+  map.resource :home, :controller => "home"
   map.resources :areas
   map.resources :character_refreshes
   map.resources :users
@@ -16,7 +16,7 @@ ActionController::Routing::Routes.draw do |map|
   map.login 'login', :controller => 'user_sessions', :action => 'new'
   map.signup 'signup', :controller => 'users', :action => 'new'
   map.rpx_token_sessions 'rpx_token_sessions', :controller =>"user_sessions", :action => "rpx_create"
-
+  map.contact 'contact', :controller => 'home', :action => 'contact'
   map.namespace 'admin' do |admin|
     admin.resources :users, :characters, :items, :character_items, :active_scaffold => true
   end
