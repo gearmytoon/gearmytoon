@@ -85,6 +85,17 @@ class Character < ActiveRecord::Base
     character_items.equipped_on(slot_name)
   end
 
+  def find_best_gem(for_pvp)
+    GemItem.all.inject(nil) do |best_gem, gem_item|
+      return gem_item if best_gem.nil?
+      if dps_for(gem_item.bonuses, for_pvp) > dps_for(best_gem.bonuses, for_pvp)
+        gem_item
+      else
+        best_gem
+      end
+    end
+  end
+
   private
   def capitalize_name_and_realm
     self.name.try(:capitalize!)

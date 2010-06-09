@@ -89,6 +89,30 @@ class UpgradeTest < ActiveSupport::TestCase
 
   end
 
+  context "find_best_gem" do
+    should "find the best gem" do
+      character = Factory(:character, :total_item_bonuses => {})
+      best_gem = Factory(:gem, :bonuses => {:agility => 100})
+      Factory(:gem, :bonuses => {:agility => 99})
+      new_item = Factory(:item_with_3_gem_sockets)
+      upgrade = Factory(:upgrade, :character => character, :new_item_source => Factory(:frost_emblem_source, :item => new_item))
+      assert_equal best_gem, upgrade.gem_one
+      assert_equal best_gem, upgrade.gem_two
+      assert_equal best_gem, upgrade.gem_three
+    end
+
+    should "only find gems if the item has enough sockets for them" do
+      character = Factory(:character, :total_item_bonuses => {})
+      best_gem = Factory(:gem, :bonuses => {:agility => 100})
+      new_item = Factory(:item, :gem_sockets => ["Red"])
+      upgrade = Factory(:upgrade, :character => character, :new_item_source => Factory(:frost_emblem_source, :item => new_item))
+      assert_equal best_gem, upgrade.gem_one
+      assert_equal nil, upgrade.gem_two
+      assert_equal nil, upgrade.gem_three
+    end
+
+  end
+
   context "change_in_stats" do
     should "return the change in stats between two items" do
       character = Factory(:character, :total_item_bonuses => {})

@@ -4,13 +4,29 @@ class Upgrade < ActiveRecord::Base
   belongs_to :character
   belongs_to :old_character_item, :class_name => "CharacterItem"
   belongs_to :new_item_source, :class_name => "ItemSource"
-  before_create :calculate_dps_change
   named_scope :with_sources, Proc.new {|conditions|
     {:include => [{:old_character_item => :item}, {:new_item_source => :item}], :conditions => conditions}
   }
   named_scope :pvp, lambda { |for_pvp| { :conditions => {:for_pvp => for_pvp} } }
   named_scope :order_by_dps,  :order => "dps_change DESC"
   named_scope :limited, lambda { |num| { :limit => num } }
+
+  before_create :calculate_dps_change
+  before_create :find_best_gems
+  
+  def calculate_dps_change
+    self.bonus_changes = apply_hard_caps(change_in_stats)
+    self.dps_change = character.dps_for(self.bonus_changes,self.for_pvp)
+  end
+  
+  def find_best_gems
+    gem_slots = ["gem_one", "gem_two", "gem_three"]
+    if new_item.gem_sockets
+      new_item.gem_sockets.each_with_index do |socket_color, index|
+        self.send("#{gem_slots[index]}=",character.find_best_gem(self.for_pvp))
+      end
+    end
+  end
   
   def change_in_stats
     new_item_total_bonuses.subtract_values(old_character_item.bonuses)
@@ -27,11 +43,6 @@ class Upgrade < ActiveRecord::Base
       end
     end
     return change_in_bonuses.merge(bonuses_after_hard_cap)
-  end
-  
-  def calculate_dps_change
-    self.bonus_changes = apply_hard_caps(change_in_stats)
-    self.dps_change = character.dps_for(self.bonus_changes,self.for_pvp)
   end
   
   def new_item
