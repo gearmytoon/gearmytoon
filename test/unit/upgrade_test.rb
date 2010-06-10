@@ -32,6 +32,18 @@ class UpgradeTest < ActiveSupport::TestCase
   end
   
   context "stat_change_between" do
+    
+    should "know the change in stats including gems" do
+      gem_item = Factory(:gem, :bonuses => {:agility => 30})
+      character = Factory(:a_hunter)
+      item = Factory(:item, :gem_sockets => ["Red"])
+      character_item = Factory(:character_item, :item => item, :character => character, :gem_one => gem_item)
+      new_item_source = Factory(:frost_emblem_source, :item => character_item.item)
+      #gem_item will be found in the after_create
+      upgrade = Factory(:upgrade, :old_character_item => character_item, :character => character, :new_item_source => new_item_source)
+      assert_equal 0.0, upgrade.reload.dps_change
+      assert_equal({:agility=>0, :attack_power=>0.0}, upgrade.reload.bonus_changes)
+    end
     should "know the change in stats between two items" do
       character = Factory(:a_hunter)
       old_item = Factory(:character_item, :item => Factory(:item, :bonuses => {:agility => 10.0, :attack_power => 20.0}), :character => character)

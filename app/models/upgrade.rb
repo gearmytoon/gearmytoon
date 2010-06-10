@@ -11,8 +11,8 @@ class Upgrade < ActiveRecord::Base
   named_scope :order_by_dps,  :order => "dps_change DESC"
   named_scope :limited, lambda { |num| { :limit => num } }
 
-  before_create :calculate_dps_change
   before_create :find_best_gems
+  before_create :calculate_dps_change
   
   def calculate_dps_change
     self.bonus_changes = apply_hard_caps(change_in_stats)
