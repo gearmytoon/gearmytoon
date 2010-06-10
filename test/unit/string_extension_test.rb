@@ -7,6 +7,10 @@ class StringExtensionTest < ActiveSupport::TestCase
       assert_equal({}, "".extract_bonuses)
     end
 
+    should "convert all stats into all actual stats" do
+      assert_equal({:strength => 13, :agility => 13, :stamina => 13, :intellect => 13, :spirit => 13}, "+13 All Stats".extract_bonuses)
+    end
+
     should "extract parry and stamina" do
       assert_equal({:parry => 8, :stamina => 12}, "+8 Parry Rating and +12 Stamina".extract_bonuses)
     end

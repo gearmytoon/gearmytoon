@@ -8,7 +8,13 @@ class String
         bonuses_name = $2.downcase.gsub(/\s/, "_").gsub(/_*rating_*/, "")
         bonuses_name = bonuses_name.starts_with?("mana") ? "mana_regen" : bonuses_name
         bonuses_name = bonuses_name == "critical_strike" ? "crit" : bonuses_name
-        bonuses[bonuses_name.to_sym] = bonus_value
+        if bonuses_name == "all_stats"
+          ['strength', 'agility', 'stamina', 'intellect', 'spirit'].each do |stat_name|
+            bonuses[stat_name.to_sym] = bonus_value
+          end
+        else
+          bonuses[bonuses_name.to_sym] = bonus_value
+        end
       end
     end
   end

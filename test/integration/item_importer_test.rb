@@ -75,6 +75,7 @@ class ItemImporterTest < ActiveSupport::TestCase
     should "import prismatic gems correctly" do
       item = ItemImporter.import_from_wowarmory!(49110)
       assert_equal "Prismatic", item.gem_color
+      assert_equal({:spirit => 10, :stamina => 10, :intellect => 10, :agility => 10, :strength => 10}, item.bonuses)
     end
 
     should "be able to import meta gems raw attributes" do
