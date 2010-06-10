@@ -1,13 +1,25 @@
 <tr class="<%= upgrade.kind_of_change %>">
   <td class="upgrade_icon"><%= wowhead_item_image_link upgrade.new_item %></td>
-  <td class="wow_item"><%= stylized_item_name(upgrade.new_item) %></td>
+  <td class="item_info upgrade_item">
+    <%= stylized_item_name(upgrade.new_item) %>
+    <% upgrade.gems.each do |upgrade_gem| %>
+      <br/>
+      <span class="gem_item">+ <%= stylized_item_name(upgrade_gem) %></span>
+    <% end %>
+  </td>
   <td class="gmt_points"><%= upgrade.dps_change %></td>
   <% if upgrade.old_item.nil? #TODO: not happy with this if check in the view, should it be here? %>
     <td></td>
     <td class="wow_item"><%= content_tag :span, "Empty Slot", :class => "old_item" %></td>
   <% else %>
     <td><%= wowhead_item_image_link upgrade.old_item %></td>
-    <td class="wow_item old_item"><%= stylized_item_name(upgrade.old_item) %></td>
+    <td class="item_info old_item">
+      <%= stylized_item_name(upgrade.old_item) %>
+      <% upgrade.old_character_item.gems.each do |old_gem| %>
+        <br/>
+        <span class="gem_item">+ <%= stylized_item_name(old_gem) %></span>
+      <% end %>
+    </td>
   <% end %>
   <td class="upgrade_info"><%= render "upgrades/#{upgrade.new_item_source_type}", :item_source => upgrade.new_item_source %></td>
 </tr>

@@ -14,7 +14,7 @@
   width:43px;
   height:43px;
 }
-.wow_item{
+.item_info{
   width:250px;
   vertical-align:middle;
 }
@@ -104,8 +104,8 @@
   opacity: 1;
   background:#222222;
 }
+
 .upgrade_summary_header{
   padding-top:15px;
-
   margin:0;
 }

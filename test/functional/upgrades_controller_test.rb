@@ -2,6 +2,25 @@ require File.dirname(__FILE__) + '/../test_helper'
 
 class UpgradesControllerTest < ActionController::TestCase
   context "get frost" do
+    should "show the gems that can be used in a new item" do
+      character = Factory(:a_hunter)
+      item = Factory(:item, :gem_sockets => ["Red"])
+      Factory(:gem)
+      upgrade = Factory(:upgrade, :character => character, :new_item_source => Factory(:frost_emblem_source, :item => item))
+      get :frost, :character_id => character.friendly_id
+      assert_select ".upgrade_item .wow_item"
+      assert_select ".upgrade_item .gem_item"
+    end
+
+    should "show the gems that were used in a old item" do
+      character = Factory(:a_hunter)
+      character_item = Factory(:character_item, :gem_one => Factory(:gem), :character => character)
+      upgrade = Factory(:upgrade_from_emblem_of_frost, :character => character, :old_character_item => character_item)
+      get :frost, :character_id => character.friendly_id
+      assert_select ".old_item .wow_item"
+      assert_select ".old_item .gem_item"
+    end
+
     should "display the buy this character if the character not paid for" do
       character = Factory(:unpaid_character)
       get :frost, :character_id => character.friendly_id
