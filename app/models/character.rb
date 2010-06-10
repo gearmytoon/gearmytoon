@@ -85,10 +85,11 @@ class Character < ActiveRecord::Base
     character_items.equipped_on(slot_name)
   end
 
-  def find_best_gem(for_pvp)
-    GemItem.all.inject(nil) do |best_gem, gem_item|
-      return gem_item if best_gem.nil?
-      if dps_for(gem_item.bonuses, for_pvp) > dps_for(best_gem.bonuses, for_pvp)
+  def find_best_gem(socket_color, for_pvp)
+    GemItem.all({:conditions => {:gem_color => socket_color}}).inject(nil) do |best_gem, gem_item|
+      if best_gem.nil?
+        gem_item
+      elsif dps_for(gem_item.bonuses, for_pvp) > dps_for(best_gem.bonuses, for_pvp)
         gem_item
       else
         best_gem

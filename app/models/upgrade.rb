@@ -23,7 +23,7 @@ class Upgrade < ActiveRecord::Base
     gem_slots = ["gem_one", "gem_two", "gem_three"]
     if new_item.gem_sockets
       new_item.gem_sockets.each_with_index do |socket_color, index|
-        self.send("#{gem_slots[index]}=",character.find_best_gem(self.for_pvp))
+        self.send("#{gem_slots[index]}=",character.find_best_gem(socket_color, self.for_pvp))
       end
     end
   end

@@ -7,6 +7,7 @@ module Gemable
       belongs_to :gem_three, :class_name => "Item"
     }
   end
+  
   def gems
     [gem_one, gem_two, gem_three].compact
   end
