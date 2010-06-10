@@ -71,6 +71,11 @@ class ItemImporterTest < ActiveSupport::TestCase
       assert_equal(["Blue", "Yellow"], item.reload.gem_sockets)
       assert_equal({:haste => 6}, item.reload.socket_bonuses)
     end
+    
+    should "import prismatic gems correctly" do
+      item = ItemImporter.import_from_wowarmory!(49110)
+      assert_equal "Prismatic", item.gem_color
+    end
 
     should "be able to import meta gems raw attributes" do
       item = ItemImporter.import_from_wowarmory!(41380)
