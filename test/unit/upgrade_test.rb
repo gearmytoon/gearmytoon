@@ -33,6 +33,19 @@ class UpgradeTest < ActiveSupport::TestCase
   
   context "stat_change_between" do
 
+    should "know you can't swap meta gems out for anything else" do
+      red_gem = Factory(:red_gem, :bonuses => {:agility => 20})
+      meta_gem = Factory(:meta_gem, :bonuses => {:agility => 2})
+      Factory(:purple_gem, :bonuses => {:agility => 10})
+      character = Factory(:a_hunter)
+      item = Factory(:item, :gem_sockets => ["Meta", "Blue"], :socket_bonuses => {:agility => 1})
+      character_item = Factory(:character_item, :item => item, :character => character)
+      new_item_source = Factory(:frost_emblem_source, :item => character_item.item)
+      upgrade = Factory(:upgrade, :old_character_item => character_item, :character => character, :new_item_source => new_item_source)
+      assert_equal meta_gem, upgrade.reload.gem_one
+      assert_equal red_gem, upgrade.reload.gem_two
+    end
+
     should "know not to break the gem set bonus if the set bonus is big enough" do
       Factory(:red_gem, :bonuses => {:agility => 20})
       best_gem_with_socket_bonus = Factory(:purple_gem, :bonuses => {:agility => 10})

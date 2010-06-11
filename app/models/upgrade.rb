@@ -34,7 +34,11 @@ class Upgrade < ActiveRecord::Base
   def find_best_gems_not_matching_sockets
     best_gem = character.find_best_gem("Any", self.for_pvp)
     new_item.gem_sockets.map do |socket_color|
-      best_gem
+      if socket_color == "Meta"
+        character.find_best_gem(socket_color, self.for_pvp)
+      else
+        best_gem
+      end
     end
   end
   
