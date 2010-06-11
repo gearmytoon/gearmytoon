@@ -26,6 +26,11 @@ class ActiveSupport::TestCase
     Time.stubs(:now).returns(frozen_time)
     frozen_time
   end
+  
+  def assert_equivalent(expected, actual, field = "id")
+    assert expected.equivalent?(actual), "#{actual.map(&field).join(",")} did not match expected: #{expected.map(&field).join(",")}"
+  end
+  
 end
 
 class Net::HTTP

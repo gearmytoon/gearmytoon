@@ -13,9 +13,7 @@ module Gemable
   end
   
   def gem_bonuses
-    gems.inject({}) do |memo, gem|
-      memo.add_values(gem.bonuses)
-    end
+    gems.sum_bonuses
   end
   
 end

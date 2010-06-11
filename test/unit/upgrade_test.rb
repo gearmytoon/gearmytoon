@@ -32,6 +32,29 @@ class UpgradeTest < ActiveSupport::TestCase
   end
   
   context "stat_change_between" do
+
+    should "know not to break the gem set bonus if the set bonus is big enough" do
+      Factory(:red_gem, :bonuses => {:agility => 20})
+      best_gem_with_socket_bonus = Factory(:purple_gem, :bonuses => {:agility => 10})
+      character = Factory(:a_hunter)
+      item = Factory(:item, :gem_sockets => ["Blue"], :socket_bonuses => {:agility => 11})
+      character_item = Factory(:character_item, :item => item, :character => character)
+      new_item_source = Factory(:frost_emblem_source, :item => character_item.item)
+      upgrade = Factory(:upgrade, :old_character_item => character_item, :character => character, :new_item_source => new_item_source)
+      assert_equal best_gem_with_socket_bonus, upgrade.reload.gem_one
+    end
+
+    should "know not to break the gem set bonus if the set bonus is big enough" do
+      best_gem = Factory(:red_gem, :bonuses => {:agility => 20})
+      Factory(:purple_gem, :bonuses => {:agility => 10})
+      character = Factory(:a_hunter)
+      item = Factory(:item, :gem_sockets => ["Blue"], :socket_bonuses => {:agility => 1})
+      character_item = Factory(:character_item, :item => item, :character => character)
+      new_item_source = Factory(:frost_emblem_source, :item => character_item.item)
+      upgrade = Factory(:upgrade, :old_character_item => character_item, :character => character, :new_item_source => new_item_source)
+      assert_equal best_gem, upgrade.reload.gem_one
+    end
+
     
     should "know the change in stats including gems" do
       gem_item = Factory(:gem, :bonuses => {:agility => 30})

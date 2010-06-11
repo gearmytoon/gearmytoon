@@ -7,4 +7,10 @@ class Array
     merged_array = self & other_array
     merged_array.size == self.size && merged_array.size == other_array.size
   end
+  
+  def sum_bonuses
+    self.inject({}) do |memo, item|
+      memo.add_values(item.bonuses)
+    end
+  end
 end

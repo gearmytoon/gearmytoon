@@ -12,6 +12,8 @@ class GemItem < Item
   
   def self.compatible_gem_colors(slot_color)
     case slot_color
+    when "Any"
+      [YELLOW, ORANGE, RED, PURPLE, BLUE, GREEN, PRISMATIC]
     when "Red"
       [PURPLE, RED, ORANGE, PRISMATIC]
     when "Yellow"

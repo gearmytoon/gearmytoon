@@ -17,12 +17,42 @@ Factory.define(:gem, :class => "GemItem") do |model|
   model.bonuses :attack_power => 100
   model.armor_type ArmorType.miscellaneous
   model.restricted_to "NONE"
-  model.gem_color "Red"
+  model.gem_color GemItem::RED
   model.quality "rare"
 end
 
-Factory.define(:red_gem, :parent => :gem) do |model|
+Factory.define(:prismatic_gem, :parent => :gem) do |model|
+  model.gem_color GemItem::PRISMATIC
 end
+
+Factory.define(:meta_gem, :parent => :gem) do |model|
+  model.gem_color GemItem::META
+end
+
+Factory.define(:yellow_gem, :parent => :gem) do |model|
+  model.gem_color GemItem::YELLOW
+end
+
+Factory.define(:orange_gem, :parent => :gem) do |model|
+  model.gem_color GemItem::ORANGE
+end
+
+Factory.define(:red_gem, :parent => :gem) do |model|
+  model.gem_color GemItem::RED
+end
+
+Factory.define(:purple_gem, :parent => :gem) do |model|
+  model.gem_color GemItem::PURPLE
+end
+
+Factory.define(:blue_gem, :parent => :gem) do |model|
+  model.gem_color GemItem::BLUE
+end
+
+Factory.define(:green_gem, :parent => :gem) do |model|
+  model.gem_color GemItem::GREEN
+end
+
 
 Factory.define(:downgrade_item, :parent => :item) do |model|
   model.bonuses :attack_power => 1
