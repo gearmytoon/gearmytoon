@@ -1,7 +1,7 @@
 module CharactersHelper
   
   def wowhead_item_path(item)
-    "http://www.wowhead.com/?item=#{item.item_id}"
+    "http://www.wowhead.com/?item=#{item.wowarmory_item_id}"
   end
   
   def wowhead_item_image_link(item)

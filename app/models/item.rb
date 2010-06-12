@@ -27,10 +27,6 @@ class Item < ActiveRecord::Base
     find_by_wowarmory_item_id(WINTERGRASP_MARK_OF_HONOR)
   end
 
-  def item_id #to quack the same as wowr wowitems
-    wowarmory_item_id
-  end
-
   def token_cost
     emblem_sources.first.token_cost
   end
