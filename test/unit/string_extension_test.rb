@@ -6,6 +6,10 @@ class StringExtensionTest < ActiveSupport::TestCase
     should "return empty hash if empty string given" do
       assert_equal({}, "".extract_bonuses)
     end
+    
+    should "not die when trying to parse minor run speed increases" do
+      assert_equal({:attack_power => 42}, "+42 Attack Power and Minor Run Speed Increase".extract_bonuses)
+    end
 
     should "convert all stats into all actual stats" do
       assert_equal({:strength => 13, :agility => 13, :stamina => 13, :intellect => 13, :spirit => 13}, "+13 All Stats".extract_bonuses)

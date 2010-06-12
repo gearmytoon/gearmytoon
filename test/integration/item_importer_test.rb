@@ -78,6 +78,12 @@ class ItemImporterTest < ActiveSupport::TestCase
       assert_equal({:spirit => 10, :stamina => 10, :intellect => 10, :agility => 10, :strength => 10}, item.bonuses)
     end
 
+    should "import meta gems with runspeed enchants correctly" do
+      item = ItemImporter.import_from_wowarmory!(41339)
+      assert_equal "Meta", item.gem_color
+      assert_equal({:attack_power => 42}, item.bonuses)
+    end
+
     should "be able to import meta gems raw attributes" do
       item = ItemImporter.import_from_wowarmory!(41380)
       assert_equal({:stamina => 32}, item.bonuses)

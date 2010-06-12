@@ -4,6 +4,7 @@ class String
      self.split(" and ").each do |property|
         next if property.include?("%") #skip percent increases
         property.match(/\+?(\d+\%?)\s([^\z]+)/)
+        next if($1.nil? || $2.nil?) #skip parsing minor run speed increase atm
         bonus_value = $1.to_i
         bonuses_name = $2.downcase.gsub(/\s/, "_").gsub(/_*rating_*/, "")
         bonuses_name = bonuses_name.starts_with?("mana") ? "mana_regen" : bonuses_name
