@@ -25,3 +25,12 @@ desc "import all items that match a term from wow armory"
 task :import_by_wow_armory_search => :environment do
   ItemImporter.import_all_items_that_contain!(ENV['TERM'])
 end
+
+task :import_all_items => :environment do
+  p "Started: #{Time.now}"
+  (41339..55000).to_a.each do |wow_armory_id|
+    p wow_armory_id
+    ItemImporter.import_from_wowarmory!(wow_armory_id)
+  end
+  p "Ended: #{Time.now}"
+end

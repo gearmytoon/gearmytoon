@@ -78,6 +78,13 @@ class ItemImporterTest < ActiveSupport::TestCase
       assert_equal({:spirit => 10, :stamina => 10, :intellect => 10, :agility => 10, :strength => 10}, item.bonuses)
     end
 
+    should "import items bindings" do
+      item = ItemImporter.import_from_wowarmory!(36766)
+      assert_equal Item::BOP, item.bonding
+      item = ItemImporter.import_from_wowarmory!(40111)
+      assert_equal Item::BOE, item.bonding
+    end
+
     should "import meta gems with runspeed enchants correctly" do
       item = ItemImporter.import_from_wowarmory!(41339)
       assert_equal "Meta", item.gem_color

@@ -8,7 +8,7 @@ class GemItem < Item
   YELLOW = "Yellow"
   META = "Meta"
   
-  named_scope :usable_in_slot, Proc.new{|color| {:conditions => {:gem_color => GemItem.compatible_gem_colors(color)}}}
+  named_scope :usable_in_slot, Proc.new{|color| {:conditions => {:gem_color => GemItem.compatible_gem_colors(color), :bonding => Item::BOE}}}
   
   def self.compatible_gem_colors(slot_color)
     case slot_color

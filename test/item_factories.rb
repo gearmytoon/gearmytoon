@@ -11,6 +11,7 @@ Factory.define(:item_with_3_gem_sockets, :parent => :item) do |model|
 end
 
 Factory.define(:gem, :class => "GemItem") do |model|
+  model.bonding Item::BOE
   model.name "Factory Gem"
   model.icon "Factory_icon.png"
   model.wowarmory_item_id 999

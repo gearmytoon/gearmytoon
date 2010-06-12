@@ -26,8 +26,14 @@ class ItemImporter
                    :quality => quality, :icon => wowarmory_item.icon, :bonuses => get_item_bonuses, 
                    :armor_type => ArmorType.find_or_create_by_name(armor_type_name), :slot => slot, 
                    :restricted_to => get_restricted_to, :item_sources => get_item_sources(item), 
-                   :gem_color => get_gem_color, :gem_sockets => get_gem_sockets, :socket_bonuses => get_socket_bonuses)
+                   :gem_color => get_gem_color, :gem_sockets => get_gem_sockets, :socket_bonuses => get_socket_bonuses,
+                   :bonding => get_item_bonding)
     end
+  end
+  
+  def get_item_bonding
+    bonding = wowarmory_item.instance_variable_get(:@tooltip).bonding
+    bonding == 1 ? Item::BOP : Item::BOE
   end
 
   def get_socket_bonuses
@@ -50,18 +56,22 @@ class ItemImporter
      wowarmory_item.instance_variable_get(:@tooltip).sockets || []
   end
   
+  def get_dropped_area(item)
+    area_id = wowarmory_item.item_source.area_id
+    if area_id.nil? #pvp items from VOA
+      area = Area.find_by_name(wowarmory_item.drop_creatures.first.area)
+    else
+      area_name = wowarmory_item.item_source.area_name.blank? ? wowarmory_item.drop_creatures.first.area : wowarmory_item.item_source.area_name
+      area_difficulty = wowarmory_item.item_source.difficulty.blank? ? Area::NORMAL : wowarmory_item.item_source.difficulty
+      area = Area.find_or_create_by_wowarmory_area_id_and_difficulty_and_name(area_id, area_difficulty, area_name)
+    end
+    DroppedSource.create(:source_area => area, :item => item)
+  end
+  
   def get_item_sources(item)
     returning([]) do |sources|
       if wowarmory_item.drop_creatures.try(:first)
-        area_id = wowarmory_item.item_source.area_id
-        if area_id.nil? #pvp items from VOA
-          area = Area.find_by_name(wowarmory_item.drop_creatures.first.area)
-        else
-          area_name = wowarmory_item.item_source.area_name.blank? ? wowarmory_item.drop_creatures.first.area : wowarmory_item.item_source.area_name
-          area_difficulty = wowarmory_item.item_source.difficulty.blank? ? Area::NORMAL : wowarmory_item.item_source.difficulty
-          area = Area.find_or_create_by_wowarmory_area_id_and_difficulty_and_name(area_id, area_difficulty, area_name)
-        end
-        sources << DroppedSource.create(:source_area => area, :item => item)
+        sources << get_dropped_area(item)
       end
       if wowarmory_item.cost && wowarmory_item.cost.tokens
         if wowarmory_item.cost.tokens.length == 1 #TODO: determine the cost of items that cost more then one kind of thing
@@ -113,7 +123,6 @@ class ItemImporter
   def quality
     QUALITY_ADJECTIVE_LOOKUP[wowarmory_item.quality]
   end
-  
 
   def self.api
     @@api ||= Wowr::API.new()

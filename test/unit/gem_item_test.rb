@@ -13,6 +13,12 @@ class GemItemTest < ActiveSupport::TestCase
       @meta = Factory(:meta_gem)
     end
 
+    should "not find gems that are BOP" do
+      Factory(:meta_gem, :bonding => Item::BOP)
+      usable_gems = GemItem.usable_in_slot("Meta")
+      assert_equivalent([@meta], usable_gems, :gem_color)
+    end
+
     should "find gems usable in red slots" do
       usable_gems = GemItem.usable_in_slot("Red")
       assert_equivalent([@red, @prismatic, @orange, @purple], usable_gems, :gem_color)

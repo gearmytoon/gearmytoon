@@ -1,4 +1,6 @@
 class Item < ActiveRecord::Base
+  BOP = 'pickup'
+  BOE = 'equipped'
   TRIUMPH_EMBLEM_ARMORY_ID = 47241
   FROST_EMBLEM_ARMORY_ID = 49426
   WINTERGRASP_MARK_OF_HONOR = 43589
