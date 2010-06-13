@@ -96,6 +96,15 @@ class CharactersControllerTest < ActionController::TestCase
       assert_select "#new_toon"
     end
 
+    should "display the latest character refresh" do
+      character = Factory(:new_character)
+      Factory(:character_refresh, :character => character)
+      expected = Factory(:character_refresh, :character => character)
+      get :show, :id => character.friendly_id
+      assert_template "characters/new_character.html.erb"
+      assert_select "#character_refresh[href=#{character_refresh_url(expected,:format => :json)}]"
+    end
+
     should "display the no such character page if the character doesn't exist" do
       character = Factory(:does_not_exist_character)
       get :show, :id => character.friendly_id
