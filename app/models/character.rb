@@ -84,7 +84,11 @@ class Character < ActiveRecord::Base
   def character_item_on(slot_name)
     character_items.equipped_on(slot_name)
   end
-
+  
+  def all_character_items
+    @char_items ||= character_items.all
+  end
+  
   def find_best_gem(socket_color, for_pvp)
     GemItem.usable_in_slot(socket_color).inject(nil) do |best_gem, gem_item|
       if best_gem.nil?
