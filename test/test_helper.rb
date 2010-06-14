@@ -14,6 +14,12 @@ class ActionController::TestCase
 end
 
 class ActiveSupport::TestCase
+  setup do
+    Factory(:raid_25)
+    Factory(:raid_10)
+    Factory(:dungeon)
+  end
+  
   self.use_transactional_fixtures = true
   self.use_instantiated_fixtures  = false
   fixtures :all

@@ -71,6 +71,7 @@ class UpgradesControllerTest < ActionController::TestCase
   context "get raid_25" do
     should "show all 25 man raids upgrades" do
       character = Factory(:a_hunter)
+      Area.delete_all
       2.times{Factory(:upgrade_from_25_raid, :character => character)}
       Factory(:upgrade_from_10_raid, :character => character)
       get :raid_25, :character_id => character.id
@@ -84,6 +85,7 @@ class UpgradesControllerTest < ActionController::TestCase
   context "get raid_10" do
     should "show all upgrades" do
       character = Factory(:a_hunter)
+      Area.delete_all
       2.times{Factory(:upgrade_from_10_raid, :character => character)}
       Factory(:upgrade_from_25_raid, :character => character)
       get :raid_10, :character_id => character.id

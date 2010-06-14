@@ -6,20 +6,17 @@ class Character < ActiveRecord::Base
   HORDE_RACES = ['orc', 'undead', 'troll', 'tauren', 'blood elf']
   ALLIANCE_RACES = ['dwarf', 'gnome', 'human', 'night elf', 'draenei']
 
-  has_upgrades_from :frost, Proc.new{EmblemSource.from_emblem_of_frost}, Proc.new{['item_sources.wowarmory_token_item_id = ?', Item::FROST_EMBLEM_ARMORY_ID]}, :for => ['pve', 'pvp']
-  has_upgrades_from :triumph, Proc.new{EmblemSource.from_emblem_of_triumph}, Proc.new{['item_sources.wowarmory_token_item_id = ?', Item::TRIUMPH_EMBLEM_ARMORY_ID]}, :for => ['pve', 'pvp']
-  has_upgrades_from :heroic_dungeon, Proc.new{DroppedSource.from_dungeons}, Proc.new{
-      dungeons = Area.dungeons
-      dungeons.any? ? "item_sources.source_area_id IN (#{Area.dungeons.map(&:id).join(",")})" : []
-    }, :for => ['pve']
-  has_upgrades_from :honor_point, Proc.new{HonorSource.all}, Proc.new{"item_sources.type = 'HonorSource'"}, :for => ['pvp']
-  has_upgrades_from :arena_point, Proc.new{ArenaSource.all}, Proc.new{"item_sources.type = 'ArenaSource'"}, :for => ['pvp']
-  has_upgrades_from :wintergrasp_mark, Proc.new{EmblemSource.from_wintergrasp_mark_of_honor}, Proc.new{['item_sources.wowarmory_token_item_id = ?', Item::WINTERGRASP_MARK_OF_HONOR]}, :for => ['pvp']
-  has_upgrades_from :raid_25, Proc.new{DroppedSource.from_raids_25}, Proc.new{["item_sources.source_area_id IN (#{Area.raids_25.map(&:id).join(",")})"]}, :for => ['pve']
-  has_upgrades_from :area, Proc.new{ |area| DroppedSource.from_area(area)}, Proc.new{|area|["item_sources.source_area_id = ?",area]}, :for => ['pve'], :disable_upgrade_lookup => true
-  has_upgrades_from :raid_10, Proc.new{DroppedSource.from_raids_10}, Proc.new{["item_sources.source_area_id IN (#{Area.raids_10.map(&:id).join(",")})"]}, :for => ['pve']
-  acts_as_state_machine :initial => :new, :column => "status"
+  has_upgrades_from :frost, Proc.new{['item_sources.wowarmory_token_item_id = ?', Item::FROST_EMBLEM_ARMORY_ID]}, :for => ['pve', 'pvp']
+  has_upgrades_from :triumph, Proc.new{['item_sources.wowarmory_token_item_id = ?', Item::TRIUMPH_EMBLEM_ARMORY_ID]}, :for => ['pve', 'pvp']
+  has_upgrades_from :heroic_dungeon, Proc.new{ ["item_sources.source_area_id IN (?)", Area.dungeons] }, :for => ['pve']
+  has_upgrades_from :honor_point, Proc.new{"item_sources.type = 'HonorSource'"}, :for => ['pvp']
+  has_upgrades_from :arena_point, Proc.new{"item_sources.type = 'ArenaSource'"}, :for => ['pvp']
+  has_upgrades_from :wintergrasp_mark, Proc.new{['item_sources.wowarmory_token_item_id = ?', Item::WINTERGRASP_MARK_OF_HONOR]}, :for => ['pvp']
+  has_upgrades_from :raid_25, Proc.new{ ["item_sources.source_area_id IN (?)", Area.raids_25] }, :for => ['pve']
+  has_upgrades_from :area, Proc.new{|area|["item_sources.source_area_id = ?",area]}, :for => ['pve'], :disable_upgrade_lookup => true
+  has_upgrades_from :raid_10, Proc.new{ ["item_sources.source_area_id IN (?)", Area.raids_10] }, :for => ['pve']
 
+  acts_as_state_machine :initial => :new, :column => "status"
   state :new
   state :found
   state :does_not_exist
@@ -101,7 +98,35 @@ class Character < ActiveRecord::Base
   end
   
   def find_best_gem(socket_color, new_items_bonuses, for_pvp)
-    GemItem.usable_in_slot(socket_color).inject(nil) do |best_gem, gem_item|
+    GemItem.compatible_gem_colors(socket_color).inject(nil) do |best_gem, color|
+      other_gem = find_best_gem_from_cache_or_lookup(color, new_items_bonuses, for_pvp)
+      if best_gem.nil?
+        other_gem
+      elsif other_gem.nil?
+        best_gem
+      else
+        best_gem_bonuses = apply_hard_caps(best_gem.bonuses.add_values(new_items_bonuses))
+        other_gem_bonuses = apply_hard_caps(other_gem.bonuses.add_values(new_items_bonuses))
+        if (dps_for(other_gem_bonuses, for_pvp) > dps_for(best_gem_bonuses, for_pvp))
+          other_gem
+        else
+          best_gem
+        end
+      end
+    end
+  end
+
+  def find_best_gem_from_cache_or_lookup(socket_color, new_items_bonuses, for_pvp)
+    @best_gem_for_color ||= {}
+    if @best_gem_for_color[socket_color]
+      @best_gem_for_color[socket_color]
+    else
+      @best_gem_for_color[socket_color] = find_best_gem_for_specific_color_socket(socket_color, new_items_bonuses, for_pvp)
+    end
+  end
+  
+  def find_best_gem_for_specific_color_socket(socket_color, new_items_bonuses, for_pvp)
+    GemItem.with_color(socket_color).inject(nil) do |best_gem, gem_item|
       if best_gem.nil?
         gem_item
       else

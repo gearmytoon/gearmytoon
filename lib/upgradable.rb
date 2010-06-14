@@ -7,16 +7,15 @@ module Upgradable
   def generate_upgrades
     self.class.upgrade_sources.each do |name, args|
       unless args[:disable_upgrade_lookup]
-        item_sources = args[:item_sources].call
-        top_upgrades_from(item_sources, false) if args[:for].include?("pve")
-        top_upgrades_from(item_sources, true) if args[:for].include?("pvp")
+        conditions = args[:item_sources].call
+        top_upgrades_from(conditions, false) if args[:for].include?("pve")
+        top_upgrades_from(conditions, true) if args[:for].include?("pvp")
       end
     end
   end
 
-  def top_upgrades_from(item_sources, for_pvp)
-    potential_upgrade_sources = item_sources.for_items(wow_class.equippable_items)
-    upgrades = potential_upgrade_sources.each do |potential_upgrade_source|
+  def top_upgrades_from(conditions, for_pvp)
+    upgrades = ItemSource.including_item(conditions).usable_by(self.wow_class).each do |potential_upgrade_source|
       char_items = all_character_items
       char_items.select {|character_item| character_item.item.slot == potential_upgrade_source.item.slot}.each do |character_item|
         if(character_item != potential_upgrade_source.item)
@@ -31,8 +30,8 @@ module Upgradable
       @upgrade_sources ||= {}
     end
 
-    def has_upgrades_from(kind_of_upgrade, item_sources, conditions_source, options = {:for => ["pve"]})
-      upgrade_sources[kind_of_upgrade] = {:item_sources => item_sources, :for => options[:for], :disable_upgrade_lookup => options[:disable_upgrade_lookup]}
+    def has_upgrades_from(kind_of_upgrade, conditions_source, options = {:for => ["pve"]})
+      upgrade_sources[kind_of_upgrade] = {:item_sources => conditions_source, :for => options[:for], :disable_upgrade_lookup => options[:disable_upgrade_lookup]}
       if options[:for].include?("pvp")
         all_pvp_upgrades_method_name = "#{kind_of_upgrade}_pvp_upgrades"
         define_upgrade_method(all_pvp_upgrades_method_name, conditions_source, true)

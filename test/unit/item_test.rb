@@ -23,6 +23,15 @@ class ItemTest < ActiveSupport::TestCase
       assert_equal [mace], Item.usable_by(rogue.wow_class)
     end
 
+    should "not find common, rare or uncommon items as upgrades" do
+      hunter = Factory(:a_hunter)
+      Factory(:item, :quality => "common")
+      Factory(:item, :quality => "uncommon")
+      Factory(:item, :quality => "rare")
+      epic = Factory(:item, :quality => "epic")
+      assert_equal [epic], Item.usable_by(hunter.wow_class)
+    end
+
     should "know that a rogue cannot use maces" do
       hunter = Factory(:a_hunter)
       mace = Factory(:item, :slot => "Main Hand", :armor_type => ArmorType.mace)
