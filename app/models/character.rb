@@ -62,6 +62,17 @@ class Character < ActiveRecord::Base
     end
   end
 
+  def apply_hard_caps(change_in_bonuses)
+    bonuses_after_hard_cap = {}
+    change_in_bonuses.slice(*hard_caps.keys).each do |key, value|
+      total_bonus_for_stat = total_item_bonuses.has_key?(key) ? total_item_bonuses[key] : 0.0
+      if((value + total_bonus_for_stat) > hard_caps[key])
+        bonuses_after_hard_cap[key] = [hard_caps[key] - total_bonus_for_stat, 0].max
+      end
+    end
+    return change_in_bonuses.merge(bonuses_after_hard_cap)
+  end
+
   def hard_caps
     wow_class.hard_caps
   end
@@ -89,14 +100,18 @@ class Character < ActiveRecord::Base
     @char_items ||= character_items.all
   end
   
-  def find_best_gem(socket_color, for_pvp)
+  def find_best_gem(socket_color, new_items_bonuses, for_pvp)
     GemItem.usable_in_slot(socket_color).inject(nil) do |best_gem, gem_item|
       if best_gem.nil?
         gem_item
-      elsif dps_for(gem_item.bonuses, for_pvp) > dps_for(best_gem.bonuses, for_pvp)
-        gem_item
       else
-        best_gem
+        best_gem_bonuses = apply_hard_caps(best_gem.bonuses.add_values(new_items_bonuses))
+        other_gem_bonuses = apply_hard_caps(gem_item.bonuses.add_values(new_items_bonuses))
+        if (dps_for(other_gem_bonuses, for_pvp) > dps_for(best_gem_bonuses, for_pvp))
+          gem_item
+        else
+          best_gem
+        end
       end
     end
   end

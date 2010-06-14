@@ -15,7 +15,7 @@ class Upgrade < ActiveRecord::Base
   before_create :calculate_dps_change
   
   def calculate_dps_change
-    self.bonus_changes = apply_hard_caps(change_in_stats)
+    self.bonus_changes = character.apply_hard_caps(change_in_stats)
     self.dps_change = character.dps_for(self.bonus_changes,self.for_pvp)
   end
   
@@ -32,10 +32,10 @@ class Upgrade < ActiveRecord::Base
   end
   
   def find_best_gems_not_matching_sockets
-    best_gem = character.find_best_gem("Any", self.for_pvp)
+    best_gem = character.find_best_gem("Any", new_item.bonuses, self.for_pvp)
     new_item.gem_sockets.map do |socket_color|
       if socket_color == "Meta"
-        character.find_best_gem(socket_color, self.for_pvp)
+        character.find_best_gem(socket_color, new_item.bonuses, self.for_pvp)
       else
         best_gem
       end
@@ -44,25 +44,12 @@ class Upgrade < ActiveRecord::Base
   
   def find_best_gems_matching_sockets
     matching_gems = new_item.gem_sockets.map do |socket_color|
-      character.find_best_gem(socket_color, self.for_pvp)
+      character.find_best_gem(socket_color, new_item.bonuses, self.for_pvp)
     end
   end
   
   def change_in_stats
     new_item_total_bonuses.subtract_values(old_character_item.bonuses)
-  end
-
-  def apply_hard_caps(change_in_bonuses)
-    bonuses_after_hard_cap = {}
-    hard_caps = character.hard_caps
-    total_item_bonuses = character.total_item_bonuses
-    change_in_bonuses.slice(*hard_caps.keys).each do |key, value|
-      total_bonus_for_stat = total_item_bonuses.has_key?(key) ? total_item_bonuses[key] : 0.0
-      if((value + total_bonus_for_stat) > hard_caps[key])
-        bonuses_after_hard_cap[key] = [hard_caps[key] - total_bonus_for_stat, 0].max
-      end
-    end
-    return change_in_bonuses.merge(bonuses_after_hard_cap)
   end
   
   def new_item

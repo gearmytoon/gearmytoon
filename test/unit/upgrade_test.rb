@@ -33,6 +33,26 @@ class UpgradeTest < ActiveSupport::TestCase
   
   context "stat_change_between" do
 
+    should "know that the item will bring the player to the hit cap" do
+      character = Factory(:character, :total_item_bonuses => {:hit => 251})
+      old_item = Factory(:character_item, :item => Factory(:item, :bonuses => {:agility => 10.0, :hit => 251, :attack_power => 20.0}), :character => character)
+      new_item = Factory(:item, :bonuses => {:agility => 10.0, :hit => 300, :attack_power => 20.0}, :gem_sockets => ["Yellow"])
+      Factory(:yellow_gem, :bonuses => {:hit => 20})
+      expected_gem = Factory(:orange_gem, :bonuses => {:agility => 1})
+      upgrade = Factory(:upgrade, :character => character, :old_character_item => old_item, :new_item_source => Factory(:frost_emblem_source, :item => new_item))
+      assert_equal expected_gem, upgrade.gem_one
+    end
+
+    should "take hard caps into account with gem stats" do
+      character = Factory(:character, :total_item_bonuses => {})
+      old_item = Factory(:character_item, :character => character)
+      new_item = Factory(:item, :gem_sockets => ["Yellow"])
+      Factory(:yellow_gem, :bonuses => {:hit => 1000})
+      expected_gem = Factory(:orange_gem, :bonuses => {:agility => 800})
+      upgrade = Factory(:upgrade, :character => character, :old_character_item => old_item, :new_item_source => Factory(:frost_emblem_source, :item => new_item))
+      assert_equal expected_gem, upgrade.gem_one
+    end
+    
     should "know you can't swap meta gems out for anything else" do
       red_gem = Factory(:red_gem, :bonuses => {:agility => 20})
       meta_gem = Factory(:meta_gem, :bonuses => {:agility => 2})

@@ -368,14 +368,14 @@ class CharacterTest < ActiveSupport::TestCase
       character = Factory(:a_hunter)
       best_gem = Factory(:red_gem, :bonuses => {:agility => 10})
       Factory(:red_gem, :bonuses => {:agility => 1})
-      assert_equal best_gem, character.find_best_gem("Red", false)
+      assert_equal best_gem, character.find_best_gem("Red",{}, false)
     end
 
     should "find the best gem for a character with any color" do
       character = Factory(:a_hunter)
       Factory(:red_gem, :bonuses => {:agility => 10})
       best_gem = Factory(:orange_gem, :bonuses => {:agility => 11, :crit => 11})
-      assert_equal best_gem, character.find_best_gem("Any", false)
+      assert_equal best_gem, character.find_best_gem("Any",{}, false)
     end
   end
 
