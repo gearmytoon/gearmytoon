@@ -1,4 +1,5 @@
 Factory.define(:item) do |model|
+  model.side Item::ANY_SIDE
   model.name "Factory Item"
   model.icon "Factory_icon.png"
   model.quality "epic"

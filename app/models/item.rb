@@ -1,4 +1,7 @@
 class Item < ActiveRecord::Base
+  HORDE = "horde"
+  ALLIANCE = "alliance"
+  ANY_SIDE = "any_side"
   BOP = 'pickup'
   BOE = 'equipped'
   TRIUMPH_EMBLEM_ARMORY_ID = 47241

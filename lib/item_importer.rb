@@ -27,7 +27,7 @@ class ItemImporter
                    :armor_type => ArmorType.find_or_create_by_name(armor_type_name), :slot => slot, 
                    :restricted_to => get_restricted_to, :item_sources => get_item_sources(item), 
                    :gem_color => get_gem_color, :gem_sockets => get_gem_sockets, :socket_bonuses => get_socket_bonuses,
-                   :bonding => get_item_bonding)
+                   :bonding => get_item_bonding, :side => Item::ANY_SIDE)
     end
   end
   
