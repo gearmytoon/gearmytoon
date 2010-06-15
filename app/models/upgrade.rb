@@ -24,7 +24,9 @@ class Upgrade < ActiveRecord::Base
     if new_item.gem_sockets
       best_gems_matching_sockets = find_best_gems_matching_sockets
       best_gems_not_matching_sockets = find_best_gems_not_matching_sockets
-      gems = (character.dps_for(best_gems_matching_sockets.sum_bonuses,self.for_pvp) > character.dps_for(best_gems_not_matching_sockets.sum_bonuses,self.for_pvp)) ? best_gems_matching_sockets : best_gems_not_matching_sockets
+      matching_gems_dps = character.dps_for(best_gems_matching_sockets.sum_bonuses.add_values(new_item.socket_bonuses), self.for_pvp)
+      not_matching_gems_dps = character.dps_for(best_gems_not_matching_sockets.sum_bonuses,self.for_pvp)
+      gems = (matching_gems_dps > not_matching_gems_dps) ? best_gems_matching_sockets : best_gems_not_matching_sockets
       gems.each_with_index do |gem_item, index|
         self.send("#{gem_slots[index]}=",gem_item)
       end

@@ -165,13 +165,26 @@ class ItemImporterTest < ActiveSupport::TestCase
       assert_equal [], Item.usable_by(WowClass.create_class!("Rogue"))
     end
     
+    # need to patch wowr to add faction support
+    # {elem
+    #   <translationFor factionEquiv="1">
+    #   "\n        "
+    #   {emptyelem
+    #    <item
+    #     name="Windrunner's Headpiece of Conquest"
+    #     icon="inv_helmet_100"
+    #     level="232"
+    #     id="48277"
+    #     quality="4">}
+    #   "\n      "
+    #   </translationFor>}
     should_eventually "know if a item is for alliance or horde" do
-      #48277 - horde hat
-      ItemImporter.import_from_wowarmory!(48277)
-      #48250 - alliance hat
-      ItemImporter.import_from_wowarmory!(48250)
-      #item for both sides
-      ItemImporter.import_from_wowarmory!(50776)
+      horde_item = ItemImporter.import_from_wowarmory!(48277) #48277 - horde hat
+      alliance_item = ItemImporter.import_from_wowarmory!(48250) #48250 - alliance hat
+      assert_equal Item::HORDE, horde_item.side
+      assert_equal Item::ALLIANCE, alliance_item.side
+      any_side_item = ItemImporter.import_from_wowarmory!(50776) #Both Sides
+      assert_equal Item::ANY_SIDE, any_side_item.side
     end
     
     should "import bows crossbows guns and thrown as ranged slot" do
