@@ -16,6 +16,18 @@ class CharacterImporter
     item = Item.find_by_wowarmory_item_id(wow_armory_item_id)
     item = item.nil? ? ItemImporter.import_from_wowarmory!(wow_armory_item_id) : item  
   end
+  
+  def self.find_or_import_item(wow_armory_item_id)
+    return nil if wow_armory_item_id.nil?
+    item = Item.find_by_wowarmory_item_id(wow_armory_item_id)
+    item = item.nil? ? ItemImporter.import_from_wowarmory!(wow_armory_item_id) : item  
+  end
+  
+  def self.find_or_import_gem_item(wow_armory_item_id)
+    return nil if wow_armory_item_id.nil?
+    item = GemItem.find_by_wowarmory_item_id(wow_armory_item_id)
+    item = item.nil? ? ItemImporter.import_from_wowarmory!(wow_armory_item_id) : item  
+  end
 
   def self.import_character_and_all_items(character)
     returning character do |c|
@@ -25,9 +37,9 @@ class CharacterImporter
       wow_armory_character.items.each do |equipped_item|
         wow_armory_item_id = equipped_item.instance_variable_get(:@id)
         item = find_or_import_item(wow_armory_item_id)
-        character_item = character.character_items.build(:item => item, :gem_one => find_or_import_item(equipped_item.gems[0]),
-                                                                      :gem_two => find_or_import_item(equipped_item.gems[1]),
-                                                                      :gem_three => find_or_import_item(equipped_item.gems[2]))
+        character_item = character.character_items.build(:item => item, :gem_one => find_or_import_gem_item(equipped_item.gems[0]),
+                                                                      :gem_two => find_or_import_gem_item(equipped_item.gems[1]),
+                                                                      :gem_three => find_or_import_gem_item(equipped_item.gems[2]))
       end
       primary_spec = wow_armory_character.talent_spec.primary
       c.attributes = {:wow_class => WowClass.find_by_name(wow_armory_character.klass),

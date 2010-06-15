@@ -2,9 +2,9 @@ module Gemable
 
   def self.included(klass)
     klass.class_eval {
-      belongs_to :gem_one, :class_name => "Item"
-      belongs_to :gem_two, :class_name => "Item"
-      belongs_to :gem_three, :class_name => "Item"
+      belongs_to :gem_one, :class_name => "GemItem"
+      belongs_to :gem_two, :class_name => "GemItem"
+      belongs_to :gem_three, :class_name => "GemItem"
     }
   end
   
