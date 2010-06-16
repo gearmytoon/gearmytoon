@@ -58,6 +58,10 @@ class Character < ActiveRecord::Base
       total_dps += relative_dps_value * (item_bonuses[stat_name] ? item_bonuses[stat_name] : 0)
     end
   end
+  
+  def dps_for_after_hard_caps(change_in_bonuses, for_pvp)
+    dps_for(apply_hard_caps(change_in_bonuses), for_pvp)
+  end
 
   def apply_hard_caps(change_in_bonuses)
     bonuses_after_hard_cap = {}

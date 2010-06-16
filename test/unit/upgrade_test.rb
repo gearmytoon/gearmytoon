@@ -88,7 +88,17 @@ class UpgradeTest < ActiveSupport::TestCase
       assert_equal best_gem, upgrade.reload.gem_one
     end
 
-    
+    should "find the best combo of gems if you are just about to get to the hit cap" do
+      orange_gem = Factory(:orange_gem, :bonuses => {:agility => 10, :hit => 10})
+      purple_gem = Factory(:purple_gem, :bonuses => {:agility => 11})
+      character = Factory(:a_hunter, :total_item_bonuses => {:hit => 253})
+      item = Factory(:item, :gem_sockets => ["Blue", "Yellow"], :socket_bonuses => {:agility => 1})
+      character_item = Factory(:character_item, :item => item, :character => character)
+      new_item_source = Factory(:frost_emblem_source, :item => character_item.item)
+      upgrade = Factory(:upgrade, :old_character_item => character_item, :character => character, :new_item_source => new_item_source)
+      assert_equal [purple_gem.id, orange_gem.id], upgrade.gems.map(&:id)
+    end
+
     should "know the change in stats including gems" do
       gem_item = Factory(:gem, :bonuses => {:agility => 30})
       character = Factory(:a_hunter)

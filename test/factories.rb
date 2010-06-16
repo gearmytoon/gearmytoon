@@ -1,6 +1,6 @@
 Factory.define(:basic_character, :class => "Character") do |model|
   model.name "Merb"
-  model.total_item_bonuses {}
+  model.total_item_bonuses({:not_a_stat=>1}) #serialize as doesnt save if the hash is empty
   model.realm "Baelgun"
   model.locale 'us'
   model.battle_group "Shadowburn"
