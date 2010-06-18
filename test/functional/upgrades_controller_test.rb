@@ -66,6 +66,17 @@ class UpgradesControllerTest < ActionController::TestCase
       assert_response :success
       assert_select ".upgrade", :count => 4
     end
+    
+    should "support pagination" do
+      character = Factory(:a_hunter)
+      13.times {Factory(:upgrade_from_heroic_dungeon, :character => character)}
+      get :dungeon, :character_id => character.id
+      assert_select ".upgrade", :count => 12
+      assert_select ".pagination"
+      get :dungeon, :character_id => character.id, :page => 2
+      assert_select ".upgrade", :count => 1
+      assert_select ".pagination"
+    end
   end
   
   context "get raid_25" do

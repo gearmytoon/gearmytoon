@@ -18,6 +18,18 @@ class PvpUpgradesControllerTest < ActionController::TestCase
       assert_response :success
       assert_select ".upgrade", :count => 2
     end
+    
+    should "support pagination" do
+      character = Factory(:a_hunter)
+      13.times {Factory(:upgrade_from_emblem_of_frost, :character => character, :for_pvp => true)}
+      get :frost, :character_id => character.id
+      assert_select ".upgrade", :count => 12
+      assert_select ".pagination"
+      get :frost, :character_id => character.id, :page => 2
+      assert_select ".upgrade", :count => 1
+      assert_select ".pagination"
+    end
+    
   end
 
   context "get arena" do

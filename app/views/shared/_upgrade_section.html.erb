@@ -20,5 +20,9 @@
       <%= render 'shared/upgrade', :upgrade => upgrade %>
     <% end %>
     </table>
+
+    <% if(upgrades.is_a?(WillPaginate::Collection)) %>
+      <%= will_paginate upgrades %>
+    <% end %>
   <% end %>
 </div>

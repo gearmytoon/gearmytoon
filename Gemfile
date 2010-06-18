@@ -5,6 +5,7 @@ gem "rails", "~> 2.3.8"
 gem "mysql", "2.8.1"
 gem "wowr", :git => "http://github.com/scudco/wowr.git", :tag => "v0.5.4"
 gem "mechanize", "0.9.3"
+gem "will_paginate", "2.3.14"
 gem 'ruby-openid', "2.1.7", :require => 'openid'
 gem 'authlogic', '2.1.3'
 gem 'rpx_now', '0.6.17'

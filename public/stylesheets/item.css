@@ -109,3 +109,8 @@
   padding-top:15px;
   margin:0;
 }
+
+.pagination{
+  text-align:center;
+  padding:10px 0px;
+}

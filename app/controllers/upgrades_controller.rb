@@ -3,19 +3,19 @@ class UpgradesController < ApplicationController
 
   def frost
     @kind_of_upgrade = "Emblem of Frost"
-    @upgrades = @character.frost_upgrades
+    @upgrades = @character.frost_upgrades(params[:page])
     render "show"
   end
   
   def triumph
     @kind_of_upgrade = "Emblem of Triumph"
-    @upgrades = @character.triumph_upgrades
+    @upgrades = @character.triumph_upgrades(params[:page])
     render "show"
   end
   
   def dungeon
     @kind_of_upgrade = "Heroic Dungeon"
-    @upgrades = @character.heroic_dungeon_upgrades
+    @upgrades = @character.heroic_dungeon_upgrades(params[:page])
     render "show"
   end
 

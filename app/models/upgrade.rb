@@ -1,5 +1,7 @@
 class Upgrade < ActiveRecord::Base
   include Gemable
+  cattr_reader :per_page
+  @@per_page = 12
   serialize :bonus_changes
   belongs_to :character
   belongs_to :old_character_item, :class_name => "CharacterItem"

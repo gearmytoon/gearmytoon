@@ -51,7 +51,7 @@ class CharacterTest < ActiveSupport::TestCase
       character = Factory(:a_hunter)
       upgrade = Factory(:upgrade_from_heroic_dungeon, :character => character)
       Factory(:upgrade_from_10_raid, :character => character)
-      upgrades = character.area_upgrades(upgrade.new_item_source.source_area)
+      upgrades = character.area_upgrades(1, upgrade.new_item_source.source_area)
       assert_equal [upgrade], upgrades
       assert_equal upgrades.length, character.top_3_area_upgrades(upgrade.new_item_source.source_area).length
     end
@@ -65,7 +65,7 @@ class CharacterTest < ActiveSupport::TestCase
       assert_no_difference "character.reload.upgrades.count" do
         character.generate_upgrades
       end
-      assert_equal [], character.reload.frost_upgrades
+      assert_equal [], character.reload.frost_upgrades(1)
     end
 
     should "find two upgrades for both rings" do
@@ -76,10 +76,10 @@ class CharacterTest < ActiveSupport::TestCase
       new_dps_ring = Factory(:dungeon_dropped_source, :item => Factory(:ring, :bonuses => {:attack_power => 500.0})).item
       assert_difference "character.reload.upgrades.count", 2 do
         character.generate_upgrades
-        assert_equal 2, character.reload.heroic_dungeon_upgrades.length
+        assert_equal 2, character.reload.heroic_dungeon_upgrades(1).length
       end
-      assert_equal no_dps_ring, character.heroic_dungeon_upgrades.first.old_item
-      assert_equal new_dps_ring, character.heroic_dungeon_upgrades.first.new_item
+      assert_equal no_dps_ring, character.heroic_dungeon_upgrades(1).first.old_item
+      assert_equal new_dps_ring, character.heroic_dungeon_upgrades(1).first.new_item
     end
 
     should "find upgrades from heroic dungeons" do
@@ -89,7 +89,7 @@ class CharacterTest < ActiveSupport::TestCase
       assert_difference "character.reload.upgrades.count", 1 do
         character.generate_upgrades
       end
-      assert_equal([new_item_source], character.reload.area_upgrades(new_item_source.source_area).map(&:new_item_source))
+      assert_equal([new_item_source], character.reload.area_upgrades(1, new_item_source.source_area).map(&:new_item_source))
     end
 
     should "find upgrades for pve and pvp" do
@@ -101,8 +101,8 @@ class CharacterTest < ActiveSupport::TestCase
       assert_difference "character.reload.upgrades.count", 4 do
         character.generate_upgrades
       end
-      assert_equal 2, character.reload.frost_upgrades.length
-      assert_equal 2, character.reload.frost_pvp_upgrades.length
+      assert_equal 2, character.reload.frost_upgrades(1).length
+      assert_equal 2, character.reload.frost_pvp_upgrades(1).length
     end
 
     should "find upgrades of the same armor type" do
