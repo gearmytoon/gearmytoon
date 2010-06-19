@@ -7,7 +7,7 @@ class Upgrade < ActiveRecord::Base
   belongs_to :old_character_item, :class_name => "CharacterItem"
   belongs_to :new_item_source, :class_name => "ItemSource"
   named_scope :with_sources, Proc.new {|conditions|
-    {:include => [{:old_character_item => :item}, {:new_item_source => :item}], :conditions => conditions}
+    {:include => [:gem_one, :gem_two, :gem_three, {:old_character_item => [:item, :gem_one, :gem_two, :gem_three]}, {:new_item_source => :item}], :conditions => conditions}
   }
   named_scope :pvp, lambda { |for_pvp| { :conditions => {:for_pvp => for_pvp} } }
   named_scope :order_by_dps,  :order => "dps_change DESC"
