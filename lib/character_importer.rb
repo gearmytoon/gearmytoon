@@ -4,19 +4,13 @@ class CharacterImporter
   end
 
   def self.refresh_character!(character)
-    character.character_items.delete_all
-    character.upgrades.delete_all
+    CharacterItem.delete_all(:character_id => character.id)
+    Upgrade.delete_all(:character_id => character.id)
     import_character_and_all_items(character).save!
     character.generate_upgrades
     character
   end
 
-  def self.find_or_import_item(wow_armory_item_id)
-    return nil if wow_armory_item_id.nil?
-    item = Item.find_by_wowarmory_item_id(wow_armory_item_id)
-    item = item.nil? ? ItemImporter.import_from_wowarmory!(wow_armory_item_id) : item  
-  end
-  
   def self.find_or_import_item(wow_armory_item_id)
     return nil if wow_armory_item_id.nil?
     item = Item.find_by_wowarmory_item_id(wow_armory_item_id)

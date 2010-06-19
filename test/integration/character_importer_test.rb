@@ -10,13 +10,29 @@ class CharacterImporterTest < ActiveSupport::TestCase
       assert_not_equal upgrades_before, character.reload.upgrades.count
       assert character.upgrades.map(&:new_item).include?(best_xbow_ingame)
     end
-    
-    should "not duplicate character items or upgrades" do
+
+    should "not delete other characters upgrades or items" do
       character = Factory(:character, :name => "Merb", :realm => "Baelgun")
       CharacterImporter.refresh_character!(character)
-      assert_no_difference "character.reload.upgrades.count" do
-        assert_no_difference "character.reload.character_items.count" do
+      assert_no_difference "Item.count" do
+        assert_no_difference "CharacterItem.count" do
+          assert_raises Wowr::Exceptions::CharacterNotFound do
+            CharacterImporter.refresh_character!(Factory(:character, :name => "fsfkajfa", :realm => "Baelgun"))
+          end
+        end
+      end
+    end
+    
+    should "not orphan character items or upgrades" do
+      character = Factory(:character, :name => "Merb", :realm => "Baelgun")
+      CharacterImporter.refresh_character!(character)
+      old_upgrade_id = character.reload.upgrades.first.id
+      assert_no_difference "Item.count" do
+        assert_no_difference "CharacterItem.count" do
           CharacterImporter.refresh_character!(character)
+          assert_raises ActiveRecord::RecordNotFound do
+            Upgrade.find(old_upgrade_id)
+          end
         end
       end
     end
