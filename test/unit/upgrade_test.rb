@@ -19,7 +19,7 @@ class UpgradeTest < ActiveSupport::TestCase
       assert_equal "dropped", upgrade.new_item_source_type
     end
   end
-  
+
   context "kind_of_change" do
     should "know if it is an upgrade" do
       upgrade = Factory.build(:upgrade, :dps_change => 1)
@@ -28,6 +28,16 @@ class UpgradeTest < ActiveSupport::TestCase
     should "know if it is an downgrade" do
       upgrade = Factory.build(:upgrade, :dps_change => -1)
       assert_equal "downgrade", upgrade.kind_of_change
+    end
+  end
+
+  context "new_item_sockets" do
+    should "not raise an error if gem sockets is nil" do
+      character = Factory(:character, :total_item_bonuses => {})
+      old_item = Factory(:character_item, :character => character)
+      new_item = Factory(:item, :slot => "Waist", :gem_sockets => nil)
+      upgrade = Factory.build(:upgrade, :character => character, :old_character_item => old_item, :new_item_source => Factory(:frost_emblem_source, :item => new_item))
+      upgrade.new_item_sockets
     end
   end
   
@@ -51,6 +61,17 @@ class UpgradeTest < ActiveSupport::TestCase
       expected_gem = Factory(:orange_gem, :bonuses => {:agility => 800})
       upgrade = Factory(:upgrade, :character => character, :old_character_item => old_item, :new_item_source => Factory(:frost_emblem_source, :item => new_item))
       assert_equal expected_gem, upgrade.gem_one
+    end
+
+    should "know that belts get a prismatic slot" do
+      character = Factory(:character, :total_item_bonuses => {})
+      old_item = Factory(:character_item, :character => character)
+      new_item = Factory(:item, :slot => "Waist", :gem_sockets => ["Yellow", "Yellow"], :socket_bonuses =>  {:agility => 5})
+      orange_gem = Factory(:orange_gem, :bonuses => {:agility => 1})
+      red_gem = Factory(:red_gem, :bonuses => {:agility => 3})
+      upgrade = Factory(:upgrade, :character => character, :old_character_item => old_item, :new_item_source => Factory(:frost_emblem_source, :item => new_item))
+      assert_equal 3, upgrade.gems.length
+      assert_equal [orange_gem,orange_gem,red_gem], upgrade.gems
     end
     
     should "know you can't swap meta gems out for anything else" do

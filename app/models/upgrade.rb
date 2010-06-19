@@ -21,9 +21,14 @@ class Upgrade < ActiveRecord::Base
     self.dps_change = character.dps_for(self.bonus_changes,self.for_pvp)
   end
   
+  def new_item_sockets
+    sockets = new_item.gem_sockets_with_nil_protection
+    new_item.is_a_belt? ? (sockets + ["Any"]) : sockets
+  end
+  
   def find_best_gems
     gem_slots = ["gem_one", "gem_two", "gem_three"]
-    if new_item.gem_sockets
+    if new_item_sockets
       best_gems_matching_sockets = find_best_gems_matching_sockets
       best_gems_not_matching_sockets = find_best_gems_not_matching_sockets
       matching_gems_dps = character.dps_for_after_hard_caps(best_gems_matching_sockets.sum_bonuses.add_values(new_item.socket_bonuses), self.for_pvp)
@@ -37,7 +42,7 @@ class Upgrade < ActiveRecord::Base
   
   def find_best_gems_not_matching_sockets
     best_gem = character.find_best_gem("Any", new_item.bonuses, self.for_pvp)
-    new_item.gem_sockets.map do |socket_color|
+    new_item_sockets.map do |socket_color|
       if socket_color == "Meta"
         character.find_best_gem(socket_color, new_item.bonuses, self.for_pvp)
       else
@@ -47,7 +52,7 @@ class Upgrade < ActiveRecord::Base
   end
   
   def find_best_gems_matching_sockets
-    matching_gems = new_item.gem_sockets.map do |socket_color|
+    matching_gems = new_item_sockets.map do |socket_color|
       character.find_best_gem(socket_color, new_item.bonuses, self.for_pvp)
     end
   end

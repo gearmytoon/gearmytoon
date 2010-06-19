@@ -38,4 +38,13 @@ class Item < ActiveRecord::Base
   def source_area
     dropped_sources.first.source_area
   end
+  
+  def is_a_belt?
+    self.slot == "Waist"
+  end
+  
+  def gem_sockets_with_nil_protection
+    sockets = gem_sockets
+    sockets.nil? ? [] : sockets
+  end
 end
