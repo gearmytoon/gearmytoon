@@ -1,6 +1,6 @@
 <h1>We couldn't find that toon.</h1>
 <p>Want to try your search again?</p>
-<% form_for @character do |f| -%>
+<% form_for :character, @character, :url => characters_path do |f| -%>
   <%= f.error_messages %>
   <p>
     <%= f.label :name %>
