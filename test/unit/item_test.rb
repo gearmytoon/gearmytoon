@@ -1,6 +1,20 @@
 require File.dirname(__FILE__) + '/../test_helper'
 
 class ItemTest < ActiveSupport::TestCase
+
+  context "raw_stats" do
+    should "slice out the basic stats" do
+      expected = {:spirit => 1, :stamina => 1, :intellect => 1, :strength => 1, :agility => 1}
+      item = Factory(:item, :bonuses => expected)
+      assert_equal expected, item.base_stats
+    end
+    should "slice out other stats" do
+      other_stats = {:crit => 1, :hit => 1, :expertise => 1, :spell_power => 1, :attack_power => 1}
+      item = Factory(:item, :bonuses => other_stats)
+      assert_equal({}, item.base_stats)
+    end
+  end
+
   
   context "usable_in_same_slot_as" do
     should "find all items in the same slot" do

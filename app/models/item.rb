@@ -4,6 +4,7 @@ class Item < ActiveRecord::Base
   ANY_SIDE = "any_side"
   BOP = 'pickup'
   BOE = 'equipped'
+  BASE_STATS = [:strength, :agility, :spirit, :intellect, :stamina]
   TRIUMPH_EMBLEM_ARMORY_ID = 47241
   FROST_EMBLEM_ARMORY_ID = 49426
   WINTERGRASP_MARK_OF_HONOR = 43589
@@ -46,5 +47,9 @@ class Item < ActiveRecord::Base
   def gem_sockets_with_nil_protection
     sockets = gem_sockets
     sockets.nil? ? [] : sockets
+  end
+  
+  def base_stats
+    self.bonuses.slice(*BASE_STATS)
   end
 end
