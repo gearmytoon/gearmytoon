@@ -3,15 +3,38 @@
     <th>Plan</th>
     <th>Number of Toons</th>
     <th>Price</th>
+    <th>Time Frame</th>
   </tr>
   <tr class="payment_plan">
-    <% form_for @payment, {:url => payment_path} do |f| %>
-      <%= f.hidden_field :recipient_token %>
-      <%= f.hidden_field :caller_token %>
-      <td class="plan">Personal</td>
+      <td class="plan">One Day Trial</td>
       <td class="number_of_toons">5</td>
-      <td class="price">$3/month</td>
-      <td class="checkout"><%= image_submit_tag "http://g-ecx.images-amazon.com/images/G/01/asp/golden_small_paynow_withlogo_darkbg.gif" %></td>
-    <% end %>
+      <td class="price">$1</td>
+      <td class="time_frame">One Day</td>
+      <td class="checkout">
+        <% render :layout => "simple_pay_form" do %>
+          <input type="hidden" name="signature" value="xCawlMvINGUQN4QFQWt8k1NL1bJ32P7FVErT0NBYkdA=" >
+          <input type="hidden" name="amount" value="USD 1" >
+          <input type="hidden" name="isDonationWidget" value="0" >
+          <input type="hidden" name="description" value="desc" >
+          <input type="image" src="http://g-ecx.images-amazon.com/images/G/01/asp/beige_small_paynow_withlogo_darkbg.gif" border="0">
+        <% end %>
+      </td>
+  </tr>
+  <tr class="payment_plan">
+      <td class="plan">Personal Subscription</td>
+      <td class="number_of_toons">5</td>
+      <td class="price">$3</td>
+      <td class="time_frame">One Month</td>
+      <td class="checkout">
+        <% render :layout => "simple_pay_form" do %>
+          <input type="hidden" name="signature" value="eMZBTvQ/mlsdktlNGNNnI3VDzLbMHliNE45voY6hnew=" >
+          <input type="hidden" name="amount" value="USD 1" >
+          <input type="hidden" name="recurringFrequency" value="1 month" >
+          <input type="hidden" name="description" value="desc" >
+          <input type="image" src="http://g-ecx.images-amazon.com/images/G/01/asp/beige_small_subscribe_withlogo_darkbg.gif" border="0">
+        <% end %>
+      </td>
   </tr>
 </table>
+
+

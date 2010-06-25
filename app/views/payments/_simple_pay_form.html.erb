@@ -1,0 +1,38 @@
+<form action="https://authorize.payments.amazon.com/pba/paypipeline" method="post">
+  <input type="hidden" name="immediateReturn" value="1" >
+  <input type="hidden" name="collectShippingAddress" value="0" >
+  <input type="hidden" name="signatureVersion" value="2" >
+  <input type="hidden" name="signatureMethod" value="HmacSHA256" >
+  <input type="hidden" name="accessKey" value="11SEM03K88SD016FS1G2" >
+  <input type="hidden" name="referenceId" value="refid" >
+  <input type="hidden" name="signature" value="xCawlMvINGUQN4QFQWt8k1NL1bJ32P7FVErT0NBYkdA=" >
+  <input type="hidden" name="isDonationWidget" value="0" >
+  <input type="hidden" name="description" value="desc" >
+  <input type="hidden" name="amazonPaymentsAccountId" value="PZMMZDBAQUOX3N21AEN9ALJCRJMXUXDCTK1LRN" >
+  <input type="hidden" name="ipnUrl" value="http://yourwebsite.com/instantpaymentnotification" >
+  <input type="hidden" name="returnUrl" value="http://yourwebsite.com/success" >
+  <input type="hidden" name="processImmediate" value="1" >
+  <input type="hidden" name="cobrandingStyle" value="logo" >
+  <input type="hidden" name="abandonUrl" value="http://yourwebsite.com/abandon" >
+  <%= yield %>
+</form>
+
+<!-- <form action="https://authorize.payments.amazon.com/pba/paypipeline" method="post">
+  <input type="hidden" name="immediateReturn" value="1" >
+  <input type="hidden" name="collectShippingAddress" value="0" >
+  <input type="hidden" name="signatureVersion" value="2" >
+  <input type="hidden" name="signatureMethod" value="HmacSHA256" >
+  <input type="hidden" name="accessKey" value="11SEM03K88SD016FS1G2" >
+  <input type="hidden" name="referenceId" value="refid" >
+  <input type="hidden" name="amount" value="USD 1" >
+  <input type="hidden" name="signature" value="eMZBTvQ/mlsdktlNGNNnI3VDzLbMHliNE45voY6hnew=" >
+  <input type="hidden" name="description" value="e.g. Daily NYT Delivfsfery" >
+  <input type="hidden" name="amazonPaymentsAccountId" value="PZMMZDBAQUOX3N21AEN9ALJCRJMXUXDCTK1LRN" >
+  <input type="hidden" name="ipnUrl" value="http://yourwebsite.com/instantpaymentnotification" >
+  <input type="hidden" name="returnUrl" value="http://yourwebsite.com/return" >
+  <input type="hidden" name="processImmediate" value="0" >
+  <input type="hidden" name="cobrandingStyle" value="logo" >
+  <input type="hidden" name="abandonUrl" value="http://yourwebsite.com/cancel" >
+  <input type="hidden" name="recurringFrequency" value="1 month" >
+  <input type="image" src="http://g-ecx.images-amazon.com/images/G/01/asp/golden_small_subscribe_withlogo_whitebg.gif" border="0">
+</form> -->
