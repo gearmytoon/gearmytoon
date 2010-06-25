@@ -2,6 +2,7 @@ ActionController::Routing::Routes.draw do |map|
   map.resource :payment, :member => {:receipt => :get, :pay => :get}
   map.resource :home, :controller => "home"
   map.resources :areas
+  map.resources :item_infos
   map.resources :character_refreshes
   map.resources :users
   map.resource :payment_receipts
