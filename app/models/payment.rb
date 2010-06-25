@@ -2,7 +2,7 @@ class Payment < ActiveRecord::Base
   belongs_to :purchaser, :class_name => "User"
   acts_as_state_machine :initial => :considering_payment, :column => "status"
   named_scope :paid, :conditions => {:status => "paid"}
-
+  serialize :raw_data
   state :considering_payment
   state :paid, :enter => Proc.new {|payment| payment.update_attribute(:paid_at, Time.now) }
   state :failed

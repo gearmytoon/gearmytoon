@@ -4,25 +4,36 @@ class PaymentsController < ApplicationController
   def show
   end
 
-  def create
-    caller_reference = 'SenderToken-' + (Time.now.to_i + rand(1000)).to_s
-    @payment = current_user.payments.create!(params[:payment].merge(:caller_reference => caller_reference))
-    redirect_to(make_payment_url(@payment))
+  # amazon post to URL
+  def notify_payment
+    handle_payment("POST")
+    render :text => "Thank you!"
   end
-  
+
+  # Users redirect to URL
   def receipt
-    @payment = Payment.find_by_caller_reference(params[:callerReference])
-    if @payment.considering_payment?
-      if fps_success?
-        @payment.pay!
-      else
-        @payment.fail!
-      end
-    end
+    #check payment
+    handle_payment("GET")
     if @payment.failed?
       flash.now[:error] = "We are sorry, we were not able to verify your payment from Amazon.com"
       render "sorry"
     end
   end
 
+  private
+  def handle_payment(http_method)
+    begin
+      @payment = current_user.payments.create!(:raw_data => params)
+      signiture_correct = SignatureUtilsForOutbound.new.validate_request(:parameters => params, :url_end_point => @request.request_uri, :http_method => http_method)
+      if signiture_correct
+        @payment.pay!
+      else
+        @payment.fail!
+      end
+    rescue Exception => ex
+      logger.error "a problem occured when processing a payment: #{ex.message} \n #{ex.backtrace}"
+      @payment.fail!
+    end
+  end
+  
 end
