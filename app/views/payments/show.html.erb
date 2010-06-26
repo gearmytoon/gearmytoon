@@ -11,7 +11,7 @@
       <td class="price">$1</td>
       <td class="time_frame">One Day</td>
       <td class="checkout">
-        <%= standard_simple_pay_form %>
+        <%= standard_simple_pay_form(generate_reference_id(@current_user.id)) %>
       </td>
   </tr>
   <tr class="payment_plan">
@@ -20,7 +20,7 @@
       <td class="price">$3</td>
       <td class="time_frame">One Month</td>
       <td class="checkout">
-        <%= subscription_simple_pay_form %>
+        <%= subscription_simple_pay_form(generate_reference_id(@current_user.id)) %>
       </td>
   </tr>
 </table>
