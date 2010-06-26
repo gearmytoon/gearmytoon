@@ -8,63 +8,8 @@ class PaymentsControllerTest < ActionController::TestCase
     end
     should "respond with success" do
       get :show
-      assert_select "#new_payment"
-      assert_select "#payment_recipient_token", :count => 1 do |elements|
-        element = elements.first
-        assert element.attributes['value'].present?
-      end
       assert_response :success
-    end
-  end
-  
-  context "post create" do
-    setup do
-      activate_authlogic
-      @user = Factory(:user)
-    end
-    should "create a payment model" do
-      recipient_token = AWS_FPS::Tokens.get_recipient_token
-      caller_token = AWS_FPS::Tokens.get_caller_token
-      assert_difference "@user.reload.payments.count" do
-        assert_difference "Payment.count" do
-          post :create, :payment => {:recipient_token => recipient_token, :caller_token => caller_token}
-        end
-      end
-      new_payment = Payment.last
-      assert_equal recipient_token, new_payment.recipient_token
-      assert_not_nil new_payment.caller_reference
-    end
-    
-    should "redirect to amazon" do
-      recipient_token = AWS_FPS::Tokens.get_recipient_token
-      caller_token = AWS_FPS::Tokens.get_caller_token
-      post :create, :payment => {:recipient_token => recipient_token, :caller_token => caller_token}
-      assert_response :redirect
-      assert @response.header['Location'].starts_with?("https://authorize.payments-sandbox.amazon.com/cobranded-ui/actions/start?")
-    end
-    
-    should "protect against mass assignment attacks" do
-      recipient_token = AWS_FPS::Tokens.get_recipient_token
-      caller_token = AWS_FPS::Tokens.get_caller_token
-      post :create, :payment => {:recipient_token => recipient_token, :caller_token => caller_token}
-      assert_response :redirect
-      assert_not_equal "paid", Payment.last.status
-    end
-  
-    should "move to the considering payment state" do
-      recipient_token = AWS_FPS::Tokens.get_recipient_token
-      caller_token = AWS_FPS::Tokens.get_caller_token
-      post :create, :payment => {:recipient_token => recipient_token, :caller_token => caller_token}
-      assert_response :redirect
-      assert_equal "considering_payment", Payment.last.status
-    end
-    
-    should "get assigned to login user" do
-      recipient_token = AWS_FPS::Tokens.get_recipient_token
-      caller_token = AWS_FPS::Tokens.get_caller_token
-      post :create, :payment => {:recipient_token => recipient_token, :caller_token => caller_token}
-      assert_response :redirect
-      assert_equal @user, Payment.last.purchaser
+      assert_select ".payment_plan", :count => 2
     end
   end
   
@@ -73,11 +18,25 @@ class PaymentsControllerTest < ActionController::TestCase
       activate_authlogic
       @user = Factory(:user)
     end
-    
+
+    should "create a payment model for the current user" do
+      assert_difference "@user.reload.payments.count" do
+        assert_difference "Payment.count" do
+          get :receipt, "transactionId" => "abcd134"
+        end
+      end
+    end
+
+    should "assign transaction id for our model and put all data into raw_data" do
+      get :receipt, "transactionId" => "abcd134", "wtf" => "bbq"
+      new_payment = Payment.find_by_transaction_id("abcd134")
+      assert_not_nil new_payment
+      assert_equal({"transactionId" => "abcd134", "wtf" => "bbq"}, new_payment.raw_data)
+    end
+
     should "show a user their reciept if payment was successful" do
-      payment = Factory(:considering_payment, :purchaser => @user)
-      @controller.stubs(:fps_success?).returns(true)
-      get :receipt, :callerReference => payment.caller_reference
+      SignatureUtilsForOutbound.any_instance.expects(:validate_request).returns(true)
+      get :receipt, "transactionId" => "abcd134"
       assert_response :success
       assert_select "#receipt .price", :text => "$3"
       assert_select "#receipt .email", :text => @user.email
@@ -86,38 +45,42 @@ class PaymentsControllerTest < ActionController::TestCase
     end
 
     should "mark a payment as paid if the payment was successful" do
-      payment = Factory(:considering_payment)
-      @controller.stubs(:fps_success?).returns(true)
+      SignatureUtilsForOutbound.any_instance.expects(:validate_request).returns(true)
       frozen_time = freeze_time
-      get :receipt, :callerReference => payment.caller_reference
+      get :receipt, "transactionId" => "abcd134"
       assert_response :success
-      assert payment.reload.paid?
-      assert_equal frozen_time.to_i, payment.paid_at.to_i
+      new_payment = Payment.find_by_transaction_id("abcd134")
+      assert new_payment.paid?
+      assert_equal frozen_time.to_i, new_payment.paid_at.to_i
     end
     
     should "not mark a payment as paid if the payment wasn't successful" do
-      payment = Factory(:considering_payment)
-      @controller.stubs(:fps_success?).returns(false)
-      get :receipt, :callerReference => payment.caller_reference
+      SignatureUtilsForOutbound.any_instance.expects(:validate_request).returns(false)
+      get :receipt, "transactionId" => "abcd134"
       assert_response :success
       assert_template "sorry"
-      assert_false payment.reload.paid?
-      assert payment.failed?
+      new_payment = Payment.find_by_transaction_id("abcd134")
+      assert_false new_payment.reload.paid?
+      assert new_payment.failed?
     end
 
-    should "not call fps success again if the payment is failed" do
-      payment = Factory(:failed_payment)
-      @controller.stubs(:fps_success?).raises("WTF")
-      get :receipt, :callerReference => payment.caller_reference
+    should "not call SignatureUtilsForOutbound again if the payment is failed" do
+      payment = Factory(:failed_payment, :transaction_id => "12345", :purchaser => @user)
+      SignatureUtilsForOutbound.any_instance.expects(:validate_request).raises("WTF")
+      assert_no_difference "Payment.count" do
+        get :receipt, "transactionId" => "12345"
+      end
       assert_response :success
       assert_template "sorry"
       assert payment.reload.failed?
     end
 
-    should "not call fps success again if the payment is successful" do
-      payment = Factory(:paid_payment)
-      @controller.stubs(:fps_success?).raises("WTF")
-      get :receipt, :callerReference => payment.caller_reference
+    should "not call SignatureUtilsForOutbound if the payment is successful" do
+      payment = Factory(:paid_payment, :transaction_id => "12345", :purchaser => @user)
+      SignatureUtilsForOutbound.any_instance.expects(:validate_request).raises("WTF")
+      assert_no_difference "Payment.count" do
+        get :receipt, "transactionId" => "12345"
+      end
       assert_response :success
       assert payment.reload.paid?
     end

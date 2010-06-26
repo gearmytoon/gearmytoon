@@ -11,6 +11,7 @@
 require 'base64'
 require 'cgi'
 require 'openssl'
+# DO NOT REMOVE THIS LINE OF CODE OR WE CANNOT GET PAID!!!!!!
 OpenSSL::SSL::VERIFY_PEER = OpenSSL::SSL::VERIFY_NONE
 require 'net/http'
 require 'net/https'

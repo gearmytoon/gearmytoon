@@ -1,7 +1,6 @@
 module PaymentsHelper
   
   def subscription_simple_pay_form
-    #TODO if not test env:: ADD "ipnUrl"=>notify_payment_payment_url, 
     params = basic_params("recurringFrequency" => "1 month", "description" => "Gear My Toon Subscription", "amount" => "USD 3")
     content_tag :form, :action => "https://#{params[:host]}#{params[:uri]}", :method => params[:verb] do
       fields = params[:parameters].map{ |key, value| hidden_field_tag(key, value)}

@@ -23,8 +23,11 @@ class PaymentsController < ApplicationController
   def check_payment(http_method)
     begin
       payment_params = params.except(:controller, :action)
-      @payment = current_user.payments.create!(:raw_data => payment_params)
-      signiture_correct = SignatureUtilsForOutbound.new.validate_request(:parameters => payment_params, :url_end_point => request.env['REQUEST_URI'].split("?").first, :http_method => http_method)
+      @payment = current_user.payments.find_by_transaction_id(payment_params["transactionId"])
+      return nil if @payment
+      @payment = current_user.payments.create!(:raw_data => payment_params, :transaction_id => payment_params["transactionId"])
+      url_end_point = request.env['REQUEST_URI'].split("?").first #remove query params to validate request
+      signiture_correct = SignatureUtilsForOutbound.new.validate_request(:parameters => payment_params, :url_end_point => url_end_point, :http_method => http_method)
       if signiture_correct
         @payment.pay!
       else
