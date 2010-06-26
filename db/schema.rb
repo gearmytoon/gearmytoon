@@ -9,7 +9,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20100626221019) do
+ActiveRecord::Schema.define(:version => 20100626223517) do
 
   create_table "areas", :force => true do |t|
     t.string   "name"
@@ -125,13 +125,10 @@ ActiveRecord::Schema.define(:version => 20100626221019) do
   add_index "items", ["wowarmory_item_id"], :name => "index_items_on_wowarmory_item_id"
 
   create_table "payments", :force => true do |t|
-    t.string   "recipient_token"
-    t.string   "caller_reference"
     t.integer  "purchaser_id"
     t.string   "status"
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.string   "caller_token"
     t.datetime "paid_at"
     t.text     "raw_data"
     t.string   "transaction_id"

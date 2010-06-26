@@ -6,6 +6,7 @@ class PaymentsController < ApplicationController
 
   # amazon post to URL
   def notify_payment
+    #TODO: associate to the user
     check_payment("POST")
     render :text => "Thank you!"
   end

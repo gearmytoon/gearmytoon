@@ -160,9 +160,6 @@ Factory.define(:raid, :parent => :raid_10) do |model|
 end
 
 Factory.define(:considering_payment, :class => :payment) do |model|
-  model.recipient_token "recipient_token"
-  model.caller_reference "caller_reference"
-  model.caller_token "caller_token"
   model.association :purchaser, :factory => :user
 end
 Factory.define(:paid_payment, :parent => :considering_payment) do |model|
