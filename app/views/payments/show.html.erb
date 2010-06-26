@@ -11,13 +11,7 @@
       <td class="price">$1</td>
       <td class="time_frame">One Day</td>
       <td class="checkout">
-        <% render :layout => "simple_pay_form" do %>
-          <input type="hidden" name="signature" value="xCawlMvINGUQN4QFQWt8k1NL1bJ32P7FVErT0NBYkdA=" >
-          <input type="hidden" name="amount" value="USD 1" >
-          <input type="hidden" name="isDonationWidget" value="0" >
-          <input type="hidden" name="description" value="desc" >
-          <input type="image" src="http://g-ecx.images-amazon.com/images/G/01/asp/beige_small_paynow_withlogo_darkbg.gif" border="0">
-        <% end %>
+        <%= standard_simple_pay_form %>
       </td>
   </tr>
   <tr class="payment_plan">
@@ -26,13 +20,7 @@
       <td class="price">$3</td>
       <td class="time_frame">One Month</td>
       <td class="checkout">
-        <% render :layout => "simple_pay_form" do %>
-          <input type="hidden" name="signature" value="eMZBTvQ/mlsdktlNGNNnI3VDzLbMHliNE45voY6hnew=" >
-          <input type="hidden" name="amount" value="USD 1" >
-          <input type="hidden" name="recurringFrequency" value="1 month" >
-          <input type="hidden" name="description" value="desc" >
-          <input type="image" src="http://g-ecx.images-amazon.com/images/G/01/asp/beige_small_subscribe_withlogo_darkbg.gif" border="0">
-        <% end %>
+        <%= subscription_simple_pay_form %>
       </td>
   </tr>
 </table>

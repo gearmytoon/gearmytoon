@@ -6,14 +6,13 @@ class PaymentsController < ApplicationController
 
   # amazon post to URL
   def notify_payment
-    handle_payment("POST")
+    check_payment("POST")
     render :text => "Thank you!"
   end
 
   # Users redirect to URL
   def receipt
-    #check payment
-    handle_payment("GET")
+    check_payment("GET")
     if @payment.failed?
       flash.now[:error] = "We are sorry, we were not able to verify your payment from Amazon.com"
       render "sorry"
@@ -21,10 +20,11 @@ class PaymentsController < ApplicationController
   end
 
   private
-  def handle_payment(http_method)
+  def check_payment(http_method)
     begin
-      @payment = current_user.payments.create!(:raw_data => params)
-      signiture_correct = SignatureUtilsForOutbound.new.validate_request(:parameters => params, :url_end_point => @request.request_uri, :http_method => http_method)
+      payment_params = params.except(:controller, :action)
+      @payment = current_user.payments.create!(:raw_data => payment_params)
+      signiture_correct = SignatureUtilsForOutbound.new.validate_request(:parameters => payment_params, :url_end_point => request.env['REQUEST_URI'].split("?").first, :http_method => http_method)
       if signiture_correct
         @payment.pay!
       else

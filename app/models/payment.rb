@@ -18,5 +18,4 @@ class Payment < ActiveRecord::Base
     (paid_at + 1.month)
   end
 
-  attr_accessible :recipient_token, :caller_reference, :caller_token
 end

@@ -11,6 +11,7 @@
 require 'base64'
 require 'cgi'
 require 'openssl'
+OpenSSL::SSL::VERIFY_PEER = OpenSSL::SSL::VERIFY_NONE
 require 'net/http'
 require 'net/https'
 
@@ -66,9 +67,8 @@ class SignatureUtilsForOutbound
     parameters = args[:parameters]
 
     http_method = (args[:http_method]).upcase
-
     url = URI.parse(args[:url_end_point])
-
+    
     host = url.host.downcase
     host = (host + ":" + url.port.to_s) unless (url.port.nil? \
             or (url.port == 443 and url.scheme == 'https') \
