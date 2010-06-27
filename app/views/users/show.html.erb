@@ -40,7 +40,7 @@
       </p>
       <br />
       <p>
-        Your account will be billed again in <strong id="days_until_billing"><%= time_ago_in_words(@user.active_payment.time_remaining) %></strong>
+        Your account will be billed again in <strong id="days_until_billing"><%= time_ago_in_words(@user.active_payment.paid_until) %></strong>
       </p>
       <br />
       <p><%= link_to "Payment History", payment_receipts_path %></p>

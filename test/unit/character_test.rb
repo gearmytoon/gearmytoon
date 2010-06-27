@@ -300,6 +300,7 @@ class CharacterTest < ActiveSupport::TestCase
       assert_equal [purchaser], character.subscribers
       assert_false character.paid?
     end
+
     should "know if the character is subscribed to by a free access account" do
       free_access_user = Factory(:free_access_user)
       character = Factory(:user_character, :subscriber => free_access_user).character
@@ -377,6 +378,30 @@ class CharacterTest < ActiveSupport::TestCase
       best_gem = Factory(:orange_gem, :bonuses => {:agility => 11, :crit => 11})
       assert_equal best_gem, character.find_best_gem("Any",{}, false)
     end
+  end
+  
+  context "paid?" do
+    should "know if a account has lapsed payment" do
+      purchaser = Factory(:user)
+      Factory(:paid_payment, :purchaser => purchaser).update_attribute(:paid_until, 1.day.ago)
+      character = Factory(:user_character, :subscriber => purchaser).character
+      assert_false character.paid?
+    end
+
+    should "know if a account is activily paying" do
+      purchaser = Factory(:user)
+      Factory(:paid_payment, :purchaser => purchaser)
+      character = Factory(:user_character, :subscriber => purchaser).character
+      assert character.paid?
+    end
+
+    should "know if a account is not activily paying" do
+      purchaser = Factory(:user)
+      Factory(:considering_payment, :purchaser => purchaser)
+      character = Factory(:user_character, :subscriber => purchaser).character
+      assert_false character.paid?
+    end
+    
   end
 
 end

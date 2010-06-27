@@ -46,6 +46,36 @@ class PaymentsControllerTest < ActionController::TestCase
       @user = Factory(:user)
     end
 
+    should "know if the payment is a recurring plan" do
+      get :receipt, "transactionId" => "abcd134", "status" => "SS", "recurringFrequency" => "1 month"
+      new_payment = Payment.find_by_transaction_id("abcd134")
+      assert_equal Payment::RECURRING, new_payment.plan_type
+    end
+
+    should "set the expiry date to a month from now if recurring" do
+      get :receipt, "transactionId" => "abcd134", "status" => "SS", "recurringFrequency" => "1 month"
+      new_payment = Payment.find_by_transaction_id("abcd134")
+      assert_equal Payment::RECURRING, new_payment.plan_type
+    end
+
+    should "set the expiry date to a month from now if recurring" do
+      SignatureUtilsForOutbound.any_instance.expects(:validate_request).returns(true)
+      freeze_time
+      get :receipt, "transactionId" => "abcd134", "status" => "SS", "recurringFrequency" => "1 month"
+      new_payment = Payment.find_by_transaction_id("abcd134")
+      assert new_payment.paid?
+      assert_equal (1.month + 5.days).from_now.to_i, new_payment.paid_until.to_i
+    end
+
+    should "set the expiry date to a day from now if not recurring" do
+      SignatureUtilsForOutbound.any_instance.expects(:validate_request).returns(true)
+      freeze_time
+      get :receipt, "transactionId" => "abcd134", "status" => "SS"
+      new_payment = Payment.find_by_transaction_id("abcd134")
+      assert new_payment.paid?
+      assert_equal (1.day + 5.hours).from_now.to_i, new_payment.paid_until.to_i
+    end
+
     should "create a payment model for the current user" do
       assert_difference "@user.reload.payments.count" do
         assert_difference "Payment.count" do
@@ -73,12 +103,10 @@ class PaymentsControllerTest < ActionController::TestCase
 
     should "mark a payment as paid if the payment was successful" do
       SignatureUtilsForOutbound.any_instance.expects(:validate_request).returns(true)
-      frozen_time = freeze_time
       get :receipt, "transactionId" => "abcd134", "status" => "SS"
       assert_response :success
       new_payment = Payment.find_by_transaction_id("abcd134")
       assert new_payment.paid?
-      assert_equal frozen_time.to_i, new_payment.paid_at.to_i
     end
     
     should "not mark a payment as paid if request is not valid" do

@@ -9,7 +9,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20100626223517) do
+ActiveRecord::Schema.define(:version => 20100627061800) do
 
   create_table "areas", :force => true do |t|
     t.string   "name"
@@ -129,9 +129,10 @@ ActiveRecord::Schema.define(:version => 20100626223517) do
     t.string   "status"
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.datetime "paid_at"
     t.text     "raw_data"
     t.string   "transaction_id"
+    t.datetime "paid_until"
+    t.string   "plan_type"
   end
 
   add_index "payments", ["transaction_id"], :name => "index_payments_on_transaction_id"

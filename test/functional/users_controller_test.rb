@@ -31,7 +31,7 @@ class UsersControllerTest < ActionController::TestCase
       freeze_time
       user = Factory(:user)
       payment = Factory(:paid_payment, :purchaser => user)
-      payment.update_attribute(:paid_at, 1.month.ago + 1.day)
+      payment.update_attribute(:paid_until, 1.day.from_now)
       get :show
       assert_select "#days_until_billing", :text => "1 day"
       assert_select "#current_payment_plan", :text => "5 toons"
@@ -41,7 +41,7 @@ class UsersControllerTest < ActionController::TestCase
       activate_authlogic
       user = Factory(:user)
       payment = Factory(:paid_payment, :purchaser => user)
-      payment.update_attribute(:paid_at, 45.days.ago)
+      payment.update_attribute(:paid_until, 1.day.ago)
       get :show
       assert_select "#days_until_billing", :count => 0
       assert_select "#current_payment_plan", :text => "None"

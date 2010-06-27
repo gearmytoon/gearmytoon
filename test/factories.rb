@@ -160,6 +160,7 @@ Factory.define(:raid, :parent => :raid_10) do |model|
 end
 
 Factory.define(:considering_payment, :class => :payment) do |model|
+  model.raw_data({"something" => "true"})
   model.association :purchaser, :factory => :user
 end
 Factory.define(:paid_payment, :parent => :considering_payment) do |model|
