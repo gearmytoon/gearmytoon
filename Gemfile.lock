@@ -74,8 +74,6 @@ specs:
     version: 2.1.7
 - shoulda: 
     version: 2.10.2
-- simplepay: 
-    version: 0.2.2
 - sqlite3-ruby: 
     version: 1.3.0
 - tzinfo: 
@@ -91,7 +89,7 @@ specs:
 - wowr: 
     version: 0.5.4
     source: 0
-hash: 492b8ac78facf532fe2887713de4c9036fcaae67
+hash: 9bbac91bc8bf32580dfeb0a8b36c4a62f055eb42
 sources: 
 - Git: 
     uri: http://github.com/scudco/wowr.git
@@ -117,20 +115,12 @@ dependencies:
     version: = 2.1.0
     group: 
     - :deploy
-  wowr: 
-    version: ">= 0"
-    group: 
-    - :default
   rails: 
     version: ~> 2.3.8
     group: 
     - :default
-  tzinfo: 
-    version: = 0.3.20
-    group: 
-    - :default
-  mysql: 
-    version: = 2.8.1
+  wowr: 
+    version: ">= 0"
     group: 
     - :default
   ruby-openid: 
@@ -139,18 +129,26 @@ dependencies:
     - openid
     group: 
     - :default
-  newrelic_rpm: 
-    version: ">= 0"
-    require: []
-
+  mysql: 
+    version: = 2.8.1
+    group: 
+    - :default
+  tzinfo: 
+    version: = 0.3.20
+    group: 
+    - :default
+  acts_as_state_machine: 
+    version: = 2.2.0
     group: 
     - :default
   mechanize: 
     version: = 0.9.3
     group: 
     - :default
-  acts_as_state_machine: 
-    version: = 2.2.0
+  newrelic_rpm: 
+    version: ">= 0"
+    require: []
+
     group: 
     - :default
   shoulda: 
@@ -161,24 +159,20 @@ dependencies:
     version: = 0.9.8
     group: 
     - :test
-  friendly_id: 
-    version: ~> 2.3
-    group: 
-    - :default
-  authlogic: 
-    version: = 2.1.3
+  macaddr: 
+    version: = 1.0.0
     group: 
     - :default
   will_paginate: 
     version: = 2.3.14
     group: 
     - :default
-  macaddr: 
-    version: = 1.0.0
+  authlogic: 
+    version: = 2.1.3
     group: 
     - :default
-  simplepay: 
-    version: = 0.2.2
+  friendly_id: 
+    version: ~> 2.3
     group: 
     - :default
   rack-cache: 
@@ -187,12 +181,12 @@ dependencies:
     - rack/cache
     group: 
     - :development
-  uuid: 
-    version: = 2.3.0
-    group: 
-    - :default
   resque: 
     version: = 1.8.5
+    group: 
+    - :default
+  uuid: 
+    version: = 2.3.0
     group: 
     - :default
   rpx_now: 
@@ -207,11 +201,11 @@ dependencies:
     version: = 2.0.0
     group: 
     - :deploy
-  i18n: 
-    version: = 0.3.7
-    group: 
-    - :default
   hoptoad_notifier: 
     version: ">= 0"
+    group: 
+    - :default
+  i18n: 
+    version: = 0.3.7
     group: 
     - :default

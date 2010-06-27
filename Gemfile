@@ -18,7 +18,6 @@ gem "macaddr", "1.0.0"
 gem "newrelic_rpm", :require => false
 gem "hoptoad_notifier"
 gem "i18n", "0.3.7"
-gem "simplepay", "0.2.2"
 
 group :development do
   gem "rack-cache", "0.5.2", :require => 'rack/cache'

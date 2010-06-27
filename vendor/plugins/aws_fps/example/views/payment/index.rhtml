@@ -1,8 +1,0 @@
-<h1>Check Out</h1>
-
-<form name="DirectToPipeline" method="POST" action="/payment/amazon_pipeline">
-	<input type="hidden" name="CallerTokenId" value="<%= @caller_token %>"/>
-	<input type="hidden" name="RecipientTokenId" value="<%= @recipient_token %>"/>
-	<p><strong>Enter the amount to pay here:</strong> <input type="text" size="2" name="Amount" value="1"/> <strong>USD (monthly)</strong></p>
-	<p><input type="submit" value="Check Out"></p>
-</form>
