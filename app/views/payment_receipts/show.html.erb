@@ -6,8 +6,8 @@
   </tr>
   <% @payments.each do |payment| %>
     <tr class="payment_receipt">
-      <td class="plan">Personal</td>
-      <td class="amount">$3</td>
+      <td class="plan"><%= payment.plan_type.camelize %></td>
+      <td class="amount">$<%= payment.paid_amount %></td>
       <td class="paid_at"><%= payment.updated_at.to_date.to_s(:long) %></td>
     </tr>
   <% end %>

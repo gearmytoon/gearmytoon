@@ -17,6 +17,18 @@ class PaymentReceiptsControllerTest < ActionController::TestCase
       assert_select ".payment_receipt", :count => 2
     end
 
+    should "correct pricing for short term payments" do
+      activate_authlogic
+      user = Factory(:user)
+      frozen_time = freeze_time
+      payment = Factory(:one_time_paid_payment, :purchaser => user)
+      get :show
+      assert_response :success
+      assert_select ".payment_receipt .plan", :text => "Trial"
+      assert_select ".payment_receipt .amount", :text => "$1"
+      assert_select ".payment_receipt .paid_at", :text => frozen_time.to_date.to_s(:long)
+    end
+
     should "show payment receipt details" do
       activate_authlogic
       @user = Factory(:user)
@@ -24,7 +36,7 @@ class PaymentReceiptsControllerTest < ActionController::TestCase
       payment = Factory(:paid_payment, :purchaser => @user)
       get :show
       assert_response :success
-      assert_select ".payment_receipt .plan", :text => "Personal"
+      assert_select ".payment_receipt .plan", :text => "Recurring"
       assert_select ".payment_receipt .amount", :text => "$3"
       assert_select ".payment_receipt .paid_at", :text => frozen_time.to_date.to_s(:long)
     end

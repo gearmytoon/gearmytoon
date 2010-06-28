@@ -25,6 +25,17 @@ class UsersControllerTest < ActionController::TestCase
       get :show
       assert_select ".character", :count => 1
     end
+    
+    should "not show days until billing if the account is not recurring" do
+      activate_authlogic
+      freeze_time
+      user = Factory(:user)
+      payment = Factory(:one_time_paid_payment, :purchaser => user)
+      get :show
+      assert_select "#days_until_billing", :count => 0
+      assert_select "#time_remaining", :text => "1 day"
+      assert_select "#current_payment_plan", :text => "5 toons"
+    end
 
     should "show how much longer a users account is active for" do
       activate_authlogic
