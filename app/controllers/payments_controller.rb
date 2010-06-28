@@ -31,12 +31,7 @@ class PaymentsController < ApplicationController
       return nil if @payment
       @payment = user.payments.create!(:raw_data => payment_params, :transaction_id => payment_params["transactionId"])
       url_end_point = ("http://" + DOMAIN_NAMES[RAILS_ENV] + request.request_uri).split('?').first
-      signiture_correct = SignatureUtilsForOutbound.new.validate_request(:parameters => payment_params, :url_end_point => url_end_point, :http_method => http_method)
-      if signiture_correct && successful_transaction?(params["status"])
-        @payment.pay!
-      else
-        @payment.fail!
-      end
+      @payment.validate_payment(url_end_point, http_method)
     rescue Exception => ex
       logger.error "a problem occured when processing a payment: #{ex.message} \n #{ex.backtrace}"
       @payment.fail!

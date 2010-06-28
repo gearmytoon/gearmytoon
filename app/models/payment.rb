@@ -18,6 +18,15 @@ class Payment < ActiveRecord::Base
     transitions :to => :failed, :from => :considering_payment
   end
 
+  def validate_payment(url_end_point, http_method)
+    signiture_correct = SignatureUtilsForOutbound.new.validate_request(:parameters => raw_data, :url_end_point => url_end_point, :http_method => http_method)
+    if signiture_correct && successful_transaction?(params["status"])
+      @payment.pay!
+    else
+      @payment.fail!
+    end
+  end
+
   def recurring?
     self.plan_type == RECURRING
   end
