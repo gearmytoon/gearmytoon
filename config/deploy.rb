@@ -1,7 +1,7 @@
 set :application, "project"
 set :domain, "deploy@gearmytoon.com"
 set :deploy_to, "/var/www/gearmytoon.com/"
-set :repository, 'git@github.com:nolman/gearmytoon.git'
+set :repository, 'git@github.com:gearmytoon/gearmytoon.git'
 set :revision, 'master' # git branch to deploy
 set :web_command, 'sudo service nginx' # command to start/stop nginx
 
