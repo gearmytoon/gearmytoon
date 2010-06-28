@@ -1,7 +1,7 @@
 class PaymentsController < ApplicationController
   before_filter :require_user, :except => [:notify_payment]
   protect_from_forgery :except => :notify_payment
-
+  DOMAIN_NAMES = {"development" => "localhost:3000", "production" =>  "www.gearmytoon.com", "test" => "localhost:3000"}
   def show
     @current_user = current_user
   end
@@ -30,9 +30,7 @@ class PaymentsController < ApplicationController
       @payment = user.payments.find_by_transaction_id(payment_params["transactionId"])
       return nil if @payment
       @payment = user.payments.create!(:raw_data => payment_params, :transaction_id => payment_params["transactionId"])
-      url_end_point = request.env['REQUEST_URI'].split("?").first #remove query params to validate request
-      logger.error "url end point: #{url_end_point}"
-      logger.error request.inspect
+      url_end_point = ("http://" + DOMAIN_NAMES[RAILS_ENV] + request.request_uri).split('?').first
       signiture_correct = SignatureUtilsForOutbound.new.validate_request(:parameters => payment_params, :url_end_point => url_end_point, :http_method => http_method)
       if signiture_correct && successful_transaction?(params["status"])
         @payment.pay!
