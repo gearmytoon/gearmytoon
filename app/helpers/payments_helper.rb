@@ -26,7 +26,9 @@ module PaymentsHelper
   
   def basic_params(reference_id, payment_params)
     #TODO if not test env:: ADD "ipnUrl"=>notify_payment_payment_url, 
-    params = {:host=>"authorize.payments-sandbox.amazon.com", :verb=>"POST", :algorithm=>"HmacSHA1", 
+    payment_params.merge!("ipnUrl" => notify_payment_payment_url) if(RAILS_ENV=="production")
+    host = RAILS_ENV=="production" ? "authorize.payments.amazon.com" : "authorize.payments-sandbox.amazon.com"
+    params = {:host=>host, :verb=>"POST", :algorithm=>"HmacSHA1", 
       :uri=>"/pba/paypipeline", 
       :parameters=>{"returnUrl"=>receipt_payment_url, "collectShippingAddress" => "0", "referenceId" => reference_id,
         "cobrandingStyle"=>"logo", "signatureVersion"=>"2", "abandonUrl"=>payment_url, "immediateReturn"=>"1", 
