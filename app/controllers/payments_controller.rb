@@ -31,6 +31,8 @@ class PaymentsController < ApplicationController
       return nil if @payment
       @payment = user.payments.create!(:raw_data => payment_params, :transaction_id => payment_params["transactionId"])
       url_end_point = request.env['REQUEST_URI'].split("?").first #remove query params to validate request
+      logger.error "url end point: #{url_end_point}"
+      logger.error request.inspect
       signiture_correct = SignatureUtilsForOutbound.new.validate_request(:parameters => payment_params, :url_end_point => url_end_point, :http_method => http_method)
       if signiture_correct && successful_transaction?(params["status"])
         @payment.pay!
