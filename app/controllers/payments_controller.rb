@@ -28,8 +28,11 @@ class PaymentsController < ApplicationController
     begin
       payment_params = params.except(:controller, :action)
       @payment = user.payments.find_by_transaction_id(payment_params["transactionId"])
-      return nil if @payment
-      @payment = user.payments.create!(:raw_data => payment_params, :transaction_id => payment_params["transactionId"])
+      if @payment
+        @payment.update_attributes(:raw_data => payment_params)
+      else
+        @payment = user.payments.create!(:raw_data => payment_params, :transaction_id => payment_params["transactionId"])
+      end
       url_end_point = ("http://" + DOMAIN_NAMES[RAILS_ENV] + request.request_uri).split('?').first
       @payment.validate_payment(url_end_point, http_method)
     rescue Exception => ex

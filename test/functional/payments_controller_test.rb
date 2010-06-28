@@ -14,6 +14,23 @@ class PaymentsControllerTest < ActionController::TestCase
   end
 
   context "post notify_payment" do
+    should "be able to go from unpaid payment to a paid payment" do
+      user = Factory(:user)
+      SignatureUtilsForOutbound.any_instance.expects(:validate_request).returns(false)
+      assert_difference "user.reload.payments.count" do
+        post :notify_payment, "buyerName"=>"Nolan L Evans", "paymentReason"=>"Gear My Toon Subscription", "signatureVersion"=>"2", "transactionDate"=>"1277706718", "action"=>"notify_payment", "transactionAmount"=>"USD 3.00", "signature"=>"xpcwXOxkYZf+V7FpwnsUValQe7WL16iv8A+VxpQaVV4VKG0zRDVbYMhsnTfkmdL7jn2Kx5UCxlOu\nervi2aTIAOVWjutdCzTKDwImx/2TBteqLvbY4Ks4JqPvI/+NbdQ+VZjzrbsvPRaFj26oOTXzSwzm\nYt6yMSY1ns+viAiOXuZ74dsO3LfQu9bl5Vdu1KiBfotlCHNmDqMfu/ZVgE5gDFyibKfcxhd10sjM\n5LmDb8N/pEt13KCPVlZCAeJeH13CteNmS1qfT2iJDzA0SqeZCM2ns/ZAVBT4qlX2rhiPtkTWVR1Q\nGWPRcHMpw0MoxE+IQruEF96cEaTFotxIuIsCjA==", "subscriptionId"=>"ef2bb4d0-5916-4d3a-8789-1cf0c128ea24", "recipientName"=>"GearMyToon", "certificateUrl"=>"https://fps.amazonaws.com/certs/090909/PKICert.pem", "transactionId"=>"155UK2J9LK8JJGLKEEDTNVM7D1DUNCVRANK", "signatureMethod"=>"RSA-SHA1", "recipientEmail"=>"gearmytoon@gmail.com", "transactionSerialNumber"=>"1", "controller"=>"payments", "referenceId"=>"#{user.id}-1277706695", "status"=>"PI", "buyerEmail"=>"nolane@gmail.com", "operation"=>"pay", "paymentMethod"=>"CC"
+      end
+      assert_equal "155UK2J9LK8JJGLKEEDTNVM7D1DUNCVRANK", user.reload.payments.last.transaction_id
+      assert_equal "failed", user.reload.payments.last.status
+      SignatureUtilsForOutbound.any_instance.expects(:validate_request).returns(true)
+      assert_no_difference "user.reload.payments.count" do
+        post :notify_payment, "recurringFrequency"=>"1 month", "buyerName"=>"Nolan L Evans", "paymentReason"=>"Gear My Toon Subscription", "signatureVersion"=>"2", "transactionDate"=>"1277706717", "action"=>"receipt", "transactionAmount"=>"USD 3", "signature"=>"kq73YRLowJioGDxLrPdzUn8Lks/AeDCEHlOvNvlWnFE8/n3j6VPpqdPzg+fi0HGXT8yNWb9VHf+q\nCJT2By2ys2/zO2h5mGIW8Zzwig1lJdXWNvGNWiGuzEBYt7qr3Nnp8cvqpJx7NVUB5pv24t/iXeBC\n2WK0bLSXKZtKpSz/gpC0VQoU/JxXwE7j+SG4zt5WHBMKG6NoberqdYOOKmjT/t1V5Bl1HCXyxV4p\ng+On4Wxi9eohXn0bFNEEHi40l4wlZtZVqQ5rD9F1Bsl6KBSi5FAGEdUJMMpGdcp6dkLsWzZM0ve5\nnUalz0WMX8+aAC7RrkVWg0AA80GCv4/l8Iu9pA==", "subscriptionId"=>"ef2bb4d0-5916-4d3a-8789-1cf0c128ea24", "recipientName"=>"GearMyToon", "certificateUrl"=>"https://fps.amazonaws.com/certs/090909/PKICert.pem", "transactionId"=>"155UK2J9LK8JJGLKEEDTNVM7D1DUNCVRANK", "signatureMethod"=>"RSA-SHA1", "recipientEmail"=>"gearmytoon@gmail.com", "transactionSerialNumber"=>"1", "controller"=>"payments", "referenceId"=>"#{user.id}-1277706695", "status"=>"SS", "buyerEmail"=>"nolane@gmail.com", "operation"=>"pay", "paymentMethod"=>"Credit Card"
+      end
+      assert_equal "paid", user.reload.payments.last.status
+      assert_equal "SS", user.reload.payments.last.raw_data['status']
+      assert user.reload.payments.last.recurring?
+    end
+    
     should "infer user from referenceId" do
       user = Factory(:user)
       assert_difference "user.reload.payments.count" do
@@ -47,7 +64,7 @@ class PaymentsControllerTest < ActionController::TestCase
     end
 
     should "know if the payment is a recurring plan" do
-      get :receipt, "transactionId" => "abcd134", "status" => "SS", "recurringFrequency" => "1 month"
+      get :receipt, "transactionId" => "abcd134", "status" => "SS", "subscriptionId" => "1234"
       new_payment = Payment.find_by_transaction_id("abcd134")
       assert_equal Payment::RECURRING, new_payment.plan_type
     end
@@ -61,7 +78,7 @@ class PaymentsControllerTest < ActionController::TestCase
     should "set the expiry date to a month from now if recurring" do
       SignatureUtilsForOutbound.any_instance.expects(:validate_request).returns(true)
       freeze_time
-      get :receipt, "transactionId" => "abcd134", "status" => "SS", "recurringFrequency" => "1 month"
+      get :receipt, "transactionId" => "abcd134", "status" => "SS", "subscriptionId" => "1234"
       new_payment = Payment.find_by_transaction_id("abcd134")
       assert new_payment.paid?
       assert_equal (1.month + 5.days).from_now.to_i, new_payment.paid_until.to_i

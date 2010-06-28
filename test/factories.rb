@@ -160,7 +160,7 @@ Factory.define(:raid, :parent => :raid_10) do |model|
 end
 
 Factory.define(:considering_payment, :class => :payment) do |model|
-  model.raw_data({"something" => "true", "recurringFrequency" => "1 month","transactionAmount" => "USD 3"})
+  model.raw_data({"something" => "true", "recurringFrequency" => "1 month","transactionAmount" => "USD 3", "subscriptionId" => "1234"})
   model.association :purchaser, :factory => :user
 end
 

@@ -4,7 +4,7 @@ class Payment < ActiveRecord::Base
   belongs_to :purchaser, :class_name => "User"
   acts_as_state_machine :initial => :considering_payment, :column => "status"
   named_scope :paid, :conditions => {:status => "paid"}
-  before_create :determine_plan_type
+  before_save :determine_plan_type
   
   serialize :raw_data
   state :considering_payment
@@ -12,7 +12,7 @@ class Payment < ActiveRecord::Base
   state :failed
 
   event :pay do
-    transitions :to => :paid, :from => :considering_payment
+    transitions :to => :paid, :from => [:considering_payment, :failed]
   end
   event :fail do
     transitions :to => :failed, :from => :considering_payment
@@ -20,6 +20,7 @@ class Payment < ActiveRecord::Base
 
   def validate_payment(url_end_point, http_method)
     signiture_correct = SignatureUtilsForOutbound.new.validate_request(:parameters => raw_data, :url_end_point => url_end_point, :http_method => http_method)
+    logger.error "signiture_correct: #{signiture_correct} for transaction: #{self.transaction_id}"
     if signiture_correct && successful_transaction?(raw_data["status"])
       self.pay!
     else
@@ -42,7 +43,7 @@ class Payment < ActiveRecord::Base
   end
   
   def determine_plan_type
-    self.plan_type = raw_data.include?("recurringFrequency") ? RECURRING : TRIAL
+    self.plan_type = raw_data.include?("subscriptionId") ? RECURRING : TRIAL
   end
   
   def paid_amount
