@@ -8,9 +8,15 @@ class PaymentsController < ApplicationController
 
   # amazon post to URL
   def notify_payment
-    user = User.find(params['referenceId'].split("-").first)
-    check_payment("POST", user)
-    render :text => "Thank you!"
+    begin
+      user = User.find(params['referenceId'].split("-").first)
+      check_payment("POST", user)
+      render :text => "Thank you!"
+    rescue Exception => ex
+      logger.error "params: #{params.inspect}"
+      logger.error "a problem occured when processing a payment: #{ex.message} \n #{ex.backtrace}"
+      render :text => "A problem occured"
+    end
   end
 
   # Users redirect to URL

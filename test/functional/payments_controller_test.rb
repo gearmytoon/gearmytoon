@@ -30,6 +30,13 @@ class PaymentsControllerTest < ActionController::TestCase
       assert_equal "SS", user.reload.payments.last.raw_data['status']
       assert user.reload.payments.last.recurring?
     end
+
+    should "handle errors gracefully" do
+      assert_no_difference "Payment.count" do
+        post :notify_payment, "transactionId" => '123', "referenceId" => "123124124-some_timestamp", "status" => "SS"
+        assert_response :success
+      end
+    end
     
     should "infer user from referenceId" do
       user = Factory(:user)
@@ -78,7 +85,7 @@ class PaymentsControllerTest < ActionController::TestCase
     should "set the expiry date to a month from now if recurring" do
       SignatureUtilsForOutbound.any_instance.expects(:validate_request).returns(true)
       freeze_time
-      get :receipt, "transactionId" => "abcd134", "status" => "SS", "subscriptionId" => "1234"
+      get :receipt, "transactionId" => "abcd134", "status" => "SS", "subscriptionId" => "1234", "transactionAmount" => "USD 3"
       new_payment = Payment.find_by_transaction_id("abcd134")
       assert new_payment.paid?
       assert_equal (1.month + 5.days).from_now.to_i, new_payment.paid_until.to_i
@@ -87,7 +94,7 @@ class PaymentsControllerTest < ActionController::TestCase
     should "set the expiry date to a day from now if not recurring" do
       SignatureUtilsForOutbound.any_instance.expects(:validate_request).returns(true)
       freeze_time
-      get :receipt, "transactionId" => "abcd134", "status" => "SS"
+      get :receipt, "transactionId" => "abcd134", "status" => "SS", "transactionAmount" => "USD 3"
       new_payment = Payment.find_by_transaction_id("abcd134")
       assert new_payment.paid?
       assert_equal (1.day + 5.hours).from_now.to_i, new_payment.paid_until.to_i
@@ -110,17 +117,17 @@ class PaymentsControllerTest < ActionController::TestCase
 
     should "show a user their reciept if payment was successful" do
       SignatureUtilsForOutbound.any_instance.expects(:validate_request).returns(true)
-      get :receipt, "transactionId" => "abcd134", "status" => "SS"
+      get :receipt, "transactionId" => "abcd134", "status" => "SS", "transactionAmount" => "USD 4"
       assert_response :success
-      assert_select "#receipt .price", :text => "$3"
+      assert_select "#receipt .price", :text => "4"
       assert_select "#receipt .email", :text => @user.email
       assert_select "#receipt .number_of_toons", :text => "5"
-      assert_select "#receipt .plan", :text => "Personal"
+      assert_select "#receipt .plan", :text => "Trial"
     end
 
     should "mark a payment as paid if the payment was successful" do
       SignatureUtilsForOutbound.any_instance.expects(:validate_request).returns(true)
-      get :receipt, "transactionId" => "abcd134", "status" => "SS"
+      get :receipt, "transactionId" => "abcd134", "status" => "SS", "transactionAmount" => "USD 3"
       assert_response :success
       new_payment = Payment.find_by_transaction_id("abcd134")
       assert new_payment.paid?
@@ -128,7 +135,7 @@ class PaymentsControllerTest < ActionController::TestCase
     
     should "not mark a payment as paid if request is not valid" do
       SignatureUtilsForOutbound.any_instance.expects(:validate_request).returns(false)
-      get :receipt, "transactionId" => "abcd134", "status" => "SS"
+      get :receipt, "transactionId" => "abcd134", "status" => "SS", "transactionAmount" => "USD 3"
       assert_response :success
       assert_template "sorry"
       new_payment = Payment.find_by_transaction_id("abcd134")
@@ -141,7 +148,7 @@ class PaymentsControllerTest < ActionController::TestCase
       valid_status_codes.each_with_index do |valid_status_code, index|
         SignatureUtilsForOutbound.any_instance.expects(:validate_request).returns(true)
         transaction_id = "#{index}-foo"
-        get :receipt, "transactionId" => transaction_id, "status" => valid_status_code
+        get :receipt, "transactionId" => transaction_id, "status" => valid_status_code, "transactionAmount" => "USD 3"
         assert_response :success
         assert Payment.find_by_transaction_id(transaction_id).paid?
       end
@@ -152,7 +159,7 @@ class PaymentsControllerTest < ActionController::TestCase
       invalid_status_codes.each_with_index do |invalid_status_code, index|
         SignatureUtilsForOutbound.any_instance.expects(:validate_request).returns(true)
         transaction_id = "#{index}-foo"
-        get :receipt, "transactionId" => transaction_id, "status" => invalid_status_code
+        get :receipt, "transactionId" => transaction_id, "status" => invalid_status_code, "transactionAmount" => "USD 3"
         assert_response :success
         assert Payment.find_by_transaction_id(transaction_id).failed?
       end
@@ -173,7 +180,7 @@ class PaymentsControllerTest < ActionController::TestCase
       payment = Factory(:paid_payment, :transaction_id => "12345", :purchaser => @user)
       SignatureUtilsForOutbound.any_instance.expects(:validate_request).raises("WTF")
       assert_no_difference "Payment.count" do
-        get :receipt, "transactionId" => "12345", "status" => "SS"
+        get :receipt, "transactionId" => "12345", "status" => "SS", "transactionAmount" => "USD 3"
       end
       assert_response :success
       assert payment.reload.paid?
