@@ -1,7 +1,7 @@
 class PaymentsController < ApplicationController
   before_filter :require_user, :except => [:notify_payment]
   protect_from_forgery :except => :notify_payment
-  DOMAIN_NAMES = {"development" => "localhost:3000", "production" =>  "www.gearmytoon.com", "test" => "localhost:3000"}
+  DOMAIN_NAMES = {"development" => "localhost:3000", "production" =>  "gearmytoon.com", "test" => "localhost:3000"}
   def show
     @current_user = current_user
   end
@@ -37,10 +37,5 @@ class PaymentsController < ApplicationController
       @payment.fail!
     end
   end
-  
-  def successful_transaction?(status_code)
-    amazon_success_codes = ["PS", "SS", "US", "SI", "PI", "PR"]
-    amazon_success_codes.include?(status_code)
-  end
-  
+
 end

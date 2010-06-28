@@ -27,6 +27,11 @@ class Payment < ActiveRecord::Base
     end
   end
 
+  def successful_transaction?(status_code)
+    amazon_success_codes = ["PS", "SS", "US", "SI", "PI", "PR"]
+    amazon_success_codes.include?(status_code)
+  end
+
   def recurring?
     self.plan_type == RECURRING
   end
