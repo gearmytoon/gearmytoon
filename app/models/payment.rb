@@ -20,7 +20,7 @@ class Payment < ActiveRecord::Base
 
   def validate_payment(url_end_point, http_method)
     signiture_correct = SignatureUtilsForOutbound.new.validate_request(:parameters => raw_data, :url_end_point => url_end_point, :http_method => http_method)
-    if signiture_correct && successful_transaction?(params["status"])
+    if signiture_correct && successful_transaction?(raw_data["status"])
       self.pay!
     else
       self.fail!
