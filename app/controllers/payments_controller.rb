@@ -1,5 +1,6 @@
 class PaymentsController < ApplicationController
   before_filter :require_user, :except => [:notify_payment]
+  protect_from_forgery :except => :notify_payment
 
   def show
     @current_user = current_user
