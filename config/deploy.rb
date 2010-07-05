@@ -1,5 +1,5 @@
 set :application, "project"
-set :domain, "deploy@gearmytoon.com"
+set :domain, "deploy@ec2-184-72-12-13.us-west-1.compute.amazonaws.com"
 set :deploy_to, "/var/www/gearmytoon.com/"
 set :repository, 'git@github.com:gearmytoon/gearmytoon.git'
 set :revision, 'master' # git branch to deploy
@@ -20,7 +20,6 @@ namespace :vlad do
     vlad:bundle:install
     vlad:migrate
     vlad:start
-    vlad:resque:restart
     vlad:notify_hoptoad
   ]
 
