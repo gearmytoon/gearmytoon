@@ -20,6 +20,7 @@ namespace :vlad do
     vlad:bundle:install
     vlad:migrate
     vlad:start
+    vlad:resque:restart
     vlad:notify_hoptoad
   ]
 
