@@ -26,6 +26,7 @@ task :import_by_wow_armory_search => :environment do
   ItemImporter.import_all_items_that_contain!(ENV['TERM'])
 end
 
+desc "import all items"
 task :import_all_items => :environment do
   p "Started: #{Time.now}"
   (36000..51586).to_a.each do |wow_armory_id|
