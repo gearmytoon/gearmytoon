@@ -96,6 +96,22 @@ class CharactersControllerTest < ActionController::TestCase
       assert_select "#new_toon"
     end
 
+    should "render cache with last modified" do
+      frozen_time = freeze_time
+      @request.env['HTTP_IF_MODIFIED_SINCE'] = frozen_time.httpdate
+      character = Factory(:character)
+      get :show, :id => character.friendly_id
+      assert_response :not_modified
+    end
+    
+    should "not double render new characters with last modified" do
+      frozen_time = freeze_time
+      @request.env['HTTP_IF_MODIFIED_SINCE'] = frozen_time.httpdate
+      character = Factory(:new_character)
+      get :show, :id => character.friendly_id
+      assert_response :not_modified
+    end
+
     should "display the latest character refresh" do
       character = Factory(:new_character)
       Factory(:character_refresh, :character => character)
