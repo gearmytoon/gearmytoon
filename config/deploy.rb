@@ -1,9 +1,14 @@
 set :application, "project"
 set :domain, "deploy@ec2-184-72-12-13.us-west-1.compute.amazonaws.com"
+set :user, "deploy"
 set :deploy_to, "/var/www/gearmytoon.com/"
 set :repository, 'git@github.com:gearmytoon/gearmytoon.git'
 set :revision, 'master' # git branch to deploy
 set :web_command, 'sudo service nginx' # command to start/stop nginx
+role :app, "deploy@ec2-184-72-12-13.us-west-1.compute.amazonaws.com"
+#role :app, "deploy@ec2-204-236-159-1.us-west-1.compute.amazonaws.com"
+role :web, domain
+role :db, domain
 
 namespace :vlad do
   desc "bootstrap app"
@@ -12,6 +17,7 @@ namespace :vlad do
     vlad:bundle:install
     vlad:setup_db
     vlad:start
+    vlad:cleanup
   ]
 
   desc "deploy the app"
@@ -68,7 +74,7 @@ namespace :vlad do
 
   namespace :resque do
     desc "restart resque worker"
-    remote_task :restart do
+    remote_task :restart, :roles => [:db] do
       run "sudo monit restart resque_worker_QUEUE"
     end
   end
