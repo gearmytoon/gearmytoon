@@ -9,6 +9,22 @@ class ItemImporterTest < ActiveSupport::TestCase
   end
 
   context "import_from_wowarmory!" do
+    
+    should_eventually "import patterns correctly" do
+      item = ItemImporter.import_from_wowarmory!(47638)
+      assert_equal [], item.emblem_sources
+    end
+    
+    should "import offhands correctly" do
+      item = ItemImporter.import_from_wowarmory!(50173)
+      assert_equal "Off Hand", item.slot
+    end
+    
+    should "import sheilds correctly" do
+      item = ItemImporter.import_from_wowarmory!(50616)
+      assert_equal "Shield", item.slot
+    end
+    
     should "not import previous seasons weapons with item sources" do
       item = ItemImporter.import_from_wowarmory!(45966)
       assert_equal [], item.item_sources
