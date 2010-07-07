@@ -7,7 +7,7 @@ class Warlock < WowClass
     {:hit => 263}
   end
 
-  def class_specific_multipliers(primary_spec, for_pvp)
+  def class_specific_multipliers(primary_spec, point_distribution, for_pvp)
     case primary_spec
     when "Destruction"
       {:hit => 100, :spell_power => 47, :haste => 46, :spirit => 26, :crit => 16, :intellect => 13}

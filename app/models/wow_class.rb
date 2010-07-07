@@ -30,8 +30,8 @@ class WowClass < ActiveRecord::Base
     class_name.gsub(/\s/,"").constantize.create!({:name => class_name}.merge(CLASS_NAMES[class_name]))
   end
 
-  def stat_multipliers(primary_spec, for_pvp)
-    class_multipliers = class_specific_multipliers(primary_spec, for_pvp)
+  def stat_multipliers(primary_spec, point_distribution, for_pvp)
+    class_multipliers = class_specific_multipliers(primary_spec, point_distribution, for_pvp)
     for_pvp ? class_multipliers.merge(:resilience => 80, :stamina => 80) : class_multipliers
   end
   

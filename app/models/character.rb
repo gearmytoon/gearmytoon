@@ -53,7 +53,7 @@ class Character < ActiveRecord::Base
   end
 
   def dps_for(item_bonuses, for_pvp)
-    wow_class.stat_multipliers(primary_spec, for_pvp).inject(0) do |total_dps, relative_bonus_dps_value|
+    wow_class.stat_multipliers(primary_spec, active_talent_point_distribution, for_pvp).inject(0) do |total_dps, relative_bonus_dps_value|
       stat_name, relative_dps_value = relative_bonus_dps_value
       total_dps += relative_dps_value * (item_bonuses[stat_name] ? item_bonuses[stat_name] : 0)
     end

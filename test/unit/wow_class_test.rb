@@ -5,7 +5,7 @@ class WowClassTest < ActiveSupport::TestCase
     should_belong_to :primary_armor_type
     should "get stat_multipliers based on class_name" do
       wow_class = WowClass.create_class!("Rogue")
-      assert_equal Rogue.new.stat_multipliers("Combat",false), wow_class.reload.stat_multipliers("Combat",false)
+      assert_equal Rogue.new.stat_multipliers("Combat","",false), wow_class.reload.stat_multipliers("Combat","",false)
     end
   end
   
@@ -16,21 +16,58 @@ class WowClassTest < ActiveSupport::TestCase
   end
 
   context "stat_multipliers" do
+
+    should "return druid tank multipliers if it looks like a tank" do
+      wow_class = WowClass.create_class!("Druid")
+      multipliers = wow_class.stat_multipliers("Feral", "0000000000000000000000000000000000000000000303000300000000000000000000000000000000000", false)
+      assert multipliers.include?(:dodge)
+      assert multipliers.include?(:stamina)
+      assert multipliers.include?(:defense)
+    end
+
+    should "not return druid tank multipliers if it doesn't look like a tank" do
+      wow_class = WowClass.create_class!("Druid")
+      multipliers = wow_class.stat_multipliers("Feral", "0000000000000000000000000000000000000000000303000100000000000000000000000000000000000", false)
+      assert_false multipliers.include?(:dodge)
+      assert_false multipliers.include?(:stamina)
+      assert_false multipliers.include?(:defense)
+    end
+
+    should "return dk tank multipliers if it looks like a tank" do
+      wow_class = WowClass.create_class!("Death Knight")
+      multipliers = wow_class.stat_multipliers("Blood", "0050000000000000000000000000005000000000000000000000000000050000000000000000000000000000", false)
+      assert multipliers.include?(:dodge)
+      assert multipliers.include?(:stamina)
+      assert multipliers.include?(:defense)
+      multipliers = wow_class.stat_multipliers("Blood", "0050000000000000000000000000005000000000000000000000000000010000000000000000000000000000", false)
+      assert multipliers.include?(:dodge)
+      assert multipliers.include?(:stamina)
+      assert multipliers.include?(:defense)
+    end
+
+    should "not return dk tank multipliers if it doesnt look like a tank" do
+      wow_class = WowClass.create_class!("Death Knight")
+      multipliers = wow_class.stat_multipliers("Blood", "0030000000000000000000000000005000000000000000000000000000010000000000000000000000000000", false)
+      assert_false multipliers.include?(:defense)
+      multipliers = wow_class.stat_multipliers("Blood", "0030000000000000000000000000003000000000000000000000000000010000000000000000000000000000", false)
+      assert_false multipliers.include?(:defense)
+    end
+    
     should "return different multipliers for pvp specs" do
       wow_class = WowClass.create_class!("Hunter")
-      assert_equal wow_class.stat_multipliers("Survival",false), wow_class.stat_multipliers("Survival",false)
-      assert_not_equal wow_class.stat_multipliers("Survival",true), wow_class.stat_multipliers("Survival",false)
+      assert_equal wow_class.stat_multipliers("Survival","",false), wow_class.stat_multipliers("Survival","",false)
+      assert_not_equal wow_class.stat_multipliers("Survival","",true), wow_class.stat_multipliers("Survival","",false)
     end
     
     should "be based on a character spec" do
       wow_class = WowClass.create_class!("Hunter")
-      assert_not_equal wow_class.stat_multipliers("Survival",false), wow_class.stat_multipliers("Marksmanship",false)
-      assert_not_equal wow_class.stat_multipliers("Survival",false), wow_class.stat_multipliers("Beast Mastery",false)
-      assert_not_equal wow_class.stat_multipliers("Marksmanship",false), wow_class.stat_multipliers("Beast Mastery",false)
+      assert_not_equal wow_class.stat_multipliers("Survival","",false), wow_class.stat_multipliers("Marksmanship","",false)
+      assert_not_equal wow_class.stat_multipliers("Survival","",false), wow_class.stat_multipliers("Beast Mastery","",false)
+      assert_not_equal wow_class.stat_multipliers("Marksmanship","",false), wow_class.stat_multipliers("Beast Mastery","",false)
     end
     should "default to marksmanship for hunters who do not have a primary spec" do
       wow_class = WowClass.create_class!("Hunter")
-      assert_equal wow_class.stat_multipliers("NONE",false), wow_class.stat_multipliers("Marksmanship",false)
+      assert_equal wow_class.stat_multipliers("NONE","",false), wow_class.stat_multipliers("Marksmanship","",false)
     end
   end
 
@@ -70,7 +107,7 @@ class WowClassTest < ActiveSupport::TestCase
                               :feral_attack_power]
           klass = WowClass.create_class!(wow_class)
           klass.armor_types
-          actual_multipliers = klass.stat_multipliers(possible_spec,false)
+          actual_multipliers = klass.stat_multipliers(possible_spec, "",false)
           unknown_multipliers = actual_multipliers.keys - valid_multipliers
           
           assert unknown_multipliers.empty?, "For class #{wow_class} found invalid multipliers #{unknown_multipliers.join(",")}"

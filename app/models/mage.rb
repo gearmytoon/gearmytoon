@@ -7,7 +7,7 @@ class Mage < WowClass
     {:hit => 263}
   end
 
-  def class_specific_multipliers(primary_spec, for_pvp)
+  def class_specific_multipliers(primary_spec, point_distribution, for_pvp)
     case primary_spec
     when "Arcane"
       {:hit => 100, :haste => 54, :spell_power => 49, :crit => 37, :intellect => 34, :spirit => 14}

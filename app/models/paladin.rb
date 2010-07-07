@@ -7,7 +7,7 @@ class Paladin < WowClass
     {:hit => 263}
   end
 
-  def class_specific_multipliers(primary_spec, for_pvp)
+  def class_specific_multipliers(primary_spec, point_distribution, for_pvp)
     case primary_spec
     when "Protection"
       {:stamina => 100, :agility => 60, :expertise => 59, :dodge => 55, :defense => 45, :parry => 30, :strength => 16, :armor => 8, :block => 7, :block_value => 6}
