@@ -28,6 +28,7 @@ class CharacterImporter
       api = Wowr::API.new(:character_name => c.name, :realm => c.realm,
       :locale => c.locale, :caching => false)
       wow_armory_character = api.get_character
+
       wow_armory_character.items.each do |equipped_item|
         wow_armory_item_id = equipped_item.instance_variable_get(:@id)
         item = find_or_import_item(wow_armory_item_id)
@@ -36,11 +37,13 @@ class CharacterImporter
                                                                       :gem_three => find_or_import_gem_item(equipped_item.gems[2]))
       end
       primary_spec = wow_armory_character.talent_spec.primary
+      point_dist = wow_armory_character.talent_spec.point_distribution
       c.attributes = {:wow_class => WowClass.find_by_name(wow_armory_character.klass),
         :primary_spec => primary_spec, :wowarmory_gender_id => wow_armory_character.gender_id, :gender => wow_armory_character.gender,
         :wowarmory_race_id => wow_armory_character.race_id, :race => wow_armory_character.race, :wowarmory_class_id => wow_armory_character.klass_id,
         :guild => wow_armory_character.guild, :battle_group => wow_armory_character.battle_group, :guild_url => wow_armory_character.guild_url,
-      :level => wow_armory_character.level, :total_item_bonuses => get_total_stats(wow_armory_character), :updated_at => Time.now.utc}
+      :level => wow_armory_character.level, :total_item_bonuses => get_total_stats(wow_armory_character), 
+      :active_talent_point_distribution => point_dist, :updated_at => Time.now.utc}
     end
   end
 

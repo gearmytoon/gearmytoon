@@ -11,6 +11,14 @@ class CharacterImporterTest < ActiveSupport::TestCase
       assert character.upgrades.map(&:new_item).include?(best_xbow_ingame)
     end
 
+    should "import a characters active talent point distribution" do
+      WowClass.create_class!("Paladin")
+      character = Factory(:character, :name => "Rails", :realm => "Baelgun")
+      CharacterImporter.refresh_character!(character)
+      #rails active spec point dist
+      assert_equal "000000000000000000000000005500513522315232133301232150030000000000000000000000", character.active_talent_point_distribution
+    end
+
     should "not delete other characters upgrades or items" do
       character = Factory(:character, :name => "Merb", :realm => "Baelgun")
       CharacterImporter.refresh_character!(character)
