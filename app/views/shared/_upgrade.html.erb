@@ -7,7 +7,10 @@
       <span class="gem_item">+ <%= stylized_item_name(upgrade_gem) %></span>
     <% end %>
   </td>
-  <td class="gmt_points"><%= upgrade.dps_change %></td>
+  <td>
+    <%= content_tag :span, upgrade.dps_change, :class => "gmt_points" %>
+    <%= beta_upgrade if Item.beta_slot?(upgrade.new_item) %>
+  </td>
   <% if upgrade.old_item.nil? #TODO: not happy with this if check in the view, should it be here? %>
     <td></td>
     <td class="wow_item"><%= content_tag :span, "Empty Slot", :class => "old_item" %></td>

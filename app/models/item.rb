@@ -1,4 +1,5 @@
 class Item < ActiveRecord::Base
+  BETA_SLOTS = ['Trinket', 'Relic']
   HORDE = "horde"
   ALLIANCE = "alliance"
   ANY_SIDE = "any_side"
@@ -51,5 +52,9 @@ class Item < ActiveRecord::Base
   
   def base_stats
     self.bonuses.slice(*BASE_STATS)
+  end
+  
+  def self.beta_slot?(new_item)
+    BETA_SLOTS.include?(new_item.slot)
   end
 end

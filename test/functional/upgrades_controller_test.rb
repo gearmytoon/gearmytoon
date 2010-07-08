@@ -10,6 +10,7 @@ class UpgradesControllerTest < ActionController::TestCase
       get :frost, :character_id => character.friendly_id
       assert_select ".upgrade_item .wow_item"
       assert_select ".upgrade_item .gem_item"
+      assert_select ".upgrade .beta", :count => 0
     end
 
     should "show the gems that were used in a old item" do
@@ -19,6 +20,14 @@ class UpgradesControllerTest < ActionController::TestCase
       get :frost, :character_id => character.friendly_id
       assert_select ".old_item .wow_item"
       assert_select ".old_item .gem_item"
+    end
+
+    should "display that this upgrade is beta" do
+      character = Factory(:a_hunter)
+      character_item = Factory(:character_item, :character => character, :item => Factory(:trinket))
+      upgrade = Factory(:upgrade_from_emblem_of_frost, :character => character, :old_character_item => character_item, :new_item_source => Factory(:frost_emblem_source, :item => Factory(:trinket)))
+      get :frost, :character_id => character.friendly_id
+      assert_select ".downgrade .beta"
     end
 
     should "display the buy this character if the character not paid for" do
