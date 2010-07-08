@@ -28,4 +28,7 @@ class GemItem < Item
     end
   end
   
+  def self.beta_gem?(gem_item)
+    gem_item.gem_color == META
+  end
 end

@@ -4,12 +4,12 @@
     <%= stylized_item_name(upgrade.new_item) %>
     <% upgrade.gems.each do |upgrade_gem| %>
       <br/>
-      <span class="gem_item">+ <%= stylized_item_name(upgrade_gem) %></span>
+      <span class="gem_item">+ <%= beta_upgrade if GemItem.beta_gem?(upgrade_gem) %><%= stylized_item_name(upgrade_gem) %></span>
     <% end %>
   </td>
   <td>
-    <%= content_tag :span, upgrade.dps_change, :class => "gmt_points" %>
     <%= beta_upgrade if Item.beta_slot?(upgrade.new_item) %>
+    <%= content_tag :span, upgrade.dps_change, :class => "gmt_points" %>
   </td>
   <% if upgrade.old_item.nil? #TODO: not happy with this if check in the view, should it be here? %>
     <td></td>
