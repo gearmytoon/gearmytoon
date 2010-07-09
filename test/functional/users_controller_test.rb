@@ -20,7 +20,7 @@ class UsersControllerTest < ActionController::TestCase
       freeze_time
       user = Factory(:user)
       Factory(:user_character, :subscriber => user)
-      Factory(:user_character, :subscriber => user, :character => Factory(:new_character, :name => "foo")).character.unable_to_load!
+      Factory(:user_character, :subscriber => user, :character => Factory(:does_not_exist_character, :name => "foo"))
       Factory(:user_character, :subscriber => user, :character => Factory(:new_character, :name => "bar"))
       get :show
       assert_select ".character", :count => 1

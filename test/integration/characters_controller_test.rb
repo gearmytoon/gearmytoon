@@ -5,7 +5,7 @@ class CharactersControllerTest < ActionController::TestCase
 
   context "post create" do
     setup do
-      Resque.remove_queue('character_jobs')
+      Resque.remove_queue('find_character_jobs')
     end
 
     should "lookup character if it doesn't exist and redirect show" do
@@ -13,7 +13,7 @@ class CharactersControllerTest < ActionController::TestCase
         assert_difference "Character.count" do
           Factory(:user)
           post :create, :character => {:name => "Merb", :realm => "Baelgun", :locale => 'us'}
-          Resque.reserve('character_jobs').perform
+          Resque.reserve('find_character_jobs').perform
           assert_redirected_to character_path(Character.last)
         end
       end

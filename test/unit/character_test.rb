@@ -345,20 +345,44 @@ class CharacterTest < ActiveSupport::TestCase
       assert_equal "new", character.status
     end
 
-    should "transition to found" do
+    should "transition to and from geared" do
       character = Factory(:new_character)
+      character.refreshing!
+      assert_equal "being_refreshed", character.status
       character.loaded!
       assert_equal "found", character.status
-      character.unable_to_load!
-      assert_equal "does_not_exist", character.status
-      character.loaded!
-      assert_equal "found", character.status
+      character.found_upgrades!
+      assert_equal "geared", character.status
+      character.refreshing!
+      assert_equal "being_refreshed", character.status
     end
 
-    should "transition to does not exist" do
+    should "transition to and from found" do
       character = Factory(:new_character)
+      character.refreshing!
+      assert_equal "being_refreshed", character.status
+      character.loaded!
+      assert_equal "found", character.status
+      character.refreshing!
+      assert_equal "being_refreshed", character.status
       character.unable_to_load!
       assert_equal "does_not_exist", character.status
+      character.refreshing!
+      assert_equal "being_refreshed", character.status
+      character.loaded!
+      assert_equal "found", character.status
+      character.found_upgrades!
+      assert_equal "geared", character.status
+    end
+
+    should "transition to and from does not exist" do
+      character = Factory(:new_character)
+      character.refreshing!
+      assert_equal "being_refreshed", character.status
+      character.unable_to_load!
+      assert_equal "does_not_exist", character.status
+      character.refreshing!
+      assert_equal "being_refreshed", character.status
       character.loaded!
       assert_equal "found", character.status
     end

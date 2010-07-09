@@ -13,7 +13,7 @@ class CharactersController < ApplicationController
     begin
       @character = Character.find_or_create_by_name_and_realm_and_locale(params[:character][:name].downcase,params[:character][:realm].downcase,params[:character][:locale].downcase)
       if @character.valid?
-        @character.refresh_in_background!
+        @character.initial_import_in_background!
         current_user.user_characters.find_or_create_by_character_id(:character_id => @character.id) if current_user
         redirect_to character_path(@character)
       else
@@ -31,6 +31,15 @@ class CharactersController < ApplicationController
   end
 
   def pvp
+  end
+
+  def status
+    character = Character.find(params[:id])
+    respond_to do |format|
+      format.json do
+        render :json => {:status => character.status}
+      end
+    end
   end
 
   private

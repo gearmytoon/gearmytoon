@@ -7,17 +7,21 @@ Factory.define(:basic_character, :class => "Character") do |model|
   model.guild "Special Circumstances"
   model.level 80
   model.wow_class WowClass.create_class!("Hunter")
-  model.race 'Troll'
+  model.race 'troll'
+  model.gender 'male'
   model.dont_use_wow_armory true
 end
 
 Factory.define(:unpaid_character, :parent => "basic_character") do |model|
   model.after_create do |character|
+    character.refreshing!
     character.loaded!
   end
 end
 
 Factory.define(:new_character, :parent => "basic_character") do |model|
+  model.race nil
+  model.gender nil
   model.after_create do |character|
     character.subscribers = [Factory(:free_access_user)]
     character.save!
@@ -28,6 +32,7 @@ Factory.define(:does_not_exist_character, :parent => "basic_character") do |mode
   model.after_create do |character|
     character.subscribers = [Factory(:free_access_user)]
     character.save!
+    character.refreshing!
     character.unable_to_load!
   end
 end
@@ -36,6 +41,7 @@ Factory.define(:character, :parent => "basic_character") do |model|
   model.after_create do |character|
     character.subscribers = [Factory(:free_access_user)]
     character.save!
+    character.refreshing!
     character.loaded!
   end
 end

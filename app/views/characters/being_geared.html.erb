@@ -1,0 +1,7 @@
+<% render :layout => "shared/pve_tabs" do %>
+  <div id="new_toon">
+    <div id="character_gearing" href="<%= status_character_url(@character, :format => "json") %>">
+    </div>
+    Please wait while we find the best gear for your toon. <%= image_tag "loading.gif" %>
+  </div>
+<% end %>

@@ -12,6 +12,8 @@ module Upgradable
         top_upgrades_from(conditions, true) if args[:for].include?("pvp")
       end
     end
+    self.update_attribute(:updated_at, Time.now.utc)
+    self.found_upgrades!
   end
 
   def top_upgrades_from(conditions, for_pvp)

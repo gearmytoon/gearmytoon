@@ -3,10 +3,15 @@ class CharacterImporter
     self.import_character_and_all_items(character).save!
   end
 
+  def self.import_character!(character)
+    import_character_and_all_items(character).save!
+    character.loaded!
+  end
+
   def self.refresh_character!(character)
     CharacterItem.delete_all(:character_id => character.id)
     Upgrade.delete_all(:character_id => character.id)
-    import_character_and_all_items(character).save!
+    import_character!(character)
     character.generate_upgrades
     character
   end

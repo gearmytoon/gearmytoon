@@ -1,5 +1,24 @@
 require File.dirname(__FILE__) + '/../test_helper'
+
 class CharactersControllerTest < ActionController::TestCase
+  
+  context "get status" do
+    should "respond with new status" do
+      character = Factory(:new_character)
+      get :status, :id => character.id, :format => "json"
+      refresh_response = JSON.parse(@response.body)
+      assert_response :success
+      assert_equal "new", refresh_response['status']
+    end
+    should "respond with done status" do
+      character = Factory(:character)
+      get :status, :id => character.friendly_id, :format => "json"
+      refresh_response = JSON.parse(@response.body)
+      assert_response :success
+      assert_equal "found", refresh_response['status']
+    end
+  end
+  
   context "get #index" do
     should "not be visible to a normal user" do
       activate_authlogic
@@ -24,14 +43,8 @@ class CharactersControllerTest < ActionController::TestCase
       end
     end
 
-    should "create a character refresh to track the status of the toon being reloaded" do
-      assert_difference "CharacterRefresh.count" do
-        post :create, :character => {:name => "Merb", :realm => "Baelgun", :locale => 'us'}
-      end
-    end
-
     should "create a resque job to refresh the toon" do
-      assert_difference "Resque.size('character_jobs')" do
+      assert_difference "Resque.size('find_character_jobs')" do
         post :create, :character => {:name => "Merb", :realm => "Baelgun", :locale => 'us'}
       end
     end
@@ -112,13 +125,19 @@ class CharactersControllerTest < ActionController::TestCase
       assert_response :not_modified
     end
 
-    should "display the latest character refresh" do
+    should "display the div that polls the server to check character status" do
       character = Factory(:new_character)
-      Factory(:character_refresh, :character => character)
-      expected = Factory(:character_refresh, :character => character)
       get :show, :id => character.friendly_id
       assert_template "characters/new_character.html.erb"
-      assert_select "#character_refresh[href=#{character_refresh_url(expected,:format => :json)}]"
+      assert_select "#character_refresh[href=#{status_character_url(character.friendly_id, :format => :json)}]"
+    end
+
+    should "display the div that polls the server to check character status if the character is being refreshed" do
+      character = Factory(:new_character)
+      character.refreshing!
+      get :show, :id => character.friendly_id
+      assert_template "characters/new_character.html.erb"
+      assert_select "#character_refresh[href=#{status_character_url(character.friendly_id, :format => :json)}]"
     end
 
     should "display the no such character page if the character doesn't exist" do
@@ -149,7 +168,7 @@ class CharactersControllerTest < ActionController::TestCase
       freeze_time(10.minutes.ago)
       character = Factory(:character)
       freeze_time(10.minutes.from_now)
-      assert_difference "Resque.size('character_jobs')" do
+      assert_difference "Resque.size('find_upgrades_jobs')" do
         get :show, :id => character.friendly_id
       end
     end
@@ -238,10 +257,10 @@ class CharactersControllerTest < ActionController::TestCase
       freeze_time(10.minutes.ago)
       character = Factory(:character)
       freeze_time(10.minutes.from_now)
-      assert_difference "Resque.size('character_jobs')" do
+      assert_difference "Resque.size('find_upgrades_jobs')" do
         get :pvp, :id => character.friendly_id
       end
-      assert_no_difference "Resque.size('character_jobs')" do
+      assert_no_difference "Resque.size('find_upgrades_jobs')" do
         get :pvp, :id => character.friendly_id
       end
     end
@@ -250,7 +269,7 @@ class CharactersControllerTest < ActionController::TestCase
       freeze_time(10.minutes.ago)
       character = Factory(:character)
       freeze_time(10.minutes.from_now)
-      assert_difference "Resque.size('character_jobs')" do
+      assert_difference "Resque.size('find_upgrades_jobs')" do
         get :pvp, :id => character.friendly_id
       end
     end
@@ -259,7 +278,7 @@ class CharactersControllerTest < ActionController::TestCase
       freeze_time(4.minutes.ago)
       character = Factory(:character)
       freeze_time(4.minutes.from_now)
-      assert_no_difference "Resque.size('character_jobs')" do
+      assert_no_difference "Resque.size('find_upgrades_jobs')" do
         get :pvp, :id => character.friendly_id
       end
     end
@@ -305,18 +324,21 @@ class CharactersControllerTest < ActionController::TestCase
 
       should "render Triumph" do
         character = Factory(:character)
+        Factory(:upgrade, :character => character)
         get :pvp, :id => character.id
         assert_select "#emblem_of_triumph"
       end
 
       should "render Arena" do
         character = Factory(:character)
+        Factory(:upgrade, :character => character)
         get :pvp, :id => character.id
         assert_select "#arena_points"
       end
 
       should "render Frost" do
         character = Factory(:character)
+        Factory(:upgrade, :character => character)
         get :pvp, :id => character.id
         assert_select "#emblem_of_frost"
       end

@@ -15,9 +15,10 @@ class ApplicationController < ActionController::Base
     return(redirect_to not_found_character_url(@character)) if @character.does_not_exist?
     @character.refresh_in_background! if @character.updated_at < 5.minutes.ago
     return if fresh_when(:last_modified => @character.updated_at.utc)
-    return(render "characters/new_character") if(@character.new?)
+    return(render "characters/new_character") if(@character.is_new?)
     return(render "characters/unsupported_level") unless(@character.level == 80)
     return(render "characters/unpaid") unless(@character.paid?)
+    return(render "characters/being_geared") if(@character.has_no_upgrades_yet?)
   end
 
   private

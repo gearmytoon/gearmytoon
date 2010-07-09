@@ -18,13 +18,26 @@ class Character < ActiveRecord::Base
 
   acts_as_state_machine :initial => :new, :column => "status"
   state :new
+  state :being_refreshed
   state :found
   state :does_not_exist
-  event :loaded do
-    transitions :to => :found, :from => [:new, :does_not_exist]
+  state :geared
+  
+  
+  event :refreshing do
+    transitions :to => :being_refreshed, :from => [:new, :found, :geared, :does_not_exist]
   end
+
+  event :loaded do
+    transitions :to => :found, :from => :being_refreshed
+  end
+  
   event :unable_to_load do
-    transitions :to => :does_not_exist, :from => [:new, :found]
+    transitions :to => :does_not_exist, :from => :being_refreshed
+  end
+
+  event :found_upgrades do
+    transitions :to => :geared, :from => :found
   end
 
   attr_accessor :dont_use_wow_armory
@@ -34,7 +47,6 @@ class Character < ActiveRecord::Base
 
   belongs_to :wow_class
   has_many :character_items
-  has_many :character_refreshes
   has_many :upgrades
   serialize :total_item_bonuses
   has_many :equipped_items, :through => :character_items, :source => :item
@@ -87,9 +99,21 @@ class Character < ActiveRecord::Base
     user_characters.paided_for.any?
   end
 
+  def is_new?
+    new? || (race.blank? && gender.blank?)
+  end
+
   def refresh_in_background!
-    unless self.character_refreshes.recent.active.any?
-      Resque.enqueue(CharacterJob, self.character_refreshes.create!.id)
+    unless being_refreshed?
+      Resque.enqueue(FindUpgradesJob, self.id)
+      self.refreshing!
+    end
+  end
+
+  def initial_import_in_background!
+    unless being_refreshed?
+      Resque.enqueue(FindCharacterJob, self.id)
+      self.refreshing!
     end
   end
 
@@ -99,6 +123,10 @@ class Character < ActiveRecord::Base
   
   def all_character_items
     @char_items ||= character_items.all
+  end
+
+  def has_no_upgrades_yet?
+    upgrades.count == 0
   end
   
   def find_best_gem(socket_color, new_items_bonuses, for_pvp)

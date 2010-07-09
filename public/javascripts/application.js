@@ -23,11 +23,20 @@
 
     $('#character_refresh').everyTime(1000,function(i){
       $.getJSON($(this).attr('href'), function(data){
-        if(data.status == "done"){
+        if(data.status == "found" || data.status == "geared"){
           window.location.reload();
         }
       });
     });
+    
+    $('#character_gearing').everyTime(1000,function(i){
+      $.getJSON($(this).attr('href'), function(data){
+        if(data.status == "geared"){
+          window.location.reload();
+        }
+      });
+    });
+    
   });
 })(jQuery);
 
