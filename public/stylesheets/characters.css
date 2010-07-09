@@ -18,3 +18,9 @@
 .character .info .guild:after { content: ">"; }
 
 .character.small { width: 300px; }
+
+#character_gearing {
+  font-size:22px;
+  width:100%;
+  text-align:center;
+}

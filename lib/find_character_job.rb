@@ -10,8 +10,10 @@ class FindCharacterJob
         character.unable_to_load!
       end
     end
-    Character.transaction do
-      character.generate_upgrades
+    unless character.reload.does_not_exist?
+      Character.transaction do
+        character.generate_upgrades
+      end
     end
   end
 end

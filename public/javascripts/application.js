@@ -23,7 +23,7 @@
 
     $('#character_refresh').everyTime(1000,function(i){
       $.getJSON($(this).attr('href'), function(data){
-        if(data.status == "found" || data.status == "geared"){
+        if(data.status =! "new" || data.status != "being_refreshed"){
           window.location.reload();
         }
       });
