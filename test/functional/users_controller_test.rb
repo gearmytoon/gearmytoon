@@ -25,6 +25,18 @@ class UsersControllerTest < ActionController::TestCase
       get :show
       assert_select ".character", :count => 1
     end
+
+    should "not display characters unless they are geared or refreshing" do
+      activate_authlogic
+      freeze_time
+      user = Factory(:user)
+      Factory(:user_character, :subscriber => user, :character => Factory(:geared_character, :name => "foo"))
+      refreshing_toon = Factory(:character, :name => "bar")
+      refreshing_toon.refreshing!
+      Factory(:user_character, :subscriber => user, :character => refreshing_toon)
+      get :show
+      assert_select ".character", :count => 2
+    end
     
     should "not show days until billing if the account is not recurring" do
       activate_authlogic

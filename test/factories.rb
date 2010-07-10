@@ -45,6 +45,15 @@ Factory.define(:character, :parent => "basic_character") do |model|
     character.loaded!
   end
 end
+Factory.define(:geared_character, :parent => "basic_character") do |model|
+  model.after_create do |character|
+    character.subscribers = [Factory(:free_access_user)]
+    character.save!
+    character.refreshing!
+    character.loaded!
+    character.found_upgrades!
+  end
+end
 
 Factory.define(:free_access_user, :class => "User") do |f|
   f.sequence(:email) {|n| "free_access_#{n}@foo.com" }
