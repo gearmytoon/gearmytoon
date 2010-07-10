@@ -1,6 +1,6 @@
 class Character < ActiveRecord::Base
   include Upgradable
-  
+
   DEFAULT_LOCALE = 'us'
   LOCALES = [['US','us'],['EU','eu'],['CN','cn'],['TW','tw'],['KR','kr']]
   HORDE_RACES = ['orc', 'undead', 'troll', 'tauren', 'blood elf']
@@ -22,8 +22,7 @@ class Character < ActiveRecord::Base
   state :found
   state :does_not_exist
   state :geared
-  
-  
+
   event :refreshing do
     transitions :to => :being_refreshed, :from => [:new, :found, :geared, :does_not_exist]
   end
@@ -31,7 +30,7 @@ class Character < ActiveRecord::Base
   event :loaded do
     transitions :to => :found, :from => :being_refreshed
   end
-  
+
   event :unable_to_load do
     transitions :to => :does_not_exist, :from => :being_refreshed
   end
@@ -43,6 +42,7 @@ class Character < ActiveRecord::Base
   attr_accessor :dont_use_wow_armory
 
   named_scope :found, :conditions => {:status => "found"}
+  named_scope :geared, :conditions => {:status => "geared"}
   named_scope :level_80, :conditions => {:level => "80"}
 
   belongs_to :wow_class
@@ -70,7 +70,7 @@ class Character < ActiveRecord::Base
       total_dps += relative_dps_value * (item_bonuses[stat_name] ? item_bonuses[stat_name] : 0)
     end
   end
-  
+
   def dps_for_after_hard_caps(change_in_bonuses, for_pvp)
     dps_for(apply_hard_caps(change_in_bonuses), for_pvp)
   end
@@ -96,7 +96,7 @@ class Character < ActiveRecord::Base
   end
 
   def paid?
-    user_characters.paided_for.any?
+    user_characters.paid_for.any?
   end
 
   def is_new?
@@ -120,7 +120,7 @@ class Character < ActiveRecord::Base
   def character_item_on(slot_name)
     character_items.equipped_on(slot_name)
   end
-  
+
   def all_character_items
     @char_items ||= character_items.all
   end
@@ -128,7 +128,7 @@ class Character < ActiveRecord::Base
   def has_no_upgrades_yet?
     upgrades.count == 0
   end
-  
+
   def find_best_gem(socket_color, new_items_bonuses, for_pvp)
     GemItem.compatible_gem_colors(socket_color).inject(nil) do |best_gem, color|
       other_gem = find_best_gem_from_cache_or_lookup(color, new_items_bonuses, for_pvp)
@@ -156,7 +156,7 @@ class Character < ActiveRecord::Base
       @best_gem_for_color[socket_color] = find_best_gem_for_specific_color_socket(socket_color, new_items_bonuses, for_pvp)
     end
   end
-  
+
   def find_best_gem_for_specific_color_socket(socket_color, new_items_bonuses, for_pvp)
     GemItem.with_color(socket_color).inject(nil) do |best_gem, gem_item|
       if best_gem.nil?

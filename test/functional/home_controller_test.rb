@@ -8,10 +8,12 @@ class HomeControllerTest < ActionController::TestCase
       assert_response :success
     end
 
-    should "assign four characters" do
+    should "assign four level 80 geared characters" do
       valid_characters = []
       4.times do |i|
-        valid_characters << Factory(:character, :name => "Foo#{i}", :level => 80)
+        c = Factory(:character, :name => "Foo#{i}", :level => 80)
+        c.found_upgrades!
+        valid_characters << c
         Factory(:character, :name => "Foo#{i+100}", :level => 70)
         Factory(:does_not_exist_character, :name => "Foo#{i+200}")
       end

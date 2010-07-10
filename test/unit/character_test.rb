@@ -1,6 +1,18 @@
 require File.dirname(__FILE__) + '/../test_helper'
 
 class CharacterTest < ActiveSupport::TestCase
+  context "named scopes" do
+    should "return geared characters" do
+      geared_characters = []
+      3.times do |i|
+        c = Factory(:character, :name => "Foo#{i}", :status => 'geared')
+        c.found_upgrades!
+        geared_characters << c
+        Factory(:character, :name => "Foo#{i+100}")
+      end
+      assert_equal geared_characters, Character.geared
+    end
+  end
   context "associations" do
     should "serialize total_item_bonuses" do
       character = Factory(:character, :total_item_bonuses => {:hit => 25})
@@ -43,7 +55,7 @@ class CharacterTest < ActiveSupport::TestCase
       assert_false character.respond_to?(:honor_point_upgrades)
       assert character.respond_to?(:honor_point_pvp_upgrades)
     end
-    
+
   end
 
   context "top_3_upgrades_from_area" do
@@ -265,13 +277,13 @@ class CharacterTest < ActiveSupport::TestCase
     end
 
   end
-  
+
   context "dps_for" do
     should "know the relative dps for a item" do
       assert_equal 191.6, Factory(:a_rogue).dps_for({:attack_power => 130, :agility => 89, :hit => 47, :stamina => 76},false)
     end
   end
-  
+
   context "hard_cap" do
     should "be 263 for hit for hunters" do
       character = Factory(:a_hunter)
@@ -403,7 +415,7 @@ class CharacterTest < ActiveSupport::TestCase
       assert_equal best_gem, character.find_best_gem("Any",{}, false)
     end
   end
-  
+
   context "paid?" do
     should "know if a account has lapsed payment" do
       purchaser = Factory(:user)
@@ -425,7 +437,7 @@ class CharacterTest < ActiveSupport::TestCase
       character = Factory(:user_character, :subscriber => purchaser).character
       assert_false character.paid?
     end
-    
+
   end
 
 end
