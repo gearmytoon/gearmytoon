@@ -20,7 +20,7 @@
       </p>
     <% end %>
     <ul>
-      <% @user.characters.found.each do |c| -%>
+      <% @user.characters.that_exists.each do |c| -%>
         <li><%= render 'shared/character_info', :character => c, :size => 'small' %></li>
       <% end -%>
     </ul>

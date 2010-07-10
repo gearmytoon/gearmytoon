@@ -41,6 +41,8 @@ class Character < ActiveRecord::Base
 
   attr_accessor :dont_use_wow_armory
 
+  named_scope :that_exists, :conditions => ["status != 'new' AND status != 'does_not_exist' AND race IS NOT NULL"]
+
   named_scope :found, :conditions => {:status => "found"}
   named_scope :geared, :conditions => {:status => "geared"}
   named_scope :level_80, :conditions => {:level => "80"}
