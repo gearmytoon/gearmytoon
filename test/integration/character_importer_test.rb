@@ -19,6 +19,12 @@ class CharacterImporterTest < ActiveSupport::TestCase
       assert_equal "000000000000000000000000005500513522315232133301232150030000000000000000000000", character.active_talent_point_distribution
     end
 
+    should "import a hunters spec correctly" do
+      character = Factory(:character, :name => "Merb", :realm => "Baelgun")
+      CharacterImporter.refresh_character!(character)
+      assert_equal "Survival", character.primary_spec
+    end
+
     should "not delete other characters upgrades or items" do
       character = Factory(:character, :name => "Merb", :realm => "Baelgun")
       CharacterImporter.refresh_character!(character)

@@ -3,7 +3,7 @@ source "http://gems.github.com"
 
 gem "rails", "~> 2.3.8"
 gem "mysql", "2.8.1"
-gem "wowr", :git => "http://github.com/gearmytoon/wowr.git", :tag => "v0.5.6"
+gem "wowr", :git => "http://github.com/gearmytoon/wowr.git", :tag => "v0.5.7"
 gem "mechanize", "0.9.3"
 gem "will_paginate", "2.3.14"
 gem 'ruby-openid', "2.1.7", :require => 'openid'
