@@ -40,6 +40,10 @@ class Item < ActiveRecord::Base
   def source_area
     dropped_sources.first.source_area
   end
+
+  def armor
+    bonuses[:armor]
+  end
   
   def is_a_belt?
     self.slot == "Waist"
@@ -56,5 +60,21 @@ class Item < ActiveRecord::Base
   
   def self.beta_slot?(new_item)
     BETA_SLOTS.include?(new_item.slot)
+  end
+  
+  def bonding_description
+    bonding == BOE ? "Binds when equipped" : "Binds when picked up"
+  end
+  
+  def equipped_stats
+    self.bonuses.except(*BASE_STATS)
+  end
+  
+  def restricted_to_a_class?
+    restricted_to != RESTRICT_TO_NONE
+  end
+  
+  def has_armor?
+    bonuses.has_key?(:armor)
   end
 end

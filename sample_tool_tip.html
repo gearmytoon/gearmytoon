@@ -1,0 +1,74 @@
+<div class="gmt-tooltip">
+  <table>
+    <tr>
+      <td>
+        <table style="width:100%;">
+          <tr>
+            <td>
+              <b class="q4 item_name"><%= @item.name %></b>
+              <br />
+              <span class="bonding"><%= @item.bonding_description %></span>
+              <table width="100%">
+                <tr>
+                  <td class="item_slot"><%= @item.slot %></td>
+                  <th class="armor_type"><%= @item.armor_type.name %></th>
+                </tr>
+              </table>
+              <span class="armor"><%= @item.armor %> Armor</span>
+              <% @item.base_stats.each do |base_stat_name, bonus| %>
+                <br /><span class="base_stat">+<%= bonus %> <%= base_stat_name.to_s.camelize %></span>
+              <% end %>
+              <% if @item.gem_sockets %>
+                <% @item.gem_sockets.each do |gem_socket| %>
+                  <br /><a href="#" class="socket-<%= gem_socket.downcase %> q0"><%= gem_socket.camelize %> Socket</a>
+                <% end %>
+              <% end %>
+              <% if @item.socket_bonuses && @item.socket_bonuses.any? %>
+                <br /><span class="socket_bonuses q0">Socket Bonus: <%= @item.socket_bonuses.map{ |stat_name, bonus| "+#{bonus} #{stat_name.to_s.camelize}"}.join(" ") %></span>
+              <% end %>
+              <br />Durability 70 / 70
+              <br />Classes: <a href="/class=4" class="c4">Rogue</a>
+              <br />Requires Level 80
+              <br />Item Level 232
+            </td>
+          </tr>
+        </table>
+        <table>
+          <tr>
+            <td>
+              <span class="q2">Equip: Improves critical strike rating by 80&nbsp;<small>(1.74%&nbsp;@&nbsp;L80)</small>.</span>
+              <br /><span class="q2">Equip: Increases your expertise rating by 64&nbsp;<small>(7.81&nbsp;@&nbsp;L80)</small>.</span>
+              <br /><span class="q2">Equip: Increases attack power by 129.</span>
+              <br />
+              <% #set set_pieces %>
+              <br /><span class="q"><a href="/itemset=858" class="q">Conqueror\'s Garona\'s Battlegear</a> (0/5)</span>
+              <div class="q0 indent">
+                <span><a href="/item=48243">Garona\'s Breastplate of Conquest</a></span><br />
+                <span><a href="/item=48244">Garona\'s Gauntlets of Conquest</a></span><br />
+                <span><a href="/item=48245">Garona\'s Helmet of Conquest</a></span><br />
+                <span><a href="/item=48246">Garona\'s Legplates of Conquest</a></span><br />
+                <span><a href="/item=48247">Garona\'s Pauldrons of Conquest</a></span>
+              </div>
+              <br />
+              <% #set bonuses %>
+              <span class="q0">
+                <span>(2) Set: 
+                  <a href="/spell=67209">Your Rupture ability has a chance each time it deals damage to reduce the cost of your next ability by 40 energy.</a>
+                </span>
+                <br />
+                <span>(4) Set: 
+                  <a href="/spell=67211">Increases the critical strike chance of your Hemorrhage, Sinister Strike, Backstab, and Mutilate abilities by 5%.</a>
+                </span>
+              </span>
+            </td>
+          </tr>
+        </table>
+      </td>
+      <th style="background-position: right top;"></th>
+    </tr>
+    <tr>
+      <th style="background-position: left bottom;"></th>
+      <th style="background-position: right bottom;"></th>
+    </tr>
+  </table>
+</div>
