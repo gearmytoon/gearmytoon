@@ -14,6 +14,15 @@
                   <th class="armor_type"><%= @item.armor_type.name %></th>
                 </tr>
               </table>
+              <% if @item.is_a_weapon? %>
+                <table width="100%">
+                  <tr>
+                    <td class="min_max_damage"><%= @item.damage_range %></td>
+                    <th class="attack_speed">Speed <%= @item.attack_speed %></th>
+                  </tr>
+                </table>
+                <span class="dps_description"><%= @item.dps_description %></span><br />
+              <% end %>
               <% if @item.has_armor? %>
                 <span class="armor"><%= @item.armor %> Armor</span><br />
               <% end %>

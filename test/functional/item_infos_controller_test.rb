@@ -9,6 +9,9 @@ class ItemInfosControllerTest < ActionController::TestCase
       assert_select ".base_stat", :text => "+1 Stamina"
     end
 
+    should_eventually "show melee weapon info"
+    should_eventually "show ranged weapon info"
+
     should "show item name" do
       item = Factory(:item, :name => "Foo of Foo")
       get :show, :id => item.wowarmory_item_id

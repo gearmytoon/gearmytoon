@@ -77,4 +77,28 @@ class Item < ActiveRecord::Base
   def has_armor?
     bonuses.has_key?(:armor)
   end
+  
+  def is_a_weapon?
+    !weapon_bonuses(:attack_speed).nil?
+  end
+  
+  def weapon_type
+    bonuses.has_key?(:melee_attack_speed) ? "melee" : "ranged"
+  end
+  
+  def weapon_bonuses(key)
+    bonuses["#{weapon_type}_#{key}".to_sym]
+  end
+  
+  def attack_speed
+    weapon_bonuses(:attack_speed)
+  end
+
+  def damage_range
+    "#{weapon_bonuses(:min_damage)}-#{weapon_bonuses(:max_damage)} Dmg"
+  end
+  
+  def dps_description
+    "(#{weapon_bonuses(:dps)} damage per second)"
+  end
 end
