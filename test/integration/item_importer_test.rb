@@ -10,6 +10,12 @@ class ItemImporterTest < ActiveSupport::TestCase
 
   context "import_from_wowarmory!" do
     
+    should "import item level stuff correctly" do
+      item = ItemImporter.import_from_wowarmory!(50034)
+      assert_equal 80, item.required_level
+      assert_equal 264, item.item_level
+    end
+    
     should_eventually "import patterns correctly" do
       item = ItemImporter.import_from_wowarmory!(47638)
       assert_equal [], item.emblem_sources

@@ -17,6 +17,13 @@ class ItemInfosControllerTest < ActionController::TestCase
       assert_select ".dps_description", :text => "(100.0 damage per second)"
     end
 
+    should "show item level info" do
+      item = Factory(:item, :item_level => 265, :required_level => 81)
+      get :show, :id => item.wowarmory_item_id
+      assert_select ".required_level", :text => "Requires Level 81"
+      assert_select ".item_level", :text => "Item Level 265"
+    end
+
     should "show ranged weapon info" do
       item = Factory(:item, :bonuses => {:ranged_attack_speed => 3.5, :ranged_min_damage => 200, :ranged_max_damage => 300, :ranged_dps => 100.0})
       get :show, :id => item.wowarmory_item_id

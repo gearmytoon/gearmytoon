@@ -40,8 +40,8 @@
               <% if @item.restricted_to_a_class? %>
                 Classes: <a href="#" class="c4 restricted_to"><%= @item.restricted_to.camelize %></a><br />
               <% end %>
-              Requires Level 80<br />
-              Item Level 232
+              <span class="required_level">Requires Level <%= @item.required_level %></span><br />
+              <span class="item_level">Item Level <%= @item.item_level %></span>
             </td>
           </tr>
         </table>

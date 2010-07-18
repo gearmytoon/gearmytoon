@@ -27,8 +27,16 @@ class ItemImporter
                    :armor_type => ArmorType.find_or_create_by_name(armor_type_name), :slot => slot, 
                    :restricted_to => get_restricted_to, :item_sources => get_item_sources(item), 
                    :gem_color => get_gem_color, :gem_sockets => get_gem_sockets, :socket_bonuses => get_socket_bonuses,
-                   :bonding => get_item_bonding, :side => Item::ANY_SIDE)
+                   :bonding => get_item_bonding, :side => Item::ANY_SIDE, :item_level => get_item_level, :required_level => get_required_level)
     end
+  end
+  
+  def get_required_level
+    wowarmory_item.instance_variable_get(:@tooltip).required_level
+  end
+  
+  def get_item_level
+    wowarmory_item.instance_variable_get(:@info).level
   end
   
   def get_item_bonding

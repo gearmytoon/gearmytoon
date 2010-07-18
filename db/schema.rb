@@ -9,7 +9,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20100709200347) do
+ActiveRecord::Schema.define(:version => 20100718033250) do
 
   create_table "areas", :force => true do |t|
     t.string   "name"
@@ -109,6 +109,8 @@ ActiveRecord::Schema.define(:version => 20100709200347) do
     t.string   "type"
     t.string   "bonding"
     t.string   "side"
+    t.integer  "item_level"
+    t.integer  "required_level"
   end
 
   add_index "items", ["armor_type_id"], :name => "index_items_on_armor_type_id"
