@@ -6,6 +6,8 @@ class Item < ActiveRecord::Base
   BOP = 'pickup'
   BOE = 'equipped'
   BASE_STATS = [:strength, :agility, :spirit, :intellect, :stamina]
+  WEAPON_STATS = [:melee_attack_speed, :melee_min_damage, :melee_max_damage, :melee_dps,
+                  :ranged_attack_speed, :ranged_min_damage, :ranged_max_damage, :ranged_dps]
   TRIUMPH_EMBLEM_ARMORY_ID = 47241
   FROST_EMBLEM_ARMORY_ID = 49426
   WINTERGRASP_MARK_OF_HONOR = 43589
@@ -67,7 +69,7 @@ class Item < ActiveRecord::Base
   end
   
   def equipped_stats
-    self.bonuses.except(*BASE_STATS)
+    self.bonuses.except(*BASE_STATS).except(*WEAPON_STATS)
   end
   
   def restricted_to_a_class?

@@ -9,8 +9,35 @@ class ItemInfosControllerTest < ActionController::TestCase
       assert_select ".base_stat", :text => "+1 Stamina"
     end
 
-    should_eventually "show melee weapon info"
-    should_eventually "show ranged weapon info"
+    should "show melee weapon info" do
+      item = Factory(:item, :bonuses => {:melee_attack_speed => 3.5, :melee_min_damage => 200, :melee_max_damage => 300, :melee_dps => 100.0})
+      get :show, :id => item.wowarmory_item_id
+      assert_select ".min_max_damage", :text => "200-300 Dmg"
+      assert_select ".attack_speed", :text => "Speed 3.5"
+      assert_select ".dps_description", :text => "(100.0 damage per second)"
+    end
+
+    should "show ranged weapon info" do
+      item = Factory(:item, :bonuses => {:ranged_attack_speed => 3.5, :ranged_min_damage => 200, :ranged_max_damage => 300, :ranged_dps => 100.0})
+      get :show, :id => item.wowarmory_item_id
+      assert_select ".min_max_damage", :text => "200-300 Dmg"
+      assert_select ".attack_speed", :text => "Speed 3.5"
+      assert_select ".dps_description", :text => "(100.0 damage per second)"
+    end
+
+    should "not show attack speed etc in the equipped stats section" do
+      item = Factory(:item, :bonuses => {:ranged_attack_speed => 3.5, :ranged_min_damage => 200, :ranged_max_damage => 300, :ranged_dps => 100.0})
+      get :show, :id => item.wowarmory_item_id
+      assert_select ".equip_stat", :count => 0
+    end
+
+    should "show equipped stats section" do
+      item = Factory(:item, :bonuses => {:spell_power => 105, :mana_regen => 72})
+      get :show, :id => item.wowarmory_item_id
+      assert_select ".equip_stat", :count => 2
+      assert_select ".equip_stat", :text => "Equip: Increases your spell power by 105"
+      assert_select ".equip_stat", :text => "Equip: Restores 72 mana per 5 secs"
+    end
 
     should "show item name" do
       item = Factory(:item, :name => "Foo of Foo")
