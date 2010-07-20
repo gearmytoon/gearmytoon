@@ -2,7 +2,7 @@ ActionController::Routing::Routes.draw do |map|
   map.resource :payment, :member => {:receipt => :get, :notify_payment => :post}
   map.resource :home, :controller => "home"
   map.resources :areas
-  map.resources :item_infos
+  map.resources :items, :member => {:tooltip => :get}
   map.resources :character_refreshes
   map.resources :users
   map.resource :payment_receipts

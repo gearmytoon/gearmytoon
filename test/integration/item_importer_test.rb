@@ -9,10 +9,17 @@ class ItemImporterTest < ActiveSupport::TestCase
   end
 
   context "import_from_wowarmory!" do
-    
+
     should "import item level stuff correctly" do
       item = ItemImporter.import_from_wowarmory!(50034)
       assert_equal 80, item.required_level
+      assert_equal 264, item.item_level
+    end
+
+    should_eventually "import trinkets with armor correctly" do
+      item = ItemImporter.import_from_wowarmory!(54591)
+      assert_equal 80, item.required_level
+      assert_equal 2576, item.armor
       assert_equal 264, item.item_level
     end
     

@@ -11,6 +11,20 @@
   }
 
   $(document).ready(function(){
+    tooltip_url = null;
+    $('.with_tooltip').mousemove(function(e) {
+      if(tooltip_url!= $(this).attr('href') + "/tooltip")
+      {
+        tooltip_url = $(this).attr('href') + "/tooltip";
+        $.get(tooltip_url,function(data) { $("#tooltip").html(data); });
+      }
+      $("#tooltip").css('left', e.pageX + 10);
+      $("#tooltip").css('top', e.pageY + 10);
+      $("#tooltip").show();
+    }).mouseleave(function() {
+      $("#tooltip").hide();
+    });
+    
     $('#character_realm').autocomplete(realms);
     $('#welcome .actions ul li:not(li.toon_search)').clickable();
     $('#welcome .actions ul li.toon_search form input[type=text]').example(function() { return $(this).prev('label').text(); }).prev('label').hide();

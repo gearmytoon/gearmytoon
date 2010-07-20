@@ -117,3 +117,11 @@
 .beta{
   color: grey;
 }
+#tooltip{
+  display:none;
+  position:absolute;
+  z-index:99999;
+}
+.image_item_link{
+  float:left;
+}

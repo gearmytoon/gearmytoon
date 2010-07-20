@@ -3,11 +3,12 @@ require 'ostruct'
 
 class CharactersHelperTest < ActionView::TestCase
 
-  context "wowhead_item_image_link" do
+  context "item_image_link" do
     should "generate a link to wowhead for the item" do
-      item = OpenStruct.new(:icon => "http://www.wowarmory.com/some_item_thumb", :wowarmory_item_id => 4864, :name => "Minshina's Skull")
-      tag = wowhead_item_image_link(item)
-      assert_equal "<a href=\"http://www.wowhead.com/?item=4864\"><img alt=\"Minshina's Skull\" border=\"0\" class=\"item_icon\" src=\"http://www.wowarmory.com/some_item_thumb\" /></a>", tag
+      item = Factory(:item, :name => "Minshina's Skull", :icon => "http://www.wowarmory.com/some_item_thumb")
+      # item = OpenStruct.new(:icon => "http://www.wowarmory.com/some_item_thumb", :wowarmory_item_id => 4864, :name => "Minshina's Skull")
+      tag = item_image_link(item)
+      assert_equal "<a href=\"/items/#{item.id}\" class=\"with_tooltip image_item_link\"><img alt=\"Minshina's Skull\" border=\"0\" class=\"item_icon\" src=\"http://www.wowarmory.com/some_item_thumb\" /></a>", tag
     end
   end
   
@@ -21,9 +22,9 @@ class CharactersHelperTest < ActionView::TestCase
 
   context "stylized_item_name" do
     should "provide a span with the item name and its quality" do
-      item = OpenStruct.new(:quality => 'epic', :name => "Minshina's Skull")
+      item = Factory(:item, :name => "Minshina's Skull")
       tag = stylized_item_name(item)
-      assert_equal "<a href=\"http://www.wowhead.com/?item=\" class=\"epic wow_item\">Minshina's Skull</a>", tag
+      assert_equal "<a href=\"/items/#{item.id}\" class=\"epic wow_item with_tooltip\">Minshina's Skull</a>", tag
     end
   end
 end
