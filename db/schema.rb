@@ -9,7 +9,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20100718033250) do
+ActiveRecord::Schema.define(:version => 20100720200849) do
 
   create_table "areas", :force => true do |t|
     t.string   "name"
@@ -111,6 +111,7 @@ ActiveRecord::Schema.define(:version => 20100718033250) do
     t.string   "side"
     t.integer  "item_level"
     t.integer  "required_level"
+    t.text     "spell_effects"
   end
 
   add_index "items", ["armor_type_id"], :name => "index_items_on_armor_type_id"
@@ -148,7 +149,7 @@ ActiveRecord::Schema.define(:version => 20100718033250) do
   create_table "upgrades", :force => true do |t|
     t.integer  "character_id"
     t.integer  "new_item_source_id"
-    t.decimal  "dps_change",            :precision => 8, :scale => 2
+    t.decimal  "dps_change"
     t.boolean  "for_pvp"
     t.text     "bonus_changes"
     t.datetime "created_at"
@@ -159,7 +160,6 @@ ActiveRecord::Schema.define(:version => 20100718033250) do
     t.integer  "gem_three_id"
   end
 
-  add_index "upgrades", ["character_id", "new_item_source_id"], :name => "index_upgrades_on_character_id_and_new_item_source_id"
   add_index "upgrades", ["character_id"], :name => "index_upgrades_on_character_id"
   add_index "upgrades", ["new_item_source_id"], :name => "index_upgrades_on_new_item_source_id"
 

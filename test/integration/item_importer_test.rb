@@ -15,6 +15,14 @@ class ItemImporterTest < ActiveSupport::TestCase
       assert_equal 80, item.required_level
       assert_equal 264, item.item_level
     end
+    
+    should "import spell effects correctly" do
+      item = ItemImporter.import_from_wowarmory!(50198) #chance on hit
+      item.reload
+      assert_equal [{:trigger => 1, :description => "Chance on melee or ranged critical strike to increase your armor penetration rating by 678 for 10 sec."}], item.spell_effects
+      item = ItemImporter.import_from_wowarmory!(50364) #must use to trigger
+      assert_equal [{:trigger => 0, :description => "Increases resistance to Arcane, Fire, Frost, Nature, and Shadow spells by 268 for 10 sec."}], item.spell_effects
+    end
 
     should_eventually "import trinkets with armor correctly" do
       item = ItemImporter.import_from_wowarmory!(54591)

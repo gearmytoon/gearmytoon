@@ -15,6 +15,7 @@ class Item < ActiveRecord::Base
   serialize :bonuses
   serialize :socket_bonuses
   serialize :gem_sockets
+  serialize :spell_effects
   named_scope :usable_in_same_slot_as, Proc.new { |item| {:conditions => {:slot => item.slot}} }
   has_many :item_sources, :dependent => :destroy
   has_many :dropped_sources
