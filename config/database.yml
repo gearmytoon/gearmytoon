@@ -17,7 +17,7 @@ test:
 
 production:
   adapter: mysql
-  host: ip-10-162-126-240.us-west-1.compute.internal
+  host: ip-10-162-143-18.us-west-1.compute.internal
   username: root
   password: g34rm3up
   database: wowcoach_production
