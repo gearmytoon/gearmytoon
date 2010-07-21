@@ -1,12 +1,11 @@
-set :application, "project"
-set :domain, "deploy@ec2-184-72-12-13.us-west-1.compute.amazonaws.com"
+set :application, "gearmytoon"
+set :domain, "deploy@gearmytoon.com"
 set :user, "deploy"
 set :deploy_to, "/var/www/gearmytoon.com/"
 set :repository, 'git@github.com:gearmytoon/gearmytoon.git'
-set :revision, 'master' # git branch to deploy
-set :web_command, 'sudo service nginx' # command to start/stop nginx
-role :app, "deploy@ec2-184-72-12-13.us-west-1.compute.amazonaws.com"
-#role :app, "deploy@ec2-204-236-159-1.us-west-1.compute.amazonaws.com"
+set :revision, 'master'
+set :web_command, 'sudo service nginx'
+role :app, domain
 role :web, domain
 role :db, domain
 
@@ -37,6 +36,16 @@ namespace :vlad do
     vlad:db:seed
     vlad:db:import_all_items_from_text_files
   ]
+
+  desc "Put up maintenance page"
+  remote_task :start_maintenance do
+    run "cd #{deploy_to}current && cp public/503.html public/maintenance.html"
+  end
+
+  desc "Take down maintenance page"
+  remote_task :end_maintenance do
+    run "cd #{deploy_to}current && rm public/maintenance.html"
+  end
 
   namespace :db do
     desc "seed database with necessary infoz"
