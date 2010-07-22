@@ -8,6 +8,18 @@ class ItemsControllerTest < ActionController::TestCase
       assert_select ".base_stat", :text => "+1 Agility"
       assert_select ".base_stat", :text => "+1 Stamina"
     end
+    should "show spell on equip effects" do
+      item = Factory(:item, :spell_effects => [{:trigger => 1, :description => "Chance on melee or ranged critical strike to increase your armor penetration rating by 678 for 10 sec."}])
+      get :show, :id => item.id
+      assert_select ".spell_effect", :text => "Equip: Chance on melee or ranged critical strike to increase your armor penetration rating by 678 for 10 sec."
+    end
+
+    should "show spell on use effects" do
+      item = Factory(:item, :spell_effects => [{:trigger => 0, :description => "Chance on melee or ranged critical strike to increase your armor penetration rating by 678 for 10 sec."}])
+      get :show, :id => item.id
+      assert_select ".spell_effect", :text => "Use: Chance on melee or ranged critical strike to increase your armor penetration rating by 678 for 10 sec."
+    end
+
   end
 
   context "get tooltip" do

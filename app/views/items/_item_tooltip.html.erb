@@ -51,6 +51,9 @@
               <% @item.equipped_stats.each do |equipped_stat_name, bonus| %>
                  <span class="q2 equip_stat">Equip: <%= equipped_stat_string(equipped_stat_name, bonus) %></span><br />
               <% end %>
+              <% @item.spell_effect_strings.each do |spell_effect_string| %>
+                 <span class="q2 spell_effect"><%= spell_effect_string %></span><br />
+              <% end %>
               <br />
             </td>
           </tr>

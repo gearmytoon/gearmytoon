@@ -104,4 +104,11 @@ class Item < ActiveRecord::Base
   def dps_description
     "(#{weapon_bonuses(:dps)} damage per second)"
   end
+  
+  def spell_effect_strings
+    (self.spell_effects || []).map do |spell_effect|
+      trigger_method = spell_effect[:trigger] == 1 ? "Equip" : "Use"
+      "#{trigger_method}: #{spell_effect[:description]}"
+    end
+  end
 end
