@@ -9,7 +9,13 @@ class ItemImporterTest < ActiveSupport::TestCase
   end
 
   context "import_from_wowarmory!" do
-
+    should_eventually "import item difficulty correctly" do
+      item = ItemImporter.import_from_wowarmory!(50638)
+      assert_equal 80, item.required_level
+      assert_equal 277, item.item_level
+      assert_equal true, item.heroic
+    end
+    
     should "import item level stuff correctly" do
       item = ItemImporter.import_from_wowarmory!(50034)
       assert_equal 80, item.required_level
@@ -24,6 +30,11 @@ class ItemImporterTest < ActiveSupport::TestCase
       assert_equal [{:trigger => 0, :description => "Increases resistance to Arcane, Fire, Frost, Nature, and Shadow spells by 268 for 10 sec."}], item.spell_effects
     end
 
+    should "import trinkets with stamina correctly" do
+      item = ItemImporter.import_from_wowarmory!(50364)
+      assert_equal 258, item.bonuses[:stamina]
+    end
+    
     should_eventually "import trinkets with armor correctly" do
       item = ItemImporter.import_from_wowarmory!(54591)
       assert_equal 80, item.required_level
