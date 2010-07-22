@@ -1,1 +1,11 @@
-<%= render 'items/item_tooltip' %>
+<div id="item_tooltip">
+  <%= render 'items/item_tooltip' %>
+</div>
+<div id="item_sources">
+  <h3>Item's Source(s)</h3>
+  <ul>
+    <% @item.item_sources.each do |item_source| %>
+      <li class="dropped_by"><%= render "items/#{item_source.as_source_type}", :item_source => item_source %></li>
+    <% end %>
+  </ul>
+</div>

@@ -4,4 +4,8 @@ class ItemSource < ActiveRecord::Base
     {:include => :item, :conditions => ["items.armor_type_id IN (?) AND items.restricted_to IN (?)", wow_class.usable_armor_types, [Item::RESTRICT_TO_NONE, wow_class.name]]}
   }
   belongs_to :item
+  
+  def as_source_type
+    self.class.name.gsub(/Source/,"").downcase
+  end
 end
