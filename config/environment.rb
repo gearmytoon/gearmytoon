@@ -10,8 +10,9 @@ Rails::Initializer.run do |config|
 
   if RAILS_ENV == "development"
     require 'rack/cache'
-    config.middleware.use(Rack::Cache, :verbose => true, :metastore   => "file:#{RAILS_ROOT}/cache/rack/meta", :entitystore => "file:#{RAILS_ROOT}/cache/rack/body") 
+    config.middleware.use(Rack::Cache, :verbose => true, :metastore   => "file:#{RAILS_ROOT}/cache/rack/meta", :entitystore => "file:#{RAILS_ROOT}/cache/rack/body")
   end
+  config.middleware.use 'ResqueWeb'
 
   config.time_zone = 'UTC'
   config.after_initialize do

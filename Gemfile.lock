@@ -1,4 +1,119 @@
 --- 
+dependencies: 
+  tzinfo: 
+    group: 
+    - :default
+    version: = 0.3.20
+  ruby-debug: 
+    group: 
+    - :test
+    version: = 0.10.3
+  vlad-git: 
+    group: 
+    - :deploy
+    version: = 2.1.0
+  wowr: 
+    group: 
+    - :default
+    version: ">= 0"
+  rails: 
+    group: 
+    - :default
+    version: ~> 2.3.8
+  sqlite3-ruby: 
+    group: 
+    - :test
+    version: ">= 0"
+    require: 
+    - sqlite3
+  authlogic: 
+    group: 
+    - :default
+    version: = 2.1.3
+  mysql: 
+    group: 
+    - :default
+    version: = 2.8.1
+  ruby-openid: 
+    group: 
+    - :default
+    version: = 2.1.7
+    require: 
+    - openid
+  macaddr: 
+    group: 
+    - :default
+    version: = 1.0.0
+  rack-cache: 
+    group: 
+    - :development
+    version: = 0.5.2
+    require: 
+    - rack/cache
+  newrelic_rpm: 
+    group: 
+    - :default
+    version: ">= 0"
+    require: []
+
+  uuid: 
+    group: 
+    - :default
+    version: = 2.3.0
+  mechanize: 
+    group: 
+    - :default
+    version: = 0.9.3
+  acts_as_state_machine: 
+    group: 
+    - :default
+    version: = 2.2.0
+  shoulda: 
+    group: 
+    - :test
+    version: = 2.10.2
+  resque: 
+    group: 
+    - :default
+    version: = 1.8.5
+  vlad: 
+    group: 
+    - :deploy
+    version: = 2.0.0
+  mocha: 
+    group: 
+    - :test
+    version: = 0.9.8
+  friendly_id: 
+    group: 
+    - :default
+    version: ~> 2.3
+  will_paginate: 
+    group: 
+    - :default
+    version: = 2.3.14
+  sinatra: 
+    group: 
+    - :default
+    version: ">= 0"
+    require: []
+
+  factory_girl: 
+    group: 
+    - :test
+    version: = 1.2.3
+  i18n: 
+    group: 
+    - :default
+    version: = 0.3.7
+  rpx_now: 
+    group: 
+    - :default
+    version: = 0.6.17
+  hoptoad_notifier: 
+    group: 
+    - :default
+    version: ">= 0"
 specs: 
 - rake: 
     version: 0.8.7
@@ -89,7 +204,7 @@ specs:
 - wowr: 
     version: 0.5.4
     source: 0
-hash: 26ca78cb35b5b3eb3201633899ca25e1d0a5eace
+hash: 372d2b3d156a3293de89f44d2672d92a759f4e22
 sources: 
 - Git: 
     uri: http://github.com/gearmytoon/wowr.git
@@ -98,114 +213,3 @@ sources:
     ref: 0b9dc5831ccc848e4d0f78913787ab1077539c8c
 - Rubygems: 
     uri: http://gemcutter.org
-- Rubygems: 
-    uri: http://gems.github.com
-dependencies: 
-  sqlite3-ruby: 
-    version: ">= 0"
-    require: 
-    - sqlite3
-    group: 
-    - :test
-  ruby-debug: 
-    version: = 0.10.3
-    group: 
-    - :test
-  vlad-git: 
-    version: = 2.1.0
-    group: 
-    - :deploy
-  rails: 
-    version: ~> 2.3.8
-    group: 
-    - :default
-  wowr: 
-    version: ">= 0"
-    group: 
-    - :default
-  ruby-openid: 
-    version: = 2.1.7
-    require: 
-    - openid
-    group: 
-    - :default
-  mysql: 
-    version: = 2.8.1
-    group: 
-    - :default
-  tzinfo: 
-    version: = 0.3.20
-    group: 
-    - :default
-  acts_as_state_machine: 
-    version: = 2.2.0
-    group: 
-    - :default
-  mechanize: 
-    version: = 0.9.3
-    group: 
-    - :default
-  newrelic_rpm: 
-    version: ">= 0"
-    require: []
-
-    group: 
-    - :default
-  shoulda: 
-    version: = 2.10.2
-    group: 
-    - :test
-  mocha: 
-    version: = 0.9.8
-    group: 
-    - :test
-  macaddr: 
-    version: = 1.0.0
-    group: 
-    - :default
-  will_paginate: 
-    version: = 2.3.14
-    group: 
-    - :default
-  authlogic: 
-    version: = 2.1.3
-    group: 
-    - :default
-  friendly_id: 
-    version: ~> 2.3
-    group: 
-    - :default
-  rack-cache: 
-    version: = 0.5.2
-    require: 
-    - rack/cache
-    group: 
-    - :development
-  resque: 
-    version: = 1.8.5
-    group: 
-    - :default
-  uuid: 
-    version: = 2.3.0
-    group: 
-    - :default
-  rpx_now: 
-    version: = 0.6.17
-    group: 
-    - :default
-  factory_girl: 
-    version: = 1.2.3
-    group: 
-    - :test
-  vlad: 
-    version: = 2.0.0
-    group: 
-    - :deploy
-  hoptoad_notifier: 
-    version: ">= 0"
-    group: 
-    - :default
-  i18n: 
-    version: = 0.3.7
-    group: 
-    - :default

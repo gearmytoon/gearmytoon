@@ -1,5 +1,4 @@
 source :rubygems
-source "http://gems.github.com"
 
 gem "rails", "~> 2.3.8"
 gem "mysql", "2.8.1"
@@ -18,6 +17,7 @@ gem "macaddr", "1.0.0"
 gem "newrelic_rpm", :require => false
 gem "hoptoad_notifier"
 gem "i18n", "0.3.7"
+gem "sinatra", :require => false
 
 group :development do
   gem "rack-cache", "0.5.2", :require => 'rack/cache'
