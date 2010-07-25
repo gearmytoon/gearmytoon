@@ -125,3 +125,10 @@
 .image_item_link{
   float:left;
 }
+#item_tooltip{
+  float:left;
+}
+#item_sources{
+  padding-left:20px;
+  float:left;
+}

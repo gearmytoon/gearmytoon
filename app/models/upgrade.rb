@@ -78,7 +78,7 @@ class Upgrade < ActiveRecord::Base
   end
   
   def new_item_source_type
-    new_item_source.class.name.gsub(/Source/,"").downcase
+    new_item_source.as_source_type
   end
 
   def kind_of_change

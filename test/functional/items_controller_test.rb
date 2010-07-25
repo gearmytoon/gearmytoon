@@ -20,6 +20,27 @@ class ItemsControllerTest < ActionController::TestCase
       assert_select ".spell_effect", :text => "Use: Chance on melee or ranged critical strike to increase your armor penetration rating by 678 for 10 sec."
     end
 
+    should "show where to get the dropped item from" do
+      item_source = Factory(:dungeon_dropped_source)
+      get :show, :id => item_source.item.id
+      assert_select ".dropped_by", :text => "Super Fun Unicorn Land"
+    end
+    should "show where to get the arena points item from" do
+      item_source = Factory(:arena_point_source)
+      get :show, :id => item_source.item.id
+      assert_select ".dropped_by", :text => "1000 arena points"
+    end
+    should "show where to get the honor points item from" do
+      item_source = Factory(:honor_point_source)
+      get :show, :id => item_source.item.id
+      assert_select ".dropped_by", :text => "45000 honor points"
+    end
+    should "show where to get the emblems source item from" do
+      item_source = Factory(:frost_emblem_source)
+      get :show, :id => item_source.item.id
+      assert_select ".dropped_by", :text => "60"
+    end
+
   end
 
   context "get tooltip" do
