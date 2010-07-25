@@ -33,7 +33,8 @@ class ItemImporter
   end
   
   def get_spell_effects
-    wowarmory_item.instance_variable_get(:@tooltip).instance_variable_get(:@spells).map do |spell|
+    spells = wowarmory_item.instance_variable_get(:@tooltip).instance_variable_get(:@spells) || []
+    spells.map do |spell|
       {:description => spell.description, :trigger => spell.trigger}
     end
   end

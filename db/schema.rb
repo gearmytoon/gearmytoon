@@ -149,7 +149,7 @@ ActiveRecord::Schema.define(:version => 20100720200849) do
   create_table "upgrades", :force => true do |t|
     t.integer  "character_id"
     t.integer  "new_item_source_id"
-    t.decimal  "dps_change"
+    t.decimal  "dps_change",            :precision => 8, :scale => 2
     t.boolean  "for_pvp"
     t.text     "bonus_changes"
     t.datetime "created_at"
@@ -160,6 +160,7 @@ ActiveRecord::Schema.define(:version => 20100720200849) do
     t.integer  "gem_three_id"
   end
 
+  add_index "upgrades", ["character_id", "new_item_source_id"], :name => "index_upgrades_on_character_id_and_new_item_source_id"
   add_index "upgrades", ["character_id"], :name => "index_upgrades_on_character_id"
   add_index "upgrades", ["new_item_source_id"], :name => "index_upgrades_on_new_item_source_id"
 
