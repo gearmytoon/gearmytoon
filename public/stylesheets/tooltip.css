@@ -11,6 +11,9 @@
   line-height:17px;
   color:white;
 }
+.gmt-tooltip div{
+  padding-top:1px;
+}
 .gmt-tooltip a{
   text-decoration:none;
 }
@@ -18,13 +21,9 @@
   text-decoration:underline;
 }
 
-.gmt-tooltip b{
+.gmt-tooltip .item_name{
   font-size:14px;
   line-height:19px;
-  font-weight:normal;
-}
-.gmt-tooltip div.indent{
-  padding-left:.6em;
 }
 
 .moneyitem,.moneygold,.moneysilver,.moneycopper,.moneyalliance,.moneyhorde,.moneyarena,.moneyachievement,.moneysocketmeta,.moneysocketred,.moneysocketyellow,.moneysocketblue,.moneysocketprismatic{
