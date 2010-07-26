@@ -1,43 +1,41 @@
 <div class="gmt-tooltip">
    <b class="q4 item_name"><%= @item.name %></b>
-   <br />
-   <span class="bonding"><%= @item.bonding_description %></span>
+   <div class="bonding"><%= @item.bonding_description %></div>
    <div style="width:100%;float:left;">
        <span class="item_slot" style="float:left;"><%= @item.slot %></span>
        <span class="armor_type" style="float:right;"><%= @item.armor_type.name %></span>
    </div>
-   <br/>
    <% if @item.is_a_weapon? %>
      <div style="width:100%;float:left;">
         <span class="min_max_damage" style="float:left;"><%= @item.damage_range %></span>
         <span class="attack_speed" style="float:right;">Speed <%= @item.attack_speed %></span>
      </div>
-     <span class="dps_description"><%= @item.dps_description %></span><br />
+     <div class="dps_description"><%= @item.dps_description %></div>
    <% end %>
    <% if @item.has_armor? %>
-     <span class="armor"><%= @item.armor %> Armor</span><br />
+     <div class="armor"><%= @item.armor %> Armor</div>
    <% end %>
    <% @item.base_stats.each do |base_stat_name, bonus| %>
-     <span class="base_stat">+<%= bonus %> <%= base_stat_name.to_s.camelize %></span><br />
+     <div class="base_stat">+<%= bonus %> <%= base_stat_name.to_s.camelize %></div>
    <% end %>
    <% if @item.gem_sockets %>
      <% @item.gem_sockets.each do |gem_socket| %>
-       <a href="#" class="socket-<%= gem_socket.downcase %> q0"><%= gem_socket.camelize %> Socket</a><br />
+       <a href="#" class="socket-<%= gem_socket.downcase %> q0"><%= gem_socket.camelize %> Socket</a><div class="clear"></div>
      <% end %>
    <% end %>
    <% if @item.socket_bonuses && @item.socket_bonuses.any? %>
-     <span class="socket_bonuses q0">Socket Bonus: <%= @item.socket_bonuses.map{ |stat_name, bonus| "+#{bonus} #{stat_name.to_s.camelize}"}.join(" ") %></span><br />
+     <div class="socket_bonuses q0">Socket Bonus: <%= @item.socket_bonuses.map{ |stat_name, bonus| "+#{bonus} #{stat_name.to_s.camelize}"}.join(" ") %></div>
    <% end %>
    <% if @item.restricted_to_a_class? %>
-     Classes: <a href="#" class="c4 restricted_to"><%= @item.restricted_to.camelize %></a><br />
+     Classes: <a href="#" class="c4 restricted_to"><%= @item.restricted_to.camelize %></a><div class="clear"></div>
    <% end %>
-  <span class="required_level">Requires Level <%= @item.required_level %></span><br />
-  <span class="item_level">Item Level <%= @item.item_level %></span><br />
+  <div class="required_level">Requires Level <%= @item.required_level %></div>
+  <div class="item_level">Item Level <%= @item.item_level %></div>
   
    <% @item.equipped_stats.each do |equipped_stat_name, bonus| %>
-      <span class="q2 equip_stat">Equip: <%= equipped_stat_string(equipped_stat_name, bonus) %></span><br />
+      <div class="q2 equip_stat">Equip: <%= equipped_stat_string(equipped_stat_name, bonus) %></div>
    <% end %>
    <% @item.spell_effect_strings.each do |spell_effect_string| %>
-      <span class="q2 spell_effect"><%= spell_effect_string %></span><br />
+      <div class="q2 spell_effect"><%= spell_effect_string %></div>
    <% end %>
 </div>
