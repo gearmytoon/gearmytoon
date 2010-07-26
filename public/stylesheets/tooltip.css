@@ -1,8 +1,15 @@
 .gmt-tooltip{
-/*  visibility:hidden;*/
-  width:320px;
+  max-width:300px;
   z-index:100000006;
   overflow:visible!important;
+  background-color: #000;
+  -moz-border-radius: 5px;
+  -webkit-border-radius: 5px;
+  border: 1px solid #ccc;
+  padding: 5px;
+  font-size:12px;
+  line-height:17px;
+  color:white;
 }
 .gmt-tooltip a{
   text-decoration:none;
@@ -10,34 +17,7 @@
 .gmt-tooltip a:hover{
   text-decoration:underline;
 }
-.gmt-tooltip table{
-  border-spacing:0;
-  border-collapse:collapse;
-  margin:0;
-  width:auto;
-}
-.gmt-tooltip table,.gmt-tooltip td,.gmt-tooltip th,.gmt-tooltip tbody{
-  border:0!important;
-}
-.gmt-tooltip td table td table{
-  width:100%;
-  }
-.gmt-tooltip td,.gmt-tooltip th{
-  background:url(http://static.wowhead.com/images/wow/tooltip.png);
-  font-family:Verdana,sans-serif;
-  font-size:12px;
-  line-height:17px;
-  color:white;
-}
-.gmt-tooltip th{
-  padding:3px;
-  vertical-align:top;
-}
-.gmt-tooltip td{
-  padding:8px 4px 1px 9px;
-  text-align:left;
-  vertical-align:top;
-}
+
 .gmt-tooltip b{
   font-size:14px;
   line-height:19px;
@@ -46,48 +26,7 @@
 .gmt-tooltip div.indent{
   padding-left:.6em;
 }
-.gmt-tooltip td th,.gmt-tooltip td td{
-  background:none;
-}
-.gmt-tooltip td th{
-  padding:0 0 0 4em;
-  text-align:right;
-  font-weight:normal;
-}
-.gmt-tooltip td td{
-  padding:0;text-align:left;
-}
-.gmt-tooltip p{
-  position:absolute;
-  left:-44px;
-  top:-1px;
-  width:44px;
-  height:44px;
-  background:4px 4px no-repeat;
-  margin:0;
-  padding:0;
-}
-.gmt-tooltip p div{
-  width:44px;
-  height:44px;
-  background-image:url(http://static.wowhead.com/images/Icon/medium/border/default.png);
-}
-.gmt-tooltip table.shrink b{
-  font-size:12px;line-height:15px;
-}
-.gmt-tooltip table.shrink td,.gmt-tooltip table.shrink th{
-  font-size:10px;
-  line-height:14px;
-}
-.gmt-tooltip-powered{
-  background:url(http://static.wowhead.com/images/logos/powered.png) no-repeat;
-  width:53px;
-  height:33px;
-  position:absolute;
-  right:-56px;
-  top:2px;
-  display:none;
-}
+
 .moneyitem,.moneygold,.moneysilver,.moneycopper,.moneyalliance,.moneyhorde,.moneyarena,.moneyachievement,.moneysocketmeta,.moneysocketred,.moneysocketyellow,.moneysocketblue,.moneysocketprismatic{
   background:no-repeat right center;
   color:white;
