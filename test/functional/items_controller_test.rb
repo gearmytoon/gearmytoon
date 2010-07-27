@@ -109,9 +109,9 @@ class ItemsControllerTest < ActionController::TestCase
     should "show item sockets" do
       item = Factory(:item, :gem_sockets => ["Meta", "Blue", "Red"], :socket_bonuses => {:agility => 4})
       get :tooltip, :id => item.id
-      assert_select ".socket-meta", :text => "Meta Socket", :count => 1
-      assert_select ".socket-blue", :text => "Blue Socket", :count => 1
-      assert_select ".socket-red", :text => "Red Socket", :count => 1
+      assert_select ".socket_meta", :text => "Meta Socket", :count => 1
+      assert_select ".socket_blue", :text => "Blue Socket", :count => 1
+      assert_select ".socket_red", :text => "Red Socket", :count => 1
       assert_select ".socket_bonuses", :text => "Socket Bonus: +4 Agility", :count => 1
     end
 
