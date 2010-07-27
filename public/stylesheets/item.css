@@ -1,6 +1,9 @@
 .epic,a.epic:visited,a.epic:hover{
   color:#A335EE;
 }
+.common,a.common:visited,a.common:hover{
+  color:#9d9d9d;
+}
 .rare,a.rare:visited,a.rare:hover{
   color:#0070DD;
 }

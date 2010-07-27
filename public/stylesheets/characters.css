@@ -4,7 +4,6 @@
 .see_more {
   font-size:0.7em;
 }
-
 .character { float: left; position:relative; color: white; text-shadow: 1px 1px 4px rgba(10,10,10,0.5); background: saddleBrown url(/images/character_glass.png) no-repeat right top; width: 320px; padding: 10px 0; margin: 0 10px 10px 0; -moz-border-radius: 10px; -webkit-border-radius: 10px; border-radius: 10px; }
 .character.pvp.horde { background: #af0202 url(/images/horde_red.png) no-repeat right top; }
 .character.pvp.alliance { background: #0202af url(/images/alliance_blue.png) no-repeat right top; }
@@ -16,7 +15,6 @@
 .character .info .guild { color: GoldenRod; }
 .character .info .guild:before { content: "<"; }
 .character .info .guild:after { content: ">"; }
-
 .character.small { width: 300px; }
 
 #character_gearing {
@@ -24,3 +22,14 @@
   width:100%;
   text-align:center;
 }
+
+.warrior {color:#C69B6D!important;}
+.paladin {color:#F48CBA!important;}
+.hunter {color:#AAD372!important;}
+.rogue {color:#FFF468!important;}
+.priest {color:#FFF!important;}
+.death_knight {color:#C41E3B!important;}
+.shaman {color:#2359FF!important;}
+.mage {color:#68CCEF!important;}
+.warlock {color:#9382C9!important;}
+.druid{color:#FF7C0A!important;}

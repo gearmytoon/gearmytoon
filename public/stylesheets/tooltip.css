@@ -20,135 +20,24 @@
 .gmt-tooltip a:hover{
   text-decoration:underline;
 }
-
 .gmt-tooltip .item_name{
   font-size:14px;
   line-height:19px;
 }
-
-.moneyitem,.moneygold,.moneysilver,.moneycopper,.moneyalliance,.moneyhorde,.moneyarena,.moneyachievement,.moneysocketmeta,.moneysocketred,.moneysocketyellow,.moneysocketblue,.moneysocketprismatic{
-  background:no-repeat right center;
-  color:white;
+.gmt-tooltip .weapon_info, .gmt-tooltip .armor_info{
+  width:100%;
+  float:left;
 }
-.moneyitem{
-  padding-right:18px;
+.armor_info .item_slot, .weapon_info .min_max_damage{
+  float:left;
 }
-.moneygold{
-  padding-right:15px;
-  background-image:url(http://static.wowhead.com/images/icons/money-gold.gif);
+.armor_info .armor_type, .weapon_info .attack_speed{
+  float:right;
 }
-.moneysilver{
-  padding-right:15px;
-  background-image:url(http://static.wowhead.com/images/icons/money-silver.gif);
+.socket {
+  padding-left:20px;
 }
-.moneycopper{
-  padding-right:15px;
-  background-image:url(http://static.wowhead.com/images/icons/money-copper.gif);
-}
-.moneyalliance{
-  padding-right:12px;
-  background-image:url(http://static.wowhead.com/images/icons/alliance.gif);
-}
-.moneyhorde{
-  padding-right:17px;
-  background-image:url(http://static.wowhead.com/images/icons/horde.gif);
-}
-
-.moneyarena{
-  padding-right:18px;
-  background-image:url(http://static.wowhead.com/images/icons/arena.gif);
-}
-.moneyachievement{
-  padding-right:13px;
-  background-image:url(http://static.wowhead.com/images/icons/achievement.gif);
-}
-.moneysocketmeta{
-  padding-right:18px;
-  background-image:url(http://static.wowhead.com/images/icons/socket-meta.gif);
-}
-.moneysocketred{
-  padding-right:18px;
-  background-image:url(http://static.wowhead.com/images/icons/socket-red.gif);
-}
-.moneysocketyellow{
-  padding-right:18px;
-  background-image:url(http://static.wowhead.com/images/icons/socket-yellow.gif);
-}
-.moneysocketblue{
-  padding-right:18px;
-  background-image:url(http://static.wowhead.com/images/icons/socket-blue.gif);
-}
-.moneysocketprismatic{
-  padding-right:18px;
-  background-image:url(http://static.wowhead.com/images/icons/socket-prismatic.gif);
-}
-a.moneyitem,a.moneysocketmeta,a.moneysocketred,a.moneysocketyellow,a.moneysocketblue,a.moneysocketprismatic,a.moneyachievement{
-  text-decoration:none!important;
-  border-bottom:1px solid transparent;
-  color:white!important;
-}
-a.moneyitem:hover,a.moneysocketmeta:hover,a.moneysocketred:hover,a.moneysocketyellow:hover,a.moneysocketblue:hover,a.moneysocketprismatic:hover,a.moneyachievement:hover{
-  border-bottom:1px solid white;
-}
-a span.moneyitem,a span.moneysocketmeta,a span.moneysocketred,a span.moneysocketyellow,a span.moneysocketblue,a span.moneysocketprismatic,a span.moneyachievement{
-  color:white;
-}
-.q,.q a{
-color:#ffd100!important;
-}
-.q0,.q0 a{
-color:#9d9d9d!important;
-}
-.q1,.q1 a{
-color:#fff!important;
-}
-.q2,.q2 a{
-color:#1eff00!important;
-}
-.q3,.q3 a{
-color:#0070dd!important;
-}
-.q4,.q4 a{
-color:#a335ee!important;
-}
-.q5,.q5 a{
-color:#ff8000!important;
-}
-.q6,.q6 a{
-  color:#e5cc80!important;
-}
-.q7,.q7 a{
-color:#e5cc80!important;
-}
-.q8,.q8 a{
-color:#ffff98!important;
-}
-.q9,.q9 a{color:#71d5ff!important;}
-.q10,.q10 a{color:#f00!important;}
-.r1{color:#FF8040!important;}
-.r2{color:#FF0!important;}
-.r3{color:#40BF40!important;}
-.r4{color:#808080!important;}
-.c1,.c1 a{color:#C69B6D!important;}
-.c2,.c2 a{color:#F48CBA!important;}
-.c3,.c3 a{color:#AAD372!important;}
-.c4,.c4 a{color:#FFF468!important;}
-.c5,.c5 a{color:#FFF!important;}
-.c6,.c6 a{color:#C41E3B!important;}
-.c7,.c7 a{color:#2359FF!important;}
-.c8,.c8 a{color:#68CCEF!important;}
-.c9,.c9 a{color:#9382C9!important;}
-.c11,.c11 a{color:#FF7C0A!important;}
-.gem1{color:#9D9D9D!important;}
-.gem2{color:#e60c0b!important;}
-.gem4{color:#ffff35!important;}
-.gem6{color:#f48905!important;}
-.gem8{color:#295df1!important;}
-.gem10{color:#b957fc!important;}
-.gem12{color:#22c516!important;}
-.gem14{color:#FFF!important;}
-.socket-meta{padding-left:26px;background:url(http://static.wowhead.com/images/icons/socket-meta.gif) no-repeat left center;}
-.socket-red{padding-left:26px;background:url(http://static.wowhead.com/images/icons/socket-red.gif) no-repeat left center;}
-.socket-yellow{padding-left:26px;background:url(http://static.wowhead.com/images/icons/socket-yellow.gif) no-repeat left center;}
-.socket-blue{padding-left:26px;background:url(http://static.wowhead.com/images/icons/socket-blue.gif) no-repeat left center;}
-.socket-prismatic{padding-left:26px;background:url(http://static.wowhead.com/images/icons/socket-prismatic.gif) no-repeat left center;}
+.socket_meta{background:url(/images/tooltip/socket_meta.png) no-repeat left center;}
+.socket_red{background:url(/images/tooltip/socket_red.png) no-repeat left center;}
+.socket_yellow{background:url(/images/tooltip/socket_yellow.png) no-repeat left center;}
+.socket_blue{background:url(/images/tooltip/socket_blue.png) no-repeat left center;}

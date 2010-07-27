@@ -19,6 +19,7 @@ module CharactersHelper
   def item_icon(item)
     styled_wow_icon(item.icon, item.name)
   end
+  
   def styled_wow_icon(path, alt = "")
     image_tag(path, :alt => alt, :border => 0, :class => "item_icon")
   end
