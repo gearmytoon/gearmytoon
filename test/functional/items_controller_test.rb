@@ -50,7 +50,13 @@ class ItemsControllerTest < ActionController::TestCase
       assert_select ".base_stat", :text => "+1 Agility"
       assert_select ".base_stat", :text => "+1 Stamina"
     end
-
+    
+    should "not show armor type if it is miscelaneous" do
+      item = Factory(:item, :armor_type => ArmorType.miscellaneous, :bonuses => {:agility => 1, :stamina => 1})
+      get :tooltip, :id => item.id
+      assert_select ".armor_type", :count => 0
+    end
+    
     should "show melee weapon info" do
       item = Factory(:item, :bonuses => {:melee_attack_speed => 3.5, :melee_min_damage => 200, :melee_max_damage => 300, :melee_dps => 100.0})
       get :tooltip, :id => item.id

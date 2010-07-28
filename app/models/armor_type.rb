@@ -12,4 +12,8 @@ class ArmorType < ActiveRecord::Base
       end
     end
   end
+  
+  def should_be_shown?
+    self.name != "Miscellaneous"
+  end
 end
