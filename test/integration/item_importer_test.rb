@@ -1,5 +1,6 @@
 require File.dirname(__FILE__) + '/../test_helper'
 
+#TODO test icon
 class ItemImporterTest < ActiveSupport::TestCase
   context "exceptions" do
     should "be okay if thottbot errors out" do
@@ -7,7 +8,7 @@ class ItemImporterTest < ActiveSupport::TestCase
       item = ItemImporter.import_from_wowarmory!(32837)
     end
   end
-
+  
   context "import_from_wowarmory!" do
     should_eventually "import item difficulty correctly" do
       item = ItemImporter.import_from_wowarmory!(50638)
@@ -15,7 +16,7 @@ class ItemImporterTest < ActiveSupport::TestCase
       assert_equal 277, item.item_level
       assert_equal true, item.heroic
     end
-    
+        
     should "import item level stuff correctly" do
       item = ItemImporter.import_from_wowarmory!(50034)
       assert_equal 80, item.required_level
@@ -29,7 +30,7 @@ class ItemImporterTest < ActiveSupport::TestCase
       item = ItemImporter.import_from_wowarmory!(50364) #must use to trigger
       assert_equal [{:trigger => 0, :description => "Increases resistance to Arcane, Fire, Frost, Nature, and Shadow spells by 268 for 10 sec."}], item.spell_effects
     end
-
+      
     should "import trinkets with stamina correctly" do
       item = ItemImporter.import_from_wowarmory!(50364)
       assert_equal 258, item.bonuses[:stamina]
@@ -61,7 +62,7 @@ class ItemImporterTest < ActiveSupport::TestCase
       item = ItemImporter.import_from_wowarmory!(45966)
       assert_equal [], item.item_sources
     end
-
+      
     should "import emblem of frost correctly" do
       item = ItemImporter.import_from_wowarmory!(Item::FROST_EMBLEM_ARMORY_ID)
       assert_equal "epic", item.quality
@@ -85,32 +86,39 @@ class ItemImporterTest < ActiveSupport::TestCase
       item = ItemImporter.import_from_wowarmory!(45862)
       assert_equal({:strength => 20}, item.bonuses)
       assert_equal("Red", item.gem_color)
+      assert_equal(item.is_a?(GemItem))
       item = ItemImporter.import_from_wowarmory!(40032)
       assert_equal({:parry => 8, :stamina => 12}, item.bonuses)
       assert_equal("Purple", item.gem_color)
+      assert_equal(item.is_a?(GemItem))
       item = ItemImporter.import_from_wowarmory!(40175)
       assert_equal({:mana_regen => 5, :intellect => 10}, item.bonuses)
       assert_equal("Green", item.gem_color)
+      assert_equal(item.is_a?(GemItem))
       item = ItemImporter.import_from_wowarmory!(32225)
       assert_equal({:mana_regen => 3, :intellect => 5}, item.bonuses)
       assert_equal("Green", item.gem_color)
+      assert_equal(item.is_a?(GemItem))
       item = ItemImporter.import_from_wowarmory!(40147)
       assert_equal({:agility => 10, :crit => 10}, item.bonuses)
       assert_equal("Orange", item.gem_color)
+      assert_equal(item.is_a?(GemItem))
       item = ItemImporter.import_from_wowarmory!(40154)
       assert_equal({:spell_power => 12, :resilience => 10}, item.bonuses)
       assert_equal("Orange", item.gem_color)
+      assert_equal(item.is_a?(GemItem))
       item = ItemImporter.import_from_wowarmory!(40158)
       assert_equal({:attack_power => 20, :resilience => 10}, item.bonuses)
+      assert_equal(item.is_a?(GemItem))
       item = ItemImporter.import_from_wowarmory!(40117)
       assert_equal({:armor_penetration => 20}, item.bonuses)
     end
-
+      
     should "import a item without sockets as a empty array" do
       item = ItemImporter.import_from_wowarmory!(47272)
       assert_equal([], item.reload.gem_sockets)
     end
-
+      
     should "import a items sockets" do
       item = ItemImporter.import_from_wowarmory!(50970)
       assert_equal(['Red', "Yellow", "Blue"], item.reload.gem_sockets)
@@ -125,28 +133,30 @@ class ItemImporterTest < ActiveSupport::TestCase
       assert_equal "Prismatic", item.gem_color
       assert_equal({:spirit => 10, :stamina => 10, :intellect => 10, :agility => 10, :strength => 10}, item.bonuses)
     end
-
+      
     should "import items bindings" do
       item = ItemImporter.import_from_wowarmory!(36766)
       assert_equal Item::BOP, item.bonding
       item = ItemImporter.import_from_wowarmory!(40111)
       assert_equal Item::BOE, item.bonding
     end
-
+      
     should "import meta gems with runspeed enchants correctly" do
       item = ItemImporter.import_from_wowarmory!(41339)
       assert_equal "Meta", item.gem_color
+      assert_equal(item.is_a?(GemItem))
       assert_equal({:attack_power => 42}, item.bonuses)
     end
-
+      
     should "be able to import meta gems raw attributes" do
       item = ItemImporter.import_from_wowarmory!(41380)
       assert_equal({:stamina => 32}, item.bonuses)
       assert_equal("Meta", item.gem_color)
+      assert_equal(item.is_a?(GemItem))
       item = ItemImporter.import_from_wowarmory!(44088)
       assert_equal({:stamina => 26}, item.bonuses)
     end
-
+      
     should "import gems correctly" do
       gems = [40032, 41380, 39976]
       gems.each do |gem|
@@ -177,7 +187,7 @@ class ItemImporterTest < ActiveSupport::TestCase
       assert_equal 13200, ArenaSource.first.honor_point_cost
       assert_equal raid, DroppedSource.first.source_area
     end
-
+      
     # ItemImporter.import_from_wowarmory!(41144)
     should_eventually "import gladiator gloves that have 4 sources" do
       item = ItemImporter.import_from_wowarmory!(41143)
