@@ -2,7 +2,7 @@
 <div style="clear:both"></div>
 <div id="unpaid_character">
   <h2>Sign up for only <strong>$1</strong> a month</h2>
-  <p class="top">Gear <strong><%= @character.name %></strong> and <strong>4</strong> other toons </p>
+  <p class="top">Gear <strong><%= @character.name.capitalize %></strong> and <strong>4</strong> other toons </p>
   <p class="bottom">with a <a href="#">Personal Account &raquo;</a></p>
   <% form_for Payment.new, {:url => payment_path, :html => {:method => :get}} do |f| %>
     <%= image_submit_tag "http://g-ecx.images-amazon.com/images/G/01/asp/golden_small_paynow_withlogo_darkbg.gif" %>

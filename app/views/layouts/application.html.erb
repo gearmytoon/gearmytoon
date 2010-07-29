@@ -1,7 +1,11 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
   <head>
-    <title><%= @title || "Find the Best Gear for Your Toon &mdash; gearmytoon.com" %></title>
+    <meta charset="utf-8" />
+    <% @meta_tags.each do |name, content| -%>
+      <meta name="<%= name %>" content="<%= content %>" />
+    <% end -%>
+    <title><%= @title || "Find the Best Gear in World of Warcraft &mdash; gearmytoon.com" %></title>
     <%= stylesheet_link_tag 'reset-fonts-grids', 'application', 'item', 'characters', 'payment', 'tooltip', :cache => true %>
     <script type="text/javascript">
       var _gaq = _gaq || [];

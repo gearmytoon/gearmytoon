@@ -6,6 +6,7 @@ class ApplicationController < ActionController::Base
   protect_from_forgery # See ActionController::RequestForgeryProtection for details
   helper_method :current_user_session, :current_user, :current_admin_session, :current_admin
   filter_parameter_logging :password, :password_confirmation
+  before_filter :setup_meta_tags
 
   protected
 
@@ -22,6 +23,13 @@ class ApplicationController < ActionController::Base
   end
 
   private
+  def setup_meta_tags
+    @meta_tags = {}
+    @meta_tags[:keywords] = "world of warcraft, gear, toon, upgrade, emblem of frost, emblem of triumph, druid, death knight, hunter, mage, paladin, priest, rogue, shaman, warlock, warrior"
+    @meta_tags[:description] = "Find the best upgrades for your World of Warcraft toon. Put away the spreadsheets and stop scouring forums."
+    @meta_tags
+  end
+
   def current_user_session
     return @current_user_session if defined?(@current_user_session)
     @current_user_session = UserSession.find
