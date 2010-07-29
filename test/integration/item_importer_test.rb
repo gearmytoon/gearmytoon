@@ -71,7 +71,7 @@ class ItemImporterTest < ActiveSupport::TestCase
     should "import pvp items that are purchasable with honor" do
       item = ItemImporter.import_from_wowarmory!(41087)
       assert_equal 54500, item.item_sources.first.honor_point_cost
-      assert_equal item, HonorSource.first.item
+      assert_equal item, HonorSource.last.item
     end
     
     should "import tier 9 pants correctly" do
@@ -86,30 +86,30 @@ class ItemImporterTest < ActiveSupport::TestCase
       item = ItemImporter.import_from_wowarmory!(45862)
       assert_equal({:strength => 20}, item.bonuses)
       assert_equal("Red", item.gem_color)
-      assert_equal(item.is_a?(GemItem))
+      assert(item.is_a?(GemItem))
       item = ItemImporter.import_from_wowarmory!(40032)
       assert_equal({:parry => 8, :stamina => 12}, item.bonuses)
       assert_equal("Purple", item.gem_color)
-      assert_equal(item.is_a?(GemItem))
+      assert(item.is_a?(GemItem))
       item = ItemImporter.import_from_wowarmory!(40175)
       assert_equal({:mana_regen => 5, :intellect => 10}, item.bonuses)
       assert_equal("Green", item.gem_color)
-      assert_equal(item.is_a?(GemItem))
+      assert(item.is_a?(GemItem))
       item = ItemImporter.import_from_wowarmory!(32225)
       assert_equal({:mana_regen => 3, :intellect => 5}, item.bonuses)
       assert_equal("Green", item.gem_color)
-      assert_equal(item.is_a?(GemItem))
+      assert(item.is_a?(GemItem))
       item = ItemImporter.import_from_wowarmory!(40147)
       assert_equal({:agility => 10, :crit => 10}, item.bonuses)
       assert_equal("Orange", item.gem_color)
-      assert_equal(item.is_a?(GemItem))
+      assert(item.is_a?(GemItem))
       item = ItemImporter.import_from_wowarmory!(40154)
       assert_equal({:spell_power => 12, :resilience => 10}, item.bonuses)
       assert_equal("Orange", item.gem_color)
-      assert_equal(item.is_a?(GemItem))
+      assert(item.is_a?(GemItem))
       item = ItemImporter.import_from_wowarmory!(40158)
       assert_equal({:attack_power => 20, :resilience => 10}, item.bonuses)
-      assert_equal(item.is_a?(GemItem))
+      assert(item.is_a?(GemItem))
       item = ItemImporter.import_from_wowarmory!(40117)
       assert_equal({:armor_penetration => 20}, item.bonuses)
     end
@@ -144,7 +144,7 @@ class ItemImporterTest < ActiveSupport::TestCase
     should "import meta gems with runspeed enchants correctly" do
       item = ItemImporter.import_from_wowarmory!(41339)
       assert_equal "Meta", item.gem_color
-      assert_equal(item.is_a?(GemItem))
+      assert(item.is_a?(GemItem))
       assert_equal({:attack_power => 42}, item.bonuses)
     end
       
@@ -152,7 +152,7 @@ class ItemImporterTest < ActiveSupport::TestCase
       item = ItemImporter.import_from_wowarmory!(41380)
       assert_equal({:stamina => 32}, item.bonuses)
       assert_equal("Meta", item.gem_color)
-      assert_equal(item.is_a?(GemItem))
+      assert(item.is_a?(GemItem))
       item = ItemImporter.import_from_wowarmory!(44088)
       assert_equal({:stamina => 26}, item.bonuses)
     end
@@ -171,6 +171,16 @@ class ItemImporterTest < ActiveSupport::TestCase
     should "import items from events correctly" do
       assert_equal "Shadowfang Keep", ItemImporter.import_from_wowarmory!(51807).dropped_sources.first.source_area.name
       assert_equal "Blackrock Depths", ItemImporter.import_from_wowarmory!(49074).dropped_sources.first.source_area.name
+    end
+    
+    should "import item with arena source correctly" do
+      raid = Factory(:raid, :name => "Vault of Archavon")
+      item = nil
+      assert_difference "ArenaSource.count" do
+        item = ItemImporter.import_from_wowarmory!(41206)
+      end
+      assert_equal 770, ArenaSource.last.arena_point_cost
+      assert_equal 13200, ArenaSource.last.honor_point_cost
     end
     
     should "import gladiator gloves that have 4 sources" do
@@ -337,8 +347,8 @@ class ItemImporterTest < ActiveSupport::TestCase
       item = ItemImporter.import_from_wowarmory!(50088)
       assert_equal 2, item.reload.item_sources.size
       assert_equal 1, DroppedSource.count
-      assert_equal 60, EmblemSource.first.token_cost
-      assert_equal 49426, EmblemSource.first.wowarmory_token_item_id #from emblem of frost
+      assert_equal 60, EmblemSource.last.token_cost
+      assert_equal 49426, EmblemSource.last.wowarmory_token_item_id #from emblem of frost
     end
     
     should "import melee weapon dps" do
@@ -454,7 +464,7 @@ class ItemImporterTest < ActiveSupport::TestCase
       
     should "import a items bonuses" do
       item = ItemImporter.import_from_wowarmory!(50270)
-      expected_bonuses = {:intellect=>37, :attack_power=>130, :haste=>54, :agility=>89, :hit=>47, :stamina=>76}
+      expected_bonuses = {:intellect=>37, :attack_power=>130, :haste=>54, :agility=>89, :hit=>47, :stamina=>76, :armor => 746}
       item.reload
       assert_equal expected_bonuses, item.bonuses
     end

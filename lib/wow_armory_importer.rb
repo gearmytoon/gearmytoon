@@ -2,7 +2,6 @@ class WowArmoryImporter
 
   def initialize(wowarmory_item_id)
     @wowarmory_item_id = wowarmory_item_id
-    
   end
   
   def tooltip

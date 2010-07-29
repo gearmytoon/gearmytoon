@@ -16,7 +16,7 @@ class ItemImporter
   end
   
   def is_a_gem?
-    !(@wowarmory_item_tooltip/:itemTooltip/:gemProperties).nil?
+    !@wowarmory_item_tooltip.at("gemProperties").nil?
   end
   
   def type_to_be_imported
@@ -28,11 +28,11 @@ class ItemImporter
   end
   
   def get_name
-    (@wowarmory_item_tooltip/:itemTooltip/:name).inner_html
+    @wowarmory_item_tooltip.at("//itemTooltip/name").inner_html
   end
 
   def get_icon
-    (@wowarmory_item_tooltip/:itemTooltip/:icon).inner_html
+    "http://www.wowarmory.com/wow-icons/_images/43x43/#{@wowarmory_item_tooltip.at("//itemTooltip/icon").inner_html}.png"
   end
 
   def import!
@@ -54,15 +54,15 @@ class ItemImporter
   end
   
   def get_required_level
-    (@wowarmory_item_tooltip/:itemTooltip/:requiredLevel).inner_html
+    @wowarmory_item_tooltip.at("//itemTooltip/requiredLevel").inner_html
   end
   
   def get_item_level
-    (@wowarmory_item_tooltip/:itemTooltip/:itemLevel).inner_html
+    @wowarmory_item_tooltip.at("//itemTooltip/itemLevel").inner_html
   end
   
   def get_item_bonding
-    bonding = (@wowarmory_item_tooltip/:itemTooltip/:bonding).inner_html
+    bonding = @wowarmory_item_tooltip.at("//itemTooltip/bonding").inner_html
     bonding == "1" ? Item::BOP : Item::BOE
   end
 
@@ -104,20 +104,20 @@ class ItemImporter
   def get_item_sources(item)
     returning([]) do |sources|
       # if wowarmory_item.drop_creatures.try(:first)
-      #       sources << get_dropped_area(item)
-      #     end
-      #     if wowarmory_item.cost && wowarmory_item.cost.tokens
-      #       if wowarmory_item.cost.tokens.length == 1 #TODO: determine the cost of items that cost more then one kind of thing
-      #         source_wowarmory_item_id = wowarmory_item.cost.tokens.first.instance_variable_get(:@id)
-      #         token_cost = wowarmory_item.cost.tokens.first.count
-      #         sources << EmblemSource.create(:wowarmory_token_item_id => source_wowarmory_item_id, :token_cost => token_cost, :item => item)
-      #       end
-      #     end
-      #     if wowarmory_item.cost && wowarmory_item.cost.arena_price
-      #       sources << ArenaSource.create(:arena_point_cost => wowarmory_item.cost.arena_price,:honor_point_cost => wowarmory_item.cost.honor_price, :item => item)
-      #     elsif wowarmory_item.cost && wowarmory_item.cost.honor_price
-      #       sources << HonorSource.create(:honor_point_cost => wowarmory_item.cost.honor_price, :item => item)
-      #     end
+      #   sources << get_dropped_area(item)
+      # end
+      cost = @wowarmory_item_info.at("//item/cost")
+      if cost && (token_cost = cost.at("//token"))
+        #TODO RE-ADD functionality
+        # if wowarmory_item.cost.tokens.length == 1 #TODO: determine the cost of items that cost more then one kind of thing
+        sources << EmblemSource.create(:wowarmory_token_item_id => token_cost['id'], :token_cost => token_cost['count'], :item => item)
+        # end
+      end
+      if cost && cost['arena']
+        sources << ArenaSource.create(:arena_point_cost => cost['arena'],:honor_point_cost => cost['honor'], :item => item)
+      elsif cost && cost['honor']
+        sources << HonorSource.create(:honor_point_cost => cost['honor'], :item => item)
+      end
     end
   end
   
@@ -128,37 +128,41 @@ class ItemImporter
   end
   
   def armor_type_name
-    (@wowarmory_item_tooltip/:itemTooltip/:equipData/:subclassName) ? (@wowarmory_item_tooltip/:itemTooltip/:equipData/:subclassName).inner_html : "Miscellaneous"
+    subclass_name = @wowarmory_item_tooltip.at("//equipData/subclassName")
+    subclass_name ? subclass_name.inner_html : "Miscellaneous"
   end
 
   def slot
     SLOT_CONVERSION[(@wowarmory_item_tooltip/:itemTooltip/:equipData/:inventoryType).inner_html.to_i]
   end
   
-  def get_item_bonuses
+  def build_standard_bonuses
+    stat_mappings = {:agility => "bonusAgility", :stamina => "bonusStamina", :intellect => "bonusIntellect", :armor => "armor",
+     :attack_power => "bonusAttackPower", :crit => "bonusCritRating", :hit => "bonusHitRating", :armor_penetration => "bonusArmorPenetration",
+     :haste => "bonusHasteRating"}
     returning({}) do |bonuses|
-      bonuses[:agility] = (@wowarmory_item_tooltip/:itemTooltip/:bonusAgility).inner_html.to_i
-      bonuses[:stamina] = (@wowarmory_item_tooltip/:itemTooltip/:bonusStamina).inner_html.to_i
-      bonuses[:intellect] = (@wowarmory_item_tooltip/:itemTooltip/:bonusIntellect).inner_html.to_i
-      bonuses[:armor] = (@wowarmory_item_tooltip/:itemTooltip/:armor).inner_html.to_i
-      bonuses[:attack_power] = (@wowarmory_item_tooltip/:itemTooltip/:bonusAttackPower).inner_html.to_i
-      bonuses[:crit] = (@wowarmory_item_tooltip/:itemTooltip/:bonusCritRating).inner_html.to_i
-      bonuses[:hit] = (@wowarmory_item_tooltip/:itemTooltip/:bonusHitRating).inner_html.to_i
-      bonuses[:armor_penetration] = (@wowarmory_item_tooltip/:itemTooltip/:bonusArmorPenetration).inner_html.to_i
-      bonuses[:haste] = (@wowarmory_item_tooltip/:itemTooltip/:bonusHasteRating).inner_html.to_i
-      bonuses = bonuses.delete_if{|key,value| value.blank?}
+      stat_mappings.each do |our_stat_name, armory_element_name|
+        armory_element = @wowarmory_item_tooltip.at(armory_element_name)
+        bonuses[our_stat_name] = armory_element.inner_html.to_i if armory_element
+      end
+    end
+  end
+  
+  def get_item_bonuses
+    returning(build_standard_bonuses) do |bonuses|
       if is_a_gem?
-        bonuses.merge!((@wowarmory_item_tooltip/:itemTooltip/:gemProperties).inner_html.extract_bonuses)
-      elsif damage_data = (@wowarmory_item_tooltip/:itemTooltip/:damageData)
-        if RANGED_WEAPONS.include?((@wowarmory_item_tooltip/:itemTooltip/:equipData/:subclassName).inner_html)
+        bonuses.merge!(@wowarmory_item_tooltip.at("gemProperties").inner_html.extract_bonuses)
+      elsif !@wowarmory_item_tooltip.at("damageData").inner_html.blank?
+        damage_data = @wowarmory_item_tooltip.at("damageData")
+        if RANGED_WEAPONS.include?(@wowarmory_item_tooltip.at("//equipData/subclassName").inner_html)
           weapon_type = "ranged"
         else
           weapon_type = "melee"
         end
-        bonuses["#{weapon_type}_min_damage".to_sym] = (damage_data/:damage/:min).inner_html
-        bonuses["#{weapon_type}_max_damage".to_sym] = (damage_data/:damage/:max).inner_html
-        bonuses["#{weapon_type}_attack_speed".to_sym] = (damage_data/:speed).inner_html
-        bonuses["#{weapon_type}_dps".to_sym] = (damage_data/:dps).inner_html
+        bonuses["#{weapon_type}_min_damage".to_sym] = (damage_data/:damage/:min).inner_html.to_i
+        bonuses["#{weapon_type}_max_damage".to_sym] = (damage_data/:damage/:max).inner_html.to_i
+        bonuses["#{weapon_type}_attack_speed".to_sym] = (damage_data/:speed).inner_html.to_f
+        bonuses["#{weapon_type}_dps".to_sym] = (damage_data/:dps).inner_html.to_f
       end
     end
   end
