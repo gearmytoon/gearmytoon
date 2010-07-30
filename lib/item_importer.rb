@@ -88,29 +88,30 @@ class ItemImporter
   end
   
   def get_dropped_area(item)
-    # item_source = (@wowarmory_item_tooltip/:itemTooltip/:itemSource)
-    # area_id = itemSource['areaId'].to_i
-    # if area_id.nil? #pvp items from VOA
-    #   area = Area.find_by_name(wowarmory_item.drop_creatures.first.area)
-    # else
-    #   area_name = wowarmory_item.item_source.area_name.blank? ? wowarmory_item.drop_creatures.first.area : wowarmory_item.item_source.area_name
-    #   area_difficulty = wowarmory_item.item_source.difficulty.blank? ? Area::NORMAL : wowarmory_item.item_source.difficulty
-    #   area = Area.find_or_create_by_wowarmory_area_id_and_difficulty_and_name(area_id, area_difficulty, area_name)
-    # end
-    # DroppedSource.create(:source_area => area, :item => item)
-    nil
+    item_source = (@wowarmory_item_tooltip.at("itemTooltip/itemSource"))
+    area_id = item_source['areaId']
+    if area_id.blank? #pvp items from VOA
+      area = Area.find_by_name(@wowarmory_item_info.at("dropCreatures/creature")["area"])
+    else
+      area_name = item_source['area'].blank? ? @wowarmory_item_info.at("dropCreatures/creature")["area"] : item_source['area']
+      area_difficulty = item_source['difficulty'].blank? ? Area::NORMAL : item_source['difficulty']
+      area = Area.find_or_create_by_wowarmory_area_id_and_difficulty_and_name(area_id, area_difficulty, area_name)
+    end
+    DroppedSource.create(:source_area => area, :item => item)
   end
   
   def get_item_sources(item)
     returning([]) do |sources|
-      # if wowarmory_item.drop_creatures.try(:first)
-      #   sources << get_dropped_area(item)
-      # end
+      if @wowarmory_item_info.at("dropCreatures/creature")
+        sources << get_dropped_area(item)
+      end
       cost = @wowarmory_item_info.at("//item/cost")
       if cost && (token_cost = cost.at("//token"))
         #TODO RE-ADD functionality
+        if cost.search("token").size == 1
+          sources << EmblemSource.create(:wowarmory_token_item_id => token_cost['id'], :token_cost => token_cost['count'], :item => item)
+        end
         # if wowarmory_item.cost.tokens.length == 1 #TODO: determine the cost of items that cost more then one kind of thing
-        sources << EmblemSource.create(:wowarmory_token_item_id => token_cost['id'], :token_cost => token_cost['count'], :item => item)
         # end
       end
       if cost && cost['arena']

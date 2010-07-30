@@ -184,7 +184,7 @@ class ItemImporterTest < ActiveSupport::TestCase
     end
     
     should "import gladiator gloves that have 4 sources" do
-      raid = Factory(:raid, :name => "Vault of Archavon")
+      raid = Factory(:raid, :name => "Vault of Archavon", :difficulty => Area::NORMAL, :wowarmory_area_id => 4603)
       item = nil
       assert_no_difference "HonorSource.count" do
         assert_difference "ArenaSource.count" do
