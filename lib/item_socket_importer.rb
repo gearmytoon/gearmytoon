@@ -1,7 +1,7 @@
 class ItemSocketImporter
 
   def initialize(wowarmory_item_id)
-    @agent = WWW::Mechanize.new
+    @agent = Mechanize.new
     @page = @agent.get("http://www.thottbot.com/i#{wowarmory_item_id}")
   end
 

@@ -28,7 +28,7 @@ class MaxDpsImporter
   def initialize(klass)
     @max_dps_class_name = klass.to_s.camelize
     @max_dps_class = "#{self.class}::#{@max_dps_class_name}".constantize
-    @agent = WWW::Mechanize.new
+    @agent = Mechanize.new
     @agent.get(@max_dps_class[:base_url])
   end
 

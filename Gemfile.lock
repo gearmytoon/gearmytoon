@@ -63,7 +63,7 @@ dependencies:
   mechanize: 
     group: 
     - :default
-    version: = 0.9.3
+    version: = 1.0.0
   acts_as_state_machine: 
     group: 
     - :default
@@ -154,9 +154,9 @@ specs:
 - macaddr: 
     version: 1.0.0
 - nokogiri: 
-    version: 1.4.2
+    version: 1.4.3.1
 - mechanize: 
-    version: 0.9.3
+    version: 1.0.0
 - mocha: 
     version: 0.9.8
 - mysql: 
@@ -204,7 +204,7 @@ specs:
 - wowr: 
     version: 0.5.4
     source: 0
-hash: 372d2b3d156a3293de89f44d2672d92a759f4e22
+hash: 28f3f0584cc0c8d77baf1c2744a3da8156dbecfe
 sources: 
 - Git: 
     uri: http://github.com/gearmytoon/wowr.git
