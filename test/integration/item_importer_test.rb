@@ -10,7 +10,7 @@ class ItemImporterTest < ActiveSupport::TestCase
   end
   
   context "import_from_wowarmory!" do
-    should_eventually "import item difficulty correctly" do
+    should "import item difficulty correctly" do
       item = ItemImporter.import_from_wowarmory!(50638)
       assert_equal 80, item.required_level
       assert_equal 277, item.item_level
@@ -21,6 +21,7 @@ class ItemImporterTest < ActiveSupport::TestCase
       item = ItemImporter.import_from_wowarmory!(50034)
       assert_equal 80, item.required_level
       assert_equal 264, item.item_level
+      assert_equal false, item.heroic
     end
     
     should "import spell effects correctly" do

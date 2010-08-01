@@ -1,5 +1,8 @@
 <div class="gmt-tooltip">
   <div class="<%= @item.quality %> item_name"><%= @item.name %></div>
+  <% if @item.heroic? %>
+    <div class="heroic">Heroic</div>
+  <% end %>
   <div class="bonding"><%= @item.bonding_description %></div>
   <div class="armor_info">
     <span class="item_slot"><%= @item.slot %></span>

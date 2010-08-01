@@ -11,6 +11,10 @@
   line-height:17px;
   color:white;
 }
+.gmt-tooltip .heroic{
+  color:#1EFF00;
+}
+
 .gmt-tooltip div{
   padding-top:1px;
 }

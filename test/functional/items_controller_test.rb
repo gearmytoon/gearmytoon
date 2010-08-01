@@ -44,6 +44,19 @@ class ItemsControllerTest < ActionController::TestCase
   end
 
   context "get tooltip" do
+
+    should "show if a item is heroic" do
+      item = Factory(:item, :heroic => true)
+      get :tooltip, :id => item.id
+      assert_select ".heroic", :text => "Heroic"
+    end
+
+    should "not show heroic if item is not heroic" do
+      item = Factory(:item, :heroic => false)
+      get :tooltip, :id => item.id
+      assert_select ".heroic", :count => 0
+    end
+
     should "show base stats" do
       item = Factory(:item, :bonuses => {:agility => 1, :stamina => 1})
       get :tooltip, :id => item.id

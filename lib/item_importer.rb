@@ -43,10 +43,14 @@ class ItemImporter
                                 :restricted_to => get_restricted_to, :item_sources => get_item_sources(item), 
                                 :gem_color => get_gem_color, :gem_sockets => get_gem_sockets, :socket_bonuses => get_socket_bonuses,
                                 :bonding => get_item_bonding, :side => Item::ANY_SIDE, :item_level => get_item_level, 
-                                :required_level => get_required_level, :spell_effects => get_spell_effects)
+                                :required_level => get_required_level, :spell_effects => get_spell_effects, :heroic => get_heroic)
     end
   end
   
+  def get_heroic
+    element = @wowarmory_item_tooltip.at("//itemTooltip/heroic")
+    !element.nil? && element.inner_html == "1"
+  end
   def get_spell_effects
     (@wowarmory_item_tooltip/:itemTooltip/:spellData/:spell).map do |spell|
       {:description => (spell/:desc).inner_html, :trigger => (spell/:trigger).inner_html.to_i}

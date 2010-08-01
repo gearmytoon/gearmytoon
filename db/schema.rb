@@ -9,7 +9,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20100720200849) do
+ActiveRecord::Schema.define(:version => 20100801203515) do
 
   create_table "areas", :force => true do |t|
     t.string   "name"
@@ -112,6 +112,7 @@ ActiveRecord::Schema.define(:version => 20100720200849) do
     t.integer  "item_level"
     t.integer  "required_level"
     t.text     "spell_effects"
+    t.boolean  "heroic",            :default => false
   end
 
   add_index "items", ["armor_type_id"], :name => "index_items_on_armor_type_id"
