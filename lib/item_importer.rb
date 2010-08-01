@@ -32,7 +32,7 @@ class ItemImporter
   end
 
   def get_icon
-    "http://www.wowarmory.com/wow-icons/_images/43x43/#{@wowarmory_item_tooltip.at("//itemTooltip/icon").inner_html}.png"
+    @wowarmory_item_tooltip.at("//itemTooltip/icon").inner_html
   end
 
   def import!
