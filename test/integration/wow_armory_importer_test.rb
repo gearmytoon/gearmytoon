@@ -1,13 +1,15 @@
 require File.dirname(__FILE__) + '/../test_helper'
 
 class WowArmoryImporterTest < ActiveSupport::TestCase
-  # should "foo" do
-  #   wi =  WowArmoryImporter.new(51902)
-  #   pp wi.tooltip
-  #   pp wi.info
-  # end
-  should "foo" do
+
+  should "get the tooltip" do
     wi =  WowArmoryImporter.new(50638)
-    pp (wi.info.at("item")['quality'])
+    assert_not_nil wi.tooltip
   end
+
+  should "get the info" do
+    wi =  WowArmoryImporter.new(50638)
+    assert_not_nil wi.info
+  end
+
 end
