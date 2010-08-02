@@ -104,6 +104,18 @@ class CharacterTest < ActiveSupport::TestCase
       assert_equal([new_item_source], character.reload.area_upgrades(1, new_item_source.source_area).map(&:new_item_source))
     end
 
+    should "not find two upgrades to the same item from heroic dungeons" do
+      character = Factory(:a_hunter)
+      Factory(:character_item, :character => character, :item => Factory(:item, :bonuses => {:attack_power => 100.0}))
+      new_item = Factory(:item, :bonuses => {:attack_power => 500.0})
+      Factory(:dungeon_dropped_source, :item => new_item)
+      Factory(:dungeon_dropped_source, :item => new_item)
+      assert_difference "character.reload.upgrades.count", 1 do
+        character.generate_upgrades
+      end
+      assert_equal new_item, character.upgrades.first.new_item
+    end
+
     should "find upgrades for pve and pvp" do
       character = Factory(:a_hunter)
       no_dps_ring = Factory(:ring, :bonuses => {:attack_power => 0.0})

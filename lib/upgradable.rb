@@ -17,7 +17,7 @@ module Upgradable
   end
 
   def top_upgrades_from(conditions, for_pvp)
-    upgrades = ItemSource.including_item(conditions).usable_by(self.wow_class).each do |potential_upgrade_source|
+    upgrades = ItemSource.unique_items.including_item(conditions).usable_by(self.wow_class).each do |potential_upgrade_source|
       char_items = all_character_items
       char_items.select {|character_item| character_item.item.slot == potential_upgrade_source.item.slot}.each do |character_item|
         if(character_item != potential_upgrade_source.item)

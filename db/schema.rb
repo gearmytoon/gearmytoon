@@ -9,7 +9,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20100801203515) do
+ActiveRecord::Schema.define(:version => 20100801223923) do
 
   create_table "areas", :force => true do |t|
     t.string   "name"
@@ -75,6 +75,13 @@ ActiveRecord::Schema.define(:version => 20100801203515) do
   add_index "characters", ["realm", "name"], :name => "index_characters_on_realm_and_name"
   add_index "characters", ["wow_class_id"], :name => "index_characters_on_wow_class_id"
 
+  create_table "creatures", :force => true do |t|
+    t.string   "name"
+    t.integer  "area_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
   create_table "item_sources", :force => true do |t|
     t.string   "type"
     t.integer  "arena_point_cost"
@@ -85,6 +92,9 @@ ActiveRecord::Schema.define(:version => 20100801203515) do
     t.integer  "item_id"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.string   "drop_rate"
+    t.boolean  "heroic",                  :default => false
+    t.integer  "creature_id"
   end
 
   add_index "item_sources", ["item_id"], :name => "index_item_sources_on_item_id"

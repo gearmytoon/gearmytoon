@@ -79,7 +79,7 @@ class ItemImporterTest < ActiveSupport::TestCase
       assert_difference "DroppedSource.count" do
         item = ItemImporter.import_from_wowarmory!(48258)
         assert_equal "Vault of Archavon", item.dropped_sources.first.source_area.name
-        assert_equal Area::NORMAL, item.dropped_sources.first.source_area.difficulty
+        assert_equal Area::HEROIC, item.dropped_sources.first.source_area.difficulty
       end
     end
     
@@ -189,7 +189,7 @@ class ItemImporterTest < ActiveSupport::TestCase
       item = nil
       assert_no_difference "HonorSource.count" do
         assert_difference "ArenaSource.count" do
-          assert_difference "DroppedSource.count" do
+          assert_difference "DroppedSource.count", 2 do
             item = ItemImporter.import_from_wowarmory!(41206)
           end
         end
@@ -198,15 +198,7 @@ class ItemImporterTest < ActiveSupport::TestCase
       assert_equal 13200, ArenaSource.first.honor_point_cost
       assert_equal raid, DroppedSource.first.source_area
     end
-      
-    # ItemImporter.import_from_wowarmory!(41144)
-    should_eventually "import gladiator gloves that have 4 sources" do
-      item = ItemImporter.import_from_wowarmory!(41143)
-      p item.item_sources
-      p item.item_sources.size
-      assert_equal [], item.item_sources
-    end
-    
+
     should "import pvp items that cost wintergrasp emblems" do
       item = ItemImporter.import_from_wowarmory!(51577)
       assert_equal 40, item.item_sources.first.token_cost
@@ -325,22 +317,17 @@ class ItemImporterTest < ActiveSupport::TestCase
       assert_equal "Chest", dress.slot
     end
       
-    should "import items with multiple drops correctly" do
+    should "import a item with multiple sources drop difficulty correctly" do
       raid = Factory(:raid, :name => "Ulduar")
       item = nil
-      assert_difference "DroppedSource.count" do
+      assert_difference "DroppedSource.count", 34 do
         item = ItemImporter.import_from_wowarmory!(45543)
-        assert_equal "Ulduar", item.dropped_sources.first.source_area.name
       end
-    end
-    
-    should_eventually "import a item with multiple sources drop difficulty correctly" do
-      raid = Factory(:raid, :name => "Ulduar")
-      item = nil
-      assert_difference "DroppedSource.count" do
-        item = ItemImporter.import_from_wowarmory!(45543)
-        assert_equal "Ulduar", item.dropped_sources.first.source_area.name
-        assert_equal "h", item.source_area.difficulty
+      item.dropped_sources.each do |dropped_source|
+        assert_equal "Ulduar", dropped_source.source_area.name
+        assert_equal "h", dropped_source.source_area.difficulty
+        assert_not_nil dropped_source.creature.name
+        assert_not_nil dropped_source.creature.area
       end
     end
     

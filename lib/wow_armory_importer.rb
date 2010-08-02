@@ -17,7 +17,9 @@ class WowArmoryImporter
   private
 
   def get_xml(url)
-    Nokogiri::XML(@agent.get(url).body)
+    body = @agent.get(url).body
+    # pp body
+    Nokogiri::XML(body)
   end
 
   def item_info_url(wowarmory_item_id)
