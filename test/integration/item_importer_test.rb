@@ -15,6 +15,8 @@ class ItemImporterTest < ActiveSupport::TestCase
       assert_equal 80, item.required_level
       assert_equal 277, item.item_level
       assert_equal true, item.heroic
+      assert_equal Item::ANY_SIDE, item.side
+      assert_equal nil, item.opposing_sides_wowarmory_item_id
     end
         
     should "import item level stuff correctly" do
@@ -244,11 +246,13 @@ class ItemImporterTest < ActiveSupport::TestCase
     #     quality="4">}
     #   "\n      "
     #   </translationFor>}
-    should_eventually "know if a item is for alliance or horde" do
+    should "know if a item is for alliance or horde" do
       horde_item = ItemImporter.import_from_wowarmory!(48277) #48277 - horde hat
       alliance_item = ItemImporter.import_from_wowarmory!(48250) #48250 - alliance hat
       assert_equal Item::HORDE, horde_item.side
+      assert_equal 48250, horde_item.opposing_sides_wowarmory_item_id
       assert_equal Item::ALLIANCE, alliance_item.side
+      assert_equal 48277, alliance_item.opposing_sides_wowarmory_item_id
     end
     
     should "import bows crossbows guns and thrown as ranged slot" do

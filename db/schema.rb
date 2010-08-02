@@ -9,7 +9,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20100801223923) do
+ActiveRecord::Schema.define(:version => 20100802033437) do
 
   create_table "areas", :force => true do |t|
     t.string   "name"
@@ -112,7 +112,7 @@ ActiveRecord::Schema.define(:version => 20100801223923) do
     t.integer  "armor_type_id"
     t.string   "quality"
     t.string   "slot"
-    t.string   "restricted_to",     :default => "NONE"
+    t.string   "restricted_to",                    :default => "NONE"
     t.string   "gem_color"
     t.text     "gem_sockets"
     t.text     "socket_bonuses"
@@ -122,7 +122,8 @@ ActiveRecord::Schema.define(:version => 20100801223923) do
     t.integer  "item_level"
     t.integer  "required_level"
     t.text     "spell_effects"
-    t.boolean  "heroic",            :default => false
+    t.boolean  "heroic",                           :default => false
+    t.integer  "opposing_sides_wowarmory_item_id"
   end
 
   add_index "items", ["armor_type_id"], :name => "index_items_on_armor_type_id"
