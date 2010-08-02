@@ -37,11 +37,11 @@ class ItemImporterTest < ActiveSupport::TestCase
       assert_equal 258, item.bonuses[:stamina]
     end
     
-    should_eventually "import trinkets with armor correctly" do
+    should "import trinkets with armor correctly" do
       item = ItemImporter.import_from_wowarmory!(54591)
       assert_equal 80, item.required_level
       assert_equal 2576, item.armor
-      assert_equal 264, item.item_level
+      assert_equal 284, item.item_level
     end
     
     should_eventually "import patterns correctly" do
