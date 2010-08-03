@@ -28,7 +28,7 @@ class CharactersController < ApplicationController
   end
 
   def show
-    @title = "#{@character.name.capitalize} of #{@character.realm.capitalize} &mdash; gearmytoon.com"
+    @title = "#{@character.name.capitalize} of #{@character.realm.capitalize}"
   end
 
   def pvp

@@ -1,1 +1,7 @@
-<%= content_tag :span, item_source.token_cost, :class => "cost" %> <%= item_image_link item_source.source_emblem %>
+<%= content_tag :abbr, item_source.token_cost,
+  :class => "emblem_of_frost",
+  :title => "#{pluralize(item_source.token_cost, 'Emblem')} of Frost"
+%>
+via
+<%= link_to "Angstrom", "#", :class => "npc alliance" %> or
+<%= link_to "Langstrom", "#", :class => "npc horde" %>

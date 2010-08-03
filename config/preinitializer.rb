@@ -11,7 +11,6 @@ if Gem::Version.new(Bundler::VERSION) <= Gem::Version.new("0.9.24")
 end
 
 begin
-  # Set up load paths for all bundled gems
   ENV["BUNDLE_GEMFILE"] = File.expand_path("../../Gemfile", __FILE__)
   Bundler.setup
 rescue Bundler::GemNotFound

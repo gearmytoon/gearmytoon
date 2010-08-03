@@ -1,11 +1,50 @@
-<div id="item_tooltip">
-  <%= render 'items/item_tooltip' %>
+<style>
+  .item { width: 400px; float: right; }
+  .item ul.links { clear: both; float: right; margin-top: 6px; }
+  .item ul.links li { padding: 4px 0 6px 26px; font-size: 10px; float: left; margin-right: 10px; }
+  .item ul.links li.wowwiki { background: transparent url(/images/icons/wowwiki.png) 0 0 no-repeat; }
+  .item ul.links li.wowhead { background: transparent url(/images/icons/wowhead.png) 0 0 no-repeat; }
+
+  .info { float: left; font-size: 14px; width: 500px; }
+  .info ul { margin: 10px 0 24px 12px; }
+  .info ul li { margin-bottom: 10px; }
+
+  .info ul.sources { font-size: 16px; }
+  .info ul.sources li img { float: none; vertical-align: middle; margin-right: 4px; }
+
+  .info ul.sources li abbr { font-family: Georgia; padding: 0 0 0 26px; background: transparent none 0 0 no-repeat; }
+  .info ul.sources li .emblem_of_frost { color: SteelBlue; background-image: url(http://www.wowarmory.com/wow-icons/_images/21x21/inv_misc_frostemblem_01.png); }
+  .info ul.sources li .emblem_of_triumph { color: purple; background-image: url(http://www.wowarmory.com/wow-icons/_images/21x21/spell_holy_summonchampion.png); }
+  .info ul.sources li .arena_point { background-image: url() }
+  .info ul.sources li .honor_point { background-image: url() }
+  .info ul.sources li .container { background-image: url(/images/wow_icons/16x16/Chest.png) }
+  .info ul.sources li .gold { padding-left: 20px; background-image: url(http://static.wowhead.com/images/icons/money-gold.gif); background-position: 3px 6px; }
+  .info ul.sources li .silver { padding-left: 20px; background-image: url(http://static.wowhead.com/images/icons/money-silver.gif); background-position: 3px 6px; }
+  .info ul.sources li .copper { padding-left: 20px; background-image: url(http://static.wowhead.com/images/icons/money-copper.gif); background-position: 3px 6px; }
+
+  .info ul.sources li .npc { color: yellow; background: transparent none 0 3px no-repeat; }
+  .info ul.sources li .alliance { padding-left: 18px; background-image: url(/images/icons/alliance.gif); }
+  .info ul.sources li .horde { padding-left: 20px; background-image: url(/images/icons/horde.gif); }
+  .info ul.sources li .neutral { padding-left: 18px; background-image: url(/images/icons/neutral.gif); }
+</style>
+
+<h1><%= @item.name %></h1>
+<div class="item">
+  <%= render 'tooltip', :item => @item %>
+  <ul class="links">
+    <li>View this item on:</li>
+    <li class="wowwiki"><%= link_to "WoWWiki", "http://wowwiki.com" %></li>
+    <li class="wowhead"><%= link_to "Wowhead", "http://wowhead.com" %></li>
+  </ul>
 </div>
-<div id="item_sources">
-  <h3>Item's Source(s)</h3>
-  <ul>
-    <% @item.item_sources.each do |item_source| %>
-      <li class="dropped_by"><%= render "items/#{item_source.as_source_type}", :item_source => item_source %></li>
+
+<div class="info">
+  <h2>Sources</h2>
+  <ul class="sources">
+    <% @item.item_sources.each do |s| %>
+      <li class="<%= s.as_source_type %>">
+        <%= render s.as_source_type, :item_source => s %>
+      </li>
     <% end %>
   </ul>
 </div>

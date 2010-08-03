@@ -153,6 +153,13 @@ Factory.define(:ten_man_raid_source, :class => :dropped_source) do |model|
   model.association :item
 end
 
+Factory.define(:purchase_source) do |model|
+  model.association :item
+end
+
+Factory.define(:currency_item, :class => 'ItemUsedToCreate') do |model|
+end
+
 Factory.define(:container_source, :class => :container_source) do |model|
   model.association :container
   model.association :item
@@ -271,4 +278,8 @@ end
 
 Factory.define(:upgrade_from_25_raid, :parent => :upgrade) do |model|
   model.association :new_item_source, :factory => :twenty_five_man_raid_source
+end
+
+Factory.define(:creature) do |model|
+  model.name "Foo"
 end

@@ -1,0 +1,5 @@
+<% item_source.items_used_to_purchase.each do |i| -%>
+  <%= link_to i.quantity, item_path(i.currency_item), :class => "with_tooltip currency_item" %>
+<% end %>
+via
+<%= link_to item_source.vendor.name, "#", :class => "vendor" %>

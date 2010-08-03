@@ -1,1 +1,5 @@
-<%= content_tag :span, item_source.arena_point_cost %> arena points
+<%= content_tag :abbr, number_with_delimiter(item_source.arena_point_cost),
+  :class => "arena",
+  :title => pluralize(number_with_delimiter(item_source.arena_point_cost), "Arena Point")
+%>
+<%= link_to item_source.vendor.name, "#", :class => "vendor" %>

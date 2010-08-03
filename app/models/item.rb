@@ -25,7 +25,7 @@ class Item < ActiveRecord::Base
   #TODO: REMOVE THIS in favor of item sources usable by
   named_scope :usable_by, Proc.new {|wow_class| {:conditions => {:quality => 'epic', :armor_type_id => wow_class.usable_armor_types, :restricted_to => [RESTRICT_TO_NONE, wow_class.name]}}}
   belongs_to :armor_type
-  
+
   def self.badge_of_frost
     find_by_wowarmory_item_id(FROST_EMBLEM_ARMORY_ID)
   end
@@ -33,9 +33,21 @@ class Item < ActiveRecord::Base
   def self.badge_of_triumph
     find_by_wowarmory_item_id(TRIUMPH_EMBLEM_ARMORY_ID)
   end
-  
+
   def self.wintergrasp_mark
     find_by_wowarmory_item_id(WINTERGRASP_MARK_OF_HONOR)
+  end
+
+  def icon(size=:medium)
+    dimensions = {:default => "43x43", :medium => "43x43", :large => "64x64"}
+    case size
+    when :medium
+      self[:icon]
+    when :large
+      self[:icon].sub(dimensions[:default], dimensions[:large]).sub(/\.png$/,'.jpg')
+    else
+      self[:icon]
+    end
   end
 
   def token_cost
@@ -49,48 +61,48 @@ class Item < ActiveRecord::Base
   def armor
     bonuses[:armor]
   end
-  
+
   def is_a_belt?
     self.slot == "Waist"
   end
-  
+
   def gem_sockets_with_nil_protection
     sockets = gem_sockets
     sockets.nil? ? [] : sockets
   end
-  
+
   def base_stats
     self.bonuses.slice(*BASE_STATS)
   end
-  
+
   def self.beta_slot?(new_item)
     BETA_SLOTS.include?(new_item.slot)
   end
-  
+
   def bonding_description
     bonding == BOE ? "Binds when equipped" : "Binds when picked up"
   end
-  
+
   def equipped_stats
     self.bonuses.except(*BASE_STATS).except(*WEAPON_STATS)
   end
-  
+
   def restricted_to_a_class?
     restricted_to != RESTRICT_TO_NONE
   end
-  
+
   def has_armor?
     bonuses.has_key?(:armor)
   end
-  
+
   def is_a_weapon?
     !weapon_bonuses(:attack_speed).nil?
   end
-  
+
   def weapon_bonuses(key)
     bonuses["#{weapon_type}_#{key}".to_sym]
   end
-  
+
   def attack_speed
     weapon_bonuses(:attack_speed)
   end
@@ -98,11 +110,11 @@ class Item < ActiveRecord::Base
   def damage_range
     "#{weapon_bonuses(:min_damage)}-#{weapon_bonuses(:max_damage)} Dmg"
   end
-  
+
   def dps_description
     "(#{weapon_bonuses(:dps)} damage per second)"
   end
-  
+
   def weapon_type
     RANGED_WEAPONS.include?(armor_type.name) ? "ranged" : "melee"
   end

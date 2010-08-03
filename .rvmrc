@@ -1,0 +1,1 @@
+rvm --create --install use ree@gearmytoon --passenger
