@@ -15,7 +15,7 @@
     $('.with_tooltip').mousemove(function(e) {
       if(tooltip_url!= $(this).attr('href') + "/tooltip")
       {
-        tooltip_url = $(this).attr('href') + "/tooltip";
+        tooltip_url = $(this).attr('href');
         $.get(tooltip_url,function(data) { $("#tooltip").html(data); });
       }
       $("#tooltip").css('left', e.pageX + 10);
@@ -24,7 +24,7 @@
     }).mouseleave(function() {
       $("#tooltip").hide();
     });
-    
+
     $('#character_realm').autocomplete(realms);
     $('#welcome .actions ul li:not(li.toon_search)').clickable();
     $('#welcome .actions ul li.toon_search form input[type=text]').example(function() { return $(this).prev('label').text(); }).prev('label').hide();
@@ -42,7 +42,7 @@
         }
       });
     });
-    
+
     $('#character_gearing').everyTime(1000,function(i){
       $.getJSON($(this).attr('href'), function(data){
         if(data.status == "geared"){
@@ -50,7 +50,7 @@
         }
       });
     });
-    
+
   });
 })(jQuery);
 

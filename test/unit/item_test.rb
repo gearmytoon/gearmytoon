@@ -1,6 +1,20 @@
 require File.dirname(__FILE__) + '/../test_helper'
 
 class ItemTest < ActiveSupport::TestCase
+  context "icon" do
+    should "return a 43x43 image URL" do
+      icon_url = "http://wowarmory.com/wow-icons/_images/43x43/inv_belt_60.png"
+      item = Factory(:item, :icon => icon_url)
+      assert_equal icon_url, item.icon
+    end
+
+    should "return a 64x64 image URL" do
+      icon_url = "http://wowarmory.com/wow-icons/_images/43x43/inv_belt_60.png"
+      large_icon_url = "http://wowarmory.com/wow-icons/_images/64x64/inv_belt_60.jpg"
+      item = Factory(:item, :icon => icon_url)
+      assert_equal large_icon_url, item.icon(:large)
+    end
+  end
 
   context "raw_stats" do
     should "slice out the basic stats" do
@@ -15,7 +29,7 @@ class ItemTest < ActiveSupport::TestCase
     end
   end
 
-  
+
   context "usable_in_same_slot_as" do
     should "find all items in the same slot" do
       item = Factory(:item, :slot => "Head")
@@ -23,7 +37,7 @@ class ItemTest < ActiveSupport::TestCase
       assert_equal [item], Item.usable_in_same_slot_as(item)
     end
   end
-  
+
   should "know how much the item costs" do
     item = Factory(:frost_emblem_source).item
     assert_equal 60, item.token_cost
@@ -61,7 +75,7 @@ class ItemTest < ActiveSupport::TestCase
     end
 
   end
-  
+
   context "gems" do
     should "only find gems" do
       gem_item = Factory(:gem)

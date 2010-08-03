@@ -9,7 +9,7 @@
   </td>
   <td>
     <%= beta_upgrade if Item.beta_slot?(upgrade.new_item) %>
-    <%= content_tag :span, upgrade.dps_change, :class => "gmt_points" %>
+    <%= content_tag :span, upgrade.dps_change.to_i, :class => "gmt_points" %>
   </td>
   <% if upgrade.old_item.nil? #TODO: not happy with this if check in the view, should it be here? %>
     <td></td>

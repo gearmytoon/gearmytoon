@@ -1,11 +1,59 @@
-<div id="item_tooltip">
-  <%= render 'items/item_tooltip' %>
+<style>
+  h2 { margin-bottom: 8px; }
+  .item { width: 400px; float: right; }
+  .item img.icon { float: right; margin-right: 5px; }
+  .item .gmt-tooltip { float: right; }
+  .info { float: left; font-size: 14px; width: 500px; }
+  .info ul { margin: 0 0 24px 12px; }
+  .info ul li { margin-bottom: 2px; }
+  .info ul.classes li { padding: 0 0 6px 26px; }
+  .info ul.classes li.hunter { background: transparent url(http://wowarmory.com/_images/icons/class/3.gif) no-repeat; }
+  .info ul.classes li.rogue { background: transparent url(http://wowarmory.com/_images/icons/class/4.gif) no-repeat; }
+
+  .info ul.sources li img { float: none; vertical-align: middle; margin-right: 4px; }
+  .info ul.sources li .cost.frost { color: SteelBlue; }
+  .info ul.sources li .cost.triumph { color: #A335EE; }
+  .info ul.sources li .npc { color: yellow; }
+  .info ul.sources li .alliance { padding-left: 20px; background: transparent url(/images/icons/alliance.gif) no-repeat; }
+  .info ul.sources li .horde { padding-left: 20px; background: transparent url(/images/icons/horde.gif) no-repeat; }
+  .info ul.sources li .neutral { padding-left: 20px; background: transparent url(/images/icons/neutral.gif) no-repeat; }
+
+  .info ul.links li { padding: 0 0 6px 26px; font-size: 14px; }
+  .info ul.links li.wowwiki { background: transparent url(/images/icons/wowwiki.png) no-repeat; }
+  .info ul.links li.wowhead { background: transparent url(/images/icons/wowhead.png) no-repeat; }
+</style>
+
+<h1><%= @item.name %></h1>
+<div class="item">
+  <%= render 'tooltip', :item => @item %>
+  <%= image_tag @item.icon(:large), :class => "icon", :alt => @item.name %>
 </div>
-<div id="item_sources">
-  <h3>Item's Source(s)</h3>
-  <ul>
-    <% @item.item_sources.each do |item_source| %>
-      <li class="dropped_by"><%= render "items/#{item_source.as_source_type}", :item_source => item_source %></li>
-    <% end %>
+
+<div class="info">
+  <h2>Classes</h2>
+  <ul class="classes">
+    <li class="rogue">Rogue</li>
+    <li class="hunter">Hunter</li>
+  </ul>
+
+  <h2>Sources</h2>
+  <ul class="sources">
+    <li class="buyable">
+      <span class="cost frost"><%= image_tag "http://www.wowarmory.com/wow-icons/_images/43x43/inv_misc_frostemblem_01.png",
+        :width => "22", :height => "22"
+        %>60 Emblems of Frost</span>
+      via
+      <span class="vendor"><%= link_to "Angstrom", "#", :class => "npc alliance" %>
+        or
+        <%= link_to "Langstrom", "#", :class => "npc horde" %></span>
+    </li>
+    <li class="buyable"><span class="cost triumph"><%= image_tag "http://www.wowarmory.com/wow-icons/_images/43x43/spell_holy_summonchampion.png", :width => "22", :height => "22" %>60 Emblems of Triumph</span> via <span class="vendor"><%= link_to "Angstrom", "#", :class => "npc alliance" %> or <%= link_to "Langstrom", "#", :class => "npc horde" %></span></li>
+    <li class="lootable"><%= link_to "Loken", "#", :class => "neutral npc" %> in <%= link_to "Halls of Lightning", "#" %></li>
+  </ul>
+
+  <h2>External Links</h2>
+  <ul class="links">
+    <li class="wowwiki"><%= link_to "WoWWiki", "http://wowwiki.com" %></li>
+    <li class="wowhead"><%= link_to "Wowhead", "http://wowhead.com" %></li>
   </ul>
 </div>

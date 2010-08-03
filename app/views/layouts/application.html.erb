@@ -5,7 +5,7 @@
     <% @meta_tags.each do |name, content| -%>
       <meta name="<%= name %>" content="<%= content %>" />
     <% end -%>
-    <title><%= @title || "Find the Best Gear in World of Warcraft &mdash; gearmytoon.com" %></title>
+    <title><%= (@title || "Find the Best Gear in World of Warcraft") + " &mdash; gearmytoon.com" %></title>
     <%= stylesheet_link_tag 'reset-fonts-grids', 'application', 'item', 'characters', 'payment', 'tooltip', :cache => true %>
     <script type="text/javascript">
       var _gaq = _gaq || [];
@@ -19,6 +19,7 @@
        })();
      </script>
      <script src="http://static.wowhead.com/widgets/power.js" type="text/javascript"></script>
+     <link rel="shortcut icon" href="/favicon.ico" />
   </head>
   <body>
     <div id="header">
