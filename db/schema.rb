@@ -9,7 +9,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20100802033437) do
+ActiveRecord::Schema.define(:version => 20100803034802) do
 
   create_table "areas", :force => true do |t|
     t.string   "name"
@@ -95,12 +95,21 @@ ActiveRecord::Schema.define(:version => 20100802033437) do
     t.string   "drop_rate"
     t.boolean  "heroic",                  :default => false
     t.integer  "creature_id"
+    t.string   "trade_skill_id"
   end
 
   add_index "item_sources", ["item_id"], :name => "index_item_sources_on_item_id"
   add_index "item_sources", ["source_area_id"], :name => "index_item_sources_on_source_area_id"
   add_index "item_sources", ["type"], :name => "index_item_sources_on_type"
   add_index "item_sources", ["wowarmory_token_item_id"], :name => "index_item_sources_on_wowarmory_token_item_id"
+
+  create_table "item_used_to_creates", :force => true do |t|
+    t.integer  "wowarmory_item_id"
+    t.integer  "item_source_id"
+    t.integer  "quantity"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
 
   create_table "items", :force => true do |t|
     t.string   "name"
@@ -157,6 +166,12 @@ ActiveRecord::Schema.define(:version => 20100802033437) do
 
   add_index "slugs", ["name", "sluggable_type", "sequence", "scope"], :name => "index_slugs_on_n_s_s_and_s", :unique => true
   add_index "slugs", ["sluggable_id"], :name => "index_slugs_on_sluggable_id"
+
+  create_table "trade_skills", :force => true do |t|
+    t.string   "wowarmory_name"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
 
   create_table "upgrades", :force => true do |t|
     t.integer  "character_id"

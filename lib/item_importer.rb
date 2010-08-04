@@ -35,6 +35,11 @@ class ItemImporter
     @wowarmory_item_tooltip.at("//itemTooltip/icon").inner_html
   end
 
+  def find_or_import!
+    item = type_to_be_imported.find_by_wowarmory_item_id(wowarmory_item_id)
+    item.nil? ? import! : item
+  end
+
   def import!
     returning type_to_be_imported.find_or_create_by_wowarmory_item_id(wowarmory_item_id) do |item|
       item.update_attributes!(:wowarmory_item_id => wowarmory_item_id, :name => get_name,
@@ -118,10 +123,22 @@ class ItemImporter
     end
   end
   
+  def get_created_sources(item)
+    @wowarmory_item_info.xpath("//createdBy/spell").map do |spell|
+      trade_skill = TradeSkill.find_or_create_by_wowarmory_name(spell['icon'])
+      created_source = CreatedSource.create(:trade_skill => trade_skill, :item => item)
+      items_made_from = spell.xpath("//reagent").map do |reagent|
+        ItemUsedToCreate.create!(:wowarmory_item_id => reagent['id'], :quantity => reagent['count'], :item_source => created_source)
+      end
+      created_source
+    end
+  end
+  
   def get_item_sources(item)
     get_dropped_sources(item)
     returning([]) do |sources|
       sources = sources.concat(get_dropped_sources(item))
+      sources = sources.concat(get_created_sources(item))
       cost = @wowarmory_item_info.at("//item/cost")
       if cost && (token_cost = cost.at("//token"))
         #TODO RE-ADD functionality
@@ -192,6 +209,14 @@ class ItemImporter
   def self.import_from_wowarmory!(wowarmory_item_id)
     begin
       ItemImporter.new(wowarmory_item_id).import!
+    rescue Wowr::Exceptions::ItemNotFound => e
+      STDERR.puts e
+    end
+  end
+
+  def self.find_or_import!(wowarmory_item_id)
+    begin
+      ItemImporter.new(wowarmory_item_id).find_or_import!
     rescue Wowr::Exceptions::ItemNotFound => e
       STDERR.puts e
     end

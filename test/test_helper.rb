@@ -33,8 +33,8 @@ class ActiveSupport::TestCase
     frozen_time
   end
   
-  def assert_equivalent(expected, actual, field = "id")
-    assert expected.equivalent?(actual), "#{actual.map(&field).join(",")} did not match expected: #{expected.map(&field).join(",")}"
+  def assert_equivalent(expected, actual)
+    assert expected.equivalent?(actual), "#{actual.join(",")} did not match expected: #{expected.join(",")}"
   end
   
 end

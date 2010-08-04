@@ -10,6 +10,24 @@ class ItemImporterTest < ActiveSupport::TestCase
   end
   
   context "import_from_wowarmory!" do
+    should "import tradecraft items correctly" do
+      item = nil
+      expected_wowarmory_item_ids = [37663, 35627, 49908]
+      assert_difference "CreatedSource.count" do
+        assert_difference "ItemSource.count" do
+          item = ItemImporter.import_from_wowarmory!(49903)
+        end
+      end
+      item.reload
+      item_source = item.item_sources.first
+      assert_equal Item::BOE, item.bonding
+      assert_equal 'trade_blacksmithing', item_source.trade_skill.wowarmory_name
+      assert_equal 3, item_source.items_made_from.size
+      expected_quantities = [8, 12, 20]
+      assert_equivalent expected_quantities, item_source.items_made_from.map(&:quantity)
+      assert_equivalent expected_wowarmory_item_ids, item_source.items_made_from.map(&:wowarmory_item_id)
+    end
+    
     should "import item difficulty correctly" do
       item = ItemImporter.import_from_wowarmory!(50638)
       assert_equal 80, item.required_level
@@ -164,9 +182,7 @@ class ItemImporterTest < ActiveSupport::TestCase
       gems = [40032, 41380, 39976]
       gems.each do |gem|
         assert_difference "Item.count" do
-          assert_no_difference "ItemSource.count" do
-            item = ItemImporter.import_from_wowarmory!(gem)
-          end
+          item = ItemImporter.import_from_wowarmory!(gem)
         end
       end
     end
