@@ -1,0 +1,51 @@
+<?xml version=\"1.0\" encoding=\"UTF-8\"?><?xml-stylesheet type=\"text/xsl\" href=\"/_layout/items/info.xsl\"?><page globalSearch=\"1\" lang=\"en_us\" requestQuery=\"i=50048\" requestUrl=\"/item-info.xml\">
+  <itemInfo>
+    <item icon=\"inv_sword_155\" id=\"50048\" level=\"251\" name=\"Quel'Delar, Might of the Faithful\" quality=\"4\" type=\"Two-Handed Swords\">
+      <cost sellPrice=\"313536\"/>
+      <disenchantLoot requiredSkillRank=\"375\">
+        <item canAuction=\"1\" dropRate=\"6\" icon=\"inv_enchant_abysscrystal\" id=\"34057\" level=\"80\" maxCount=\"1\" minCount=\"1\" name=\"Abyss Crystal\" quality=\"4\" type=\"Enchanting\"/>
+      </disenchantLoot>
+      <rewardFromQuests>
+        <quest area=\"Icecrown\" id=\"24796\" level=\"80\" name=\"A Victory For The Silver Covenant\" reqMinLevel=\"80\" suggestedPartySize=\"0\"/>
+        <quest area=\"Icecrown\" id=\"24800\" level=\"80\" name=\"A Victory For The Sunreavers\" reqMinLevel=\"80\" suggestedPartySize=\"0\"/>
+        <quest area=\"Icecrown\" id=\"24801\" level=\"80\" name=\"A Victory For The Sunreavers\" reqMinLevel=\"80\" suggestedPartySize=\"0\"/>
+      </rewardFromQuests>
+    </item>
+  </itemInfo>
+</page>
+"
+"<?xml version=\"1.0\" encoding=\"UTF-8\"?><?xml-stylesheet type=\"text/xsl\" href=\"/_layout/items/tooltip.xsl\"?><page globalSearch=\"1\" lang=\"en_us\" requestUrl=\"/item-tooltip.xml\">
+  <itemTooltips>
+    <itemTooltip>
+      <id>50048</id>
+      <name>Quel'Delar, Might of the Faithful</name>
+      <icon>inv_sword_155</icon>
+      <overallQualityId>4</overallQualityId>
+      <bonding>1</bonding>
+      <maxCount uniqueEquippable=\"1\">1</maxCount>
+      <classId>2</classId>
+      <equipData>
+        <inventoryType>17</inventoryType>
+        <subclassName>Sword</subclassName>
+      </equipData>
+      <damageData>
+        <damage>
+          <type>0</type>
+          <min>769</min>
+          <max>1155</max>
+        </damage>
+        <speed>3.6</speed>
+        <dps>267.22</dps>
+      </damageData>
+      <bonusStrength>164</bonusStrength>
+      <bonusStamina>164</bonusStamina>
+      <durability current=\"120\" max=\"120\"/>
+      <requiredLevel>80</requiredLevel>
+      <itemLevel>251</itemLevel>
+      <bonusCritRating>99</bonusCritRating>
+      <bonusHasteRating>91</bonusHasteRating>
+      <itemSource reqLvl=\"80\" value=\"sourceType.questReward\"/>
+    </itemTooltip>
+  </itemTooltips>
+</page>
+"

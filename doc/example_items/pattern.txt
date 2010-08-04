@@ -1,0 +1,101 @@
+<?xml version=\"1.0\" encoding=\"UTF-8\"?><?xml-stylesheet type=\"text/xsl\" href=\"/_layout/items/info.xsl\"?><page globalSearch=\"1\" lang=\"en_us\" requestQuery=\"i=47639\" requestUrl=\"/item-info.xml\">
+  <itemInfo>
+    <item canAuction=\"1\" icon=\"inv_scroll_04\" id=\"47639\" level=\"85\" name=\"Pattern: Bejeweled Wizard's Bracers\" quality=\"4\" requiredSkill=\"Tailoring\" requiredSkillRank=\"450\" type=\"Tailoring\">
+      <cost sellPrice=\"25000\">
+        <token count=\"15\" icon=\"spell_holy_summonchampion\" id=\"47241\"/>
+      </cost>
+      <containerObjects>
+        <object area=\"Trial of the Crusader (25)\" areaUrl=\"fl[source]=dungeon&amp;fl[dungeon]=trialofthecrusader25&amp;fl[boss]=all&amp;fl[difficulty]=all\" dropRate=\"1\" id=\"195633\" name=\"Champions' Cache\"/>
+        <object area=\"Trial of the Crusader (10)\" areaUrl=\"fl[source]=dungeon&amp;fl[dungeon]=trialofthecrusader10&amp;fl[boss]=all&amp;fl[difficulty]=all\" dropRate=\"1\" heroic=\"1\" id=\"195632\" name=\"Champions' Cache\"/>
+        <object area=\"Trial of the Crusader (25)\" areaUrl=\"fl[source]=dungeon&amp;fl[dungeon]=trialofthecrusader25&amp;fl[boss]=all&amp;fl[difficulty]=all\" dropRate=\"1\" heroic=\"1\" id=\"195635\" name=\"Champions' Cache\"/>
+      </containerObjects>
+      <dropCreatures>
+        <creature area=\"Trial of the Crusader (25)\" areaUrl=\"fl[source]=dungeon&amp;fl[dungeon]=trialofthecrusader25&amp;fl[boss]=all&amp;fl[difficulty]=all\" classification=\"3\" dropRate=\"1\" id=\"35350\" maxLevel=\"83\" minLevel=\"83\" name=\"Fjola Lightbane\" type=\"Undead\" url=\"fl[source]=dungeon&amp;fl[dungeon]=trialofthecrusader25&amp;fl[difficulty]=all&amp;fl[boss]=35350\"/>
+        <creature area=\"Trial of the Crusader (10)\" areaUrl=\"fl[source]=dungeon&amp;fl[dungeon]=trialofthecrusader10&amp;fl[boss]=all&amp;fl[difficulty]=all\" classification=\"3\" dropRate=\"1\" heroic=\"1\" id=\"35351\" maxLevel=\"83\" minLevel=\"83\" name=\"Fjola Lightbane\" type=\"Undead\" url=\"fl[source]=dungeon&amp;fl[dungeon]=trialofthecrusader10&amp;fl[difficulty]=heroic&amp;fl[boss]=34497\"/>
+        <creature area=\"Trial of the Crusader (25)\" areaUrl=\"fl[source]=dungeon&amp;fl[dungeon]=trialofthecrusader25&amp;fl[boss]=all&amp;fl[difficulty]=all\" classification=\"3\" dropRate=\"1\" heroic=\"1\" id=\"35352\" maxLevel=\"83\" minLevel=\"83\" name=\"Fjola Lightbane\" type=\"Undead\" url=\"fl[source]=dungeon&amp;fl[dungeon]=trialofthecrusader25&amp;fl[difficulty]=heroic&amp;fl[boss]=35350\"/>
+        <creature area=\"Trial of the Crusader (25)\" areaUrl=\"fl[source]=dungeon&amp;fl[dungeon]=trialofthecrusader25&amp;fl[boss]=all&amp;fl[difficulty]=all\" classification=\"3\" dropRate=\"1\" id=\"35447\" maxLevel=\"83\" minLevel=\"83\" name=\"Icehowl\" type=\"Beast\" url=\"fl[source]=dungeon&amp;fl[dungeon]=trialofthecrusader25&amp;fl[difficulty]=all&amp;fl[boss]=35447\"/>
+        <creature area=\"Trial of the Crusader (10)\" areaUrl=\"fl[source]=dungeon&amp;fl[dungeon]=trialofthecrusader10&amp;fl[boss]=all&amp;fl[difficulty]=all\" classification=\"3\" dropRate=\"1\" heroic=\"1\" id=\"35448\" maxLevel=\"83\" minLevel=\"83\" name=\"Icehowl\" type=\"Beast\" url=\"fl[source]=dungeon&amp;fl[dungeon]=trialofthecrusader10&amp;fl[difficulty]=heroic&amp;fl[boss]=34797\"/>
+        <creature area=\"Trial of the Crusader (25)\" areaUrl=\"fl[source]=dungeon&amp;fl[dungeon]=trialofthecrusader25&amp;fl[boss]=all&amp;fl[difficulty]=all\" classification=\"3\" dropRate=\"1\" heroic=\"1\" id=\"35616\" maxLevel=\"83\" minLevel=\"83\" name=\"Anub'arak\" type=\"Undead\" url=\"fl[source]=dungeon&amp;fl[dungeon]=trialofthecrusader25&amp;fl[difficulty]=heroic&amp;fl[boss]=34566\"/>
+        <creature area=\"Trial of the Crusader (25)\" areaUrl=\"fl[source]=dungeon&amp;fl[dungeon]=trialofthecrusader25&amp;fl[boss]=all&amp;fl[difficulty]=all\" classification=\"3\" dropRate=\"1\" heroic=\"1\" id=\"35449\" maxLevel=\"83\" minLevel=\"83\" name=\"Icehowl\" type=\"Beast\" url=\"fl[source]=dungeon&amp;fl[dungeon]=trialofthecrusader25&amp;fl[difficulty]=heroic&amp;fl[boss]=35447\"/>
+        <creature area=\"Trial of the Crusader (25)\" areaUrl=\"fl[source]=dungeon&amp;fl[dungeon]=trialofthecrusader25&amp;fl[boss]=all&amp;fl[difficulty]=all\" classification=\"3\" dropRate=\"1\" id=\"35216\" maxLevel=\"83\" minLevel=\"83\" name=\"Lord Jaraxxus\" type=\"Demon\" url=\"fl[source]=dungeon&amp;fl[dungeon]=trialofthecrusader25&amp;fl[difficulty]=all&amp;fl[boss]=35216\"/>
+        <creature area=\"Trial of the Crusader (25)\" areaUrl=\"fl[source]=dungeon&amp;fl[dungeon]=trialofthecrusader25&amp;fl[boss]=all&amp;fl[difficulty]=all\" classification=\"3\" dropRate=\"1\" id=\"34566\" maxLevel=\"83\" minLevel=\"83\" name=\"Anub'arak\" type=\"Undead\" url=\"fl[source]=dungeon&amp;fl[dungeon]=trialofthecrusader25&amp;fl[difficulty]=all&amp;fl[boss]=34566\"/>
+        <creature area=\"Trial of the Crusader (10)\" areaUrl=\"fl[source]=dungeon&amp;fl[dungeon]=trialofthecrusader10&amp;fl[boss]=all&amp;fl[difficulty]=all\" classification=\"3\" dropRate=\"1\" heroic=\"1\" id=\"35268\" maxLevel=\"83\" minLevel=\"83\" name=\"Lord Jaraxxus\" type=\"Demon\" url=\"fl[source]=dungeon&amp;fl[dungeon]=trialofthecrusader10&amp;fl[difficulty]=heroic&amp;fl[boss]=34780\"/>
+        <creature area=\"Trial of the Crusader (10)\" areaUrl=\"fl[source]=dungeon&amp;fl[dungeon]=trialofthecrusader10&amp;fl[boss]=all&amp;fl[difficulty]=all\" classification=\"3\" dropRate=\"1\" heroic=\"1\" id=\"35615\" maxLevel=\"83\" minLevel=\"83\" name=\"Anub'arak\" type=\"Undead\" url=\"fl[source]=dungeon&amp;fl[dungeon]=trialofthecrusader10&amp;fl[difficulty]=heroic&amp;fl[boss]=34564\"/>
+        <creature area=\"Trial of the Crusader (25)\" areaUrl=\"fl[source]=dungeon&amp;fl[dungeon]=trialofthecrusader25&amp;fl[boss]=all&amp;fl[difficulty]=all\" classification=\"3\" dropRate=\"1\" heroic=\"1\" id=\"35269\" maxLevel=\"83\" minLevel=\"83\" name=\"Lord Jaraxxus\" type=\"Demon\" url=\"fl[source]=dungeon&amp;fl[dungeon]=trialofthecrusader25&amp;fl[difficulty]=heroic&amp;fl[boss]=35216\"/>
+      </dropCreatures>
+      <translationFor factionEquiv=\"0\">
+        <item canAuction=\"1\" icon=\"inv_scroll_04\" id=\"47654\" level=\"85\" name=\"Pattern: Bejeweled Wizard's Bracers\" quality=\"4\"/>
+      </translationFor>
+    </item>
+  </itemInfo>
+</page>
+"
+"<?xml version=\"1.0\" encoding=\"UTF-8\"?><?xml-stylesheet type=\"text/xsl\" href=\"/_layout/items/tooltip.xsl\"?><page globalSearch=\"1\" lang=\"en_us\" requestUrl=\"/item-tooltip.xml\">
+  <itemTooltips>
+    <itemTooltip>
+      <id>47639</id>
+      <name>Pattern: Bejeweled Wizard's Bracers</name>
+      <icon>inv_scroll_04</icon>
+      <overallQualityId>4</overallQualityId>
+      <bonding>0</bonding>
+      <classId>9</classId>
+      <equipData>
+        <inventoryType>0</inventoryType>
+      </equipData>
+      <damageData/>
+      <allowableRaces>
+        <race>Orc</race>
+        <race>Undead</race>
+        <race>Tauren</race>
+        <race>Troll</race>
+        <race>Blood Elf</race>
+      </allowableRaces>
+      <requiredLevel>-1</requiredLevel>
+      <requiredSkill name=\"Tailoring\" rank=\"450\"/>
+      <itemLevel>85</itemLevel>
+      <spellData>
+        <spell>
+          <trigger>6</trigger>
+          <desc>Teaches you how to sew Bejeweled Wizard's Bracers.</desc>
+          <itemTooltip>
+            <name>Bejeweled Wizard's Bracers</name>
+            <overallQualityId>4</overallQualityId>
+            <bonding>2</bonding>
+            <classId>4</classId>
+            <equipData>
+              <inventoryType>9</inventoryType>
+              <subclassName>Cloth</subclassName>
+            </equipData>
+            <damageData/>
+            <bonusStamina>58</bonusStamina>
+            <bonusIntellect>58</bonusIntellect>
+            <armor armorBonus=\"0\">145</armor>
+            <socketData>
+              <socket color=\"Blue\"/>
+            </socketData>
+            <allowableRaces>
+              <race>Orc</race>
+              <race>Undead</race>
+              <race>Tauren</race>
+              <race>Troll</race>
+              <race>Blood Elf</race>
+            </allowableRaces>
+            <requiredLevel>80</requiredLevel>
+            <itemLevel>245</itemLevel>
+            <bonusSpellPower>80</bonusSpellPower>
+            <bonusCritRating>42</bonusCritRating>
+            <bonusHasteRating>50</bonusHasteRating>
+            <itemSource value=\"sourceType.createdBySpell\"/>
+          </itemTooltip>
+          <reagent count=\"8\" name=\"Spellweave\"/>
+          <reagent count=\"1\" name=\"Eye of Zul\"/>
+          <reagent count=\"1\" name=\"Cardinal Ruby\"/>
+          <reagent count=\"1\" name=\"Majestic Zircon\"/>
+          <reagent count=\"4\" name=\"Crusader Orb\"/>
+        </spell>
+      </spellData>
+      <itemSource value=\"sourceType.worldDrop\"/>
+    </itemTooltip>
+  </itemTooltips>
+</page>
+"

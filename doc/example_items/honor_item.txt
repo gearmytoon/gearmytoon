@@ -1,0 +1,52 @@
+"<?xml version=\"1.0\" encoding=\"UTF-8\"?><?xml-stylesheet type=\"text/xsl\" href=\"/_layout/items/info.xsl\"?><page globalSearch=\"1\" lang=\"en_us\" requestQuery=\"i=51350\" requestUrl=\"/item-info.xml\">
+  <itemInfo>
+    <item icon=\"inv_belt_72\" id=\"51350\" level=\"264\" name=\"Wrathful Gladiator's Waistguard of Triumph\" quality=\"4\" type=\"Mail\">
+      <cost factionId=\"0\" honor=\"68200\"/>
+      <vendors>
+        <creature area=\"Orgrimmar\" classification=\"1\" heroic=\"1\" id=\"34060\" maxLevel=\"70\" minLevel=\"70\" name=\"Doris Volanthius\" title=\"Veteran Armor Quartermaster\" type=\"Humanoid\"/>
+        <creature area=\"Stormwind City\" classification=\"0\" heroic=\"1\" id=\"34078\" maxLevel=\"75\" minLevel=\"75\" name=\"Lieutenant Tristia\" title=\"Veteran Armor Quartermaster\" type=\"Humanoid\"/>
+      </vendors>
+      <dropCreatures>
+        <creature area=\"Vault of Archavon\" classification=\"3\" dropRate=\"1\" heroic=\"1\" id=\"38462\" maxLevel=\"83\" minLevel=\"83\" name=\"Toravon the Ice Watcher\" type=\"Giant\"/>
+      </dropCreatures>
+    </item>
+  </itemInfo>
+</page>
+"
+"<?xml version=\"1.0\" encoding=\"UTF-8\"?><?xml-stylesheet type=\"text/xsl\" href=\"/_layout/items/tooltip.xsl\"?><page globalSearch=\"1\" lang=\"en_us\" requestUrl=\"/item-tooltip.xml\">
+  <itemTooltips>
+    <itemTooltip>
+      <id>51350</id>
+      <name>Wrathful Gladiator's Waistguard of Triumph</name>
+      <icon>inv_belt_72</icon>
+      <overallQualityId>4</overallQualityId>
+      <bonding>1</bonding>
+      <classId>4</classId>
+      <equipData>
+        <inventoryType>6</inventoryType>
+        <subclassName>Mail</subclassName>
+      </equipData>
+      <damageData/>
+      <bonusAgility>80</bonusAgility>
+      <bonusStamina>137</bonusStamina>
+      <bonusIntellect>61</bonusIntellect>
+      <armor armorBonus=\"0\">831</armor>
+      <socketData>
+        <socket color=\"Blue\"/>
+      </socketData>
+      <durability current=\"50\" max=\"50\"/>
+      <allowableClasses>
+        <class>Hunter</class>
+        <class>Shaman</class>
+      </allowableClasses>
+      <requiredLevel>80</requiredLevel>
+      <itemLevel>264</itemLevel>
+      <bonusAttackPower>145</bonusAttackPower>
+      <bonusCritRating>72</bonusCritRating>
+      <bonusResilienceRating>80</bonusResilienceRating>
+      <itemSource value=\"sourceType.vendor\"/>
+      <requiredPersonalArenaRating personalArenaRating=\"1300\"/>
+    </itemTooltip>
+  </itemTooltips>
+</page>
+"

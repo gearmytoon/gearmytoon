@@ -1,0 +1,56 @@
+<?xml version=\"1.0\" encoding=\"UTF-8\"?><?xml-stylesheet type=\"text/xsl\" href=\"/_layout/items/info.xsl\"?><page globalSearch=\"1\" lang=\"en_us\" requestQuery=\"i=51401\" requestUrl=\"/item-info.xml\">
+  <itemInfo>
+    <item icon=\"inv_staff_112\" id=\"51401\" level=\"277\" name=\"Wrathful Gladiator's Combat Staff\" quality=\"4\" type=\"Staves\">
+      <cost arena=\"4670\"/>
+      <vendors>
+        <creature area=\"Netherstorm\" classification=\"0\" heroic=\"1\" id=\"34094\" maxLevel=\"70\" minLevel=\"70\" name=\"Grex Brainboiler\" title=\"Exceptional Arena Weaponry\" type=\"Humanoid\"/>
+        <creature area=\"Crystalsong Forest\" classification=\"0\" heroic=\"1\" id=\"40212\" maxLevel=\"70\" minLevel=\"70\" name=\"Trapjaw Rix\" title=\"Exceptional Arena Weaponry\" type=\"Humanoid\"/>
+        <creature area=\"Tanaris\" classification=\"0\" heroic=\"1\" id=\"34093\" maxLevel=\"70\" minLevel=\"70\" name=\"Blazzek the Biter\" title=\"Exceptional Arena Weaponry\" type=\"Humanoid\"/>
+        <creature area=\"Netherstorm\" classification=\"0\" heroic=\"1\" id=\"40209\" maxLevel=\"70\" minLevel=\"70\" name=\"Grex Brainboiler\" title=\"Exceptional Arena Weaponry\" type=\"Humanoid\"/>
+        <creature area=\"Tanaris\" classification=\"0\" heroic=\"1\" id=\"40216\" maxLevel=\"70\" minLevel=\"70\" name=\"Blazzek the Biter\" title=\"Exceptional Arena Weaponry\" type=\"Humanoid\"/>
+        <creature area=\"Crystalsong Forest\" classification=\"0\" heroic=\"1\" id=\"34095\" maxLevel=\"70\" minLevel=\"70\" name=\"Trapjaw Rix\" title=\"Exceptional Arena Weaponry\" type=\"Humanoid\"/>
+      </vendors>
+    </item>
+  </itemInfo>
+</page>
+"
+"<?xml version=\"1.0\" encoding=\"UTF-8\"?><?xml-stylesheet type=\"text/xsl\" href=\"/_layout/items/tooltip.xsl\"?><page globalSearch=\"1\" lang=\"en_us\" requestUrl=\"/item-tooltip.xml\">
+  <itemTooltips>
+    <itemTooltip>
+      <id>51401</id>
+      <name>Wrathful Gladiator's Combat Staff</name>
+      <icon>inv_staff_112</icon>
+      <overallQualityId>4</overallQualityId>
+      <bonding>1</bonding>
+      <classId>2</classId>
+      <equipData>
+        <inventoryType>17</inventoryType>
+        <subclassName>Staff</subclassName>
+      </equipData>
+      <damageData>
+        <damage>
+          <type>0</type>
+          <min>338</min>
+          <max>600</max>
+        </damage>
+        <speed>2.0</speed>
+        <dps>234.55</dps>
+      </damageData>
+      <bonusStamina>265</bonusStamina>
+      <bonusIntellect>118</bonusIntellect>
+      <socketData>
+        <socket color=\"Red\"/>
+        <socket color=\"Blue\"/>
+      </socketData>
+      <durability current=\"120\" max=\"120\"/>
+      <requiredLevel>80</requiredLevel>
+      <itemLevel>277</itemLevel>
+      <bonusSpellPower>838</bonusSpellPower>
+      <bonusHasteRating>139</bonusHasteRating>
+      <bonusResilienceRating>139</bonusResilienceRating>
+      <itemSource value=\"sourceType.vendor\"/>
+      <requiredPersonalArenaRating personalArenaRating=\"2200\"/>
+    </itemTooltip>
+  </itemTooltips>
+</page>
+"

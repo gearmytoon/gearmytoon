@@ -1,0 +1,79 @@
+<?xml version=\"1.0\" encoding=\"UTF-8\"?><?xml-stylesheet type=\"text/xsl\" href=\"/_layout/items/info.xsl\"?><page globalSearch=\"1\" lang=\"en_us\" requestQuery=\"i=45543\" requestUrl=\"/item-info.xml\">
+  <itemInfo>
+    <item icon=\"inv_shoulder_101\" id=\"45543\" level=\"226\" name=\"Shoulders of Misfortune\" quality=\"4\" type=\"Mail\">
+      <cost sellPrice=\"98110\"/>
+      <disenchantLoot requiredSkillRank=\"375\">
+        <item canAuction=\"1\" dropRate=\"6\" icon=\"inv_enchant_abysscrystal\" id=\"34057\" level=\"80\" maxCount=\"1\" minCount=\"1\" name=\"Abyss Crystal\" quality=\"4\" type=\"Enchanting\"/>
+      </disenchantLoot>
+      <dropCreatures>
+        <creature area=\"Ulduar\" classification=\"1\" dropRate=\"1\" heroic=\"1\" id=\"34226\" maxLevel=\"82\" minLevel=\"82\" name=\"Chamber Overseer\" type=\"Elemental\"/>
+        <creature area=\"Ulduar\" classification=\"1\" dropRate=\"1\" heroic=\"1\" id=\"34141\" maxLevel=\"81\" minLevel=\"81\" name=\"Winter Revenant\" type=\"Elemental\"/>
+        <creature area=\"Ulduar\" classification=\"1\" dropRate=\"1\" heroic=\"1\" id=\"34220\" maxLevel=\"80\" minLevel=\"80\" name=\"Clockwork Sapper\" type=\"Mechanical\"/>
+        <creature area=\"Ulduar\" classification=\"1\" dropRate=\"1\" heroic=\"1\" id=\"33773\" maxLevel=\"82\" minLevel=\"82\" name=\"Faceless Horror\" type=\"Not specified\"/>
+        <creature area=\"Ulduar\" classification=\"1\" dropRate=\"1\" heroic=\"1\" id=\"34142\" maxLevel=\"81\" minLevel=\"81\" name=\"Winter Rumbler\" type=\"Elemental\"/>
+        <creature area=\"Ulduar\" classification=\"1\" dropRate=\"1\" heroic=\"1\" id=\"33723\" maxLevel=\"82\" minLevel=\"82\" name=\"Storm Tempered Keeper\" type=\"Mechanical\"/>
+        <creature area=\"Ulduar\" classification=\"1\" dropRate=\"1\" heroic=\"1\" id=\"33729\" maxLevel=\"81\" minLevel=\"81\" name=\"Corrupted Servitor\" type=\"Elemental\"/>
+        <creature area=\"Ulduar\" classification=\"1\" dropRate=\"1\" heroic=\"1\" id=\"33830\" maxLevel=\"82\" minLevel=\"82\" name=\"Twilight Pyromancer\" type=\"Humanoid\"/>
+        <creature area=\"Ulduar\" classification=\"1\" dropRate=\"1\" heroic=\"1\" id=\"33832\" maxLevel=\"82\" minLevel=\"82\" name=\"Twilight Slayer\" type=\"Humanoid\"/>
+        <creature area=\"Ulduar\" classification=\"1\" dropRate=\"1\" heroic=\"1\" id=\"34272\" maxLevel=\"80\" minLevel=\"80\" name=\"XD-175 Compactobot\" type=\"Mechanical\"/>
+        <creature area=\"Ulduar\" classification=\"1\" dropRate=\"1\" heroic=\"1\" id=\"33828\" maxLevel=\"82\" minLevel=\"82\" name=\"Twilight Guardian\" type=\"Humanoid\"/>
+        <creature area=\"Ulduar\" classification=\"1\" dropRate=\"1\" heroic=\"1\" id=\"33757\" maxLevel=\"82\" minLevel=\"82\" name=\"Dark Rune Thunderer\" type=\"Humanoid\"/>
+        <creature area=\"Ulduar\" classification=\"1\" dropRate=\"1\" heroic=\"1\" id=\"33827\" maxLevel=\"82\" minLevel=\"82\" name=\"Twilight Adherent\" type=\"Humanoid\"/>
+        <creature area=\"Ulduar\" classification=\"1\" dropRate=\"1\" heroic=\"1\" id=\"33735\" maxLevel=\"81\" minLevel=\"81\" name=\"Mangrove Ent\" type=\"Elemental\"/>
+        <creature area=\"Ulduar\" classification=\"1\" dropRate=\"1\" heroic=\"1\" id=\"34274\" maxLevel=\"80\" minLevel=\"80\" name=\"XB-488 Disposalbot\" type=\"Mechanical\"/>
+        <creature area=\"Ulduar\" classification=\"1\" dropRate=\"1\" heroic=\"1\" id=\"33737\" maxLevel=\"81\" minLevel=\"81\" name=\"Misguided Nymph\" type=\"Humanoid\"/>
+        <creature area=\"Ulduar\" classification=\"1\" dropRate=\"1\" heroic=\"1\" id=\"33733\" maxLevel=\"81\" minLevel=\"81\" name=\"Guardian of Life\" type=\"Dragonkin\"/>
+        <creature area=\"Ulduar\" classification=\"1\" dropRate=\"1\" heroic=\"1\" id=\"34139\" maxLevel=\"82\" minLevel=\"82\" name=\"Champion of Hodir\" type=\"Giant\"/>
+        <creature area=\"Ulduar\" classification=\"1\" dropRate=\"1\" heroic=\"1\" id=\"34186\" maxLevel=\"82\" minLevel=\"82\" name=\"Forge Construct\" type=\"Mechanical\"/>
+        <creature area=\"Ulduar\" classification=\"1\" dropRate=\"1\" heroic=\"1\" id=\"33734\" maxLevel=\"81\" minLevel=\"81\" name=\"Ironroot Lasher\" type=\"Elemental\"/>
+        <creature area=\"Ulduar\" classification=\"1\" dropRate=\"1\" heroic=\"1\" id=\"33700\" maxLevel=\"82\" minLevel=\"82\" name=\"Storm Tempered Keeper\" type=\"Mechanical\"/>
+        <creature area=\"Ulduar\" classification=\"1\" dropRate=\"1\" heroic=\"1\" id=\"34201\" maxLevel=\"82\" minLevel=\"82\" name=\"Magma Rager\" type=\"Elemental\"/>
+        <creature area=\"Ulduar\" classification=\"1\" dropRate=\"1\" heroic=\"1\" id=\"34216\" maxLevel=\"80\" minLevel=\"80\" name=\"Boomer XP-500\" type=\"Mechanical\"/>
+        <creature area=\"Ulduar\" classification=\"1\" dropRate=\"1\" heroic=\"1\" id=\"34245\" maxLevel=\"82\" minLevel=\"82\" name=\"Rune Etched Sentry\" type=\"Elemental\"/>
+        <creature area=\"Ulduar\" classification=\"1\" dropRate=\"1\" heroic=\"1\" id=\"33741\" maxLevel=\"81\" minLevel=\"81\" name=\"Nature's Blade\" type=\"Humanoid\"/>
+        <creature area=\"Ulduar\" classification=\"1\" dropRate=\"1\" heroic=\"1\" id=\"34229\" maxLevel=\"82\" minLevel=\"82\" name=\"Hardened Iron Golem\" type=\"Elemental\"/>
+        <creature area=\"Ulduar\" classification=\"1\" dropRate=\"1\" heroic=\"1\" id=\"33831\" maxLevel=\"82\" minLevel=\"82\" name=\"Twilight Shadowblade\" type=\"Humanoid\"/>
+        <creature area=\"Ulduar\" classification=\"1\" dropRate=\"1\" heroic=\"1\" id=\"34185\" maxLevel=\"82\" minLevel=\"82\" name=\"Molten Colossus\" type=\"Giant\"/>
+        <creature area=\"Ulduar\" classification=\"1\" dropRate=\"1\" heroic=\"1\" id=\"34270\" maxLevel=\"80\" minLevel=\"80\" name=\"XR-949 Salvagebot\" type=\"Mechanical\"/>
+        <creature area=\"Ulduar\" classification=\"1\" dropRate=\"1\" heroic=\"1\" id=\"34237\" maxLevel=\"82\" minLevel=\"82\" name=\"Lightning Charged Iron Dwarf\" type=\"Humanoid\"/>
+        <creature area=\"Ulduar\" classification=\"1\" dropRate=\"1\" heroic=\"1\" id=\"34236\" maxLevel=\"82\" minLevel=\"82\" name=\"Iron Mender\" type=\"Humanoid\"/>
+        <creature area=\"Ulduar\" classification=\"1\" dropRate=\"1\" heroic=\"1\" id=\"33732\" maxLevel=\"81\" minLevel=\"81\" name=\"Guardian Lasher\" type=\"Elemental\"/>
+        <creature area=\"Ulduar\" classification=\"1\" dropRate=\"1\" heroic=\"1\" id=\"33758\" maxLevel=\"82\" minLevel=\"82\" name=\"Dark Rune Ravager\" type=\"Humanoid\"/>
+        <creature area=\"Ulduar\" classification=\"1\" dropRate=\"1\" heroic=\"1\" id=\"33829\" maxLevel=\"82\" minLevel=\"82\" name=\"Twilight Frost Mage\" type=\"Humanoid\"/>
+      </dropCreatures>
+    </item>
+  </itemInfo>
+</page>
+"
+"<?xml version=\"1.0\" encoding=\"UTF-8\"?><?xml-stylesheet type=\"text/xsl\" href=\"/_layout/items/tooltip.xsl\"?><page globalSearch=\"1\" lang=\"en_us\" requestUrl=\"/item-tooltip.xml\">
+  <itemTooltips>
+    <itemTooltip>
+      <id>45543</id>
+      <name>Shoulders of Misfortune</name>
+      <icon>inv_shoulder_101</icon>
+      <overallQualityId>4</overallQualityId>
+      <bonding>1</bonding>
+      <classId>4</classId>
+      <equipData>
+        <inventoryType>3</inventoryType>
+        <subclassName>Mail</subclassName>
+      </equipData>
+      <damageData/>
+      <bonusAgility>57</bonusAgility>
+      <bonusStamina>66</bonusStamina>
+      <bonusIntellect>44</bonusIntellect>
+      <armor armorBonus=\"0\">985</armor>
+      <socketData>
+        <socket color=\"Red\"/>
+      </socketData>
+      <durability current=\"85\" max=\"85\"/>
+      <requiredLevel>80</requiredLevel>
+      <itemLevel>226</itemLevel>
+      <bonusAttackPower>154</bonusAttackPower>
+      <bonusHasteRating>56</bonusHasteRating>
+      <bonusCritRating>36</bonusCritRating>
+      <itemSource value=\"sourceType.worldDrop\"/>
+    </itemTooltip>
+  </itemTooltips>
+</page>
+"

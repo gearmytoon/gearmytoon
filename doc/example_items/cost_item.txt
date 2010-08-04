@@ -1,0 +1,73 @@
+<?xml version=\"1.0\" encoding=\"UTF-8\"?><?xml-stylesheet type=\"text/xsl\" href=\"/_layout/items/info.xsl\"?><page globalSearch=\"1\" lang=\"en_us\" requestQuery=\"i=50115\" requestUrl=\"/item-info.xml\">
+  <itemInfo>
+    <item icon=\"inv_helmet_158\" id=\"50115\" level=\"251\" name=\"Ahn'Kahar Blood Hunter's Headpiece\" quality=\"4\" type=\"Mail\">
+      <cost>
+        <token count=\"95\" icon=\"inv_misc_frostemblem_01\" id=\"49426\"/>
+      </cost>
+      <disenchantLoot requiredSkillRank=\"375\">
+        <item canAuction=\"1\" dropRate=\"6\" icon=\"inv_enchant_abysscrystal\" id=\"34057\" level=\"80\" maxCount=\"1\" minCount=\"1\" name=\"Abyss Crystal\" quality=\"4\" type=\"Enchanting\"/>
+      </disenchantLoot>
+      <vendors>
+        <creature area=\"Icecrown Citadel\" classification=\"0\" heroic=\"1\" id=\"37993\" maxLevel=\"80\" minLevel=\"80\" name=\"Gerardo the Suave\" title=\"Hunter Armor\" type=\"Humanoid\"/>
+        <creature area=\"Icecrown Citadel\" classification=\"0\" heroic=\"1\" id=\"37998\" maxLevel=\"80\" minLevel=\"80\" name=\"Talan Moonstrike\" title=\"Hunter Armor\" type=\"Humanoid\"/>
+        <creature area=\"Crystalsong Forest\" classification=\"0\" heroic=\"1\" id=\"35500\" maxLevel=\"75\" minLevel=\"75\" name=\"Matilda Brightlink\" title=\"Mail Armor Merchant\" type=\"Humanoid\"/>
+      </vendors>
+      <currencyFor>
+        <item icon=\"inv_helmet_158\" id=\"51153\" level=\"264\" name=\"Sanctified Ahn'Kahar Blood Hunter's Headpiece\" quality=\"4\" type=\"Mail\">
+          <cost>
+            <token count=\"1\" icon=\"ability_paladin_shieldofthetemplar\" id=\"52026\"/>
+            <token count=\"1\" icon=\"inv_helmet_158\" id=\"50115\"/>
+          </cost>
+        </item>
+      </currencyFor>
+    </item>
+  </itemInfo>
+</page>
+"
+"<?xml version=\"1.0\" encoding=\"UTF-8\"?><?xml-stylesheet type=\"text/xsl\" href=\"/_layout/items/tooltip.xsl\"?><page globalSearch=\"1\" lang=\"en_us\" requestUrl=\"/item-tooltip.xml\">
+  <itemTooltips>
+    <itemTooltip>
+      <id>50115</id>
+      <name>Ahn'Kahar Blood Hunter's Headpiece</name>
+      <icon>inv_helmet_158</icon>
+      <overallQualityId>4</overallQualityId>
+      <bonding>1</bonding>
+      <classId>4</classId>
+      <equipData>
+        <inventoryType>1</inventoryType>
+        <subclassName>Mail</subclassName>
+      </equipData>
+      <damageData/>
+      <bonusAgility>136</bonusAgility>
+      <bonusStamina>113</bonusStamina>
+      <bonusIntellect>76</bonusIntellect>
+      <armor armorBonus=\"0\">1148</armor>
+      <socketData>
+        <socket color=\"Meta\"/>
+        <socket color=\"Red\"/>
+      </socketData>
+      <durability current=\"85\" max=\"85\"/>
+      <allowableClasses>
+        <class>Hunter</class>
+      </allowableClasses>
+      <requiredLevel>80</requiredLevel>
+      <itemLevel>251</itemLevel>
+      <bonusAttackPower>159</bonusAttackPower>
+      <bonusCritRating>80</bonusCritRating>
+      <bonusArmorPenetration>68</bonusArmorPenetration>
+      <setData>
+        <name>Ahn'Kahar Blood Hunter's Battlegear</name>
+        <item name=\"Ahn'Kahar Blood Hunter's Handguards\"/>
+        <item name=\"Ahn'Kahar Blood Hunter's Headpiece\"/>
+        <item name=\"Ahn'Kahar Blood Hunter's Legguards\"/>
+        <item name=\"Ahn'Kahar Blood Hunter's Spaulders\"/>
+        <item name=\"Ahn'Kahar Blood Hunter's Tunic\"/>
+        <setBonus desc=\"Your Auto Shots have a 5% chance to cause you and your pet to deal 15% additional damage for 10 sec.\" threshold=\"2\"/>
+        <setBonus desc=\"When your Serpent Sting and Wyvern Sting abilities deal damage, you have a 5% chance to gain 20% attack power for 10 sec.\" threshold=\"4\"/>
+      </setData>
+      <itemSource value=\"sourceType.vendor\"/>
+    </itemTooltip>
+  </itemTooltips>
+</page>
+"
+.
