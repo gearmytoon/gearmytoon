@@ -1,0 +1,69 @@
+<?xml version=\"1.0\" encoding=\"UTF-8\"?><?xml-stylesheet type=\"text/xsl\" href=\"/_layout/items/info.xsl\"?><page globalSearch=\"1\" lang=\"en_us\" requestQuery=\"i=41158\" requestUrl=\"/item-info.xml\">
+  <itemInfo>
+    <item icon=\"inv_helmet_73\" id=\"41158\" level=\"251\" name=\"Relentless Gladiator's Chain Helm\" quality=\"4\" type=\"Mail\">
+      <cost arena=\"770\" factionId=\"0\" honor=\"13200\"/>
+      <vendors>
+        <creature area=\"Crystalsong Forest\" classification=\"0\" heroic=\"1\" id=\"33927\" maxLevel=\"75\" minLevel=\"75\" name=\"Nargle Lashcord\" title=\"Veteran Arena Vendor\" type=\"Humanoid\"/>
+        <creature area=\"Icecrown Citadel\" classification=\"0\" heroic=\"1\" id=\"38858\" maxLevel=\"80\" minLevel=\"80\" name=\"Goodman the &quot;Closer&quot;\" title=\"Emblem of Frost Quartermaster\" type=\"Humanoid\"/>
+        <creature area=\"Netherstorm\" classification=\"0\" heroic=\"1\" id=\"33931\" maxLevel=\"70\" minLevel=\"70\" name=\"Kezzik the Striker\" title=\"Veteran Arena Vendor\" type=\"Humanoid\"/>
+        <creature area=\"Tanaris\" classification=\"0\" heroic=\"1\" id=\"40214\" maxLevel=\"70\" minLevel=\"70\" name=\"Evee Copperspring\" title=\"Arena Vendor\" type=\"Humanoid\"/>
+        <creature area=\"Crystalsong Forest\" classification=\"0\" heroic=\"1\" id=\"37941\" maxLevel=\"80\" minLevel=\"80\" name=\"Magister Arlan\" title=\"Emblem of Frost Quartermaster\" type=\"Humanoid\"/>
+        <creature area=\"Crystalsong Forest\" classification=\"0\" heroic=\"1\" id=\"33937\" maxLevel=\"75\" minLevel=\"75\" name=\"Xazi Smolderpipe\" title=\"Arena Vendor\" type=\"Humanoid\"/>
+        <creature area=\"Netherstorm\" classification=\"0\" heroic=\"1\" id=\"33933\" maxLevel=\"70\" minLevel=\"70\" name=\"Big Zokk Torquewrench\" title=\"Arena Vendor\" type=\"Humanoid\"/>
+        <creature area=\"Crystalsong Forest\" classification=\"0\" heroic=\"1\" id=\"37942\" maxLevel=\"80\" minLevel=\"80\" name=\"Arcanist Uovril\" title=\"Emblem of Frost Quartermaster\" type=\"Humanoid\"/>
+        <creature area=\"Tanaris\" classification=\"0\" heroic=\"1\" id=\"33924\" maxLevel=\"70\" minLevel=\"70\" name=\"Argex Irongut\" title=\"Veteran Arena Vendor\" type=\"Humanoid\"/>
+        <creature area=\"Netherstorm\" classification=\"0\" heroic=\"1\" id=\"40206\" maxLevel=\"70\" minLevel=\"70\" name=\"Big Zokk Torquewrench\" title=\"Arena Vendor\" type=\"Humanoid\"/>
+        <creature area=\"Crystalsong Forest\" classification=\"0\" heroic=\"1\" id=\"40210\" maxLevel=\"75\" minLevel=\"75\" name=\"Xazi Smolderpipe\" title=\"Arena Vendor\" type=\"Humanoid\"/>
+        <creature area=\"Tanaris\" classification=\"0\" heroic=\"1\" id=\"33935\" maxLevel=\"70\" minLevel=\"70\" name=\"Evee Copperspring\" title=\"Arena Vendor\" type=\"Humanoid\"/>
+      </vendors>
+    </item>
+  </itemInfo>
+</page>
+"
+"<?xml version=\"1.0\" encoding=\"UTF-8\"?><?xml-stylesheet type=\"text/xsl\" href=\"/_layout/items/tooltip.xsl\"?><page globalSearch=\"1\" lang=\"en_us\" requestUrl=\"/item-tooltip.xml\">
+  <itemTooltips>
+    <itemTooltip>
+      <id>41158</id>
+      <name>Relentless Gladiator's Chain Helm</name>
+      <icon>inv_helmet_73</icon>
+      <overallQualityId>4</overallQualityId>
+      <bonding>1</bonding>
+      <classId>4</classId>
+      <equipData>
+        <inventoryType>1</inventoryType>
+        <subclassName>Mail</subclassName>
+      </equipData>
+      <damageData/>
+      <bonusAgility>96</bonusAgility>
+      <bonusStamina>164</bonusStamina>
+      <bonusIntellect>73</bonusIntellect>
+      <armor armorBonus=\"0\">1148</armor>
+      <socketData>
+        <socket color=\"Meta\"/>
+        <socket color=\"Red\"/>
+      </socketData>
+      <durability current=\"85\" max=\"85\"/>
+      <allowableClasses>
+        <class>Hunter</class>
+      </allowableClasses>
+      <requiredLevel>80</requiredLevel>
+      <itemLevel>251</itemLevel>
+      <bonusAttackPower>159</bonusAttackPower>
+      <bonusCritRating>80</bonusCritRating>
+      <bonusResilienceRating>80</bonusResilienceRating>
+      <setData>
+        <name>Gladiator's Pursuit</name>
+        <item name=\"Gladiator's Chain Armor\"/>
+        <item name=\"Gladiator's Chain Gauntlets\"/>
+        <item name=\"Gladiator's Chain Helm\"/>
+        <item name=\"Gladiator's Chain Leggings\"/>
+        <item name=\"Gladiator's Chain Spaulders\"/>
+        <setBonus desc=\"+100 resilience rating.\" threshold=\"2\"/>
+        <setBonus desc=\"Increases attack power by 50.\" threshold=\"2\"/>
+        <setBonus desc=\"Reduces the cooldown of your Traps by 2 seconds.\" threshold=\"4\"/>
+        <setBonus desc=\"Increases attack power by 150.\" threshold=\"4\"/>
+      </setData>
+      <itemSource value=\"sourceType.vendor\"/>
+    </itemTooltip>
+  </itemTooltips>
+</page>
