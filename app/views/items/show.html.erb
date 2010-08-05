@@ -7,6 +7,8 @@
   .info ul { margin: 0 0 24px 12px; }
   .info ul li { margin-bottom: 2px; }
   .info ul.classes li { padding: 0 0 6px 26px; }
+  .info ul.classes ul { padding: 0; margin: -6px 0 10px 10px; font-size: 13px; }
+  .info ul.classes ul li { padding: 0; margin: 0; }
   .info ul.classes li.hunter { background: transparent url(http://wowarmory.com/_images/icons/class/3.gif) no-repeat; }
   .info ul.classes li.rogue { background: transparent url(http://wowarmory.com/_images/icons/class/4.gif) no-repeat; }
 
@@ -33,7 +35,17 @@
   <h2>Classes</h2>
   <ul class="classes">
     <li class="rogue">Rogue</li>
+    <ul>
+      <li>60% of Assassination Rogues use this item</li>
+      <li>20% of Combat Rogues use this item</li>
+      <li>20% of Subtlety Rogues use this item</li>
+    </ul>
     <li class="hunter">Hunter</li>
+    <ul>
+      <li>60% of Assassination Hunters use this item</li>
+      <li>40% of Combat Hunters use this item</li>
+      <li>0% of Subtlety Hunters use this item</li>
+    </ul>
   </ul>
 
   <h2>Sources</h2>
@@ -41,14 +53,14 @@
     <li class="buyable">
       <span class="cost frost"><%= image_tag "http://www.wowarmory.com/wow-icons/_images/43x43/inv_misc_frostemblem_01.png",
         :width => "22", :height => "22"
-        %>60 Emblems of Frost</span>
+        %>60</span>
       via
       <span class="vendor"><%= link_to "Angstrom", "#", :class => "npc alliance" %>
         or
         <%= link_to "Langstrom", "#", :class => "npc horde" %></span>
     </li>
-    <li class="buyable"><span class="cost triumph"><%= image_tag "http://www.wowarmory.com/wow-icons/_images/43x43/spell_holy_summonchampion.png", :width => "22", :height => "22" %>60 Emblems of Triumph</span> via <span class="vendor"><%= link_to "Angstrom", "#", :class => "npc alliance" %> or <%= link_to "Langstrom", "#", :class => "npc horde" %></span></li>
-    <li class="lootable"><%= link_to "Loken", "#", :class => "neutral npc" %> in <%= link_to "Halls of Lightning", "#" %></li>
+    <li class="buyable"><span class="cost triumph"><%= image_tag "http://www.wowarmory.com/wow-icons/_images/43x43/spell_holy_summonchampion.png", :width => "22", :height => "22" %>60</span> via <span class="vendor"><%= link_to "Angstrom", "#", :class => "npc alliance" %> or <%= link_to "Langstrom", "#", :class => "npc horde" %></span></li>
+    <li class="lootable"><%= link_to "Loken", "#", :class => "neutral npc" %> in <img src="/images/game_icons/dungeon.png" width="20" height="20" /><%= link_to "Halls of Lightning", "#" %></li>
   </ul>
 
   <h2>External Links</h2>

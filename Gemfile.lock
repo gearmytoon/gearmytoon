@@ -140,7 +140,7 @@ specs:
 - friendly_id: 
     version: 2.3.4
 - hoptoad_notifier: 
-    version: 2.3.2
+    version: 2.3.3
 - hpricot: 
     version: 0.8.1
 - i18n: 
