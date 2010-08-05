@@ -9,9 +9,9 @@ class ItemImporter
 
   attr_reader :wowarmory_item_id
   def initialize(wowarmory_item_id)
-    armory_importer = WowArmoryImporter.new(wowarmory_item_id)
-    @wowarmory_item_info = armory_importer.info
-    @wowarmory_item_tooltip = armory_importer.tooltip
+    armory_importer = WowArmoryImporter.new
+    @wowarmory_item_info = armory_importer.item_info(wowarmory_item_id)
+    @wowarmory_item_tooltip = armory_importer.item_tooltip(wowarmory_item_id)
     @wowarmory_item_id = wowarmory_item_id
   end
   
