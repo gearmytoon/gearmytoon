@@ -17,11 +17,18 @@ class WowArmoryImporterTest < ActiveSupport::TestCase
   context "character data" do
     should "get the sheet" do
       wi =  WowArmoryImporter.new
-      assert_not_nil wi.character_sheet("merb", "baelgun", "us")
+      assert_not_nil wi.character_sheet("rails", "baelgun", "us")
     end
     should "get the talents" do
       wi =  WowArmoryImporter.new
-      assert_not_nil wi.character_talents("merb", "baelgun", "us")
+      assert_not_nil wi.character_talents("rails", "baelgun", "us")
+    end
+  end
+
+  context "guild data" do
+    should "get guild info" do
+      wi =  WowArmoryImporter.new
+      assert_not_nil wi.guild_info("wipes on trash", "baelgun", "us")
     end
   end
   

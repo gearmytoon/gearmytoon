@@ -16,6 +16,10 @@ class WowArmoryImporter
   def character_sheet(name, realm, locale)
     get_xml(character_sheet_url(name, realm, locale))
   end
+  
+  def guild_info(name, realm, locale)
+    get_xml(guild_info_url(name, realm, locale))
+  end
 
   def character_talents(name, realm, locale)
     get_xml(character_talents_url(name, realm, locale))
@@ -35,6 +39,10 @@ class WowArmoryImporter
   
   def character_talents_url(name, realm, locale)
     "#{base_url(locale)}/character-talents.xml?r=#{realm}&cn=#{name}"
+  end
+  
+  def guild_info_url(name, realm, locale)
+    "#{base_url(locale)}/guild-info.xml?r=#{realm}&gn=#{name}"
   end
 
   def get_xml(url)
