@@ -1,47 +1,48 @@
-<?xml version=\"1.0\" encoding=\"UTF-8\"?><?xml-stylesheet type=\"text/xsl\" href=\"/_layout/character/talents.xsl\"?><page globalSearch=\"1\" lang=\"en_us\" requestUrl=\"/character-talents.xml\">
-  <tabInfo subTab=\"talents\" tab=\"character\" tabGroup=\"character\" tabUrl=\"r=Baelgun&amp;cn=Rails&amp;gn=Blood+on+the+Ground\"/>
+<?xml version="1.0" encoding="UTF-8"?><?xml-stylesheet type="text/xsl" href="/_layout/character/talents.xsl"?>
+<page globalSearch="1" lang="en_us" requestUrl="/character-talents.xml">
+  <tabInfo subTab="talents" tab="character" tabGroup="character" tabUrl="r=Baelgun&amp;cn=Rails&amp;gn=Blood+on+the+Ground"/>
   <characterInfo>
-    <character battleGroup=\"Shadowburn\" charUrl=\"r=Baelgun&amp;cn=Rails\" class=\"Paladin\" classId=\"2\" classUrl=\"c=Paladin\" faction=\"Horde\" factionId=\"1\" gender=\"Male\" genderId=\"0\" guildName=\"Blood on the Ground\" guildUrl=\"r=Baelgun&amp;gn=Blood+on+the+Ground\" lastModified=\"July 25, 2010\" level=\"80\" name=\"Rails\" points=\"2490\" prefix=\"\" race=\"Blood Elf\" raceId=\"10\" realm=\"Baelgun\" suffix=\"\" titleId=\"0\">
+    <character battleGroup="Shadowburn" charUrl="r=Baelgun&amp;cn=Rails" class="Paladin" classId="2" classUrl="c=Paladin" faction="Horde" factionId="1" gender="Male" genderId="0" guildName="Blood on the Ground" guildUrl="r=Baelgun&amp;gn=Blood+on+the+Ground" lastModified="July 25, 2010" level="80" name="Rails" points="2490" prefix="" race="Blood Elf" raceId="10" realm="Baelgun" suffix="" titleId="0">
       <arenaTeams>
-        <arenaTeam battleGroup=\"Shadowburn\" created=\"1234828800000\" faction=\"Horde\" factionId=\"1\" gamesPlayed=\"0\" gamesWon=\"0\" lastSeasonRanking=\"0\" name=\"pve is skill pvp is time\" ranking=\"0\" rating=\"0\" realm=\"Baelgun\" realmUrl=\"b=Shadowburn&amp;r=Baelgun&amp;ts=2&amp;t=pve+is+skill+pvp+is+time&amp;ff=realm&amp;fv=Baelgun&amp;select=pve+is+skill+pvp+is+time\" season=\"0\" seasonGamesPlayed=\"0\" seasonGamesWon=\"0\" size=\"2\" teamSize=\"2\" teamUrl=\"r=Baelgun&amp;ts=2&amp;t=pve+is+skill+pvp+is+time&amp;select=pve+is+skill+pvp+is+time\" url=\"r=Baelgun&amp;ts=2&amp;t=pve+is+skill+pvp+is+time&amp;select=pve+is+skill+pvp+is+time\">
-          <emblem background=\"ff0026f7\" borderColor=\"ffd1f04d\" borderStyle=\"4\" iconColor=\"ffdb02d8\" iconStyle=\"90\"/>
+        <arenaTeam battleGroup="Shadowburn" created="1234828800000" faction="Horde" factionId="1" gamesPlayed="0" gamesWon="0" lastSeasonRanking="0" name="pve is skill pvp is time" ranking="0" rating="0" realm="Baelgun" realmUrl="b=Shadowburn&amp;r=Baelgun&amp;ts=2&amp;t=pve+is+skill+pvp+is+time&amp;ff=realm&amp;fv=Baelgun&amp;select=pve+is+skill+pvp+is+time" season="0" seasonGamesPlayed="0" seasonGamesWon="0" size="2" teamSize="2" teamUrl="r=Baelgun&amp;ts=2&amp;t=pve+is+skill+pvp+is+time&amp;select=pve+is+skill+pvp+is+time" url="r=Baelgun&amp;ts=2&amp;t=pve+is+skill+pvp+is+time&amp;select=pve+is+skill+pvp+is+time">
+          <emblem background="ff0026f7" borderColor="ffd1f04d" borderStyle="4" iconColor="ffdb02d8" iconStyle="90"/>
           <members>
-            <character battleGroup=\"\" charUrl=\"r=Baelgun&amp;cn=Rails\" class=\"Paladin\" classId=\"2\" contribution=\"0\" gamesPlayed=\"0\" gamesWon=\"0\" gender=\"Male\" genderId=\"0\" guild=\"Blood on the Ground\" guildId=\"11431964\" guildUrl=\"r=Baelgun&amp;gn=Blood+on+the+Ground\" name=\"Rails\" race=\"Blood Elf\" raceId=\"10\" seasonGamesPlayed=\"0\" seasonGamesWon=\"0\" teamRank=\"0\"/>
-            <character battleGroup=\"\" charUrl=\"r=Baelgun&amp;cn=Serenade\" class=\"Death Knight\" classId=\"6\" contribution=\"0\" gamesPlayed=\"0\" gamesWon=\"0\" gender=\"Female\" genderId=\"1\" guild=\"Wipes on Trash\" guildId=\"5685928\" guildUrl=\"r=Baelgun&amp;gn=Wipes+on+Trash\" name=\"Serenade\" race=\"Blood Elf\" raceId=\"10\" seasonGamesPlayed=\"0\" seasonGamesWon=\"0\" teamRank=\"1\"/>
+            <character battleGroup="" charUrl="r=Baelgun&amp;cn=Rails" class="Paladin" classId="2" contribution="0" gamesPlayed="0" gamesWon="0" gender="Male" genderId="0" guild="Blood on the Ground" guildId="11431964" guildUrl="r=Baelgun&amp;gn=Blood+on+the+Ground" name="Rails" race="Blood Elf" raceId="10" seasonGamesPlayed="0" seasonGamesWon="0" teamRank="0"/>
+            <character battleGroup="" charUrl="r=Baelgun&amp;cn=Serenade" class="Death Knight" classId="6" contribution="0" gamesPlayed="0" gamesWon="0" gender="Female" genderId="1" guild="Wipes on Trash" guildId="5685928" guildUrl="r=Baelgun&amp;gn=Wipes+on+Trash" name="Serenade" race="Blood Elf" raceId="10" seasonGamesPlayed="0" seasonGamesWon="0" teamRank="1"/>
           </members>
         </arenaTeam>
-        <arenaTeam battleGroup=\"Shadowburn\" created=\"1241049600000\" faction=\"Horde\" factionId=\"1\" gamesPlayed=\"0\" gamesWon=\"0\" lastSeasonRanking=\"0\" name=\"I got nothing\" ranking=\"4279\" rating=\"1111\" realm=\"Baelgun\" realmUrl=\"b=Shadowburn&amp;r=Baelgun&amp;ts=3&amp;t=I+got+nothing&amp;ff=realm&amp;fv=Baelgun&amp;select=I+got+nothing\" season=\"0\" seasonGamesPlayed=\"42\" seasonGamesWon=\"24\" size=\"3\" teamSize=\"3\" teamUrl=\"r=Baelgun&amp;ts=3&amp;t=I+got+nothing&amp;select=I+got+nothing\" url=\"r=Baelgun&amp;ts=3&amp;t=I+got+nothing&amp;select=I+got+nothing\">
-          <emblem background=\"ffe0c70a\" borderColor=\"ff939619\" borderStyle=\"2\" iconColor=\"ff8a6315\" iconStyle=\"50\"/>
+        <arenaTeam battleGroup="Shadowburn" created="1241049600000" faction="Horde" factionId="1" gamesPlayed="0" gamesWon="0" lastSeasonRanking="0" name="I got nothing" ranking="4279" rating="1111" realm="Baelgun" realmUrl="b=Shadowburn&amp;r=Baelgun&amp;ts=3&amp;t=I+got+nothing&amp;ff=realm&amp;fv=Baelgun&amp;select=I+got+nothing" season="0" seasonGamesPlayed="42" seasonGamesWon="24" size="3" teamSize="3" teamUrl="r=Baelgun&amp;ts=3&amp;t=I+got+nothing&amp;select=I+got+nothing" url="r=Baelgun&amp;ts=3&amp;t=I+got+nothing&amp;select=I+got+nothing">
+          <emblem background="ffe0c70a" borderColor="ff939619" borderStyle="2" iconColor="ff8a6315" iconStyle="50"/>
           <members>
-            <character battleGroup=\"\" charUrl=\"r=Baelgun&amp;cn=Escath\" class=\"Priest\" classId=\"5\" contribution=\"1111\" gamesPlayed=\"0\" gamesWon=\"0\" gender=\"Male\" genderId=\"0\" guild=\"Wipes on Trash\" guildId=\"5685928\" guildUrl=\"r=Baelgun&amp;gn=Wipes+on+Trash\" name=\"Escath\" race=\"Blood Elf\" raceId=\"10\" seasonGamesPlayed=\"42\" seasonGamesWon=\"24\" teamRank=\"0\"/>
-            <character battleGroup=\"\" charUrl=\"r=Baelgun&amp;cn=Rails\" class=\"Paladin\" classId=\"2\" contribution=\"0\" gamesPlayed=\"0\" gamesWon=\"0\" gender=\"Male\" genderId=\"0\" guild=\"Blood on the Ground\" guildId=\"11431964\" guildUrl=\"r=Baelgun&amp;gn=Blood+on+the+Ground\" name=\"Rails\" race=\"Blood Elf\" raceId=\"10\" seasonGamesPlayed=\"0\" seasonGamesWon=\"0\" teamRank=\"1\"/>
+            <character battleGroup="" charUrl="r=Baelgun&amp;cn=Escath" class="Priest" classId="5" contribution="1111" gamesPlayed="0" gamesWon="0" gender="Male" genderId="0" guild="Wipes on Trash" guildId="5685928" guildUrl="r=Baelgun&amp;gn=Wipes+on+Trash" name="Escath" race="Blood Elf" raceId="10" seasonGamesPlayed="42" seasonGamesWon="24" teamRank="0"/>
+            <character battleGroup="" charUrl="r=Baelgun&amp;cn=Rails" class="Paladin" classId="2" contribution="0" gamesPlayed="0" gamesWon="0" gender="Male" genderId="0" guild="Blood on the Ground" guildId="11431964" guildUrl="r=Baelgun&amp;gn=Blood+on+the+Ground" name="Rails" race="Blood Elf" raceId="10" seasonGamesPlayed="0" seasonGamesWon="0" teamRank="1"/>
           </members>
         </arenaTeam>
       </arenaTeams>
-      <modelBasePath value=\"http://us.media.battle.net.edgesuite.net/\"/>
+      <modelBasePath value="http://us.media.battle.net.edgesuite.net/"/>
     </character>
     <talents>
-      <talentGroup group=\"2\" icon=\"spell_holy_holybolt\" prim=\"Holy\">
-        <talentSpec treeOne=\"54\" treeThree=\"0\" treeTwo=\"17\" value=\"503501513200130531005152215032013120000000000000000000000000000000000000000000\"/>
+      <talentGroup group="2" icon="spell_holy_holybolt" prim="Holy">
+        <talentSpec treeOne="54" treeThree="0" treeTwo="17" value="503501513200130531005152215032013120000000000000000000000000000000000000000000"/>
         <glyphs>
-          <glyph effect=\"Your Judgements deal 10% more damage.\" icon=\"ui-glyph-rune-8\" id=\"183\" name=\"Glyph of Judgement\" type=\"major\"/>
-          <glyph effect=\"Increases the duration of your Blessing of Might spell by 20 min when cast on yourself.\" icon=\"ui-glyph-rune-2\" id=\"453\" name=\"Glyph of Blessing of Might\" type=\"minor\"/>
-          <glyph effect=\"Reduces the cooldown of your Lay on Hands spell by 5 min.\" icon=\"ui-glyph-rune-11\" id=\"455\" name=\"Glyph of Lay on Hands\" type=\"minor\"/>
-          <glyph effect=\"Your Seal of Vengeance or Seal of Corruption also grants 10 expertise while active.\" icon=\"ui-glyph-rune-15\" id=\"561\" name=\"Glyph of Seal of Vengeance\" type=\"major\"/>
-          <glyph effect=\"Reduces the mana cost of your Blessing of Kings and Greater Blessing of Kings spells by 50%.\" icon=\"ui-glyph-rune-4\" id=\"452\" name=\"Glyph of Blessing of Kings\" type=\"minor\"/>
-          <glyph effect=\"Increases the duration and cooldown of Consecration by 2 sec.\" icon=\"ui-glyph-rune-18\" id=\"189\" name=\"Glyph of Consecration\" type=\"major\"/>
+          <glyph effect="Your Judgements deal 10% more damage." icon="ui-glyph-rune-8" id="183" name="Glyph of Judgement" type="major"/>
+          <glyph effect="Increases the duration of your Blessing of Might spell by 20 min when cast on yourself." icon="ui-glyph-rune-2" id="453" name="Glyph of Blessing of Might" type="minor"/>
+          <glyph effect="Reduces the cooldown of your Lay on Hands spell by 5 min." icon="ui-glyph-rune-11" id="455" name="Glyph of Lay on Hands" type="minor"/>
+          <glyph effect="Your Seal of Vengeance or Seal of Corruption also grants 10 expertise while active." icon="ui-glyph-rune-15" id="561" name="Glyph of Seal of Vengeance" type="major"/>
+          <glyph effect="Reduces the mana cost of your Blessing of Kings and Greater Blessing of Kings spells by 50%." icon="ui-glyph-rune-4" id="452" name="Glyph of Blessing of Kings" type="minor"/>
+          <glyph effect="Increases the duration and cooldown of Consecration by 2 sec." icon="ui-glyph-rune-18" id="189" name="Glyph of Consecration" type="major"/>
         </glyphs>
       </talentGroup>
-      <talentGroup active=\"1\" group=\"1\" icon=\"spell_holy_devotionaura\" prim=\"Protection\">
-        <talentSpec treeOne=\"0\" treeThree=\"8\" treeTwo=\"63\" value=\"000000000000000000000000005500513522315232133301232150030000000000000000000000\"/>
+      <talentGroup active="1" group="1" icon="spell_holy_devotionaura" prim="Protection">
+        <talentSpec treeOne="0" treeThree="8" treeTwo="63" value="000000000000000000000000005500513522315232133301232150030000000000000000000000"/>
         <glyphs>
-          <glyph effect=\"Reduces the cooldown of your Holy Wrath spell by 15 sec.\" icon=\"ui-glyph-rune-11\" id=\"559\" name=\"Glyph of Holy Wrath\" type=\"major\"/>
-          <glyph effect=\"Increases the duration of your Blessing of Might spell by 20 min when cast on yourself.\" icon=\"ui-glyph-rune-2\" id=\"453\" name=\"Glyph of Blessing of Might\" type=\"minor\"/>
-          <glyph effect=\"When you cast Hand of Salvation on yourself, it also reduces damage taken by 20%.\" icon=\"ui-glyph-rune-11\" id=\"707\" name=\"Glyph of Salvation\" type=\"major\"/>
-          <glyph effect=\"Reduces the cooldown of your Lay on Hands spell by 5 min.\" icon=\"ui-glyph-rune-11\" id=\"455\" name=\"Glyph of Lay on Hands\" type=\"minor\"/>
-          <glyph effect=\"Your Judgements deal 10% more damage.\" icon=\"ui-glyph-rune-8\" id=\"183\" name=\"Glyph of Judgement\" type=\"major\"/>
+          <glyph effect="Reduces the cooldown of your Holy Wrath spell by 15 sec." icon="ui-glyph-rune-11" id="559" name="Glyph of Holy Wrath" type="major"/>
+          <glyph effect="Increases the duration of your Blessing of Might spell by 20 min when cast on yourself." icon="ui-glyph-rune-2" id="453" name="Glyph of Blessing of Might" type="minor"/>
+          <glyph effect="When you cast Hand of Salvation on yourself, it also reduces damage taken by 20%." icon="ui-glyph-rune-11" id="707" name="Glyph of Salvation" type="major"/>
+          <glyph effect="Reduces the cooldown of your Lay on Hands spell by 5 min." icon="ui-glyph-rune-11" id="455" name="Glyph of Lay on Hands" type="minor"/>
+          <glyph effect="Your Judgements deal 10% more damage." icon="ui-glyph-rune-8" id="183" name="Glyph of Judgement" type="major"/>
         </glyphs>
       </talentGroup>
     </talents>
   </characterInfo>
-</page>\
+</page>
