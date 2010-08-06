@@ -1,4 +1,4 @@
-class GuildXmlProcessor
+class MemberXmlProcessor
   def initialize(document)
     @document = document
   end
