@@ -4,7 +4,11 @@ class GuildXmlProcessor
   end
   
   def realm
-    @document.at("guildInfo/guildHeader")['realm']
+    if @document.at("guildInfo/guildHeader")
+      @document.at("guildInfo/guildHeader")['realm']
+    else
+      @document.at("teamInfo/arenaTeam")['realm']
+    end
   end
   
   def level_80_characters
@@ -12,7 +16,7 @@ class GuildXmlProcessor
   end
   
   def characters_hash
-    @document.xpath("//guild/members/character").map do |character|
+    @document.xpath("//members/character").map do |character|
       {:level => character['level'], :name => character['name'], :guild => realm}.with_indifferent_access
     end
   end

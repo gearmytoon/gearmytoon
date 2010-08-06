@@ -32,6 +32,13 @@ class WowArmoryImporterTest < ActiveSupport::TestCase
     end
   end
   
+  context "arena data" do
+    should "get all arena team data" do
+      wi =  WowArmoryImporter.new
+      assert_not_nil wi.arena_team("I got nothing", 3, "baelgun", "us")
+    end
+  end
+  
   context "url generation" do
     should "generate item_info urls" do
       wi =  WowArmoryImporter.new

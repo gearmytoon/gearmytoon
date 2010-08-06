@@ -24,7 +24,11 @@ class WowArmoryImporter
   def character_talents(name, realm, locale)
     get_xml(character_talents_url(name, realm, locale))
   end
-
+  
+  def arena_team(name, size, realm, locale)
+    get_xml(arena_team_url(name, size, realm, locale))
+  end
+  
   def item_info_url(wowarmory_item_id)
     "#{base_url}/item-info.xml?i=#{wowarmory_item_id}"
   end
@@ -43,6 +47,10 @@ class WowArmoryImporter
   
   def guild_info_url(name, realm, locale)
     "#{base_url(locale)}/guild-info.xml?r=#{realm}&gn=#{name}"
+  end
+
+  def arena_team_url(name, size, realm, locale)
+    "#{base_url(locale)}/team-info.xml?r=#{realm}&ts=#{size}&t=#{name}"
   end
 
   def get_xml(url)
