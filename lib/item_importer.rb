@@ -134,11 +134,23 @@ class ItemImporter
     end
   end
   
+  def get_quest_sources(item)
+    @wowarmory_item_info.xpath("//rewardFromQuests/quest").map do |quest|
+      area = Area.find_or_create_by_name(quest['area'])
+      created_source = QuestSource.create(:item => item, :source_area => area, :level => quest['level'], 
+            :name => quest['name'], :required_min_level => quest['reqMinLevel'], :suggested_party_size => quest['suggestedPartySize'],
+            :wowarmory_quest_id => quest['id'])
+      created_source
+    end
+  end
+  
   def get_item_sources(item)
     get_dropped_sources(item)
     returning([]) do |sources|
       sources = sources.concat(get_dropped_sources(item))
       sources = sources.concat(get_created_sources(item))
+      sources = sources.concat(get_quest_sources(item))
+
       cost = @wowarmory_item_info.at("//item/cost")
       if cost && (token_cost = cost.at("//token"))
         #TODO RE-ADD functionality

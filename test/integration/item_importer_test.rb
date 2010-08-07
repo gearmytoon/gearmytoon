@@ -10,6 +10,24 @@ class ItemImporterTest < ActiveSupport::TestCase
   end
   
   context "import_from_wowarmory!" do
+    
+    should "import quest items correctly" do
+      item = nil
+      assert_difference "QuestSource.count", 3 do
+        assert_difference "ItemSource.count", 3 do
+          item = ItemImporter.import_from_wowarmory!(50048)
+        end
+      end
+      item.reload
+      quest_source = item.item_sources.first
+      assert_equal "Icecrown", quest_source.source_area.name
+      assert_equal 80, quest_source.level
+      assert_equal "A Victory For The Silver Covenant", quest_source.name
+      assert_equal 80, quest_source.required_min_level
+      assert_equal "0", quest_source.suggested_party_size
+      assert_equal 24796, quest_source.wowarmory_quest_id
+    end
+    
     should "import tradecraft items correctly" do
       item = nil
       expected_wowarmory_item_ids = [37663, 35627, 49908]

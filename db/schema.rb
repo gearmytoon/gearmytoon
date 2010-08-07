@@ -9,7 +9,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20100803034802) do
+ActiveRecord::Schema.define(:version => 20100807165349) do
 
   create_table "areas", :force => true do |t|
     t.string   "name"
@@ -96,6 +96,11 @@ ActiveRecord::Schema.define(:version => 20100803034802) do
     t.boolean  "heroic",                  :default => false
     t.integer  "creature_id"
     t.string   "trade_skill_id"
+    t.integer  "level"
+    t.string   "name"
+    t.integer  "required_min_level"
+    t.string   "suggested_party_size"
+    t.integer  "wowarmory_quest_id"
   end
 
   add_index "item_sources", ["item_id"], :name => "index_item_sources_on_item_id"
