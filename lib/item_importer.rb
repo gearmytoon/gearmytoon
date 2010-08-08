@@ -136,11 +136,23 @@ class ItemImporter
   
   def get_quest_sources(item)
     @wowarmory_item_info.xpath("//rewardFromQuests/quest").map do |quest|
-      area = Area.find_or_create_by_name(quest['area'])
+      area_name = quest['area']
+      area_difficulty = quest['heroic'] == "1" ? Area::HEROIC : Area::NORMAL
+      area = Area.find_or_create_by_difficulty_and_name(area_difficulty, area_name)
       created_source = QuestSource.create(:item => item, :source_area => area, :level => quest['level'], 
             :name => quest['name'], :required_min_level => quest['reqMinLevel'], :suggested_party_size => quest['suggestedPartySize'],
             :wowarmory_quest_id => quest['id'])
       created_source
+    end
+  end
+  
+  def get_container_sources(item)
+    @wowarmory_item_info.xpath("//containerObjects/object").map do |container|
+      area_name = container['area']
+      area_difficulty = container['heroic'] == "1" ? Area::HEROIC : Area::NORMAL
+      area = Area.find_or_create_by_difficulty_and_name(area_difficulty, area_name)
+      ContainerSource.create(:item => item, :source_area => area, 
+            :name => container['name'], :drop_rate => container['dropRate'], :wowarmory_container_id => container['id'])
     end
   end
   
@@ -150,6 +162,7 @@ class ItemImporter
       sources = sources.concat(get_dropped_sources(item))
       sources = sources.concat(get_created_sources(item))
       sources = sources.concat(get_quest_sources(item))
+      sources = sources.concat(get_container_sources(item))
 
       cost = @wowarmory_item_info.at("//item/cost")
       if cost && (token_cost = cost.at("//token"))

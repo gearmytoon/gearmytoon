@@ -10,6 +10,21 @@ class ItemImporterTest < ActiveSupport::TestCase
   end
   
   context "import_from_wowarmory!" do
+
+    should "import container items correctly" do
+      item = nil
+      assert_difference "ContainerSource.count" do
+        assert_difference "ItemSource.count" do
+          item = ItemImporter.import_from_wowarmory!(51910)
+        end
+      end
+      item.reload
+      container_source = item.item_sources.first
+      assert_equal "Icecrown Citadel (10)", container_source.source_area.name
+      assert_equal "4", container_source.drop_rate
+      assert_equal "Gunship Armory", container_source.name
+      assert_equal 202177, container_source.wowarmory_container_id
+    end
     
     should "import quest items correctly" do
       item = nil
