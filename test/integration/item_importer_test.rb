@@ -21,6 +21,7 @@ class ItemImporterTest < ActiveSupport::TestCase
       item.reload
       container_source = item.item_sources.first
       assert_equal "Icecrown Citadel (10)", container_source.source_area.name
+      assert_equal  Area::HEROIC, container_source.source_area.difficulty
       assert_equal "4", container_source.drop_rate
       assert_equal "Gunship Armory", container_source.name
       assert_equal 202177, container_source.wowarmory_container_id
