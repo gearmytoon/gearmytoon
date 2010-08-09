@@ -9,7 +9,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20100808210339) do
+ActiveRecord::Schema.define(:version => 20100809013828) do
 
   create_table "areas", :force => true do |t|
     t.string   "name"
@@ -80,6 +80,11 @@ ActiveRecord::Schema.define(:version => 20100808210339) do
     t.integer  "area_id"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.string   "classification"
+    t.string   "creature_type"
+    t.integer  "wowarmory_creature_id"
+    t.integer  "min_level"
+    t.integer  "max_level"
   end
 
   create_table "item_sources", :force => true do |t|

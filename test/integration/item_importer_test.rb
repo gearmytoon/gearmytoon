@@ -10,19 +10,26 @@ class ItemImporterTest < ActiveSupport::TestCase
   end
   
   context "import_from_wowarmory!" do
-
     should "import multiple cost items correctly" do
       item = nil
-      assert_difference "PurchaseSource.count" do
-        assert_difference "ItemSource.count" do
+      assert_difference "PurchaseSource.count", 3 do
+        assert_difference "ItemSource.count", 3 do
           item = ItemImporter.import_from_wowarmory!(51153)
-          item.item_sources
         end
       end
       item.reload
       purchase_source = item.item_sources.first
-      assert_equivalent([52026,50115], purchase_source.items_made_from.map(&:wowarmory_item_id))
-      assert_equal([1,1], purchase_source.items_made_from.map(&:quantity))
+      item.item_sources.each do |purchase_source|
+        assert_equivalent([52026,50115], purchase_source.items_made_from.map(&:wowarmory_item_id))
+        assert_equal([1,1], purchase_source.items_made_from.map(&:quantity))
+        vendor = purchase_source.vendor
+        assert_not_nil vendor.name
+        assert_not_nil vendor.classification
+        assert_not_nil vendor.creature_type
+        assert_not_nil vendor.wowarmory_creature_id
+        assert_not_nil vendor.min_level
+        assert_not_nil vendor.max_level
+      end
     end
 
     should "import container items correctly" do
@@ -243,7 +250,7 @@ class ItemImporterTest < ActiveSupport::TestCase
     should "import item with arena source correctly" do
       raid = Factory(:raid, :name => "Vault of Archavon")
       item = nil
-      assert_difference "ArenaSource.count" do
+      assert_difference "ArenaSource.count",12 do
         item = ItemImporter.import_from_wowarmory!(41206)
       end
       assert_equal 770, ArenaSource.last.arena_point_cost
@@ -254,7 +261,7 @@ class ItemImporterTest < ActiveSupport::TestCase
       raid = Factory(:raid, :name => "Vault of Archavon", :difficulty => Area::NORMAL, :wowarmory_area_id => 4603)
       item = nil
       assert_no_difference "HonorSource.count" do
-        assert_difference "ArenaSource.count" do
+        assert_difference "ArenaSource.count",12 do
           assert_difference "DroppedSource.count", 2 do
             item = ItemImporter.import_from_wowarmory!(41206)
           end
@@ -381,14 +388,19 @@ class ItemImporterTest < ActiveSupport::TestCase
       item.dropped_sources.each do |dropped_source|
         assert_equal "Ulduar", dropped_source.source_area.name
         assert_equal "h", dropped_source.source_area.difficulty
-        assert_not_nil dropped_source.creature.name
-        assert_not_nil dropped_source.creature.area
+        creature = dropped_source.creature
+        assert_not_nil creature.name
+        assert_not_nil creature.classification
+        assert_not_nil creature.creature_type
+        assert_not_nil creature.wowarmory_creature_id
+        assert_not_nil creature.min_level
+        assert_not_nil creature.max_level
       end
     end
     
     should "import items with multiple sources" do
       item = ItemImporter.import_from_wowarmory!(50088)
-      assert_equal 2, item.reload.item_sources.size
+      assert_equal 4, item.reload.item_sources.size
       assert_equal 1, DroppedSource.count
       assert_equal 60, EmblemSource.last.token_cost
       assert_equal 49426, EmblemSource.last.wowarmory_token_item_id #from emblem of frost

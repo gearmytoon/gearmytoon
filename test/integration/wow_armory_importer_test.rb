@@ -10,7 +10,7 @@ class WowArmoryImporterTest < ActiveSupport::TestCase
 
     should "get the info" do
       wi =  WowArmoryImporter.new
-      assert_not_nil wi.item_info(51153)
+      assert_not_nil wi.item_info(35019)
     end
   end
   

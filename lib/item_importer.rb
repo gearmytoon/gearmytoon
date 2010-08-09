@@ -112,14 +112,24 @@ class ItemImporter
   
   def get_dropped_sources(item)
     @wowarmory_item_info.xpath("//dropCreatures/creature").map do |creature|
-      area_name = creature['area']
+      area_name = creature['area'] #TODO DELETE THIS use through association
       area_difficulty = creature['heroic'] == "1" ? Area::HEROIC : Area::NORMAL
       area = Area.find_or_create_by_difficulty_and_name(area_difficulty, area_name)
-      if !(area_id = @wowarmory_item_tooltip.at("itemTooltip/itemSource")['areaId']).blank?
-        area.update_attribute(:wowarmory_area_id, area_id)
-      end
-      creature = Creature.find_or_create_by_name_and_area_id(creature['name'], area.id)
-      DroppedSource.create(:source_area => area, :item => item, :creature => creature)
+      DroppedSource.create(:source_area => area, :item => item, :creature => find_or_create_creature(creature))
+    end
+  end
+
+  def find_or_create_creature(creature_xml)
+    area_name = creature_xml['area']
+    area_difficulty = creature_xml['heroic'] == "1" ? Area::HEROIC : Area::NORMAL
+    area = Area.find_or_create_by_difficulty_and_name(area_difficulty, area_name)
+    if !(area_id = @wowarmory_item_tooltip.at("itemTooltip/itemSource")['areaId']).blank?
+      area.update_attribute(:wowarmory_area_id, area_id)
+    end
+    returning Creature.find_or_create_by_wowarmory_creature_id(creature_xml['id']) do |creature|
+      creature.update_attributes!(:name => creature_xml['name'], :creature_type => creature_xml['type'],
+                                :classification => creature_xml['classification'], :min_level => creature_xml['minLevel'],
+                                :max_level => creature_xml['maxLevel'], :area => area)
     end
   end
   
@@ -157,12 +167,14 @@ class ItemImporter
   end
   
   def get_purchased_sources(item)
-    @wowarmory_item_info.xpath("//itemInfo/item/cost").map do |cost|
+    @wowarmory_item_info.xpath("//itemInfo/item/vendors/creature").map do |vendor|
+      cost = @wowarmory_item_info.at("//itemInfo/item/cost")
+      next nil if cost.nil?
       if cost.search("token").size == 1
         token_cost = cost.search("token").first
         EmblemSource.create!(:wowarmory_token_item_id => token_cost['id'], :token_cost => token_cost['count'], :item => item)
       elsif cost.search("token").size > 1
-        purchase_source = PurchaseSource.create!(:item => item)
+        purchase_source = PurchaseSource.create!(:item => item, :vendor => find_or_create_creature(vendor))
         cost.search("token").map do |token|
           purchase_source.items_made_from.create!(:quantity => token['count'], :wowarmory_item_id => token['id'])
         end
