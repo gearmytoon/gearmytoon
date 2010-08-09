@@ -29,6 +29,14 @@ class ItemSourceTest < ActiveSupport::TestCase
       assert_equal [], DroppedSource.from_dungeons
     end
   end
+  should "delete upgrades with item source" do
+    upgrade = Factory(:upgrade)
+    assert_difference "Upgrade.count", -1 do
+      assert_difference "ItemSource.count", -1 do
+        upgrade.new_item_source.destroy
+      end
+    end
+  end
   
 end
 

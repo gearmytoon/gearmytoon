@@ -5,6 +5,7 @@ class ItemSource < ActiveRecord::Base
     {:include => :item, :conditions => ["items.armor_type_id IN (?) AND items.restricted_to IN (?)", wow_class.usable_armor_types, [Item::RESTRICT_TO_NONE, wow_class.name]]}
   }
   belongs_to :item
+  has_many :upgrades, :foreign_key => "new_item_source_id", :dependent => :destroy
 
   def as_source_type
     self.class.name.gsub(/Source/,"").downcase

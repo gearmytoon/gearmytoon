@@ -10,6 +10,27 @@ class ItemImporterTest < ActiveSupport::TestCase
   end
   
   context "import_from_wowarmory!" do
+    should "not duplicate item sources" do
+      assert_difference "PurchaseSource.count", 3 do
+        assert_difference "ItemSource.count", 3 do
+          ItemImporter.import_from_wowarmory!(51153)
+        end
+      end
+      assert_no_difference "PurchaseSource.count" do
+        assert_no_difference "ItemSource.count" do
+          ItemImporter.import_from_wowarmory!(51153)
+        end
+      end
+    end
+
+    should "destroy upgrades on re-import" do
+      item = ItemImporter.import_from_wowarmory!(47261)
+      Factory(:upgrade, :new_item_source => item.item_sources.first)
+      assert_difference "Upgrade.count", -1 do
+        ItemImporter.import_from_wowarmory!(47261)
+      end
+    end
+
     should "import multiple cost items correctly" do
       item = nil
       assert_difference "PurchaseSource.count", 3 do
