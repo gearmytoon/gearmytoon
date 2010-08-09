@@ -57,11 +57,6 @@ class ItemImporter
     end
   end
 
-  def find_or_import!
-    item = type_to_be_imported.find_by_wowarmory_item_id(wowarmory_item_id)
-    item.nil? ? import! : item
-  end
-
   def import!
     returning type_to_be_imported.find_or_create_by_wowarmory_item_id(wowarmory_item_id) do |item|
       item.update_attributes!(mapped_options.merge({:wowarmory_item_id => wowarmory_item_id,
@@ -267,15 +262,7 @@ class ItemImporter
   def self.import_from_wowarmory!(wowarmory_item_id)
     begin
       ItemImporter.new(wowarmory_item_id).import!
-    rescue Wowr::Exceptions::ItemNotFound => e
-      STDERR.puts e
-    end
-  end
-
-  def self.find_or_import!(wowarmory_item_id)
-    begin
-      ItemImporter.new(wowarmory_item_id).find_or_import!
-    rescue Wowr::Exceptions::ItemNotFound => e
+    rescue WowArmoryDataNotFound => e
       STDERR.puts e
     end
   end

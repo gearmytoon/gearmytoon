@@ -8,9 +8,19 @@ class WowArmoryImporterTest < ActiveSupport::TestCase
       assert_not_nil wi.item_tooltip(50638)
     end
 
+    should "raise an exception if the item does not exist" do
+      wi =  WowArmoryImporter.new
+      assert_raises WowArmoryDataNotFound do
+        wi.item_tooltip(36745)
+      end
+      assert_raises WowArmoryDataNotFound do
+        wi.item_info(36745)
+      end
+    end
+
     should "get the info" do
       wi =  WowArmoryImporter.new
-      assert_not_nil wi.item_info(35019)
+      assert_not_nil wi.item_info(50638)
     end
   end
   

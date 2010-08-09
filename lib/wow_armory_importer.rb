@@ -6,11 +6,15 @@ class WowArmoryImporter
   end
   
   def item_tooltip(wowarmory_item_id)
-    get_xml(item_tooltip_url(wowarmory_item_id))
+    returning get_xml(item_tooltip_url(wowarmory_item_id)) do |document|
+      raise WowArmoryDataNotFound.new("Could not find item #{wowarmory_item_id}") unless document.at("//itemTooltip/id")
+    end
   end
   
   def item_info(wowarmory_item_id)
-    get_xml(item_info_url(wowarmory_item_id))
+    returning get_xml(item_info_url(wowarmory_item_id)) do |document|
+      raise WowArmoryDataNotFound.new("Could not find item #{wowarmory_item_id}") unless document.at("//itemInfo/item")
+    end
   end
   
   def character_sheet(name, realm, locale)
@@ -64,4 +68,7 @@ class WowArmoryImporter
     domain = "www" if locale == "us"
     "http://#{domain}.wowarmory.com"
   end
+end
+
+class WowArmoryDataNotFound < Exception
 end

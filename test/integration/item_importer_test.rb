@@ -10,6 +10,11 @@ class ItemImporterTest < ActiveSupport::TestCase
   end
   
   context "import_from_wowarmory!" do
+
+    should "not raise error on item not found" do
+      STDERR.expects(:puts)
+      item = ItemImporter.import_from_wowarmory!(36745)
+    end
     
     should "import heirloom items correctly" do
       item = ItemImporter.import_from_wowarmory!(44091)
