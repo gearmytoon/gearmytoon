@@ -156,6 +156,27 @@ class ItemImporter
     end
   end
   
+  def get_purchased_sources(item)
+    @wowarmory_item_info.xpath("//itemInfo/item/cost").map do |cost|
+      if cost.search("token").size == 1
+        token_cost = cost.search("token").first
+        EmblemSource.create!(:wowarmory_token_item_id => token_cost['id'], :token_cost => token_cost['count'], :item => item)
+      elsif cost.search("token").size > 1
+        purchase_source = PurchaseSource.create!(:item => item)
+        cost.search("token").map do |token|
+          purchase_source.items_made_from.create!(:quantity => token['count'], :wowarmory_item_id => token['id'])
+        end
+        purchase_source
+      else
+        if cost && cost['arena']
+          ArenaSource.create(:arena_point_cost => cost['arena'],:honor_point_cost => cost['honor'], :item => item)
+        elsif cost && cost['honor']
+          HonorSource.create(:honor_point_cost => cost['honor'], :item => item)
+        end
+      end
+    end.compact
+  end
+  
   def get_item_sources(item)
     get_dropped_sources(item)
     returning([]) do |sources|
@@ -163,21 +184,7 @@ class ItemImporter
       sources = sources.concat(get_created_sources(item))
       sources = sources.concat(get_quest_sources(item))
       sources = sources.concat(get_container_sources(item))
-
-      cost = @wowarmory_item_info.at("//item/cost")
-      if cost && (token_cost = cost.at("//token"))
-        #TODO RE-ADD functionality
-        if cost.search("token").size == 1
-          sources << EmblemSource.create(:wowarmory_token_item_id => token_cost['id'], :token_cost => token_cost['count'], :item => item)
-        end
-        # if wowarmory_item.cost.tokens.length == 1 #TODO: determine the cost of items that cost more then one kind of thing
-      # end
-      end
-      if cost && cost['arena']
-        sources << ArenaSource.create(:arena_point_cost => cost['arena'],:honor_point_cost => cost['honor'], :item => item)
-      elsif cost && cost['honor']
-        sources << HonorSource.create(:honor_point_cost => cost['honor'], :item => item)
-      end
+      sources = sources.concat(get_purchased_sources(item))
     end
   end
   

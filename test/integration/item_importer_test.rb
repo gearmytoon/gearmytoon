@@ -11,6 +11,20 @@ class ItemImporterTest < ActiveSupport::TestCase
   
   context "import_from_wowarmory!" do
 
+    should "import multiple cost items correctly" do
+      item = nil
+      assert_difference "PurchaseSource.count" do
+        assert_difference "ItemSource.count" do
+          item = ItemImporter.import_from_wowarmory!(51153)
+          item.item_sources
+        end
+      end
+      item.reload
+      purchase_source = item.item_sources.first
+      assert_equivalent([52026,50115], purchase_source.items_made_from.map(&:wowarmory_item_id))
+      assert_equal([1,1], purchase_source.items_made_from.map(&:quantity))
+    end
+
     should "import container items correctly" do
       item = nil
       assert_difference "ContainerSource.count" do
