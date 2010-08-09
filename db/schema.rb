@@ -9,7 +9,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20100809013828) do
+ActiveRecord::Schema.define(:version => 20100809042055) do
 
   create_table "areas", :force => true do |t|
     t.string   "name"
@@ -144,6 +144,9 @@ ActiveRecord::Schema.define(:version => 20100809013828) do
     t.text     "spell_effects"
     t.boolean  "heroic",                           :default => false
     t.integer  "opposing_sides_wowarmory_item_id"
+    t.integer  "required_level_min"
+    t.integer  "required_level_max"
+    t.boolean  "account_bound"
   end
 
   add_index "items", ["armor_type_id"], :name => "index_items_on_armor_type_id"

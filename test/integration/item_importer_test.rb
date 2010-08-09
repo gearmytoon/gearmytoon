@@ -10,6 +10,15 @@ class ItemImporterTest < ActiveSupport::TestCase
   end
   
   context "import_from_wowarmory!" do
+    
+    should "import heirloom items correctly" do
+      item = ItemImporter.import_from_wowarmory!(44091)
+      assert_equal 1, item.item_level
+      assert_equal 1, item.required_level_min
+      assert_equal 80, item.required_level_max
+      assert item.account_bound?
+    end
+    
     should "not duplicate item sources" do
       assert_difference "PurchaseSource.count", 3 do
         assert_difference "ItemSource.count", 3 do

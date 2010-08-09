@@ -7,6 +7,36 @@ class ItemImporter
     17 => "Two-Hand", 19 => "Tabard", 20 => "Chest", 21 => "Main Hand", 22 => "Off Hand (Weapon)", 23 => "Off Hand", 24 => "Projectile", 25 => "Ranged", 
     26 => "Ranged", 28 => "Relic"}
 
+  class << self
+    def map(name, xpath)
+      add_mapping(name, xpath)
+    end
+    def add_mapping(name, xpath)
+      @mappings ||= {}.with_indifferent_access
+      @mappings[name] = xpath
+    end
+    def mappings
+      @mappings
+    end
+  end
+  
+  def mapped_options
+    returning({}) do |result|
+      self.class.mappings.each do |name, xpath|
+        data = @wowarmory_item_tooltip.at(xpath) ? @wowarmory_item_tooltip.at(xpath).inner_html : nil
+        result[name] = data
+      end
+    end
+  end
+  
+  map :name, "//itemTooltip/name"
+  map :icon, "//itemTooltip/icon"
+  map :required_level, "//itemTooltip/requiredLevel"
+  map :item_level, "//itemTooltip/itemLevel"
+  map :required_level_min, "//itemTooltip/requiredLevelMin"
+  map :required_level_max, "//itemTooltip/requiredLevelMax"
+  map :account_bound, "//itemTooltip/accountBound"
+
   attr_reader :wowarmory_item_id
   def initialize(wowarmory_item_id)
     armory_importer = WowArmoryImporter.new
@@ -26,14 +56,6 @@ class ItemImporter
       Item
     end
   end
-  
-  def get_name
-    @wowarmory_item_tooltip.at("//itemTooltip/name").inner_html
-  end
-
-  def get_icon
-    @wowarmory_item_tooltip.at("//itemTooltip/icon").inner_html
-  end
 
   def find_or_import!
     item = type_to_be_imported.find_by_wowarmory_item_id(wowarmory_item_id)
@@ -42,13 +64,13 @@ class ItemImporter
 
   def import!
     returning type_to_be_imported.find_or_create_by_wowarmory_item_id(wowarmory_item_id) do |item|
-      item.update_attributes!(:wowarmory_item_id => wowarmory_item_id, :name => get_name,
-                                :quality => quality, :icon => get_icon, :bonuses => get_item_bonuses, 
+      item.update_attributes!(mapped_options.merge({:wowarmory_item_id => wowarmory_item_id,
+                                :quality => quality, :bonuses => get_item_bonuses, 
                                 :armor_type => ArmorType.find_or_create_by_name(armor_type_name), :slot => slot, 
                                 :restricted_to => get_restricted_to, :item_sources => get_item_sources(item), 
                                 :gem_color => get_gem_color, :gem_sockets => get_gem_sockets, :socket_bonuses => get_socket_bonuses,
-                                :bonding => get_item_bonding, :side => get_item_side, :opposing_sides_wowarmory_item_id => get_opposing_sides_wowarmory_item_id, :item_level => get_item_level, 
-                                :required_level => get_required_level, :spell_effects => get_spell_effects, :heroic => get_heroic)
+                                :bonding => get_item_bonding, :side => get_item_side, :opposing_sides_wowarmory_item_id => get_opposing_sides_wowarmory_item_id, 
+                                :spell_effects => get_spell_effects, :heroic => get_heroic}))
     end
   end
   
@@ -74,14 +96,6 @@ class ItemImporter
     (@wowarmory_item_tooltip/:itemTooltip/:spellData/:spell).map do |spell|
       {:description => (spell/:desc).inner_html, :trigger => (spell/:trigger).inner_html.to_i}
     end
-  end
-  
-  def get_required_level
-    @wowarmory_item_tooltip.at("//itemTooltip/requiredLevel").inner_html
-  end
-  
-  def get_item_level
-    @wowarmory_item_tooltip.at("//itemTooltip/itemLevel").inner_html
   end
   
   def get_item_bonding
