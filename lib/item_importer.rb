@@ -8,12 +8,13 @@ class ItemImporter
     26 => "Ranged", 28 => "Relic"}
 
   class << self
-    def map(name, xpath)
-      add_mapping(name, xpath)
-    end
-    def add_mapping(name, xpath)
+    def map(name, xpath, &block)
       @mappings ||= {}.with_indifferent_access
-      @mappings[name] = xpath
+      @mappings[name] = {:xpath => xpath, :translate_with => block}
+    end
+    def add_mapping(name, value)
+      @mappings ||= {}.with_indifferent_access
+      @mappings[name] = value
     end
     def mappings
       @mappings
@@ -22,21 +23,70 @@ class ItemImporter
   
   def mapped_options
     returning({}) do |result|
-      self.class.mappings.each do |name, xpath|
-        data = @wowarmory_item_tooltip.at(xpath) ? @wowarmory_item_tooltip.at(xpath).inner_html : nil
+      self.class.mappings.each do |name, args|
+        data = @wowarmory_item_tooltip.at(args[:xpath]) ? @wowarmory_item_tooltip.at(args[:xpath]).inner_html : nil
+        data = @wowarmory_item_info.at(args[:xpath]) ? @wowarmory_item_info.at(args[:xpath]).inner_html : nil if data.nil?
+        data = args[:translate_with].call(data) if args[:translate_with]
         result[name] = data
       end
     end
   end
-  
+
+  def get_item_bonuses
+    returning(build_standard_bonuses) do |bonuses|
+      if is_a_gem?
+        bonuses.merge!(@wowarmory_item_tooltip.at("gemProperties").inner_html.extract_bonuses)
+      elsif !@wowarmory_item_tooltip.at("damageData").inner_html.blank?
+        damage_data = @wowarmory_item_tooltip.at("damageData")
+        if RANGED_WEAPONS.include?(@wowarmory_item_tooltip.at("//equipData/subclassName").inner_html)
+          weapon_type = "ranged"
+        else
+          weapon_type = "melee"
+        end
+        bonuses["#{weapon_type}_min_damage".to_sym] = (damage_data/:damage/:min).inner_html.to_i
+        bonuses["#{weapon_type}_max_damage".to_sym] = (damage_data/:damage/:max).inner_html.to_i
+        bonuses["#{weapon_type}_attack_speed".to_sym] = (damage_data/:speed).inner_html.to_f
+        bonuses["#{weapon_type}_dps".to_sym] = (damage_data/:dps).inner_html.to_f
+      end
+    end
+  end
+
+  def build_standard_bonuses
+    stat_mappings = {:agility => "bonusAgility", :stamina => "bonusStamina", :intellect => "bonusIntellect", :armor => "armor",
+     :attack_power => "bonusAttackPower", :crit => "bonusCritRating", :hit => "bonusHitRating", :armor_penetration => "bonusArmorPenetration",
+     :haste => "bonusHasteRating"}
+    returning({}) do |bonuses|
+      stat_mappings.each do |our_stat_name, armory_element_name|
+        armory_element = @wowarmory_item_tooltip.at(armory_element_name)
+        bonuses[our_stat_name] = armory_element.inner_html.to_i if armory_element
+      end
+    end
+  end
+
+  # map_to_a_hash(:bonuses, {:agility => "bonusAgility", :stamina => "bonusStamina", :intellect => "bonusIntellect", :armor => "armor",
+  #  :attack_power => "bonusAttackPower", :crit => "bonusCritRating", :hit => "bonusHitRating", :armor_penetration => "bonusArmorPenetration",
+  #  :haste => "bonusHasteRating"})
   map :name, "//itemTooltip/name"
+  map(:slot, "//itemTooltip/equipData/inventoryType") {|data| SLOT_CONVERSION[data.to_i]}
   map :icon, "//itemTooltip/icon"
   map :required_level, "//itemTooltip/requiredLevel"
   map :item_level, "//itemTooltip/itemLevel"
   map :required_level_min, "//itemTooltip/requiredLevelMin"
   map :required_level_max, "//itemTooltip/requiredLevelMax"
   map :account_bound, "//itemTooltip/accountBound"
-
+  map :opposing_sides_wowarmory_item_id, "//translationFor/item/@id"
+  map(:heroic, "//itemTooltip/heroic") {|data| data == "1"}
+  map(:side, "//translationFor/@factionEquiv") {|data| {nil => Item::ANY_SIDE, "0" => Item::HORDE, "1" => Item::ALLIANCE}[data]}
+  map(:bonding, "//itemTooltip/bonding") {|data| data == "1" ? Item::BOP : Item::BOE}
+  map(:armor_type, "//equipData/subclassName") {|data| ArmorType.find_or_create_by_name(data ? data : "Miscellaneous")}
+  map(:quality, "//item/@quality") {|data| QUALITY_ADJECTIVE_LOOKUP[data.to_i]}
+  
+  def get_spell_effects
+    (@wowarmory_item_tooltip/:itemTooltip/:spellData/:spell).map do |spell|
+      {:description => (spell/:desc).inner_html, :trigger => (spell/:trigger).inner_html.to_i}
+    end
+  end
+  
   attr_reader :wowarmory_item_id
   def initialize(wowarmory_item_id)
     armory_importer = WowArmoryImporter.new
@@ -60,44 +110,15 @@ class ItemImporter
   def import!
     returning type_to_be_imported.find_or_create_by_wowarmory_item_id(wowarmory_item_id) do |item|
       item.update_attributes!(mapped_options.merge({:wowarmory_item_id => wowarmory_item_id,
-                                :quality => quality, :bonuses => get_item_bonuses, 
-                                :armor_type => ArmorType.find_or_create_by_name(armor_type_name), :slot => slot, 
+                                :bonuses => get_item_bonuses, 
                                 :restricted_to => get_restricted_to, :item_sources => get_item_sources(item), 
                                 :gem_color => get_gem_color, :gem_sockets => get_gem_sockets, :socket_bonuses => get_socket_bonuses,
-                                :bonding => get_item_bonding, :side => get_item_side, :opposing_sides_wowarmory_item_id => get_opposing_sides_wowarmory_item_id, 
-                                :spell_effects => get_spell_effects, :heroic => get_heroic}))
+                                :spell_effects => get_spell_effects}))
     end
   end
   
-  def get_opposing_sides_wowarmory_item_id
-    if translation = @wowarmory_item_info.at("//translationFor")
-      translation.at("item")['id']
-    end
-  end
-  
-  def get_item_side
-    if !(translation = @wowarmory_item_info.at("//translationFor")).nil?
-      translation['factionEquiv'] == "0" ? Item::HORDE : Item::ALLIANCE
-    else
-      Item::ANY_SIDE
-    end
-  end
-  
-  def get_heroic
-    element = @wowarmory_item_tooltip.at("//itemTooltip/heroic")
-    !element.nil? && element.inner_html == "1"
-  end
-  def get_spell_effects
-    (@wowarmory_item_tooltip/:itemTooltip/:spellData/:spell).map do |spell|
-      {:description => (spell/:desc).inner_html, :trigger => (spell/:trigger).inner_html.to_i}
-    end
-  end
-  
-  def get_item_bonding
-    bonding = @wowarmory_item_tooltip.at("//itemTooltip/bonding").inner_html
-    bonding == "1" ? Item::BOP : Item::BOE
-  end
 
+  
   def get_socket_bonuses
     begin
       #get socket bonuses from thottbot
@@ -208,55 +229,11 @@ class ItemImporter
       sources = sources.concat(get_purchased_sources(item))
     end
   end
-  
+
   def get_restricted_to
     allowable_classes = (@wowarmory_item_tooltip/:itemTooltip/:allowableClasses/:class).map(&:inner_html)
     #TODO FIX ME, MIGRATE ITEMS
     allowable_classes && allowable_classes.length == 1 ? allowable_classes.first : Item::RESTRICT_TO_NONE
-  end
-  
-  def armor_type_name
-    subclass_name = @wowarmory_item_tooltip.at("//equipData/subclassName")
-    subclass_name ? subclass_name.inner_html : "Miscellaneous"
-  end
-
-  def slot
-    SLOT_CONVERSION[(@wowarmory_item_tooltip/:itemTooltip/:equipData/:inventoryType).inner_html.to_i]
-  end
-  
-  def build_standard_bonuses
-    stat_mappings = {:agility => "bonusAgility", :stamina => "bonusStamina", :intellect => "bonusIntellect", :armor => "armor",
-     :attack_power => "bonusAttackPower", :crit => "bonusCritRating", :hit => "bonusHitRating", :armor_penetration => "bonusArmorPenetration",
-     :haste => "bonusHasteRating"}
-    returning({}) do |bonuses|
-      stat_mappings.each do |our_stat_name, armory_element_name|
-        armory_element = @wowarmory_item_tooltip.at(armory_element_name)
-        bonuses[our_stat_name] = armory_element.inner_html.to_i if armory_element
-      end
-    end
-  end
-  
-  def get_item_bonuses
-    returning(build_standard_bonuses) do |bonuses|
-      if is_a_gem?
-        bonuses.merge!(@wowarmory_item_tooltip.at("gemProperties").inner_html.extract_bonuses)
-      elsif !@wowarmory_item_tooltip.at("damageData").inner_html.blank?
-        damage_data = @wowarmory_item_tooltip.at("damageData")
-        if RANGED_WEAPONS.include?(@wowarmory_item_tooltip.at("//equipData/subclassName").inner_html)
-          weapon_type = "ranged"
-        else
-          weapon_type = "melee"
-        end
-        bonuses["#{weapon_type}_min_damage".to_sym] = (damage_data/:damage/:min).inner_html.to_i
-        bonuses["#{weapon_type}_max_damage".to_sym] = (damage_data/:damage/:max).inner_html.to_i
-        bonuses["#{weapon_type}_attack_speed".to_sym] = (damage_data/:speed).inner_html.to_f
-        bonuses["#{weapon_type}_dps".to_sym] = (damage_data/:dps).inner_html.to_f
-      end
-    end
-  end
-  
-  def quality
-    QUALITY_ADJECTIVE_LOOKUP[@wowarmory_item_info.at("item")['quality'].to_i]
   end
 
   def self.import_from_wowarmory!(wowarmory_item_id)
