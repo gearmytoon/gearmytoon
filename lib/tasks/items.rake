@@ -21,11 +21,6 @@ task :import_all_item_text_files => :environment do
   end
 end
 
-desc "import all items that match a term from wow armory"
-task :import_by_wow_armory_search => :environment do
-  ItemImporter.import_all_items_that_contain!(ENV['TERM'])
-end
-
 desc "import all items"
 task :import_all_items => :environment do
   p "Started: #{Time.now}"

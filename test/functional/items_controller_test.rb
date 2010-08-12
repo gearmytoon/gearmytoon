@@ -9,7 +9,12 @@ class ItemsControllerTest < ActionController::TestCase
       assert_select ".base_stat", :text => "+1 Stamina"
     end
     should "show spell on equip effects" do
-      item = Factory(:item, :spell_effects => [{:trigger => 1, :description => "Chance on melee or ranged critical strike to increase your armor penetration rating by 678 for 10 sec."}])
+      item = Factory(:item, :spell_effects => [{'trigger' => 1, :description => "Chance on melee or ranged critical strike to increase your armor penetration rating by 678 for 10 sec."}])
+      get :show, :id => item.id
+      assert_select ".spell_effect", :text => "Equip: Chance on melee or ranged critical strike to increase your armor penetration rating by 678 for 10 sec."
+    end
+    should "show spell on equip effects if the hash was made with strings instead of symbols" do
+      item = Factory(:item, :spell_effects => [{'trigger' => 1, 'description' => "Chance on melee or ranged critical strike to increase your armor penetration rating by 678 for 10 sec."}])
       get :show, :id => item.id
       assert_select ".spell_effect", :text => "Equip: Chance on melee or ranged critical strike to increase your armor penetration rating by 678 for 10 sec."
     end
@@ -86,7 +91,7 @@ class ItemsControllerTest < ActionController::TestCase
     end
 
     should "show ranged weapon info" do
-      item = Factory(:item, :bonuses => {:ranged_attack_speed => 3.5, :ranged_min_damage => 200, :ranged_max_damage => 300, :ranged_dps => 100.0})
+      item = Factory(:ranged_weapon, :bonuses => {:ranged_attack_speed => 3.5, :ranged_min_damage => 200, :ranged_max_damage => 300, :ranged_dps => 100.0})
       get :tooltip, :id => item.id
       assert_select ".min_max_damage", :text => "200-300 Dmg"
       assert_select ".attack_speed", :text => "Speed 3.5"

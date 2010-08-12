@@ -8,6 +8,16 @@ Factory.define(:item) do |model|
   model.armor_type ArmorType.mail
 end
 
+Factory.define(:ranged_weapon, :class => :item) do |model|
+  model.side Item::ANY_SIDE
+  model.name "Factory Item"
+  model.icon "Factory_icon.png"
+  model.quality "epic"
+  model.wowarmory_item_id 1
+  model.bonuses :attack_power => 100
+  model.armor_type ArmorType.bow
+end
+
 Factory.define(:trinket, :class => :item) do |model|
   model.side Item::ANY_SIDE
   model.name "Factory Item"

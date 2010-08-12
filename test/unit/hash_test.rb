@@ -1,6 +1,13 @@
 require File.dirname(__FILE__) + '/../test_helper'
 
 class HashTest < ActiveSupport::TestCase
+  context "map_to_hash" do
+    should "map to another hash" do
+      result = {:agility => 45}.map_to_hash{|k,v| [k,v*2]}
+      assert_equal({:agility => 90}, result)
+    end
+  end
+  
   context "add_values" do
     should "know how to add hashes with the same keys" do
       assert_equal({:agility => 100}, {:agility => 45}.add_values({:agility => 55}))

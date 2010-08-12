@@ -15,6 +15,11 @@ class ItemTest < ActiveSupport::TestCase
     end
   end
 
+  should "show ranged weapon info" do
+    item = Factory(:ranged_weapon, :bonuses => {:ranged_attack_speed => 3.5, :ranged_min_damage => 200, :ranged_max_damage => 300, :ranged_dps => 100.0})
+    assert_equal "200-300 Dmg", item.damage_range
+  end
+
   
   context "usable_in_same_slot_as" do
     should "find all items in the same slot" do

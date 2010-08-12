@@ -5,6 +5,8 @@ class Item < ActiveRecord::Base
   ANY_SIDE = "any_side"
   BOP = 'pickup'
   BOE = 'equipped'
+  ORIGINAL_WEAPON_STATS = [:attack_speed, :min_damage, :max_damage, :dps]
+  RANGED_WEAPONS = ["Bow", "Gun", "Crossbow", "Thrown"]
   BASE_STATS = [:strength, :agility, :spirit, :intellect, :stamina]
   WEAPON_STATS = [:melee_attack_speed, :melee_min_damage, :melee_max_damage, :melee_dps,
                   :ranged_attack_speed, :ranged_min_damage, :ranged_max_damage, :ranged_dps]
@@ -23,7 +25,7 @@ class Item < ActiveRecord::Base
   #TODO: REMOVE THIS in favor of item sources usable by
   named_scope :usable_by, Proc.new {|wow_class| {:conditions => {:quality => 'epic', :armor_type_id => wow_class.usable_armor_types, :restricted_to => [RESTRICT_TO_NONE, wow_class.name]}}}
   belongs_to :armor_type
-
+  
   def self.badge_of_frost
     find_by_wowarmory_item_id(FROST_EMBLEM_ARMORY_ID)
   end
@@ -85,10 +87,6 @@ class Item < ActiveRecord::Base
     !weapon_bonuses(:attack_speed).nil?
   end
   
-  def weapon_type
-    bonuses.has_key?(:melee_attack_speed) ? "melee" : "ranged"
-  end
-  
   def weapon_bonuses(key)
     bonuses["#{weapon_type}_#{key}".to_sym]
   end
@@ -105,8 +103,25 @@ class Item < ActiveRecord::Base
     "(#{weapon_bonuses(:dps)} damage per second)"
   end
   
+  def weapon_type
+    RANGED_WEAPONS.include?(armor_type.name) ? "ranged" : "melee"
+  end
+
+  def bonuses
+    attributes['bonuses'].map_to_hash{|key, value| [translate_key(key), value]}
+  end
+
+  def translate_key(key)
+    if ORIGINAL_WEAPON_STATS.include?(key)
+      "#{weapon_type}_#{key}".to_sym
+    else
+      key
+    end
+  end
+
   def spell_effect_strings
     (self.spell_effects || []).map do |spell_effect|
+      spell_effect = spell_effect.with_indifferent_access
       trigger_method = spell_effect[:trigger] == 1 ? "Equip" : "Use"
       "#{trigger_method}: #{spell_effect[:description]}"
     end

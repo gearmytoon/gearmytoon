@@ -1,4 +1,14 @@
 class String
+  def to_appropriate_type
+    if self.match(/\A\d+\.\d+\z/)
+      self.to_f
+    elsif self.match(/\A\d+\z/)
+      self.to_i
+    else
+      self
+    end
+  end
+  
   def extract_bonuses
     returning({}) do |bonuses|
      self.split(" and ").each do |property|

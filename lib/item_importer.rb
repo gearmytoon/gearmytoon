@@ -1,6 +1,5 @@
 class ItemImporter
   QUALITY_ADJECTIVE_LOOKUP = {0 => "poor", 1 => "common", 2 => "uncommon", 3 => "rare", 4 => "epic", 5 => "legendary", 6 => "artifact", 7 => "heirloom"}
-  RANGED_WEAPONS = ["Bow", "Gun", "Crossbow", "Thrown"]
   #Unknown 18, 23, 27
   SLOT_CONVERSION = {1 => "Helm", 2 => "Amulet", 3 => "Shoulder", 4 => "Shirt", 5 => "Chest", 6 => "Waist", 7 => "Legs", 8 => "Feet", 
     9 => "Wrist", 10 => "Hands", 11 => "Finger", 12 => "Trinket", 13 => "One-Hand", 14 => "Shield", 15 => "Ranged", 16 => "Back", 
@@ -11,6 +10,9 @@ class ItemImporter
     def map(name, xpath, &block)
       @mappings ||= {}.with_indifferent_access
       @mappings[name] = {:xpath => xpath, :translate_with => block}
+    end
+    def map_many(name, paths)
+      @mappings[name] = {:xpath => paths, :many => true}
     end
     def add_mapping(name, value)
       @mappings ||= {}.with_indifferent_access
@@ -24,50 +26,53 @@ class ItemImporter
   def mapped_options
     returning({}) do |result|
       self.class.mappings.each do |name, args|
-        data = @wowarmory_item_tooltip.at(args[:xpath]) ? @wowarmory_item_tooltip.at(args[:xpath]).inner_html : nil
-        data = @wowarmory_item_info.at(args[:xpath]) ? @wowarmory_item_info.at(args[:xpath]).inner_html : nil if data.nil?
-        data = args[:translate_with].call(data) if args[:translate_with]
+        if args[:xpath].is_a?(Hash)
+          if args[:many]
+            data = get_many(args[:xpath])
+          else
+            data = get_hash(args[:xpath])
+          end
+        else
+          data = get_value_at(@wowarmory_item_tooltip, args[:xpath])
+          data = get_value_at(@wowarmory_item_info, args[:xpath]) if data.nil?
+        end
+        data = instance_exec(data, &args[:translate_with]) if args[:translate_with]
         result[name] = data
       end
     end
   end
-
-  def get_item_bonuses
-    returning(build_standard_bonuses) do |bonuses|
-      if is_a_gem?
-        bonuses.merge!(@wowarmory_item_tooltip.at("gemProperties").inner_html.extract_bonuses)
-      elsif !@wowarmory_item_tooltip.at("damageData").inner_html.blank?
-        damage_data = @wowarmory_item_tooltip.at("damageData")
-        if RANGED_WEAPONS.include?(@wowarmory_item_tooltip.at("//equipData/subclassName").inner_html)
-          weapon_type = "ranged"
-        else
-          weapon_type = "melee"
+  
+  def get_hash(hash)
+    key, value = hash.first
+    element = @wowarmory_item_tooltip.at(key)
+    return nil if element.nil?
+    returning({}) do |hash|
+      value.each do |key, value|
+        val = get_value_at(element, value)
+        hash[key.to_sym] = val if val
+      end
+    end
+  end
+  
+  def get_many(hash)
+    hash.map do |key, value|
+      @wowarmory_item_tooltip.xpath(key).map do |element|
+        returning({}) do |hash|
+          value.each do |key, value|
+            val = get_value_at(element, value)
+            hash[key.to_sym] = val if val
+          end
         end
-        bonuses["#{weapon_type}_min_damage".to_sym] = (damage_data/:damage/:min).inner_html.to_i
-        bonuses["#{weapon_type}_max_damage".to_sym] = (damage_data/:damage/:max).inner_html.to_i
-        bonuses["#{weapon_type}_attack_speed".to_sym] = (damage_data/:speed).inner_html.to_f
-        bonuses["#{weapon_type}_dps".to_sym] = (damage_data/:dps).inner_html.to_f
       end
-    end
+    end.flatten
   end
 
-  def build_standard_bonuses
-    stat_mappings = {:agility => "bonusAgility", :stamina => "bonusStamina", :intellect => "bonusIntellect", :armor => "armor",
-     :attack_power => "bonusAttackPower", :crit => "bonusCritRating", :hit => "bonusHitRating", :armor_penetration => "bonusArmorPenetration",
-     :haste => "bonusHasteRating"}
-    returning({}) do |bonuses|
-      stat_mappings.each do |our_stat_name, armory_element_name|
-        armory_element = @wowarmory_item_tooltip.at(armory_element_name)
-        bonuses[our_stat_name] = armory_element.inner_html.to_i if armory_element
-      end
-    end
+  def get_value_at(element, xpath)
+    value = element.at(xpath) ? element.at(xpath).inner_html.to_appropriate_type : nil
   end
 
-  # map_to_a_hash(:bonuses, {:agility => "bonusAgility", :stamina => "bonusStamina", :intellect => "bonusIntellect", :armor => "armor",
-  #  :attack_power => "bonusAttackPower", :crit => "bonusCritRating", :hit => "bonusHitRating", :armor_penetration => "bonusArmorPenetration",
-  #  :haste => "bonusHasteRating"})
   map :name, "//itemTooltip/name"
-  map(:slot, "//itemTooltip/equipData/inventoryType") {|data| SLOT_CONVERSION[data.to_i]}
+  map(:slot, "//itemTooltip/equipData/inventoryType") {|data| SLOT_CONVERSION[data]}
   map :icon, "//itemTooltip/icon"
   map :required_level, "//itemTooltip/requiredLevel"
   map :item_level, "//itemTooltip/itemLevel"
@@ -75,18 +80,23 @@ class ItemImporter
   map :required_level_max, "//itemTooltip/requiredLevelMax"
   map :account_bound, "//itemTooltip/accountBound"
   map :opposing_sides_wowarmory_item_id, "//translationFor/item/@id"
-  map(:heroic, "//itemTooltip/heroic") {|data| data == "1"}
-  map(:side, "//translationFor/@factionEquiv") {|data| {nil => Item::ANY_SIDE, "0" => Item::HORDE, "1" => Item::ALLIANCE}[data]}
-  map(:bonding, "//itemTooltip/bonding") {|data| data == "1" ? Item::BOP : Item::BOE}
+  map(:heroic, "//itemTooltip/heroic") {|data| data == 1}
+  map(:side, "//translationFor/@factionEquiv") {|data| {nil => Item::ANY_SIDE, 0 => Item::HORDE, 1 => Item::ALLIANCE}[data]}
+  map(:bonding, "//itemTooltip/bonding") {|data| data == 1 ? Item::BOP : Item::BOE}
   map(:armor_type, "//equipData/subclassName") {|data| ArmorType.find_or_create_by_name(data ? data : "Miscellaneous")}
-  map(:quality, "//item/@quality") {|data| QUALITY_ADJECTIVE_LOOKUP[data.to_i]}
-  
-  def get_spell_effects
-    (@wowarmory_item_tooltip/:itemTooltip/:spellData/:spell).map do |spell|
-      {:description => (spell/:desc).inner_html, :trigger => (spell/:trigger).inner_html.to_i}
-    end
-  end
-  
+  map(:quality, "//item/@quality") {|data| QUALITY_ADJECTIVE_LOOKUP[data]}
+  map_many(:spell_effects, {"//itemTooltip/spellData/spell" => {:description => "//desc", :trigger => "//trigger"}})
+  map(:bonuses, {"//itemTooltip" => {:agility => "//bonusAgility", :stamina => "//bonusStamina", :intellect => "//bonusIntellect", :armor => "//armor",
+    :attack_power => "//bonusAttackPower", :crit => "//bonusCritRating", :hit => "//bonusHitRating", :armor_penetration => "//bonusArmorPenetration",
+    :haste => "//bonusHasteRating", :min_damage => "//damageData/damage/min", :max_damage => "//damageData/damage/max", :attack_speed => "//damageData/speed", 
+    :dps => "//damageData/dps"}}) {|bonuses|
+      if is_a_gem?
+        bonuses.merge(@wowarmory_item_tooltip.at("gemProperties").inner_html.extract_bonuses)
+      else
+        bonuses
+      end
+  }
+
   attr_reader :wowarmory_item_id
   def initialize(wowarmory_item_id)
     armory_importer = WowArmoryImporter.new
@@ -110,10 +120,9 @@ class ItemImporter
   def import!
     returning type_to_be_imported.find_or_create_by_wowarmory_item_id(wowarmory_item_id) do |item|
       item.update_attributes!(mapped_options.merge({:wowarmory_item_id => wowarmory_item_id,
-                                :bonuses => get_item_bonuses, 
                                 :restricted_to => get_restricted_to, :item_sources => get_item_sources(item), 
-                                :gem_color => get_gem_color, :gem_sockets => get_gem_sockets, :socket_bonuses => get_socket_bonuses,
-                                :spell_effects => get_spell_effects}))
+                                :gem_color => get_gem_color, :gem_sockets => get_gem_sockets, 
+                                :socket_bonuses => get_socket_bonuses}))
     end
   end
   
@@ -241,13 +250,6 @@ class ItemImporter
       ItemImporter.new(wowarmory_item_id).import!
     rescue WowArmoryDataNotFound => e
       STDERR.puts e
-    end
-  end
-
-  def self.import_all_items_that_contain!(term)
-    items = api.search_items(term)
-    items.map do |item|
-      import_from_wowarmory!(item.id)
     end
   end
 

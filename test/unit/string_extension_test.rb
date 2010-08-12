@@ -1,6 +1,23 @@
 require File.dirname(__FILE__) + '/../test_helper'
 
 class StringExtensionTest < ActiveSupport::TestCase
+  context "to_appropriate_type" do
+    should "return self if a string" do
+      assert_equal("3abc", "3abc".to_appropriate_type)
+    end
+    should "return a int" do
+      assert_equal(746, "746".to_appropriate_type)
+      assert("746".to_appropriate_type.is_a?(Integer))
+    end
+    should "return float" do
+      assert_equal(12.2, "12.2".to_appropriate_type)
+      assert("12.2".to_appropriate_type.is_a?(Float))
+    end
+    should "return string if it ends with a int" do
+      assert_equal("inv_belt_69", "inv_belt_69".to_appropriate_type)
+    end
+  end
+
   context "extract_bonuses" do
 
     should "return empty hash if empty string given" do

@@ -19,4 +19,13 @@ class Hash
       values_unique_to_other_hash.each {|key, value| new_hash[key] = (value * operator) }
     end
   end
+  
+  def map_to_hash(&block)
+    returning({}) do |new_hash|
+      self.each do |key, value|
+        new_key, new_value = block.call(key, value)
+        new_hash[new_key] = new_value
+      end
+    end
+  end
 end
