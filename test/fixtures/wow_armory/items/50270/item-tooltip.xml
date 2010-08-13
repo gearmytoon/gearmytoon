@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?xml-stylesheet type="text/xsl" href="/_layout/items/tooltip.xsl"?>
+<page globalSearch="1" lang="en_us" requestUrl="/item-tooltip.xml">
+  <itemTooltips>
+    <itemTooltip>
+      <id>50270</id>
+      <name>Belt of Rotted Fingernails</name>
+      <icon>inv_belt_69</icon>
+      <overallQualityId>4</overallQualityId>
+      <bonding>1</bonding>
+      <maxCount>1</maxCount>
+      <classId>4</classId>
+      <equipData>
+        <inventoryType>6</inventoryType>
+        <subclassName>Mail</subclassName>
+      </equipData>
+      <damageData/>
+      <bonusAgility>89</bonusAgility>
+      <bonusStamina>76</bonusStamina>
+      <bonusIntellect>37</bonusIntellect>
+      <armor armorBonus="0">746</armor>
+      <durability current="50" max="50"/>
+      <requiredLevel>80</requiredLevel>
+      <itemLevel>232</itemLevel>
+      <bonusAttackPower>130</bonusAttackPower>
+      <bonusHasteRating>54</bonusHasteRating>
+      <bonusHitRating>47</bonusHitRating>
+      <itemSource areaId="4813" areaName="Pit of Saron" creatureId="36658" creatureName="Scourgelord Tyrannus" difficulty="h" dropRate="2" value="sourceType.creatureDrop"/>
+    </itemTooltip>
+  </itemTooltips>
+</page>

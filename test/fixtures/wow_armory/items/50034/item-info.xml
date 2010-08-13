@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?xml-stylesheet type="text/xsl" href="/_layout/items/info.xsl"?>
+<page globalSearch="1" lang="en_us" requestQuery="i=50034" requestUrl="/item-info.xml">
+  <itemInfo>
+    <item icon="inv_weapon_bow_55" id="50034" level="264" name="Zod's Repeating Longbow" quality="4" type="Bows">
+      <cost sellPrice="182514"/>
+      <disenchantLoot requiredSkillRank="375">
+        <item canAuction="1" dropRate="6" icon="inv_enchant_abysscrystal" id="34057" level="80" maxCount="1" minCount="1" name="Abyss Crystal" quality="4" type="Enchanting"/>
+      </disenchantLoot>
+      <dropCreatures>
+        <creature area="Icecrown Citadel (25)" areaUrl="fl[source]=dungeon&amp;fl[dungeon]=icecrowncitadel25&amp;fl[boss]=all&amp;fl[difficulty]=all" classification="1" dropRate="4" id="38106" maxLevel="83" minLevel="83" name="Lady Deathwhisper" type="Undead" url="fl[source]=dungeon&amp;fl[dungeon]=icecrowncitadel25&amp;fl[difficulty]=all&amp;fl[boss]=38106"/>
+      </dropCreatures>
+    </item>
+  </itemInfo>
+</page>

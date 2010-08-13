@@ -1,7 +1,30 @@
 require File.dirname(__FILE__) + '/../test_helper'
 
 class WowArmoryImporterTest < ActiveSupport::TestCase
+  context "cache_path" do
+    should "cache in test fixtures if rails env is test" do
+      assert_equal File.join(RAILS_ROOT, "test", "fixtures", "wow_armory"), WowArmoryImporter.cache_path("test")
+      assert_equal File.join(RAILS_ROOT, "test", "fixtures", "wow_armory"), WowArmoryImporter.cache_path("TEST")
+    end
+    should "cache in rails root cache otherwise" do
+      assert_equal File.join(RAILS_ROOT, "cache", "wow_armory"), WowArmoryImporter.cache_path("production")
+    end
+  end
 
+  context "caching" do
+    should "not hit the web when enabled" do
+      wow_armory = WowArmoryImporter.new(true)
+      wow_armory.expects(:get_xml).never
+      wow_armory.item_tooltip(50638)
+    end
+
+    should "not hit the cache when disabled" do
+      wow_armory = WowArmoryImporter.new(false)
+      wow_armory.expects(:cached_copy).never
+      wow_armory.item_tooltip(50638)
+    end
+  end
+  
   context "item data" do
     should "get the tooltip" do
       wi =  WowArmoryImporter.new

@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?xml-stylesheet type="text/xsl" href="/_layout/items/tooltip.xsl"?>
+<page globalSearch="1" lang="en_us" requestUrl="/item-tooltip.xml">
+  <itemTooltips>
+    <itemTooltip>
+      <id>47243</id>
+      <name>Mark of the Relentless</name>
+      <icon>inv_jewelry_ring_60</icon>
+      <overallQualityId>4</overallQualityId>
+      <bonding>1</bonding>
+      <maxCount uniqueEquippable="1">1</maxCount>
+      <classId>4</classId>
+      <equipData>
+        <inventoryType>11</inventoryType>
+      </equipData>
+      <damageData/>
+      <bonusStrength>48</bonusStrength>
+      <bonusStamina>89</bonusStamina>
+      <socketData>
+        <socket color="Blue"/>
+      </socketData>
+      <requiredLevel>80</requiredLevel>
+      <itemLevel>219</itemLevel>
+      <bonusDodgeRating>30</bonusDodgeRating>
+      <bonusExpertiseRating>26</bonusExpertiseRating>
+      <bonusParryRating>34</bonusParryRating>
+      <itemSource value="sourceType.gameObjectDrop"/>
+    </itemTooltip>
+  </itemTooltips>
+</page>

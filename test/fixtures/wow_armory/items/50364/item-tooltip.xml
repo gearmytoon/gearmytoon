@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?xml-stylesheet type="text/xsl" href="/_layout/items/tooltip.xsl"?>
+<page globalSearch="1" lang="en_us" requestUrl="/item-tooltip.xml">
+  <itemTooltips>
+    <itemTooltip>
+      <id>50364</id>
+      <name>Sindragosa's Flawless Fang</name>
+      <icon>inv_jewelry_trinket_06</icon>
+      <heroic>1</heroic>
+      <overallQualityId>4</overallQualityId>
+      <bonding>1</bonding>
+      <maxCount>1</maxCount>
+      <classId>4</classId>
+      <equipData>
+        <inventoryType>12</inventoryType>
+      </equipData>
+      <damageData/>
+      <bonusStamina>258</bonusStamina>
+      <requiredLevel>80</requiredLevel>
+      <itemLevel>277</itemLevel>
+      <spellData>
+        <spell>
+          <trigger>0</trigger>
+          <desc>Increases resistance to Arcane, Fire, Frost, Nature, and Shadow spells by 268 for 10 sec.</desc>
+          <charges>0</charges>
+          <maxCharges>0</maxCharges>
+        </spell>
+      </spellData>
+      <itemSource areaId="4812" areaName="Icecrown Citadel (25)" creatureId="38265" creatureName="Sindragosa" difficulty="h" dropRate="3" value="sourceType.creatureDrop"/>
+    </itemTooltip>
+  </itemTooltips>
+</page>

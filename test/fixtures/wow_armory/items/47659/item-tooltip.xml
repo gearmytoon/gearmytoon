@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?xml-stylesheet type="text/xsl" href="/_layout/items/tooltip.xsl"?>
+<page globalSearch="1" lang="en_us" requestUrl="/item-tooltip.xml">
+  <itemTooltips>
+    <itemTooltip>
+      <id>47659</id>
+      <name>Crimson Star</name>
+      <icon>inv_throwingknife_07</icon>
+      <overallQualityId>4</overallQualityId>
+      <bonding>1</bonding>
+      <classId>2</classId>
+      <equipData>
+        <inventoryType>25</inventoryType>
+        <subclassName>Thrown</subclassName>
+      </equipData>
+      <damageData>
+        <damage>
+          <type>0</type>
+          <min>368</min>
+          <max>552</max>
+        </damage>
+        <speed>1.8</speed>
+        <dps>255.56</dps>
+      </damageData>
+      <bonusAgility>43</bonusAgility>
+      <bonusStamina>43</bonusStamina>
+      <requiredLevel>80</requiredLevel>
+      <itemLevel>245</itemLevel>
+      <bonusAttackPower>57</bonusAttackPower>
+      <bonusExpertiseRating>28</bonusExpertiseRating>
+      <bonusArmorPenetration>28</bonusArmorPenetration>
+      <itemSource value="sourceType.vendor"/>
+    </itemTooltip>
+  </itemTooltips>
+</page>

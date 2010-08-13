@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?xml-stylesheet type="text/xsl" href="/_layout/items/tooltip.xsl"?>
+<page globalSearch="1" lang="en_us" requestUrl="/item-tooltip.xml">
+  <itemTooltips>
+    <itemTooltip>
+      <id>47566</id>
+      <name>The Warlord's Depravity</name>
+      <icon>inv_jewelry_necklace_29</icon>
+      <overallQualityId>4</overallQualityId>
+      <bonding>1</bonding>
+      <classId>4</classId>
+      <equipData>
+        <inventoryType>2</inventoryType>
+      </equipData>
+      <damageData/>
+      <bonusStrength>42</bonusStrength>
+      <bonusStamina>89</bonusStamina>
+      <requiredLevel>80</requiredLevel>
+      <itemLevel>219</itemLevel>
+      <bonusDefenseSkillRating>34</bonusDefenseSkillRating>
+      <bonusDodgeRating>30</bonusDodgeRating>
+      <bonusBlockValue>104</bonusBlockValue>
+      <itemSource areaId="4723" areaName="Trial of the Champion" creatureId="35451" creatureName="The Black Knight" difficulty="h" dropRate="2" value="sourceType.creatureDrop"/>
+    </itemTooltip>
+  </itemTooltips>
+</page>

@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?xml-stylesheet type="text/xsl" href="/_layout/items/info.xsl"?>
+<page globalSearch="1" lang="en_us" requestQuery="i=50402" requestUrl="/item-info.xml">
+  <itemInfo>
+    <item icon="inv_jewelry_ring_81" id="50402" level="277" name="Ashen Band of Endless Vengeance" quality="4" type="Miscellaneous">
+      <cost>
+        <token count="1" icon="inv_jewelry_ring_81" id="52572"/>
+      </cost>
+      <objectiveOfQuests>
+        <quest area="Icecrown Citadel" id="24846" level="80" name="A Change of Heart" reqMinLevel="80" suggestedPartySize="0"/>
+      </objectiveOfQuests>
+      <rewardFromQuests>
+        <quest area="Icecrown Citadel" id="25246" level="80" name="A Change of Heart" reqMinLevel="80" suggestedPartySize="0"/>
+        <quest area="Icecrown Citadel" id="24833" level="80" name="Path of Vengeance" reqMinLevel="80" suggestedPartySize="0"/>
+        <quest area="Icecrown Citadel" id="24845" level="80" name="A Change of Heart" reqMinLevel="80" suggestedPartySize="0"/>
+        <quest area="Icecrown Citadel" id="24847" level="80" name="A Change of Heart" reqMinLevel="80" suggestedPartySize="0"/>
+        <quest area="Icecrown Citadel" id="24844" level="80" name="A Change of Heart" reqMinLevel="80" suggestedPartySize="0"/>
+      </rewardFromQuests>
+    </item>
+  </itemInfo>
+</page>

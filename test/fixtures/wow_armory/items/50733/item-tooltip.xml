@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?xml-stylesheet type="text/xsl" href="/_layout/items/tooltip.xsl"?>
+<page globalSearch="1" lang="en_us" requestUrl="/item-tooltip.xml">
+  <itemTooltips>
+    <itemTooltip>
+      <id>50733</id>
+      <name>Fal'inrush, Defender of Quel'thalas</name>
+      <icon>inv_weapon_crossbow_38</icon>
+      <heroic>1</heroic>
+      <overallQualityId>4</overallQualityId>
+      <bonding>1</bonding>
+      <classId>2</classId>
+      <equipData>
+        <inventoryType>26</inventoryType>
+        <subclassName>Crossbow</subclassName>
+      </equipData>
+      <damageData>
+        <damage>
+          <type>0</type>
+          <min>782</min>
+          <max>1071</max>
+        </damage>
+        <speed>3.0</speed>
+        <dps>308.93</dps>
+      </damageData>
+      <bonusAgility>62</bonusAgility>
+      <bonusStamina>62</bonusStamina>
+      <socketData>
+        <socket color="Red"/>
+      </socketData>
+      <durability current="90" max="90"/>
+      <requiredLevel>80</requiredLevel>
+      <itemLevel>284</itemLevel>
+      <bonusAttackPower>66</bonusAttackPower>
+      <bonusCritRating>41</bonusCritRating>
+      <bonusArmorPenetration>33</bonusArmorPenetration>
+      <desc>Thalas'din belore.</desc>
+      <itemSource areaId="4812" areaName="Icecrown Citadel (25)" creatureId="39166" creatureName="The Lich King" difficulty="h" dropRate="2" value="sourceType.creatureDrop"/>
+    </itemTooltip>
+  </itemTooltips>
+</page>

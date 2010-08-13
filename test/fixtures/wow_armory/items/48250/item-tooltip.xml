@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?xml-stylesheet type="text/xsl" href="/_layout/items/tooltip.xsl"?>
+<page globalSearch="1" lang="en_us" requestUrl="/item-tooltip.xml">
+  <itemTooltips>
+    <itemTooltip>
+      <id>48250</id>
+      <name>Windrunner's Headpiece of Conquest</name>
+      <icon>inv_helmet_95</icon>
+      <overallQualityId>4</overallQualityId>
+      <bonding>1</bonding>
+      <classId>4</classId>
+      <equipData>
+        <inventoryType>1</inventoryType>
+        <subclassName>Mail</subclassName>
+      </equipData>
+      <damageData/>
+      <bonusAgility>104</bonusAgility>
+      <bonusStamina>95</bonusStamina>
+      <bonusIntellect>63</bonusIntellect>
+      <armor armorBonus="0">1077</armor>
+      <socketData>
+        <socket color="Meta"/>
+        <socket color="Yellow"/>
+      </socketData>
+      <durability current="85" max="85"/>
+      <allowableClasses>
+        <class>Hunter</class>
+      </allowableClasses>
+      <requiredLevel>80</requiredLevel>
+      <itemLevel>232</itemLevel>
+      <bonusAttackPower>129</bonusAttackPower>
+      <bonusCritRating>80</bonusCritRating>
+      <bonusArmorPenetration>47</bonusArmorPenetration>
+      <setData>
+        <name>Windrunner's Battlegear</name>
+        <item name="Windrunner's Handguards "/>
+        <item name="Windrunner's Headpiece "/>
+        <item name="Windrunner's Legguards "/>
+        <item name="Windrunner's Spaulders "/>
+        <item name="Windrunner's Tunic "/>
+        <setBonus desc="The damage done by your Serpent Sting ability can now be critical strikes." threshold="2"/>
+        <setBonus desc="Each time you hit with a ranged attack, you have a chance to grant your pet 600 attack power for 15 sec." threshold="4"/>
+      </setData>
+      <itemSource value="sourceType.vendor"/>
+    </itemTooltip>
+  </itemTooltips>
+</page>

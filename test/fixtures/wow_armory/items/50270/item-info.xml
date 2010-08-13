@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?xml-stylesheet type="text/xsl" href="/_layout/items/info.xsl"?>
+<page globalSearch="1" lang="en_us" requestQuery="i=50270" requestUrl="/item-info.xml">
+  <itemInfo>
+    <item icon="inv_belt_69" id="50270" level="232" name="Belt of Rotted Fingernails" quality="4" type="Mail">
+      <cost sellPrice="68807"/>
+      <disenchantLoot requiredSkillRank="375">
+        <item canAuction="1" dropRate="6" icon="inv_enchant_abysscrystal" id="34057" level="80" maxCount="1" minCount="1" name="Abyss Crystal" quality="4" type="Enchanting"/>
+      </disenchantLoot>
+      <dropCreatures>
+        <creature area="Pit of Saron" areaUrl="fl[source]=dungeon&amp;fl[dungeon]=pitofsaron&amp;fl[boss]=all&amp;fl[difficulty]=all" classification="1" dropRate="2" heroic="1" id="36938" maxLevel="82" minLevel="82" name="Scourgelord Tyrannus" type="Humanoid" url="fl[source]=dungeon&amp;fl[dungeon]=pitofsaron&amp;fl[difficulty]=heroic&amp;fl[boss]=36658"/>
+      </dropCreatures>
+    </item>
+  </itemInfo>
+</page>

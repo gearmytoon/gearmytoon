@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?xml-stylesheet type="text/xsl" href="/_layout/items/tooltip.xsl"?>
+<page globalSearch="1" lang="en_us" requestUrl="/item-tooltip.xml">
+  <itemTooltips>
+    <itemTooltip>
+      <id>50812</id>
+      <name>Taldron's Long Neglected Boots</name>
+      <icon>inv_boots_mail_06</icon>
+      <overallQualityId>4</overallQualityId>
+      <bonding>1</bonding>
+      <classId>4</classId>
+      <equipData>
+        <inventoryType>8</inventoryType>
+        <subclassName>Mail</subclassName>
+      </equipData>
+      <damageData/>
+      <bonusAgility>91</bonusAgility>
+      <bonusStamina>84</bonusStamina>
+      <bonusIntellect>60</bonusIntellect>
+      <armor armorBonus="0">972</armor>
+      <socketData>
+        <socket color="Red"/>
+        <socket color="Yellow"/>
+      </socketData>
+      <durability current="70" max="70"/>
+      <requiredLevel>80</requiredLevel>
+      <itemLevel>251</itemLevel>
+      <bonusAttackPower>153</bonusAttackPower>
+      <bonusCritRating>33</bonusCritRating>
+      <bonusArmorPenetration>62</bonusArmorPenetration>
+      <itemSource areaId="4812" areaName="Icecrown Citadel (10)" creatureId="36626" creatureName="Festergut" difficulty="n" dropRate="3" value="sourceType.creatureDrop"/>
+    </itemTooltip>
+  </itemTooltips>
+</page>

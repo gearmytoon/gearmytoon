@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?xml-stylesheet type="text/xsl" href="/_layout/items/info.xsl"?>
+<page globalSearch="1" lang="en_us" requestQuery="i=35019" requestUrl="/item-info.xml">
+  <itemInfo>
+    <item icon="inv_relics_idolofhealth" id="35019" level="159" name="Brutal Gladiator's Idol of Resolve" quality="4" type="Idols">
+      <vendors>
+        <creature area="Shattrath City" classification="0" heroic="1" id="27721" maxLevel="70" minLevel="70" name="Drelik Blastpipe" title="Arena Vendor" type="Humanoid"/>
+        <creature area="Netherstorm" classification="0" heroic="1" id="26352" maxLevel="70" minLevel="70" name="Big Zokk Torquewrench" title="Arena Vendor" type="Humanoid"/>
+        <creature area="Netherstorm" classification="0" heroic="1" id="23396" maxLevel="70" minLevel="70" name="Krixel Pinchwhistle" title="Brutal Arena Vendor" type="Humanoid"/>
+        <creature area="Blackrock Depths" classification="0" heroic="1" id="28225" maxLevel="60" minLevel="60" name="Griz Gutshank" title="Arena Vendor" type="Humanoid"/>
+        <creature area="Shattrath City" classification="0" heroic="1" id="27668" maxLevel="70" minLevel="70" name="Ontok Shatterhorn" title="Arena Vendor" type="Humanoid"/>
+        <creature area="Tanaris" classification="0" heroic="1" id="20278" maxLevel="70" minLevel="70" name="Vixton Pinchwhistle" title="Brutal Arena Vendor" type="Humanoid"/>
+        <creature area="Tanaris" classification="0" heroic="1" id="26378" maxLevel="70" minLevel="70" name="Evee Copperspring" title="Arena Vendor" type="Humanoid"/>
+        <creature area="Nagrand" classification="0" heroic="1" id="26383" maxLevel="70" minLevel="70" name="Grikkin Copperspring" title="Arena Vendor" type="Humanoid"/>
+        <creature area="Blade's Edge Mountains" classification="0" heroic="1" id="26384" maxLevel="70" minLevel="70" name="Frixee Brasstumbler" title="Arena Vendor" type="Humanoid"/>
+        <creature area="Shattrath City" classification="0" heroic="1" id="27722" maxLevel="70" minLevel="70" name="Drolig Blastpipe" title="Arena Vendor" type="Humanoid"/>
+      </vendors>
+    </item>
+  </itemInfo>
+</page>

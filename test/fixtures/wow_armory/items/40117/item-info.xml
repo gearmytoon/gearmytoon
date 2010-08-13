@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?xml-stylesheet type="text/xsl" href="/_layout/items/info.xsl"?>
+<page globalSearch="1" lang="en_us" requestQuery="i=40117" requestUrl="/item-info.xml">
+  <itemInfo>
+    <item canAuction="1" icon="inv_jewelcrafting_gem_37" id="40117" level="80" name="Fractured Cardinal Ruby" quality="4" type="Red">
+      <cost buyPrice="360000" sellPrice="90000"/>
+      <vendors>
+        <creature area="Trial of the Crusader" classification="0" heroic="1" id="33290" maxLevel="80" minLevel="80" name="Jillian McWeaksauce" title="The Cutest McWeaksauce" type="Humanoid"/>
+      </vendors>
+      <createdBy>
+        <spell icon="inv_misc_gem_01" id="66451" name="Fractured Cardinal Ruby">
+          <reagent count="1" icon="inv_jewelcrafting_gem_32" id="36919" name="Cardinal Ruby" quality="4"/>
+        </spell>
+      </createdBy>
+    </item>
+  </itemInfo>
+</page>

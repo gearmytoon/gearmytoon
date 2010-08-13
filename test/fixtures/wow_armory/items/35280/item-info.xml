@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?xml-stylesheet type="text/xsl" href="/_layout/items/info.xsl"?>
+<page globalSearch="1" lang="en_us" requestQuery="i=35280" requestUrl="/item-info.xml">
+  <itemInfo>
+    <item icon="inv_misc_tabardsummer01" id="35280" level="1" name="Tabard of Summer Flames" quality="3" type="Miscellaneous">
+      <createdBy>
+        <spell icon="inv_shirt_12" id="62769" name="Create Tabard of Summer Flames"/>
+      </createdBy>
+    </item>
+  </itemInfo>
+</page>

@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?xml-stylesheet type="text/xsl" href="/_layout/items/tooltip.xsl"?>
+<page globalSearch="1" lang="en_us" requestUrl="/item-tooltip.xml">
+  <itemTooltips>
+    <itemTooltip>
+      <id>50776</id>
+      <name>Njorndar Bone Bow</name>
+      <icon>inv_weapon_bow_56</icon>
+      <overallQualityId>4</overallQualityId>
+      <bonding>1</bonding>
+      <classId>2</classId>
+      <equipData>
+        <inventoryType>15</inventoryType>
+        <subclassName>Bow</subclassName>
+      </equipData>
+      <damageData>
+        <damage>
+          <type>0</type>
+          <min>490</min>
+          <max>814</max>
+        </damage>
+        <speed>2.9</speed>
+        <dps>224.89</dps>
+      </damageData>
+      <bonusAgility>45</bonusAgility>
+      <bonusStamina>34</bonusStamina>
+      <durability current="90" max="90"/>
+      <requiredLevel>80</requiredLevel>
+      <itemLevel>251</itemLevel>
+      <bonusAttackPower>69</bonusAttackPower>
+      <bonusCritRating>31</bonusCritRating>
+      <bonusHitRating>28</bonusHitRating>
+      <itemSource areaId="4812" areaName="Icecrown Citadel (10)" creatureId="36855" creatureName="Lady Deathwhisper" difficulty="n" dropRate="3" value="sourceType.creatureDrop"/>
+    </itemTooltip>
+  </itemTooltips>
+</page>

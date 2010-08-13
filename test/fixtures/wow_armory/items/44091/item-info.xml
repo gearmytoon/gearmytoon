@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?xml-stylesheet type="text/xsl" href="/_layout/items/info.xsl"?>
+<page globalSearch="1" lang="en_us" requestQuery="i=44091" requestUrl="/item-info.xml">
+  <itemInfo>
+    <item icon="inv_weapon_shortblade_03" id="44091" level="1" name="Sharpened Scarlet Kris" quality="7" type="Daggers">
+      <cost>
+        <token count="200" icon="inv_misc_platnumdisks" id="43228"/>
+      </cost>
+      <vendors>
+        <creature area="Wintergrasp" classification="0" heroic="1" id="30488" maxLevel="81" minLevel="81" name="Travis Day" title="Legacy Weaponsmith" type="Humanoid"/>
+        <creature area="Wintergrasp" classification="0" heroic="1" id="32296" maxLevel="80" minLevel="80" name="Stone Guard Mukar" title="Wintergrasp Quartermaster" type="Humanoid"/>
+        <creature area="Wintergrasp" classification="0" heroic="1" id="32294" maxLevel="80" minLevel="80" name="Knight Dameron" title="Wintergrasp Quartermaster" type="Humanoid"/>
+      </vendors>
+    </item>
+  </itemInfo>
+</page>

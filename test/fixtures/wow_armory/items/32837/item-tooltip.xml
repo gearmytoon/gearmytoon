@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?xml-stylesheet type="text/xsl" href="/_layout/items/tooltip.xsl"?>
+<page globalSearch="1" lang="en_us" requestUrl="/item-tooltip.xml">
+  <itemTooltips>
+    <itemTooltip>
+      <id>32837</id>
+      <name>Warglaive of Azzinoth</name>
+      <icon>inv_weapon_glave_01</icon>
+      <overallQualityId>5</overallQualityId>
+      <bonding>1</bonding>
+      <maxCount>1</maxCount>
+      <classId>2</classId>
+      <equipData>
+        <inventoryType>21</inventoryType>
+        <subclassName>Sword</subclassName>
+      </equipData>
+      <damageData>
+        <damage>
+          <type>0</type>
+          <min>214</min>
+          <max>398</max>
+        </damage>
+        <speed>2.8</speed>
+        <dps>109.29</dps>
+      </damageData>
+      <bonusAgility>22</bonusAgility>
+      <bonusStamina>29</bonusStamina>
+      <durability current="125" max="125"/>
+      <allowableClasses>
+        <class>Warrior</class>
+        <class>Rogue</class>
+      </allowableClasses>
+      <requiredLevel>70</requiredLevel>
+      <itemLevel>156</itemLevel>
+      <bonusHitRating>21</bonusHitRating>
+      <spellData>
+        <spell>
+          <trigger>1</trigger>
+          <desc>Increases attack power by 44.</desc>
+        </spell>
+      </spellData>
+      <setData>
+        <name>The Twin Blades of Azzinoth</name>
+        <item name="Warglaive of Azzinoth"/>
+        <item name="Warglaive of Azzinoth"/>
+        <setBonus desc="Your melee attacks have a chance to increase your haste rating by 450 for 10 sec." threshold="2"/>
+        <setBonus desc="Increases attack power by 200 when fighting Demons." threshold="2"/>
+      </setData>
+      <itemSource areaId="3959" areaName="Black Temple" creatureId="22917" creatureName="Illidan Stormrage" difficulty="n" dropRate="2" value="sourceType.creatureDrop"/>
+    </itemTooltip>
+  </itemTooltips>
+</page>

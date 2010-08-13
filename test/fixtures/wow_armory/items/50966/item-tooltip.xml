@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?xml-stylesheet type="text/xsl" href="/_layout/items/tooltip.xsl"?>
+<page globalSearch="1" lang="en_us" requestUrl="/item-tooltip.xml">
+  <itemTooltips>
+    <itemTooltip>
+      <id>50966</id>
+      <name>Abracadaver</name>
+      <icon>inv_staff_107</icon>
+      <overallQualityId>4</overallQualityId>
+      <bonding>1</bonding>
+      <classId>2</classId>
+      <equipData>
+        <inventoryType>17</inventoryType>
+        <subclassName>Staff</subclassName>
+      </equipData>
+      <damageData>
+        <damage>
+          <type>0</type>
+          <min>266</min>
+          <max>492</max>
+        </damage>
+        <speed>2.1</speed>
+        <dps>180.48</dps>
+      </damageData>
+      <bonusStamina>109</bonusStamina>
+      <bonusIntellect>128</bonusIntellect>
+      <socketData>
+        <socket color="Red"/>
+        <socket color="Blue"/>
+      </socketData>
+      <durability current="120" max="120"/>
+      <requiredLevel>80</requiredLevel>
+      <itemLevel>251</itemLevel>
+      <bonusSpellPower>657</bonusSpellPower>
+      <bonusHitRating>101</bonusHitRating>
+      <bonusHasteRating>136</bonusHasteRating>
+      <spellData>
+        <spell>
+          <trigger>0</trigger>
+          <desc>Summons a Cadaver that will protect you for 1 min.</desc>
+          <charges>0</charges>
+          <maxCharges>0</maxCharges>
+        </spell>
+      </spellData>
+      <itemSource areaId="4812" areaName="Icecrown Citadel (10)" creatureId="36626" creatureName="Festergut" difficulty="n" dropRate="4" value="sourceType.creatureDrop"/>
+    </itemTooltip>
+  </itemTooltips>
+</page>

@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?xml-stylesheet type="text/xsl" href="/_layout/items/tooltip.xsl"?>
+<page globalSearch="1" lang="en_us" requestUrl="/item-tooltip.xml">
+  <itemTooltips>
+    <itemTooltip>
+      <id>35019</id>
+      <name>Brutal Gladiator's Idol of Resolve</name>
+      <icon>inv_relics_idolofhealth</icon>
+      <overallQualityId>4</overallQualityId>
+      <bonding>1</bonding>
+      <classId>4</classId>
+      <equipData>
+        <inventoryType>28</inventoryType>
+        <subclassName>Idol</subclassName>
+      </equipData>
+      <damageData/>
+      <requiredLevel>70</requiredLevel>
+      <itemLevel>159</itemLevel>
+      <spellData>
+        <spell>
+          <trigger>1</trigger>
+          <desc>Your Mangle ability also grants you 39 resilience rating for 6 sec.</desc>
+        </spell>
+      </spellData>
+      <itemSource value="sourceType.vendor"/>
+    </itemTooltip>
+  </itemTooltips>
+</page>

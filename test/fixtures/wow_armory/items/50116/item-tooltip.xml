@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?xml-stylesheet type="text/xsl" href="/_layout/items/tooltip.xsl"?>
+<page globalSearch="1" lang="en_us" requestUrl="/item-tooltip.xml">
+  <itemTooltips>
+    <itemTooltip>
+      <id>50116</id>
+      <name>Ahn'Kahar Blood Hunter's Legguards</name>
+      <icon>inv_pants_mail_32</icon>
+      <overallQualityId>4</overallQualityId>
+      <bonding>1</bonding>
+      <classId>4</classId>
+      <equipData>
+        <inventoryType>7</inventoryType>
+        <subclassName>Mail</subclassName>
+      </equipData>
+      <damageData/>
+      <bonusAgility>144</bonusAgility>
+      <bonusStamina>113</bonusStamina>
+      <bonusIntellect>76</bonusIntellect>
+      <armor armorBonus="0">1237</armor>
+      <socketData>
+        <socket color="Yellow"/>
+        <socket color="Blue"/>
+      </socketData>
+      <durability current="105" max="105"/>
+      <allowableClasses>
+        <class>Hunter</class>
+      </allowableClasses>
+      <requiredLevel>80</requiredLevel>
+      <itemLevel>251</itemLevel>
+      <bonusAttackPower>159</bonusAttackPower>
+      <bonusCritRating>88</bonusCritRating>
+      <bonusHasteRating>68</bonusHasteRating>
+      <setData>
+        <name>Ahn'Kahar Blood Hunter's Battlegear</name>
+        <item name="Ahn'Kahar Blood Hunter's Handguards"/>
+        <item name="Ahn'Kahar Blood Hunter's Headpiece"/>
+        <item name="Ahn'Kahar Blood Hunter's Legguards"/>
+        <item name="Ahn'Kahar Blood Hunter's Spaulders"/>
+        <item name="Ahn'Kahar Blood Hunter's Tunic"/>
+        <setBonus desc="Your Auto Shots have a 5% chance to cause you and your pet to deal 15% additional damage for 10 sec." threshold="2"/>
+        <setBonus desc="When your Serpent Sting and Wyvern Sting abilities deal damage, you have a 5% chance to gain 20% attack power for 10 sec." threshold="4"/>
+      </setData>
+      <itemSource value="sourceType.vendor"/>
+    </itemTooltip>
+  </itemTooltips>
+</page>

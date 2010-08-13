@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?xml-stylesheet type="text/xsl" href="/_layout/items/tooltip.xsl"?>
+<page globalSearch="1" lang="en_us" requestUrl="/item-tooltip.xml">
+  <itemTooltips>
+    <itemTooltip>
+      <id>45834</id>
+      <name>Gauntlets of the Royal Watch</name>
+      <icon>inv_gauntlets_62</icon>
+      <overallQualityId>4</overallQualityId>
+      <bonding>1</bonding>
+      <classId>4</classId>
+      <equipData>
+        <inventoryType>10</inventoryType>
+        <subclassName>Plate</subclassName>
+      </equipData>
+      <damageData/>
+      <bonusStrength>60</bonusStrength>
+      <bonusStamina>127</bonusStamina>
+      <armor armorBonus="0">1467</armor>
+      <durability current="55" max="55"/>
+      <requiredLevel>80</requiredLevel>
+      <itemLevel>226</itemLevel>
+      <bonusDefenseSkillRating>55</bonusDefenseSkillRating>
+      <bonusDodgeRating>56</bonusDodgeRating>
+      <bonusHitRating>49</bonusHitRating>
+      <itemSource value="sourceType.vendor"/>
+    </itemTooltip>
+  </itemTooltips>
+</page>

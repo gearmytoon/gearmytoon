@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?xml-stylesheet type="text/xsl" href="/_layout/items/info.xsl"?>
+<page globalSearch="1" lang="en_us" requestQuery="i=37708" requestUrl="/item-info.xml">
+  <itemInfo>
+    <item icon="inv_fishingpole_02" id="37708" level="1" name="Stick" quality="1" type="Miscellaneous">
+      <providedForQuests>
+        <quest area="Grizzly Hills" id="12414" level="75" name="Mounting Up" reqMinLevel="73" suggestedPartySize="0"/>
+      </providedForQuests>
+      <objectiveOfQuests>
+        <quest area="Grizzly Hills" id="12414" level="75" name="Mounting Up" reqMinLevel="73" suggestedPartySize="0"/>
+      </objectiveOfQuests>
+    </item>
+  </itemInfo>
+</page>

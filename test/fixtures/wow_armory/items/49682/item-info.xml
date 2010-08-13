@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?xml-stylesheet type="text/xsl" href="/_layout/items/info.xsl"?>
+<page globalSearch="1" lang="en_us" requestQuery="i=49682" requestUrl="/item-info.xml">
+  <itemInfo>
+    <item icon="inv_weapon_shortblade_94" id="49682" level="219" name="Black Knight's Rondel" quality="4" type="Daggers">
+      <cost sellPrice="214809"/>
+      <disenchantLoot requiredSkillRank="375">
+        <item canAuction="1" dropRate="6" icon="inv_enchant_abysscrystal" id="34057" level="80" maxCount="1" minCount="1" name="Abyss Crystal" quality="4" type="Enchanting"/>
+      </disenchantLoot>
+      <dropCreatures>
+        <creature area="Trial of the Champion" areaUrl="fl[source]=dungeon&amp;fl[dungeon]=trialofthechampion&amp;fl[boss]=all&amp;fl[difficulty]=all" classification="1" dropRate="2" heroic="1" id="35490" maxLevel="80" minLevel="80" name="The Black Knight" type="Undead" url="fl[source]=dungeon&amp;fl[dungeon]=trialofthechampion&amp;fl[difficulty]=heroic&amp;fl[boss]=35451"/>
+      </dropCreatures>
+    </item>
+  </itemInfo>
+</page>

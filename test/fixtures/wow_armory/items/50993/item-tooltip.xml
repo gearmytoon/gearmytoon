@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?xml-stylesheet type="text/xsl" href="/_layout/items/tooltip.xsl"?>
+<page globalSearch="1" lang="en_us" requestUrl="/item-tooltip.xml">
+  <itemTooltips>
+    <itemTooltip>
+      <id>50993</id>
+      <name>Band of the Night Raven</name>
+      <icon>inv_belt_60</icon>
+      <overallQualityId>4</overallQualityId>
+      <bonding>1</bonding>
+      <classId>4</classId>
+      <equipData>
+        <inventoryType>6</inventoryType>
+        <subclassName>Mail</subclassName>
+      </equipData>
+      <damageData/>
+      <bonusAgility>104</bonusAgility>
+      <bonusStamina>95</bonusStamina>
+      <bonusIntellect>63</bonusIntellect>
+      <armor armorBonus="0">831</armor>
+      <socketData>
+        <socket color="Yellow"/>
+        <socket color="Yellow"/>
+      </socketData>
+      <durability current="50" max="50"/>
+      <requiredLevel>80</requiredLevel>
+      <itemLevel>264</itemLevel>
+      <bonusAttackPower>161</bonusAttackPower>
+      <bonusCritRating>80</bonusCritRating>
+      <bonusHitRating>47</bonusHitRating>
+      <itemSource value="sourceType.vendor"/>
+    </itemTooltip>
+  </itemTooltips>
+</page>

@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?xml-stylesheet type="text/xsl" href="/_layout/items/tooltip.xsl"?>
+<page globalSearch="1" lang="en_us" requestUrl="/item-tooltip.xml">
+  <itemTooltips>
+    <itemTooltip>
+      <id>28588</id>
+      <name>Blue Diamond Witchwand</name>
+      <icon>inv_wand_16</icon>
+      <overallQualityId>4</overallQualityId>
+      <bonding>1</bonding>
+      <classId>2</classId>
+      <equipData>
+        <inventoryType>26</inventoryType>
+        <subclassName>Wand</subclassName>
+      </equipData>
+      <damageData>
+        <damage>
+          <type>5</type>
+          <min>169</min>
+          <max>314</max>
+        </damage>
+        <speed>1.5</speed>
+        <dps>161.00</dps>
+      </damageData>
+      <bonusIntellect>13</bonusIntellect>
+      <bonusSpirit>11</bonusSpirit>
+      <durability current="75" max="75"/>
+      <requiredLevel>70</requiredLevel>
+      <itemLevel>115</itemLevel>
+      <spellData>
+        <spell>
+          <trigger>1</trigger>
+          <desc>Increases spell power by 15.</desc>
+        </spell>
+      </spellData>
+      <itemSource areaId="3457" areaName="Karazhan" creatureId="18168" creatureName="The Crone" difficulty="n" dropRate="4" value="sourceType.creatureDrop"/>
+    </itemTooltip>
+  </itemTooltips>
+</page>

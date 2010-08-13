@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?xml-stylesheet type="text/xsl" href="/_layout/items/tooltip.xsl"?>
+<page globalSearch="1" lang="en_us" requestUrl="/item-tooltip.xml">
+  <itemTooltips>
+    <itemTooltip>
+      <id>32225</id>
+      <name>Dazzling Seaspray Emerald</name>
+      <icon>inv_jewelcrafting_seasprayemerald_02</icon>
+      <overallQualityId>4</overallQualityId>
+      <bonding>0</bonding>
+      <classId>3</classId>
+      <equipData>
+        <inventoryType>0</inventoryType>
+      </equipData>
+      <damageData/>
+      <gemProperties>+5 Intellect and +3 Mana every 5 seconds</gemProperties>
+      <requiredLevel>-1</requiredLevel>
+      <itemLevel>70</itemLevel>
+      <desc>Matches a Blue or Yellow Socket.</desc>
+      <itemSource value="sourceType.createdBySpell"/>
+    </itemTooltip>
+  </itemTooltips>
+</page>

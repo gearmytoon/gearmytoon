@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?xml-stylesheet type="text/xsl" href="/_layout/items/tooltip.xsl"?>
+<page globalSearch="1" lang="en_us" requestUrl="/item-tooltip.xml">
+  <itemTooltips>
+    <itemTooltip>
+      <id>39267</id>
+      <name>Abomination Shoulderblades</name>
+      <icon>inv_shoulder_75</icon>
+      <overallQualityId>4</overallQualityId>
+      <bonding>1</bonding>
+      <classId>4</classId>
+      <equipData>
+        <inventoryType>3</inventoryType>
+        <subclassName>Plate</subclassName>
+      </equipData>
+      <damageData/>
+      <bonusStrength>53</bonusStrength>
+      <bonusStamina>87</bonusStamina>
+      <armor armorBonus="0">1681</armor>
+      <socketData>
+        <socket color="Red"/>
+      </socketData>
+      <durability current="100" max="100"/>
+      <requiredLevel>80</requiredLevel>
+      <itemLevel>200</itemLevel>
+      <bonusDefenseSkillRating>38</bonusDefenseSkillRating>
+      <bonusDodgeRating>40</bonusDodgeRating>
+      <bonusHitRating>28</bonusHitRating>
+      <itemSource areaId="3456" areaName="Naxxramas" creatureId="16028" creatureName="Patchwerk" difficulty="n" dropRate="4" value="sourceType.creatureDrop"/>
+    </itemTooltip>
+  </itemTooltips>
+</page>

@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?xml-stylesheet type="text/xsl" href="/_layout/items/tooltip.xsl"?>
+<page globalSearch="1" lang="en_us" requestUrl="/item-tooltip.xml">
+  <itemTooltips>
+    <itemTooltip>
+      <id>50470</id>
+      <name>Recovered Scarlet Onslaught Cape</name>
+      <icon>inv_misc_cape_14</icon>
+      <overallQualityId>4</overallQualityId>
+      <bonding>1</bonding>
+      <classId>4</classId>
+      <equipData>
+        <inventoryType>16</inventoryType>
+      </equipData>
+      <damageData/>
+      <bonusAgility>90</bonusAgility>
+      <bonusStamina>90</bonusStamina>
+      <armor armorBonus="0">177</armor>
+      <socketData>
+        <socket color="Blue"/>
+      </socketData>
+      <requiredLevel>80</requiredLevel>
+      <itemLevel>264</itemLevel>
+      <bonusAttackPower>105</bonusAttackPower>
+      <bonusCritRating>60</bonusCritRating>
+      <bonusArmorPenetration>52</bonusArmorPenetration>
+      <itemSource value="sourceType.vendor"/>
+    </itemTooltip>
+  </itemTooltips>
+</page>

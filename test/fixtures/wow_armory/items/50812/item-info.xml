@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?xml-stylesheet type="text/xsl" href="/_layout/items/info.xsl"?>
+<page globalSearch="1" lang="en_us" requestQuery="i=50812" requestUrl="/item-info.xml">
+  <itemInfo>
+    <item icon="inv_boots_mail_06" id="50812" level="251" name="Taldron's Long Neglected Boots" quality="4" type="Mail">
+      <cost sellPrice="110569"/>
+      <disenchantLoot requiredSkillRank="375">
+        <item canAuction="1" dropRate="6" icon="inv_enchant_abysscrystal" id="34057" level="80" maxCount="1" minCount="1" name="Abyss Crystal" quality="4" type="Enchanting"/>
+      </disenchantLoot>
+      <dropCreatures>
+        <creature area="Icecrown Citadel (10)" areaUrl="fl[source]=dungeon&amp;fl[dungeon]=icecrowncitadel10&amp;fl[boss]=all&amp;fl[difficulty]=all" classification="3" dropRate="3" id="36626" maxLevel="83" minLevel="83" name="Festergut" type="Undead" url="fl[source]=dungeon&amp;fl[dungeon]=icecrowncitadel10&amp;fl[difficulty]=all&amp;fl[boss]=36626"/>
+      </dropCreatures>
+    </item>
+  </itemInfo>
+</page>

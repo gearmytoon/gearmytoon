@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?xml-stylesheet type="text/xsl" href="/_layout/items/tooltip.xsl"?>
+<page globalSearch="1" lang="en_us" requestUrl="/item-tooltip.xml">
+  <itemTooltips>
+    <itemTooltip>
+      <id>47732</id>
+      <name>Band of the Invoker</name>
+      <icon>inv_jewelry_ring_54</icon>
+      <overallQualityId>4</overallQualityId>
+      <bonding>1</bonding>
+      <maxCount uniqueEquippable="1">1</maxCount>
+      <classId>4</classId>
+      <equipData>
+        <inventoryType>11</inventoryType>
+      </equipData>
+      <damageData/>
+      <bonusStamina>58</bonusStamina>
+      <bonusIntellect>58</bonusIntellect>
+      <bonusSpirit>50</bonusSpirit>
+      <requiredLevel>80</requiredLevel>
+      <itemLevel>245</itemLevel>
+      <bonusSpellPower>89</bonusSpellPower>
+      <bonusHasteRating>50</bonusHasteRating>
+      <itemSource value="sourceType.vendor"/>
+    </itemTooltip>
+  </itemTooltips>
+</page>

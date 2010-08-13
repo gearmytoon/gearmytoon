@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?xml-stylesheet type="text/xsl" href="/_layout/items/tooltip.xsl"?>
+<page globalSearch="1" lang="en_us" requestUrl="/item-tooltip.xml">
+  <itemTooltips>
+    <itemTooltip>
+      <id>51876</id>
+      <name>Abomination Knuckles</name>
+      <icon>inv_weapon_hand_34</icon>
+      <heroic>1</heroic>
+      <overallQualityId>4</overallQualityId>
+      <bonding>1</bonding>
+      <classId>2</classId>
+      <equipData>
+        <inventoryType>21</inventoryType>
+        <subclassName>Fist Weapon</subclassName>
+      </equipData>
+      <damageData>
+        <damage>
+          <type>0</type>
+          <min>471</min>
+          <max>707</max>
+        </damage>
+        <speed>2.6</speed>
+        <dps>226.54</dps>
+      </damageData>
+      <bonusAgility>61</bonusAgility>
+      <bonusStamina>53</bonusStamina>
+      <socketData>
+        <socket color="Red"/>
+      </socketData>
+      <durability current="75" max="75"/>
+      <requiredLevel>80</requiredLevel>
+      <itemLevel>264</itemLevel>
+      <bonusHasteRating>50</bonusHasteRating>
+      <bonusArmorPenetration>33</bonusArmorPenetration>
+      <bonusAttackPower>106</bonusAttackPower>
+      <itemSource areaId="4812" areaName="Icecrown Citadel (10)" creatureId="36627" creatureName="Rotface" difficulty="h" dropRate="3" value="sourceType.creatureDrop"/>
+    </itemTooltip>
+  </itemTooltips>
+</page>

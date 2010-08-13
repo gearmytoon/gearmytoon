@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?xml-stylesheet type="text/xsl" href="/_layout/items/tooltip.xsl"?>
+<page globalSearch="1" lang="en_us" requestUrl="/item-tooltip.xml">
+  <itemTooltips>
+    <itemTooltip>
+      <id>50034</id>
+      <name>Zod's Repeating Longbow</name>
+      <icon>inv_weapon_bow_55</icon>
+      <overallQualityId>4</overallQualityId>
+      <bonding>1</bonding>
+      <classId>2</classId>
+      <equipData>
+        <inventoryType>15</inventoryType>
+        <subclassName>Bow</subclassName>
+      </equipData>
+      <damageData>
+        <damage>
+          <type>0</type>
+          <min>541</min>
+          <max>887</max>
+        </damage>
+        <speed>2.8</speed>
+        <dps>255.01</dps>
+      </damageData>
+      <bonusAgility>34</bonusAgility>
+      <bonusStamina>51</bonusStamina>
+      <durability current="90" max="90"/>
+      <requiredLevel>80</requiredLevel>
+      <itemLevel>264</itemLevel>
+      <spellData>
+        <spell>
+          <trigger>1</trigger>
+          <desc>Your ranged attacks have a 4% chance to cause you to instantly attack with this weapon for 50% weapon damage.</desc>
+        </spell>
+      </spellData>
+      <desc>Kneel before him.</desc>
+      <itemSource areaId="4812" areaName="Icecrown Citadel (25)" creatureId="38106" creatureName="Lady Deathwhisper" difficulty="n" dropRate="4" value="sourceType.creatureDrop"/>
+    </itemTooltip>
+  </itemTooltips>
+</page>

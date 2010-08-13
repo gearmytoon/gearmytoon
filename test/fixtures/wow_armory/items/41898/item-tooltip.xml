@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?xml-stylesheet type="text/xsl" href="/_layout/items/tooltip.xsl"?>
+<page globalSearch="1" lang="en_us" requestUrl="/item-tooltip.xml">
+  <itemTooltips>
+    <itemTooltip>
+      <id>41898</id>
+      <name>Furious Gladiator's Cord of Dominance</name>
+      <icon>inv_belt_13</icon>
+      <overallQualityId>4</overallQualityId>
+      <bonding>1</bonding>
+      <classId>4</classId>
+      <equipData>
+        <inventoryType>6</inventoryType>
+        <subclassName>Cloth</subclassName>
+      </equipData>
+      <damageData/>
+      <bonusStamina>96</bonusStamina>
+      <bonusIntellect>42</bonusIntellect>
+      <armor armorBonus="0">177</armor>
+      <socketData>
+        <socket color="Blue"/>
+      </socketData>
+      <durability current="35" max="35"/>
+      <allowableClasses>
+        <class>Priest</class>
+        <class>Mage</class>
+        <class>Warlock</class>
+      </allowableClasses>
+      <requiredLevel>80</requiredLevel>
+      <itemLevel>226</itemLevel>
+      <bonusSpellPower>90</bonusSpellPower>
+      <bonusCritRating>48</bonusCritRating>
+      <bonusResilienceRating>56</bonusResilienceRating>
+      <itemSource value="sourceType.pvpReward"/>
+    </itemTooltip>
+  </itemTooltips>
+</page>

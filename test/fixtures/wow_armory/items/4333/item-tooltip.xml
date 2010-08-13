@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?xml-stylesheet type="text/xsl" href="/_layout/items/tooltip.xsl"?>
+<page globalSearch="1" lang="en_us" requestUrl="/item-tooltip.xml">
+  <itemTooltips>
+    <itemTooltip>
+      <id>4333</id>
+      <name>Dark Silk Shirt</name>
+      <icon>inv_shirt_black_01</icon>
+      <overallQualityId>1</overallQualityId>
+      <bonding>0</bonding>
+      <classId>4</classId>
+      <equipData>
+        <inventoryType>4</inventoryType>
+      </equipData>
+      <damageData/>
+      <requiredLevel>-1</requiredLevel>
+      <itemLevel>31</itemLevel>
+      <itemSource value="sourceType.createdBySpell"/>
+    </itemTooltip>
+  </itemTooltips>
+</page>

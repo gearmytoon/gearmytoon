@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?xml-stylesheet type="text/xsl" href="/_layout/items/tooltip.xsl"?>
+<page globalSearch="1" lang="en_us" requestUrl="/item-tooltip.xml">
+  <itemTooltips>
+    <itemTooltip>
+      <id>37708</id>
+      <name>Stick</name>
+      <icon>inv_fishingpole_02</icon>
+      <overallQualityId>1</overallQualityId>
+      <bonding>4</bonding>
+      <classId>2</classId>
+      <equipData>
+        <inventoryType>17</inventoryType>
+      </equipData>
+      <damageData>
+        <damage>
+          <type>0</type>
+          <min>2</min>
+          <max>4</max>
+        </damage>
+        <speed>3.0</speed>
+        <dps>1.00</dps>
+      </damageData>
+      <requiredLevel>-1</requiredLevel>
+      <itemLevel>1</itemLevel>
+      <spellData>
+        <spell>
+          <trigger>0</trigger>
+          <desc>Attach a Wild Carrot to your stick and use it to lure a Highland Mustang.</desc>
+          <charges>0</charges>
+          <maxCharges>0</maxCharges>
+        </spell>
+      </spellData>
+      <desc>Needs more carrot.</desc>
+      <itemSource value="sourceType.providedQuest"/>
+    </itemTooltip>
+  </itemTooltips>
+</page>

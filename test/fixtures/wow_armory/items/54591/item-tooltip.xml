@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?xml-stylesheet type="text/xsl" href="/_layout/items/tooltip.xsl"?>
+<page globalSearch="1" lang="en_us" requestUrl="/item-tooltip.xml">
+  <itemTooltips>
+    <itemTooltip>
+      <id>54591</id>
+      <name>Petrified Twilight Scale</name>
+      <icon>inv_misc_rubysanctum3</icon>
+      <heroic>1</heroic>
+      <overallQualityId>4</overallQualityId>
+      <bonding>1</bonding>
+      <maxCount>1</maxCount>
+      <classId>4</classId>
+      <equipData>
+        <inventoryType>12</inventoryType>
+      </equipData>
+      <damageData/>
+      <armor armorBonus="0">2576</armor>
+      <requiredLevel>80</requiredLevel>
+      <itemLevel>284</itemLevel>
+      <spellData>
+        <spell>
+          <trigger>1</trigger>
+          <desc>Melee attacks which reduce you below 35% health cause you to gain 828 dodge rating for 10 sec.  Cannot occur more than once every 45 sec.</desc>
+        </spell>
+      </spellData>
+      <itemSource areaId="4987" areaName="Ruby Sanctum (25)" creatureId="39864" creatureName="Halion" difficulty="h" dropRate="3" value="sourceType.creatureDrop"/>
+    </itemTooltip>
+  </itemTooltips>
+</page>

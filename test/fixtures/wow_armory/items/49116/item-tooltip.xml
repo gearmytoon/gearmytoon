@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?xml-stylesheet type="text/xsl" href="/_layout/items/tooltip.xsl"?>
+<page globalSearch="1" lang="en_us" requestUrl="/item-tooltip.xml">
+  <itemTooltips>
+    <itemTooltip>
+      <id>49116</id>
+      <name>Bitter Balebrew Charm</name>
+      <icon>inv_drink_04</icon>
+      <overallQualityId>4</overallQualityId>
+      <bonding>1</bonding>
+      <maxCount>1</maxCount>
+      <classId>4</classId>
+      <equipData>
+        <inventoryType>12</inventoryType>
+      </equipData>
+      <damageData/>
+      <bonusStamina>170</bonusStamina>
+      <requiredLevel>80</requiredLevel>
+      <itemLevel>200</itemLevel>
+      <spellData>
+        <spell>
+          <trigger>0</trigger>
+          <desc>Right Click to summon the Black Brewmaiden, who will smite your foes with your empty tankards. Wave at her for Brewfest Brew!</desc>
+          <charges>0</charges>
+          <maxCharges>0</maxCharges>
+        </spell>
+      </spellData>
+      <itemSource areaId="1584" areaName="" creatureId="0" creatureName="" difficulty="" dropRate="3" value="sourceType.creatureDrop"/>
+    </itemTooltip>
+  </itemTooltips>
+</page>

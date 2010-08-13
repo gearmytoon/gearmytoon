@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?xml-stylesheet type="text/xsl" href="/_layout/items/tooltip.xsl"?>
+<page globalSearch="1" lang="en_us" requestUrl="/item-tooltip.xml">
+  <itemTooltips>
+    <itemTooltip>
+      <id>40707</id>
+      <name>Libram of Obstruction</name>
+      <icon>inv_relics_libramoftruth</icon>
+      <overallQualityId>4</overallQualityId>
+      <bonding>1</bonding>
+      <classId>4</classId>
+      <equipData>
+        <inventoryType>28</inventoryType>
+        <subclassName>Libram</subclassName>
+      </equipData>
+      <damageData/>
+      <allowableClasses>
+        <class>Paladin</class>
+      </allowableClasses>
+      <requiredLevel>80</requiredLevel>
+      <itemLevel>200</itemLevel>
+      <spellData>
+        <spell>
+          <trigger>1</trigger>
+          <desc>Your Judgement ability also increases your shield block value by 352 for 10 sec.</desc>
+        </spell>
+      </spellData>
+      <itemSource value="sourceType.vendor"/>
+    </itemTooltip>
+  </itemTooltips>
+</page>

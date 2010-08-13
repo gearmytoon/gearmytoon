@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?xml-stylesheet type="text/xsl" href="/_layout/items/info.xsl"?>
+<page globalSearch="1" lang="en_us" requestQuery="i=39141" requestUrl="/item-info.xml">
+  <itemInfo>
+    <item icon="inv_jewelry_ring_53naxxramas" id="39141" level="200" name="Deflection Band" quality="4" type="Miscellaneous">
+      <cost sellPrice="71245"/>
+      <disenchantLoot requiredSkillRank="375">
+        <item canAuction="1" dropRate="6" icon="inv_enchant_abysscrystal" id="34057" level="80" maxCount="1" minCount="1" name="Abyss Crystal" quality="4" type="Enchanting"/>
+      </disenchantLoot>
+      <dropCreatures>
+        <creature area="Naxxramas" areaUrl="fl[source]=dungeon&amp;fl[dungeon]=naxxramas&amp;fl[boss]=all&amp;fl[difficulty]=all" classification="3" dropRate="3" id="15956" maxLevel="83" minLevel="83" name="Anub'Rekhan" type="Undead" url="fl[source]=dungeon&amp;fl[dungeon]=naxxramas&amp;fl[difficulty]=all&amp;fl[boss]=15956"/>
+      </dropCreatures>
+    </item>
+  </itemInfo>
+</page>

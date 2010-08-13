@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?xml-stylesheet type="text/xsl" href="/_layout/items/info.xsl"?>
+<page globalSearch="1" lang="en_us" requestQuery="i=41898" requestUrl="/item-info.xml">
+  <itemInfo>
+    <item icon="inv_belt_13" id="41898" level="226" name="Furious Gladiator's Cord of Dominance" quality="4" type="Cloth">
+      <vendors>
+        <creature area="Stormwind City" classification="0" heroic="1" id="34076" maxLevel="75" minLevel="75" name="Lieutenant Tristia" title="Veteran Armor Quartermaster" type="Humanoid"/>
+        <creature area="Orgrimmar" classification="0" heroic="1" id="34058" maxLevel="70" minLevel="70" name="Doris Volanthius" title="Veteran Armor Quartermaster" type="Humanoid"/>
+        <creature area="Stormwind City" classification="0" heroic="1" id="34074" maxLevel="65" minLevel="65" name="Captain Dirgehammer" title="Apprentice Armor Quartermaster" type="Humanoid"/>
+        <creature area="Orgrimmar" classification="0" heroic="1" id="34037" maxLevel="65" minLevel="65" name="Sergeant Thunderhorn" title="Apprentice Armor Quartermaster" type="Humanoid"/>
+      </vendors>
+      <dropCreatures>
+        <creature area="Vault of Archavon" classification="3" dropRate="1" id="35013" maxLevel="83" minLevel="83" name="Koralon the Flame Watcher" type="Giant"/>
+        <creature area="Vault of Archavon" areaUrl="fl[source]=dungeon&amp;fl[dungeon]=vaultarchavon&amp;fl[boss]=all&amp;fl[difficulty]=all" classification="3" dropRate="1" heroic="1" id="33994" maxLevel="83" minLevel="83" name="Emalon the Storm Watcher" type="Giant" url="fl[source]=dungeon&amp;fl[dungeon]=vaultarchavon&amp;fl[difficulty]=heroic&amp;fl[boss]=33993"/>
+      </dropCreatures>
+    </item>
+  </itemInfo>
+</page>

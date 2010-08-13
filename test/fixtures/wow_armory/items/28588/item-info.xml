@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?xml-stylesheet type="text/xsl" href="/_layout/items/info.xsl"?>
+<page globalSearch="1" lang="en_us" requestQuery="i=28588" requestUrl="/item-info.xml">
+  <itemInfo>
+    <item icon="inv_wand_16" id="28588" level="115" name="Blue Diamond Witchwand" quality="4" type="Wands">
+      <cost sellPrice="91081"/>
+      <disenchantLoot requiredSkillRank="300">
+        <item canAuction="1" dropRate="6" icon="inv_enchant_voidcrystal" id="22450" level="70" maxCount="2" minCount="1" name="Void Crystal" quality="4" type="Enchanting"/>
+      </disenchantLoot>
+      <dropCreatures>
+        <creature area="Karazhan" areaUrl="fl[source]=dungeon&amp;fl[dungeon]=karazhan&amp;fl[boss]=all&amp;fl[difficulty]=all" classification="3" dropRate="4" heroic="1" id="18168" maxLevel="73" minLevel="73" name="The Crone" type="Humanoid" url="fl[source]=dungeon&amp;fl[dungeon]=karazhan&amp;fl[difficulty]=heroic&amp;fl[boss]=18168"/>
+      </dropCreatures>
+    </item>
+  </itemInfo>
+</page>

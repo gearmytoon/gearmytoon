@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?xml-stylesheet type="text/xsl" href="/_layout/items/tooltip.xsl"?>
+<page globalSearch="1" lang="en_us" requestUrl="/item-tooltip.xml">
+  <itemTooltips>
+    <itemTooltip>
+      <id>52021</id>
+      <name>Iceblade Arrow</name>
+      <icon>inv_ammo_arrow_03</icon>
+      <overallQualityId>4</overallQualityId>
+      <bonding>0</bonding>
+      <stackable>1000</stackable>
+      <classId>6</classId>
+      <equipData>
+        <inventoryType>24</inventoryType>
+        <subclassName>Arrow</subclassName>
+      </equipData>
+      <damageData>
+        <damage>
+          <type>0</type>
+          <min>91</min>
+          <max>92</max>
+        </damage>
+      </damageData>
+      <requiredLevel>80</requiredLevel>
+      <itemLevel>230</itemLevel>
+      <itemSource value="sourceType.createdBySpell"/>
+    </itemTooltip>
+  </itemTooltips>
+</page>

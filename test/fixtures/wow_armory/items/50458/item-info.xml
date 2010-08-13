@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?xml-stylesheet type="text/xsl" href="/_layout/items/info.xsl"?>
+<page globalSearch="1" lang="en_us" requestQuery="i=50458" requestUrl="/item-info.xml">
+  <itemInfo>
+    <item icon="spell_frost_frostnova" id="50458" level="264" name="Bizuri's Totem of Shattered Ice" quality="4" type="Totems">
+      <cost>
+        <token count="30" icon="inv_misc_frostemblem_01" id="49426"/>
+      </cost>
+      <disenchantLoot requiredSkillRank="375">
+        <item canAuction="1" dropRate="6" icon="inv_enchant_abysscrystal" id="34057" level="80" maxCount="1" minCount="1" name="Abyss Crystal" quality="4" type="Enchanting"/>
+      </disenchantLoot>
+      <vendors>
+        <creature area="Icecrown Citadel" classification="0" heroic="1" id="38858" maxLevel="80" minLevel="80" name="Goodman the &quot;Closer&quot;" title="Emblem of Frost Quartermaster" type="Humanoid"/>
+        <creature area="Crystalsong Forest" classification="0" heroic="1" id="37941" maxLevel="80" minLevel="80" name="Magister Arlan" title="Emblem of Frost Quartermaster" type="Humanoid"/>
+        <creature area="Crystalsong Forest" classification="0" heroic="1" id="37942" maxLevel="80" minLevel="80" name="Arcanist Uovril" title="Emblem of Frost Quartermaster" type="Humanoid"/>
+        <creature area="Crystalsong Forest" classification="0" heroic="1" id="29529" maxLevel="75" minLevel="75" name="Ninsianna" title="Relics" type="Humanoid"/>
+      </vendors>
+    </item>
+  </itemInfo>
+</page>

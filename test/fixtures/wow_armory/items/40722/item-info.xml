@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?xml-stylesheet type="text/xsl" href="/_layout/items/info.xsl"?>
+<page globalSearch="1" lang="en_us" requestQuery="i=40722" requestUrl="/item-info.xml">
+  <itemInfo>
+    <item icon="inv_misc_cape_20" id="40722" level="213" name="Platinum Mesh Cloak" quality="4" type="Cloth">
+      <cost>
+        <token count="25" icon="spell_holy_proclaimchampion_02" id="40753"/>
+      </cost>
+      <disenchantLoot requiredSkillRank="375">
+        <item canAuction="1" dropRate="6" icon="inv_enchant_abysscrystal" id="34057" level="80" maxCount="1" minCount="1" name="Abyss Crystal" quality="4" type="Enchanting"/>
+      </disenchantLoot>
+      <vendors>
+        <creature area="Crystalsong Forest" classification="0" heroic="1" id="29495" maxLevel="75" minLevel="75" name="Norvin Alderman" title="Cloaks" type="Humanoid"/>
+        <creature area="Crystalsong Forest" classification="0" heroic="1" id="31579" maxLevel="80" minLevel="80" name="Arcanist Adurin" title="Emblem of Valor Quartermaster" type="Humanoid"/>
+        <creature area="Crystalsong Forest" classification="0" heroic="1" id="31581" maxLevel="80" minLevel="80" name="Magister Brasael" title="Emblem of Valor Quartermaster" type="Humanoid"/>
+      </vendors>
+    </item>
+  </itemInfo>
+</page>

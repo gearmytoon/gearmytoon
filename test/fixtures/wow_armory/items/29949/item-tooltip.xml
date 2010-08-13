@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?xml-stylesheet type="text/xsl" href="/_layout/items/tooltip.xsl"?>
+<page globalSearch="1" lang="en_us" requestUrl="/item-tooltip.xml">
+  <itemTooltips>
+    <itemTooltip>
+      <id>29949</id>
+      <name>Arcanite Steam-Pistol</name>
+      <icon>inv_weapon_rifle_18</icon>
+      <overallQualityId>4</overallQualityId>
+      <bonding>1</bonding>
+      <classId>2</classId>
+      <equipData>
+        <inventoryType>26</inventoryType>
+        <subclassName>Gun</subclassName>
+      </equipData>
+      <damageData>
+        <damage>
+          <type>0</type>
+          <min>177</min>
+          <max>329</max>
+        </damage>
+        <speed>2.9</speed>
+        <dps>87.24</dps>
+      </damageData>
+      <bonusAgility>20</bonusAgility>
+      <durability current="90" max="90"/>
+      <requiredLevel>70</requiredLevel>
+      <itemLevel>134</itemLevel>
+      <bonusHitRating>19</bonusHitRating>
+      <itemSource areaId="3845" areaName="Tempest Keep" creatureId="19514" creatureName="Al'ar" difficulty="n" dropRate="4" value="sourceType.creatureDrop"/>
+    </itemTooltip>
+  </itemTooltips>
+</page>

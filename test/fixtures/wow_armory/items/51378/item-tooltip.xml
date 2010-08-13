@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?xml-stylesheet type="text/xsl" href="/_layout/items/tooltip.xsl"?>
+<page globalSearch="1" lang="en_us" requestUrl="/item-tooltip.xml">
+  <itemTooltips>
+    <itemTooltip>
+      <id>51378</id>
+      <name>Medallion of the Horde</name>
+      <icon>inv_jewelry_trinketpvp_02</icon>
+      <overallQualityId>4</overallQualityId>
+      <bonding>1</bonding>
+      <maxCount>1</maxCount>
+      <classId>4</classId>
+      <equipData>
+        <inventoryType>12</inventoryType>
+      </equipData>
+      <damageData/>
+      <allowableRaces>
+        <race>Orc</race>
+        <race>Undead</race>
+        <race>Tauren</race>
+        <race>Troll</race>
+        <race>Blood Elf</race>
+      </allowableRaces>
+      <requiredLevel>80</requiredLevel>
+      <itemLevel>264</itemLevel>
+      <bonusResilienceRating>153</bonusResilienceRating>
+      <spellData>
+        <spell>
+          <trigger>0</trigger>
+          <desc>Removes all movement impairing effects and all effects which cause loss of control of your character.</desc>
+          <charges>0</charges>
+          <maxCharges>0</maxCharges>
+        </spell>
+      </spellData>
+      <itemSource value="sourceType.vendor"/>
+    </itemTooltip>
+  </itemTooltips>
+</page>

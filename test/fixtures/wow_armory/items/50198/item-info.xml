@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?xml-stylesheet type="text/xsl" href="/_layout/items/info.xsl"?>
+<page globalSearch="1" lang="en_us" requestQuery="i=50198" requestUrl="/item-info.xml">
+  <itemInfo>
+    <item icon="inv_qirajidol_onyx" id="50198" level="232" name="Needle-Encrusted Scorpion" quality="4" type="Miscellaneous">
+      <cost sellPrice="113940"/>
+      <disenchantLoot requiredSkillRank="375">
+        <item canAuction="1" dropRate="6" icon="inv_enchant_abysscrystal" id="34057" level="80" maxCount="1" minCount="1" name="Abyss Crystal" quality="4" type="Enchanting"/>
+      </disenchantLoot>
+      <dropCreatures>
+        <creature area="Forge of Souls" areaUrl="fl[source]=dungeon&amp;fl[dungeon]=forgeofsouls&amp;fl[boss]=all&amp;fl[difficulty]=all" classification="1" dropRate="2" heroic="1" id="37677" maxLevel="82" minLevel="82" name="Devourer of Souls" type="Undead" url="fl[source]=dungeon&amp;fl[dungeon]=forgeofsouls&amp;fl[difficulty]=heroic&amp;fl[boss]=36502"/>
+      </dropCreatures>
+    </item>
+  </itemInfo>
+</page>

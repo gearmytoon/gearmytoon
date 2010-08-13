@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?xml-stylesheet type="text/xsl" href="/_layout/items/tooltip.xsl"?>
+<page globalSearch="1" lang="en_us" requestUrl="/item-tooltip.xml">
+  <itemTooltips>
+    <itemTooltip>
+      <id>41087</id>
+      <name>Furious Gladiator's Chain Armor</name>
+      <icon>inv_chest_mail_02</icon>
+      <overallQualityId>4</overallQualityId>
+      <bonding>1</bonding>
+      <classId>4</classId>
+      <equipData>
+        <inventoryType>5</inventoryType>
+        <subclassName>Mail</subclassName>
+      </equipData>
+      <damageData/>
+      <bonusAgility>80</bonusAgility>
+      <bonusStamina>138</bonusStamina>
+      <bonusIntellect>60</bonusIntellect>
+      <armor armorBonus="0">1325</armor>
+      <socketData>
+        <socket color="Red"/>
+        <socket color="Yellow"/>
+      </socketData>
+      <durability current="140" max="140"/>
+      <allowableClasses>
+        <class>Hunter</class>
+      </allowableClasses>
+      <requiredLevel>80</requiredLevel>
+      <itemLevel>232</itemLevel>
+      <bonusAttackPower>130</bonusAttackPower>
+      <bonusCritRating>64</bonusCritRating>
+      <bonusResilienceRating>80</bonusResilienceRating>
+      <setData>
+        <name>Gladiator's Pursuit</name>
+        <item name="Gladiator's Chain Armor"/>
+        <item name="Gladiator's Chain Gauntlets"/>
+        <item name="Gladiator's Chain Helm"/>
+        <item name="Gladiator's Chain Leggings"/>
+        <item name="Gladiator's Chain Spaulders"/>
+        <setBonus desc="+100 resilience rating." threshold="2"/>
+        <setBonus desc="Increases attack power by 50." threshold="2"/>
+        <setBonus desc="Reduces the cooldown of your Traps by 2 seconds." threshold="4"/>
+        <setBonus desc="Increases attack power by 150." threshold="4"/>
+      </setData>
+      <itemSource value="sourceType.pvpReward"/>
+    </itemTooltip>
+  </itemTooltips>
+</page>

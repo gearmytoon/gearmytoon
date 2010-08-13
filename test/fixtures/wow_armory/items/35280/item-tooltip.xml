@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?xml-stylesheet type="text/xsl" href="/_layout/items/tooltip.xsl"?>
+<page globalSearch="1" lang="en_us" requestUrl="/item-tooltip.xml">
+  <itemTooltips>
+    <itemTooltip>
+      <id>35280</id>
+      <name>Tabard of Summer Flames</name>
+      <icon>inv_misc_tabardsummer01</icon>
+      <overallQualityId>3</overallQualityId>
+      <bonding>1</bonding>
+      <classId>4</classId>
+      <equipData>
+        <inventoryType>19</inventoryType>
+      </equipData>
+      <damageData/>
+      <requiredLevel>-1</requiredLevel>
+      <itemLevel>1</itemLevel>
+      <itemSource value="sourceType.createdBySpell"/>
+    </itemTooltip>
+  </itemTooltips>
+</page>

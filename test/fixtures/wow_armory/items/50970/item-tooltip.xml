@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?xml-stylesheet type="text/xsl" href="/_layout/items/tooltip.xsl"?>
+<page globalSearch="1" lang="en_us" requestUrl="/item-tooltip.xml">
+  <itemTooltips>
+    <itemTooltip>
+      <id>50970</id>
+      <name>Longstrider's Vest</name>
+      <icon>inv_chest_mail_11</icon>
+      <overallQualityId>4</overallQualityId>
+      <bonding>1</bonding>
+      <classId>4</classId>
+      <equipData>
+        <inventoryType>5</inventoryType>
+        <subclassName>Mail</subclassName>
+      </equipData>
+      <damageData/>
+      <bonusAgility>146</bonusAgility>
+      <bonusStamina>128</bonusStamina>
+      <bonusIntellect>85</bonusIntellect>
+      <armor armorBonus="0">1477</armor>
+      <socketData>
+        <socket color="Red"/>
+        <socket color="Yellow"/>
+        <socket color="Blue"/>
+      </socketData>
+      <durability current="140" max="140"/>
+      <requiredLevel>80</requiredLevel>
+      <itemLevel>264</itemLevel>
+      <bonusAttackPower>184</bonusAttackPower>
+      <bonusCritRating>108</bonusCritRating>
+      <bonusArmorPenetration>69</bonusArmorPenetration>
+      <itemSource value="sourceType.vendor"/>
+    </itemTooltip>
+  </itemTooltips>
+</page>

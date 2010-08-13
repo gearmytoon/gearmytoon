@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?xml-stylesheet type="text/xsl" href="/_layout/items/info.xsl"?>
+<page globalSearch="1" lang="en_us" requestQuery="i=19361" requestUrl="/item-info.xml">
+  <itemInfo>
+    <item icon="inv_weapon_crossbow_09" id="19361" level="77" name="Ashjre'thul, Crossbow of Smiting" quality="4" type="Crossbows">
+      <cost sellPrice="60230"/>
+      <disenchantLoot requiredSkillRank="225">
+        <item canAuction="1" dropRate="6" icon="inv_enchant_shardnexuslarge" id="20725" level="60" maxCount="2" minCount="1" name="Nexus Crystal" quality="4" type="Enchanting"/>
+      </disenchantLoot>
+      <dropCreatures>
+        <creature area="Blackwing Lair" areaUrl="fl[source]=dungeon&amp;fl[dungeon]=blackwinglair&amp;fl[boss]=all&amp;fl[difficulty]=all" classification="3" dropRate="2" heroic="1" id="14020" maxLevel="63" minLevel="63" name="Chromaggus" type="Dragonkin" url="fl[source]=dungeon&amp;fl[dungeon]=blackwinglair&amp;fl[difficulty]=heroic&amp;fl[boss]=14020"/>
+      </dropCreatures>
+    </item>
+  </itemInfo>
+</page>

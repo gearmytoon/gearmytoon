@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?xml-stylesheet type="text/xsl" href="/_layout/items/info.xsl"?>
+<page globalSearch="1" lang="en_us" requestQuery="i=39638" requestUrl="/item-info.xml">
+  <itemInfo>
+    <item icon="inv_chest_plate02" id="39638" level="200" name="Heroes' Redemption Breastplate" quality="4" type="Plate">
+      <cost>
+        <token count="1" icon="inv_chest_chain_03" id="40610"/>
+      </cost>
+      <disenchantLoot requiredSkillRank="375">
+        <item canAuction="1" dropRate="6" icon="inv_enchant_abysscrystal" id="34057" level="80" maxCount="1" minCount="1" name="Abyss Crystal" quality="4" type="Enchanting"/>
+      </disenchantLoot>
+      <vendors>
+        <creature area="Crystalsong Forest" classification="0" heroic="1" id="28997" maxLevel="75" minLevel="75" name="Griselda Hunderland" title="Plate Armor Merchant" type="Humanoid"/>
+      </vendors>
+      <dropCreatures>
+        <creature area="Vault of Archavon" areaUrl="fl[source]=dungeon&amp;fl[dungeon]=vaultarchavon&amp;fl[boss]=all&amp;fl[difficulty]=all" classification="3" dropRate="1" id="31125" maxLevel="83" minLevel="83" name="Archavon the Stone Watcher" type="Giant" url="fl[source]=dungeon&amp;fl[dungeon]=vaultarchavon&amp;fl[difficulty]=all&amp;fl[boss]=31125"/>
+      </dropCreatures>
+    </item>
+  </itemInfo>
+</page>

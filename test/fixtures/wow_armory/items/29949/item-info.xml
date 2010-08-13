@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?xml-stylesheet type="text/xsl" href="/_layout/items/info.xsl"?>
+<page globalSearch="1" lang="en_us" requestQuery="i=29949" requestUrl="/item-info.xml">
+  <itemInfo>
+    <item icon="inv_weapon_rifle_18" id="29949" level="134" name="Arcanite Steam-Pistol" quality="4" type="Guns">
+      <cost sellPrice="99160"/>
+      <disenchantLoot requiredSkillRank="300">
+        <item canAuction="1" dropRate="6" icon="inv_enchant_voidcrystal" id="22450" level="70" maxCount="2" minCount="1" name="Void Crystal" quality="4" type="Enchanting"/>
+      </disenchantLoot>
+      <dropCreatures>
+        <creature area="Tempest Keep" areaUrl="fl[source]=dungeon&amp;fl[dungeon]=eye&amp;fl[boss]=all&amp;fl[difficulty]=all" classification="3" dropRate="4" heroic="1" id="19514" maxLevel="73" minLevel="73" name="Al'ar" title="Phoenix God" type="Elemental" url="fl[source]=dungeon&amp;fl[dungeon]=eye&amp;fl[difficulty]=heroic&amp;fl[boss]=19514"/>
+      </dropCreatures>
+    </item>
+  </itemInfo>
+</page>

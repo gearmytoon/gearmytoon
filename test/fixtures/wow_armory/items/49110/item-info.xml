@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?xml-stylesheet type="text/xsl" href="/_layout/items/info.xsl"?>
+<page globalSearch="1" lang="en_us" requestQuery="i=49110" requestUrl="/item-info.xml">
+  <itemInfo>
+    <item canAuction="1" icon="inv_misc_gem_pearl_12" id="49110" level="80" name="Nightmare Tear" quality="4" type="Prismatic">
+      <createdBy>
+        <spell icon="inv_misc_gem_01" id="68253" name="Nightmare Tear">
+          <reagent count="1" icon="inv_jewelcrafting_dragonseye01" id="42225" name="Dragon's Eye" quality="3"/>
+          <reagent count="5" icon="inv_misc_dust_infinite" id="34054" name="Infinite Dust" quality="1"/>
+        </spell>
+      </createdBy>
+    </item>
+  </itemInfo>
+</page>

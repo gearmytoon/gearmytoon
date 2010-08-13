@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?xml-stylesheet type="text/xsl" href="/_layout/items/info.xsl"?>
+<page globalSearch="1" lang="en_us" requestQuery="i=54591" requestUrl="/item-info.xml">
+  <itemInfo>
+    <item icon="inv_misc_rubysanctum3" id="54591" level="284" name="Petrified Twilight Scale" quality="4" type="Miscellaneous">
+      <cost sellPrice="113940"/>
+      <disenchantLoot requiredSkillRank="375">
+        <item canAuction="1" dropRate="6" icon="inv_enchant_abysscrystal" id="34057" level="80" maxCount="1" minCount="1" name="Abyss Crystal" quality="4" type="Enchanting"/>
+      </disenchantLoot>
+      <dropCreatures>
+        <creature area="Ruby Sanctum (25)" areaUrl="fl[source]=dungeon&amp;fl[dungeon]=rubysanctum25&amp;fl[boss]=all&amp;fl[difficulty]=all" classification="1" dropRate="3" heroic="1" id="39945" maxLevel="83" minLevel="83" name="Halion" title="The Twilight Destroyer" type="Dragonkin" url="fl[source]=dungeon&amp;fl[dungeon]=rubysanctum25&amp;fl[difficulty]=heroic&amp;fl[boss]=39864"/>
+      </dropCreatures>
+    </item>
+  </itemInfo>
+</page>

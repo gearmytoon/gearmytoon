@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?xml-stylesheet type="text/xsl" href="/_layout/items/tooltip.xsl"?>
+<page globalSearch="1" lang="en_us" requestUrl="/item-tooltip.xml">
+  <itemTooltips>
+    <itemTooltip>
+      <id>19361</id>
+      <name>Ashjre'thul, Crossbow of Smiting</name>
+      <icon>inv_weapon_crossbow_09</icon>
+      <overallQualityId>4</overallQualityId>
+      <bonding>1</bonding>
+      <classId>2</classId>
+      <equipData>
+        <inventoryType>26</inventoryType>
+        <subclassName>Crossbow</subclassName>
+      </equipData>
+      <damageData>
+        <damage>
+          <type>0</type>
+          <min>149</min>
+          <max>225</max>
+        </damage>
+        <speed>3.4</speed>
+        <dps>55.00</dps>
+      </damageData>
+      <bonusStamina>7</bonusStamina>
+      <durability current="90" max="90"/>
+      <requiredLevel>60</requiredLevel>
+      <itemLevel>77</itemLevel>
+      <spellData>
+        <spell>
+          <trigger>1</trigger>
+          <desc>Increases ranged attack power by 36.</desc>
+        </spell>
+      </spellData>
+      <itemSource areaId="2677" areaName="Blackwing Lair" creatureId="14020" creatureName="Chromaggus" difficulty="n" dropRate="2" value="sourceType.creatureDrop"/>
+    </itemTooltip>
+  </itemTooltips>
+</page>

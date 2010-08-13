@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?xml-stylesheet type="text/xsl" href="/_layout/items/tooltip.xsl"?>
+<page globalSearch="1" lang="en_us" requestUrl="/item-tooltip.xml">
+  <itemTooltips>
+    <itemTooltip>
+      <id>39976</id>
+      <name>Enduring Dark Jade</name>
+      <icon>inv_jewelcrafting_gem_19</icon>
+      <overallQualityId>2</overallQualityId>
+      <bonding>0</bonding>
+      <classId>3</classId>
+      <equipData>
+        <inventoryType>0</inventoryType>
+      </equipData>
+      <damageData/>
+      <gemProperties>+6 Defense Rating and +9 Stamina </gemProperties>
+      <requiredLevel>-1</requiredLevel>
+      <itemLevel>70</itemLevel>
+      <desc>Matches a Yellow or Blue Socket.</desc>
+      <itemSource value="sourceType.none"/>
+    </itemTooltip>
+  </itemTooltips>
+</page>

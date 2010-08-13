@@ -33,10 +33,9 @@ class ItemImporter < WowArmoryMapper
   }
 
   attr_reader :wowarmory_item_id
-  def initialize(wowarmory_item_id)
-    armory_importer = WowArmoryImporter.new
-    @wowarmory_item_info = armory_importer.item_info(wowarmory_item_id)
-    @wowarmory_item_tooltip = armory_importer.item_tooltip(wowarmory_item_id)
+  def initialize(wowarmory_item_id, wowarmory_item_info, wowarmory_item_tooltip)
+    @wowarmory_item_info = wowarmory_item_info
+    @wowarmory_item_tooltip = wowarmory_item_tooltip
     @wowarmory_item_id = wowarmory_item_id
   end
   
@@ -182,7 +181,8 @@ class ItemImporter < WowArmoryMapper
 
   def self.import_from_wowarmory!(wowarmory_item_id)
     begin
-      ItemImporter.new(wowarmory_item_id).import!
+      armory_importer = WowArmoryImporter.new
+      ItemImporter.new(wowarmory_item_id, armory_importer.item_info(wowarmory_item_id), armory_importer.item_tooltip(wowarmory_item_id)).import!
     rescue WowArmoryDataNotFound => e
       STDERR.puts e
     end

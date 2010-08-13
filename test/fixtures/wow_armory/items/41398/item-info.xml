@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?xml-stylesheet type="text/xsl" href="/_layout/items/info.xsl"?>
+<page globalSearch="1" lang="en_us" requestQuery="i=41398" requestUrl="/item-info.xml">
+  <itemInfo>
+    <item canAuction="1" icon="inv_jewelcrafting_shadowspirit_02" id="41398" level="80" name="Relentless Earthsiege Diamond" quality="3" type="Meta">
+      <cost sellPrice="60000"/>
+      <createdBy>
+        <spell icon="inv_misc_gem_01" id="55400" name="Relentless Earthsiege Diamond">
+          <reagent count="1" icon="inv_jewelcrafting_shadowspirit_01" id="41334" name="Earthsiege Diamond" quality="3"/>
+        </spell>
+      </createdBy>
+    </item>
+  </itemInfo>
+</page>

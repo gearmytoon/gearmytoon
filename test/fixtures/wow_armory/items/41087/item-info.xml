@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?xml-stylesheet type="text/xsl" href="/_layout/items/info.xsl"?>
+<page globalSearch="1" lang="en_us" requestQuery="i=41087" requestUrl="/item-info.xml">
+  <itemInfo>
+    <item icon="inv_chest_mail_02" id="41087" level="232" name="Furious Gladiator's Chain Armor" quality="4" type="Mail">
+      <cost factionId="0" honor="54500"/>
+      <vendors>
+        <creature area="Netherstorm" classification="0" heroic="1" id="33932" maxLevel="70" minLevel="70" name="Big Zokk Torquewrench" title="Arena Vendor" type="Humanoid"/>
+        <creature area="Netherstorm" classification="0" heroic="1" id="33918" maxLevel="70" minLevel="70" name="Kezzik the Striker" title="Veteran Arena Vendor" type="Humanoid"/>
+        <creature area="Crystalsong Forest" classification="0" heroic="1" id="33921" maxLevel="75" minLevel="75" name="Nargle Lashcord" title="Veteran Arena Vendor" type="Humanoid"/>
+        <creature area="Netherstorm" classification="0" heroic="1" id="40208" maxLevel="70" minLevel="70" name="Leeni &quot;Smiley&quot; Smalls" title="Apprentice Arena Vendor" type="Humanoid"/>
+        <creature area="Tanaris" classification="0" heroic="1" id="33934" maxLevel="70" minLevel="70" name="Ecton Brasstumbler" title="Apprentice Arena Vendor" type="Humanoid"/>
+        <creature area="Stormwind City" classification="0" heroic="1" id="40607" maxLevel="75" minLevel="75" name="Knight-Lieutenant T'Maire Sydes" title="Northrend Armor Quartermaster" type="Humanoid"/>
+        <creature area="Netherstorm" classification="0" heroic="1" id="33941" maxLevel="70" minLevel="70" name="Leeni &quot;Smiley&quot; Smalls" title="Apprentice Arena Vendor" type="Humanoid"/>
+        <creature area="Crystalsong Forest" classification="0" heroic="1" id="35494" maxLevel="80" minLevel="80" name="Arcanist Miluria" title="Emblem of Triumph Quartermaster" type="Humanoid"/>
+        <creature area="Tanaris" classification="0" heroic="1" id="40213" maxLevel="70" minLevel="70" name="Ecton Brasstumbler" title="Apprentice Arena Vendor" type="Humanoid"/>
+        <creature area="Icecrown" classification="0" heroic="1" id="35573" maxLevel="80" minLevel="80" name="Arcanist Asarina" title="Emblem of Triumph Quartermaster" type="Humanoid"/>
+        <creature area="Tanaris" classification="0" heroic="1" id="33915" maxLevel="70" minLevel="70" name="Argex Irongut" title="Veteran Arena Vendor" type="Humanoid"/>
+        <creature area="Tanaris" classification="0" heroic="1" id="33928" maxLevel="70" minLevel="70" name="Evee Copperspring" title="Arena Vendor" type="Humanoid"/>
+        <creature area="Orgrimmar" classification="0" heroic="1" id="34063" maxLevel="65" minLevel="65" name="Blood Guard Zar'shi" title="Northrend Armor Quartermaster" type="Humanoid"/>
+        <creature area="Icecrown" classification="0" heroic="1" id="35574" maxLevel="80" minLevel="80" name="Magistrix Iruvia" title="Emblem of Triumph Quartermaster" type="Humanoid"/>
+        <creature area="Crystalsong Forest" classification="0" heroic="1" id="35495" maxLevel="80" minLevel="80" name="Magistrix Vesara" title="Emblem of Triumph Quartermaster" type="Humanoid"/>
+        <creature area="Crystalsong Forest" classification="0" heroic="1" id="40205" maxLevel="75" minLevel="75" name="Zom Bocom" title="Apprentice Arena Vendor" type="Humanoid"/>
+        <creature area="Crystalsong Forest" classification="0" heroic="1" id="33926" maxLevel="75" minLevel="75" name="Xazi Smolderpipe" title="Arena Vendor" type="Humanoid"/>
+        <creature area="Crystalsong Forest" classification="0" heroic="1" id="33938" maxLevel="75" minLevel="75" name="Zom Bocom" title="Apprentice Arena Vendor" type="Humanoid"/>
+      </vendors>
+    </item>
+  </itemInfo>
+</page>

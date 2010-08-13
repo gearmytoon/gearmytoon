@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?xml-stylesheet type="text/xsl" href="/_layout/items/info.xsl"?>
+<page globalSearch="1" lang="en_us" requestQuery="i=50116" requestUrl="/item-info.xml">
+  <itemInfo>
+    <item icon="inv_pants_mail_32" id="50116" level="251" name="Ahn'Kahar Blood Hunter's Legguards" quality="4" type="Mail">
+      <cost>
+        <token count="95" icon="inv_misc_frostemblem_01" id="49426"/>
+      </cost>
+      <disenchantLoot requiredSkillRank="375">
+        <item canAuction="1" dropRate="6" icon="inv_enchant_abysscrystal" id="34057" level="80" maxCount="1" minCount="1" name="Abyss Crystal" quality="4" type="Enchanting"/>
+      </disenchantLoot>
+      <vendors>
+        <creature area="Icecrown Citadel" classification="0" heroic="1" id="37993" maxLevel="80" minLevel="80" name="Gerardo the Suave" title="Hunter Armor" type="Humanoid"/>
+        <creature area="Icecrown Citadel" classification="0" heroic="1" id="37998" maxLevel="80" minLevel="80" name="Talan Moonstrike" title="Hunter Armor" type="Humanoid"/>
+        <creature area="Crystalsong Forest" classification="0" heroic="1" id="35500" maxLevel="75" minLevel="75" name="Matilda Brightlink" title="Mail Armor Merchant" type="Humanoid"/>
+      </vendors>
+      <dropCreatures>
+        <creature area="Vault of Archavon" classification="3" dropRate="1" id="38433" maxLevel="83" minLevel="83" name="Toravon the Ice Watcher" type="Giant"/>
+      </dropCreatures>
+      <currencyFor>
+        <item icon="inv_pants_mail_32" id="51152" level="264" name="Sanctified Ahn'Kahar Blood Hunter's Legguards" quality="4" type="Mail">
+          <cost>
+            <token count="1" icon="ability_paladin_shieldofthetemplar" id="52026"/>
+            <token count="1" icon="inv_pants_mail_32" id="50116"/>
+          </cost>
+        </item>
+      </currencyFor>
+    </item>
+  </itemInfo>
+</page>

@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?xml-stylesheet type="text/xsl" href="/_layout/items/info.xsl"?>
+<page globalSearch="1" lang="en_us" requestQuery="i=48250" requestUrl="/item-info.xml">
+  <itemInfo>
+    <item icon="inv_helmet_95" id="48250" level="232" name="Windrunner's Headpiece of Conquest" quality="4" type="Mail">
+      <cost>
+        <token count="50" icon="spell_holy_summonchampion" id="47241"/>
+      </cost>
+      <disenchantLoot requiredSkillRank="375">
+        <item canAuction="1" dropRate="6" icon="inv_enchant_abysscrystal" id="34057" level="80" maxCount="1" minCount="1" name="Abyss Crystal" quality="4" type="Enchanting"/>
+      </disenchantLoot>
+      <vendors>
+        <creature area="Icecrown" classification="0" heroic="1" id="35579" maxLevel="78" minLevel="78" name="Aspirant Forudir" title="Triumphant Armor Vendor" type="Humanoid"/>
+        <creature area="Crystalsong Forest" classification="0" heroic="1" id="35500" maxLevel="75" minLevel="75" name="Matilda Brightlink" title="Mail Armor Merchant" type="Humanoid"/>
+      </vendors>
+      <translationFor factionEquiv="1">
+        <item icon="inv_helmet_100" id="48277" level="232" name="Windrunner's Headpiece of Conquest" quality="4"/>
+      </translationFor>
+    </item>
+  </itemInfo>
+</page>

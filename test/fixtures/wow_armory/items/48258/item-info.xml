@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?xml-stylesheet type="text/xsl" href="/_layout/items/info.xsl"?>
+<page globalSearch="1" lang="en_us" requestQuery="i=48258" requestUrl="/item-info.xml">
+  <itemInfo>
+    <item icon="inv_pants_mail_25" id="48258" level="245" name="Windrunner's Legguards of Triumph" quality="4" type="Mail">
+      <cost>
+        <token count="75" icon="spell_holy_summonchampion" id="47241"/>
+        <token count="1" icon="inv_misc_trophy_argent" id="47242"/>
+      </cost>
+      <disenchantLoot requiredSkillRank="375">
+        <item canAuction="1" dropRate="6" icon="inv_enchant_abysscrystal" id="34057" level="80" maxCount="1" minCount="1" name="Abyss Crystal" quality="4" type="Enchanting"/>
+      </disenchantLoot>
+      <vendors>
+        <creature area="Icecrown" classification="0" heroic="1" id="35577" maxLevel="79" minLevel="79" name="Valiant Laradia" title="Triumphant Armor Vendor" type="Humanoid"/>
+      </vendors>
+      <dropCreatures>
+        <creature area="Vault of Archavon" classification="3" dropRate="1" heroic="1" id="35360" maxLevel="83" minLevel="83" name="Koralon the Flame Watcher" type="Giant"/>
+      </dropCreatures>
+      <translationFor factionEquiv="1">
+        <item icon="inv_pants_mail_24" id="48271" level="245" name="Windrunner's Legguards of Triumph" quality="4"/>
+      </translationFor>
+    </item>
+  </itemInfo>
+</page>

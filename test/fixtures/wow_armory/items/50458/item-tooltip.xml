@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?xml-stylesheet type="text/xsl" href="/_layout/items/tooltip.xsl"?>
+<page globalSearch="1" lang="en_us" requestUrl="/item-tooltip.xml">
+  <itemTooltips>
+    <itemTooltip>
+      <id>50458</id>
+      <name>Bizuri's Totem of Shattered Ice</name>
+      <icon>spell_frost_frostnova</icon>
+      <overallQualityId>4</overallQualityId>
+      <bonding>1</bonding>
+      <classId>4</classId>
+      <equipData>
+        <inventoryType>28</inventoryType>
+        <subclassName>Totem</subclassName>
+      </equipData>
+      <damageData/>
+      <requiredLevel>80</requiredLevel>
+      <itemLevel>264</itemLevel>
+      <spellData>
+        <spell>
+          <trigger>1</trigger>
+          <desc>The periodic damage from your Flame Shock spell grants 44 haste rating for 30 sec.  Stacks up to 5 times.</desc>
+        </spell>
+      </spellData>
+      <desc>Counts as an Air, Earth, Fire, and Water totem.</desc>
+      <itemSource value="sourceType.vendor"/>
+    </itemTooltip>
+  </itemTooltips>
+</page>

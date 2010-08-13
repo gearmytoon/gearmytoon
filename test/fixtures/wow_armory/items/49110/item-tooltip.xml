@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?xml-stylesheet type="text/xsl" href="/_layout/items/tooltip.xsl"?>
+<page globalSearch="1" lang="en_us" requestUrl="/item-tooltip.xml">
+  <itemTooltips>
+    <itemTooltip>
+      <id>49110</id>
+      <name>Nightmare Tear</name>
+      <icon>inv_misc_gem_pearl_12</icon>
+      <overallQualityId>4</overallQualityId>
+      <bonding>0</bonding>
+      <maxCount uniqueEquippable="1">1</maxCount>
+      <classId>3</classId>
+      <equipData>
+        <inventoryType>0</inventoryType>
+      </equipData>
+      <damageData/>
+      <gemProperties>+10 All Stats</gemProperties>
+      <requiredLevel>-1</requiredLevel>
+      <itemLevel>80</itemLevel>
+      <desc>Matches any socket.</desc>
+      <itemSource value="sourceType.createdBySpell"/>
+    </itemTooltip>
+  </itemTooltips>
+</page>

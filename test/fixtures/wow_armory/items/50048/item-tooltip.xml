@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?xml-stylesheet type="text/xsl" href="/_layout/items/tooltip.xsl"?>
+<page globalSearch="1" lang="en_us" requestUrl="/item-tooltip.xml">
+  <itemTooltips>
+    <itemTooltip>
+      <id>50048</id>
+      <name>Quel'Delar, Might of the Faithful</name>
+      <icon>inv_sword_155</icon>
+      <overallQualityId>4</overallQualityId>
+      <bonding>1</bonding>
+      <maxCount uniqueEquippable="1">1</maxCount>
+      <classId>2</classId>
+      <equipData>
+        <inventoryType>17</inventoryType>
+        <subclassName>Sword</subclassName>
+      </equipData>
+      <damageData>
+        <damage>
+          <type>0</type>
+          <min>769</min>
+          <max>1155</max>
+        </damage>
+        <speed>3.6</speed>
+        <dps>267.22</dps>
+      </damageData>
+      <bonusStrength>164</bonusStrength>
+      <bonusStamina>164</bonusStamina>
+      <durability current="120" max="120"/>
+      <requiredLevel>80</requiredLevel>
+      <itemLevel>251</itemLevel>
+      <bonusCritRating>99</bonusCritRating>
+      <bonusHasteRating>91</bonusHasteRating>
+      <itemSource reqLvl="80" value="sourceType.questReward"/>
+    </itemTooltip>
+  </itemTooltips>
+</page>

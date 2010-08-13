@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?xml-stylesheet type="text/xsl" href="/_layout/items/tooltip.xsl"?>
+<page globalSearch="1" lang="en_us" requestUrl="/item-tooltip.xml">
+  <itemTooltips>
+    <itemTooltip>
+      <id>40207</id>
+      <name>Sigil of Awareness</name>
+      <icon>inv_shield_56</icon>
+      <overallQualityId>4</overallQualityId>
+      <bonding>1</bonding>
+      <maxCount>1</maxCount>
+      <classId>4</classId>
+      <equipData>
+        <inventoryType>28</inventoryType>
+        <subclassName>Sigil</subclassName>
+      </equipData>
+      <damageData/>
+      <requiredLevel>80</requiredLevel>
+      <itemLevel>213</itemLevel>
+      <spellData>
+        <spell>
+          <trigger>1</trigger>
+          <desc>Increases the base damage dealt by your Scourge Strike by 189, your Obliterate by 336, and your Death Strike by 315.</desc>
+        </spell>
+      </spellData>
+      <itemSource value="sourceType.vendor"/>
+    </itemTooltip>
+  </itemTooltips>
+</page>

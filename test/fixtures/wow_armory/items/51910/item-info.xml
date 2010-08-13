@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?xml-stylesheet type="text/xsl" href="/_layout/items/info.xsl"?>
+<page globalSearch="1" lang="en_us" requestQuery="i=51910" requestUrl="/item-info.xml">
+  <itemInfo>
+    <item icon="inv_weapon_shortblade_103" id="51910" level="264" name="Midnight Sun" quality="4" type="Daggers">
+      <cost sellPrice="264296"/>
+      <disenchantLoot requiredSkillRank="375">
+        <item canAuction="1" dropRate="6" icon="inv_enchant_abysscrystal" id="34057" level="80" maxCount="1" minCount="1" name="Abyss Crystal" quality="4" type="Enchanting"/>
+      </disenchantLoot>
+      <containerObjects>
+        <object area="Icecrown Citadel (10)" areaUrl="fl[source]=dungeon&amp;fl[dungeon]=icecrowncitadel10&amp;fl[boss]=all&amp;fl[difficulty]=all" dropRate="4" heroic="1" id="202177" name="Gunship Armory"/>
+      </containerObjects>
+    </item>
+  </itemInfo>
+</page>

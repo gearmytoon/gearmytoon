@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?xml-stylesheet type="text/xsl" href="/_layout/items/info.xsl"?>
+<page globalSearch="1" lang="en_us" requestQuery="i=44088" requestUrl="/item-info.xml">
+  <itemInfo>
+    <item canAuction="1" icon="inv_jewelcrafting_shadowspirit_02" id="44088" level="80" name="Powerful Earthshatter Diamond" quality="3" type="Meta">
+      <cost>
+        <token count="15" icon="inv_misc_platnumdisks" id="43228"/>
+      </cost>
+      <vendors>
+        <creature area="Wintergrasp" classification="0" heroic="1" id="32296" maxLevel="80" minLevel="80" name="Stone Guard Mukar" title="Wintergrasp Quartermaster" type="Humanoid"/>
+        <creature area="Wintergrasp" classification="0" heroic="1" id="30489" maxLevel="79" minLevel="79" name="Morgan Day" title="Jewelcrafter" type="Humanoid"/>
+        <creature area="Wintergrasp" classification="0" heroic="1" id="32294" maxLevel="80" minLevel="80" name="Knight Dameron" title="Wintergrasp Quartermaster" type="Humanoid"/>
+      </vendors>
+    </item>
+  </itemInfo>
+</page>

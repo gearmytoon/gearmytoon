@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?xml-stylesheet type="text/xsl" href="/_layout/items/tooltip.xsl"?>
+<page globalSearch="1" lang="en_us" requestUrl="/item-tooltip.xml">
+  <itemTooltips>
+    <itemTooltip>
+      <id>47261</id>
+      <name>Barb of Tarasque</name>
+      <icon>inv_weapon_shortblade_93</icon>
+      <overallQualityId>4</overallQualityId>
+      <bonding>1</bonding>
+      <maxCount>1</maxCount>
+      <classId>2</classId>
+      <equipData>
+        <inventoryType>21</inventoryType>
+        <subclassName>Dagger</subclassName>
+      </equipData>
+      <damageData>
+        <damage>
+          <type>0</type>
+          <min>97</min>
+          <max>311</max>
+        </damage>
+        <speed>1.8</speed>
+        <dps>113.29</dps>
+      </damageData>
+      <bonusStamina>42</bonusStamina>
+      <bonusIntellect>58</bonusIntellect>
+      <durability current="75" max="75"/>
+      <requiredLevel>80</requiredLevel>
+      <itemLevel>245</itemLevel>
+      <bonusSpellPower>621</bonusSpellPower>
+      <bonusHitRating>45</bonusHitRating>
+      <bonusHasteRating>58</bonusHasteRating>
+      <itemSource areaId="4722" areaName="Trial of the Crusader (25)" creatureId="35447" creatureName="Icehowl" difficulty="n" dropRate="3" value="sourceType.creatureDrop"/>
+    </itemTooltip>
+  </itemTooltips>
+</page>

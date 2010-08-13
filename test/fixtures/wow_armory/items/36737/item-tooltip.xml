@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?xml-stylesheet type="text/xsl" href="/_layout/items/tooltip.xsl"?>
+<page globalSearch="1" lang="en_us" requestUrl="/item-tooltip.xml">
+  <itemTooltips>
+    <itemTooltip>
+      <id>36737</id>
+      <name>Brutal Gladiator's Hatchet</name>
+      <icon>inv_axe_1h_blacksmithing_02</icon>
+      <overallQualityId>4</overallQualityId>
+      <bonding>1</bonding>
+      <classId>2</classId>
+      <equipData>
+        <inventoryType>22</inventoryType>
+        <subclassName>Axe</subclassName>
+      </equipData>
+      <damageData>
+        <damage>
+          <type>0</type>
+          <min>196</min>
+          <max>365</max>
+        </damage>
+        <speed>2.6</speed>
+        <dps>107.88</dps>
+      </damageData>
+      <bonusStamina>31</bonusStamina>
+      <durability current="105" max="105"/>
+      <allowableClasses>
+        <class>Hunter</class>
+      </allowableClasses>
+      <requiredLevel>70</requiredLevel>
+      <itemLevel>154</itemLevel>
+      <bonusCritRating>20</bonusCritRating>
+      <bonusResilienceRating>14</bonusResilienceRating>
+      <bonusHitRating>9</bonusHitRating>
+      <spellData>
+        <spell>
+          <trigger>1</trigger>
+          <desc>Increases attack power by 42.</desc>
+        </spell>
+        <spell>
+          <trigger>1</trigger>
+          <desc>Increases armor penetration rating by 6.</desc>
+        </spell>
+      </spellData>
+      <itemSource value="sourceType.vendor"/>
+    </itemTooltip>
+  </itemTooltips>
+</page>

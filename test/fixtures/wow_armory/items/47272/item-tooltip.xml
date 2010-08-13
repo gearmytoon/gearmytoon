@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?xml-stylesheet type="text/xsl" href="/_layout/items/tooltip.xsl"?>
+<page globalSearch="1" lang="en_us" requestUrl="/item-tooltip.xml">
+  <itemTooltips>
+    <itemTooltip>
+      <id>47272</id>
+      <name>Charge of the Eredar</name>
+      <icon>inv_jewelry_necklace_34</icon>
+      <overallQualityId>4</overallQualityId>
+      <bonding>1</bonding>
+      <classId>4</classId>
+      <equipData>
+        <inventoryType>2</inventoryType>
+      </equipData>
+      <damageData/>
+      <bonusAgility>76</bonusAgility>
+      <bonusStamina>76</bonusStamina>
+      <requiredLevel>80</requiredLevel>
+      <itemLevel>245</itemLevel>
+      <bonusAttackPower>101</bonusAttackPower>
+      <bonusCritRating>54</bonusCritRating>
+      <bonusHasteRating>44</bonusHasteRating>
+      <itemSource areaId="4722" areaName="Trial of the Crusader (25)" creatureId="35216" creatureName="Lord Jaraxxus" difficulty="n" dropRate="3" value="sourceType.creatureDrop"/>
+    </itemTooltip>
+  </itemTooltips>
+</page>

@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?xml-stylesheet type="text/xsl" href="/_layout/items/tooltip.xsl"?>
+<page globalSearch="1" lang="en_us" requestUrl="/item-tooltip.xml">
+  <itemTooltips>
+    <itemTooltip>
+      <id>45825</id>
+      <name>Shieldwarder Girdle</name>
+      <icon>inv_belt_48a</icon>
+      <overallQualityId>4</overallQualityId>
+      <bonding>1</bonding>
+      <classId>4</classId>
+      <equipData>
+        <inventoryType>6</inventoryType>
+        <subclassName>Plate</subclassName>
+      </equipData>
+      <damageData/>
+      <bonusStrength>57</bonusStrength>
+      <bonusStamina>127</bonusStamina>
+      <armor armorBonus="0">1321</armor>
+      <durability current="55" max="55"/>
+      <requiredLevel>80</requiredLevel>
+      <itemLevel>226</itemLevel>
+      <bonusDefenseSkillRating>49</bonusDefenseSkillRating>
+      <bonusDodgeRating>60</bonusDodgeRating>
+      <bonusHitRating>56</bonusHitRating>
+      <itemSource value="sourceType.vendor"/>
+    </itemTooltip>
+  </itemTooltips>
+</page>

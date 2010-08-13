@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?xml-stylesheet type="text/xsl" href="/_layout/items/tooltip.xsl"?>
+<page globalSearch="1" lang="en_us" requestUrl="/item-tooltip.xml">
+  <itemTooltips>
+    <itemTooltip>
+      <id>50198</id>
+      <name>Needle-Encrusted Scorpion</name>
+      <icon>inv_qirajidol_onyx</icon>
+      <overallQualityId>4</overallQualityId>
+      <bonding>1</bonding>
+      <maxCount>1</maxCount>
+      <classId>4</classId>
+      <equipData>
+        <inventoryType>12</inventoryType>
+      </equipData>
+      <damageData/>
+      <requiredLevel>80</requiredLevel>
+      <itemLevel>232</itemLevel>
+      <bonusCritRating>114</bonusCritRating>
+      <spellData>
+        <spell>
+          <trigger>1</trigger>
+          <desc>Chance on melee or ranged critical strike to increase your armor penetration rating by 678 for 10 sec.</desc>
+        </spell>
+      </spellData>
+      <itemSource areaId="4809" areaName="Forge of Souls" creatureId="36502" creatureName="Devourer of Souls" difficulty="h" dropRate="2" value="sourceType.creatureDrop"/>
+    </itemTooltip>
+  </itemTooltips>
+</page>

@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?xml-stylesheet type="text/xsl" href="/_layout/items/tooltip.xsl"?>
+<page globalSearch="1" lang="en_us" requestUrl="/item-tooltip.xml">
+  <itemTooltips>
+    <itemTooltip>
+      <id>50803</id>
+      <name>Saurfang's Cold-Forged Band</name>
+      <icon>inv_jewelry_ring_81</icon>
+      <overallQualityId>4</overallQualityId>
+      <bonding>1</bonding>
+      <maxCount uniqueEquippable="1">1</maxCount>
+      <classId>4</classId>
+      <equipData>
+        <inventoryType>11</inventoryType>
+      </equipData>
+      <damageData/>
+      <bonusAgility>72</bonusAgility>
+      <bonusStamina>70</bonusStamina>
+      <socketData>
+        <socket color="Yellow"/>
+      </socketData>
+      <requiredLevel>80</requiredLevel>
+      <itemLevel>251</itemLevel>
+      <bonusAttackPower>114</bonusAttackPower>
+      <bonusHasteRating>45</bonusHasteRating>
+      <bonusArmorPenetration>53</bonusArmorPenetration>
+      <itemSource value="sourceType.gameObjectDrop"/>
+    </itemTooltip>
+  </itemTooltips>
+</page>

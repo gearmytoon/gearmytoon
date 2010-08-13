@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?xml-stylesheet type="text/xsl" href="/_layout/items/info.xsl"?>
+<page globalSearch="1" lang="en_us" requestQuery="i=41206" requestUrl="/item-info.xml">
+  <itemInfo>
+    <item icon="inv_pants_mail_16" id="41206" level="251" name="Relentless Gladiator's Chain Leggings" quality="4" type="Mail">
+      <cost arena="770" factionId="0" honor="13200"/>
+      <vendors>
+        <creature area="Crystalsong Forest" classification="0" heroic="1" id="33927" maxLevel="75" minLevel="75" name="Nargle Lashcord" title="Veteran Arena Vendor" type="Humanoid"/>
+        <creature area="Icecrown Citadel" classification="0" heroic="1" id="38858" maxLevel="80" minLevel="80" name="Goodman the &quot;Closer&quot;" title="Emblem of Frost Quartermaster" type="Humanoid"/>
+        <creature area="Netherstorm" classification="0" heroic="1" id="33931" maxLevel="70" minLevel="70" name="Kezzik the Striker" title="Veteran Arena Vendor" type="Humanoid"/>
+        <creature area="Tanaris" classification="0" heroic="1" id="40214" maxLevel="70" minLevel="70" name="Evee Copperspring" title="Arena Vendor" type="Humanoid"/>
+        <creature area="Crystalsong Forest" classification="0" heroic="1" id="37941" maxLevel="80" minLevel="80" name="Magister Arlan" title="Emblem of Frost Quartermaster" type="Humanoid"/>
+        <creature area="Crystalsong Forest" classification="0" heroic="1" id="33937" maxLevel="75" minLevel="75" name="Xazi Smolderpipe" title="Arena Vendor" type="Humanoid"/>
+        <creature area="Netherstorm" classification="0" heroic="1" id="33933" maxLevel="70" minLevel="70" name="Big Zokk Torquewrench" title="Arena Vendor" type="Humanoid"/>
+        <creature area="Crystalsong Forest" classification="0" heroic="1" id="37942" maxLevel="80" minLevel="80" name="Arcanist Uovril" title="Emblem of Frost Quartermaster" type="Humanoid"/>
+        <creature area="Tanaris" classification="0" heroic="1" id="33924" maxLevel="70" minLevel="70" name="Argex Irongut" title="Veteran Arena Vendor" type="Humanoid"/>
+        <creature area="Netherstorm" classification="0" heroic="1" id="40206" maxLevel="70" minLevel="70" name="Big Zokk Torquewrench" title="Arena Vendor" type="Humanoid"/>
+        <creature area="Crystalsong Forest" classification="0" heroic="1" id="40210" maxLevel="75" minLevel="75" name="Xazi Smolderpipe" title="Arena Vendor" type="Humanoid"/>
+        <creature area="Tanaris" classification="0" heroic="1" id="33935" maxLevel="70" minLevel="70" name="Evee Copperspring" title="Arena Vendor" type="Humanoid"/>
+      </vendors>
+      <dropCreatures>
+        <creature area="Vault of Archavon" classification="3" dropRate="1" id="38433" maxLevel="83" minLevel="83" name="Toravon the Ice Watcher" type="Giant"/>
+        <creature area="Vault of Archavon" classification="3" dropRate="1" heroic="1" id="35360" maxLevel="83" minLevel="83" name="Koralon the Flame Watcher" type="Giant"/>
+      </dropCreatures>
+    </item>
+  </itemInfo>
+</page>

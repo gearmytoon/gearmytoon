@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?xml-stylesheet type="text/xsl" href="/_layout/items/tooltip.xsl"?>
+<page globalSearch="1" lang="en_us" requestUrl="/item-tooltip.xml">
+  <itemTooltips>
+    <itemTooltip>
+      <id>40158</id>
+      <name>Empowered Ametrine</name>
+      <icon>inv_jewelcrafting_gem_39</icon>
+      <overallQualityId>4</overallQualityId>
+      <bonding>0</bonding>
+      <classId>3</classId>
+      <equipData>
+        <inventoryType>0</inventoryType>
+      </equipData>
+      <damageData/>
+      <gemProperties>+20 Attack Power and +10 Resilience Rating</gemProperties>
+      <requiredLevel>-1</requiredLevel>
+      <itemLevel>80</itemLevel>
+      <desc>Matches a Red or Yellow Socket.</desc>
+      <itemSource value="sourceType.createdBySpell"/>
+    </itemTooltip>
+  </itemTooltips>
+</page>

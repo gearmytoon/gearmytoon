@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?xml-stylesheet type="text/xsl" href="/_layout/items/tooltip.xsl"?>
+<page globalSearch="1" lang="en_us" requestUrl="/item-tooltip.xml">
+  <itemTooltips>
+    <itemTooltip>
+      <id>40722</id>
+      <name>Platinum Mesh Cloak</name>
+      <icon>inv_misc_cape_20</icon>
+      <overallQualityId>4</overallQualityId>
+      <bonding>1</bonding>
+      <classId>4</classId>
+      <equipData>
+        <inventoryType>16</inventoryType>
+      </equipData>
+      <damageData/>
+      <bonusStrength>41</bonusStrength>
+      <bonusStamina>84</bonusStamina>
+      <armor armorBonus="0">154</armor>
+      <requiredLevel>80</requiredLevel>
+      <itemLevel>213</itemLevel>
+      <bonusDefenseSkillRating>38</bonusDefenseSkillRating>
+      <bonusDodgeRating>37</bonusDodgeRating>
+      <bonusHitRating>32</bonusHitRating>
+      <itemSource value="sourceType.vendor"/>
+    </itemTooltip>
+  </itemTooltips>
+</page>

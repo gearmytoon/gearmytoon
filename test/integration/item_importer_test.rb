@@ -14,6 +14,12 @@ class ItemImporterTest < ActiveSupport::TestCase
     should "import items with damage data but nothing else" do
       item = ItemImporter.import_from_wowarmory!(37708) #this item is a funny quest item with damage data
     end
+
+    should "import items with multiple spell effects correct" do
+      item = ItemImporter.import_from_wowarmory!(36737)
+      item.reload
+      assert_equal 2, item.spell_effects.size
+    end
     
     should "not raise error on item not found" do
       STDERR.expects(:puts)

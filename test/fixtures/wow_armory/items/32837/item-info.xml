@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?xml-stylesheet type="text/xsl" href="/_layout/items/info.xsl"?>
+<page globalSearch="1" lang="en_us" requestQuery="i=32837" requestUrl="/item-info.xml">
+  <itemInfo>
+    <item icon="inv_weapon_glave_01" id="32837" level="156" name="Warglaive of Azzinoth" quality="5" type="One-Handed Swords">
+      <cost sellPrice="243112"/>
+      <dropCreatures>
+        <creature area="Black Temple" areaUrl="fl[source]=dungeon&amp;fl[dungeon]=blacktemple&amp;fl[boss]=all&amp;fl[difficulty]=all" classification="3" dropRate="2" heroic="1" id="22917" maxLevel="73" minLevel="73" name="Illidan Stormrage" title="The Betrayer" type="Demon" url="fl[source]=dungeon&amp;fl[dungeon]=blacktemple&amp;fl[difficulty]=heroic&amp;fl[boss]=22917"/>
+      </dropCreatures>
+    </item>
+  </itemInfo>
+</page>

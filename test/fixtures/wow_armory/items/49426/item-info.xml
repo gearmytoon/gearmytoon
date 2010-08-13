@@ -1,0 +1,1057 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?xml-stylesheet type="text/xsl" href="/_layout/items/info.xsl"?>
+<page globalSearch="1" lang="en_us" requestQuery="i=49426" requestUrl="/item-info.xml">
+  <itemInfo>
+    <item icon="inv_misc_frostemblem_01" id="49426" level="80" multiLoot="1" name="Emblem of Frost" quality="4" type="Money(OBSOLETE)">
+      <rewardFromQuests>
+        <quest area="The Forge of Souls" id="24511" level="80" name="Echoes of Tortured Souls" reqMinLevel="78" suggestedPartySize="0" type="Dungeon"/>
+        <quest area="The Forge of Souls" id="24499" level="80" name="Echoes of Tortured Souls" reqMinLevel="78" suggestedPartySize="0" type="Dungeon"/>
+        <quest area="Crystalsong Forest" id="24579" level="80" name="Sartharion Must Die!" reqMinLevel="80" suggestedPartySize="0" type="Raid"/>
+        <quest area="Crystalsong Forest" id="24580" level="80" name="Anub'Rekhan Must Die!" reqMinLevel="80" suggestedPartySize="0" type="Raid"/>
+        <quest area="Crystalsong Forest" id="24581" level="80" name="Noth the Plaguebringer Must Die!" reqMinLevel="80" suggestedPartySize="0" type="Raid"/>
+        <quest area="Crystalsong Forest" id="24582" level="80" name="Instructor Razuvious Must Die!" reqMinLevel="80" suggestedPartySize="0" type="Raid"/>
+        <quest area="Crystalsong Forest" id="24583" level="80" name="Patchwerk Must Die!" reqMinLevel="80" suggestedPartySize="0" type="Raid"/>
+        <quest area="Crystalsong Forest" id="24584" level="80" name="Malygos Must Die!" reqMinLevel="80" suggestedPartySize="0" type="Raid"/>
+        <quest area="Crystalsong Forest" id="24585" level="80" name="Flame Leviathan Must Die!" reqMinLevel="80" suggestedPartySize="0" type="Raid"/>
+        <quest area="Crystalsong Forest" id="24586" level="80" name="Razorscale Must Die!" reqMinLevel="80" suggestedPartySize="0" type="Raid"/>
+        <quest area="Crystalsong Forest" id="24587" level="80" name="Ignis the Furnace Master Must Die!" reqMinLevel="80" suggestedPartySize="0" type="Raid"/>
+        <quest area="Crystalsong Forest" id="24588" level="80" name="XT-002 Deconstructor Must Die!" reqMinLevel="80" suggestedPartySize="0" type="Raid"/>
+        <quest area="Crystalsong Forest" id="24589" level="80" name="Lord Jaraxxus Must Die!" reqMinLevel="80" suggestedPartySize="0" type="Raid"/>
+        <quest area="Crystalsong Forest" id="24590" level="80" name="Lord Marrowgar Must Die!" reqMinLevel="80" suggestedPartySize="0" type="Raid"/>
+      </rewardFromQuests>
+      <containerObjects>
+        <object area="Icecrown Citadel (25)" areaUrl="fl[source]=dungeon&amp;fl[dungeon]=icecrowncitadel25&amp;fl[boss]=all&amp;fl[difficulty]=all" dropRate="6" heroic="1" id="202241" name="Deathbringer's Cache" url="fl[source]=dungeon&amp;fl[dungeon]=icecrowncitadel25&amp;fl[difficulty]=heroic&amp;fl[boss]=37813"/>
+        <object area="Icecrown Citadel (25)" areaUrl="fl[source]=dungeon&amp;fl[dungeon]=icecrowncitadel25&amp;fl[boss]=all&amp;fl[difficulty]=all" dropRate="6" id="202240" name="Deathbringer's Cache" url="fl[source]=dungeon&amp;fl[dungeon]=icecrowncitadel25&amp;fl[difficulty]=all&amp;fl[boss]=37813"/>
+        <object area="Icecrown Citadel (10)" areaUrl="fl[source]=dungeon&amp;fl[dungeon]=icecrowncitadel10&amp;fl[boss]=all&amp;fl[difficulty]=all" dropRate="6" heroic="1" id="202238" name="Deathbringer's Cache" url="fl[source]=dungeon&amp;fl[dungeon]=icecrowncitadel10&amp;fl[difficulty]=heroic&amp;fl[boss]=37813"/>
+        <object area="Icecrown Citadel (10)" areaUrl="fl[source]=dungeon&amp;fl[dungeon]=icecrowncitadel10&amp;fl[boss]=all&amp;fl[difficulty]=all" dropRate="6" id="202239" name="Deathbringer's Cache" url="fl[source]=dungeon&amp;fl[dungeon]=icecrowncitadel10&amp;fl[difficulty]=all&amp;fl[boss]=37813"/>
+        <object area="Icecrown Citadel (25)" areaUrl="fl[source]=dungeon&amp;fl[dungeon]=icecrowncitadel25&amp;fl[boss]=all&amp;fl[difficulty]=all" dropRate="6" id="202180" name="Gunship Armory"/>
+        <object area="Icecrown Citadel (25)" areaUrl="fl[source]=dungeon&amp;fl[dungeon]=icecrowncitadel25&amp;fl[boss]=all&amp;fl[difficulty]=all" dropRate="6" heroic="1" id="202179" name="Gunship Armory"/>
+        <object area="Icecrown Citadel (10)" areaUrl="fl[source]=dungeon&amp;fl[dungeon]=icecrowncitadel10&amp;fl[boss]=all&amp;fl[difficulty]=all" dropRate="6" id="202178" name="Gunship Armory"/>
+        <object area="Icecrown Citadel (10)" areaUrl="fl[source]=dungeon&amp;fl[dungeon]=icecrowncitadel10&amp;fl[boss]=all&amp;fl[difficulty]=all" dropRate="6" heroic="1" id="202177" name="Gunship Armory"/>
+        <object area="Icecrown Citadel (10)" areaUrl="fl[source]=dungeon&amp;fl[dungeon]=icecrowncitadel10&amp;fl[boss]=all&amp;fl[difficulty]=all" dropRate="6" id="201959" name="Cache of the Dreamwalker"/>
+        <object area="Icecrown Citadel (25)" areaUrl="fl[source]=dungeon&amp;fl[dungeon]=icecrowncitadel25&amp;fl[boss]=all&amp;fl[difficulty]=all" dropRate="6" heroic="1" id="202340" name="Cache of the Dreamwalker"/>
+        <object area="Icecrown Citadel (25)" areaUrl="fl[source]=dungeon&amp;fl[dungeon]=icecrowncitadel25&amp;fl[boss]=all&amp;fl[difficulty]=all" dropRate="6" id="202339" name="Cache of the Dreamwalker"/>
+        <object area="Icecrown Citadel (10)" areaUrl="fl[source]=dungeon&amp;fl[dungeon]=icecrowncitadel10&amp;fl[boss]=all&amp;fl[difficulty]=all" dropRate="6" heroic="1" id="202338" name="Cache of the Dreamwalker"/>
+      </containerObjects>
+      <dropCreatures>
+        <creature area="Ruby Sanctum (10)" areaUrl="fl[source]=dungeon&amp;fl[dungeon]=rubysanctum10&amp;fl[boss]=all&amp;fl[difficulty]=all" classification="1" dropRate="6" id="39863" maxLevel="83" minLevel="83" name="Halion" title="The Twilight Destroyer" type="Dragonkin" url="fl[source]=dungeon&amp;fl[dungeon]=rubysanctum10&amp;fl[difficulty]=all&amp;fl[boss]=39863"/>
+        <creature area="Ruby Sanctum (25)" areaUrl="fl[source]=dungeon&amp;fl[dungeon]=rubysanctum25&amp;fl[boss]=all&amp;fl[difficulty]=all" classification="1" dropRate="6" id="39864" maxLevel="83" minLevel="83" name="Halion" title="The Twilight Destroyer" type="Dragonkin" url="fl[source]=dungeon&amp;fl[dungeon]=rubysanctum25&amp;fl[difficulty]=all&amp;fl[boss]=39864"/>
+        <creature area="Ruby Sanctum (10)" areaUrl="fl[source]=dungeon&amp;fl[dungeon]=rubysanctum10&amp;fl[boss]=all&amp;fl[difficulty]=all" classification="1" dropRate="6" heroic="1" id="39944" maxLevel="83" minLevel="83" name="Halion" title="The Twilight Destroyer" type="Dragonkin" url="fl[source]=dungeon&amp;fl[dungeon]=rubysanctum10&amp;fl[difficulty]=heroic&amp;fl[boss]=39863"/>
+        <creature area="Ruby Sanctum (25)" areaUrl="fl[source]=dungeon&amp;fl[dungeon]=rubysanctum25&amp;fl[boss]=all&amp;fl[difficulty]=all" classification="1" dropRate="6" heroic="1" id="39945" maxLevel="83" minLevel="83" name="Halion" title="The Twilight Destroyer" type="Dragonkin" url="fl[source]=dungeon&amp;fl[dungeon]=rubysanctum25&amp;fl[difficulty]=heroic&amp;fl[boss]=39864"/>
+        <creature area="The Ruby Sanctum" classification="1" dropRate="6" id="39751" maxLevel="83" minLevel="83" name="Baltharus the Warborn" type="Dragonkin"/>
+        <creature area="The Ruby Sanctum" classification="1" dropRate="6" heroic="1" id="39920" maxLevel="83" minLevel="83" name="Baltharus the Warborn" type="Dragonkin"/>
+        <creature area="The Ruby Sanctum" classification="1" dropRate="6" id="39747" maxLevel="83" minLevel="83" name="Saviana Ragefire" type="Dragonkin"/>
+        <creature area="The Ruby Sanctum" classification="1" dropRate="6" heroic="1" id="39823" maxLevel="83" minLevel="83" name="Saviana Ragefire" type="Dragonkin"/>
+        <creature area="The Ruby Sanctum" classification="1" dropRate="6" id="39746" maxLevel="83" minLevel="83" name="General Zarithrian" type="Dragonkin"/>
+        <creature area="The Ruby Sanctum" classification="1" dropRate="6" heroic="1" id="39805" maxLevel="83" minLevel="83" name="General Zarithrian" type="Dragonkin"/>
+        <creature area="Icecrown Citadel (25)" areaUrl="fl[source]=dungeon&amp;fl[dungeon]=icecrowncitadel25&amp;fl[boss]=all&amp;fl[difficulty]=all" classification="3" dropRate="6" heroic="1" id="38550" maxLevel="83" minLevel="83" name="Rotface" type="Undead" url="fl[source]=dungeon&amp;fl[dungeon]=icecrowncitadel25&amp;fl[difficulty]=heroic&amp;fl[boss]=38390"/>
+        <creature area="Icecrown Citadel (10)" areaUrl="fl[source]=dungeon&amp;fl[dungeon]=icecrowncitadel10&amp;fl[boss]=all&amp;fl[difficulty]=all" classification="1" dropRate="6" id="36853" maxLevel="83" minLevel="83" name="Sindragosa" title="Queen of the Frostbrood" type="Undead" url="fl[source]=dungeon&amp;fl[dungeon]=icecrowncitadel10&amp;fl[difficulty]=all&amp;fl[boss]=36853"/>
+        <creature area="Icecrown Citadel (25)" areaUrl="fl[source]=dungeon&amp;fl[dungeon]=icecrowncitadel25&amp;fl[boss]=all&amp;fl[difficulty]=all" classification="1" dropRate="6" id="38265" maxLevel="83" minLevel="83" name="Sindragosa" title="Queen of the Frostbrood" type="Undead" url="fl[source]=dungeon&amp;fl[dungeon]=icecrowncitadel25&amp;fl[difficulty]=all&amp;fl[boss]=38265"/>
+        <creature area="Icecrown Citadel (10)" areaUrl="fl[source]=dungeon&amp;fl[dungeon]=icecrowncitadel10&amp;fl[boss]=all&amp;fl[difficulty]=all" classification="3" dropRate="6" id="36612" maxLevel="83" minLevel="83" name="Lord Marrowgar" type="Undead" url="fl[source]=dungeon&amp;fl[dungeon]=icecrowncitadel10&amp;fl[difficulty]=all&amp;fl[boss]=36612"/>
+        <creature area="Icecrown Citadel (25)" areaUrl="fl[source]=dungeon&amp;fl[dungeon]=icecrowncitadel25&amp;fl[boss]=all&amp;fl[difficulty]=all" classification="3" dropRate="6" id="37957" maxLevel="83" minLevel="83" name="Lord Marrowgar" type="Undead" url="fl[source]=dungeon&amp;fl[dungeon]=icecrowncitadel25&amp;fl[difficulty]=all&amp;fl[boss]=37957"/>
+        <creature area="Icecrown Citadel (10)" areaUrl="fl[source]=dungeon&amp;fl[dungeon]=icecrowncitadel10&amp;fl[boss]=all&amp;fl[difficulty]=all" classification="3" dropRate="6" heroic="1" id="37958" maxLevel="83" minLevel="83" name="Lord Marrowgar" type="Undead" url="fl[source]=dungeon&amp;fl[dungeon]=icecrowncitadel10&amp;fl[difficulty]=heroic&amp;fl[boss]=36612"/>
+        <creature area="Icecrown Citadel (25)" areaUrl="fl[source]=dungeon&amp;fl[dungeon]=icecrowncitadel25&amp;fl[boss]=all&amp;fl[difficulty]=all" classification="3" dropRate="6" heroic="1" id="37959" maxLevel="83" minLevel="83" name="Lord Marrowgar" type="Undead" url="fl[source]=dungeon&amp;fl[dungeon]=icecrowncitadel25&amp;fl[difficulty]=heroic&amp;fl[boss]=37957"/>
+        <creature area="Icecrown Citadel" classification="1" dropRate="6" id="37126" maxLevel="82" minLevel="82" name="Sister Svalna" type="Undead"/>
+        <creature area="Icecrown Citadel" classification="1" dropRate="6" heroic="1" id="38258" maxLevel="82" minLevel="82" name="Sister Svalna" type="Undead"/>
+        <creature area="Icecrown Citadel (10)" areaUrl="fl[source]=dungeon&amp;fl[dungeon]=icecrowncitadel10&amp;fl[boss]=all&amp;fl[difficulty]=all" classification="1" dropRate="6" heroic="1" id="38266" maxLevel="83" minLevel="83" name="Sindragosa" title="Queen of the Frostbrood" type="Undead" url="fl[source]=dungeon&amp;fl[dungeon]=icecrowncitadel10&amp;fl[difficulty]=heroic&amp;fl[boss]=36853"/>
+        <creature area="Icecrown Citadel (25)" areaUrl="fl[source]=dungeon&amp;fl[dungeon]=icecrowncitadel25&amp;fl[boss]=all&amp;fl[difficulty]=all" classification="1" dropRate="6" heroic="1" id="38267" maxLevel="83" minLevel="83" name="Sindragosa" title="Queen of the Frostbrood" type="Undead" url="fl[source]=dungeon&amp;fl[dungeon]=icecrowncitadel25&amp;fl[difficulty]=heroic&amp;fl[boss]=38265"/>
+        <creature area="Icecrown Citadel (10)" areaUrl="fl[source]=dungeon&amp;fl[dungeon]=icecrowncitadel10&amp;fl[boss]=all&amp;fl[difficulty]=all" classification="3" dropRate="6" id="36627" maxLevel="83" minLevel="83" name="Rotface" type="Undead" url="fl[source]=dungeon&amp;fl[dungeon]=icecrowncitadel10&amp;fl[difficulty]=all&amp;fl[boss]=36627"/>
+        <creature area="Icecrown Citadel (25)" areaUrl="fl[source]=dungeon&amp;fl[dungeon]=icecrowncitadel25&amp;fl[boss]=all&amp;fl[difficulty]=all" classification="3" dropRate="6" id="38390" maxLevel="83" minLevel="83" name="Rotface" type="Undead" url="fl[source]=dungeon&amp;fl[dungeon]=icecrowncitadel25&amp;fl[difficulty]=all&amp;fl[boss]=38390"/>
+        <creature area="Icecrown Citadel (10)" areaUrl="fl[source]=dungeon&amp;fl[dungeon]=icecrowncitadel10&amp;fl[boss]=all&amp;fl[difficulty]=all" classification="3" dropRate="6" heroic="1" id="38549" maxLevel="83" minLevel="83" name="Rotface" type="Undead" url="fl[source]=dungeon&amp;fl[dungeon]=icecrowncitadel10&amp;fl[difficulty]=heroic&amp;fl[boss]=36627"/>
+        <creature area="Icecrown Citadel (10)" areaUrl="fl[source]=dungeon&amp;fl[dungeon]=icecrowncitadel10&amp;fl[boss]=all&amp;fl[difficulty]=all" classification="3" dropRate="6" id="36597" maxLevel="83" minLevel="83" name="The Lich King" type="Undead" url="fl[source]=dungeon&amp;fl[dungeon]=icecrowncitadel10&amp;fl[difficulty]=all&amp;fl[boss]=36597"/>
+        <creature area="Icecrown Citadel (25)" areaUrl="fl[source]=dungeon&amp;fl[dungeon]=icecrowncitadel25&amp;fl[boss]=all&amp;fl[difficulty]=all" classification="3" dropRate="6" id="39166" maxLevel="83" minLevel="83" name="The Lich King" type="Undead" url="fl[source]=dungeon&amp;fl[dungeon]=icecrowncitadel25&amp;fl[difficulty]=all&amp;fl[boss]=39166"/>
+        <creature area="Icecrown Citadel (10)" areaUrl="fl[source]=dungeon&amp;fl[dungeon]=icecrowncitadel10&amp;fl[boss]=all&amp;fl[difficulty]=all" classification="3" dropRate="6" heroic="1" id="39167" maxLevel="83" minLevel="83" name="The Lich King" type="Undead" url="fl[source]=dungeon&amp;fl[dungeon]=icecrowncitadel10&amp;fl[difficulty]=heroic&amp;fl[boss]=36597"/>
+        <creature area="Icecrown Citadel (25)" areaUrl="fl[source]=dungeon&amp;fl[dungeon]=icecrowncitadel25&amp;fl[boss]=all&amp;fl[difficulty]=all" classification="3" dropRate="6" heroic="1" id="39168" maxLevel="83" minLevel="83" name="The Lich King" type="Undead" url="fl[source]=dungeon&amp;fl[dungeon]=icecrowncitadel25&amp;fl[difficulty]=heroic&amp;fl[boss]=39166"/>
+        <creature area="Icecrown Citadel (10)" areaUrl="fl[source]=dungeon&amp;fl[dungeon]=icecrowncitadel10&amp;fl[boss]=all&amp;fl[difficulty]=all" classification="1" dropRate="6" id="36855" maxLevel="83" minLevel="83" name="Lady Deathwhisper" type="Undead" url="fl[source]=dungeon&amp;fl[dungeon]=icecrowncitadel10&amp;fl[difficulty]=all&amp;fl[boss]=36855"/>
+        <creature area="Icecrown Citadel (25)" areaUrl="fl[source]=dungeon&amp;fl[dungeon]=icecrowncitadel25&amp;fl[boss]=all&amp;fl[difficulty]=all" classification="1" dropRate="6" id="38106" maxLevel="83" minLevel="83" name="Lady Deathwhisper" type="Undead" url="fl[source]=dungeon&amp;fl[dungeon]=icecrowncitadel25&amp;fl[difficulty]=all&amp;fl[boss]=38106"/>
+        <creature area="Icecrown Citadel (10)" areaUrl="fl[source]=dungeon&amp;fl[dungeon]=icecrowncitadel10&amp;fl[boss]=all&amp;fl[difficulty]=all" classification="1" dropRate="6" heroic="1" id="38296" maxLevel="83" minLevel="83" name="Lady Deathwhisper" type="Undead" url="fl[source]=dungeon&amp;fl[dungeon]=icecrowncitadel10&amp;fl[difficulty]=heroic&amp;fl[boss]=36855"/>
+        <creature area="Icecrown Citadel (25)" areaUrl="fl[source]=dungeon&amp;fl[dungeon]=icecrowncitadel25&amp;fl[boss]=all&amp;fl[difficulty]=all" classification="1" dropRate="6" heroic="1" id="38297" maxLevel="83" minLevel="83" name="Lady Deathwhisper" type="Undead" url="fl[source]=dungeon&amp;fl[dungeon]=icecrowncitadel25&amp;fl[difficulty]=heroic&amp;fl[boss]=38106"/>
+        <creature area="Icecrown Citadel (10)" areaUrl="fl[source]=dungeon&amp;fl[dungeon]=icecrowncitadel10&amp;fl[boss]=all&amp;fl[difficulty]=all" classification="3" dropRate="6" id="37955" maxLevel="83" minLevel="83" name="Blood-Queen Lana'thel" type="Undead" url="fl[source]=dungeon&amp;fl[dungeon]=icecrowncitadel10&amp;fl[difficulty]=all&amp;fl[boss]=37955"/>
+        <creature area="Icecrown Citadel (25)" areaUrl="fl[source]=dungeon&amp;fl[dungeon]=icecrowncitadel25&amp;fl[boss]=all&amp;fl[difficulty]=all" classification="3" dropRate="6" id="38434" maxLevel="83" minLevel="83" name="Blood-Queen Lana'thel" type="Undead" url="fl[source]=dungeon&amp;fl[dungeon]=icecrowncitadel25&amp;fl[difficulty]=all&amp;fl[boss]=38434"/>
+        <creature area="Icecrown Citadel (10)" areaUrl="fl[source]=dungeon&amp;fl[dungeon]=icecrowncitadel10&amp;fl[boss]=all&amp;fl[difficulty]=all" classification="3" dropRate="6" heroic="1" id="38435" maxLevel="83" minLevel="83" name="Blood-Queen Lana'thel" type="Undead" url="fl[source]=dungeon&amp;fl[dungeon]=icecrowncitadel10&amp;fl[difficulty]=heroic&amp;fl[boss]=37955"/>
+        <creature area="Icecrown Citadel (25)" areaUrl="fl[source]=dungeon&amp;fl[dungeon]=icecrowncitadel25&amp;fl[boss]=all&amp;fl[difficulty]=all" classification="3" dropRate="6" heroic="1" id="38436" maxLevel="83" minLevel="83" name="Blood-Queen Lana'thel" type="Undead" url="fl[source]=dungeon&amp;fl[dungeon]=icecrowncitadel25&amp;fl[difficulty]=heroic&amp;fl[boss]=38434"/>
+        <creature area="Icecrown Citadel (10)" areaUrl="fl[source]=dungeon&amp;fl[dungeon]=icecrowncitadel10&amp;fl[boss]=all&amp;fl[difficulty]=all" classification="1" dropRate="6" id="36678" maxLevel="83" minLevel="83" name="Professor Putricide" type="Undead" url="fl[source]=dungeon&amp;fl[dungeon]=icecrowncitadel10&amp;fl[difficulty]=all&amp;fl[boss]=36678"/>
+        <creature area="Icecrown Citadel (25)" areaUrl="fl[source]=dungeon&amp;fl[dungeon]=icecrowncitadel25&amp;fl[boss]=all&amp;fl[difficulty]=all" classification="1" dropRate="6" id="38431" maxLevel="83" minLevel="83" name="Professor Putricide" type="Undead" url="fl[source]=dungeon&amp;fl[dungeon]=icecrowncitadel25&amp;fl[difficulty]=all&amp;fl[boss]=38431"/>
+        <creature area="Icecrown Citadel (10)" areaUrl="fl[source]=dungeon&amp;fl[dungeon]=icecrowncitadel10&amp;fl[boss]=all&amp;fl[difficulty]=all" classification="1" dropRate="6" heroic="1" id="38585" maxLevel="83" minLevel="83" name="Professor Putricide" type="Undead" url="fl[source]=dungeon&amp;fl[dungeon]=icecrowncitadel10&amp;fl[difficulty]=heroic&amp;fl[boss]=36678"/>
+        <creature area="Icecrown Citadel (25)" areaUrl="fl[source]=dungeon&amp;fl[dungeon]=icecrowncitadel25&amp;fl[boss]=all&amp;fl[difficulty]=all" classification="1" dropRate="6" heroic="1" id="38586" maxLevel="83" minLevel="83" name="Professor Putricide" type="Undead" url="fl[source]=dungeon&amp;fl[dungeon]=icecrowncitadel25&amp;fl[difficulty]=heroic&amp;fl[boss]=38431"/>
+        <creature area="Icecrown Citadel (10)" areaUrl="fl[source]=dungeon&amp;fl[dungeon]=icecrowncitadel10&amp;fl[boss]=all&amp;fl[difficulty]=all" classification="3" dropRate="6" id="37970" maxLevel="83" minLevel="83" name="Prince Valanar" type="Undead" url="fl[source]=dungeon&amp;fl[dungeon]=icecrowncitadel10&amp;fl[difficulty]=all&amp;fl[boss]=37970"/>
+        <creature area="Icecrown Citadel (25)" areaUrl="fl[source]=dungeon&amp;fl[dungeon]=icecrowncitadel25&amp;fl[boss]=all&amp;fl[difficulty]=all" classification="3" dropRate="6" id="38401" maxLevel="83" minLevel="83" name="Prince Valanar" type="Undead" url="fl[source]=dungeon&amp;fl[dungeon]=icecrowncitadel25&amp;fl[difficulty]=all&amp;fl[boss]=38401"/>
+        <creature area="Icecrown Citadel (10)" areaUrl="fl[source]=dungeon&amp;fl[dungeon]=icecrowncitadel10&amp;fl[boss]=all&amp;fl[difficulty]=all" classification="3" dropRate="6" heroic="1" id="38784" maxLevel="83" minLevel="83" name="Prince Valanar" type="Undead" url="fl[source]=dungeon&amp;fl[dungeon]=icecrowncitadel10&amp;fl[difficulty]=heroic&amp;fl[boss]=37970"/>
+        <creature area="Icecrown Citadel (25)" areaUrl="fl[source]=dungeon&amp;fl[dungeon]=icecrowncitadel25&amp;fl[boss]=all&amp;fl[difficulty]=all" classification="3" dropRate="6" heroic="1" id="38785" maxLevel="83" minLevel="83" name="Prince Valanar" type="Undead" url="fl[source]=dungeon&amp;fl[dungeon]=icecrowncitadel25&amp;fl[difficulty]=heroic&amp;fl[boss]=38401"/>
+        <creature area="Icecrown Citadel (10)" areaUrl="fl[source]=dungeon&amp;fl[dungeon]=icecrowncitadel10&amp;fl[boss]=all&amp;fl[difficulty]=all" classification="3" dropRate="6" id="36626" maxLevel="83" minLevel="83" name="Festergut" type="Undead" url="fl[source]=dungeon&amp;fl[dungeon]=icecrowncitadel10&amp;fl[difficulty]=all&amp;fl[boss]=36626"/>
+        <creature area="Icecrown Citadel (25)" areaUrl="fl[source]=dungeon&amp;fl[dungeon]=icecrowncitadel25&amp;fl[boss]=all&amp;fl[difficulty]=all" classification="3" dropRate="6" id="37504" maxLevel="83" minLevel="83" name="Festergut" type="Undead" url="fl[source]=dungeon&amp;fl[dungeon]=icecrowncitadel25&amp;fl[difficulty]=all&amp;fl[boss]=37504"/>
+        <creature area="Icecrown Citadel (10)" areaUrl="fl[source]=dungeon&amp;fl[dungeon]=icecrowncitadel10&amp;fl[boss]=all&amp;fl[difficulty]=all" classification="3" dropRate="6" heroic="1" id="37505" maxLevel="83" minLevel="83" name="Festergut" type="Undead" url="fl[source]=dungeon&amp;fl[dungeon]=icecrowncitadel10&amp;fl[difficulty]=heroic&amp;fl[boss]=36626"/>
+        <creature area="Icecrown Citadel (25)" areaUrl="fl[source]=dungeon&amp;fl[dungeon]=icecrowncitadel25&amp;fl[boss]=all&amp;fl[difficulty]=all" classification="3" dropRate="6" heroic="1" id="37506" maxLevel="83" minLevel="83" name="Festergut" type="Undead" url="fl[source]=dungeon&amp;fl[dungeon]=icecrowncitadel25&amp;fl[difficulty]=heroic&amp;fl[boss]=37504"/>
+        <creature area="Vault of Archavon" classification="3" dropRate="6" id="38433" maxLevel="83" minLevel="83" name="Toravon the Ice Watcher" type="Giant"/>
+        <creature area="Vault of Archavon" classification="3" dropRate="6" heroic="1" id="38462" maxLevel="83" minLevel="83" name="Toravon the Ice Watcher" type="Giant"/>
+      </dropCreatures>
+      <currencyFor>
+        <item icon="inv_gauntlets_92" id="50766" level="251" name="Crimson Acolyte Gloves" quality="4" type="Cloth">
+          <cost>
+            <token count="60" icon="inv_misc_frostemblem_01" id="49426"/>
+          </cost>
+        </item>
+        <item icon="inv_shoulder_119" id="50767" level="251" name="Crimson Acolyte Shoulderpads" quality="4" type="Cloth">
+          <cost>
+            <token count="60" icon="inv_misc_frostemblem_01" id="49426"/>
+          </cost>
+        </item>
+        <item icon="inv_helmet_156" id="50765" level="251" name="Crimson Acolyte Hood" quality="4" type="Cloth">
+          <cost>
+            <token count="95" icon="inv_misc_frostemblem_01" id="49426"/>
+          </cost>
+        </item>
+        <item icon="inv_chest_cloth_80" id="50768" level="251" name="Crimson Acolyte Robe" quality="4" type="Cloth">
+          <cost>
+            <token count="95" icon="inv_misc_frostemblem_01" id="49426"/>
+          </cost>
+        </item>
+        <item icon="inv_pants_cloth_35" id="50769" level="251" name="Crimson Acolyte Leggings" quality="4" type="Cloth">
+          <cost>
+            <token count="95" icon="inv_misc_frostemblem_01" id="49426"/>
+          </cost>
+        </item>
+        <item icon="inv_gauntlets_92" id="50391" level="251" name="Crimson Acolyte Handwraps" quality="4" type="Cloth">
+          <cost>
+            <token count="60" icon="inv_misc_frostemblem_01" id="49426"/>
+          </cost>
+        </item>
+        <item icon="inv_shoulder_119" id="50396" level="251" name="Crimson Acolyte Mantle" quality="4" type="Cloth">
+          <cost>
+            <token count="60" icon="inv_misc_frostemblem_01" id="49426"/>
+          </cost>
+        </item>
+        <item icon="inv_helmet_156" id="50392" level="251" name="Crimson Acolyte Cowl" quality="4" type="Cloth">
+          <cost>
+            <token count="95" icon="inv_misc_frostemblem_01" id="49426"/>
+          </cost>
+        </item>
+        <item icon="inv_chest_cloth_80" id="50394" level="251" name="Crimson Acolyte Raiments" quality="4" type="Cloth">
+          <cost>
+            <token count="95" icon="inv_misc_frostemblem_01" id="49426"/>
+          </cost>
+        </item>
+        <item icon="inv_pants_cloth_35" id="50393" level="251" name="Crimson Acolyte Pants" quality="4" type="Cloth">
+          <cost>
+            <token count="95" icon="inv_misc_frostemblem_01" id="49426"/>
+          </cost>
+        </item>
+        <item icon="inv_gauntlets_88" id="50240" level="251" name="Dark Coven Gloves" quality="4" type="Cloth">
+          <cost>
+            <token count="60" icon="inv_misc_frostemblem_01" id="49426"/>
+          </cost>
+        </item>
+        <item icon="inv_shoulder_114" id="50244" level="251" name="Dark Coven Shoulderpads" quality="4" type="Cloth">
+          <cost>
+            <token count="60" icon="inv_misc_frostemblem_01" id="49426"/>
+          </cost>
+        </item>
+        <item icon="inv_helmet_152" id="50241" level="251" name="Dark Coven Hood" quality="4" type="Cloth">
+          <cost>
+            <token count="95" icon="inv_misc_frostemblem_01" id="49426"/>
+          </cost>
+        </item>
+        <item icon="inv_chest_cloth_77" id="50243" level="251" name="Dark Coven Robe" quality="4" type="Cloth">
+          <cost>
+            <token count="95" icon="inv_misc_frostemblem_01" id="49426"/>
+          </cost>
+        </item>
+        <item icon="inv_kilt_cloth_02" id="50242" level="251" name="Dark Coven Leggings" quality="4" type="Cloth">
+          <cost>
+            <token count="95" icon="inv_misc_frostemblem_01" id="49426"/>
+          </cost>
+        </item>
+        <item icon="inv_gauntlets_90purple" id="50275" level="251" name="Bloodmage Gloves" quality="4" type="Cloth">
+          <cost>
+            <token count="60" icon="inv_misc_frostemblem_01" id="49426"/>
+          </cost>
+        </item>
+        <item icon="inv_shoulder_116purple" id="50279" level="251" name="Bloodmage Shoulderpads" quality="4" type="Cloth">
+          <cost>
+            <token count="60" icon="inv_misc_frostemblem_01" id="49426"/>
+          </cost>
+        </item>
+        <item icon="inv_helmet_150purple" id="50276" level="251" name="Bloodmage Hood" quality="4" type="Cloth">
+          <cost>
+            <token count="95" icon="inv_misc_frostemblem_01" id="49426"/>
+          </cost>
+        </item>
+        <item icon="inv_chest_cloth_78purple" id="50278" level="251" name="Bloodmage Robe" quality="4" type="Cloth">
+          <cost>
+            <token count="95" icon="inv_misc_frostemblem_01" id="49426"/>
+          </cost>
+        </item>
+        <item icon="inv_pants_cloth_34purple" id="50277" level="251" name="Bloodmage Leggings" quality="4" type="Cloth">
+          <cost>
+            <token count="95" icon="inv_misc_frostemblem_01" id="49426"/>
+          </cost>
+        </item>
+        <item icon="inv_gauntlets_86" id="50978" level="264" name="Gauntlets of the Kraken" quality="4" type="Plate">
+          <cost sellPrice="88015">
+            <token count="60" icon="inv_misc_frostemblem_01" id="49426"/>
+          </cost>
+        </item>
+        <item icon="inv_chest_plate_25" id="50968" level="264" name="Cataclysmic Chestguard" quality="4" type="Plate">
+          <cost sellPrice="186366">
+            <token count="95" icon="inv_misc_frostemblem_01" id="49426"/>
+          </cost>
+        </item>
+        <item icon="inv_belt_62" id="50991" level="264" name="Verdigris Chain Belt" quality="4" type="Plate">
+          <cost sellPrice="85696">
+            <token count="60" icon="inv_misc_frostemblem_01" id="49426"/>
+          </cost>
+        </item>
+        <item icon="inv_gauntlets_86" id="50977" level="264" name="Gatecrasher's Gauntlets" quality="4" type="Plate">
+          <cost sellPrice="87691">
+            <token count="60" icon="inv_misc_frostemblem_01" id="49426"/>
+          </cost>
+        </item>
+        <item icon="inv_chest_plate_25" id="50965" level="264" name="Castle Breaker's Battleplate" quality="4" type="Plate">
+          <cost sellPrice="179661">
+            <token count="95" icon="inv_misc_frostemblem_01" id="49426"/>
+          </cost>
+        </item>
+        <item icon="inv_belt_62" id="50987" level="264" name="Malevolent Girdle" quality="4" type="Plate">
+          <cost sellPrice="93373">
+            <token count="60" icon="inv_misc_frostemblem_01" id="49426"/>
+          </cost>
+        </item>
+        <item icon="inv_gauntlets_85" id="50976" level="264" name="Gauntlets of Overexposure" quality="4" type="Plate">
+          <cost sellPrice="87359">
+            <token count="60" icon="inv_misc_frostemblem_01" id="49426"/>
+          </cost>
+        </item>
+        <item icon="inv_chest_plate22" id="50969" level="264" name="Chestplate of Unspoken Truths" quality="4" type="Plate">
+          <cost sellPrice="187027">
+            <token count="95" icon="inv_misc_frostemblem_01" id="49426"/>
+          </cost>
+        </item>
+        <item icon="inv_belt_70" id="50989" level="264" name="Lich Killer's Lanyard" quality="4" type="Plate">
+          <cost sellPrice="94039">
+            <token count="60" icon="inv_misc_frostemblem_01" id="49426"/>
+          </cost>
+        </item>
+        <item icon="inv_pants_plate_32" id="50847" level="251" name="Ymirjar Lord's Legguards" quality="4" type="Plate">
+          <cost>
+            <token count="95" icon="inv_misc_frostemblem_01" id="49426"/>
+          </cost>
+        </item>
+        <item icon="inv_gauntlets_87" id="50095" level="251" name="Scourgelord Gauntlets" quality="4" type="Plate">
+          <cost>
+            <token count="60" icon="inv_misc_frostemblem_01" id="49426"/>
+          </cost>
+        </item>
+        <item icon="inv_shoulder_130" id="50098" level="251" name="Scourgelord Shoulderplates" quality="4" type="Plate">
+          <cost>
+            <token count="60" icon="inv_misc_frostemblem_01" id="49426"/>
+          </cost>
+        </item>
+        <item icon="inv_helmet_151" id="50096" level="251" name="Scourgelord Helmet" quality="4" type="Plate">
+          <cost>
+            <token count="95" icon="inv_misc_frostemblem_01" id="49426"/>
+          </cost>
+        </item>
+        <item icon="inv_chest_plate_26" id="50094" level="251" name="Scourgelord Battleplate" quality="4" type="Plate">
+          <cost>
+            <token count="95" icon="inv_misc_frostemblem_01" id="49426"/>
+          </cost>
+        </item>
+        <item icon="inv_pants_plate_31" id="50097" level="251" name="Scourgelord Legplates" quality="4" type="Plate">
+          <cost>
+            <token count="95" icon="inv_misc_frostemblem_01" id="49426"/>
+          </cost>
+        </item>
+        <item icon="inv_gauntlets_87" id="50856" level="251" name="Scourgelord Handguards" quality="4" type="Plate">
+          <cost>
+            <token count="60" icon="inv_misc_frostemblem_01" id="49426"/>
+          </cost>
+        </item>
+        <item icon="inv_shoulder_130" id="50853" level="251" name="Scourgelord Pauldrons" quality="4" type="Plate">
+          <cost>
+            <token count="60" icon="inv_misc_frostemblem_01" id="49426"/>
+          </cost>
+        </item>
+        <item icon="inv_helmet_151" id="50855" level="251" name="Scourgelord Faceguard" quality="4" type="Plate">
+          <cost>
+            <token count="95" icon="inv_misc_frostemblem_01" id="49426"/>
+          </cost>
+        </item>
+        <item icon="inv_chest_plate_26" id="50857" level="251" name="Scourgelord Chestguard" quality="4" type="Plate">
+          <cost>
+            <token count="95" icon="inv_misc_frostemblem_01" id="49426"/>
+          </cost>
+        </item>
+        <item icon="inv_pants_plate_31" id="50854" level="251" name="Scourgelord Legguards" quality="4" type="Plate">
+          <cost>
+            <token count="95" icon="inv_misc_frostemblem_01" id="49426"/>
+          </cost>
+        </item>
+        <item icon="inv_gauntlets_86" id="50079" level="251" name="Ymirjar Lord's Gauntlets" quality="4" type="Plate">
+          <cost>
+            <token count="60" icon="inv_misc_frostemblem_01" id="49426"/>
+          </cost>
+        </item>
+        <item icon="inv_shoulder_129" id="50082" level="251" name="Ymirjar Lord's Shoulderplates" quality="4" type="Plate">
+          <cost>
+            <token count="60" icon="inv_misc_frostemblem_01" id="49426"/>
+          </cost>
+        </item>
+        <item icon="inv_helmet_158" id="50080" level="251" name="Ymirjar Lord's Helmet" quality="4" type="Plate">
+          <cost>
+            <token count="95" icon="inv_misc_frostemblem_01" id="49426"/>
+          </cost>
+        </item>
+        <item icon="inv_chest_plate_25" id="50078" level="251" name="Ymirjar Lord's Battleplate" quality="4" type="Plate">
+          <cost>
+            <token count="95" icon="inv_misc_frostemblem_01" id="49426"/>
+          </cost>
+        </item>
+        <item icon="inv_pants_plate_32" id="50081" level="251" name="Ymirjar Lord's Legplates" quality="4" type="Plate">
+          <cost>
+            <token count="95" icon="inv_misc_frostemblem_01" id="49426"/>
+          </cost>
+        </item>
+        <item icon="inv_gauntlets_86" id="50849" level="251" name="Ymirjar Lord's Handguards" quality="4" type="Plate">
+          <cost>
+            <token count="60" icon="inv_misc_frostemblem_01" id="49426"/>
+          </cost>
+        </item>
+        <item icon="inv_shoulder_129" id="50846" level="251" name="Ymirjar Lord's Pauldrons" quality="4" type="Plate">
+          <cost>
+            <token count="60" icon="inv_misc_frostemblem_01" id="49426"/>
+          </cost>
+        </item>
+        <item icon="inv_helmet_158" id="50848" level="251" name="Ymirjar Lord's Greathelm" quality="4" type="Plate">
+          <cost>
+            <token count="95" icon="inv_misc_frostemblem_01" id="49426"/>
+          </cost>
+        </item>
+        <item icon="inv_chest_plate_25" id="50850" level="251" name="Ymirjar Lord's Breastplate" quality="4" type="Plate">
+          <cost>
+            <token count="95" icon="inv_misc_frostemblem_01" id="49426"/>
+          </cost>
+        </item>
+        <item icon="inv_chest_cloth_80" id="50975" level="264" name="Ermine Coronation Robes" quality="4" type="Cloth">
+          <cost sellPrice="98893">
+            <token count="95" icon="inv_misc_frostemblem_01" id="49426"/>
+          </cost>
+        </item>
+        <item icon="inv_gauntlets_92" id="50984" level="264" name="Gloves of Ambivalence" quality="4" type="Cloth">
+          <cost sellPrice="52491">
+            <token count="60" icon="inv_misc_frostemblem_01" id="49426"/>
+          </cost>
+        </item>
+        <item icon="inv_belt_68" id="50997" level="264" name="Circle of Ossus" quality="4" type="Cloth">
+          <cost sellPrice="49814">
+            <token count="60" icon="inv_misc_frostemblem_01" id="49426"/>
+          </cost>
+        </item>
+        <item icon="inv_chest_cloth_78" id="50974" level="264" name="Meteor Chaser's Raiment" quality="4" type="Cloth">
+          <cost sellPrice="98515">
+            <token count="95" icon="inv_misc_frostemblem_01" id="49426"/>
+          </cost>
+        </item>
+        <item icon="inv_gauntlets_90" id="50983" level="264" name="Gloves of False Gestures" quality="4" type="Cloth">
+          <cost>
+            <token count="60" icon="inv_misc_frostemblem_01" id="49426"/>
+          </cost>
+        </item>
+        <item icon="inv_belt_66" id="50996" level="264" name="Belt of Omission" quality="4" type="Cloth">
+          <cost sellPrice="49630">
+            <token count="60" icon="inv_misc_frostemblem_01" id="49426"/>
+          </cost>
+        </item>
+        <item icon="inv_gauntlets_85" id="50868" level="251" name="Lightsworn Gloves" quality="4" type="Plate">
+          <cost>
+            <token count="60" icon="inv_misc_frostemblem_01" id="49426"/>
+          </cost>
+        </item>
+        <item icon="inv_shoulder_117" id="50865" level="251" name="Lightsworn Spaulders" quality="4" type="Plate">
+          <cost>
+            <token count="60" icon="inv_misc_frostemblem_01" id="49426"/>
+          </cost>
+        </item>
+        <item icon="inv_helmet_154" id="50867" level="251" name="Lightsworn Headpiece" quality="4" type="Plate">
+          <cost>
+            <token count="95" icon="inv_misc_frostemblem_01" id="49426"/>
+          </cost>
+        </item>
+        <item icon="inv_chest_plate22" id="50869" level="251" name="Lightsworn Tunic" quality="4" type="Plate">
+          <cost>
+            <token count="95" icon="inv_misc_frostemblem_01" id="49426"/>
+          </cost>
+        </item>
+        <item icon="inv_pants_plate_33" id="50866" level="251" name="Lightsworn Greaves" quality="4" type="Plate">
+          <cost>
+            <token count="95" icon="inv_misc_frostemblem_01" id="49426"/>
+          </cost>
+        </item>
+        <item icon="inv_gauntlets_85" id="50327" level="251" name="Lightsworn Gauntlets" quality="4" type="Plate">
+          <cost>
+            <token count="60" icon="inv_misc_frostemblem_01" id="49426"/>
+          </cost>
+        </item>
+        <item icon="inv_shoulder_117" id="50324" level="251" name="Lightsworn Shoulderplates" quality="4" type="Plate">
+          <cost>
+            <token count="60" icon="inv_misc_frostemblem_01" id="49426"/>
+          </cost>
+        </item>
+        <item icon="inv_helmet_154" id="50326" level="251" name="Lightsworn Helmet" quality="4" type="Plate">
+          <cost>
+            <token count="95" icon="inv_misc_frostemblem_01" id="49426"/>
+          </cost>
+        </item>
+        <item icon="inv_chest_plate22" id="50328" level="251" name="Lightsworn Battleplate" quality="4" type="Plate">
+          <cost>
+            <token count="95" icon="inv_misc_frostemblem_01" id="49426"/>
+          </cost>
+        </item>
+        <item icon="inv_pants_plate_33" id="50325" level="251" name="Lightsworn Legplates" quality="4" type="Plate">
+          <cost>
+            <token count="95" icon="inv_misc_frostemblem_01" id="49426"/>
+          </cost>
+        </item>
+        <item icon="inv_gauntlets_85" id="50863" level="251" name="Lightsworn Handguards" quality="4" type="Plate">
+          <cost>
+            <token count="60" icon="inv_misc_frostemblem_01" id="49426"/>
+          </cost>
+        </item>
+        <item icon="inv_shoulder_117" id="50860" level="251" name="Lightsworn Shoulderguards" quality="4" type="Plate">
+          <cost>
+            <token count="60" icon="inv_misc_frostemblem_01" id="49426"/>
+          </cost>
+        </item>
+        <item icon="inv_helmet_154" id="50862" level="251" name="Lightsworn Faceguard" quality="4" type="Plate">
+          <cost>
+            <token count="95" icon="inv_misc_frostemblem_01" id="49426"/>
+          </cost>
+        </item>
+        <item icon="inv_chest_plate22" id="50864" level="251" name="Lightsworn Chestguard" quality="4" type="Plate">
+          <cost>
+            <token count="95" icon="inv_misc_frostemblem_01" id="49426"/>
+          </cost>
+        </item>
+        <item icon="inv_pants_plate_33" id="50861" level="251" name="Lightsworn Legguards" quality="4" type="Plate">
+          <cost>
+            <token count="95" icon="inv_misc_frostemblem_01" id="49426"/>
+          </cost>
+        </item>
+        <item icon="inv_misc_cape_13" id="50466" level="264" name="Sentinel's Winter Cloak" quality="4" type="Cloth">
+          <cost sellPrice="73013">
+            <token count="50" icon="inv_misc_frostemblem_01" id="49426"/>
+          </cost>
+        </item>
+        <item icon="inv_misc_cape_17" id="50467" level="264" name="Might of the Ocean Serpent" quality="4" type="Cloth">
+          <cost sellPrice="73296">
+            <token count="50" icon="inv_misc_frostemblem_01" id="49426"/>
+          </cost>
+        </item>
+        <item icon="inv_misc_cape_16" id="50468" level="264" name="Drape of the Violet Tower" quality="4" type="Cloth">
+          <cost sellPrice="73580">
+            <token count="50" icon="inv_misc_frostemblem_01" id="49426"/>
+          </cost>
+        </item>
+        <item icon="inv_misc_cape_16" id="50469" level="264" name="Volde's Cloak of the Night Sky" quality="4" type="Cloth">
+          <cost sellPrice="75894">
+            <token count="50" icon="inv_misc_frostemblem_01" id="49426"/>
+          </cost>
+        </item>
+        <item icon="inv_misc_cape_14" id="50470" level="264" name="Recovered Scarlet Onslaught Cape" quality="4" type="Cloth">
+          <cost sellPrice="76170">
+            <token count="50" icon="inv_misc_frostemblem_01" id="49426"/>
+          </cost>
+        </item>
+        <item icon="inv_throwingknife_07" id="50474" level="264" name="Shrapnel Star" quality="4" type="Thrown">
+          <cost sellPrice="82022">
+            <token count="30" icon="inv_misc_frostemblem_01" id="49426"/>
+          </cost>
+        </item>
+        <item icon="inv_chest_mail_11" id="50970" level="264" name="Longstrider's Vest" quality="4" type="Mail">
+          <cost sellPrice="160876">
+            <token count="95" icon="inv_misc_frostemblem_01" id="49426"/>
+          </cost>
+        </item>
+        <item icon="inv_chest_mail_15" id="50971" level="264" name="Mail of the Geyser" quality="4" type="Mail">
+          <cost sellPrice="146088">
+            <token count="95" icon="inv_misc_frostemblem_01" id="49426"/>
+          </cost>
+        </item>
+        <item icon="inv_gauntlets_84" id="50979" level="264" name="Logsplitters" quality="4" type="Mail">
+          <cost sellPrice="75296">
+            <token count="60" icon="inv_misc_frostemblem_01" id="49426"/>
+          </cost>
+        </item>
+        <item icon="inv_gauntlets_104" id="50980" level="264" name="Blizzard Keeper's Mitts" quality="4" type="Mail">
+          <cost sellPrice="75580">
+            <token count="60" icon="inv_misc_frostemblem_01" id="49426"/>
+          </cost>
+        </item>
+        <item icon="inv_belt_83" id="50992" level="264" name="Waistband of Despair" quality="4" type="Mail">
+          <cost sellPrice="73319">
+            <token count="60" icon="inv_misc_frostemblem_01" id="49426"/>
+          </cost>
+        </item>
+        <item icon="inv_belt_60" id="50993" level="264" name="Band of the Night Raven" quality="4" type="Mail">
+          <cost sellPrice="73595">
+            <token count="60" icon="inv_misc_frostemblem_01" id="49426"/>
+          </cost>
+        </item>
+        <item canAuction="1" icon="spell_fire_felflamebreath" id="49908" level="80" name="Primordial Saronite" quality="3" type="Other">
+          <cost sellPrice="70000">
+            <token count="23" icon="inv_misc_frostemblem_01" id="49426"/>
+          </cost>
+        </item>
+        <item icon="inv_chest_plate_25" id="40791" level="251" name="Relentless Gladiator's Dreadplate Chestpiece" quality="4" type="Plate">
+          <cost arena="770" factionId="0" honor="13200"/>
+        </item>
+        <item icon="inv_gauntlets_75" id="40811" level="251" name="Relentless Gladiator's Dreadplate Gauntlets" quality="4" type="Plate">
+          <cost arena="440" factionId="0" honor="8000"/>
+        </item>
+        <item icon="inv_helmet_135" id="40830" level="251" name="Relentless Gladiator's Dreadplate Helm" quality="4" type="Plate">
+          <cost arena="770" factionId="0" honor="13200"/>
+        </item>
+        <item icon="inv_pants_plate_27" id="40851" level="251" name="Relentless Gladiator's Dreadplate Legguards" quality="4" type="Plate">
+          <cost arena="770" factionId="0" honor="13200"/>
+        </item>
+        <item icon="inv_shoulder_99" id="40871" level="251" name="Relentless Gladiator's Dreadplate Shoulders" quality="4" type="Plate">
+          <cost arena="600" factionId="0" honor="10550"/>
+        </item>
+        <item icon="inv_chest_plate_23" id="40910" level="251" name="Relentless Gladiator's Ornamented Chestguard" quality="4" type="Plate">
+          <cost arena="770" factionId="0" honor="13200"/>
+        </item>
+        <item icon="inv_gauntlets_62" id="40928" level="251" name="Relentless Gladiator's Ornamented Gloves" quality="4" type="Plate">
+          <cost arena="440" factionId="0" honor="8000"/>
+        </item>
+        <item icon="inv_helmet_98" id="40934" level="251" name="Relentless Gladiator's Ornamented Headcover" quality="4" type="Plate">
+          <cost arena="770" factionId="0" honor="13200"/>
+        </item>
+        <item icon="inv_pants_plate_27" id="40940" level="251" name="Relentless Gladiator's Ornamented Legplates" quality="4" type="Plate">
+          <cost arena="770" factionId="0" honor="13200"/>
+        </item>
+        <item icon="inv_shoulder_91" id="40964" level="251" name="Relentless Gladiator's Ornamented Spaulders" quality="4" type="Plate">
+          <cost arena="600" factionId="0" honor="10550"/>
+        </item>
+        <item icon="inv_chest_plate_23" id="40792" level="251" name="Relentless Gladiator's Scaled Chestpiece" quality="4" type="Plate">
+          <cost arena="770" factionId="0" honor="13200"/>
+        </item>
+        <item icon="inv_gauntlets_62" id="40812" level="251" name="Relentless Gladiator's Scaled Gauntlets" quality="4" type="Plate">
+          <cost arena="440" factionId="0" honor="8000"/>
+        </item>
+        <item icon="inv_helmet_98" id="40831" level="251" name="Relentless Gladiator's Scaled Helm" quality="4" type="Plate">
+          <cost arena="770" factionId="0" honor="13200"/>
+        </item>
+        <item icon="inv_pants_plate_27" id="40852" level="251" name="Relentless Gladiator's Scaled Legguards" quality="4" type="Plate">
+          <cost arena="770" factionId="0" honor="13200"/>
+        </item>
+        <item icon="inv_shoulder_91" id="40872" level="251" name="Relentless Gladiator's Scaled Shoulders" quality="4" type="Plate">
+          <cost arena="600" factionId="0" honor="10550"/>
+        </item>
+        <item icon="inv_chest_plate_25" id="40790" level="251" name="Relentless Gladiator's Plate Chestpiece" quality="4" type="Plate">
+          <cost arena="770" factionId="0" honor="13200"/>
+        </item>
+        <item icon="inv_gauntlets_62" id="40810" level="251" name="Relentless Gladiator's Plate Gauntlets" quality="4" type="Plate">
+          <cost arena="440" factionId="0" honor="8000"/>
+        </item>
+        <item icon="inv_helmet_98" id="40829" level="251" name="Relentless Gladiator's Plate Helm" quality="4" type="Plate">
+          <cost arena="770" factionId="0" honor="13200"/>
+        </item>
+        <item icon="inv_pants_plate_27" id="40850" level="251" name="Relentless Gladiator's Plate Legguards" quality="4" type="Plate">
+          <cost arena="770" factionId="0" honor="13200"/>
+        </item>
+        <item icon="inv_shoulder_62" id="40870" level="251" name="Relentless Gladiator's Plate Shoulders" quality="4" type="Plate">
+          <cost arena="600" factionId="0" honor="10550"/>
+        </item>
+        <item icon="inv_chest_mail_02" id="41088" level="251" name="Relentless Gladiator's Chain Armor" quality="4" type="Mail">
+          <cost arena="770" factionId="0" honor="13200"/>
+        </item>
+        <item icon="inv_gauntlets_74" id="41144" level="251" name="Relentless Gladiator's Chain Gauntlets" quality="4" type="Mail">
+          <cost arena="440" factionId="0" honor="8000"/>
+        </item>
+        <item icon="inv_helmet_73" id="41158" level="251" name="Relentless Gladiator's Chain Helm" quality="4" type="Mail">
+          <cost arena="770" factionId="0" honor="13200"/>
+        </item>
+        <item icon="inv_pants_mail_16" id="41206" level="251" name="Relentless Gladiator's Chain Leggings" quality="4" type="Mail">
+          <cost arena="770" factionId="0" honor="13200"/>
+        </item>
+        <item icon="inv_shoulder_102" id="41218" level="251" name="Relentless Gladiator's Chain Spaulders" quality="4" type="Mail">
+          <cost arena="600" factionId="0" honor="10550"/>
+        </item>
+        <item icon="inv_chest_mail_02" id="40994" level="251" name="Relentless Gladiator's Ringmail Armor" quality="4" type="Mail">
+          <cost arena="770" factionId="0" honor="13200"/>
+        </item>
+        <item icon="inv_gauntlets_49" id="41002" level="251" name="Relentless Gladiator's Ringmail Gauntlets" quality="4" type="Mail">
+          <cost arena="440" factionId="0" honor="8000"/>
+        </item>
+        <item icon="inv_helmet_121" id="41014" level="251" name="Relentless Gladiator's Ringmail Helm" quality="4" type="Mail">
+          <cost arena="770" factionId="0" honor="13200"/>
+        </item>
+        <item icon="inv_pants_mail_20" id="41028" level="251" name="Relentless Gladiator's Ringmail Leggings" quality="4" type="Mail">
+          <cost arena="770" factionId="0" honor="13200"/>
+        </item>
+        <item icon="inv_shoulder_52" id="41039" level="251" name="Relentless Gladiator's Ringmail Spaulders" quality="4" type="Mail">
+          <cost arena="600" factionId="0" honor="10550"/>
+        </item>
+        <item icon="inv_chest_mail_02" id="41082" level="251" name="Relentless Gladiator's Linked Armor" quality="4" type="Mail">
+          <cost arena="770" factionId="0" honor="13200"/>
+        </item>
+        <item icon="inv_gauntlets_49" id="41138" level="251" name="Relentless Gladiator's Linked Gauntlets" quality="4" type="Mail">
+          <cost arena="440" factionId="0" honor="8000"/>
+        </item>
+        <item icon="inv_helmet_121" id="41152" level="251" name="Relentless Gladiator's Linked Helm" quality="4" type="Mail">
+          <cost arena="770" factionId="0" honor="13200"/>
+        </item>
+        <item icon="inv_pants_mail_20" id="41200" level="251" name="Relentless Gladiator's Linked Leggings" quality="4" type="Mail">
+          <cost arena="770" factionId="0" honor="13200"/>
+        </item>
+        <item icon="inv_shoulder_52" id="41212" level="251" name="Relentless Gladiator's Linked Spaulders" quality="4" type="Mail">
+          <cost arena="600" factionId="0" honor="10550"/>
+        </item>
+        <item icon="inv_chest_mail_02" id="40995" level="251" name="Relentless Gladiator's Mail Armor" quality="4" type="Mail">
+          <cost arena="770" factionId="0" honor="13200"/>
+        </item>
+        <item icon="inv_gauntlets_49" id="41008" level="251" name="Relentless Gladiator's Mail Gauntlets" quality="4" type="Mail">
+          <cost arena="440" factionId="0" honor="8000"/>
+        </item>
+        <item icon="inv_helmet_121" id="41020" level="251" name="Relentless Gladiator's Mail Helm" quality="4" type="Mail">
+          <cost arena="770" factionId="0" honor="13200"/>
+        </item>
+        <item icon="inv_pants_mail_20" id="41034" level="251" name="Relentless Gladiator's Mail Leggings" quality="4" type="Mail">
+          <cost arena="770" factionId="0" honor="13200"/>
+        </item>
+        <item icon="inv_shoulder_52" id="41045" level="251" name="Relentless Gladiator's Mail Spaulders" quality="4" type="Mail">
+          <cost arena="600" factionId="0" honor="10550"/>
+        </item>
+        <item icon="inv_chest_leather_16" id="41311" level="251" name="Relentless Gladiator's Kodohide Robes" quality="4" type="Leather">
+          <cost arena="770" factionId="0" honor="13200"/>
+        </item>
+        <item icon="inv_gauntlets_77b" id="41288" level="251" name="Relentless Gladiator's Kodohide Gloves" quality="4" type="Leather">
+          <cost arena="440" factionId="0" honor="8000"/>
+        </item>
+        <item icon="inv_helmet_126" id="41322" level="251" name="Relentless Gladiator's Kodohide Helm" quality="4" type="Leather">
+          <cost arena="770" factionId="0" honor="13200"/>
+        </item>
+        <item icon="inv_pants_leather_27" id="41299" level="251" name="Relentless Gladiator's Kodohide Legguards" quality="4" type="Leather">
+          <cost arena="770" factionId="0" honor="13200"/>
+        </item>
+        <item icon="inv_shoulder_107" id="41276" level="251" name="Relentless Gladiator's Kodohide Spaulders" quality="4" type="Leather">
+          <cost arena="600" factionId="0" honor="10550"/>
+        </item>
+        <item icon="inv_chest_leather_16" id="41662" level="251" name="Relentless Gladiator's Dragonhide Robes" quality="4" type="Leather">
+          <cost arena="770" factionId="0" honor="13200"/>
+        </item>
+        <item icon="inv_gauntlets_77b" id="41774" level="251" name="Relentless Gladiator's Dragonhide Gloves" quality="4" type="Leather">
+          <cost arena="440" factionId="0" honor="8000"/>
+        </item>
+        <item icon="inv_helmet_126" id="41679" level="251" name="Relentless Gladiator's Dragonhide Helm" quality="4" type="Leather">
+          <cost arena="770" factionId="0" honor="13200"/>
+        </item>
+        <item icon="inv_pants_leather_27" id="41668" level="251" name="Relentless Gladiator's Dragonhide Legguards" quality="4" type="Leather">
+          <cost arena="770" factionId="0" honor="13200"/>
+        </item>
+        <item icon="inv_shoulder_107" id="41716" level="251" name="Relentless Gladiator's Dragonhide Spaulders" quality="4" type="Leather">
+          <cost arena="600" factionId="0" honor="10550"/>
+        </item>
+        <item icon="inv_chest_leather_16" id="41317" level="251" name="Relentless Gladiator's Wyrmhide Robes" quality="4" type="Leather">
+          <cost arena="770" factionId="0" honor="13200"/>
+        </item>
+        <item icon="inv_gauntlets_77b" id="41294" level="251" name="Relentless Gladiator's Wyrmhide Gloves" quality="4" type="Leather">
+          <cost arena="440" factionId="0" honor="8000"/>
+        </item>
+        <item icon="inv_helmet_126" id="41328" level="251" name="Relentless Gladiator's Wyrmhide Helm" quality="4" type="Leather">
+          <cost arena="770" factionId="0" honor="13200"/>
+        </item>
+        <item icon="inv_pants_leather_27" id="41305" level="251" name="Relentless Gladiator's Wyrmhide Legguards" quality="4" type="Leather">
+          <cost arena="770" factionId="0" honor="13200"/>
+        </item>
+        <item icon="inv_shoulder_107" id="41282" level="251" name="Relentless Gladiator's Wyrmhide Spaulders" quality="4" type="Leather">
+          <cost arena="600" factionId="0" honor="10550"/>
+        </item>
+        <item icon="inv_chest_leather_16" id="41651" level="251" name="Relentless Gladiator's Leather Tunic" quality="4" type="Leather">
+          <cost arena="770" factionId="0" honor="13200"/>
+        </item>
+        <item icon="inv_gauntlets_49" id="41768" level="251" name="Relentless Gladiator's Leather Gloves" quality="4" type="Leather">
+          <cost arena="440" factionId="0" honor="8000"/>
+        </item>
+        <item icon="inv_helmet_87" id="41673" level="251" name="Relentless Gladiator's Leather Helm" quality="4" type="Leather">
+          <cost arena="770" factionId="0" honor="13200"/>
+        </item>
+        <item icon="inv_pants_leather_30a" id="41656" level="251" name="Relentless Gladiator's Leather Legguards" quality="4" type="Leather">
+          <cost arena="770" factionId="0" honor="13200"/>
+        </item>
+        <item icon="inv_shoulder_89" id="41684" level="251" name="Relentless Gladiator's Leather Spaulders" quality="4" type="Leather">
+          <cost arena="600" factionId="0" honor="10550"/>
+        </item>
+        <item icon="inv_chest_cloth_74" id="41954" level="251" name="Relentless Gladiator's Silk Raiment" quality="4" type="Cloth">
+          <cost arena="770" factionId="0" honor="13200"/>
+        </item>
+        <item icon="inv_gauntlets_49" id="41972" level="251" name="Relentless Gladiator's Silk Handguards" quality="4" type="Cloth">
+          <cost arena="440" factionId="0" honor="8000"/>
+        </item>
+        <item icon="inv_helmet_86" id="41947" level="251" name="Relentless Gladiator's Silk Cowl" quality="4" type="Cloth">
+          <cost arena="770" factionId="0" honor="13200"/>
+        </item>
+        <item icon="inv_pants_cloth_31" id="41960" level="251" name="Relentless Gladiator's Silk Trousers" quality="4" type="Cloth">
+          <cost arena="770" factionId="0" honor="13200"/>
+        </item>
+        <item icon="inv_shoulder_103" id="41966" level="251" name="Relentless Gladiator's Silk Amice" quality="4" type="Cloth">
+          <cost arena="600" factionId="0" honor="10550"/>
+        </item>
+        <item icon="inv_chest_cloth_74" id="41860" level="251" name="Relentless Gladiator's Mooncloth Robe" quality="4" type="Cloth">
+          <cost arena="770" factionId="0" honor="13200"/>
+        </item>
+        <item icon="inv_gauntlets_49" id="41875" level="251" name="Relentless Gladiator's Mooncloth Gloves" quality="4" type="Cloth">
+          <cost arena="440" factionId="0" honor="8000"/>
+        </item>
+        <item icon="inv_helmet_136" id="41855" level="251" name="Relentless Gladiator's Mooncloth Hood" quality="4" type="Cloth">
+          <cost arena="770" factionId="0" honor="13200"/>
+        </item>
+        <item icon="inv_pants_cloth_31" id="41865" level="251" name="Relentless Gladiator's Mooncloth Leggings" quality="4" type="Cloth">
+          <cost arena="770" factionId="0" honor="13200"/>
+        </item>
+        <item icon="inv_shoulder_89" id="41870" level="251" name="Relentless Gladiator's Mooncloth Mantle" quality="4" type="Cloth">
+          <cost arena="600" factionId="0" honor="10550"/>
+        </item>
+        <item icon="inv_chest_cloth_74" id="41922" level="251" name="Relentless Gladiator's Satin Robe" quality="4" type="Cloth">
+          <cost arena="770" factionId="0" honor="13200"/>
+        </item>
+        <item icon="inv_gauntlets_49" id="41941" level="251" name="Relentless Gladiator's Satin Gloves" quality="4" type="Cloth">
+          <cost arena="440" factionId="0" honor="8000"/>
+        </item>
+        <item icon="inv_helmet_136" id="41916" level="251" name="Relentless Gladiator's Satin Hood" quality="4" type="Cloth">
+          <cost arena="770" factionId="0" honor="13200"/>
+        </item>
+        <item icon="inv_pants_cloth_31" id="41928" level="251" name="Relentless Gladiator's Satin Leggings" quality="4" type="Cloth">
+          <cost arena="770" factionId="0" honor="13200"/>
+        </item>
+        <item icon="inv_shoulder_89" id="41935" level="251" name="Relentless Gladiator's Satin Mantle" quality="4" type="Cloth">
+          <cost arena="600" factionId="0" honor="10550"/>
+        </item>
+        <item icon="inv_chest_cloth_74" id="41999" level="251" name="Relentless Gladiator's Felweave Raiment" quality="4" type="Cloth">
+          <cost arena="770" factionId="0" honor="13200"/>
+        </item>
+        <item icon="inv_gauntlets_49" id="42018" level="251" name="Relentless Gladiator's Felweave Handguards" quality="4" type="Cloth">
+          <cost arena="440" factionId="0" honor="8000"/>
+        </item>
+        <item icon="inv_helmet_137" id="41994" level="251" name="Relentless Gladiator's Felweave Cowl" quality="4" type="Cloth">
+          <cost arena="770" factionId="0" honor="13200"/>
+        </item>
+        <item icon="inv_pants_cloth_30" id="42006" level="251" name="Relentless Gladiator's Felweave Trousers" quality="4" type="Cloth">
+          <cost arena="770" factionId="0" honor="13200"/>
+        </item>
+        <item icon="inv_shoulder_106" id="42012" level="251" name="Relentless Gladiator's Felweave Amice" quality="4" type="Cloth">
+          <cost arena="600" factionId="0" honor="10550"/>
+        </item>
+        <item icon="inv_gauntlets_83" id="50107" level="251" name="Lasherweave Gauntlets" quality="4" type="Leather">
+          <cost>
+            <token count="60" icon="inv_misc_frostemblem_01" id="49426"/>
+          </cost>
+        </item>
+        <item icon="inv_shoulder_111" id="50113" level="251" name="Lasherweave Pauldrons" quality="4" type="Leather">
+          <cost>
+            <token count="60" icon="inv_misc_frostemblem_01" id="49426"/>
+          </cost>
+        </item>
+        <item icon="inv_helmet_148" id="50108" level="251" name="Lasherweave Helmet" quality="4" type="Leather">
+          <cost>
+            <token count="95" icon="inv_misc_frostemblem_01" id="49426"/>
+          </cost>
+        </item>
+        <item icon="inv_chest_leather_21" id="50106" level="251" name="Lasherweave Robes" quality="4" type="Leather">
+          <cost>
+            <token count="95" icon="inv_misc_frostemblem_01" id="49426"/>
+          </cost>
+        </item>
+        <item icon="inv_pants_leather_35" id="50109" level="251" name="Lasherweave Legplates" quality="4" type="Leather">
+          <cost>
+            <token count="95" icon="inv_misc_frostemblem_01" id="49426"/>
+          </cost>
+        </item>
+        <item icon="inv_gauntlets_83" id="50822" level="251" name="Lasherweave Gloves" quality="4" type="Leather">
+          <cost>
+            <token count="60" icon="inv_misc_frostemblem_01" id="49426"/>
+          </cost>
+        </item>
+        <item icon="inv_shoulder_111" id="50819" level="251" name="Lasherweave Mantle" quality="4" type="Leather">
+          <cost>
+            <token count="60" icon="inv_misc_frostemblem_01" id="49426"/>
+          </cost>
+        </item>
+        <item icon="inv_helmet_148" id="50821" level="251" name="Lasherweave Cover" quality="4" type="Leather">
+          <cost>
+            <token count="95" icon="inv_misc_frostemblem_01" id="49426"/>
+          </cost>
+        </item>
+        <item icon="inv_chest_leather_21" id="50823" level="251" name="Lasherweave Vestment" quality="4" type="Leather">
+          <cost>
+            <token count="95" icon="inv_misc_frostemblem_01" id="49426"/>
+          </cost>
+        </item>
+        <item icon="inv_pants_leather_35" id="50820" level="251" name="Lasherweave Trousers" quality="4" type="Leather">
+          <cost>
+            <token count="95" icon="inv_misc_frostemblem_01" id="49426"/>
+          </cost>
+        </item>
+        <item icon="inv_gauntlets_83" id="50827" level="251" name="Lasherweave Handgrips" quality="4" type="Leather">
+          <cost>
+            <token count="60" icon="inv_misc_frostemblem_01" id="49426"/>
+          </cost>
+        </item>
+        <item icon="inv_shoulder_111" id="50824" level="251" name="Lasherweave Shoulderpads" quality="4" type="Leather">
+          <cost>
+            <token count="60" icon="inv_misc_frostemblem_01" id="49426"/>
+          </cost>
+        </item>
+        <item icon="inv_helmet_148" id="50826" level="251" name="Lasherweave Headguard" quality="4" type="Leather">
+          <cost>
+            <token count="95" icon="inv_misc_frostemblem_01" id="49426"/>
+          </cost>
+        </item>
+        <item icon="inv_chest_leather_21" id="50828" level="251" name="Lasherweave Raiment" quality="4" type="Leather">
+          <cost>
+            <token count="95" icon="inv_misc_frostemblem_01" id="49426"/>
+          </cost>
+        </item>
+        <item icon="inv_pants_leather_35" id="50825" level="251" name="Lasherweave Legguards" quality="4" type="Leather">
+          <cost>
+            <token count="95" icon="inv_misc_frostemblem_01" id="49426"/>
+          </cost>
+        </item>
+        <item icon="inv_gauntlets_85" id="50088" level="251" name="Shadowblade Gauntlets" quality="4" type="Leather">
+          <cost>
+            <token count="60" icon="inv_misc_frostemblem_01" id="49426"/>
+          </cost>
+        </item>
+        <item icon="inv_shoulder_112" id="50105" level="251" name="Shadowblade Pauldrons" quality="4" type="Leather">
+          <cost>
+            <token count="60" icon="inv_misc_frostemblem_01" id="49426"/>
+          </cost>
+        </item>
+        <item icon="inv_helmet_149" id="50089" level="251" name="Shadowblade Helmet" quality="4" type="Leather">
+          <cost>
+            <token count="95" icon="inv_misc_frostemblem_01" id="49426"/>
+          </cost>
+        </item>
+        <item icon="inv_chest_leather_22" id="50087" level="251" name="Shadowblade Breastplate" quality="4" type="Leather">
+          <cost>
+            <token count="95" icon="inv_misc_frostemblem_01" id="49426"/>
+          </cost>
+        </item>
+        <item icon="inv_pants_leather_34" id="50090" level="251" name="Shadowblade Legplates" quality="4" type="Leather">
+          <cost>
+            <token count="95" icon="inv_misc_frostemblem_01" id="49426"/>
+          </cost>
+        </item>
+        <item icon="spell_holy_summonchampion" id="47241" level="80" name="Emblem of Triumph" quality="4" type="Money(OBSOLETE)">
+          <cost>
+            <token count="1" icon="inv_misc_frostemblem_01" id="49426"/>
+          </cost>
+        </item>
+        <item icon="inv_gauntlets_104" id="50836" level="251" name="Frost Witch's Handguards" quality="4" type="Mail">
+          <cost>
+            <token count="60" icon="inv_misc_frostemblem_01" id="49426"/>
+          </cost>
+        </item>
+        <item icon="inv_shoulder_133" id="50839" level="251" name="Frost Witch's Spaulders" quality="4" type="Mail">
+          <cost>
+            <token count="60" icon="inv_misc_frostemblem_01" id="49426"/>
+          </cost>
+        </item>
+        <item icon="inv_helmet_169" id="50837" level="251" name="Frost Witch's Headpiece" quality="4" type="Mail">
+          <cost>
+            <token count="95" icon="inv_misc_frostemblem_01" id="49426"/>
+          </cost>
+        </item>
+        <item icon="inv_chest_mail_15" id="50835" level="251" name="Frost Witch's Tunic" quality="4" type="Mail">
+          <cost>
+            <token count="95" icon="inv_misc_frostemblem_01" id="49426"/>
+          </cost>
+        </item>
+        <item icon="inv_kilt_mail_01" id="50838" level="251" name="Frost Witch's Legguards" quality="4" type="Mail">
+          <cost>
+            <token count="95" icon="inv_misc_frostemblem_01" id="49426"/>
+          </cost>
+        </item>
+        <item icon="inv_gauntlets_104" id="50842" level="251" name="Frost Witch's Gloves" quality="4" type="Mail">
+          <cost>
+            <token count="60" icon="inv_misc_frostemblem_01" id="49426"/>
+          </cost>
+        </item>
+        <item icon="inv_shoulder_133" id="50845" level="251" name="Frost Witch's Shoulderpads" quality="4" type="Mail">
+          <cost>
+            <token count="60" icon="inv_misc_frostemblem_01" id="49426"/>
+          </cost>
+        </item>
+        <item icon="inv_helmet_169" id="50843" level="251" name="Frost Witch's Helm" quality="4" type="Mail">
+          <cost>
+            <token count="95" icon="inv_misc_frostemblem_01" id="49426"/>
+          </cost>
+        </item>
+        <item icon="inv_chest_mail_15" id="50841" level="251" name="Frost Witch's Hauberk" quality="4" type="Mail">
+          <cost>
+            <token count="95" icon="inv_misc_frostemblem_01" id="49426"/>
+          </cost>
+        </item>
+        <item icon="inv_kilt_mail_01" id="50844" level="251" name="Frost Witch's Kilt" quality="4" type="Mail">
+          <cost>
+            <token count="95" icon="inv_misc_frostemblem_01" id="49426"/>
+          </cost>
+        </item>
+        <item icon="inv_gauntlets_104" id="50831" level="251" name="Frost Witch's Grips" quality="4" type="Mail">
+          <cost>
+            <token count="60" icon="inv_misc_frostemblem_01" id="49426"/>
+          </cost>
+        </item>
+        <item icon="inv_shoulder_133" id="50834" level="251" name="Frost Witch's Shoulderguards" quality="4" type="Mail">
+          <cost>
+            <token count="60" icon="inv_misc_frostemblem_01" id="49426"/>
+          </cost>
+        </item>
+        <item icon="inv_helmet_169" id="50832" level="251" name="Frost Witch's Faceguard" quality="4" type="Mail">
+          <cost>
+            <token count="95" icon="inv_misc_frostemblem_01" id="49426"/>
+          </cost>
+        </item>
+        <item icon="inv_chest_mail_15" id="50830" level="251" name="Frost Witch's Chestguard" quality="4" type="Mail">
+          <cost>
+            <token count="95" icon="inv_misc_frostemblem_01" id="49426"/>
+          </cost>
+        </item>
+        <item icon="inv_kilt_mail_01" id="50833" level="251" name="Frost Witch's War-Kilt" quality="4" type="Mail">
+          <cost>
+            <token count="95" icon="inv_misc_frostemblem_01" id="49426"/>
+          </cost>
+        </item>
+        <item icon="inv_gauntlets_84" id="50114" level="251" name="Ahn'Kahar Blood Hunter's Handguards" quality="4" type="Mail">
+          <cost>
+            <token count="60" icon="inv_misc_frostemblem_01" id="49426"/>
+          </cost>
+        </item>
+        <item icon="inv_shoulder_113" id="50117" level="251" name="Ahn'Kahar Blood Hunter's Spaulders" quality="4" type="Mail">
+          <cost>
+            <token count="60" icon="inv_misc_frostemblem_01" id="49426"/>
+          </cost>
+        </item>
+        <item icon="inv_helmet_158" id="50115" level="251" name="Ahn'Kahar Blood Hunter's Headpiece" quality="4" type="Mail">
+          <cost>
+            <token count="95" icon="inv_misc_frostemblem_01" id="49426"/>
+          </cost>
+        </item>
+        <item icon="inv_chest_mail_11" id="50118" level="251" name="Ahn'Kahar Blood Hunter's Tunic" quality="4" type="Mail">
+          <cost>
+            <token count="95" icon="inv_misc_frostemblem_01" id="49426"/>
+          </cost>
+        </item>
+        <item icon="inv_pants_mail_32" id="50116" level="251" name="Ahn'Kahar Blood Hunter's Legguards" quality="4" type="Mail">
+          <cost>
+            <token count="95" icon="inv_misc_frostemblem_01" id="49426"/>
+          </cost>
+        </item>
+        <item icon="spell_frost_frostnova" id="50458" level="264" name="Bizuri's Totem of Shattered Ice" quality="4" type="Totems">
+          <cost>
+            <token count="30" icon="inv_misc_frostemblem_01" id="49426"/>
+          </cost>
+        </item>
+        <item icon="inv_misc_gem_diamond_03" id="50463" level="264" name="Totem of the Avalanche" quality="4" type="Totems">
+          <cost>
+            <token count="30" icon="inv_misc_frostemblem_01" id="49426"/>
+          </cost>
+        </item>
+        <item icon="spell_frost_summonwaterelemental" id="50464" level="264" name="Totem of the Surging Sea" quality="4" type="Totems">
+          <cost>
+            <token count="30" icon="inv_misc_frostemblem_01" id="49426"/>
+          </cost>
+        </item>
+        <item icon="inv_offhand_ulduarraid_d_02" id="50461" level="264" name="Libram of the Eternal Tower" quality="4" type="Librams">
+          <cost>
+            <token count="30" icon="inv_misc_frostemblem_01" id="49426"/>
+          </cost>
+        </item>
+        <item icon="inv_scroll_15" id="50455" level="264" name="Libram of Three Truths" quality="4" type="Librams">
+          <cost>
+            <token count="30" icon="inv_misc_frostemblem_01" id="49426"/>
+          </cost>
+        </item>
+        <item icon="spell_holy_blessedresillience" id="50460" level="264" name="Libram of Blinding Light" quality="4" type="Librams">
+          <cost>
+            <token count="30" icon="inv_misc_frostemblem_01" id="49426"/>
+          </cost>
+        </item>
+        <item icon="inv_offhand_1h_ulduarraid_d_01" id="50457" level="264" name="Idol of the Lunar Eclipse" quality="4" type="Idols">
+          <cost>
+            <token count="30" icon="inv_misc_frostemblem_01" id="49426"/>
+          </cost>
+        </item>
+        <item icon="trade_herbalism" id="50454" level="264" name="Idol of the Black Willow" quality="4" type="Idols">
+          <cost>
+            <token count="30" icon="inv_misc_frostemblem_01" id="49426"/>
+          </cost>
+        </item>
+        <item icon="spell_nature_natureguardian" id="50456" level="264" name="Idol of the Crying Moon" quality="4" type="Idols">
+          <cost>
+            <token count="30" icon="inv_misc_frostemblem_01" id="49426"/>
+          </cost>
+        </item>
+        <item icon="ability_mount_ebonblade" id="50462" level="264" name="Sigil of the Bone Gryphon" quality="4" type="Sigils">
+          <cost>
+            <token count="30" icon="inv_misc_frostemblem_01" id="49426"/>
+          </cost>
+        </item>
+        <item icon="inv_misc_noose_01" id="50459" level="264" name="Sigil of the Hanged Man" quality="4" type="Sigils">
+          <cost>
+            <token count="30" icon="inv_misc_frostemblem_01" id="49426"/>
+          </cost>
+        </item>
+        <item icon="inv_gauntlets_79" id="50982" level="264" name="Cat Burglar's Grips" quality="4" type="Leather">
+          <cost sellPrice="63449">
+            <token count="60" icon="inv_misc_frostemblem_01" id="49426"/>
+          </cost>
+        </item>
+        <item icon="inv_chest_leather_22" id="50972" level="264" name="Shadow Seeker's Tunic" quality="4" type="Leather">
+          <cost sellPrice="122212">
+            <token count="95" icon="inv_misc_frostemblem_01" id="49426"/>
+          </cost>
+        </item>
+        <item icon="inv_misc_noose_01" id="50995" level="264" name="Vengeful Noose" quality="4" type="Leather">
+          <cost sellPrice="61802">
+            <token count="60" icon="inv_misc_frostemblem_01" id="49426"/>
+          </cost>
+        </item>
+        <item icon="inv_gauntlets_83" id="50981" level="264" name="Gloves of the Great Horned Owl" quality="4" type="Leather">
+          <cost sellPrice="63219">
+            <token count="60" icon="inv_misc_frostemblem_01" id="49426"/>
+          </cost>
+        </item>
+        <item icon="inv_chest_leather_21" id="50973" level="264" name="Vestments of Spruce and Fir" quality="4" type="Leather">
+          <cost sellPrice="122685">
+            <token count="95" icon="inv_misc_frostemblem_01" id="49426"/>
+          </cost>
+        </item>
+        <item icon="inv_belt_59" id="50994" level="264" name="Belt of Petrified Ivy" quality="4" type="Leather">
+          <cost sellPrice="61566">
+            <token count="60" icon="inv_misc_frostemblem_01" id="49426"/>
+          </cost>
+        </item>
+        <item icon="inv_misc_key_15" id="50356" level="264" name="Corroded Skeleton Key" quality="4" type="Miscellaneous">
+          <cost sellPrice="113940">
+            <token count="60" icon="inv_misc_frostemblem_01" id="49426"/>
+          </cost>
+        </item>
+        <item icon="inv_misc_rune_12" id="50355" level="264" name="Herkuml War Token" quality="4" type="Miscellaneous">
+          <cost sellPrice="113940">
+            <token count="60" icon="inv_misc_frostemblem_01" id="49426"/>
+          </cost>
+        </item>
+        <item icon="inv_misc_ammo_gunpowder_05" id="50358" level="264" name="Purified Lunar Dust" quality="4" type="Miscellaneous">
+          <cost sellPrice="113940">
+            <token count="60" icon="inv_misc_frostemblem_01" id="49426"/>
+          </cost>
+        </item>
+        <item icon="inv_jewelry_trinket_02" id="50357" level="264" name="Maghia's Misguided Quill" quality="4" type="Miscellaneous">
+          <cost sellPrice="113940">
+            <token count="60" icon="inv_misc_frostemblem_01" id="49426"/>
+          </cost>
+        </item>
+      </currencyFor>
+    </item>
+  </itemInfo>
+</page>

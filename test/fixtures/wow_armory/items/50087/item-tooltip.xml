@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?xml-stylesheet type="text/xsl" href="/_layout/items/tooltip.xsl"?>
+<page globalSearch="1" lang="en_us" requestUrl="/item-tooltip.xml">
+  <itemTooltips>
+    <itemTooltip>
+      <id>50087</id>
+      <name>Shadowblade Breastplate</name>
+      <icon>inv_chest_leather_22</icon>
+      <overallQualityId>4</overallQualityId>
+      <bonding>1</bonding>
+      <classId>4</classId>
+      <equipData>
+        <inventoryType>5</inventoryType>
+        <subclassName>Leather</subclassName>
+      </equipData>
+      <damageData/>
+      <bonusAgility>144</bonusAgility>
+      <bonusStamina>144</bonusStamina>
+      <armor armorBonus="0">636</armor>
+      <socketData>
+        <socket color="Red"/>
+        <socket color="Yellow"/>
+      </socketData>
+      <durability current="120" max="120"/>
+      <allowableClasses>
+        <class>Rogue</class>
+      </allowableClasses>
+      <requiredLevel>80</requiredLevel>
+      <itemLevel>251</itemLevel>
+      <bonusAttackPower>159</bonusAttackPower>
+      <bonusCritRating>96</bonusCritRating>
+      <bonusArmorPenetration>80</bonusArmorPenetration>
+      <setData>
+        <name>Shadowblade's Battlegear</name>
+        <item name="Shadowblade Pauldrons"/>
+        <item name="Shadowblade Helmet"/>
+        <item name="Shadowblade Legplates"/>
+        <item name="Shadowblade Breastplate"/>
+        <item name="Shadowblade Gauntlets"/>
+        <setBonus desc="Your Tricks of the Trade ability now grants you 15 energy instead of costing energy." threshold="2"/>
+        <setBonus desc="Gives your melee finishing moves a 13% chance to add 3 combo points to your target." threshold="4"/>
+      </setData>
+      <itemSource value="sourceType.vendor"/>
+    </itemTooltip>
+  </itemTooltips>
+</page>

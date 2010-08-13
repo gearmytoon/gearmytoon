@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?xml-stylesheet type="text/xsl" href="/_layout/items/tooltip.xsl"?>
+<page globalSearch="1" lang="en_us" requestUrl="/item-tooltip.xml">
+  <itemTooltips>
+    <itemTooltip>
+      <id>50727</id>
+      <name>Bloodfall</name>
+      <icon>inv_weapon_staff_109</icon>
+      <heroic>1</heroic>
+      <overallQualityId>4</overallQualityId>
+      <bonding>1</bonding>
+      <classId>2</classId>
+      <equipData>
+        <inventoryType>17</inventoryType>
+        <subclassName>Polearm</subclassName>
+      </equipData>
+      <damageData>
+        <damage>
+          <type>0</type>
+          <min>886</min>
+          <max>1329</max>
+        </damage>
+        <speed>3.4</speed>
+        <dps>325.74</dps>
+      </damageData>
+      <bonusAgility>175</bonusAgility>
+      <bonusStamina>183</bonusStamina>
+      <socketData>
+        <socket color="Red"/>
+        <socket color="Blue"/>
+        <socket color="Yellow"/>
+      </socketData>
+      <durability current="120" max="120"/>
+      <requiredLevel>80</requiredLevel>
+      <itemLevel>277</itemLevel>
+      <bonusAttackPower>212</bonusAttackPower>
+      <bonusCritRating>122</bonusCritRating>
+      <bonusHasteRating>98</bonusHasteRating>
+      <itemSource areaId="4812" areaName="Icecrown Citadel (25)" creatureId="38434" creatureName="Blood-Queen Lana'thel" difficulty="h" dropRate="3" value="sourceType.creatureDrop"/>
+    </itemTooltip>
+  </itemTooltips>
+</page>

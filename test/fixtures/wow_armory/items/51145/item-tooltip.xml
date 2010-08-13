@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?xml-stylesheet type="text/xsl" href="/_layout/items/tooltip.xsl"?>
+<page globalSearch="1" lang="en_us" requestUrl="/item-tooltip.xml">
+  <itemTooltips>
+    <itemTooltip>
+      <id>51145</id>
+      <name>Sanctified Lasherweave Vestment</name>
+      <icon>inv_chest_leather_21</icon>
+      <overallQualityId>4</overallQualityId>
+      <bonding>1</bonding>
+      <classId>4</classId>
+      <equipData>
+        <inventoryType>20</inventoryType>
+        <subclassName>Leather</subclassName>
+      </equipData>
+      <damageData/>
+      <bonusStamina>123</bonusStamina>
+      <bonusIntellect>123</bonusIntellect>
+      <armor armorBonus="0">665</armor>
+      <socketData>
+        <socket color="Red"/>
+        <socket color="Yellow"/>
+      </socketData>
+      <durability current="120" max="120"/>
+      <allowableClasses>
+        <class>Druid</class>
+      </allowableClasses>
+      <requiredLevel>80</requiredLevel>
+      <itemLevel>264</itemLevel>
+      <bonusSpellPower>171</bonusSpellPower>
+      <bonusCritRating>108</bonusCritRating>
+      <bonusHasteRating>92</bonusHasteRating>
+      <setData>
+        <name>Lasherweave Regalia</name>
+        <item name="Lasherweave Mantle"/>
+        <item name="Lasherweave Trousers"/>
+        <item name="Lasherweave Cover"/>
+        <item name="Lasherweave Gloves"/>
+        <item name="Lasherweave Vestment"/>
+        <setBonus desc="When you gain Clearcasting from your Omen of Clarity talent, you deal 15% additional Nature and Arcane damage for 6 sec." threshold="2"/>
+        <setBonus desc="Your critical strikes from Starfire and Wrath cause the target to languish for an additional 7% of your spell's damage over 4 sec." threshold="4"/>
+      </setData>
+      <itemSource value="sourceType.vendor"/>
+    </itemTooltip>
+  </itemTooltips>
+</page>

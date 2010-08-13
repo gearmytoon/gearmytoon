@@ -51,9 +51,9 @@ class WowArmoryMapper
     hash.map do |key, value|
       @wowarmory_item_tooltip.xpath(key).map do |element|
         returning({}) do |hash|
-          value.each do |key, value|
-            val = get_value_at(element, value)
-            hash[key.to_sym] = val if val
+          value.each do |k, v|
+            val = get_value_at(element, v)
+            hash[k.to_sym] = val if val
           end
         end
       end

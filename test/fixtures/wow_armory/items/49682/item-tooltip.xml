@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?xml-stylesheet type="text/xsl" href="/_layout/items/tooltip.xsl"?>
+<page globalSearch="1" lang="en_us" requestUrl="/item-tooltip.xml">
+  <itemTooltips>
+    <itemTooltip>
+      <id>49682</id>
+      <name>Black Knight's Rondel</name>
+      <icon>inv_weapon_shortblade_94</icon>
+      <overallQualityId>4</overallQualityId>
+      <bonding>1</bonding>
+      <classId>2</classId>
+      <equipData>
+        <inventoryType>13</inventoryType>
+        <subclassName>Dagger</subclassName>
+      </equipData>
+      <damageData>
+        <damage>
+          <type>0</type>
+          <min>235</min>
+          <max>353</max>
+        </damage>
+        <speed>1.8</speed>
+        <dps>163.33</dps>
+      </damageData>
+      <bonusAgility>46</bonusAgility>
+      <bonusStamina>35</bonusStamina>
+      <durability current="75" max="75"/>
+      <requiredLevel>80</requiredLevel>
+      <itemLevel>219</itemLevel>
+      <bonusHitRating>27</bonusHitRating>
+      <bonusAttackPower>70</bonusAttackPower>
+      <bonusCritRating>33</bonusCritRating>
+      <itemSource areaId="4723" areaName="Trial of the Champion" creatureId="35451" creatureName="The Black Knight" difficulty="h" dropRate="2" value="sourceType.creatureDrop"/>
+    </itemTooltip>
+  </itemTooltips>
+</page>

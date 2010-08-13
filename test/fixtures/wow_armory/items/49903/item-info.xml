@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?xml-stylesheet type="text/xsl" href="/_layout/items/info.xsl"?>
+<page globalSearch="1" lang="en_us" requestQuery="i=49903" requestUrl="/item-info.xml">
+  <itemInfo>
+    <item canAuction="1" icon="inv_pants_plate_32" id="49903" level="264" name="Legplates of Painful Death" quality="4" type="Plate">
+      <cost sellPrice="171687"/>
+      <disenchantLoot requiredSkillRank="375">
+        <item canAuction="1" dropRate="6" icon="inv_enchant_abysscrystal" id="34057" level="80" maxCount="1" minCount="1" name="Abyss Crystal" quality="4" type="Enchanting"/>
+      </disenchantLoot>
+      <createdBy>
+        <spell icon="trade_blacksmithing" id="70565" name="Legplates of Painful Death">
+          <reagent count="12" icon="inv_ingot_titansteel_blue" id="37663" name="Titansteel Bar" quality="2"/>
+          <reagent count="20" icon="inv_elemental_eternal_shadow" id="35627" name="Eternal Shadow" quality="2"/>
+          <reagent count="8" icon="spell_fire_felflamebreath" id="49908" name="Primordial Saronite" quality="3"/>
+        </spell>
+      </createdBy>
+    </item>
+  </itemInfo>
+</page>

@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?xml-stylesheet type="text/xsl" href="/_layout/items/tooltip.xsl"?>
+<page globalSearch="1" lang="en_us" requestUrl="/item-tooltip.xml">
+  <itemTooltips>
+    <itemTooltip>
+      <id>34349</id>
+      <name>Blade of Life's Inevitability</name>
+      <icon>inv_throwingknife_07</icon>
+      <overallQualityId>4</overallQualityId>
+      <bonding>1</bonding>
+      <classId>2</classId>
+      <equipData>
+        <inventoryType>25</inventoryType>
+        <subclassName>Thrown</subclassName>
+      </equipData>
+      <damageData>
+        <damage>
+          <type>0</type>
+          <min>224</min>
+          <max>337</max>
+        </damage>
+        <speed>2.0</speed>
+        <dps>140.25</dps>
+      </damageData>
+      <bonusStamina>19</bonusStamina>
+      <socketData>
+        <socket color="Yellow"/>
+      </socketData>
+      <requiredLevel>70</requiredLevel>
+      <itemLevel>154</itemLevel>
+      <bonusHasteRating>16</bonusHasteRating>
+      <spellData>
+        <spell>
+          <trigger>1</trigger>
+          <desc>Increases attack power by 36.</desc>
+          <charges>1</charges>
+        </spell>
+      </spellData>
+      <itemSource value="sourceType.worldDrop"/>
+    </itemTooltip>
+  </itemTooltips>
+</page>

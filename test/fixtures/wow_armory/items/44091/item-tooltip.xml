@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?xml-stylesheet type="text/xsl" href="/_layout/items/tooltip.xsl"?>
+<page globalSearch="1" lang="en_us" requestUrl="/item-tooltip.xml">
+  <itemTooltips>
+    <itemTooltip>
+      <id>44091</id>
+      <name>Sharpened Scarlet Kris</name>
+      <icon>inv_weapon_shortblade_03</icon>
+      <overallQualityId>7</overallQualityId>
+      <accountBound>1</accountBound>
+      <bonding>1</bonding>
+      <classId>2</classId>
+      <equipData>
+        <inventoryType>13</inventoryType>
+        <subclassName>Dagger</subclassName>
+      </equipData>
+      <damageData>
+        <damage>
+          <type>0</type>
+          <min>126</min>
+          <max>234</max>
+        </damage>
+        <speed>1.5</speed>
+        <dps>120.00</dps>
+      </damageData>
+      <bonusStamina>44</bonusStamina>
+      <durability current="18" max="18"/>
+      <requiredLevelMin>1</requiredLevelMin>
+      <requiredLevelMax>80</requiredLevelMax>
+      <requiredLevelCurr>80</requiredLevelCurr>
+      <itemLevel>1</itemLevel>
+      <bonusAttackPower>58</bonusAttackPower>
+      <bonusResilienceRating>29</bonusResilienceRating>
+      <itemSource value="sourceType.vendor"/>
+    </itemTooltip>
+  </itemTooltips>
+</page>

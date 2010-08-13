@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?xml-stylesheet type="text/xsl" href="/_layout/items/info.xsl"?>
+<page globalSearch="1" lang="en_us" requestQuery="i=45862" requestUrl="/item-info.xml">
+  <itemInfo>
+    <item canAuction="1" icon="inv_jewelcrafting_gem_37" id="45862" level="80" name="Bold Stormjewel" quality="4" type="Red">
+      <cost sellPrice="11250"/>
+    </item>
+  </itemInfo>
+</page>

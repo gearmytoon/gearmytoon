@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?xml-stylesheet type="text/xsl" href="/_layout/items/info.xsl"?>
+<page globalSearch="1" lang="en_us" requestQuery="i=40008" requestUrl="/item-info.xml">
+  <itemInfo>
+    <item canAuction="1" icon="inv_jewelcrafting_gem_27" id="40008" level="80" name="Solid Sky Sapphire" quality="3" type="Blue">
+      <cost sellPrice="45000"/>
+      <createdBy>
+        <spell icon="inv_misc_gem_01" id="53952" name="Solid Sky Sapphire">
+          <reagent count="1" icon="inv_jewelcrafting_gem_05" id="36924" name="Sky Sapphire" quality="3"/>
+        </spell>
+      </createdBy>
+    </item>
+  </itemInfo>
+</page>

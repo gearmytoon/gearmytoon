@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?xml-stylesheet type="text/xsl" href="/_layout/items/info.xsl"?>
+<page globalSearch="1" lang="en_us" requestQuery="i=51145" requestUrl="/item-info.xml">
+  <itemInfo>
+    <item icon="inv_chest_leather_21" id="51145" level="264" name="Sanctified Lasherweave Vestment" quality="4" type="Leather">
+      <cost>
+        <token count="1" icon="ability_paladin_shieldofthetemplar" id="52025"/>
+        <token count="1" icon="inv_chest_leather_21" id="50823"/>
+      </cost>
+      <disenchantLoot requiredSkillRank="375">
+        <item canAuction="1" dropRate="6" icon="inv_enchant_abysscrystal" id="34057" level="80" maxCount="1" minCount="1" name="Abyss Crystal" quality="4" type="Enchanting"/>
+      </disenchantLoot>
+      <vendors>
+        <creature area="Icecrown Citadel" classification="0" heroic="1" id="37999" maxLevel="80" minLevel="80" name="Alana Moonstrike" title="Druid Armor" type="Humanoid"/>
+        <creature area="Icecrown Citadel" classification="0" heroic="1" id="37992" maxLevel="80" minLevel="80" name="Tortunok" title="Druid Armor" type="Humanoid"/>
+        <creature area="Crystalsong Forest" classification="0" heroic="1" id="35497" maxLevel="75" minLevel="75" name="Rafael Langrom" title="Leather Armor Merchant" type="Humanoid"/>
+      </vendors>
+      <currencyFor>
+        <item icon="inv_chest_leather_21" id="51294" level="277" name="Sanctified Lasherweave Vestment" quality="4" type="Leather">
+          <cost>
+            <token count="1" icon="ability_paladin_judgementsofthejust" id="52028"/>
+            <token count="1" icon="inv_chest_leather_21" id="51145"/>
+          </cost>
+        </item>
+      </currencyFor>
+    </item>
+  </itemInfo>
+</page>

@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?xml-stylesheet type="text/xsl" href="/_layout/items/tooltip.xsl"?>
+<page globalSearch="1" lang="en_us" requestUrl="/item-tooltip.xml">
+  <itemTooltips>
+    <itemTooltip>
+      <id>50000</id>
+      <name>Scourge Hunter's Vambraces</name>
+      <icon>inv_bracer_40</icon>
+      <overallQualityId>4</overallQualityId>
+      <bonding>1</bonding>
+      <classId>4</classId>
+      <equipData>
+        <inventoryType>9</inventoryType>
+        <subclassName>Mail</subclassName>
+      </equipData>
+      <damageData/>
+      <bonusAgility>90</bonusAgility>
+      <bonusStamina>71</bonusStamina>
+      <bonusIntellect>48</bonusIntellect>
+      <armor armorBonus="0">646</armor>
+      <socketData>
+        <socket color="Blue"/>
+      </socketData>
+      <durability current="50" max="50"/>
+      <requiredLevel>80</requiredLevel>
+      <itemLevel>264</itemLevel>
+      <bonusAttackPower>105</bonusAttackPower>
+      <bonusCritRating>60</bonusCritRating>
+      <bonusArmorPenetration>40</bonusArmorPenetration>
+      <itemSource value="sourceType.gameObjectDrop"/>
+    </itemTooltip>
+  </itemTooltips>
+</page>
