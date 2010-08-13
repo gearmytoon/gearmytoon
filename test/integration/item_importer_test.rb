@@ -11,9 +11,10 @@ class ItemImporterTest < ActiveSupport::TestCase
   
   context "import_from_wowarmory!" do
 
-    should_eventually "import items with damage data but nothing else" do
-      item = ItemImporter.import_from_wowarmory!(37708)
+    should "import items with damage data but nothing else" do
+      item = ItemImporter.import_from_wowarmory!(37708) #this item is a funny quest item with damage data
     end
+    
     should "not raise error on item not found" do
       STDERR.expects(:puts)
       item = ItemImporter.import_from_wowarmory!(36745)
