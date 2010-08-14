@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?xml-stylesheet type="text/xsl" href="/_layout/items/tooltip.xsl"?>
+<page globalSearch="1" lang="en_us" requestUrl="/item-tooltip.xml">
+  <itemTooltips>
+    <itemTooltip>
+      <id>47504</id>
+      <name>Barkhide Treads</name>
+      <icon>inv_boots_leather01</icon>
+      <overallQualityId>4</overallQualityId>
+      <bonding>1</bonding>
+      <classId>4</classId>
+      <equipData>
+        <inventoryType>8</inventoryType>
+        <subclassName>Leather</subclassName>
+      </equipData>
+      <damageData/>
+      <bonusStamina>58</bonusStamina>
+      <bonusIntellect>61</bonusIntellect>
+      <armor armorBonus="0">402</armor>
+      <durability current="60" max="60"/>
+      <requiredLevel>80</requiredLevel>
+      <itemLevel>219</itemLevel>
+      <bonusCritRating>63</bonusCritRating>
+      <bonusHitRating>34</bonusHitRating>
+      <bonusSpellPower>92</bonusSpellPower>
+      <itemSource value="sourceType.gameObjectDrop"/>
+    </itemTooltip>
+  </itemTooltips>
+</page>

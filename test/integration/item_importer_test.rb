@@ -77,7 +77,6 @@ class ItemImporterTest < ActiveSupport::TestCase
       end
     end
 
-    # <object area=\"Icecrown Citadel (10)\" areaUrl=\"fl[source]=dungeon&amp;fl[dungeon]=icecrowncitadel10&amp;fl[boss]=all&amp;fl[difficulty]=all\" dropRate=\"3\" id=\"202178\" name=\"Gunship Armory\"/>
     should "import container items correctly" do
       item = nil
       assert_difference "ContainerSource.count" do

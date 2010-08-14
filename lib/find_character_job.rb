@@ -1,4 +1,7 @@
+require 'resque/plugins/lock'
 class FindCharacterJob
+  extend Resque::Plugins::Lock
+  
   @queue = :find_character_jobs
 
   def self.perform(character_id)

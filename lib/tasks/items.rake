@@ -23,10 +23,7 @@ end
 
 desc "import all items"
 task :import_all_items => :environment do
-  p "Started: #{Time.now}"
-  (36000..51586).to_a.each do |wow_armory_id|
-    p wow_armory_id
-    ItemImporter.import_from_wowarmory!(wow_armory_id)
+  (36000..54591).to_a.each do |wow_armory_id|
+    Resque.enqueue(FindItemJob, wow_armory_id)
   end
-  p "Ended: #{Time.now}"
 end

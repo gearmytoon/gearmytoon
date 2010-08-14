@@ -10,6 +10,7 @@ gem 'authlogic', '2.1.3'
 gem 'rpx_now', '0.6.17'
 gem "friendly_id", "~> 2.3"
 gem 'resque', '1.8.5'
+gem 'resque-lock', '0.1.1'
 gem "tzinfo", "0.3.20"
 gem "acts_as_state_machine", "2.2.0"
 gem "uuid", "2.3.0"

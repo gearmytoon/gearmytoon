@@ -12,34 +12,34 @@ dependencies:
     group: 
     - :deploy
     version: = 2.1.0
-  wowr: 
-    group: 
-    - :default
-    version: ">= 0"
   rails: 
     group: 
     - :default
     version: ~> 2.3.8
+  wowr: 
+    group: 
+    - :default
+    version: ">= 0"
   sqlite3-ruby: 
     group: 
     - :test
     version: ">= 0"
     require: 
     - sqlite3
-  authlogic: 
-    group: 
-    - :default
-    version: = 2.1.3
-  mysql: 
-    group: 
-    - :default
-    version: = 2.8.1
   ruby-openid: 
     group: 
     - :default
     version: = 2.1.7
     require: 
     - openid
+  mysql: 
+    group: 
+    - :default
+    version: = 2.8.1
+  authlogic: 
+    group: 
+    - :default
+    version: = 2.1.3
   macaddr: 
     group: 
     - :default
@@ -76,6 +76,10 @@ dependencies:
     group: 
     - :default
     version: = 1.8.5
+  resque-lock: 
+    group: 
+    - :default
+    version: = 0.1.1
   vlad: 
     group: 
     - :deploy
@@ -84,14 +88,14 @@ dependencies:
     group: 
     - :test
     version: = 0.9.8
-  friendly_id: 
-    group: 
-    - :default
-    version: ~> 2.3
   will_paginate: 
     group: 
     - :default
     version: = 2.3.14
+  friendly_id: 
+    group: 
+    - :default
+    version: ~> 2.3
   sinatra: 
     group: 
     - :default
@@ -140,7 +144,7 @@ specs:
 - friendly_id: 
     version: 2.3.4
 - hoptoad_notifier: 
-    version: 2.3.2
+    version: 2.3.5
 - hpricot: 
     version: 0.8.1
 - i18n: 
@@ -148,7 +152,7 @@ specs:
 - json: 
     version: 1.4.3
 - json_pure: 
-    version: 1.4.3
+    version: 1.4.6
 - linecache: 
     version: "0.43"
 - macaddr: 
@@ -179,6 +183,8 @@ specs:
     version: 0.1.7
 - resque: 
     version: 1.8.5
+- resque-lock: 
+    version: 0.1.1
 - rpx_now: 
     version: 0.6.17
 - ruby-debug-base: 
@@ -204,7 +210,7 @@ specs:
 - wowr: 
     version: 0.5.4
     source: 0
-hash: 28f3f0584cc0c8d77baf1c2744a3da8156dbecfe
+hash: 46fb7cecc81ab93747b60f115224c9bc8efdfd11
 sources: 
 - Git: 
     uri: http://github.com/gearmytoon/wowr.git
