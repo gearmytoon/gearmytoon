@@ -9,7 +9,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20100814145801) do
+ActiveRecord::Schema.define(:version => 20100814233844) do
 
   create_table "areas", :force => true do |t|
     t.string   "name"
@@ -93,6 +93,16 @@ ActiveRecord::Schema.define(:version => 20100814145801) do
     t.integer  "wowarmory_creature_id"
     t.integer  "min_level"
     t.integer  "max_level"
+  end
+
+  create_table "item_popularities", :force => true do |t|
+    t.integer  "class_id"
+    t.string   "spec"
+    t.integer  "percentage",        :limit => 10, :precision => 10, :scale => 0
+    t.integer  "item_id"
+    t.integer  "average_gearscore"
+    t.datetime "created_at"
+    t.datetime "updated_at"
   end
 
   create_table "item_sources", :force => true do |t|
