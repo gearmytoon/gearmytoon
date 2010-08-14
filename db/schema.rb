@@ -9,7 +9,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20100809042055) do
+ActiveRecord::Schema.define(:version => 20100814145801) do
 
   create_table "areas", :force => true do |t|
     t.string   "name"
@@ -75,6 +75,14 @@ ActiveRecord::Schema.define(:version => 20100809042055) do
   add_index "characters", ["realm", "name"], :name => "index_characters_on_realm_and_name"
   add_index "characters", ["wow_class_id"], :name => "index_characters_on_wow_class_id"
 
+  create_table "containers", :force => true do |t|
+    t.string   "name"
+    t.integer  "wowarmory_container_id"
+    t.integer  "area_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
   create_table "creatures", :force => true do |t|
     t.string   "name"
     t.integer  "area_id"
@@ -98,15 +106,10 @@ ActiveRecord::Schema.define(:version => 20100809042055) do
     t.datetime "created_at"
     t.datetime "updated_at"
     t.string   "drop_rate"
-    t.boolean  "heroic",                  :default => false
     t.integer  "creature_id"
     t.string   "trade_skill_id"
-    t.integer  "level"
-    t.string   "name"
-    t.integer  "required_min_level"
-    t.string   "suggested_party_size"
-    t.integer  "wowarmory_quest_id"
-    t.integer  "wowarmory_container_id"
+    t.integer  "quest_id"
+    t.integer  "container_id"
   end
 
   add_index "item_sources", ["item_id"], :name => "index_item_sources_on_item_id"
@@ -168,6 +171,17 @@ ActiveRecord::Schema.define(:version => 20100809042055) do
   end
 
   add_index "payments", ["transaction_id"], :name => "index_payments_on_transaction_id"
+
+  create_table "quests", :force => true do |t|
+    t.string   "name"
+    t.integer  "wowarmory_quest_id"
+    t.integer  "required_min_level"
+    t.string   "suggested_party_size"
+    t.integer  "level"
+    t.integer  "area_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
 
   create_table "slugs", :force => true do |t|
     t.string   "name"

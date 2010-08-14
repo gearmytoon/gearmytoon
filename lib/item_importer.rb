@@ -92,18 +92,36 @@ class ItemImporter < WowArmoryMapper
     end
   end
 
-  def find_or_create_creature(creature_xml)
-    area_name = creature_xml['area']
-    area_difficulty = creature_xml['heroic'] == "1" ? Area::HEROIC : Area::NORMAL
-    area = Area.find_or_create_by_difficulty_and_name(area_difficulty, area_name)
-    if !(area_id = @wowarmory_item_tooltip.at("itemTooltip/itemSource")['areaId']).blank?
-      area.update_attribute(:wowarmory_area_id, area_id)
+
+  # <quest area=\"Icecrown\" id=\"24796\" level=\"80\" name=\"A Victory For The Silver Covenant\" reqMinLevel=\"80\" suggestedPartySize=\"0\"/>
+  def find_or_create_quest(quest_xml)
+    returning Quest.find_or_create_by_wowarmory_quest_id(quest_xml['id']) do |quest|
+      quest.update_attributes!(:name => quest_xml['name'], 
+                                :level => quest_xml['level'],
+                                :required_min_level => quest_xml['reqMinLevel'],
+                                :suggested_party_size => quest_xml['suggestedPartySize'],
+                                :area => find_or_create_area(quest_xml))
     end
+  end
+
+
+  def find_or_create_creature(creature_xml)
+    area = find_or_create_area(creature_xml)
     returning Creature.find_or_create_by_wowarmory_creature_id(creature_xml['id']) do |creature|
       creature.update_attributes!(:name => creature_xml['name'], :creature_type => creature_xml['type'],
                                 :classification => creature_xml['classification'], :min_level => creature_xml['minLevel'],
                                 :max_level => creature_xml['maxLevel'], :area => area)
     end
+  end
+  
+  def find_or_create_area(area_xml)
+    area_name = area_xml['area']
+    area_difficulty = area_xml['heroic'] == "1" ? Area::HEROIC : Area::NORMAL
+    area = Area.find_or_create_by_difficulty_and_name(area_difficulty, area_name)
+    if !(area_id = @wowarmory_item_tooltip.at("itemTooltip/itemSource")['areaId']).blank?
+      area.update_attribute(:wowarmory_area_id, area_id)
+    end
+    area
   end
   
   def get_created_sources(item)
@@ -119,23 +137,21 @@ class ItemImporter < WowArmoryMapper
   
   def get_quest_sources(item)
     @wowarmory_item_info.xpath("//rewardFromQuests/quest").map do |quest|
-      area_name = quest['area']
-      area_difficulty = quest['heroic'] == "1" ? Area::HEROIC : Area::NORMAL
-      area = Area.find_or_create_by_difficulty_and_name(area_difficulty, area_name)
-      created_source = QuestSource.create(:item => item, :source_area => area, :level => quest['level'], 
-            :name => quest['name'], :required_min_level => quest['reqMinLevel'], :suggested_party_size => quest['suggestedPartySize'],
-            :wowarmory_quest_id => quest['id'])
-      created_source
+      QuestSource.create(:item => item, :quest => find_or_create_quest(quest))
     end
   end
   
   def get_container_sources(item)
     @wowarmory_item_info.xpath("//containerObjects/object").map do |container|
-      area_name = container['area']
-      area_difficulty = container['heroic'] == "1" ? Area::HEROIC : Area::NORMAL
-      area = Area.find_or_create_by_difficulty_and_name(area_difficulty, area_name)
-      ContainerSource.create(:item => item, :source_area => area, 
-            :name => container['name'], :drop_rate => container['dropRate'], :wowarmory_container_id => container['id'])
+      ContainerSource.create(:item => item, :container => find_or_create_container(container), :drop_rate => container['dropRate'])
+    end
+  end
+  
+  def find_or_create_container(container_xml)
+    returning Container.find_or_create_by_wowarmory_container_id(container_xml['id']) do |container|
+      container.update_attributes!(:name => container_xml['name'], 
+                                :wowarmory_container_id => container_xml['id'],
+                                :area => find_or_create_area(container_xml))
     end
   end
   

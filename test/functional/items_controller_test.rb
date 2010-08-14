@@ -27,15 +27,15 @@ class ItemsControllerTest < ActionController::TestCase
     end
 
     should "show quest source items" do
-      item_source = Factory(:quest_source)
+      item_source = Factory(:quest_source, :quest => Factory(:quest, :name => "Foo Bar"))
       get :show, :id => item_source.item.id
-      assert_select ".source", :text => /Reward from:/
+      assert_select ".source", :text => "Reward from: Foo Bar"
     end
     
     should "show container source items" do
-      item_source = Factory(:container_source)
+      item_source = Factory(:container_source, :container => Factory(:container, :name => "A Box"))
       get :show, :id => item_source.item.id
-      assert_select ".source", :text => /Found inside:/
+      assert_select ".source", :text => "Found inside: A Box"
     end
     
     should "show where to get the dropped item from" do

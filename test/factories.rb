@@ -154,13 +154,28 @@ Factory.define(:ten_man_raid_source, :class => :dropped_source) do |model|
 end
 
 Factory.define(:container_source, :class => :container_source) do |model|
-  model.association :source_area, :factory => :raid_10
+  model.association :container
   model.association :item
 end
 
+Factory.define(:container) do |model|
+  model.name "some container"
+  model.wowarmory_container_id 2
+  model.association :area, :factory => :dungeon
+end
+
 Factory.define(:quest_source, :class => :quest_source) do |model|
-  model.association :source_area, :factory => :raid_10
+  model.association :quest
   model.association :item
+end
+
+Factory.define(:quest) do |model|
+  model.name "A tale of 2 cities"
+  model.level 80
+  model.suggested_party_size "5"
+  model.required_min_level 80
+  model.wowarmory_quest_id 1
+  model.association :area, :factory => :dungeon
 end
 
 Factory.define(:dungeon, :class => :area) do |model|

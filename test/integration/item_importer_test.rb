@@ -77,6 +77,7 @@ class ItemImporterTest < ActiveSupport::TestCase
       end
     end
 
+    # <object area=\"Icecrown Citadel (10)\" areaUrl=\"fl[source]=dungeon&amp;fl[dungeon]=icecrowncitadel10&amp;fl[boss]=all&amp;fl[difficulty]=all\" dropRate=\"3\" id=\"202178\" name=\"Gunship Armory\"/>
     should "import container items correctly" do
       item = nil
       assert_difference "ContainerSource.count" do
@@ -86,11 +87,13 @@ class ItemImporterTest < ActiveSupport::TestCase
       end
       item.reload
       container_source = item.item_sources.first
-      assert_equal "Icecrown Citadel (10)", container_source.source_area.name
-      assert_equal  Area::HEROIC, container_source.source_area.difficulty
+      assert container_source.is_a?(ContainerSource)
       assert_equal "4", container_source.drop_rate
-      assert_equal "Gunship Armory", container_source.name
-      assert_equal 202177, container_source.wowarmory_container_id
+      container = container_source.container
+      assert_equal "Icecrown Citadel (10)", container.area.name
+      assert_equal  Area::HEROIC, container.area.difficulty
+      assert_equal "Gunship Armory", container.name
+      assert_equal 202177, container.wowarmory_container_id
     end
     
     should "import quest items correctly" do
@@ -102,12 +105,14 @@ class ItemImporterTest < ActiveSupport::TestCase
       end
       item.reload
       quest_source = item.item_sources.first
-      assert_equal "Icecrown", quest_source.source_area.name
-      assert_equal 80, quest_source.level
-      assert_equal "A Victory For The Silver Covenant", quest_source.name
-      assert_equal 80, quest_source.required_min_level
-      assert_equal "0", quest_source.suggested_party_size
-      assert_equal 24796, quest_source.wowarmory_quest_id
+      assert quest_source.is_a?(QuestSource)
+      quest = quest_source.quest
+      assert_equal "Icecrown", quest.area.name
+      assert_equal 80, quest.level
+      assert_equal "A Victory For The Silver Covenant", quest.name
+      assert_equal 80, quest.required_min_level
+      assert_equal "0", quest.suggested_party_size
+      assert_equal 24796, quest.wowarmory_quest_id
     end
     
     should "import tradecraft items correctly" do

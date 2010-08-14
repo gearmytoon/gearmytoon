@@ -1,3 +1,3 @@
 class QuestSource < ItemSource
-  belongs_to :source_area, :class_name => "Area"
+  belongs_to :quest
 end
