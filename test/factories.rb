@@ -153,6 +153,16 @@ Factory.define(:ten_man_raid_source, :class => :dropped_source) do |model|
   model.association :item
 end
 
+Factory.define(:container_source, :class => :container_source) do |model|
+  model.association :source_area, :factory => :raid_10
+  model.association :item
+end
+
+Factory.define(:quest_source, :class => :quest_source) do |model|
+  model.association :source_area, :factory => :raid_10
+  model.association :item
+end
+
 Factory.define(:dungeon, :class => :area) do |model|
   model.name "Super Fun Unicorn Land"
   model.wowarmory_area_id Area::DUNGEONS.first

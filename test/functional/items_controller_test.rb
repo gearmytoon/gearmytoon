@@ -8,6 +8,7 @@ class ItemsControllerTest < ActionController::TestCase
       assert_select ".base_stat", :text => "+1 Agility"
       assert_select ".base_stat", :text => "+1 Stamina"
     end
+
     should "show spell on equip effects" do
       item = Factory(:item, :spell_effects => [{'trigger' => 1, :description => "Chance on melee or ranged critical strike to increase your armor penetration rating by 678 for 10 sec."}])
       get :show, :id => item.id
@@ -25,10 +26,22 @@ class ItemsControllerTest < ActionController::TestCase
       assert_select ".spell_effect", :text => "Use: Chance on melee or ranged critical strike to increase your armor penetration rating by 678 for 10 sec."
     end
 
+    should "show quest source items" do
+      item_source = Factory(:quest_source)
+      get :show, :id => item_source.item.id
+      assert_select ".source", :text => /Reward from:/
+    end
+    
+    should "show container source items" do
+      item_source = Factory(:container_source)
+      get :show, :id => item_source.item.id
+      assert_select ".source", :text => /Found inside:/
+    end
+    
     should "show where to get the dropped item from" do
       item_source = Factory(:dungeon_dropped_source)
       get :show, :id => item_source.item.id
-      assert_select ".dropped_by", :text => "Super Fun Unicorn Land"
+      assert_select ".dropped_by", :text => "Dropped by: Super Fun Unicorn Land"
     end
     should "show where to get the arena points item from" do
       item_source = Factory(:arena_point_source)
