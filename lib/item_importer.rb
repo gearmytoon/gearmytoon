@@ -170,9 +170,9 @@ class ItemImporter < WowArmoryMapper
         purchase_source
       else
         if cost && cost['arena']
-          ArenaSource.create(:arena_point_cost => cost['arena'],:honor_point_cost => cost['honor'], :item => item)
+          ArenaSource.create(:arena_point_cost => cost['arena'],:honor_point_cost => cost['honor'], :item => item, :vendor => find_or_create_creature(vendor))
         elsif cost && cost['honor']
-          HonorSource.create(:honor_point_cost => cost['honor'], :item => item)
+          HonorSource.create(:honor_point_cost => cost['honor'], :item => item, :vendor => find_or_create_creature(vendor))
         end
       end
     end.compact

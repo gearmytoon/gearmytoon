@@ -196,7 +196,9 @@ class ItemImporterTest < ActiveSupport::TestCase
     should "import pvp items that are purchasable with honor" do
       item = ItemImporter.import_from_wowarmory!(41087)
       assert_equal 54500, item.item_sources.first.honor_point_cost
-      assert_equal item, HonorSource.last.item
+      honor_source = HonorSource.last
+      assert_equal item, honor_source.item
+      assert_not_nil honor_source.vendor
     end
     
     should "import tier 9 pants correctly" do
@@ -302,8 +304,10 @@ class ItemImporterTest < ActiveSupport::TestCase
       assert_difference "ArenaSource.count",12 do
         item = ItemImporter.import_from_wowarmory!(41206)
       end
-      assert_equal 770, ArenaSource.last.arena_point_cost
-      assert_equal 13200, ArenaSource.last.honor_point_cost
+      arena_source = ArenaSource.last
+      assert_equal 770, arena_source.arena_point_cost
+      assert_equal 13200, arena_source.honor_point_cost
+      assert_not_nil arena_source.vendor
     end
     
     should "import gladiator gloves that have 4 sources" do
