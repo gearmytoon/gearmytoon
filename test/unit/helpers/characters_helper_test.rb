@@ -5,9 +5,9 @@ class CharactersHelperTest < ActionView::TestCase
 
   context "item_image_link" do
     should "generate a link to wowhead for the item" do
-      item = Factory(:item, :name => "Minshina's Skull", :icon => "http://www.wowarmory.com/some_item_thumb")
+      item = Factory(:item, :name => "Minshina's Skull", :icon => "some_item_thumb")
       tag = item_image_link(item)
-      assert_equal "<a href=\"/items/#{item.id}\" class=\"with_tooltip image_item_link\"><img alt=\"Minshina's Skull\" border=\"0\" class=\"item_icon\" src=\"http://www.wowarmory.com/some_item_thumb\" /></a>", tag
+      assert_equal "<a href=\"/items/#{item.id}\" class=\"with_tooltip image_item_link\"><img alt=\"Minshina's Skull\" border=\"0\" class=\"item_icon\" src=\"http://wowarmory.com/wow-icons/_images/43x43/some_item_thumb.png\" /></a>", tag
     end
   end
   

@@ -3,15 +3,16 @@ require File.dirname(__FILE__) + '/../test_helper'
 class ItemTest < ActiveSupport::TestCase
   context "icon" do
     should "return a 43x43 image URL" do
+      icon = "inv_belt_60"
       icon_url = "http://wowarmory.com/wow-icons/_images/43x43/inv_belt_60.png"
-      item = Factory(:item, :icon => icon_url)
+      item = Factory(:item, :icon => icon)
       assert_equal icon_url, item.icon
     end
 
     should "return a 64x64 image URL" do
-      icon_url = "http://wowarmory.com/wow-icons/_images/43x43/inv_belt_60.png"
+      icon = "inv_belt_60"
       large_icon_url = "http://wowarmory.com/wow-icons/_images/64x64/inv_belt_60.jpg"
-      item = Factory(:item, :icon => icon_url)
+      item = Factory(:item, :icon => icon)
       assert_equal large_icon_url, item.icon(:large)
     end
   end

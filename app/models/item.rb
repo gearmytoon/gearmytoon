@@ -40,14 +40,8 @@ class Item < ActiveRecord::Base
 
   def icon(size=:medium)
     dimensions = {:default => "43x43", :medium => "43x43", :large => "64x64"}
-    case size
-    when :medium
-      self[:icon]
-    when :large
-      self[:icon].sub(dimensions[:default], dimensions[:large]).sub(/\.png$/,'.jpg')
-    else
-      self[:icon]
-    end
+    extension = size == :large ? 'jpg' : 'png'
+    "http://wowarmory.com/wow-icons/_images/#{dimensions[size]}/#{self[:icon]}.#{extension}"
   end
 
   def token_cost

@@ -495,7 +495,7 @@ class ItemImporterTest < ActiveSupport::TestCase
       assert_equal "Mail", item.armor_type.name
       assert_equal "Waist", item.slot
       assert_equal "epic", item.quality
-      assert_equal "inv_belt_69", item.icon
+      assert_equal "inv_belt_69", item[:icon]
       assert_equal "Mail", item.armor_type.name
     end
       
