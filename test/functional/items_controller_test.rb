@@ -18,6 +18,20 @@ class ItemsControllerTest < ActionController::TestCase
     end
   end
 
+  context "get tooltip" do
+    should "show base stats" do
+      item = Factory(:item, :bonuses => {:agility => 1, :stamina => 1})
+      get :tooltip, :id => item.id
+      assert_select ".base_stat", :text => "+1 Agility"
+      assert_select ".base_stat", :text => "+1 Stamina"
+    end
+    should "set cache headers" do
+      item = Factory(:item, :bonuses => {:agility => 1, :stamina => 1})
+      get :tooltip, :id => item.id
+      assert_equal "max-age=10800, public", @response.headers['Cache-Control']
+    end
+  end
+
   context "get show" do
     should "set the page title" do
       item = Factory(:item, :name => "Epic Guitar")

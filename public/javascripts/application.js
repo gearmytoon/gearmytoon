@@ -13,7 +13,7 @@
   $(document).ready(function(){
     tooltip_url = null;
     $('.with_tooltip').mousemove(function(e) {
-      var new_tooltip_url = $(this).attr('href');
+      var new_tooltip_url = $(this).attr('href') + '/tooltip';
       if(tooltip_url!= new_tooltip_url)
       {
         tooltip_url = new_tooltip_url;
