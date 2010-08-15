@@ -13,9 +13,10 @@
   $(document).ready(function(){
     tooltip_url = null;
     $('.with_tooltip').mousemove(function(e) {
-      if(tooltip_url!= $(this).attr('href') + "/tooltip")
+      var new_tooltip_url = $(this).attr('href')
+      if(tooltip_url!= new_tooltip_url)
       {
-        tooltip_url = $(this).attr('href');
+        tooltip_url = new_tooltip_url;
         $.get(tooltip_url,function(data) { $("#tooltip").html(data); });
       }
       $("#tooltip").css('left', e.pageX + 10);
