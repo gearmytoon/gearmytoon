@@ -6,15 +6,25 @@ class Character < ActiveRecord::Base
   HORDE_RACES = ['orc', 'undead', 'troll', 'tauren', 'blood elf']
   ALLIANCE_RACES = ['dwarf', 'gnome', 'human', 'night elf', 'draenei']
 
-  has_upgrades_from :frost, Proc.new{['item_sources.wowarmory_token_item_id = ?', Item::FROST_EMBLEM_ARMORY_ID]}, :for => ['pve', 'pvp']
-  has_upgrades_from :triumph, Proc.new{['item_sources.wowarmory_token_item_id = ?', Item::TRIUMPH_EMBLEM_ARMORY_ID]}, :for => ['pve', 'pvp']
-  has_upgrades_from :heroic_dungeon, Proc.new{ ["item_sources.source_area_id IN (?)", Area.dungeons] }, :for => ['pve']
-  has_upgrades_from :honor_point, Proc.new{"item_sources.type = 'HonorSource'"}, :for => ['pvp']
-  has_upgrades_from :arena_point, Proc.new{"item_sources.type = 'ArenaSource'"}, :for => ['pvp']
-  has_upgrades_from :wintergrasp_mark, Proc.new{['item_sources.wowarmory_token_item_id = ?', Item::WINTERGRASP_MARK_OF_HONOR]}, :for => ['pvp']
-  has_upgrades_from :raid_25, Proc.new{ ["item_sources.source_area_id IN (?)", Area.raids_25] }, :for => ['pve']
-  has_upgrades_from :area, Proc.new{|area|["item_sources.source_area_id = ?",area]}, :for => ['pve'], :disable_upgrade_lookup => true
-  has_upgrades_from :raid_10, Proc.new{ ["item_sources.source_area_id IN (?)", Area.raids_10] }, :for => ['pve']
+  has_upgrades_from :frost, PurchaseSource, Proc.new{
+    {:include => :items_used_to_purchase,
+     :conditions => ["item_used_to_creates.wowarmory_item_id = ?", Item::FROST_EMBLEM_ARMORY_ID]}
+    }, :for => ['pve', 'pvp']
+  has_upgrades_from :triumph, PurchaseSource, Proc.new{
+    {:include => :items_used_to_purchase,
+     :conditions => ["item_used_to_creates.wowarmory_item_id = ?", Item::TRIUMPH_EMBLEM_ARMORY_ID]}
+    }, :for => ['pve', 'pvp']
+  has_upgrades_from :wintergrasp_mark, PurchaseSource, Proc.new{
+    {:include => :items_used_to_purchase,
+     :conditions => ["item_used_to_creates.wowarmory_item_id = ?", Item::WINTERGRASP_MARK_OF_HONOR]}
+    }, :for => ['pvp']
+
+  has_upgrades_from :honor_point, HonorSource, nil, :for => ['pvp']
+  has_upgrades_from :arena_point, ArenaSource, nil, :for => ['pvp']
+  has_upgrades_from :heroic_dungeon, DroppedSource, Proc.new{ {:conditions => ["item_sources.source_area_id IN (?)", Area.dungeons]} }, :for => ['pve']
+  has_upgrades_from :raid_25, DroppedSource, Proc.new{ {:conditions => ["item_sources.source_area_id IN (?)", Area.raids_25]} }, :for => ['pve']
+  has_upgrades_from :raid_10, DroppedSource, Proc.new{ {:conditions => ["item_sources.source_area_id IN (?)", Area.raids_10]} }, :for => ['pve']
+  has_upgrades_from :area, DroppedSource, Proc.new{|area|{:conditions => ["item_sources.source_area_id = ?",area]}}, :for => ['pve'], :disable_upgrade_lookup => true
 
   acts_as_state_machine :initial => :new, :column => "status"
   state :new

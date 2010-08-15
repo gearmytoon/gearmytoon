@@ -211,9 +211,9 @@ class CharactersControllerTest < ActionController::TestCase
 
     should "show how much the item costs" do
       character = Factory(:character_item).character
-      item = Factory(:upgrade_from_emblem_of_frost, :character => character).new_item
+      upgrade = Factory(:upgrade_from_emblem_of_frost, :character => character)
       get :show, :id => character.friendly_id
-      assert_select "#emblem_of_frost .upgrade .cost", :text => item.token_cost.to_s
+      assert_select "#emblem_of_frost .upgrade .cost", :text => upgrade.new_item_source.items_used_to_purchase.first.quantity
     end
 
     should "show what you are upgrading from in the upgrade section" do

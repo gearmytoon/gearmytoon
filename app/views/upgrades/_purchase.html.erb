@@ -1,0 +1,3 @@
+<% item_source.items_used_to_purchase.each do |item_used_to_purchase| %>
+  <%= content_tag :span, item_used_to_purchase.quantity, :class => "cost" %> <%= item_image_link item_used_to_purchase.currency_item %>
+<% end %>

@@ -9,7 +9,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20100814233844) do
+ActiveRecord::Schema.define(:version => 20100815040128) do
 
   create_table "areas", :force => true do |t|
     t.string   "name"
@@ -109,8 +109,6 @@ ActiveRecord::Schema.define(:version => 20100814233844) do
     t.string   "type"
     t.integer  "arena_point_cost"
     t.integer  "honor_point_cost"
-    t.integer  "wowarmory_token_item_id"
-    t.integer  "token_cost"
     t.integer  "source_area_id"
     t.integer  "item_id"
     t.datetime "created_at"
@@ -125,7 +123,6 @@ ActiveRecord::Schema.define(:version => 20100814233844) do
   add_index "item_sources", ["item_id"], :name => "index_item_sources_on_item_id"
   add_index "item_sources", ["source_area_id"], :name => "index_item_sources_on_source_area_id"
   add_index "item_sources", ["type"], :name => "index_item_sources_on_type"
-  add_index "item_sources", ["wowarmory_token_item_id"], :name => "index_item_sources_on_wowarmory_token_item_id"
 
   create_table "item_used_to_creates", :force => true do |t|
     t.integer  "wowarmory_item_id"

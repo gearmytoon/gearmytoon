@@ -2,10 +2,6 @@ require File.dirname(__FILE__) + '/../test_helper'
 
 class UpgradeTest < ActiveSupport::TestCase
   context "new_item_source_type" do
-    should "be emblem for emblem_sources" do
-      upgrade = Factory.build(:upgrade, :new_item_source => EmblemSource.new)
-      assert_equal "emblem", upgrade.new_item_source_type
-    end
     should "be honor for honor_sources" do
       upgrade = Factory.build(:upgrade, :new_item_source => HonorSource.new)
       assert_equal "honor", upgrade.new_item_source_type

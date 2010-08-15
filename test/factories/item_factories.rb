@@ -96,3 +96,13 @@ Factory.define(:fist_weapon, :parent => :item) do |model|
   model.armor_type ArmorType.fist_weapon
   model.slot "One-Hand"
 end
+
+Factory.define(:frost_emblem, :class => :item) do |model|
+  model.wowarmory_item_id Item::FROST_EMBLEM_ARMORY_ID
+end
+Factory.define(:triumph_emblem, :class => :item) do |model|
+  model.wowarmory_item_id Item::TRIUMPH_EMBLEM_ARMORY_ID
+end
+Factory.define(:wintergrasp_mark, :class => :item) do |model|
+  model.wowarmory_item_id Item::WINTERGRASP_MARK_OF_HONOR
+end

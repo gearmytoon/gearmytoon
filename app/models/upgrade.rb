@@ -6,13 +6,15 @@ class Upgrade < ActiveRecord::Base
   belongs_to :character
   belongs_to :old_character_item, :class_name => "CharacterItem"
   belongs_to :new_item_source, :class_name => "ItemSource"
-  named_scope :with_sources, Proc.new {|conditions|
-    {:include => [:gem_one, :gem_two, :gem_three, {:old_character_item => [:item, :gem_one, :gem_two, :gem_three]}, {:new_item_source => :item}], :conditions => conditions}
-  }
+  belongs_to :purchase_source, :class_name => "PurchaseSource", :foreign_key => "new_item_source_id"
+
+  named_scope :with_sources, {:include => [:gem_one, :gem_two, :gem_three, {:old_character_item => [:item, :gem_one, :gem_two, :gem_three]}, {:new_item_source => :item}]}
+  named_scope :also_include, Proc.new {|params| params}
+  named_scope :limit_to_type, Proc.new {|source_item_type| {:conditions => ['item_sources.type = ?', source_item_type.name]}}
   named_scope :pvp, lambda { |for_pvp| { :conditions => {:for_pvp => for_pvp} } }
   named_scope :order_by_dps,  :order => "dps_change DESC"
   named_scope :limited, lambda { |num| { :limit => num } }
-
+  
   before_create :find_best_gems
   before_create :calculate_dps_change
   

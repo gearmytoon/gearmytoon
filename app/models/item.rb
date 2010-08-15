@@ -21,7 +21,6 @@ class Item < ActiveRecord::Base
   named_scope :usable_in_same_slot_as, Proc.new { |item| {:conditions => {:slot => item.slot}} }
   has_many :item_sources, :dependent => :destroy
   has_many :dropped_sources
-  has_many :emblem_sources
   #TODO: REMOVE THIS in favor of item sources usable by
   named_scope :usable_by, Proc.new {|wow_class| {:conditions => {:quality => 'epic', :armor_type_id => wow_class.usable_armor_types, :restricted_to => [RESTRICT_TO_NONE, wow_class.name]}}}
   belongs_to :armor_type
@@ -42,10 +41,6 @@ class Item < ActiveRecord::Base
     dimensions = {:default => "43x43", :medium => "43x43", :large => "64x64"}
     extension = size == :large ? 'jpg' : 'png'
     "http://wowarmory.com/wow-icons/_images/#{dimensions[size]}/#{self[:icon]}.#{extension}"
-  end
-
-  def token_cost
-    emblem_sources.first.token_cost
   end
 
   def source_area

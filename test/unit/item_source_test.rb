@@ -1,22 +1,6 @@
 require File.dirname(__FILE__) + '/../test_helper'
 
-class ItemSourceTest < ActiveSupport::TestCase
-  context "from_emblem_of_triumph" do
-    should "find all items that can be purchased with emblem_of_triumph" do
-      triumph_source = Factory(:triumph_emblem_source)
-      Factory(:frost_emblem_source)
-      assert_equal [triumph_source], EmblemSource.from_emblem_of_triumph
-    end
-  end
-
-  context "from_emblem_of_frost" do
-    should "find all items that can be purchased with emblem_of_triumph" do
-      frost_source = Factory(:frost_emblem_source)
-      Factory(:triumph_emblem_source)
-      assert_equal [frost_source], EmblemSource.from_emblem_of_frost
-    end
-  end
-  
+class ItemSourceTest < ActiveSupport::TestCase  
   context "from_heroic_dungeon" do
     should "find all items that are dropped inside a heroic dungeon" do
       item_source = Factory(:dungeon_dropped_source)

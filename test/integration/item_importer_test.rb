@@ -327,9 +327,13 @@ class ItemImporterTest < ActiveSupport::TestCase
 
     should "import pvp items that cost wintergrasp emblems" do
       item = ItemImporter.import_from_wowarmory!(51577)
-      assert_equal 40, item.item_sources.first.token_cost
-      assert_equal Item::WINTERGRASP_MARK_OF_HONOR, item.item_sources.first.wowarmory_token_item_id
-      assert_equal item, EmblemSource.first.item
+      
+      purchase_source = item.item_sources.first
+      assert_equal 1, purchase_source.items_used_to_purchase.size
+      currency_item = purchase_source.items_used_to_purchase.first
+      assert_equal 40, currency_item.quantity
+      assert_equal Item::WINTERGRASP_MARK_OF_HONOR, currency_item.wowarmory_item_id
+      assert_equal item, PurchaseSource.last.item
     end
     
     should "not import duplicates" do
@@ -455,8 +459,8 @@ class ItemImporterTest < ActiveSupport::TestCase
       item = ItemImporter.import_from_wowarmory!(50088)
       assert_equal 4, item.reload.item_sources.size
       assert_equal 1, DroppedSource.count
-      assert_equal 60, EmblemSource.last.token_cost
-      assert_equal 49426, EmblemSource.last.wowarmory_token_item_id #from emblem of frost
+      #assert_equal 60, EmblemSource.last.token_cost
+#      assert_equal 49426, EmblemSource.last.wowarmory_token_item_id #from emblem of frost
     end
     
     should "import melee weapon dps" do
@@ -503,7 +507,9 @@ class ItemImporterTest < ActiveSupport::TestCase
       assert_difference "Item.count" do
         item = ItemImporter.import_from_wowarmory!(47732)
         assert_equal "Band of the Invoker", item.name
-        assert_equal 47241, item.emblem_sources.first.wowarmory_token_item_id
+        purchase_source = item.item_sources.first
+        assert_equal 1, purchase_source.items_used_to_purchase.size
+        assert_equal 47241, purchase_source.items_used_to_purchase.first.wowarmory_item_id
       end
     end
       
@@ -553,20 +559,13 @@ class ItemImporterTest < ActiveSupport::TestCase
       assert_equal "h", twenty_five_man_item.source_area.difficulty
     end
     
-    should "not import items that cost more then triumph badges" do
-      assert_no_difference "EmblemSource.from_emblem_of_triumph.count" do
-        assert_difference "Item.count" do
-          item = ItemImporter.import_from_wowarmory!(48223)
-          assert_equal "VanCleef's Breastplate of Triumph", item.name
-        end
-      end
-    end
-      
     should "import a items cost" do
       assert_difference "Item.count" do
         item = ItemImporter.import_from_wowarmory!(50979)
+        purchase_source = item.item_sources.first
         assert_equal "Logsplitters", item.name
-        assert_equal 60, item.token_cost
+        assert_equal 1, purchase_source.items_used_to_purchase.size
+        assert_equal 60, purchase_source.items_used_to_purchase.first.quantity
       end
     end
       

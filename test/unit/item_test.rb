@@ -43,11 +43,6 @@ class ItemTest < ActiveSupport::TestCase
     end
   end
 
-  should "know how much the item costs" do
-    item = Factory(:frost_emblem_source).item
-    assert_equal 60, item.token_cost
-  end
-
   context "usable_by" do
     should "know that a rogue cannot use staffs" do
       rogue = Factory(:a_rogue)
