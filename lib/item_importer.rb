@@ -85,10 +85,7 @@ class ItemImporter < WowArmoryMapper
   
   def get_dropped_sources(item)
     @wowarmory_item_info.xpath("//dropCreatures/creature").map do |creature|
-      area_name = creature['area'] #TODO DELETE THIS use through association
-      area_difficulty = creature['heroic'] == "1" ? Area::HEROIC : Area::NORMAL
-      area = Area.find_or_create_by_difficulty_and_name(area_difficulty, area_name)
-      DroppedSource.create(:source_area => area, :item => item, :creature => find_or_create_creature(creature))
+      DroppedSource.create(:item => item, :creature => find_or_create_creature(creature))
     end
   end
 

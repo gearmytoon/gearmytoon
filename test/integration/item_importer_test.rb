@@ -204,8 +204,8 @@ class ItemImporterTest < ActiveSupport::TestCase
     should "import tier 9 pants correctly" do
       assert_difference "DroppedSource.count" do
         item = ItemImporter.import_from_wowarmory!(48258)
-        assert_equal "Vault of Archavon", item.dropped_sources.first.source_area.name
-        assert_equal Area::HEROIC, item.dropped_sources.first.source_area.difficulty
+        assert_equal "Vault of Archavon", item.dropped_sources.first.creature.area.name
+        assert_equal Area::HEROIC, item.dropped_sources.first.creature.area.difficulty
       end
     end
     
@@ -294,8 +294,8 @@ class ItemImporterTest < ActiveSupport::TestCase
     end
     
     should "import items from events correctly" do
-      assert_equal "Shadowfang Keep", ItemImporter.import_from_wowarmory!(51807).dropped_sources.first.source_area.name
-      assert_equal "Blackrock Depths", ItemImporter.import_from_wowarmory!(49074).dropped_sources.first.source_area.name
+      assert_equal "Shadowfang Keep", ItemImporter.import_from_wowarmory!(51807).dropped_sources.first.creature.area.name
+      assert_equal "Blackrock Depths", ItemImporter.import_from_wowarmory!(49074).dropped_sources.first.creature.area.name
     end
     
     should "import item with arena source correctly" do
@@ -322,7 +322,7 @@ class ItemImporterTest < ActiveSupport::TestCase
       end
       assert_equal 770, ArenaSource.first.arena_point_cost
       assert_equal 13200, ArenaSource.first.honor_point_cost
-      assert_equal raid, DroppedSource.first.source_area
+      assert_equal raid, DroppedSource.first.creature.area
     end
 
     should "import pvp items that cost wintergrasp emblems" do
@@ -443,8 +443,8 @@ class ItemImporterTest < ActiveSupport::TestCase
         item = ItemImporter.import_from_wowarmory!(45543)
       end
       item.dropped_sources.each do |dropped_source|
-        assert_equal "Ulduar", dropped_source.source_area.name
-        assert_equal "h", dropped_source.source_area.difficulty
+        assert_equal "Ulduar", dropped_source.creature.area.name
+        assert_equal "h", dropped_source.creature.area.difficulty
         creature = dropped_source.creature
         assert_not_nil creature.name
         assert_not_nil creature.classification
@@ -516,21 +516,21 @@ class ItemImporterTest < ActiveSupport::TestCase
     should "import a items normal mode dungeon" do
       item = ItemImporter.import_from_wowarmory!(47232)
       assert_equal "Drape of the Undefeated", item.name
-      assert_not_nil item.source_area
-      assert Area::DUNGEONS.include?(item.source_area.wowarmory_area_id)
-      assert_equal "Trial of the Champion", item.source_area.name
-      assert_equal "n", item.source_area.difficulty
+      area = item.item_sources.first.creature.area
+      assert Area::DUNGEONS.include?(area.wowarmory_area_id)
+      assert_equal "Trial of the Champion", area.name
+      assert_equal "n", area.difficulty
     end
       
     should "import a items heroic dungeon" do
       rondel = ItemImporter.import_from_wowarmory!(49682)
       drape = ItemImporter.import_from_wowarmory!(47232)
       assert_equal "Black Knight's Rondel", rondel.name
-      assert_not_nil rondel.source_area
-      assert_not_equal rondel.source_area, drape.source_area
-      assert Area::DUNGEONS.include?(rondel.source_area.wowarmory_area_id)
-      assert_equal "Trial of the Champion", rondel.source_area.name
-      assert_equal "h", rondel.source_area.difficulty
+      rondel_area = rondel.item_sources.first.creature.area
+      assert_not_equal rondel_area, drape.item_sources.first.creature.area
+      assert Area::DUNGEONS.include?(rondel_area.wowarmory_area_id)
+      assert_equal "Trial of the Champion", rondel_area.name
+      assert_equal "h", rondel_area.difficulty
     end
       
     should "import items from a normal 10 and 25 man raid" do
@@ -538,25 +538,30 @@ class ItemImporterTest < ActiveSupport::TestCase
       twenty_five_man_item = ItemImporter.import_from_wowarmory!(50429)
       assert_equal "Abracadaver", ten_man_item.name
       assert_equal "Archus, Greatstaff of Antonidas", twenty_five_man_item.name
-      assert_not_equal ten_man_item.source_area, twenty_five_man_item.source_area
-      assert Area::RAIDS.include?(ten_man_item.source_area.wowarmory_area_id)
-      assert Area::RAIDS.include?(twenty_five_man_item.source_area.wowarmory_area_id)
-      assert_equal "Icecrown Citadel (10)", ten_man_item.source_area.name
-      assert_equal "Icecrown Citadel (25)", twenty_five_man_item.source_area.name
-      assert_equal "n", ten_man_item.source_area.difficulty
-      assert_equal "n", twenty_five_man_item.source_area.difficulty
+      ten_man_area = ten_man_item.item_sources.first.creature.area
+      twenty_five_man_area = twenty_five_man_item.item_sources.first.creature.area
+      assert_not_equal ten_man_area, twenty_five_man_area
+      assert Area::RAIDS.include?(ten_man_area.wowarmory_area_id)
+      assert Area::RAIDS.include?(twenty_five_man_area.wowarmory_area_id)
+      assert_equal "Icecrown Citadel (10)", ten_man_area.name
+      assert_equal "Icecrown Citadel (25)", twenty_five_man_area.name
+      assert_equal "n", ten_man_area.difficulty
+      assert_equal "n", twenty_five_man_area.difficulty
     end
     
     should "import items from a heroic 10 and 25 man raid" do
       ten_man_item = ItemImporter.import_from_wowarmory!(51876)
       twenty_five_man_item = ItemImporter.import_from_wowarmory!(50731)
-      assert_not_equal ten_man_item.source_area, twenty_five_man_item.source_area
-      assert Area::RAIDS.include?(ten_man_item.source_area.wowarmory_area_id)
-      assert Area::RAIDS.include?(twenty_five_man_item.source_area.wowarmory_area_id)
-      assert_equal "Icecrown Citadel (10)", ten_man_item.source_area.name
-      assert_equal "Icecrown Citadel (25)", twenty_five_man_item.source_area.name
-      assert_equal "h", ten_man_item.source_area.difficulty
-      assert_equal "h", twenty_five_man_item.source_area.difficulty
+      ten_man_area = ten_man_item.item_sources.first.creature.area
+      twenty_five_man_area = twenty_five_man_item.item_sources.first.creature.area
+      
+      assert_not_equal ten_man_area, twenty_five_man_area
+      assert Area::RAIDS.include?(ten_man_area.wowarmory_area_id)
+      assert Area::RAIDS.include?(twenty_five_man_area.wowarmory_area_id)
+      assert_equal "Icecrown Citadel (10)", ten_man_area.name
+      assert_equal "Icecrown Citadel (25)", twenty_five_man_area.name
+      assert_equal "h", ten_man_area.difficulty
+      assert_equal "h", twenty_five_man_area.difficulty
     end
     
     should "import a items cost" do

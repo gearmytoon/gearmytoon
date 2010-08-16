@@ -21,10 +21,10 @@ class Character < ActiveRecord::Base
 
   has_upgrades_from :honor_point, HonorSource, nil, :for => ['pvp']
   has_upgrades_from :arena_point, ArenaSource, nil, :for => ['pvp']
-  has_upgrades_from :heroic_dungeon, DroppedSource, Proc.new{ {:conditions => ["item_sources.source_area_id IN (?)", Area.dungeons]} }, :for => ['pve']
-  has_upgrades_from :raid_25, DroppedSource, Proc.new{ {:conditions => ["item_sources.source_area_id IN (?)", Area.raids_25]} }, :for => ['pve']
-  has_upgrades_from :raid_10, DroppedSource, Proc.new{ {:conditions => ["item_sources.source_area_id IN (?)", Area.raids_10]} }, :for => ['pve']
-  has_upgrades_from :area, DroppedSource, Proc.new{|area|{:conditions => ["item_sources.source_area_id = ?",area]}}, :for => ['pve'], :disable_upgrade_lookup => true
+  has_upgrades_from :heroic_dungeon, DroppedSource, Proc.new{ {:include => :creature, :conditions => ["creatures.area_id IN (?)", Area.dungeons]} }, :for => ['pve']
+  has_upgrades_from :raid_25, DroppedSource, Proc.new{ {:include => :creature, :conditions => ["creatures.area_id IN (?)", Area.raids_25]} }, :for => ['pve']
+  has_upgrades_from :raid_10, DroppedSource, Proc.new{ {:include => :creature, :conditions => ["creatures.area_id IN (?)", Area.raids_10]} }, :for => ['pve']
+  has_upgrades_from :area, DroppedSource, Proc.new{|area| {:include => :creature, :conditions => ["creatures.area_id = ?",area]}}, :for => ['pve'], :disable_upgrade_lookup => true
 
   acts_as_state_machine :initial => :new, :column => "status"
   state :new

@@ -63,9 +63,9 @@ class CharacterTest < ActiveSupport::TestCase
       character = Factory(:a_hunter)
       upgrade = Factory(:upgrade_from_heroic_dungeon, :character => character)
       Factory(:upgrade_from_10_raid, :character => character)
-      upgrades = character.area_upgrades(1, upgrade.new_item_source.source_area)
+      upgrades = character.area_upgrades(1, upgrade.new_item_source.creature.area)
       assert_equal [upgrade], upgrades
-      assert_equal upgrades.length, character.top_3_area_upgrades(upgrade.new_item_source.source_area).length
+      assert_equal upgrades.length, character.top_3_area_upgrades(upgrade.new_item_source.creature.area).length
     end
   end
 
@@ -101,7 +101,7 @@ class CharacterTest < ActiveSupport::TestCase
       assert_difference "character.reload.upgrades.count", 1 do
         character.generate_upgrades
       end
-      assert_equal([new_item_source], character.reload.area_upgrades(1, new_item_source.source_area).map(&:new_item_source))
+      assert_equal([new_item_source], character.reload.area_upgrades(1, new_item_source.creature.area).map(&:new_item_source))
     end
 
     should "not find two upgrades to the same item from heroic dungeons" do

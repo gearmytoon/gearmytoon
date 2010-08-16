@@ -43,10 +43,6 @@ class Item < ActiveRecord::Base
     "http://wowarmory.com/wow-icons/_images/#{dimensions[size]}/#{self[:icon]}.#{extension}"
   end
 
-  def source_area
-    dropped_sources.first.source_area
-  end
-
   def armor
     bonuses[:armor]
   end

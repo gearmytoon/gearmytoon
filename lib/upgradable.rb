@@ -7,7 +7,9 @@ module Upgradable
   def generate_upgrades
     self.class.upgrade_sources.each do |name, args|
       unless args[:disable_upgrade_lookup]
-        conditions = args[:item_sources].call if args[:item_sources]
+        if args[:item_sources]
+          conditions = args[:item_sources].call
+        end
         top_upgrades_from(args[:item_source_type], conditions, false) if args[:for].include?("pve")
         top_upgrades_from(args[:item_source_type], conditions, true) if args[:for].include?("pvp")
       end
@@ -56,11 +58,7 @@ module Upgradable
       define_method(actual_upgrade_methods_name) do |*args| #upgrade method without pagination
         if conditions_source
           conditions = conditions_source.call(args)
-          params = if conditions[:include]
-            {:include => {item_source_type.name.underscore.to_sym => conditions[:include]}, :conditions => conditions[:conditions]}
-          else
-            {:conditions => conditions[:conditions]}
-          end
+          params = {:include => {item_source_type.name.underscore.to_sym => conditions[:include]}, :conditions => conditions[:conditions]}
           upgrades.with_sources.limit_to_type(item_source_type).also_include(params).pvp(pvp_flag).order_by_dps
         else
           upgrades.with_sources.limit_to_type(item_source_type).pvp(pvp_flag).order_by_dps

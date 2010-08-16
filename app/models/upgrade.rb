@@ -7,7 +7,8 @@ class Upgrade < ActiveRecord::Base
   belongs_to :old_character_item, :class_name => "CharacterItem"
   belongs_to :new_item_source, :class_name => "ItemSource"
   belongs_to :purchase_source, :class_name => "PurchaseSource", :foreign_key => "new_item_source_id"
-
+  belongs_to :dropped_source, :class_name => "DroppedSource", :foreign_key => "new_item_source_id"
+  
   named_scope :with_sources, {:include => [:gem_one, :gem_two, :gem_three, {:old_character_item => [:item, :gem_one, :gem_two, :gem_three]}, {:new_item_source => :item}]}
   named_scope :also_include, Proc.new {|params| params}
   named_scope :limit_to_type, Proc.new {|source_item_type| {:conditions => ['item_sources.type = ?', source_item_type.name]}}

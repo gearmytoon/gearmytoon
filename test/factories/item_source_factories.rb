@@ -1,6 +1,6 @@
 Factory.define(:dungeon_dropped_source, :class => :dropped_source) do |model|
   model.association :item
-  model.association :source_area, :factory => :dungeon
+  model.association :creature, :factory => :dungeon_creature
 end
 
 Factory.define(:frost_emblem_source, :class => :purchase_source) do |model|
@@ -36,17 +36,17 @@ Factory.define(:wintergrasp_source, :class => :purchase_source) do |model|
 end
 
 Factory.define(:raid_dropped_source, :class => :dropped_source) do |model|
-  model.association :source_area, :factory => :raid_10
+  model.association :creature, :factory => :raid_10_creature
   model.association :item
 end
 
 Factory.define(:twenty_five_man_raid_source, :class => :dropped_source) do |model|
   model.association :item
-  model.association :source_area, :factory => :raid_25
+  model.association :creature, :factory => :raid_25_creature
 end
 
 Factory.define(:ten_man_raid_source, :class => :dropped_source) do |model|
-  model.association :source_area, :factory => :raid_10
+  model.association :creature, :factory => :raid_10_creature
   model.association :item
 end
 
@@ -56,5 +56,10 @@ end
 
 Factory.define(:container_source, :class => :container_source) do |model|
   model.association :container
+  model.association :item
+end
+
+Factory.define(:quest_source, :class => :quest_source) do |model|
+  model.association :quest
   model.association :item
 end

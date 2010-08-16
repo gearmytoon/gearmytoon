@@ -34,11 +34,6 @@ Factory.define(:container) do |model|
   model.association :area, :factory => :dungeon
 end
 
-Factory.define(:quest_source, :class => :quest_source) do |model|
-  model.association :quest
-  model.association :item
-end
-
 Factory.define(:quest) do |model|
   model.name "A tale of 2 cities"
   model.level 80
@@ -78,48 +73,19 @@ Factory.define(:character_refresh) do |model|
   model.association :character, :factory => :new_character
 end
 
-Factory.define(:upgrade) do |model|
-  model.association :character
-  model.association :new_item_source, :factory => :frost_emblem_source
-  model.old_character_item {|u| Factory(:character_item, :character => u.character, :item => Factory(:downgrade_item))}
-  model.for_pvp false
-end
-
-Factory.define(:upgrade_from_honor_points, :parent => :upgrade) do |model|
-  model.for_pvp true
-  model.association :new_item_source, :factory => :honor_point_source
-end
-
-Factory.define(:upgrade_from_arena_points, :parent => :upgrade) do |model|
-  model.for_pvp true
-  model.association :new_item_source, :factory => :arena_point_source
-end
-
-Factory.define(:upgrade_from_wintergrasp_marks, :parent => :upgrade) do |model|
-  model.for_pvp true
-  model.association :new_item_source, :factory => :wintergrasp_source
-end
-
-Factory.define(:upgrade_from_emblem_of_triumph, :parent => :upgrade) do |model|
-  model.association :new_item_source, :factory => :triumph_emblem_source
-end
-
-Factory.define(:upgrade_from_emblem_of_frost, :parent => :upgrade) do |model|
-  model.association :new_item_source, :factory => :frost_emblem_source
-end
-
-Factory.define(:upgrade_from_heroic_dungeon, :parent => :upgrade) do |model|
-  model.association :new_item_source, :factory => :dungeon_dropped_source
-end
-
-Factory.define(:upgrade_from_10_raid, :parent => :upgrade) do |model|
-  model.association :new_item_source, :factory => :ten_man_raid_source
-end
-
-Factory.define(:upgrade_from_25_raid, :parent => :upgrade) do |model|
-  model.association :new_item_source, :factory => :twenty_five_man_raid_source
-end
-
 Factory.define(:creature) do |model|
   model.name "Foo"
+end
+
+Factory.define(:dungeon_creature, :class => :creature) do |model|
+  model.name "dungeon mob"
+  model.association :area, :factory => :dungeon
+end
+Factory.define(:raid_10_creature, :class => :creature) do |model|
+  model.name "raid 10 mob"
+  model.association :area, :factory => :raid_10
+end
+Factory.define(:raid_25_creature, :class => :creature) do |model|
+  model.name "raid 25 mob"
+  model.association :area, :factory => :raid_25
 end
