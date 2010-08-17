@@ -18,4 +18,13 @@ class ItemSource < ActiveRecord::Base
 
   # dropped sources
   belongs_to :creature
+
+  #purchase source, honor source, arena source
+  belongs_to :vendor, :foreign_key => :creature_id, :class_name => "Creature"
+  
+  #quest_source
+  belongs_to :quest
+  
+  #container_source
+  belongs_to :container
 end
