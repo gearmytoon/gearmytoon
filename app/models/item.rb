@@ -1,4 +1,5 @@
 class Item < ActiveRecord::Base
+  has_friendly_id :wowarmory_item_id, :use_slug => true
   BETA_SLOTS = ['Trinket', 'Relic']
   HORDE = "horde"
   ALLIANCE = "alliance"
