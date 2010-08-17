@@ -8,7 +8,14 @@ class ItemSource < ActiveRecord::Base
   belongs_to :item
   has_many :upgrades, :foreign_key => "new_item_source_id", :dependent => :destroy
 
+
   def as_source_type
     self.class.name.gsub(/Source/,"").downcase
   end
+
+  #purchased sources
+  has_many :items_used_to_purchase, :class_name => "ItemUsedToCreate", :foreign_key => :item_source_id
+
+  # dropped sources
+  belongs_to :creature
 end

@@ -159,7 +159,7 @@ class ItemImporter < WowArmoryMapper
       if cost.search("token").any?
         purchase_source = PurchaseSource.create!(:item => item, :vendor => find_or_create_creature(vendor))
         cost.search("token").map do |token|
-          purchase_source.items_made_from.create!(:quantity => token['count'], :wowarmory_item_id => token['id'])
+          purchase_source.items_used_to_purchase.create!(:quantity => token['count'], :wowarmory_item_id => token['id'])
         end
         purchase_source
       else

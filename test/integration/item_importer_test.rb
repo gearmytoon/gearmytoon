@@ -65,8 +65,8 @@ class ItemImporterTest < ActiveSupport::TestCase
       item.reload
       purchase_source = item.item_sources.first
       item.item_sources.each do |purchase_source|
-        assert_equivalent([52026,50115], purchase_source.items_made_from.map(&:wowarmory_item_id))
-        assert_equal([1,1], purchase_source.items_made_from.map(&:quantity))
+        assert_equivalent([52026,50115], purchase_source.items_used_to_purchase.map(&:wowarmory_item_id))
+        assert_equal([1,1], purchase_source.items_used_to_purchase.map(&:quantity))
         vendor = purchase_source.vendor
         assert_not_nil vendor.name
         assert_not_nil vendor.classification

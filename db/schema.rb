@@ -9,7 +9,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20100815172422) do
+ActiveRecord::Schema.define(:version => 20100817041318) do
 
   create_table "areas", :force => true do |t|
     t.string   "name"
@@ -129,6 +129,8 @@ ActiveRecord::Schema.define(:version => 20100815172422) do
     t.datetime "created_at"
     t.datetime "updated_at"
   end
+
+  add_index "item_used_to_creates", ["item_source_id"], :name => "index_item_used_to_creates_on_item_source_id"
 
   create_table "items", :force => true do |t|
     t.string   "name"
