@@ -7,7 +7,7 @@ class CharactersHelperTest < ActionView::TestCase
     should "generate a link to wowhead for the item" do
       item = Factory(:item, :name => "Minshina's Skull", :icon => "some_item_thumb")
       tag = item_image_link(item)
-      assert_equal "<a href=\"/items/#{item.id}\" class=\"with_tooltip image_item_link\"><img alt=\"Minshina's Skull\" border=\"0\" class=\"item_icon\" src=\"http://wowarmory.com/wow-icons/_images/43x43/some_item_thumb.png\" /></a>", tag
+      assert_equal "<a href=\"/items/#{item.wowarmory_item_id}\" class=\"with_tooltip image_item_link\"><img alt=\"Minshina's Skull\" border=\"0\" class=\"item_icon\" src=\"http://wowarmory.com/wow-icons/_images/43x43/some_item_thumb.png\" /></a>", tag
     end
   end
   
@@ -23,7 +23,7 @@ class CharactersHelperTest < ActionView::TestCase
     should "provide a span with the item name and its quality" do
       item = Factory(:item, :name => "Minshina's Skull")
       tag = stylized_item_name(item)
-      assert_equal "<a href=\"/items/#{item.id}\" class=\"epic wow_item with_tooltip\">Minshina's Skull</a>", tag
+      assert_equal "<a href=\"/items/#{item.wowarmory_item_id}\" class=\"epic wow_item with_tooltip\">Minshina's Skull</a>", tag
     end
   end
 end
