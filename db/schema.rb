@@ -9,7 +9,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20100817041318) do
+ActiveRecord::Schema.define(:version => 20100817150509) do
 
   create_table "areas", :force => true do |t|
     t.string   "name"
@@ -157,6 +157,7 @@ ActiveRecord::Schema.define(:version => 20100817041318) do
     t.integer  "required_level_min"
     t.integer  "required_level_max"
     t.boolean  "account_bound"
+    t.string   "cached_slug"
   end
 
   add_index "items", ["armor_type_id"], :name => "index_items_on_armor_type_id"
