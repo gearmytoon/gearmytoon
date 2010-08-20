@@ -31,6 +31,14 @@ class ItemImporter < WowArmoryMapper
         bonuses
       end
   }
+  map_many(:gem_sockets, {"//itemTooltip/socketData/socket" => ['@color']})
+  
+  def get_restricted_to
+    allowable_classes = (@wowarmory_item_tooltip/:itemTooltip/:allowableClasses/:class).map(&:inner_html)
+    #TODO FIX ME, MIGRATE ITEMS
+    allowable_classes && allowable_classes.length == 1 ? allowable_classes.first : Item::RESTRICT_TO_NONE
+  end
+
 
   attr_reader :wowarmory_item_id
   def initialize(wowarmory_item_id, wowarmory_item_info, wowarmory_item_tooltip)
@@ -55,7 +63,7 @@ class ItemImporter < WowArmoryMapper
     returning type_to_be_imported.find_or_create_by_wowarmory_item_id(wowarmory_item_id) do |item|
       item.update_attributes!(mapped_options.merge({:wowarmory_item_id => wowarmory_item_id,
                                 :restricted_to => get_restricted_to, :item_sources => get_item_sources(item), 
-                                :gem_color => get_gem_color, :gem_sockets => get_gem_sockets, 
+                                :gem_color => get_gem_color,
                                 :socket_bonuses => get_socket_bonuses}))
     end
   end
@@ -76,13 +84,7 @@ class ItemImporter < WowArmoryMapper
       @wowarmory_item_info.at("item")['type']
     end
   end
-  
-  def get_gem_sockets
-    (@wowarmory_item_tooltip/:itemTooltip/:socketData/:socket).map do |socket|
-      socket['color']
-    end
-  end
-  
+    
   def get_dropped_sources(item)
     @wowarmory_item_info.xpath("//dropCreatures/creature").map do |creature|
       DroppedSource.create(:item => item, :creature => find_or_create_creature(creature))
@@ -181,12 +183,6 @@ class ItemImporter < WowArmoryMapper
       sources = sources.concat(get_container_sources(item))
       sources = sources.concat(get_purchased_sources(item))
     end
-  end
-
-  def get_restricted_to
-    allowable_classes = (@wowarmory_item_tooltip/:itemTooltip/:allowableClasses/:class).map(&:inner_html)
-    #TODO FIX ME, MIGRATE ITEMS
-    allowable_classes && allowable_classes.length == 1 ? allowable_classes.first : Item::RESTRICT_TO_NONE
   end
 
   def self.import_from_wowarmory!(wowarmory_item_id)

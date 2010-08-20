@@ -50,10 +50,19 @@ class WowArmoryMapper
   def get_many(hash)
     hash.map do |key, value|
       @wowarmory_item_tooltip.xpath(key).map do |element|
-        returning({}) do |hash|
-          value.each do |k, v|
-            val = get_value_at(element, v)
-            hash[k.to_sym] = val if val
+        if value.is_a?(Hash)
+          returning({}) do |hash|
+            value.each do |k, v|
+              val = get_value_at(element, v)
+              hash[k.to_sym] = val if val
+            end
+          end
+        else
+          returning([]) do |array|
+            value.each do |v|
+              val = get_value_at(element, v)
+              array << val if val
+            end
           end
         end
       end
