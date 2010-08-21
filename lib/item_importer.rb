@@ -31,6 +31,8 @@ class ItemImporter < WowArmoryMapper
         bonuses
       end
   }
+  
+  map(:gem_color, "/page/itemInfo/item/@type") {|data| is_a_gem? ? data : nil}
   map_many(:gem_sockets, {"//itemTooltip/socketData/socket" => ['@color']})
   map_many(:restricted_to, "//itemTooltip/allowableClasses/class") {|data| data && data.length == 1 ? data.first : Item::RESTRICT_TO_NONE}
 
@@ -57,7 +59,6 @@ class ItemImporter < WowArmoryMapper
     returning type_to_be_imported.find_or_create_by_wowarmory_item_id(wowarmory_item_id) do |item|
       item.update_attributes!(mapped_options.merge({:wowarmory_item_id => wowarmory_item_id,
                                 :item_sources => get_item_sources(item), 
-                                :gem_color => get_gem_color,
                                 :socket_bonuses => get_socket_bonuses}))
     end
   end
@@ -70,12 +71,6 @@ class ItemImporter < WowArmoryMapper
       ItemSocketImporter.new(wowarmory_item_id).get_socket_bonuses.extract_bonuses
     rescue Exception => ex
       Rails.logger.error(ex)
-    end
-  end
-  
-  def get_gem_color
-    if is_a_gem?
-      @wowarmory_item_info.at("item")['type']
     end
   end
     
