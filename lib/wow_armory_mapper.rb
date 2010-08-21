@@ -2,15 +2,19 @@ class WowArmoryMapper
   class << self
     def map(name, xpath, &block)
       @mappings ||= {}.with_indifferent_access
-      @mappings[name] = {:xpath => xpath, :translate_with => block}
+      mapper = xpath.is_a?(Hash) ? :get_hash : :get_single
+      @mappings[name] = {:xpath => xpath, :translate_with => block, :mapper => mapper}
     end
+    
     def map_many(name, paths)
-      @mappings[name] = {:xpath => paths, :many => true}
+      @mappings[name] = {:xpath => paths, :mapper => :get_many}
     end
+    
     def add_mapping(name, value)
       @mappings ||= {}.with_indifferent_access
       @mappings[name] = value
     end
+    
     def mappings
       @mappings
     end
@@ -19,20 +23,25 @@ class WowArmoryMapper
   def mapped_options
     returning({}) do |result|
       self.class.mappings.each do |name, args|
-        if args[:xpath].is_a?(Hash)
-          if args[:many]
-            data = get_many(args[:xpath])
-          else
-            data = get_hash(args[:xpath])
-          end
-        else
-          data = get_value_at(@wowarmory_item_tooltip, args[:xpath])
-          data = get_value_at(@wowarmory_item_info, args[:xpath]) if data.nil?
-        end
+        data = send(args[:mapper], args[:xpath])
         data = instance_exec(data, &args[:translate_with]) if args[:translate_with]
         result[name] = data
       end
     end
+  end
+
+  def get_single(xpath)
+    value = get_value_at(@wowarmory_item_tooltip, xpath)
+    return value unless value.nil?
+    get_value_at(@wowarmory_item_info, xpath)
+  end
+
+  def get_many(hash)
+    hash.map do |key, value|
+      @wowarmory_item_tooltip.xpath(key).map do |element|
+        get_values(element, value)
+      end
+    end.flatten
   end
 
   def get_hash(hash)
@@ -70,14 +79,6 @@ class WowArmoryMapper
     return get_mapping_strategy(items_to_map).call(element, items_to_map)
   end
   
-  def get_many(hash)
-    hash.map do |key, value|
-      @wowarmory_item_tooltip.xpath(key).map do |element|
-        get_values(element, value)
-      end
-    end.flatten
-  end
-
   def get_value_at(element, xpath)
     value = element.at(xpath) ? element.at(xpath).inner_html.to_appropriate_type : nil
   end
