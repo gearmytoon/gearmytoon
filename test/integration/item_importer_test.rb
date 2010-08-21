@@ -351,6 +351,7 @@ class ItemImporterTest < ActiveSupport::TestCase
     
     should "know if a item is only usable by more then one class" do
       caster_item = ItemImporter.import_from_wowarmory!(41898)
+      assert_equal Item::RESTRICT_TO_NONE, caster_item.restricted_to
       assert_equal [caster_item], Item.usable_by(WowClass.create_class!("Mage"))
       assert_equal [caster_item], Item.usable_by(WowClass.create_class!("Priest"))
       assert_equal [], Item.usable_by(WowClass.create_class!("Rogue"))

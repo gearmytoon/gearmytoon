@@ -3,11 +3,11 @@ class WowArmoryMapper
     def map(name, xpath, &block)
       @mappings ||= {}.with_indifferent_access
       mapper = xpath.is_a?(Hash) ? :get_hash : :get_single
-      @mappings[name] = {:xpath => xpath, :translate_with => block, :mapper => mapper}
+      @mappings[name] = {:xpath => xpath, :mapper => mapper, :translate_with => block}
     end
     
-    def map_many(name, paths)
-      @mappings[name] = {:xpath => paths, :mapper => :get_many}
+    def map_many(name, paths, &block)
+      @mappings[name] = {:xpath => paths, :mapper => :get_many, :translate_with => block}
     end
     
     def add_mapping(name, value)
@@ -72,6 +72,11 @@ class WowArmoryMapper
         end
       }
     else
+      Proc.new { |element, items_to_map| #this is weird
+        returning([]) do |array|
+          array << element.inner_html
+        end
+      }
     end
   end
   

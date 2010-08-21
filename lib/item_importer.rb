@@ -32,13 +32,7 @@ class ItemImporter < WowArmoryMapper
       end
   }
   map_many(:gem_sockets, {"//itemTooltip/socketData/socket" => ['@color']})
-  
-  def get_restricted_to
-    allowable_classes = (@wowarmory_item_tooltip/:itemTooltip/:allowableClasses/:class).map(&:inner_html)
-    #TODO FIX ME, MIGRATE ITEMS
-    allowable_classes && allowable_classes.length == 1 ? allowable_classes.first : Item::RESTRICT_TO_NONE
-  end
-
+  map_many(:restricted_to, "//itemTooltip/allowableClasses/class") {|data| data && data.length == 1 ? data.first : Item::RESTRICT_TO_NONE}
 
   attr_reader :wowarmory_item_id
   def initialize(wowarmory_item_id, wowarmory_item_info, wowarmory_item_tooltip)
@@ -62,7 +56,7 @@ class ItemImporter < WowArmoryMapper
   def import!
     returning type_to_be_imported.find_or_create_by_wowarmory_item_id(wowarmory_item_id) do |item|
       item.update_attributes!(mapped_options.merge({:wowarmory_item_id => wowarmory_item_id,
-                                :restricted_to => get_restricted_to, :item_sources => get_item_sources(item), 
+                                :item_sources => get_item_sources(item), 
                                 :gem_color => get_gem_color,
                                 :socket_bonuses => get_socket_bonuses}))
     end
