@@ -39,32 +39,41 @@ class WowArmoryMapper
     key, value = hash.first
     element = @wowarmory_item_tooltip.at(key)
     return nil if element.nil?
-    returning({}) do |hash|
-      value.each do |key, value|
-        val = get_value_at(element, value)
-        hash[key.to_sym] = val if val
-      end
+    return get_values(element, value)
+  end
+
+  def get_mapping_strategy(input)
+    case input
+    when Hash
+      Proc.new { |element, items_to_map|
+        returning({}) do |hash|
+          items_to_map.each do |k, v|
+            val = get_value_at(element, v)
+            hash[k.to_sym] = val if val
+          end
+        end
+      }
+    when Array
+      Proc.new { |element, items_to_map|
+        returning([]) do |array|
+          items_to_map.each do |v|
+            val = get_value_at(element, v)
+            array << val if val
+          end
+        end
+      }
+    else
     end
+  end
+  
+  def get_values(element, items_to_map)
+    return get_mapping_strategy(items_to_map).call(element, items_to_map)
   end
   
   def get_many(hash)
     hash.map do |key, value|
       @wowarmory_item_tooltip.xpath(key).map do |element|
-        if value.is_a?(Hash)
-          returning({}) do |hash|
-            value.each do |k, v|
-              val = get_value_at(element, v)
-              hash[k.to_sym] = val if val
-            end
-          end
-        else
-          returning([]) do |array|
-            value.each do |v|
-              val = get_value_at(element, v)
-              array << val if val
-            end
-          end
-        end
+        get_values(element, value)
       end
     end.flatten
   end
