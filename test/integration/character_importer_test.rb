@@ -62,9 +62,8 @@ class CharacterImporterTest < ActiveSupport::TestCase
 
     should "refresh a character" do
       WowClass.create_class!("Paladin")
-      character = Factory.build(:character, :name => "Rails", :realm => "Baelgun")
-      character = CharacterImporter.import_character_and_all_items(character)
-      character.save!
+      character = Factory(:character, :name => "Rails", :realm => "Baelgun")
+      character = CharacterImporter.import!(character)
       character.character_items.first.delete
       assert_no_difference "Item.count" do
         assert_difference "character.character_items.reload.count", 1 do
@@ -74,14 +73,13 @@ class CharacterImporterTest < ActiveSupport::TestCase
     end
   end
 
-  context "import_character_and_all_items" do
+  context "import!" do
     should "import rails and all of his equipped items" do
       Factory(:wow_class, :name => "Paladin")
       character = Factory.build(:character, :name => "Rails", :realm => "Baelgun")
       assert_difference "Item.count", 28 do
         assert_difference "Character.count" do
-          character = CharacterImporter.import_character_and_all_items(character)
-          character.save!
+          character = CharacterImporter.import!(character)
         end
       end
       rails = Character.last
@@ -106,7 +104,7 @@ class CharacterImporterTest < ActiveSupport::TestCase
     should "import a characters items with the gems that are equipped" do
       Factory(:wow_class, :name => "Paladin")
       character = Factory(:new_character, :name => "Rails", :realm => "Baelgun")
-      CharacterImporter.import(character)
+      CharacterImporter.import!(character)
       character.reload
       assert_equal 40032, character.character_item_on("Feet").first.gem_one.wowarmory_item_id
       assert_equal 41380, character.character_item_on("Helm").first.gem_one.wowarmory_item_id
@@ -117,8 +115,8 @@ class CharacterImporterTest < ActiveSupport::TestCase
 
     should "import a characters total_item_bonuses" do
       Factory(:wow_class, :name => "Hunter")
-      character = Factory.build(:character, :name => "Merb", :realm => "Baelgun")
-      CharacterImporter.import_character_and_all_items(character)
+      character = Factory(:character, :name => "Merb", :realm => "Baelgun")
+      CharacterImporter.import!(character)
       assert_not_nil character.total_item_bonuses[:agility]
       assert_not_nil character.total_item_bonuses[:strength]
       assert_not_nil character.total_item_bonuses[:intellect]

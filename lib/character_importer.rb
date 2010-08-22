@@ -1,17 +1,15 @@
 class CharacterImporter
-  def self.import(character)
-    self.import_character_and_all_items(character).save!
-  end
-
-  def self.import_character!(character)
+  
+  def self.import!(character)
     import_character_and_all_items(character).save!
     character.loaded!
+    character
   end
 
   def self.refresh_character!(character)
     CharacterItem.delete_all(:character_id => character.id)
     Upgrade.delete_all(:character_id => character.id)
-    import_character!(character)
+    import!(character)
     character.generate_upgrades
     character
   end
@@ -28,6 +26,7 @@ class CharacterImporter
     item = item.nil? ? ItemImporter.import_from_wowarmory!(wow_armory_item_id) : item  
   end
 
+  private
   def self.import_character_and_all_items(character)
     returning character do |c|
       api = Wowr::API.new(:character_name => c.name, :realm => c.realm,

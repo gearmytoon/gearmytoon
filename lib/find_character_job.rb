@@ -8,7 +8,7 @@ class FindCharacterJob
     character = Character.find(character_id)
     Character.transaction do
       begin
-        CharacterImporter.import_character!(character)
+        CharacterImporter.import!(character)
       rescue Wowr::Exceptions::CharacterNotFound, Wowr::Exceptions::NetworkTimeout
         character.unable_to_load!
       end
