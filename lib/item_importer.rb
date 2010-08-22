@@ -36,6 +36,15 @@ class ItemImporter < WowArmoryMapper
   map_many(:gem_sockets, {"//itemTooltip/socketData/socket" => ['@color']})
   map_many(:restricted_to, "//itemTooltip/allowableClasses/class") {|data| data && data.length == 1 ? data.first : Item::RESTRICT_TO_NONE}
 
+  map(:socket_bonuses, "/page/itemInfo/sockBonuses") {|data|
+    begin
+      #get socket bonuses from thottbot
+      ItemSocketImporter.new(wowarmory_item_id).get_socket_bonuses.extract_bonuses
+    rescue Exception => ex
+      Rails.logger.error(ex)
+    end
+  }
+
   attr_reader :wowarmory_item_id
   def initialize(wowarmory_item_id, wowarmory_item_info, wowarmory_item_tooltip)
     @wowarmory_item_info = wowarmory_item_info
@@ -58,21 +67,12 @@ class ItemImporter < WowArmoryMapper
   def import!
     returning type_to_be_imported.find_or_create_by_wowarmory_item_id(wowarmory_item_id) do |item|
       item.update_attributes!(mapped_options.merge({:wowarmory_item_id => wowarmory_item_id,
-                                :item_sources => get_item_sources(item), 
-                                :socket_bonuses => get_socket_bonuses}))
+                                :item_sources => get_item_sources(item)}))
     end
   end
   
 
   
-  def get_socket_bonuses
-    begin
-      #get socket bonuses from thottbot
-      ItemSocketImporter.new(wowarmory_item_id).get_socket_bonuses.extract_bonuses
-    rescue Exception => ex
-      Rails.logger.error(ex)
-    end
-  end
     
   def get_dropped_sources(item)
     @wowarmory_item_info.xpath("//dropCreatures/creature").map do |creature|
