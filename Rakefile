@@ -20,3 +20,15 @@ if RAILS_ENV == "deploy"
     STDERR.puts "You need to install the vlad gem. 'gem install vlad vlad-git'"
   end
 end
+
+namespace :test do
+  Rake::TestTask.new(:slow_integration) do |t|
+    t.libs << "test"
+    t.test_files = FileList['test/slow_integration/**/*_test.rb']
+    t.verbose = true
+  end
+end
+
+Rake::Task["test"].enhance do
+  Rake::Task["test:slow_integration"].invoke
+end
