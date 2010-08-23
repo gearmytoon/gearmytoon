@@ -9,7 +9,6 @@ Factory.define(:basic_character, :class => "Character") do |model|
   model.wow_class WowClass.create_class!("Hunter")
   model.race 'troll'
   model.gender 'male'
-  model.dont_use_wow_armory true
 end
 
 Factory.define(:unpaid_character, :parent => "basic_character") do |model|

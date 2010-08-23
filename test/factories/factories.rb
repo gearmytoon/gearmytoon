@@ -21,10 +21,6 @@ Factory.define(:character_item) do |model|
   model.association :item
 end
 
-Factory.define(:wow_class) do |model|
-  model.primary_armor_type ArmorType.mail
-end
-
 Factory.define(:currency_item, :class => 'ItemUsedToCreate') do |model|
 end
 

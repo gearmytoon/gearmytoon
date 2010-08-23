@@ -49,8 +49,6 @@ class Character < ActiveRecord::Base
     transitions :to => :geared, :from => :found
   end
 
-  attr_accessor :dont_use_wow_armory
-
   named_scope :that_exists, :conditions => ["status != 'new' AND status != 'does_not_exist' AND race IS NOT NULL"]
 
   named_scope :found, :conditions => {:status => "found"}
@@ -69,8 +67,13 @@ class Character < ActiveRecord::Base
   validates_presence_of :name
   validates_presence_of :realm
   validates_presence_of :locale
-
+  before_update :calculate_gmt_score
+  
   delegate :name, :to => :wow_class, :prefix => true
+
+  def calculate_gmt_score
+    self.gmt_score = dps_for(apply_hard_caps(total_item_bonuses), false) / 100 unless wow_class.nil?
+  end
 
   def name_and_realm_and_locale
     "#{name} #{realm} #{locale}"

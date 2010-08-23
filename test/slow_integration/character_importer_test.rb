@@ -38,7 +38,7 @@ class CharacterImporterTest < ActiveSupport::TestCase
     end
     
     should "import rails and all of his equipped items" do
-      Factory(:wow_class, :name => "Paladin")
+      WowClass.create_class!("Paladin")
       character = Factory.build(:character, :name => "Rails", :realm => "Baelgun")
       assert_difference "Item.count", 28 do
         assert_difference "Character.count" do
@@ -65,7 +65,7 @@ class CharacterImporterTest < ActiveSupport::TestCase
     end
 
     should "import a characters items with the gems that are equipped" do
-      Factory(:wow_class, :name => "Paladin")
+      WowClass.create_class!("Paladin")
       character = Factory(:new_character, :name => "Rails", :realm => "Baelgun")
       CharacterImporter.import!(character)
       character.reload
