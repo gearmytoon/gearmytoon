@@ -1,0 +1,173 @@
+<?xml version="1.0" encoding="UTF-8"?><?xml-stylesheet type="text/xsl" href="/_layout/character/sheet.xsl"?>
+<page globalSearch="1" lang="en_us" requestUrl="/character-sheet.xml">
+  <tabInfo subTab="profile" tab="character" tabGroup="character" tabUrl="r=Baelgun&amp;cn=Rails&amp;gn=Blood+on+the+Ground"/>
+  <characterInfo>
+    <character battleGroup="Shadowburn" charUrl="r=Baelgun&amp;cn=Rails" class="Paladin" classId="2" classUrl="c=Paladin" faction="Horde" factionId="1" gender="Male" genderId="0" guildName="Blood on the Ground" guildUrl="r=Baelgun&amp;gn=Blood+on+the+Ground" lastModified="July 25, 2010" level="80" name="Rails" points="2490" prefix="" race="Blood Elf" raceId="10" realm="Baelgun" suffix="" titleId="0">
+      <arenaTeams>
+        <arenaTeam battleGroup="Shadowburn" created="1234828800000" faction="Horde" factionId="1" gamesPlayed="0" gamesWon="0" lastSeasonRanking="0" name="pve is skill pvp is time" ranking="0" rating="0" realm="Baelgun" realmUrl="b=Shadowburn&amp;r=Baelgun&amp;ts=2&amp;t=pve+is+skill+pvp+is+time&amp;ff=realm&amp;fv=Baelgun&amp;select=pve+is+skill+pvp+is+time" season="0" seasonGamesPlayed="0" seasonGamesWon="0" size="2" teamSize="2" teamUrl="r=Baelgun&amp;ts=2&amp;t=pve+is+skill+pvp+is+time&amp;select=pve+is+skill+pvp+is+time" url="r=Baelgun&amp;ts=2&amp;t=pve+is+skill+pvp+is+time&amp;select=pve+is+skill+pvp+is+time">
+          <emblem background="ff0026f7" borderColor="ffd1f04d" borderStyle="4" iconColor="ffdb02d8" iconStyle="90"/>
+          <members>
+            <character battleGroup="" charUrl="r=Baelgun&amp;cn=Rails" class="Paladin" classId="2" contribution="0" gamesPlayed="0" gamesWon="0" gender="Male" genderId="0" guild="Blood on the Ground" guildId="11431964" guildUrl="r=Baelgun&amp;gn=Blood+on+the+Ground" name="Rails" race="Blood Elf" raceId="10" seasonGamesPlayed="0" seasonGamesWon="0" teamRank="0"/>
+            <character battleGroup="" charUrl="r=Baelgun&amp;cn=Serenade" class="Death Knight" classId="6" contribution="0" gamesPlayed="0" gamesWon="0" gender="Female" genderId="1" guild="Wipes on Trash" guildId="5685928" guildUrl="r=Baelgun&amp;gn=Wipes+on+Trash" name="Serenade" race="Blood Elf" raceId="10" seasonGamesPlayed="0" seasonGamesWon="0" teamRank="1"/>
+          </members>
+        </arenaTeam>
+        <arenaTeam battleGroup="Shadowburn" created="1241049600000" faction="Horde" factionId="1" gamesPlayed="0" gamesWon="0" lastSeasonRanking="0" name="I got nothing" ranking="4279" rating="1111" realm="Baelgun" realmUrl="b=Shadowburn&amp;r=Baelgun&amp;ts=3&amp;t=I+got+nothing&amp;ff=realm&amp;fv=Baelgun&amp;select=I+got+nothing" season="0" seasonGamesPlayed="42" seasonGamesWon="24" size="3" teamSize="3" teamUrl="r=Baelgun&amp;ts=3&amp;t=I+got+nothing&amp;select=I+got+nothing" url="r=Baelgun&amp;ts=3&amp;t=I+got+nothing&amp;select=I+got+nothing">
+          <emblem background="ffe0c70a" borderColor="ff939619" borderStyle="2" iconColor="ff8a6315" iconStyle="50"/>
+          <members>
+            <character battleGroup="" charUrl="r=Baelgun&amp;cn=Escath" class="Priest" classId="5" contribution="1111" gamesPlayed="0" gamesWon="0" gender="Male" genderId="0" guild="Wipes on Trash" guildId="5685928" guildUrl="r=Baelgun&amp;gn=Wipes+on+Trash" name="Escath" race="Blood Elf" raceId="10" seasonGamesPlayed="42" seasonGamesWon="24" teamRank="0"/>
+            <character battleGroup="" charUrl="r=Baelgun&amp;cn=Rails" class="Paladin" classId="2" contribution="0" gamesPlayed="0" gamesWon="0" gender="Male" genderId="0" guild="Blood on the Ground" guildId="11431964" guildUrl="r=Baelgun&amp;gn=Blood+on+the+Ground" name="Rails" race="Blood Elf" raceId="10" seasonGamesPlayed="0" seasonGamesWon="0" teamRank="1"/>
+          </members>
+        </arenaTeam>
+      </arenaTeams>
+      <modelBasePath value="http://us.media.battle.net.edgesuite.net/"/>
+    </character>
+    <characterTab>
+      <talentSpecs>
+        <talentSpec group="2" icon="spell_holy_holybolt" prim="Holy" treeOne="54" treeThree="0" treeTwo="17"/>
+        <talentSpec active="1" group="1" icon="spell_holy_devotionaura" prim="Protection" treeOne="0" treeThree="8" treeTwo="63"/>
+      </talentSpecs>
+      <buffs/>
+      <debuffs/>
+      <pvp>
+        <lifetimehonorablekills value="12848"/>
+        <arenacurrency value="0"/>
+      </pvp>
+      <professions>
+        <skill id="202" key="engineering" max="450" name="Engineering" value="448"/>
+        <skill id="186" key="mining" max="450" name="Mining" value="450"/>
+      </professions>
+      <secondaryProfessions>
+        <skill id="129" key="firstaid" max="450" name="First Aid" value="416"/>
+        <skill id="762" key="riding" max="300" name="Riding" value="300"/>
+      </secondaryProfessions>
+      <characterBars>
+        <health effective="31829"/>
+        <secondBar casting="0" effective="5629" notCasting="17" type="m"/>
+      </characterBars>
+      <baseStats>
+        <strength attack="2280" base="170" block="57" effective="1150"/>
+        <agility armor="228" attack="-1" base="92" critHitPercent="5.46" effective="114"/>
+        <stamina base="223" effective="2480" health="24620" petBonus="-1"/>
+        <intellect base="101" critHitPercent="3.94" effective="101" mana="1235" petBonus="-1"/>
+        <spirit base="103" effective="103" healthRegen="19" manaRegen="17"/>
+        <armor base="23858" effective="23858" percent="61.03" petBonus="-1"/>
+      </baseStats>
+      <resistances>
+        <arcane petBonus="-1" value="0"/>
+        <fire petBonus="-1" value="0"/>
+        <frost petBonus="-1" value="0"/>
+        <holy petBonus="-1" value="0"/>
+        <nature petBonus="-1" value="0"/>
+        <shadow petBonus="-1" value="0"/>
+      </resistances>
+      <melee>
+        <mainHandDamage dps="377.3" max="647" min="485" percent="0" speed="1.50"/>
+        <offHandDamage dps="0.0" max="0" min="0" percent="0" speed="2.00"/>
+        <mainHandSpeed hastePercent="0.00" hasteRating="0" value="1.50"/>
+        <offHandSpeed hastePercent="0.00" hasteRating="0" value="2.00"/>
+        <power base="2520" effective="2520" increasedDps="180.0"/>
+        <hitRating increasedHitPercent="8.30" penetration="0" reducedArmorPercent="0.00" value="272"/>
+        <critChance percent="11.46" plusPercent="0.00" rating="0"/>
+        <expertise additional="13" percent="4.75" rating="108" value="19"/>
+      </melee>
+      <ranged>
+        <weaponSkill rating="0" value="0"/>
+        <damage dps="0.0" max="0" min="0" percent="0" speed="0.00"/>
+        <speed hastePercent="0.00" hasteRating="0" value="0.00"/>
+        <power base="104" effective="104" increasedDps="7.0" petAttack="-1.00" petSpell="-1.00"/>
+        <hitRating increasedHitPercent="8.30" penetration="0" reducedArmorPercent="0.00" value="272"/>
+        <critChance percent="6.26" plusPercent="0.00" rating="0"/>
+      </ranged>
+      <spell>
+        <bonusDamage>
+          <arcane value="0"/>
+          <fire value="0"/>
+          <frost value="0"/>
+          <holy value="0"/>
+          <nature value="0"/>
+          <shadow value="0"/>
+          <petBonus attack="-1" damage="-1" fromType=""/>
+        </bonusDamage>
+        <bonusHealing value="0"/>
+        <hitRating increasedHitPercent="10.37" penetration="0" reducedResist="0" value="272"/>
+        <critChance rating="0">
+          <arcane percent="9.94"/>
+          <fire percent="9.94"/>
+          <frost percent="9.94"/>
+          <holy percent="9.94"/>
+          <nature percent="9.94"/>
+          <shadow percent="9.94"/>
+        </critChance>
+        <penetration value="0"/>
+        <manaRegen casting="0.00" notCasting="17.00"/>
+        <hasteRating hastePercent="0.00" hasteRating="0"/>
+      </spell>
+      <defenses>
+        <armor base="23858" effective="23858" percent="61.03" petBonus="-1"/>
+        <defense decreasePercent="5.88" increasePercent="5.88" plusDefense="147" rating="725" value="400.00"/>
+        <dodge increasePercent="10.17" percent="24.40" rating="460"/>
+        <parry increasePercent="5.30" percent="19.37" rating="240"/>
+        <block increasePercent="3.23" percent="14.11" rating="53"/>
+        <resilience damagePercent="0.00" hitPercent="0.00" value="0.00"/>
+      </defenses>
+      <items>
+        <item displayInfoId="60556" durability="82" gem0Id="41380" gem1Id="39976" gem2Id="0" gemIcon0="inv_jewelcrafting_shadowspirit_02" gemIcon1="inv_jewelcrafting_gem_19" icon="inv_helmet_134" id="47497" level="219" maxDurability="100" name="Helm of the Crestfallen Challenger" permanentEnchantIcon="ability_warrior_swordandboard" permanentEnchantItemId="44878" permanentenchant="3818" pickUp="PickUpLargeChain" putDown="PutDownLArgeChain" randomPropertiesId="0" rarity="4" seed="517780384" slot="0"/>
+        <item displayInfoId="40038" durability="0" gem0Id="0" gem1Id="0" gem2Id="0" icon="inv_jewelry_necklace_29" id="47566" level="219" maxDurability="0" name="The Warlord's Depravity" permanentenchant="0" pickUp="PickUpRing" putDown="PutDownRing" randomPropertiesId="0" rarity="4" seed="1395214336" slot="1"/>
+        <item displayInfoId="53903" durability="77" gem0Id="40057" gem1Id="0" gem2Id="0" gemIcon0="inv_jewelcrafting_gem_30" icon="inv_shoulder_75" id="39267" level="200" maxDurability="100" name="Abomination Shoulderblades" permanentEnchantIcon="spell_holy_divinepurpose" permanentEnchantItemId="44136" permanentenchant="3811" pickUp="PickUpLargeChain" putDown="PutDownLArgeChain" randomPropertiesId="0" rarity="4" seed="794629400" slot="2"/>
+        <item displayInfoId="15858" durability="0" gem0Id="0" gem1Id="0" gem2Id="0" icon="inv_shirt_black_01" id="4333" level="31" maxDurability="0" name="Dark Silk Shirt" permanentenchant="0" pickUp="PickUpCloth_Leather01" putDown="PutDownCloth_Leather01" randomPropertiesId="0" rarity="1" seed="2134378816" slot="3"/>
+        <item displayInfoId="54255" durability="133" gem0Id="40089" gem1Id="40015" gem2Id="0" gemIcon0="inv_jewelcrafting_gem_25" gemIcon1="inv_jewelcrafting_gem_26" icon="inv_chest_plate02" id="39638" level="200" maxDurability="165" name="Heroes' Redemption Breastplate" permanentEnchantIcon="inv_scroll_03" permanentEnchantItemId="39005" permanentenchant="3297" pickUp="PickUpLargeChain" putDown="PutDownLArgeChain" randomPropertiesId="0" rarity="4" seed="0" slot="4"/>
+        <item displayInfoId="58770" durability="45" gem0Id="40031" gem1Id="0" gem2Id="0" gemIcon0="inv_jewelcrafting_gem_29" icon="inv_belt_48a" id="45825" level="226" maxDurability="55" name="Shieldwarder Girdle" permanentenchant="0" pickUp="PickUpLargeChain" putDown="PutDownLArgeChain" randomPropertiesId="0" rarity="4" seed="0" slot="5"/>
+        <item displayInfoId="59613" durability="95" gem0Id="40139" gem1Id="40089" gem2Id="0" gemIcon0="inv_jewelcrafting_gem_40" gemIcon1="inv_jewelcrafting_gem_25" icon="inv_pants_plate_29" id="45384" level="219" maxDurability="120" name="Valorous Aegis Legguards" permanentEnchantIcon="inv_misc_armorkit_32" permanentEnchantItemId="38373" permanentenchant="3822" pickUp="PickUpLargeChain" putDown="PutDownLArgeChain" randomPropertiesId="0" rarity="4" seed="2053492224" slot="6"/>
+        <item displayInfoId="60639" durability="65" gem0Id="40032" gem1Id="0" gem2Id="0" gemIcon0="inv_jewelcrafting_gem_29" icon="inv_boots_plate_11" id="47201" level="200" maxDurability="75" name="Boots of Heartfelt Repentance" permanentenchant="0" pickUp="PickUpLargeChain" putDown="PutDownLArgeChain" randomPropertiesId="0" rarity="4" seed="1380028608" slot="7"/>
+        <item displayInfoId="59302" durability="44" gem0Id="0" gem1Id="0" gem2Id="0" icon="inv_bracer_31a" id="45283" level="219" maxDurability="55" name="Flamewatch Armguards" permanentenchant="0" pickUp="PickUpLargeChain" putDown="PutDownLArgeChain" randomPropertiesId="0" rarity="4" seed="1920872704" slot="8"/>
+        <item displayInfoId="58750" durability="45" gem0Id="0" gem1Id="0" gem2Id="0" icon="inv_gauntlets_62" id="45834" level="226" maxDurability="55" name="Gauntlets of the Royal Watch" permanentEnchantIcon="inv_misc_armorkit_30" permanentEnchantItemId="38376" permanentenchant="3330" pickUp="PickUpLargeChain" putDown="PutDownLArgeChain" randomPropertiesId="0" rarity="4" seed="0" slot="9"/>
+        <item displayInfoId="39129" durability="0" gem0Id="40008" gem1Id="0" gem2Id="0" gemIcon0="inv_jewelcrafting_gem_27" icon="inv_jewelry_ring_60" id="47243" level="219" maxDurability="0" name="Mark of the Relentless" permanentenchant="0" pickUp="PickUpRing" putDown="PutDownRing" randomPropertiesId="0" rarity="4" seed="1225772224" slot="10"/>
+        <item displayInfoId="35431" durability="0" gem0Id="0" gem1Id="0" gem2Id="0" icon="inv_jewelry_ring_53naxxramas" id="39141" level="200" maxDurability="0" name="Deflection Band" permanentenchant="0" pickUp="PickUpRing" putDown="PutDownRing" randomPropertiesId="0" rarity="4" seed="1131460672" slot="11"/>
+        <item displayInfoId="17776" durability="0" gem0Id="0" gem1Id="0" gem2Id="0" icon="inv_misc_armorkit_08" id="36993" level="187" maxDurability="0" name="Seal of the Pantheon" permanentenchant="0" pickUp="PickUpRing" putDown="PutDownRing" randomPropertiesId="0" rarity="3" seed="2127576064" slot="12"/>
+        <item displayInfoId="49636" durability="0" gem0Id="0" gem1Id="0" gem2Id="0" icon="inv_drink_04" id="49116" level="200" maxDurability="0" name="Bitter Balebrew Charm" permanentenchant="0" pickUp="PickUpWand" putDown="PutDownWand" randomPropertiesId="0" rarity="4" seed="1151081984" slot="13"/>
+        <item displayInfoId="54673" durability="0" gem0Id="0" gem1Id="0" gem2Id="0" icon="inv_misc_cape_20" id="40722" level="213" maxDurability="0" name="Platinum Mesh Cloak" permanentEnchantIcon="inv_scroll_03" permanentEnchantItemId="38978" permanentenchant="1951" pickUp="PickUpCloth_Leather01" putDown="PutDownCloth_Leather01" randomPropertiesId="0" rarity="4" seed="0" slot="14"/>
+        <item displayInfoId="60564" durability="71" gem0Id="40015" gem1Id="0" gem2Id="0" gemIcon0="inv_jewelcrafting_gem_26" icon="inv_sword_142" id="47500" level="219" maxDurability="105" name="Peacekeeper Blade" permanentenchant="0" pickUp="PickUpMetalSmall" putDown="PutDownSmallMEtal" randomPropertiesId="0" rarity="4" seed="1379099008" slot="15"/>
+        <item displayInfoId="53562" durability="93" gem0Id="0" gem1Id="0" gem2Id="0" icon="inv_shield_60" id="40475" level="213" maxDurability="120" name="Barricade of Eternity" permanentEnchantIcon="inv_scroll_03" permanentEnchantItemId="38954" permanentenchant="1952" pickUp="PickUpMetalLArge" putDown="PutDownLArgeMEtal" randomPropertiesId="0" rarity="4" seed="1751163136" slot="16"/>
+        <item displayInfoId="34961" durability="0" gem0Id="0" gem1Id="0" gem2Id="0" icon="inv_relics_libramoftruth" id="40707" level="200" maxDurability="0" name="Libram of Obstruction" permanentenchant="0" pickUp="PickUpBook" putDown="PutDownBook" randomPropertiesId="0" rarity="4" seed="0" slot="17"/>
+        <item displayInfoId="54171" durability="0" gem0Id="0" gem1Id="0" gem2Id="0" icon="inv_shirt_guildtabard_01" id="43154" level="75" maxDurability="0" name="Tabard of the Argent Crusade" permanentenchant="0" pickUp="PickUpCloth_Leather01" putDown="PutDownCloth_Leather01" randomPropertiesId="0" rarity="1" seed="0" slot="18"/>
+      </items>
+      <glyphs>
+        <glyph effect="Reduces the cooldown of your Holy Wrath spell by 15 sec." icon="ui-glyph-rune-11" id="559" name="Glyph of Holy Wrath" type="major"/>
+        <glyph effect="Increases the duration of your Blessing of Might spell by 20 min when cast on yourself." icon="ui-glyph-rune-2" id="453" name="Glyph of Blessing of Might" type="minor"/>
+        <glyph effect="When you cast Hand of Salvation on yourself, it also reduces damage taken by 20%." icon="ui-glyph-rune-11" id="707" name="Glyph of Salvation" type="major"/>
+        <glyph effect="Reduces the cooldown of your Lay on Hands spell by 5 min." icon="ui-glyph-rune-11" id="455" name="Glyph of Lay on Hands" type="minor"/>
+        <glyph effect="Your Judgements deal 10% more damage." icon="ui-glyph-rune-8" id="183" name="Glyph of Judgement" type="major"/>
+      </glyphs>
+    </characterTab>
+    <summary>
+      <c earned="242" points="2490" total="1058" totalPoints="11675"/>
+      <category id="92" name="General">
+        <c earned="22" earnedPoints="220" total="54" totalPoints="570"/>
+      </category>
+      <category id="96" name="Quests">
+        <c earned="10" earnedPoints="100" total="49" totalPoints="530"/>
+      </category>
+      <category id="97" name="Exploration">
+        <c earned="12" earnedPoints="120" total="70" totalPoints="830"/>
+      </category>
+      <category id="95" name="Player vs. Player">
+        <c earned="60" earnedPoints="640" total="166" totalPoints="1930"/>
+      </category>
+      <category id="168" name="Dungeons &amp; Raids">
+        <c earned="110" earnedPoints="1130" total="458" totalPoints="4955"/>
+      </category>
+      <category id="169" name="Professions">
+        <c earned="11" earnedPoints="110" total="75" totalPoints="760"/>
+      </category>
+      <category id="201" name="Reputation">
+        <c earned="3" earnedPoints="30" total="45" totalPoints="560"/>
+      </category>
+      <category id="155" name="World Events">
+        <c earned="14" earnedPoints="140" total="141" totalPoints="1540"/>
+      </category>
+      <category id="81" name="Feats of Strength">
+        <c earned="8"/>
+      </category>
+    </summary>
+  </characterInfo>
+</page>

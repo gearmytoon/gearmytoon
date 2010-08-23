@@ -188,6 +188,10 @@ class Character < ActiveRecord::Base
     end
   end
 
+  def self.find_or_create(name, realm, locale)
+    Character.find_or_create_by_name_and_realm_and_locale(name.downcase, realm.downcase, locale.downcase)    
+  end
+
   private
   def capitalize_name_and_realm
     self.name.try(:capitalize!)

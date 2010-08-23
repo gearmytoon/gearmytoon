@@ -2,7 +2,7 @@ require File.dirname(__FILE__) + '/../test_helper'
 
 class MemberXmlProcessorTest < ActiveSupport::TestCase
   GUILD_XML_PATH = File.join(RAILS_ROOT, "test", "fixtures", "guilds", "guild_info.xml")
-  ARENA_XML_PATH = File.join(RAILS_ROOT, "test", "fixtures", "arena_team", "3v3team.xml")
+  CHAR_XML_PATH = File.join(RAILS_ROOT, "test", "fixtures", "characters", "rails-info.xml")
   
   context "process guild xml" do
     should "find guild realm" do
@@ -23,11 +23,27 @@ class MemberXmlProcessorTest < ActiveSupport::TestCase
     end
   end
   
-  context "process arena team xml" do
+  context "process character xml" do
     should "find all characters" do
-      doc = Nokogiri::XML(File.read(ARENA_XML_PATH))
+      doc = Nokogiri::XML(File.read(CHAR_XML_PATH))
       guild_processor = MemberXmlProcessor.new(doc)
-      assert_equal 2, guild_processor.characters_hash.size
+      assert_equal 4, guild_processor.characters_hash.size
+    end
+  end
+
+  context "find_more_characters" do
+    should "find more characters to import" do
+      WowClass.create_class!("Paladin")
+      doc = Nokogiri::XML(File.read(CHAR_XML_PATH))
+      processor = MemberXmlProcessor.new(doc)
+      character = Factory(:character, :name => "Rails", :realm => "Baelgun")
+      assert_difference "Resque.size('character_crawler_jobs')", 2 do
+        assert_difference "Character.count", 2 do
+          processor.find_more_characters("us")
+        end
+      end
+      assert_not_nil Character.find_by_name("escath")
+      assert_not_nil Character.find_by_name("serenade")
     end
   end
   

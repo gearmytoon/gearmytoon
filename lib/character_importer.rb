@@ -1,8 +1,45 @@
 class CharacterImporter
+
+  def self.import_and_generate_upgrades!(character_id)
+    character = Character.find(character_id)
+    import!(character)
+    unless character.reload.does_not_exist?
+      Character.transaction do
+        character.generate_upgrades
+      end
+    end
+  end
   
+  def self.import_and_crawl_associated!(character_id)
+    character = Character.find(character_id)
+    character = import!(character)
+    if character.found?
+      armory = WowArmoryImporter.new(false)
+      processor = MemberXmlProcessor.new(armory.character_sheet(character.name, character.realm, character.locale))
+      processor.find_more_characters(character.locale)
+    end
+  end
+  
+  def self.find_upgrades!(character_id)
+    character = Character.find(character_id)
+    Character.transaction do
+      begin
+        refresh_character!(character)
+      rescue Wowr::Exceptions::CharacterNotFound, Wowr::Exceptions::NetworkTimeout
+        character.unable_to_load!
+      end
+    end
+  end
+
   def self.import!(character)
-    import_character_and_all_items(character).save!
-    character.loaded!
+    Character.transaction do
+      begin
+        import_character_and_all_items(character).save!
+        character.loaded!
+      rescue Wowr::Exceptions::CharacterNotFound, Wowr::Exceptions::NetworkTimeout
+        character.unable_to_load!
+      end
+    end
     character
   end
 

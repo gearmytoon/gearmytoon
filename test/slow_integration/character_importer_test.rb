@@ -16,9 +16,7 @@ class CharacterImporterTest < ActiveSupport::TestCase
       CharacterImporter.refresh_character!(character)
       assert_no_difference "Item.count" do
         assert_no_difference "CharacterItem.count" do
-          assert_raises Wowr::Exceptions::CharacterNotFound do
-            CharacterImporter.refresh_character!(Factory(:character, :name => "fsfkajfa", :realm => "Baelgun"))
-          end
+          CharacterImporter.refresh_character!(Factory(:character, :name => "fsfkajfa", :realm => "Baelgun"))
         end
       end
     end
