@@ -174,11 +174,11 @@ class CharactersControllerTest < ActionController::TestCase
     end
 
     should "display character info" do
-      character = Factory(:character, :name => "Merb", :realm => "Baelgun", :battle_group => "Shadowburn", :guild => "Special Circumstances", :primary_spec => "Survival")
+      character = Factory(:character, :name => "Merb", :realm => "Baelgun", :battle_group => "Shadowburn", :guild => Factory(:guild, :name => "Wipes on Trash"), :primary_spec => "Survival")
       get :show, :id => character.friendly_id
       assert_response :success
       assert_select ".character .name", :text => "Merb"
-      assert_select ".character .guild", :text => "Special Circumstances"
+      assert_select ".character .guild", :text => "Wipes on Trash"
       assert_select ".character .level", :text => "80"
       assert_select ".character .klass", :text => "Hunter"
       assert_select ".character .realm", :text => "Baelgun"

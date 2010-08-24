@@ -10,7 +10,7 @@
   <div class="info">
     <p class="name"><%= link_to character.name.capitalize, character %></p>
     <% if character.guild.present? -%>
-      <p class="guild"><%= character.guild %></p>
+      <p class="guild"><%= character.guild.name %></p>
     <% end -%>
     <p>
       <span class="spec"><%= character.primary_spec %></span>

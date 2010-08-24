@@ -55,9 +55,9 @@ class CharacterImporterTest < ActiveSupport::TestCase
       assert_equal 2, rails.wowarmory_class_id
       assert_equal "Baelgun", rails.realm
       assert_equal "Shadowburn", rails.battle_group
-      #todo - test guild url
-      assert_equal nil, rails.guild
-      assert_equal nil, rails.guild_url
+      assert_equal "Special Circumstances", rails.guild.name
+      assert_equal "Baelgun", rails.guild.realm
+      assert_equal "us", rails.guild.locale
       assert_equal "Paladin", rails.wow_class_name
       assert_equal "Protection", rails.primary_spec
     end

@@ -5,6 +5,12 @@ Factory.define(:free_access_user, :class => "User") do |f|
   f.free_access true
 end
 
+Factory.define(:guild) do |model|
+  model.realm "Baelgun"
+  model.locale 'us'
+  model.name "Special Circumstances"
+end
+
 Factory.define(:user) do |f|
   f.sequence(:email) {|n| "foo#{n}@foo.com" }
   f.password "password"

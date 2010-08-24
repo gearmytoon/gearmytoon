@@ -9,7 +9,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20100822183218) do
+ActiveRecord::Schema.define(:version => 20100824133314) do
 
   create_table "areas", :force => true do |t|
     t.string   "name"
@@ -59,9 +59,7 @@ ActiveRecord::Schema.define(:version => 20100822183218) do
     t.integer  "wowarmory_race_id"
     t.string   "race"
     t.integer  "wowarmory_class_id"
-    t.string   "guild"
     t.string   "battle_group"
-    t.string   "guild_url"
     t.integer  "level"
     t.text     "total_item_bonuses"
     t.string   "cached_slug"
@@ -69,6 +67,7 @@ ActiveRecord::Schema.define(:version => 20100822183218) do
     t.string   "status"
     t.string   "active_talent_point_distribution"
     t.decimal  "gmt_score",                        :precision => 10, :scale => 2
+    t.integer  "guild_id"
   end
 
   add_index "characters", ["name", "realm"], :name => "index_characters_on_name_and_realm"
@@ -94,6 +93,15 @@ ActiveRecord::Schema.define(:version => 20100822183218) do
     t.integer  "wowarmory_creature_id"
     t.integer  "min_level"
     t.integer  "max_level"
+  end
+
+  create_table "guilds", :force => true do |t|
+    t.string   "name"
+    t.string   "faction"
+    t.string   "realm"
+    t.string   "locale"
+    t.datetime "created_at"
+    t.datetime "updated_at"
   end
 
   create_table "item_popularities", :force => true do |t|

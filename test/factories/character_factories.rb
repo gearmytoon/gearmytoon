@@ -4,11 +4,11 @@ Factory.define(:basic_character, :class => "Character") do |model|
   model.realm "Baelgun"
   model.locale 'us'
   model.battle_group "Shadowburn"
-  model.guild "Special Circumstances"
   model.level 80
   model.wow_class WowClass.create_class!("Hunter")
   model.race 'troll'
   model.gender 'male'
+  model.association :guild
 end
 
 Factory.define(:unpaid_character, :parent => "basic_character") do |model|
