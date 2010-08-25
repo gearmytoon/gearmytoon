@@ -176,7 +176,7 @@ class ItemImporter < WowArmoryMapper
 
   def self.import_from_wowarmory!(wowarmory_item_id)
     begin
-      armory_importer = WowArmoryImporter.new
+      armory_importer = WowArmoryImporter.new(RAILS_ENV == "production") #our linux install cannot support all the subdirs used by caching
       ItemImporter.new(wowarmory_item_id, armory_importer.item_info(wowarmory_item_id), armory_importer.item_tooltip(wowarmory_item_id)).import!
     rescue WowArmoryDataNotFound => e
       STDERR.puts e

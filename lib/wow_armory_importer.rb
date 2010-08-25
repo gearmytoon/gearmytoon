@@ -25,7 +25,7 @@ class WowArmoryImporter
     return cached_copy(wowarmory_item_id, "tooltip") if cached?(wowarmory_item_id, "tooltip")
     returning get_xml(item_tooltip_url(wowarmory_item_id)) do |document|
       raise WowArmoryDataNotFound.new("Could not find item #{wowarmory_item_id}") unless document.at("//itemTooltip/id")
-      save_item_file(wowarmory_item_id, document, "tooltip")
+      save_item_file(wowarmory_item_id, document, "tooltip") if @use_cache
     end
   end
   
@@ -33,7 +33,7 @@ class WowArmoryImporter
     return cached_copy(wowarmory_item_id, "info") if cached?(wowarmory_item_id, "info")
     returning get_xml(item_info_url(wowarmory_item_id)) do |document|
       raise WowArmoryDataNotFound.new("Could not find item #{wowarmory_item_id}") unless document.at("//itemInfo/item")
-      save_item_file(wowarmory_item_id, document, "info")
+      save_item_file(wowarmory_item_id, document, "info") if @use_cache
     end
   end
   
