@@ -84,7 +84,8 @@ namespace :vlad do
   namespace :resque do
     desc "restart resque worker"
     remote_task :restart, :roles => [:db] do
-      run "sudo monit restart resque_worker_QUEUE"
+      run "sudo monit stop resque_worker_QUEUE"
+      run "sudo monit start resque_worker_QUEUE"
     end
   end
 
