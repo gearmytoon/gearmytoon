@@ -2,6 +2,7 @@ require File.dirname(__FILE__) + '/../test_helper'
 
 class GuildCrawlerJobTest < ActiveSupport::TestCase
   setup do
+    Resque.redis.del "queue:character_crawler_jobs"
     CharacterImporter.stubs(:find_or_import_item).returns(Factory(:item))
     CharacterImporter.stubs(:find_or_import_gem_item).returns(Factory(:red_gem))
   end
