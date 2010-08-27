@@ -451,5 +451,34 @@ class CharacterTest < ActiveSupport::TestCase
     end
 
   end
+  
+  context "state transitions" do
+    should "refresh again if being refreshed was first set more then 10 minutes ago" do
+      freeze_time
+      character = Factory(:character)
+      character.refreshing!
+      freeze_time(11.minutes.from_now)
+      assert_difference "Resque.size('find_upgrades_jobs')" do
+        character.refresh_in_background!
+      end
+    end
+
+    should "refresh if not currently being refreshed" do
+      character = Factory(:character)
+      assert_difference "Resque.size('find_upgrades_jobs')" do
+        character.refresh_in_background!
+      end
+    end
+
+    should "not refresh again if being refreshed is less then 10 minutes ago" do
+      freeze_time
+      character = Factory(:character)
+      character.refreshing!
+      freeze_time(9.minutes.from_now)
+      assert_no_difference "Resque.size('find_upgrades_jobs')" do
+        character.refresh_in_background!
+      end
+    end
+  end
 
 end

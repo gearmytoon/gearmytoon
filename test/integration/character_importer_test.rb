@@ -15,6 +15,13 @@ class CharacterImporterTest < ActiveSupport::TestCase
       assert_equal "000000000000000000000000005500513522315232133301232150030000000000000000000000", character.active_talent_point_distribution
     end
 
+    should "update a characters state to geared" do
+      character = Factory(:character, :name => "Merb", :realm => "Baelgun")
+      assert_equal "found", character.status
+      CharacterImporter.refresh_character!(character)
+      assert_equal "geared", character.status
+    end
+
     should "import a hunters spec correctly" do
       character = Factory(:character, :name => "Merb", :realm => "Baelgun")
       CharacterImporter.refresh_character!(character)

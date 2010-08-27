@@ -28,7 +28,7 @@ class Character < ActiveRecord::Base
 
   acts_as_state_machine :initial => :new, :column => "status"
   state :new
-  state :being_refreshed
+  state :being_refreshed, :enter => Proc.new {|c| c.update_attribute(:updated_at, Time.now)}
   state :found
   state :does_not_exist
   state :geared
@@ -119,15 +119,19 @@ class Character < ActiveRecord::Base
     new? || (race.blank? && gender.blank?)
   end
 
+  def need_to_enqueue_job?
+    !being_refreshed? || ((Time.now - self.updated_at) > 10.minutes)
+  end
+
   def refresh_in_background!
-    unless being_refreshed?
+    if need_to_enqueue_job?
       Resque.enqueue(FindUpgradesJob, self.id)
       self.refreshing!
     end
   end
 
   def initial_import_in_background!
-    unless being_refreshed?
+    if need_to_enqueue_job?
       Resque.enqueue(FindCharacterJob, self.id)
       self.refreshing!
     end
