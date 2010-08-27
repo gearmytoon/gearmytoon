@@ -16,6 +16,7 @@
       var new_tooltip_url = $(this).attr('href') + '/tooltip';
       if(tooltip_url!= new_tooltip_url)
       {
+        $("#tooltip").html("")
         tooltip_url = new_tooltip_url;
         $.get(tooltip_url,function(data) { $("#tooltip").html(data); });
       }
