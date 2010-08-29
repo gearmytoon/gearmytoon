@@ -1,2 +1,2 @@
-<span class="source">Dropped by: <%= wowhead_area_link(item_source.creature.area) %></span>
-<%= link_to "Loken", "#", :class => "neutral npc" %> in <img src="/images/game_icons/dungeon.png" width="20" height="20" /><%= link_to "Halls of Lightning", "#" %>
+<span class="source">Dropped by: <%= link_to item_source.creature.name, "#", :class => "neutral npc" %> in <img src="/images/game_icons/dungeon.png" width="20" height="20" /><%= link_to item_source.creature.area.name, "#" %>
+</span>

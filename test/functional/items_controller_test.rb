@@ -83,9 +83,9 @@ class ItemsControllerTest < ActionController::TestCase
     end
 
     should "show where to get the dropped item from" do
-      item_source = Factory(:dungeon_dropped_source)
+      item_source = Factory(:dungeon_dropped_source, :creature => Factory(:dungeon_creature, :name => "Bob"))
       get :show, :id => item_source.item.id
-      assert_select ".source", :text => "Dropped by: Super Fun Unicorn Land"
+      assert_select ".source", :text => "Dropped by: Bob in Super Fun Unicorn Land"
     end
 
     should "show where to get the arena points item from" do
