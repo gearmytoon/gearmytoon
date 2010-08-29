@@ -15,7 +15,7 @@ dependencies:
   rails: 
     group: 
     - :default
-    version: ~> 2.3.8
+    version: = 2.3.8
   wowr: 
     group: 
     - :default
@@ -212,7 +212,7 @@ specs:
 - wowr: 
     version: 0.5.4
     source: 0
-hash: c83a938830e427014dc267f119ae45a551a86d00
+hash: dc9b9f9d741e64a5657e3860324df207f62241fd
 sources: 
 - Git: 
     uri: http://github.com/gearmytoon/wowr.git
