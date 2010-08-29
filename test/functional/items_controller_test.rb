@@ -70,6 +70,12 @@ class ItemsControllerTest < ActionController::TestCase
       assert_select ".spell_effect", :text => "Use: Chance on melee or ranged critical strike to increase your armor penetration rating by 678 for 10 sec."
     end
 
+    should "show created source items" do
+      item_source = Factory(:created_source, :trade_skill => Factory(:trade_skill, :wowarmory_name => "trade_blacksmithing"))
+      get :show, :id => item_source.item.id
+      assert_select ".source", :text => "Blacksmithing"
+    end
+
     should "show quest source items" do
       item_source = Factory(:quest_source, :quest => Factory(:quest, :name => "Foo Bar"))
       get :show, :id => item_source.item.id

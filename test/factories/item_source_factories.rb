@@ -63,3 +63,8 @@ Factory.define(:quest_source, :class => :quest_source) do |model|
   model.association :quest
   model.association :item
 end
+
+Factory.define(:created_source, :class => :created_source) do |model|
+  model.association :trade_skill
+  model.association :item
+end

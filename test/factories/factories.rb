@@ -100,3 +100,8 @@ Factory.define(:raid_25_creature, :class => :creature) do |model|
   model.name "raid 25 mob"
   model.association :area, :factory => :raid_25
 end
+
+Factory.define(:trade_skill) do |model|
+  model.wowarmory_name "trade_blacksmithing"
+end
+  
