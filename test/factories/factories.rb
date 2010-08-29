@@ -51,6 +51,13 @@ Factory.define(:dungeon, :class => :area) do |model|
   model.players 5
 end
 
+Factory.define(:heroic_dungeon, :class => :area) do |model|
+  model.name "Super Fun Unicorn Land"
+  model.wowarmory_area_id Area::DUNGEONS.first
+  model.difficulty Area::HEROIC
+  model.players 5
+end
+
 Factory.define(:raid_25, :class => :area) do |model|
   model.name "Super DUPER Fun Unicorn Land (25)"
   model.wowarmory_area_id Area::RAIDS.first
@@ -83,10 +90,12 @@ Factory.define(:dungeon_creature, :class => :creature) do |model|
   model.name "dungeon mob"
   model.association :area, :factory => :dungeon
 end
+
 Factory.define(:raid_10_creature, :class => :creature) do |model|
   model.name "raid 10 mob"
   model.association :area, :factory => :raid_10
 end
+
 Factory.define(:raid_25_creature, :class => :creature) do |model|
   model.name "raid 25 mob"
   model.association :area, :factory => :raid_25
