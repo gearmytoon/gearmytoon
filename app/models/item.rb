@@ -39,7 +39,7 @@ class Item < ActiveRecord::Base
   end
 
   def icon(size=:medium)
-    dimensions = {:default => "43x43", :medium => "43x43", :large => "64x64"}
+    dimensions = {:default => "43x43", :medium => "43x43", :large => "64x64", :small => "21x21"}
     extension = size == :large ? 'jpg' : 'png'
     "http://wowarmory.com/wow-icons/_images/#{dimensions[size]}/#{self[:icon]}.#{extension}"
   end

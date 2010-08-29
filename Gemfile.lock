@@ -1,221 +1,223 @@
----
-dependencies:
-  tzinfo:
-    group:
+--- 
+dependencies: 
+  tzinfo: 
+    group: 
     - :default
     version: = 0.3.20
-  ruby-debug:
-    group:
+  ruby-debug: 
+    group: 
     - :test
     version: = 0.10.3
-  vlad-git:
-    group:
+  vlad-git: 
+    group: 
     - :deploy
     version: = 2.1.0
-  rails:
-    group:
+  rails: 
+    group: 
     - :default
     version: ~> 2.3.8
-  wowr:
-    group:
+  wowr: 
+    group: 
     - :default
     version: ">= 0"
-  sqlite3-ruby:
-    group:
+  sqlite3-ruby: 
+    group: 
     - :test
     version: ">= 0"
-    require:
+    require: 
     - sqlite3
-  ruby-openid:
-    group:
+  ruby-openid: 
+    group: 
     - :default
     version: = 2.1.7
-    require:
+    require: 
     - openid
-  mysql:
-    group:
+  mysql: 
+    group: 
     - :default
     version: = 2.8.1
-  authlogic:
-    group:
+  authlogic: 
+    group: 
     - :default
     version: = 2.1.3
-  macaddr:
-    group:
+  macaddr: 
+    group: 
     - :default
     version: = 1.0.0
-  rack-cache:
-    group:
+  rack-cache: 
+    group: 
     - :development
     version: = 0.5.2
-    require:
+    require: 
     - rack/cache
-  newrelic_rpm:
-    group:
+  newrelic_rpm: 
+    group: 
     - :default
     version: ">= 0"
     require: []
 
-  uuid:
-    group:
+  uuid: 
+    group: 
     - :default
     version: = 2.3.0
-  mechanize:
-    group:
+  mechanize: 
+    group: 
     - :default
     version: = 1.0.0
-  acts_as_state_machine:
-    group:
+  acts_as_state_machine: 
+    group: 
     - :default
     version: = 2.2.0
-  shoulda:
-    group:
+  shoulda: 
+    group: 
     - :test
     version: = 2.10.2
-  resque:
-    group:
+  resque: 
+    group: 
     - :default
     version: = 1.8.5
-  resque-lock:
-    group:
+  resque-lock: 
+    group: 
     - :default
     version: = 0.1.1
-  vlad:
-    group:
+  vlad: 
+    group: 
     - :deploy
     version: = 2.0.0
-  mocha:
-    group:
+  mocha: 
+    group: 
     - :test
     version: = 0.9.8
-  will_paginate:
-    group:
+  will_paginate: 
+    group: 
     - :default
     version: = 2.3.14
-  friendly_id:
-    group:
+  friendly_id: 
+    group: 
     - :default
-    version: ~> 2.3
-  sinatra:
-    group:
+    version: = 3.1.3
+  sinatra: 
+    group: 
     - :default
     version: ">= 0"
     require: []
 
-  factory_girl:
-    group:
+  factory_girl: 
+    group: 
     - :test
     version: = 1.2.3
-  i18n:
-    group:
+  i18n: 
+    group: 
     - :default
     version: = 0.3.7
-  rpx_now:
-    group:
+  rpx_now: 
+    group: 
     - :default
     version: = 0.6.17
-  hoptoad_notifier:
-    group:
+  hoptoad_notifier: 
+    group: 
     - :default
     version: ">= 0"
-specs:
-- rake:
+specs: 
+- rake: 
     version: 0.8.7
-- activesupport:
+- activesupport: 
     version: 2.3.8
-- rack:
+- rack: 
     version: 1.1.0
-- actionpack:
+- actionpack: 
     version: 2.3.8
-- actionmailer:
+- actionmailer: 
     version: 2.3.8
-- activerecord:
+- activerecord: 
     version: 2.3.8
-- activeresource:
+- activeresource: 
     version: 2.3.8
-- acts_as_state_machine:
+- acts_as_state_machine: 
     version: 2.2.0
-- authlogic:
+- authlogic: 
     version: 2.1.3
-- columnize:
-    version: 0.3.1
-- factory_girl:
-    version: 1.2.3
-- friendly_id:
-    version: 2.3.4
-- hoptoad_notifier:
-    version: 2.3.5
-- hpricot:
-    version: 0.8.1
-- i18n:
-    version: 0.3.7
-- json:
-    version: 1.4.3
-- json_pure:
-    version: 1.4.6
-- linecache:
-    version: "0.43"
-- macaddr:
-    version: 1.0.0
-- nokogiri:
-    version: 1.4.3.1
-- mechanize:
-    version: 1.0.0
-- mocha:
-    version: 0.9.8
-- mysql:
-    version: 2.8.1
-- newrelic_rpm:
-    version: 2.12.3
-- open4:
-    version: 0.9.6
-- rack-cache:
-    version: 0.5.2
-- rails:
-    version: 2.3.8
-- redis:
-    version: 1.0.7
-- redis-namespace:
-    version: 0.4.4
-- sinatra:
-    version: "1.0"
-- vegas:
-    version: 0.1.7
-- resque:
-    version: 1.8.5
-- resque-lock:
+- babosa: 
     version: 0.1.1
-- rpx_now:
+- columnize: 
+    version: 0.3.1
+- factory_girl: 
+    version: 1.2.3
+- friendly_id: 
+    version: 3.1.3
+- hoptoad_notifier: 
+    version: 2.3.5
+- hpricot: 
+    version: 0.8.1
+- i18n: 
+    version: 0.3.7
+- json: 
+    version: 1.4.3
+- json_pure: 
+    version: 1.4.6
+- linecache: 
+    version: "0.43"
+- macaddr: 
+    version: 1.0.0
+- nokogiri: 
+    version: 1.4.3.1
+- mechanize: 
+    version: 1.0.0
+- mocha: 
+    version: 0.9.8
+- mysql: 
+    version: 2.8.1
+- newrelic_rpm: 
+    version: 2.12.3
+- open4: 
+    version: 0.9.6
+- rack-cache: 
+    version: 0.5.2
+- rails: 
+    version: 2.3.8
+- redis: 
+    version: 1.0.7
+- redis-namespace: 
+    version: 0.4.4
+- sinatra: 
+    version: "1.0"
+- vegas: 
+    version: 0.1.7
+- resque: 
+    version: 1.8.5
+- resque-lock: 
+    version: 0.1.1
+- rpx_now: 
     version: 0.6.17
-- ruby-debug-base:
+- ruby-debug-base: 
     version: 0.10.3
-- ruby-debug:
+- ruby-debug: 
     version: 0.10.3
-- ruby-openid:
+- ruby-openid: 
     version: 2.1.7
-- shoulda:
+- shoulda: 
     version: 2.10.2
-- sqlite3-ruby:
+- sqlite3-ruby: 
     version: 1.3.1
-- tzinfo:
+- tzinfo: 
     version: 0.3.20
-- uuid:
+- uuid: 
     version: 2.3.0
-- vlad:
+- vlad: 
     version: 2.0.0
-- vlad-git:
+- vlad-git: 
     version: 2.1.0
-- will_paginate:
+- will_paginate: 
     version: 2.3.14
-- wowr:
+- wowr: 
     version: 0.5.4
     source: 0
-hash: 46fb7cecc81ab93747b60f115224c9bc8efdfd11
-sources:
-- Git:
+hash: c83a938830e427014dc267f119ae45a551a86d00
+sources: 
+- Git: 
     uri: http://github.com/gearmytoon/wowr.git
     tag: v0.5.7
     git: http://github.com/gearmytoon/wowr.git
     ref: 0b9dc5831ccc848e4d0f78913787ab1077539c8c
-- Rubygems:
+- Rubygems: 
     uri: http://gemcutter.org

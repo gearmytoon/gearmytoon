@@ -1,6 +1,6 @@
 source :rubygems
 
-gem "rails", "~> 2.3.8"
+gem "rails", "2.3.8"
 gem "mysql", "2.8.1"
 gem "wowr", :git => "http://github.com/gearmytoon/wowr.git", :tag => "v0.5.7"
 gem "mechanize", "1.0.0"
@@ -8,7 +8,7 @@ gem "will_paginate", "2.3.14"
 gem 'ruby-openid', "2.1.7", :require => 'openid'
 gem 'authlogic', '2.1.3'
 gem 'rpx_now', '0.6.17'
-gem "friendly_id", "~> 2.3"
+gem "friendly_id", "3.1.3"
 gem 'resque', '1.8.5'
 gem 'resque-lock', '0.1.1'
 gem "tzinfo", "0.3.20"

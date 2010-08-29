@@ -1,4 +1,5 @@
 <% item_source.items_used_to_purchase.each do |i| -%>
+  <%= image_tag i.currency_item.icon(:small), :class => "gmt-tooltip-icon", :alt => i.currency_item.name %>
   <%= link_to i.quantity, item_path(i.currency_item), :class => "with_tooltip currency_item" %>
 <% end %>
 via
