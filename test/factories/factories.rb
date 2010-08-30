@@ -76,4 +76,8 @@ end
 Factory.define(:trade_skill) do |model|
   model.wowarmory_name "trade_blacksmithing"
 end
-  
+
+Factory.define(:item_popularity) do |model|
+  model.association :item
+  model.association :wow_class
+end

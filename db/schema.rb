@@ -9,7 +9,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20100824133314) do
+ActiveRecord::Schema.define(:version => 20100830011503) do
 
   create_table "areas", :force => true do |t|
     t.string   "name"
@@ -105,11 +105,11 @@ ActiveRecord::Schema.define(:version => 20100824133314) do
   end
 
   create_table "item_popularities", :force => true do |t|
-    t.integer  "class_id"
+    t.integer  "wow_class_id"
     t.string   "spec"
     t.integer  "percentage",        :limit => 10, :precision => 10, :scale => 0
     t.integer  "item_id"
-    t.integer  "average_gearscore"
+    t.integer  "average_gmt_score"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
