@@ -9,7 +9,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20100830011503) do
+ActiveRecord::Schema.define(:version => 20100902142400) do
 
   create_table "areas", :force => true do |t|
     t.string   "name"
@@ -52,8 +52,6 @@ ActiveRecord::Schema.define(:version => 20100830011503) do
     t.datetime "updated_at"
     t.string   "name"
     t.string   "realm"
-    t.integer  "wow_class_id"
-    t.string   "primary_spec"
     t.integer  "wowarmory_gender_id"
     t.string   "gender"
     t.integer  "wowarmory_race_id"
@@ -68,12 +66,12 @@ ActiveRecord::Schema.define(:version => 20100830011503) do
     t.string   "active_talent_point_distribution"
     t.decimal  "gmt_score",                        :precision => 10, :scale => 2
     t.integer  "guild_id"
+    t.integer  "spec_id"
   end
 
   add_index "characters", ["name", "realm"], :name => "index_characters_on_name_and_realm"
   add_index "characters", ["name"], :name => "index_characters_on_name"
   add_index "characters", ["realm", "name"], :name => "index_characters_on_realm_and_name"
-  add_index "characters", ["wow_class_id"], :name => "index_characters_on_wow_class_id"
 
   create_table "containers", :force => true do |t|
     t.string   "name"
@@ -105,13 +103,12 @@ ActiveRecord::Schema.define(:version => 20100830011503) do
   end
 
   create_table "item_popularities", :force => true do |t|
-    t.integer  "wow_class_id"
-    t.string   "spec"
     t.integer  "percentage",        :limit => 10, :precision => 10, :scale => 0
     t.integer  "item_id"
     t.integer  "average_gmt_score"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.integer  "spec_id"
   end
 
   create_table "item_sources", :force => true do |t|
@@ -211,6 +208,13 @@ ActiveRecord::Schema.define(:version => 20100830011503) do
 
   add_index "slugs", ["name", "sluggable_type", "sequence", "scope"], :name => "index_slugs_on_n_s_s_and_s", :unique => true
   add_index "slugs", ["sluggable_id"], :name => "index_slugs_on_sluggable_id"
+
+  create_table "specs", :force => true do |t|
+    t.integer  "wow_class_id"
+    t.string   "name"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
 
   create_table "trade_skills", :force => true do |t|
     t.string   "wowarmory_name"

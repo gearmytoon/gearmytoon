@@ -29,7 +29,7 @@ class CharacterImporter
     Character.transaction do
       begin
         refresh_character!(character)
-      rescue Wowr::Exceptions::CharacterNotFound, Wowr::Exceptions::NetworkTimeout
+      rescue Wowr::Exceptions::CharacterNotFound, Wowr::Exceptions::NetworkTimeout => ex
         character.unable_to_load!
       end
     end
@@ -40,7 +40,7 @@ class CharacterImporter
       begin
         import_character_and_all_items(character).save!
         character.loaded!
-      rescue Wowr::Exceptions::CharacterNotFound, Wowr::Exceptions::NetworkTimeout
+      rescue Wowr::Exceptions::CharacterNotFound, Wowr::Exceptions::NetworkTimeout => ex
         character.unable_to_load!
       end
     end
@@ -85,8 +85,8 @@ class CharacterImporter
       point_dist = wow_armory_character.talent_spec.point_distribution
       @@guild_exists = Guild.exists?(wow_armory_character.guild, c.realm, c.locale)
       guild_id = Guild.find_or_create(wow_armory_character.guild,c.realm, c.locale).id
-      c.attributes = {:wow_class => WowClass.find_by_name(wow_armory_character.klass),
-        :primary_spec => primary_spec, :wowarmory_gender_id => wow_armory_character.gender_id, :gender => wow_armory_character.gender,
+      c.attributes = {:spec => Spec.find_or_create(primary_spec, WowClass.find_by_name(wow_armory_character.klass)),
+        :wowarmory_gender_id => wow_armory_character.gender_id, :gender => wow_armory_character.gender,
         :wowarmory_race_id => wow_armory_character.race_id, :race => wow_armory_character.race, :wowarmory_class_id => wow_armory_character.klass_id,
         :guild_id => guild_id, :battle_group => wow_armory_character.battle_group,
       :level => wow_armory_character.level, :total_item_bonuses => get_total_stats(wow_armory_character), 

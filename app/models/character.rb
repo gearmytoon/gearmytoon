@@ -55,7 +55,8 @@ class Character < ActiveRecord::Base
   named_scope :geared, :conditions => {:status => "geared"}
   named_scope :level_80, :conditions => {:level => "80"}
 
-  belongs_to :wow_class
+  has_one :wow_class, :through => :spec
+  belongs_to :spec
   belongs_to :guild
   has_many :character_items
   has_many :upgrades
@@ -71,7 +72,11 @@ class Character < ActiveRecord::Base
   before_update :calculate_gmt_score
   
   delegate :name, :to => :wow_class, :prefix => true
-
+  
+  def primary_spec
+    spec.name
+  end
+  
   def calculate_gmt_score
     self.gmt_score = dps_for(apply_hard_caps(total_item_bonuses), false) / 100 unless wow_class.nil?
   end

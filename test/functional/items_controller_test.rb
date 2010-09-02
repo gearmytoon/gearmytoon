@@ -41,7 +41,8 @@ class ItemsControllerTest < ActionController::TestCase
     
     should "show the breakdown of who is using a item" do
       item = Factory(:item, :name => "Epic Guitar")
-      Factory(:item_popularity, :wow_class => WowClass.create_class!("Hunter"), :spec => "Survival", :item => item, :percentage => 55, :average_gmt_score => 3451)
+      spec = Factory(:survival_hunter_spec)
+      Factory(:item_popularity, :spec => spec, :item => item, :percentage => 55, :average_gmt_score => 3451)
       get :show, :id => item.id
       assert_select ".item_popularity .percentage", :text => "55"
       assert_select ".item_popularity .wow_class", :text => "Hunter"

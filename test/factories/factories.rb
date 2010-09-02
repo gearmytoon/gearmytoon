@@ -79,5 +79,4 @@ end
 
 Factory.define(:item_popularity) do |model|
   model.association :item
-  model.association :wow_class
 end

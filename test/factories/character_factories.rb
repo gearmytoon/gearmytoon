@@ -5,7 +5,7 @@ Factory.define(:basic_character, :class => "Character") do |model|
   model.locale 'us'
   model.battle_group "Shadowburn"
   model.level 80
-  model.wow_class WowClass.create_class!("Hunter")
+  model.association :spec
   model.race 'troll'
   model.gender 'male'
   model.association :guild
@@ -56,20 +56,22 @@ end
 
 Factory.define(:survival_hunter, :parent => :character) do |model|
   model.name "Merb"
-  model.wow_class WowClass.create_class!("Hunter")
-  model.primary_spec "Survival"
+  model.association :spec, :factory => :survival_hunter_spec
 end
 
 Factory.define(:marksmanship_hunter, :parent => :character) do |model|
   model.name "Ecma"
-  model.wow_class WowClass.create_class!("Hunter")
-  model.primary_spec "Marksmanship"
+  model.association :spec, :factory => :marks_hunter_spec
 end
 
 Factory.define(:a_rogue, :parent => :character) do |model|
-  model.wow_class WowClass.create_class!("Rogue")
+  model.association :spec, :factory => :combat_rogue_spec
 end
 
 Factory.define(:a_hunter, :parent => :character) do |model|
-  model.wow_class WowClass.create_class!("Hunter")
+  model.association :spec, :factory => :survival_hunter_spec
+end
+
+Factory.define(:a_shaman, :parent => :character) do |model|
+  model.association :spec, :factory => :enhance_shaman_spec
 end

@@ -174,7 +174,8 @@ class CharactersControllerTest < ActionController::TestCase
     end
 
     should "display character info" do
-      character = Factory(:character, :name => "Merb", :realm => "Baelgun", :battle_group => "Shadowburn", :guild => Factory(:guild, :name => "Wipes on Trash"), :primary_spec => "Survival")
+      spec = Factory(:survival_hunter_spec)
+      character = Factory(:character, :name => "Merb", :realm => "Baelgun", :battle_group => "Shadowburn", :guild => Factory(:guild, :name => "Wipes on Trash"), :spec => spec)
       get :show, :id => character.friendly_id
       assert_response :success
       assert_select ".character .name", :text => "Merb"
