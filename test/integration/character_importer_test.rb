@@ -57,10 +57,10 @@ class CharacterImporterTest < ActiveSupport::TestCase
     end
 
     should "calculate a characters total GMT points" do
-      WowClass.create_class!("Paladin")
-      character = Factory(:character, :name => "Rails", :realm => "Baelgun")
+      paladin = WowClass.create_class!("Paladin")
+      character = Factory(:new_character, :name => "Rails", :realm => "Baelgun")
       CharacterImporter.import!(character)
-      assert_equal "5160.0", character.gmt_score.to_s
+      assert_equal "5160.0", character.reload.gmt_score.to_s
     end
 
     should "import a characters total_item_bonuses" do

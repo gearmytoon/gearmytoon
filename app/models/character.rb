@@ -78,7 +78,9 @@ class Character < ActiveRecord::Base
   end
   
   def calculate_gmt_score
-    self.gmt_score = dps_for(apply_hard_caps(total_item_bonuses), false) / 100 unless wow_class.nil?
+    if self.spec
+      self.gmt_score = dps_for(apply_hard_caps(total_item_bonuses), false) / 100
+    end
   end
 
   def name_and_realm_and_locale

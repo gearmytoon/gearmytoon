@@ -19,6 +19,7 @@ Factory.define(:unpaid_character, :parent => "basic_character") do |model|
 end
 
 Factory.define(:new_character, :parent => "basic_character") do |model|
+  model.spec nil
   model.race nil
   model.gender nil
   model.after_create do |character|
