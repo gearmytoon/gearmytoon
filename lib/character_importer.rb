@@ -85,7 +85,7 @@ class CharacterImporter
       point_dist = wow_armory_character.talent_spec.point_distribution
       @@guild_exists = Guild.exists?(wow_armory_character.guild, c.realm, c.locale)
       guild_id = Guild.find_or_create(wow_armory_character.guild,c.realm, c.locale).id
-      c.attributes = {:spec => Spec.find_or_create(primary_spec, WowClass.find_by_name(wow_armory_character.klass)),
+      c.attributes = {:spec => Spec.find_or_create(primary_spec, wow_armory_character.klass),
         :wowarmory_gender_id => wow_armory_character.gender_id, :gender => wow_armory_character.gender,
         :wowarmory_race_id => wow_armory_character.race_id, :race => wow_armory_character.race, :wowarmory_class_id => wow_armory_character.klass_id,
         :guild_id => guild_id, :battle_group => wow_armory_character.battle_group,

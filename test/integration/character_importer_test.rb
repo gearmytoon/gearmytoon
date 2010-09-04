@@ -15,6 +15,13 @@ class CharacterImporterTest < ActiveSupport::TestCase
       assert_equal "000000000000000000000000005500513522315232133301232150030000000000000000000000", character.active_talent_point_distribution
     end
 
+    should "import a character correctly" do
+      WowClass.create_class!("Hunter")
+      character = Factory(:character, :name => "Nihmm", :realm => "twisting nether", :locale => 'eu')
+      CharacterImporter.import_and_crawl_associated!(character.id)
+      assert_equal "Marksmanship", character.reload.spec.name
+    end
+
     should "update a characters state to geared" do
       character = Factory(:character, :name => "Merb", :realm => "Baelgun")
       assert_equal "found", character.status
