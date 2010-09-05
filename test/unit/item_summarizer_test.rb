@@ -39,4 +39,22 @@ class ItemSummarizerTest < ActiveSupport::TestCase
     assert_equal 3000, hunter_ip.average_gmt_score
   end
 
+  should "only generate summaries for real specs" do
+    item = Factory(:item)
+    no_spec = Factory(:spec, :name => "")
+    hunter = Factory(:character, :name => "bar", :spec => no_spec)
+    Factory(:character_item, :character => hunter, :item => item)
+    assert_no_difference "ItemPopularity.count" do
+      ItemSummarizer.new(item.id).generate_summaries
+    end
+  end
+
+  should "not generate summaries if the item is not used" do
+    item = Factory(:item)
+    hunter = Factory(:character, :name => "bar")
+    assert_no_difference "ItemPopularity.count" do
+      ItemSummarizer.new(item.id).generate_summaries
+    end
+  end
+
 end

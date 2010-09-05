@@ -1,0 +1,20 @@
+- Death Knight:
+    specs: ["Blood", "Frost", "Unholy"]
+- Druid:
+    specs: ["Balance", "Feral Combat", "Restoration"]
+- Hunter:
+    specs: ["Survival", "Marksmanship", "Beast Mastery"]
+- Mage:
+    specs: ["Arcane", "Fire", "Frost"]
+- Paladin:
+    specs: ["Holy", "Protection", "Retribution"]
+- Priest:
+    specs: ["Discipline", "Holy", "Shadow"]
+- Rogue:
+    specs: ["Assassination", "Combat", "Subtlety"]
+- Shaman:
+    specs: ["Elemental", "Enhancement", "Restoration"]
+- Warlock:
+    specs: ["Affliction", "Demonology", "Destruction"]
+- Warrior:
+    specs: ["Arms", "Fury", "Protection"]
