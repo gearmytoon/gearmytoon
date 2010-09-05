@@ -21,6 +21,18 @@ class ItemSummarizerTest < ActiveSupport::TestCase
     assert_equal 50, shaman_ip.percentage
   end
 
+  should "not generate duplicate item popularties" do
+    item = Factory(:item)
+    hunter = Factory(:a_hunter, :name => "bar")
+    Factory(:character_item, :character => hunter, :item => item)
+    assert_difference "ItemPopularity.count", 1 do
+      ItemSummarizer.new(item.id).generate_summaries
+    end
+    assert_no_difference "ItemPopularity.count" do
+      ItemSummarizer.new(item.id).generate_summaries
+    end
+  end
+
   should "generate a items average gmt score summary" do
     item = Factory(:item)
     hunter_spec = Factory(:spec)

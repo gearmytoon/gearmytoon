@@ -4,6 +4,7 @@ class ItemSummarizer
   end
   
   def generate_summaries
+    @item.item_popularities.destroy_all
     all_specs = Spec.all_played_specs
     all_specs.each do |spec|
       used_by_count = @item.character_items.used_by(spec).count
