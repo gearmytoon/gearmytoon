@@ -27,3 +27,12 @@ task :import_all_items => :environment do
     Resque.enqueue(FindItemJob, wow_armory_id)
   end
 end
+
+desc "summarize all items"
+task :summarize_all_items => :environment do
+  Item.find_in_batches(:select => :id) do |group|
+    group.each do |item|
+      Resque.enqueue(ItemSummarizerJob, item.id)
+    end
+  end
+end

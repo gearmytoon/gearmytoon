@@ -11,7 +11,7 @@ class Spec < ActiveRecord::Base
     valid_specs = YAML.load_file(File.join(RAILS_ROOT, "config", "possible_specs.yml"))
     all(:include => :wow_class).select do |spec|
       valid_specs.any? do |valid_class_specs|
-        valid_class_specs.keys.first == spec.wow_class.name && valid_class_specs.values.first['specs'].include?(spec.name)
+        spec.wow_class && valid_class_specs.keys.first == spec.wow_class.name && valid_class_specs.values.first['specs'].include?(spec.name)
       end
     end
   end

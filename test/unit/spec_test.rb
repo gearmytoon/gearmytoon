@@ -28,5 +28,10 @@ class SpecTest < ActiveSupport::TestCase
       Factory(:spec, :name => "foo")
       assert_equal [expected], Spec.all_played_specs
     end
+    should "not find specs without a wow_class" do
+      expected = Factory(:survival_hunter_spec)
+      Factory(:spec, :wow_class => nil)
+      assert_equal [expected], Spec.all_played_specs
+    end
   end
 end

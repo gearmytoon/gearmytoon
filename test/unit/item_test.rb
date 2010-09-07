@@ -99,6 +99,10 @@ class ItemTest < ActiveSupport::TestCase
       item = Factory(:item)
       hunter = Factory(:a_hunter, :name => "bar")
       shaman = Factory(:a_shaman, :name => "foo")
+      hunter.gmt_score = 2500
+      hunter.send(:update_without_callbacks)
+      shaman.gmt_score = 3500
+      shaman.send(:update_without_callbacks)
       Factory(:character_item, :character => hunter, :item => item)
       Factory(:character_item, :character => shaman, :item => item)
       assert_difference "ItemPopularity.count", 2 do
@@ -110,6 +114,8 @@ class ItemTest < ActiveSupport::TestCase
       assert_equal item, shaman_ip.item
       assert_equal 50, hunter_ip.percentage
       assert_equal 50, shaman_ip.percentage
+      assert_equal 2500, hunter_ip.average_gmt_score
+      assert_equal 3500, shaman_ip.average_gmt_score
     end
 
     should "not generate duplicate item popularties" do
