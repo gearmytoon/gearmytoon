@@ -137,7 +137,7 @@ class Item < ActiveRecord::Base
       percentage = (used_by_count.to_f / total_used)*100
       gmt_scores = Character.all(:joins => :character_items, :conditions => ['characters.spec_id = ? AND character_items.item_id = ?', spec.id, self.id], :select => :gmt_score).map(&:gmt_score)
       total_gmt_score = gmt_scores.sum
-      average_gmt_score = total_gmt_score / used_by_count
+      average_gmt_score = total_gmt_score / gmt_scores.size
       self.item_popularities.create!(:spec => spec, :percentage => percentage, :average_gmt_score => average_gmt_score)
     end
     
