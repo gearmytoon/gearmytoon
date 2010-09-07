@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?xml-stylesheet type="text/xsl" href="/_layout/items/tooltip.xsl"?>
+<page globalSearch="1" lang="en_us" requestUrl="/item-tooltip.xml">
+  <itemTooltips>
+    <itemTooltip>
+      <id>50846</id>
+      <name>Ymirjar Lord's Pauldrons</name>
+      <icon>inv_shoulder_129</icon>
+      <overallQualityId>4</overallQualityId>
+      <bonding>1</bonding>
+      <classId>4</classId>
+      <equipData>
+        <inventoryType>3</inventoryType>
+        <subclassName>Plate</subclassName>
+      </equipData>
+      <damageData/>
+      <bonusStrength>107</bonusStrength>
+      <bonusStamina>148</bonusStamina>
+      <armor armorBonus="0">1894</armor>
+      <socketData>
+        <socket color="Red"/>
+      </socketData>
+      <durability current="100" max="100"/>
+      <allowableClasses>
+        <class>Warrior</class>
+      </allowableClasses>
+      <requiredLevel>80</requiredLevel>
+      <itemLevel>251</itemLevel>
+      <bonusDefenseSkillRating>56</bonusDefenseSkillRating>
+      <bonusDodgeRating>48</bonusDodgeRating>
+      <bonusParryRating>56</bonusParryRating>
+      <setData>
+        <name>Ymirjar Lord's Plate</name>
+        <item name="Ymirjar Lord's Pauldrons"/>
+        <item name="Ymirjar Lord's Legguards"/>
+        <item name="Ymirjar Lord's Greathelm"/>
+        <item name="Ymirjar Lord's Handguards"/>
+        <item name="Ymirjar Lord's Breastplate"/>
+        <setBonus desc="Your Shield Slam and Shockwave abilities deal 20% increased damage." threshold="2"/>
+        <setBonus desc="Your Bloodrage ability no longer costs health to use, and now causes you to absorb damage equal to 20% of your maximum health.  Lasts until cancelled." threshold="4"/>
+      </setData>
+      <itemSource value="sourceType.vendor"/>
+    </itemTooltip>
+  </itemTooltips>
+</page>

@@ -11,6 +11,36 @@ class ItemImporterTest < ActiveSupport::TestCase
   
   context "import_from_wowarmory!" do
 
+    should "import caster cloak correctly" do
+      item = ItemImporter.import_from_wowarmory!(50468)
+      expected = {:stamina => 69, :intellect => 69, :crit => 52, :mana_regen => 30, :spell_power => 97, :armor=>177}
+      assert_equal expected, item.bonuses
+    end
+
+    should "import item with block rating correctly" do
+      item = ItemImporter.import_from_wowarmory!(50729)
+      expected = {:strength => 102, :stamina => 141, :defense => 54, :parry => 46, :armor=>9262, :block => 7, :block_value => 6}
+      assert_equal expected, item.bonuses
+    end
+
+    should "import item with parry correctly" do
+      item = ItemImporter.import_from_wowarmory!(50846)
+      expected = {:strength => 107, :stamina => 148, :defense => 56, :dodge => 48, :parry => 56, :armor=>1894}
+      assert_equal expected, item.bonuses
+    end
+
+    should "import tank cloak correctly" do
+      item = ItemImporter.import_from_wowarmory!(50466)
+      expected = {:strength => 90, :stamina => 124, :defense => 48, :dodge => 48, :armor=>737}
+      assert_equal expected, item.bonuses
+    end
+
+    should "import expertise item correctly" do
+      item = ItemImporter.import_from_wowarmory!(37642)
+      expected = {:stamina => 51, :agility => 49, :expertise => 33, :attack_power => 100}
+      assert_equal expected, item.bonuses
+    end
+
     should "import items with damage data but nothing else" do
       item = ItemImporter.import_from_wowarmory!(37708) #this item is a funny quest item with damage data
     end

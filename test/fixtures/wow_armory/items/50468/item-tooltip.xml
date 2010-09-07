@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?xml-stylesheet type="text/xsl" href="/_layout/items/tooltip.xsl"?>
+<page globalSearch="1" lang="en_us" requestUrl="/item-tooltip.xml">
+  <itemTooltips>
+    <itemTooltip>
+      <id>50468</id>
+      <name>Drape of the Violet Tower</name>
+      <icon>inv_misc_cape_16</icon>
+      <overallQualityId>4</overallQualityId>
+      <bonding>1</bonding>
+      <classId>4</classId>
+      <equipData>
+        <inventoryType>16</inventoryType>
+      </equipData>
+      <damageData/>
+      <bonusStamina>69</bonusStamina>
+      <bonusIntellect>69</bonusIntellect>
+      <armor armorBonus="0">177</armor>
+      <socketData>
+        <socket color="Blue"/>
+      </socketData>
+      <requiredLevel>80</requiredLevel>
+      <itemLevel>264</itemLevel>
+      <bonusSpellPower>97</bonusSpellPower>
+      <bonusCritRating>52</bonusCritRating>
+      <bonusManaRegen>30</bonusManaRegen>
+      <itemSource value="sourceType.vendor"/>
+    </itemTooltip>
+  </itemTooltips>
+</page>

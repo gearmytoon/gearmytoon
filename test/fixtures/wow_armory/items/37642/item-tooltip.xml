@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?xml-stylesheet type="text/xsl" href="/_layout/items/tooltip.xsl"?>
+<page globalSearch="1" lang="en_us" requestUrl="/item-tooltip.xml">
+  <itemTooltips>
+    <itemTooltip>
+      <id>37642</id>
+      <name>Hemorrhaging Circle</name>
+      <icon>inv_jewelry_ring_39</icon>
+      <overallQualityId>4</overallQualityId>
+      <bonding>1</bonding>
+      <maxCount uniqueEquippable="1">1</maxCount>
+      <classId>4</classId>
+      <equipData>
+        <inventoryType>11</inventoryType>
+      </equipData>
+      <damageData/>
+      <bonusAgility>49</bonusAgility>
+      <bonusStamina>51</bonusStamina>
+      <requiredLevel>80</requiredLevel>
+      <itemLevel>200</itemLevel>
+      <bonusExpertiseRating>33</bonusExpertiseRating>
+      <spellData>
+        <spell>
+          <trigger>1</trigger>
+          <desc>Increases attack power by 100.</desc>
+        </spell>
+      </spellData>
+      <itemSource areaId="4416" areaName="Gundrak" creatureId="29306" creatureName="Gal'darah" difficulty="h" dropRate="4" value="sourceType.creatureDrop"/>
+    </itemTooltip>
+  </itemTooltips>
+</page>

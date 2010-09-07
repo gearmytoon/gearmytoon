@@ -21,10 +21,16 @@ class ItemImporter < WowArmoryMapper
   map(:armor_type, "//equipData/subclassName") {|data| ArmorType.find_or_create_by_name(data ? data : "Miscellaneous")}
   map(:quality, "//item/@quality") {|data| QUALITY_ADJECTIVE_LOOKUP[data]}
   map_many(:spell_effects, {"//itemTooltip/spellData/spell" => {:description => "//desc", :trigger => "//trigger"}})
-  map(:bonuses, {"//itemTooltip" => {:agility => "//bonusAgility", :stamina => "//bonusStamina", :intellect => "//bonusIntellect", :armor => "//armor",
-    :attack_power => "//bonusAttackPower", :crit => "//bonusCritRating", :hit => "//bonusHitRating", :armor_penetration => "//bonusArmorPenetration",
-    :haste => "//bonusHasteRating", :min_damage => "//damageData/damage/min", :max_damage => "//damageData/damage/max", :attack_speed => "//damageData/speed", 
-    :dps => "//damageData/dps"}}) {|bonuses|
+  #block?
+  map(:bonuses, {"//itemTooltip" => {:strength => "//bonusStrength", :spirit => "//bonusSpirit", :mana_regen => "//bonusManaRegen", 
+                                     :spell_power => "//bonusSpellPower", :agility => "//bonusAgility", :dodge => "//bonusDodgeRating", 
+                                     :parry => "//bonusParryRating", :defense => "//bonusDefenseSkillRating", :expertise => "//bonusExpertiseRating", 
+                                     :stamina => "//bonusStamina", :intellect => "//bonusIntellect", :armor => "//armor",
+                                     :attack_power => "//bonusAttackPower", :crit => "//bonusCritRating", :hit => "//bonusHitRating", 
+                                     :armor_penetration => "//bonusArmorPenetration", :haste => "//bonusHasteRating", 
+                                     :min_damage => "//damageData/damage/min", :max_damage => "//damageData/damage/max", 
+                                     :attack_speed => "//damageData/speed", :dps => "//damageData/dps"}
+    }) {|bonuses|
       if is_a_gem?
         bonuses.merge(@wowarmory_item_tooltip.at("gemProperties").inner_html.extract_bonuses)
       else
@@ -176,7 +182,7 @@ class ItemImporter < WowArmoryMapper
 
   def self.import_from_wowarmory!(wowarmory_item_id)
     begin
-      armory_importer = WowArmoryImporter.new(RAILS_ENV == "production") #our linux install cannot support all the subdirs used by caching
+      armory_importer = WowArmoryImporter.new(RAILS_ENV != "production") #our linux install cannot support all the subdirs used by caching
       ItemImporter.new(wowarmory_item_id, armory_importer.item_info(wowarmory_item_id), armory_importer.item_tooltip(wowarmory_item_id)).import!
     rescue WowArmoryDataNotFound => e
       STDERR.puts e

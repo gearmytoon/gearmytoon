@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?xml-stylesheet type="text/xsl" href="/_layout/items/tooltip.xsl"?>
+<page globalSearch="1" lang="en_us" requestUrl="/item-tooltip.xml">
+  <itemTooltips>
+    <itemTooltip>
+      <id>50466</id>
+      <name>Sentinel's Winter Cloak</name>
+      <icon>inv_misc_cape_13</icon>
+      <overallQualityId>4</overallQualityId>
+      <bonding>1</bonding>
+      <classId>4</classId>
+      <equipData>
+        <inventoryType>16</inventoryType>
+      </equipData>
+      <damageData/>
+      <bonusStrength>90</bonusStrength>
+      <bonusStamina>124</bonusStamina>
+      <armor armorBonus="1">737</armor>
+      <socketData>
+        <socket color="Yellow"/>
+      </socketData>
+      <requiredLevel>80</requiredLevel>
+      <itemLevel>264</itemLevel>
+      <bonusDefenseSkillRating>48</bonusDefenseSkillRating>
+      <bonusDodgeRating>48</bonusDodgeRating>
+      <itemSource value="sourceType.vendor"/>
+    </itemTooltip>
+  </itemTooltips>
+</page>
