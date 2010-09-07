@@ -24,7 +24,34 @@ class ItemTest < ActiveSupport::TestCase
     end
   end
 
-  context "raw_stats" do
+  context "equipped_stats" do
+    should "exclude weapon stats" do
+      weapon_stats = {:melee_attack_speed => 1, :melee_min_damage => 1, :melee_max_damage => 1, :melee_dps => 1,
+                      :ranged_attack_speed => 1, :ranged_min_damage => 1, :ranged_max_damage => 1, :ranged_dps => 1}
+      item = Factory(:item, :bonuses => weapon_stats)
+      assert_equal({}, item.equipped_stats)
+    end
+    should "exclude armor" do
+      armor = {:armor => 1}
+      item = Factory(:item, :bonuses => armor)
+      assert_equal({}, item.equipped_stats)
+    end
+
+    should "exclude base_stats" do
+      base_stats = {:spirit => 1, :stamina => 1, :intellect => 1, :strength => 1, :agility => 1}
+      item = Factory(:item, :bonuses => base_stats)
+      assert_equal({}, item.equipped_stats)
+    end
+
+    should "include equipped stats" do
+      expected = {:crit => 1, :attack_power => 1, :armor_penetration => 1, :haste => 1, :hit => 1, :spell_power => 1, 
+                  :expertise => 1, :mana_regen => 1, :dodge => 1, :defense => 1, :parry => 1}
+      item = Factory(:item, :bonuses => expected)
+      assert_equal expected, item.equipped_stats
+    end
+  end
+
+  context "base_stats" do
     should "slice out the basic stats" do
       expected = {:spirit => 1, :stamina => 1, :intellect => 1, :strength => 1, :agility => 1}
       item = Factory(:item, :bonuses => expected)

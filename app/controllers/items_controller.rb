@@ -10,7 +10,8 @@ class ItemsController < ApplicationController
                                                                   {:vendor => :area},
                                                                   {:creature => :area},
                                                                   {:quest => :area},
-                                                                  {:container => :area}]
+                                                                  {:container => :area}],
+                                                :item_popularities => {:spec => :wow_class}
                                                 })
     @title = "#{@item.name}"
     @meta_tags[:description] = "#{@item.name} is an epic mail belt for Rogues"

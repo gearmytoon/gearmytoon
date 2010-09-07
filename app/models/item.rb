@@ -9,6 +9,8 @@ class Item < ActiveRecord::Base
   ORIGINAL_WEAPON_STATS = [:attack_speed, :min_damage, :max_damage, :dps]
   RANGED_WEAPONS = ["Bow", "Gun", "Crossbow", "Thrown"]
   BASE_STATS = [:strength, :agility, :spirit, :intellect, :stamina]
+  EQUIPPED_STATS = [:crit, :attack_power, :armor_penetration, :haste, :hit, :spell_power, 
+                    :expertise, :mana_regen, :dodge, :defense, :parry]
   WEAPON_STATS = [:melee_attack_speed, :melee_min_damage, :melee_max_damage, :melee_dps,
                   :ranged_attack_speed, :ranged_min_damage, :ranged_max_damage, :ranged_dps]
   TRIUMPH_EMBLEM_ARMORY_ID = 47241
@@ -72,7 +74,7 @@ class Item < ActiveRecord::Base
   end
 
   def equipped_stats
-    self.bonuses.except(*BASE_STATS).except(*WEAPON_STATS)
+    self.bonuses.slice(*EQUIPPED_STATS)
   end
 
   def restricted_to_a_class?
