@@ -22,6 +22,14 @@ class SpecTest < ActiveSupport::TestCase
     end
   end
   
+  context "css_icon_name" do
+    should "downcase and underscorize with class name" do
+      assert_equal "hunter_survival", Factory(:survival_hunter_spec).css_icon_name
+      assert_equal "hunter_beast_mastery", Factory(:beast_mastery_hunter_spec).css_icon_name
+      assert_equal "death_knight_blood", Factory(:death_knight_blood_spec).css_icon_name
+    end
+  end
+  
   context "all_played_specs" do
     should "not find non standard specs" do
       expected = Factory(:survival_hunter_spec)
