@@ -22,18 +22,18 @@
     <table id="item_popularities">
       <thead>
         <tr>
-          <th>Class</th>
-          <th>Spec</th>
-          <th>Percentage</th>
+          <th></th>
+          <th></th>
+          <th></th>
           <th>Average GMT Score</th>
         </tr>
       </thead>
       <tbody>
         <% @item.item_popularities.each do |item_popularity| %>
           <tr class="item_popularity">
-            <td class="wow_class"><%= item_popularity.wow_class.name %></td>
-            <td class="wow_spec"><%= item_popularity.spec.name %></td>
-            <td class="percentage"><%= item_popularity.percentage %></td>
+            <td class="wow_class <%= item_popularity.wow_class.css_name %>"><%= item_popularity.wow_class.name %></td>
+            <td class="wow_spec <%= item_popularity.wow_class.css_name %>"><%= item_popularity.spec.name %></td>
+            <td class="percentage"><%= item_popularity.percentage %>%</td>
             <td class="average_gmt_score"><%= item_popularity.average_gmt_score %></td>
           </tr>
         <% end %>

@@ -35,4 +35,7 @@ class WowClass < ActiveRecord::Base
     for_pvp ? class_multipliers.merge(:resilience => 80, :stamina => 80) : class_multipliers
   end
 
+  def css_name
+    self.name.gsub(/\s/, "").underscore
+  end
 end

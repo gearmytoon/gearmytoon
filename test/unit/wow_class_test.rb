@@ -1,6 +1,12 @@
 require File.dirname(__FILE__) + '/../test_helper'
 
 class WowClassTest < ActiveSupport::TestCase
+  context "css_name" do
+    should "downcase and underscore" do
+      assert_equal "rogue", WowClass.create_class!("Rogue").css_name
+      assert_equal "death_knight", WowClass.create_class!("Death Knight").css_name
+    end
+  end
   context "associations" do
     should_belong_to :primary_armor_type
     should "get stat_multipliers based on class_name" do
@@ -116,3 +122,4 @@ class WowClassTest < ActiveSupport::TestCase
     end
   end
 end
+
