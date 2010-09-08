@@ -29,7 +29,8 @@ class ItemImporter < WowArmoryMapper
                                      :attack_power => "//bonusAttackPower", :crit => "//bonusCritRating", :hit => "//bonusHitRating", 
                                      :armor_penetration => "//bonusArmorPenetration", :haste => "//bonusHasteRating", 
                                      :min_damage => "//damageData/damage/min", :max_damage => "//damageData/damage/max", 
-                                     :attack_speed => "//damageData/speed", :dps => "//damageData/dps"}
+                                     :attack_speed => "//damageData/speed", :dps => "//damageData/dps", 
+                                     :block_value => "blockValue", :block => "bonusBlockRating"}
     }) {|bonuses|
       if is_a_gem?
         bonuses.merge(@wowarmory_item_tooltip.at("gemProperties").inner_html.extract_bonuses)

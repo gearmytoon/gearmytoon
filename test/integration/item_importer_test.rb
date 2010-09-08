@@ -17,12 +17,20 @@ class ItemImporterTest < ActiveSupport::TestCase
       assert_equal expected, item.bonuses
     end
 
-    should "import item with block rating correctly" do
+    should "import shield with block rating correctly" do
       item = ItemImporter.import_from_wowarmory!(50729)
-      expected = {:strength => 102, :stamina => 141, :defense => 54, :parry => 46, :armor=>9262, :block => 7, :block_value => 6}
+      expected = {:strength => 102, :stamina => 141, :defense => 54, :parry => 46, :armor=>9262, :block_value => 259}
+      assert_equal([{:trigger=>1,:description=>"Increases the block value of your shield by 168."}], item.spell_effects)
       assert_equal expected, item.bonuses
     end
-
+    
+    should "import item with block rating and block value correctly" do
+      item = ItemImporter.import_from_wowarmory!(39638)
+      expected = {:strength => 89, :stamina => 111, :defense => 38, :armor=>2241, :block => 47}
+      assert_equal([{:trigger=>1,:description=>"Increases the block value of your shield by 117."}], item.spell_effects)
+      assert_equal expected, item.bonuses
+    end
+    
     should "import item with parry correctly" do
       item = ItemImporter.import_from_wowarmory!(50846)
       expected = {:strength => 107, :stamina => 148, :defense => 56, :dodge => 48, :parry => 56, :armor=>1894}
@@ -37,7 +45,8 @@ class ItemImporterTest < ActiveSupport::TestCase
 
     should "import expertise item correctly" do
       item = ItemImporter.import_from_wowarmory!(37642)
-      expected = {:stamina => 51, :agility => 49, :expertise => 33, :attack_power => 100}
+      expected = {:stamina => 51, :agility => 49, :expertise => 33}
+      assert_equal([{:trigger=>1,:description=>"Increases attack power by 100."}], item.spell_effects)
       assert_equal expected, item.bonuses
     end
 

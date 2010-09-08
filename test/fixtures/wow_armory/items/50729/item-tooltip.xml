@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?xml-stylesheet type="text/xsl" href="/_layout/items/tooltip.xsl"?>
+<page globalSearch="1" lang="en_us" requestUrl="/item-tooltip.xml">
+  <itemTooltips>
+    <itemTooltip>
+      <id>50729</id>
+      <name>Icecrown Glacial Wall</name>
+      <icon>inv_shield_75</icon>
+      <heroic>1</heroic>
+      <overallQualityId>4</overallQualityId>
+      <bonding>1</bonding>
+      <classId>4</classId>
+      <equipData>
+        <inventoryType>14</inventoryType>
+        <subclassName>Shield</subclassName>
+      </equipData>
+      <damageData/>
+      <blockValue>259</blockValue>
+      <bonusStrength>102</bonusStrength>
+      <bonusStamina>141</bonusStamina>
+      <armor armorBonus="0">9262</armor>
+      <socketData>
+        <socket color="Red"/>
+      </socketData>
+      <durability current="120" max="120"/>
+      <requiredLevel>80</requiredLevel>
+      <itemLevel>277</itemLevel>
+      <bonusDefenseSkillRating>54</bonusDefenseSkillRating>
+      <bonusParryRating>46</bonusParryRating>
+      <spellData>
+        <spell>
+          <trigger>1</trigger>
+          <desc>Increases the block value of your shield by 168.</desc>
+        </spell>
+      </spellData>
+      <itemSource areaId="4812" areaName="Icecrown Citadel (25)" creatureId="38434" creatureName="Blood-Queen Lana'thel" difficulty="h" dropRate="2" value="sourceType.creatureDrop"/>
+    </itemTooltip>
+  </itemTooltips>
+</page>

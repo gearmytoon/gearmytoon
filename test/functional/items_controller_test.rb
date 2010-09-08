@@ -44,9 +44,9 @@ class ItemsControllerTest < ActionController::TestCase
       spec = Factory(:survival_hunter_spec)
       Factory(:item_popularity, :spec => spec, :item => item, :percentage => 55, :average_gmt_score => 3451)
       get :show, :id => item.id
-      assert_select ".item_popularity .percentage", :text => "55"
+      assert_select ".item_popularity .percentage", :text => "55%"
       assert_select ".item_popularity .wow_class", :text => "Hunter"
-      assert_select ".item_popularity .wow_spec", :text => "Survival"
+      assert_select ".item_popularity .#{spec.css_icon_name}"
       assert_select ".item_popularity .average_gmt_score", :text => "3451"
     end
 
