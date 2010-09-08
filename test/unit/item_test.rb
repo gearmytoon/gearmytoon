@@ -45,7 +45,7 @@ class ItemTest < ActiveSupport::TestCase
 
     should "include equipped stats" do
       expected = {:crit => 1, :attack_power => 1, :armor_penetration => 1, :haste => 1, :hit => 1, :spell_power => 1, 
-                  :expertise => 1, :mana_regen => 1, :dodge => 1, :defense => 1, :parry => 1}
+                  :expertise => 1, :mana_regen => 1, :dodge => 1, :defense => 1, :parry => 1, :block => 1}
       item = Factory(:item, :bonuses => expected)
       assert_equal expected, item.equipped_stats
     end

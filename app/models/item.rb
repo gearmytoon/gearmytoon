@@ -10,7 +10,7 @@ class Item < ActiveRecord::Base
   RANGED_WEAPONS = ["Bow", "Gun", "Crossbow", "Thrown"]
   BASE_STATS = [:strength, :agility, :spirit, :intellect, :stamina]
   EQUIPPED_STATS = [:crit, :attack_power, :armor_penetration, :haste, :hit, :spell_power, 
-                    :expertise, :mana_regen, :dodge, :defense, :parry]
+                    :expertise, :mana_regen, :dodge, :defense, :parry, :block]
   WEAPON_STATS = [:melee_attack_speed, :melee_min_damage, :melee_max_damage, :melee_dps,
                   :ranged_attack_speed, :ranged_min_damage, :ranged_max_damage, :ranged_dps]
   TRIUMPH_EMBLEM_ARMORY_ID = 47241
