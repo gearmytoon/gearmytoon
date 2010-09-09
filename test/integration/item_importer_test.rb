@@ -11,6 +11,13 @@ class ItemImporterTest < ActiveSupport::TestCase
   
   context "import_from_wowarmory!" do
 
+    should "import multiple spell effects correctly" do
+      item = ItemImporter.import_from_wowarmory!(31003)
+      expected = [{:description=>"Increases attack power by 90.", :trigger=>1},
+       {:description=>"Restores 10 mana per 5 sec.", :trigger=>1}]
+       assert_equal expected, item.spell_effects
+    end
+
     should "import caster cloak correctly" do
       item = ItemImporter.import_from_wowarmory!(50468)
       expected = {:stamina => 69, :intellect => 69, :crit => 52, :mana_regen => 30, :spell_power => 97, :armor=>177}

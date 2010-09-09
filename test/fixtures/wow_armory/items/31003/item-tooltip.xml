@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?xml-stylesheet type="text/xsl" href="/_layout/items/tooltip.xsl"?>
+<page globalSearch="1" lang="en_us" requestUrl="/item-tooltip.xml">
+  <itemTooltips>
+    <itemTooltip>
+      <id>31003</id>
+      <name>Gronnstalker's Helmet</name>
+      <icon>inv_helmet_95</icon>
+      <overallQualityId>4</overallQualityId>
+      <bonding>1</bonding>
+      <classId>4</classId>
+      <equipData>
+        <inventoryType>1</inventoryType>
+        <subclassName>Mail</subclassName>
+      </equipData>
+      <damageData/>
+      <bonusAgility>45</bonusAgility>
+      <bonusStamina>45</bonusStamina>
+      <bonusIntellect>29</bonusIntellect>
+      <armor armorBonus="0">830</armor>
+      <socketData>
+        <socket color="Red"/>
+        <socket color="Meta"/>
+      </socketData>
+      <durability current="85" max="85"/>
+      <allowableClasses>
+        <class>Hunter</class>
+      </allowableClasses>
+      <requiredLevel>70</requiredLevel>
+      <itemLevel>146</itemLevel>
+      <spellData>
+        <spell>
+          <trigger>1</trigger>
+          <desc>Increases attack power by 90.</desc>
+        </spell>
+        <spell>
+          <trigger>1</trigger>
+          <desc>Restores 10 mana per 5 sec.</desc>
+        </spell>
+      </spellData>
+      <setData>
+        <name>Gronnstalker's Armor</name>
+        <item name="Gronnstalker's Chestguard"/>
+        <item name="Gronnstalker's Gloves"/>
+        <item name="Gronnstalker's Helmet"/>
+        <item name="Gronnstalker's Leggings"/>
+        <item name="Gronnstalker's Spaulders"/>
+        <item name="Gronnstalker's Belt"/>
+        <item name="Gronnstalker's Bracers"/>
+        <item name="Gronnstalker's Boots"/>
+        <setBonus desc="Increases the mana you gain from your Aspect of the Viper by 25%." threshold="2"/>
+        <setBonus desc="Increases the damage dealt by your Steady Shot ability by 10%." threshold="4"/>
+      </setData>
+      <itemSource value="sourceType.vendor"/>
+    </itemTooltip>
+  </itemTooltips>
+</page>

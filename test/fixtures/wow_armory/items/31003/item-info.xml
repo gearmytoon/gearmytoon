@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?xml-stylesheet type="text/xsl" href="/_layout/items/info.xsl"?>
+<page globalSearch="1" lang="en_us" requestQuery="i=31003" requestUrl="/item-info.xml">
+  <itemInfo>
+    <item icon="inv_helmet_95" id="31003" level="146" name="Gronnstalker's Helmet" quality="4" type="Mail">
+      <cost>
+        <token count="1" icon="inv_helmet_24" id="31095"/>
+      </cost>
+      <disenchantLoot requiredSkillRank="300">
+        <item canAuction="1" dropRate="6" icon="inv_enchant_voidcrystal" id="22450" level="70" maxCount="2" minCount="1" name="Void Crystal" quality="4" type="Enchanting"/>
+      </disenchantLoot>
+      <vendors>
+        <creature area="Hyjal Summit" classification="0" heroic="1" id="23381" maxLevel="64" minLevel="64" name="Tydormu" title="Keeper of Lost Artifacts" type="Humanoid"/>
+      </vendors>
+    </item>
+  </itemInfo>
+</page>
