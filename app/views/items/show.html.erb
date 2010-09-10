@@ -32,7 +32,7 @@
         <% @item.item_popularities.each do |item_popularity| %>
           <tr class="item_popularity">
             <td class="wow_class <%= item_popularity.wow_class.css_name %>"><%= item_popularity.wow_class.name %></td>
-            <td class="wow_spec <%= item_popularity.spec.css_icon_name %>"></td>
+            <td class="wow_spec spec_icon <%= item_popularity.spec.css_icon_name %>"></td>
             <td class="percentage"><%= item_popularity.percentage %>%</td>
             <td class="average_gmt_score"><%= item_popularity.average_gmt_score %></td>
           </tr>

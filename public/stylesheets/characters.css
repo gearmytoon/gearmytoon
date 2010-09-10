@@ -34,33 +34,39 @@
 .warlock {color:#9382C9!important;}
 .druid{color:#FF7C0A!important;}
 
-.druid_balance{background-image: url(/images/spec_icons/druid_balance.png); width:23px; height:22px;}
-.druid_restoration{background-image: url(/images/spec_icons/druid_restoration.png); width:23px; height:22px;}
-.druid_feral_combat{background-image: url(/images/spec_icons/druid_feral_combat.png); width:23px; height:22px;}
-.warrior_arms{background-image: url(/images/spec_icons/warrior_arms.png); width:23px; height:22px;}
-.warrior_fury{background-image: url(/images/spec_icons/warrior_fury.png); width:23px; height:22px;}
-.warrior_protection{background-image: url(/images/spec_icons/warrior_protection.png); width:23px; height:22px;}
-.paladin_protection{background-image: url(/images/spec_icons/paladin_protection.png); width:23px; height:22px;}
-.paladin_holy{background-image: url(/images/spec_icons/paladin_holy.png); width:23px; height:22px;}
-.paladin_retribution{background-image: url(/images/spec_icons/paladin_retribution.png); width:23px; height:22px;}
-.hunter_beast_mastery{background-image: url(/images/spec_icons/hunter_beast_mastery.png); width:23px; height:22px;}
-.hunter_marksmanship{background-image: url(/images/spec_icons/hunter_marksmanship.png); width:23px; height:22px;}
-.hunter_survival{background-image: url(/images/spec_icons/hunter_survival.png); width:23px; height:22px;}
-.rogue_assassination{background-image: url(/images/spec_icons/rogue_assassination.png); width:23px; height:22px;}
-.rogue_combat{background-image: url(/images/spec_icons/rogue_combat.png); width:23px; height:22px;}
-.rogue_subtlety{background-image: url(/images/spec_icons/rogue_subtlety.png); width:23px; height:22px;}
-.priest_discipline{background-image: url(/images/spec_icons/priest_discipline.png); width:23px; height:22px;}
-.priest_holy{background-image: url(/images/spec_icons/priest_holy.png); width:23px; height:22px;}
-.priest_shadow{background-image: url(/images/spec_icons/priest_shadow.png); width:23px; height:22px;}
-.death_knight_blood{background-image: url(/images/spec_icons/death_knight_blood.png); width:23px; height:22px;}
-.death_knight_unholy{background-image: url(/images/spec_icons/death_knight_unholy.png); width:23px; height:22px;}
-.death_knight_frost{background-image: url(/images/spec_icons/death_knight_frost.png); width:23px; height:22px;}
-.shaman_elemental{background-image: url(/images/spec_icons/shaman_elemental.png); width:23px; height:22px;}
-.shaman_enhancement{background-image: url(/images/spec_icons/shaman_enhancement.png); width:23px; height:22px;}
-.shaman_restoration{background-image: url(/images/spec_icons/shaman_restoration.png); width:23px; height:22px;}
-.mage_fire{background-image: url(/images/spec_icons/mage_fire.png); width:23px; height:22px;}
-.mage_frost{background-image: url(/images/spec_icons/mage_frost.png); width:23px; height:22px;}
-.mage_arcane{background-image: url(/images/spec_icons/mage_arcane.png); width:23px; height:22px;}
-.warlock_affliction{background-image: url(/images/spec_icons/warlock_affliction.png); width:23px; height:22px;}
-.warlock_demonology{background-image: url(/images/spec_icons/warlock_demonology.png); width:23px; height:22px;}
-.warlock_destruction{background-image: url(/images/spec_icons/warlock_destruction.png); width:23px; height:22px;}
+.spec_icon{
+  background-repeat: no-repeat;
+  width:23px;
+  height:22px;
+}
+
+.druid_balance{background-image: url(/images/spec_icons/druid_balance.png);}
+.druid_restoration{background-image: url(/images/spec_icons/druid_restoration.png);}
+.druid_feral_combat{background-image: url(/images/spec_icons/druid_feral_combat.png);}
+.warrior_arms{background-image: url(/images/spec_icons/warrior_arms.png);}
+.warrior_fury{background-image: url(/images/spec_icons/warrior_fury.png);}
+.warrior_protection{background-image: url(/images/spec_icons/warrior_protection.png);}
+.paladin_protection{background-image: url(/images/spec_icons/paladin_protection.png);}
+.paladin_holy{background-image: url(/images/spec_icons/paladin_holy.png);}
+.paladin_retribution{background-image: url(/images/spec_icons/paladin_retribution.png);}
+.hunter_beast_mastery{background-image: url(/images/spec_icons/hunter_beast_mastery.png);}
+.hunter_marksmanship{background-image: url(/images/spec_icons/hunter_marksmanship.png);}
+.hunter_survival{background-image: url(/images/spec_icons/hunter_survival.png);}
+.rogue_assassination{background-image: url(/images/spec_icons/rogue_assassination.png);}
+.rogue_combat{background-image: url(/images/spec_icons/rogue_combat.png);}
+.rogue_subtlety{background-image: url(/images/spec_icons/rogue_subtlety.png);}
+.priest_discipline{background-image: url(/images/spec_icons/priest_discipline.png);}
+.priest_holy{background-image: url(/images/spec_icons/priest_holy.png);}
+.priest_shadow{background-image: url(/images/spec_icons/priest_shadow.png);}
+.death_knight_blood{background-image: url(/images/spec_icons/death_knight_blood.png);}
+.death_knight_unholy{background-image: url(/images/spec_icons/death_knight_unholy.png);}
+.death_knight_frost{background-image: url(/images/spec_icons/death_knight_frost.png);}
+.shaman_elemental{background-image: url(/images/spec_icons/shaman_elemental.png);}
+.shaman_enhancement{background-image: url(/images/spec_icons/shaman_enhancement.png);}
+.shaman_restoration{background-image: url(/images/spec_icons/shaman_restoration.png);}
+.mage_fire{background-image: url(/images/spec_icons/mage_fire.png);}
+.mage_frost{background-image: url(/images/spec_icons/mage_frost.png);}
+.mage_arcane{background-image: url(/images/spec_icons/mage_arcane.png);}
+.warlock_affliction{background-image: url(/images/spec_icons/warlock_affliction.png);}
+.warlock_demonology{background-image: url(/images/spec_icons/warlock_demonology.png);}
+.warlock_destruction{background-image: url(/images/spec_icons/warlock_destruction.png);}
