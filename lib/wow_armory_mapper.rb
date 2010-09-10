@@ -85,6 +85,11 @@ class WowArmoryMapper
   end
   
   def get_value_at(element, xpath)
+    #######################
+    # this is not ideal but nokogiri has a bug with xml parsing, it appears to cache by xpath so similar xpaths will incorrectly return the same result
+    raw_xml = element.to_xml
+    element = Nokogiri::XML(raw_xml)
+    ############################
     value = element.at(xpath) ? element.at(xpath).inner_html.to_appropriate_type : nil
   end
 
