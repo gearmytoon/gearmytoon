@@ -11,6 +11,7 @@ class WowClass < ActiveRecord::Base
                  "Warrior" => {:primary_armor_type => ArmorType.plate}}
   has_many :characters
   belongs_to :primary_armor_type, :class_name => "ArmorType"
+  has_many :specs
 
   def equippable_items
     Item.usable_by(self)

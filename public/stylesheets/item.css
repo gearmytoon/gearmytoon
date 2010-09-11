@@ -4,27 +4,27 @@
 .item ul.links li.wowwiki { background: transparent url(/images/icons/wowwiki.png) 0 0 no-repeat; }
 .item ul.links li.wowhead { background: transparent url(/images/icons/wowhead.png) 0 0 no-repeat; }
 
-.item_info { float: left; font-size: 14px; width: 500px; }
-.item_info ul { margin: 10px 0 24px 12px; }
-.item_info ul li { margin-bottom: 10px; }
+.item_details { float: left; font-size: 14px; width: 500px; }
+.item_details ul { margin: 10px 0 24px 12px; }
+.item_details ul li { margin-bottom: 10px; }
 
-.item_info ul.sources { font-size: 16px; }
-.item_info ul.sources li img { float: none; vertical-align: middle; margin-right: 4px; }
+.item_details ul.sources { font-size: 16px; }
+.item_details ul.sources li img { float: none; vertical-align: middle; margin-right: 4px; }
 
-.item_info ul.sources li abbr { font-family: Georgia; padding: 0 0 0 26px; background: transparent none 0 0 no-repeat; }
-.item_info ul.sources li .emblem_of_frost { color: SteelBlue; background-image: url(http://www.wowarmory.com/wow-icons/_images/21x21/inv_misc_frostemblem_01.png); }
-.item_info ul.sources li .emblem_of_triumph { color: purple; background-image: url(http://www.wowarmory.com/wow-icons/_images/21x21/spell_holy_summonchampion.png); }
-.item_info ul.sources li .arena_point { background-image: url() }
-.item_info ul.sources li .honor_point { background-image: url() }
-.item_info ul.sources li .container { background-image: url(/images/wow_icons/16x16/Chest.png) }
-.item_info ul.sources li .gold { padding-left: 20px; background-image: url(http://static.wowhead.com/images/icons/money-gold.gif); background-position: 3px 6px; }
-.item_info ul.sources li .silver { padding-left: 20px; background-image: url(http://static.wowhead.com/images/icons/money-silver.gif); background-position: 3px 6px; }
-.item_info ul.sources li .copper { padding-left: 20px; background-image: url(http://static.wowhead.com/images/icons/money-copper.gif); background-position: 3px 6px; }
+.item_details ul.sources li abbr { font-family: Georgia; padding: 0 0 0 26px; background: transparent none 0 0 no-repeat; }
+.item_details ul.sources li .emblem_of_frost { color: SteelBlue; background-image: url(http://www.wowarmory.com/wow-icons/_images/21x21/inv_misc_frostemblem_01.png); }
+.item_details ul.sources li .emblem_of_triumph { color: purple; background-image: url(http://www.wowarmory.com/wow-icons/_images/21x21/spell_holy_summonchampion.png); }
+.item_details ul.sources li .arena_point { background-image: url() }
+.item_details ul.sources li .honor_point { background-image: url() }
+.item_details ul.sources li .container { background-image: url(/images/wow_icons/16x16/Chest.png) }
+.item_details ul.sources li .gold { padding-left: 20px; background-image: url(http://static.wowhead.com/images/icons/money-gold.gif); background-position: 3px 6px; }
+.item_details ul.sources li .silver { padding-left: 20px; background-image: url(http://static.wowhead.com/images/icons/money-silver.gif); background-position: 3px 6px; }
+.item_details ul.sources li .copper { padding-left: 20px; background-image: url(http://static.wowhead.com/images/icons/money-copper.gif); background-position: 3px 6px; }
 
-.item_info ul.sources li .npc { color: yellow; background: transparent none 0 3px no-repeat; }
-.item_info ul.sources li .alliance { padding-left: 18px; background-image: url(/images/icons/alliance.gif); }
-.item_info ul.sources li .horde { padding-left: 20px; background-image: url(/images/icons/horde.gif); }
-.item_info ul.sources li .neutral { padding-left: 18px; background-image: url(/images/icons/neutral.gif); }
+.item_details ul.sources li .npc { color: yellow; background: transparent none 0 3px no-repeat; }
+.item_details ul.sources li .alliance { padding-left: 18px; background-image: url(/images/icons/alliance.gif); }
+.item_details ul.sources li .horde { padding-left: 20px; background-image: url(/images/icons/horde.gif); }
+.item_details ul.sources li .neutral { padding-left: 18px; background-image: url(/images/icons/neutral.gif); }
 
 .epic,a.epic:visited,a.epic:hover{
   color:#A335EE;

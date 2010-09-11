@@ -1,6 +1,7 @@
 class Spec < ActiveRecord::Base
   belongs_to :wow_class
   has_many :characters
+  has_many :item_popularities
   
   def css_icon_name
     "#{self.wow_class.css_name}_#{name.gsub(/\s/, "").underscore}"

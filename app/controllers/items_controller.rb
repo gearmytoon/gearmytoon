@@ -1,6 +1,8 @@
 class ItemsController < ApplicationController
   before_filter :require_admin, :only => :index
-
+  skip_before_filter :verify_authenticity_token, :only => [:update_used_by]
+  before_filter :check_basic_auth, :only => [:update_used_by]
+  
   def index
     @items = Item.all(:order => :name)
   end
@@ -21,5 +23,19 @@ class ItemsController < ApplicationController
     @item = Item.find(params[:id])
     expires_in 3.hours, :public => true
     render :partial => "tooltip"
+  end
+  
+  def update_used_by
+    item = Item.find_by_wowarmory_item_id(params[:id])
+    item.update_popularities!(params[:item_popularities])
+    render :text => "Success!"
+  end
+  
+  protected
+  def check_basic_auth
+    authenticate_or_request_with_http_basic do |username, password|
+      username == "empty" && password == "f1ndm3g34r"
+    end
+    
   end
 end

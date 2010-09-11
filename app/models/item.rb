@@ -24,7 +24,7 @@ class Item < ActiveRecord::Base
   named_scope :usable_in_same_slot_as, Proc.new { |item| {:conditions => {:slot => item.slot}} }
   has_many :item_sources, :dependent => :destroy
   has_many :dropped_sources
-  has_many :item_popularities
+  has_many :item_popularities, :dependent => :destroy
   has_many :character_items
   #TODO: REMOVE THIS in favor of item sources usable by
   named_scope :usable_by, Proc.new {|wow_class| {:conditions => {:quality => 'epic', :armor_type_id => wow_class.usable_armor_types, :restricted_to => [RESTRICT_TO_NONE, wow_class.name]}}}
@@ -142,7 +142,16 @@ class Item < ActiveRecord::Base
       average_gmt_score = total_gmt_score / gmt_scores.size
       self.item_popularities.create!(:spec => spec, :percentage => percentage, :average_gmt_score => average_gmt_score)
     end
-    
+  end
+
+  def update_popularities!(item_popularities)
+    new_popularities = item_popularities.map { |item_popularity_params|
+      wow_class = WowClass.find_by_name(item_popularity_params[:wow_class_name])
+      spec = wow_class.specs.find_by_name(item_popularity_params[:spec_name])
+      self.item_popularities.build({:spec => spec}.merge(item_popularity_params.slice(:average_gmt_score, :percentage)))
+    }
+    self.item_popularities = new_popularities
+    self.save!
   end
 
 end
