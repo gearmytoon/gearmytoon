@@ -154,4 +154,8 @@ class Item < ActiveRecord::Base
     self.save!
   end
 
+  def popularity_params
+    item_popularities.map(&:params_to_post)
+  end
+
 end

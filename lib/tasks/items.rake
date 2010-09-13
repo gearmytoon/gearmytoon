@@ -36,3 +36,8 @@ task :summarize_all_items => :environment do
     end
   end
 end
+
+task :foo => :environment do
+  isp = ItemSummaryPoster.new(Item.find_by_wowarmory_item_id(50979))
+  isp.post_summary_data
+end

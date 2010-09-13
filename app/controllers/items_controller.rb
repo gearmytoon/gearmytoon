@@ -27,14 +27,14 @@ class ItemsController < ApplicationController
   
   def update_used_by
     item = Item.find_by_wowarmory_item_id(params[:id])
-    item.update_popularities!(params[:item_popularities])
+    item.update_popularities!(params[:item_popularities].values)
     render :text => "Success!"
   end
   
   protected
   def check_basic_auth
     authenticate_or_request_with_http_basic do |username, password|
-      username == "empty" && password == "f1ndm3g34r"
+      username == ItemSummaryPoster::LOGIN && password == ItemSummaryPoster::PASSWORD
     end
     
   end

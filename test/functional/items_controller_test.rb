@@ -246,14 +246,14 @@ class ItemsControllerTest < ActionController::TestCase
   
   context "post update_used_by" do
     setup do
-      @request.env["HTTP_AUTHORIZATION"] = "Basic " + Base64::encode64("empty:f1ndm3g34r")
+      @request.env["HTTP_AUTHORIZATION"] = "Basic " + Base64::encode64("#{ItemSummaryPoster::LOGIN}:#{ItemSummaryPoster::PASSWORD}")
     end
     should "create all used bys" do
       item = Factory(:item)
       spec = Factory(:spec, :name => "Survival", :wow_class => Hunter.first)
       assert_difference "item.reload.item_popularities.count" do
         assert_difference "spec.reload.item_popularities.count" do
-          post :update_used_by, :id => item.wowarmory_item_id, :item_popularities => [{:average_gmt_score => 1, :percentage => 2, :spec_name => "Survival", :wow_class_name => "Hunter", :wowarmory_item_id => 33}]
+          post :update_used_by, :id => item.wowarmory_item_id, :item_popularities => {"1" => {:average_gmt_score => 1, :percentage => 2, :spec_name => "Survival", :wow_class_name => "Hunter", :wowarmory_item_id => 33}}
           assert_response :success
         end
       end
@@ -264,7 +264,7 @@ class ItemsControllerTest < ActionController::TestCase
       item = Factory(:item_popularity, :spec => spec).item
       assert_difference "spec.reload.item_popularities.count", -1 do
         assert_difference "item.reload.item_popularities.count", -1 do
-          post :update_used_by, :id => item.wowarmory_item_id, :item_popularities => []
+          post :update_used_by, :id => item.wowarmory_item_id, :item_popularities => {}
           assert_response :success
         end
       end
@@ -273,7 +273,7 @@ class ItemsControllerTest < ActionController::TestCase
     should "require correct basic authorization" do
       @request.env["HTTP_AUTHORIZATION"] = "Basic " + Base64::encode64("empty:wtfbbq")
       item = Factory(:item)
-      post :update_used_by, :id => item.wowarmory_item_id, :item_popularities => []
+      post :update_used_by, :id => item.wowarmory_item_id, :item_popularities => {}
       assert_response 401
     end
 

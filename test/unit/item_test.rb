@@ -192,6 +192,13 @@ class ItemTest < ActiveSupport::TestCase
         item.summarize
       end
     end
-    
+  end
+  
+  context "popularity_params" do
+    should "generate popularity params" do
+      item = Factory(:item)
+      2.times {Factory(:item_popularity, :spec => Factory(:spec), :item => item)}
+      assert_equal 2, item.popularity_params.size
+    end
   end
 end
