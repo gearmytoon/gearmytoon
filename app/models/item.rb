@@ -151,6 +151,7 @@ class Item < ActiveRecord::Base
       self.item_popularities.build({:spec => spec}.merge(item_popularity_params.slice(:average_gmt_score, :percentage)))
     }
     self.item_popularities = new_popularities
+    self.update_attribute(:updated_at, Time.now)
     self.save!
   end
 

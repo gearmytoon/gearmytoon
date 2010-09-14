@@ -276,6 +276,14 @@ class ItemsControllerTest < ActionController::TestCase
       assert_response :success
     end
     
+    should "update item's updated_at time" do
+      item = Factory(:item)
+      old_updated_at = item.updated_at
+      sleep(2)
+      post :update_used_by, :id => item.wowarmory_item_id, :item_popularities => {}
+      assert_not_equal item.reload.updated_at, old_updated_at
+    end
+
     should "require correct basic authorization" do
       @request.env["HTTP_AUTHORIZATION"] = "Basic " + Base64::encode64("empty:wtfbbq")
       item = Factory(:item)

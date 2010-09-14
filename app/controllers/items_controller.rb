@@ -27,7 +27,8 @@ class ItemsController < ApplicationController
   
   def update_used_by
     item = Item.find_by_wowarmory_item_id(params[:id])
-    item.update_popularities!(params[:item_popularities].values) if params[:item_popularities]
+    item_popularities = params[:item_popularities].nil? ? {} : params[:item_popularities]
+    item.update_popularities!(item_popularities.values)
     render :text => "Success!"
   end
   
