@@ -5,10 +5,10 @@ class CharacterTest < ActiveSupport::TestCase
     should "return geared characters" do
       geared_characters = []
       3.times do |i|
-        c = Factory(:character, :name => "Foo#{i}", :status => 'geared')
+        c = Factory(:character, :status => 'geared')
         c.found_upgrades!
         geared_characters << c
-        Factory(:character, :name => "Foo#{i+100}")
+        Factory(:character)
       end
       assert_equal geared_characters, Character.geared
     end

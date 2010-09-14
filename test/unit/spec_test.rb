@@ -42,4 +42,21 @@ class SpecTest < ActiveSupport::TestCase
       assert_equal [expected], Spec.all_played_specs
     end
   end
+  
+  context "summarize_all_characters" do
+    should "find average and std_devation all character gearscores" do
+      spec = Factory(:survival_hunter_spec)
+      hunter1 = Factory(:character, :spec => spec)
+      hunter2 = Factory(:character, :spec => spec)
+      hunter1.gmt_score = 3000
+      hunter1.send(:update_without_callbacks)
+      hunter2.gmt_score = 3500
+      hunter2.send(:update_without_callbacks)
+      spec.summarize_all_characters
+      spec.reload
+      assert_equal 3250, spec.average_gmt_score
+      assert_equal "250.0", spec.gmt_score_standard_deviation.to_s
+    end
+    
+  end
 end

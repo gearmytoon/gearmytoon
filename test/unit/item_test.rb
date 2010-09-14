@@ -124,8 +124,8 @@ class ItemTest < ActiveSupport::TestCase
     end
     should "generate a items summary for the percent of toons who use the item" do
       item = Factory(:item)
-      hunter = Factory(:a_hunter, :name => "bar")
-      shaman = Factory(:a_shaman, :name => "foo")
+      hunter = Factory(:a_hunter)
+      shaman = Factory(:a_shaman)
       hunter.gmt_score = 2500
       hunter.send(:update_without_callbacks)
       shaman.gmt_score = 3500
@@ -147,7 +147,7 @@ class ItemTest < ActiveSupport::TestCase
 
     should "not generate duplicate item popularties" do
       item = Factory(:item)
-      hunter = Factory(:a_hunter, :name => "bar")
+      hunter = Factory(:a_hunter)
       Factory(:character_item, :character => hunter, :item => item)
       assert_difference "ItemPopularity.count", 1 do
         item.summarize
@@ -160,10 +160,10 @@ class ItemTest < ActiveSupport::TestCase
     should "generate a items average gmt score summary" do
       item = Factory(:item)
       hunter_spec = Factory(:spec)
-      hunter1 = Factory(:a_hunter, :spec => hunter_spec, :name => "bar")
+      hunter1 = Factory(:a_hunter, :spec => hunter_spec)
       hunter1.gmt_score = 2500
       hunter1.send(:update_without_callbacks)
-      hunter2 = Factory(:a_hunter, :spec => hunter_spec, :name => "foo")
+      hunter2 = Factory(:a_hunter, :spec => hunter_spec)
       hunter2.gmt_score = 3500
       hunter2.send(:update_without_callbacks)
       Factory(:character_item, :character => hunter1, :item => item)
@@ -178,7 +178,7 @@ class ItemTest < ActiveSupport::TestCase
     should "only generate summaries for real specs" do
       item = Factory(:item)
       no_spec = Factory(:spec, :name => "")
-      hunter = Factory(:character, :name => "bar", :spec => no_spec)
+      hunter = Factory(:character, :spec => no_spec)
       Factory(:character_item, :character => hunter, :item => item)
       assert_no_difference "ItemPopularity.count" do
         item.summarize
@@ -187,7 +187,7 @@ class ItemTest < ActiveSupport::TestCase
 
     should "not generate summaries if the item is not used" do
       item = Factory(:item)
-      hunter = Factory(:character, :name => "bar")
+      hunter = Factory(:character)
       assert_no_difference "ItemPopularity.count" do
         item.summarize
       end

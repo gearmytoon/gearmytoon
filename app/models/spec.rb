@@ -20,4 +20,13 @@ class Spec < ActiveRecord::Base
       end
     end
   end
+  
+  def summarize_all_characters
+    all_character_scores = self.characters.all(:select => :gmt_score).map(&:gmt_score)
+    count = all_character_scores.size
+    average = all_character_scores.sum / count
+    stddev = Math.sqrt( all_character_scores.inject(0) { |sum, e| sum + (e - average) ** 2 } / count.to_f )
+    self.update_attributes!(:average_gmt_score => average, :gmt_score_standard_deviation => stddev)
+  end
+  
 end

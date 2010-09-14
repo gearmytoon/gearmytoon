@@ -1,5 +1,5 @@
 Factory.define(:basic_character, :class => "Character") do |model|
-  model.name "Merb"
+  model.sequence(:name) {|n| "Merb#{n}"}
   model.total_item_bonuses({:not_a_stat=>1}) #serialize as doesnt save if the hash is empty
   model.realm "Baelgun"
   model.locale 'us'
