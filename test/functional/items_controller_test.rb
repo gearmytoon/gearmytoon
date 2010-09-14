@@ -269,7 +269,13 @@ class ItemsControllerTest < ActionController::TestCase
         end
       end
     end
-
+    
+    should "not error out if no item popularities given" do
+      item = Factory(:item)
+      post :update_used_by, :id => item.wowarmory_item_id
+      assert_response :success
+    end
+    
     should "require correct basic authorization" do
       @request.env["HTTP_AUTHORIZATION"] = "Basic " + Base64::encode64("empty:wtfbbq")
       item = Factory(:item)
