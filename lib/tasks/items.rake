@@ -37,7 +37,10 @@ task :summarize_all_items => :environment do
   end
 end
 
-task :foo => :environment do
-  isp = ItemSummaryPoster.new(Item.find_by_wowarmory_item_id(50979))
-  isp.post_summary_data
+task :sync_all_item_popularities_to_production => :environment do
+  Item.find_in_batches(:select => :id) do |group|
+    group.each do |item|
+      Resque.enqueue(ItemSummaryPosterJob, item.id)
+    end
+  end
 end
