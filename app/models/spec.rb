@@ -29,4 +29,8 @@ class Spec < ActiveRecord::Base
     self.update_attributes!(:average_gmt_score => average, :gmt_score_standard_deviation => stddev)
   end
   
+  def params_to_post
+    {:average_gmt_score => self.average_gmt_score.to_s, :gmt_score_standard_deviation => self.gmt_score_standard_deviation.to_s, :spec_name => self.name, :wow_class_name => self.wow_class.name}
+  end
+  
 end

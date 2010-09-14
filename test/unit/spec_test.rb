@@ -59,4 +59,12 @@ class SpecTest < ActiveSupport::TestCase
     end
     
   end
+  
+  context "params_to_post" do
+    should "convert a spec to it's params" do
+      spec = Factory(:spec, :name => "Survival", :wow_class => WowClass.create_class!("Hunter"), :average_gmt_score => 131, :gmt_score_standard_deviation => 212)
+      expected = {:average_gmt_score => "131", :gmt_score_standard_deviation => "212.0", :spec_name => "Survival", :wow_class_name => "Hunter"}
+      assert_equal expected, spec.params_to_post
+    end
+  end
 end
