@@ -22,7 +22,7 @@ class Spec < ActiveRecord::Base
   end
   
   def summarize_all_characters
-    all_character_scores = self.characters.all(:select => :gmt_score).map(&:gmt_score)
+    all_character_scores = self.characters.all(:conditions => ["characters.level = ?", Character::LEVEL_CAP], :select => :gmt_score).map(&:gmt_score)
     count = all_character_scores.size
     average = all_character_scores.sum / count
     stddev = Math.sqrt( all_character_scores.inject(0) { |sum, e| sum + (e - average) ** 2 } / count.to_f )

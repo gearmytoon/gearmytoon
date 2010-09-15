@@ -58,6 +58,20 @@ class SpecTest < ActiveSupport::TestCase
       assert_equal "250.0", spec.gmt_score_standard_deviation.to_s
     end
     
+    
+    should "not summarize characters bellow the level cap" do
+      spec = Factory(:survival_hunter_spec)
+      hunter1 = Factory(:character, :level => Character::LEVEL_CAP-1, :spec => spec)
+      hunter2 = Factory(:character, :level => Character::LEVEL_CAP, :spec => spec)
+      hunter1.gmt_score = 3000
+      hunter1.send(:update_without_callbacks)
+      hunter2.gmt_score = 3500
+      hunter2.send(:update_without_callbacks)
+      spec.summarize_all_characters
+      spec.reload
+      assert_equal 3500, spec.average_gmt_score
+      assert_equal "0.0", spec.gmt_score_standard_deviation.to_s
+    end
   end
   
   context "params_to_post" do

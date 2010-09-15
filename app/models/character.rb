@@ -1,6 +1,6 @@
 class Character < ActiveRecord::Base
   include Upgradable
-
+  LEVEL_CAP = 80
   DEFAULT_LOCALE = 'us'
   LOCALES = [['US','us'],['EU','eu'],['CN','cn'],['TW','tw'],['KR','kr']]
   HORDE_RACES = ['orc', 'undead', 'troll', 'tauren', 'blood elf']
