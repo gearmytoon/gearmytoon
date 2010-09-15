@@ -3,7 +3,7 @@ class SpecSummaryPoster < CrossSitePoster
   def initialize(spec)
     @spec = spec
     @spec.summarize_all_characters
-    @url = "/specs/#{@spec.id}/"
+    @url = "/specs/create_or_update/"
     super()
   end
 
