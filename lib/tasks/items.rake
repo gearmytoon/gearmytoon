@@ -36,11 +36,3 @@ task :summarize_all_items => :environment do
     end
   end
 end
-
-task :sync_all_item_popularities_to_production => :environment do
-  Item.find_in_batches(:select => :id) do |group|
-    group.each do |item|
-      Resque.enqueue(ItemSummaryPosterJob, item.id)
-    end
-  end
-end
