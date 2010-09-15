@@ -60,7 +60,7 @@ class CharacterImporterTest < ActiveSupport::TestCase
       paladin = WowClass.create_class!("Paladin")
       character = Factory(:new_character, :name => "Rails", :realm => "Baelgun")
       CharacterImporter.import!(character)
-      assert_equal "5160.0", character.reload.gmt_score.to_s
+      assert_equal "5349.0", character.reload.gmt_score.to_s
     end
 
     should "import a characters total_item_bonuses" do

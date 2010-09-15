@@ -32,5 +32,9 @@ class Spec < ActiveRecord::Base
   def params_to_post
     {:average_gmt_score => self.average_gmt_score.to_s, :gmt_score_standard_deviation => self.gmt_score_standard_deviation.to_s, :spec_name => self.name, :wow_class_name => self.wow_class.name}
   end
-  
+
+  def self.find_by_wow_class_and_name(wow_class_name, spec_name)
+    wow_class = WowClass.find_by_name(wow_class_name)
+    spec = wow_class.specs.find_or_create_by_name(spec_name)
+  end
 end

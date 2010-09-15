@@ -22,6 +22,12 @@ class ApplicationController < ActionController::Base
     return(render "characters/being_geared") if(@character.has_no_upgrades_yet?)
   end
 
+  def check_basic_auth
+    authenticate_or_request_with_http_basic do |username, password|
+      username == ItemSummaryPoster::LOGIN && password == ItemSummaryPoster::PASSWORD
+    end
+  end
+
   private
   def setup_meta_tags
     @meta_tags = {}

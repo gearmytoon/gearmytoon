@@ -146,8 +146,7 @@ class Item < ActiveRecord::Base
 
   def update_popularities!(item_popularities)
     new_popularities = item_popularities.map { |item_popularity_params|
-      wow_class = WowClass.find_by_name(item_popularity_params[:wow_class_name])
-      spec = wow_class.specs.find_or_create_by_name(item_popularity_params[:spec_name])
+      spec = Spec.find_by_wow_class_and_name(item_popularity_params[:wow_class_name], item_popularity_params[:spec_name])
       self.item_popularities.build({:spec => spec}.merge(item_popularity_params.slice(:average_gmt_score, :percentage)))
     }
     self.item_popularities = new_popularities

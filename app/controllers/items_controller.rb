@@ -32,11 +32,4 @@ class ItemsController < ApplicationController
     render :text => "Success!"
   end
   
-  protected
-  def check_basic_auth
-    authenticate_or_request_with_http_basic do |username, password|
-      username == ItemSummaryPoster::LOGIN && password == ItemSummaryPoster::PASSWORD
-    end
-    
-  end
 end

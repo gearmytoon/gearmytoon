@@ -253,7 +253,7 @@ class ItemsControllerTest < ActionController::TestCase
       spec = Factory(:spec, :name => "Survival", :wow_class => Hunter.first)
       assert_difference "item.reload.item_popularities.count" do
         assert_difference "spec.reload.item_popularities.count" do
-          post :update_used_by, :id => item.wowarmory_item_id, :item_popularities => {"1" => {:average_gmt_score => 1, :percentage => 2, :spec_name => "Survival", :wow_class_name => "Hunter", :wowarmory_item_id => 33}}
+          post :update_used_by, :id => item.wowarmory_item_id, :item_popularities => {"1" => {:average_gmt_score => 1, :percentage => 2, :spec_name => "Survival", :wow_class_name => "Hunter"}}
           assert_response :success
         end
       end
@@ -262,7 +262,7 @@ class ItemsControllerTest < ActionController::TestCase
     should "create missing specs" do
       item = Factory(:item)
       assert_difference "Spec.count" do
-        post :update_used_by, :id => item.wowarmory_item_id, :item_popularities => {"1" => {:average_gmt_score => 1, :percentage => 2, :spec_name => "Beast Mastery", :wow_class_name => "Hunter", :wowarmory_item_id => 33}}
+        post :update_used_by, :id => item.wowarmory_item_id, :item_popularities => {"1" => {:average_gmt_score => 1, :percentage => 2, :spec_name => "Beast Mastery", :wow_class_name => "Hunter"}}
         assert_response :success
       end
       assert_equal 1, item.item_popularities.size
