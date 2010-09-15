@@ -259,6 +259,17 @@ class ItemsControllerTest < ActionController::TestCase
       end
     end
 
+    should "create missing specs" do
+      item = Factory(:item)
+      assert_difference "Spec.count" do
+        post :update_used_by, :id => item.wowarmory_item_id, :item_popularities => {"1" => {:average_gmt_score => 1, :percentage => 2, :spec_name => "Beast Mastery", :wow_class_name => "Hunter", :wowarmory_item_id => 33}}
+        assert_response :success
+      end
+      assert_equal 1, item.item_popularities.size
+      assert_equal "Beast Mastery", item.item_popularities.first.spec.name
+      assert_equal "Hunter", item.item_popularities.first.wow_class.name
+    end
+
     should "not orphan old item popularities" do
       spec = Factory(:spec, :name => "Survival", :wow_class => Hunter.first)
       item = Factory(:item_popularity, :spec => spec).item
