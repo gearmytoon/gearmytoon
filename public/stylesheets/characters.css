@@ -34,6 +34,28 @@
 .warlock {color:#9382C9!important;}
 .druid{color:#FF7C0A!important;}
 
+.warrior_border {border: 1px solid #C69B6D!important;}
+.paladin_border {border: 1px solid #F48CBA!important;}
+.hunter_border {border: 1px solid #AAD372!important;}
+.rogue_border {border: 1px solid #FFF468!important;}
+.priest_border {border: 1px solid #FFF!important;}
+.death_knight_border {border: 1px solid #C41E3B!important;}
+.shaman_border {border: 1px solid #2359FF!important;}
+.mage_border {border: 1px solid #68CCEF!important;}
+.warlock_border {border: 1px solid #9382C9!important;}
+.druid_border{border: 1px solid #FF7C0A!important;}
+
+.warrior_top_border {border-top: 1px solid #C69B6D!important;}
+.paladin_top_border {border-top: 1px solid #F48CBA!important;}
+.hunter_top_border {border-top: 1px solid #AAD372!important;}
+.rogue_top_border {border-top: 1px solid #FFF468!important;}
+.priest_top_border {border-top: 1px solid #FFF!important;}
+.death_knight_top_border {border-top: 1px solid #C41E3B!important;}
+.shaman_top_border {border-top: 1px solid #2359FF!important;}
+.mage_top_border {border-top: 1px solid #68CCEF!important;}
+.warlock_top_border {border-top: 1px solid #9382C9!important;}
+.druid_top_border{border-top: 1px solid #FF7C0A!important;}
+
 .spec_icon{
   background-repeat: no-repeat;
   width:23px;

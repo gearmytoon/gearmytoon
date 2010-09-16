@@ -1,0 +1,17 @@
+<h2 id="spec_class_header">Browse the best gear for your class</h2>
+<div id="spec_class_table">
+  <% @specs.group_by(&:wow_class).each do |wow_class, specs| %>
+    <div class="class_column <%= wow_class.css_border_name %>">
+      <div class="class_name <%= wow_class.css_name %>">
+        <%= wow_class.name %>
+      </div>
+    <% specs.each do |spec| %>
+      <% link_to "", :class => "spec_link" do %>
+        <div class="spec_entry <%= wow_class.css_border_top_name %>">
+          <span class="spec_icon <%= spec.css_icon_name %>"><%= spec.name %></span>
+        </div>
+      <% end %>
+    <% end %>
+    </div>
+  <% end %>
+</div>
