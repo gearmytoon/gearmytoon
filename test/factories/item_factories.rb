@@ -1,7 +1,30 @@
+Factory.define(:tabard, :class => :item) do |model|
+  model.side Item::ANY_SIDE
+  model.name "Factory Item"
+  model.icon "Factory_icon.png"
+  model.quality "epic"
+  model.sequence(:wowarmory_item_id){|n| n}
+  model.bonuses :attack_power => 100
+  model.armor_type ArmorType.mail
+  model.slot "Tabard"
+end
+
+Factory.define(:shirt, :class => :item) do |model|
+  model.side Item::ANY_SIDE
+  model.name "Factory Item"
+  model.icon "Factory_icon.png"
+  model.quality "epic"
+  model.sequence(:wowarmory_item_id){|n| n}
+  model.bonuses :attack_power => 100
+  model.armor_type ArmorType.mail
+  model.slot "Shirt"
+end
+
 Factory.define(:item) do |model|
   model.side Item::ANY_SIDE
   model.name "Factory Item"
   model.icon "Factory_icon.png"
+  model.slot "Head"
   model.quality "epic"
   model.sequence(:wowarmory_item_id){|n| n}
   model.bonuses :attack_power => 100

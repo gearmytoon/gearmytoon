@@ -7,6 +7,21 @@ class SpecsControllerTest < ActionController::TestCase
       get :show, :id => spec.id, :scope => spec.wow_class.id
       assert_response :success
     end
+
+    should "filter out tabards" do
+      spec = Factory(:survival_hunter_spec)
+      Factory(:item_popularity, :spec => spec, :item => Factory(:tabard))
+      get :show, :id => spec.id, :scope => spec.wow_class.id
+      assert_select ".item_popularity", :count => 0
+    end
+
+    should "filter out shirts" do
+      spec = Factory(:survival_hunter_spec)
+      Factory(:item_popularity, :spec => spec, :item => Factory(:shirt))
+      get :show, :id => spec.id, :scope => spec.wow_class.id
+      assert_select ".item_popularity", :count => 0
+    end
+
     should "display specs_name" do
       spec = Factory(:survival_hunter_spec)
       get :show, :id => spec.id, :scope => spec.wow_class.id
