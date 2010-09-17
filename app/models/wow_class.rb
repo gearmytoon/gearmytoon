@@ -12,6 +12,7 @@ class WowClass < ActiveRecord::Base
   has_many :characters
   belongs_to :primary_armor_type, :class_name => "ArmorType"
   has_many :specs
+  has_friendly_id :name, :use_slug => true
 
   def equippable_items
     Item.usable_by(self)
