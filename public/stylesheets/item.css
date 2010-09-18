@@ -26,6 +26,9 @@
 .item_details ul.sources li .horde { padding-left: 20px; background-image: url(/images/icons/horde.gif); }
 .item_details ul.sources li .neutral { padding-left: 18px; background-image: url(/images/icons/neutral.gif); }
 
+.legendary, a.legendary:visited, a.legendary:hover{
+  color:#FF8000;
+}
 .epic,a.epic:visited,a.epic:hover{
   color:#A335EE;
 }
