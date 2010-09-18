@@ -1,15 +1,28 @@
-<div>
-  <div>
+<div class="item_popularities">
+  <h2 class='popularity_title'>
     Best gear used by: <span class="spec_name"><%= @spec.name %></span> <span class="wow_class_name <%= @spec.wow_class.css_name %>"><%= @spec.wow_class.name %>'s</span> <%= link_to "back", class_spec_list_home_path %>
-  </div>
+  </h2>
+  <table class="item_popularity_table">
+    <thead>
+      <tr>
+        <th></th>
+        <th>Item</th>
+        <th>Average GMT Score</th>
+        <th>Percentage Using</th>
+      </tr>
+    </thead>
+    <tbody>
+      <% @item_popularities.each do |item_popularity| %>
+        <tr class="item_popularity">
+          <td><%= item_image_link item_popularity.item %></td>
+          <td><%= stylized_item_name(item_popularity.item) %></td>
+          <td class="average_gmt_score"><%= item_popularity.average_gmt_score %></td>
+          <td class="percentage"><%= item_popularity.percentage %></td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
   <div>
-    <% @item_popularities.each do |item_popularity| %>
-      <div class="item_popularity">
-        <span><%= stylized_item_name(item_popularity.item) %></span>
-        <span class="average_gmt_score"><%= item_popularity.average_gmt_score %></span>
-        <span class="percentage"><%= item_popularity.percentage %></span>
-      </div>
-    <% end %>
     <%= will_paginate @item_popularities %>
   </div>
 </div>

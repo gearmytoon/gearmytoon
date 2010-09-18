@@ -71,12 +71,12 @@
 .upgrade .gmt_points{
   color:#1EFF00;
 }
-.upgrade, .downgrade{
+.upgrade, .downgrade, .item_popularity{
   vertical-align:middle;
   background-color:#1A1A1A;
   border:1px solid black;
 }
-.upgrade td, .downgrade td {
+.upgrade td, .downgrade td, .item_popularity td {
   padding:2px;
 }
 .upgrade .cost, .downgrade .cost {
@@ -206,3 +206,20 @@
   text-align:center;
   padding-bottom:15px;
 }
+
+.item_popularity_table{
+  margin-left:200px;
+}
+.item_popularity_table th{
+  font-weight:bold;
+}
+.item_popularity_table th,.item_popularity_table td{
+  text-align:center;
+}
+.item_popularities{
+  text-align:center;
+}
+.popularity_title{
+  padding-bottom:20px;
+}
+
