@@ -11,19 +11,27 @@
   }
 
   $(document).ready(function(){
-    tooltip_url = null;
+    var tooltip_url = null;
+    var current_tooltip = null;
     $('.with_tooltip').mousemove(function(e) {
+      var self = this;
+      current_tooltip = self;
       var new_tooltip_url = $(this).attr('href') + '/tooltip';
       if(tooltip_url!= new_tooltip_url)
       {
         $("#tooltip").html("")
         tooltip_url = new_tooltip_url;
-        $.get(tooltip_url,function(data) { $("#tooltip").html(data); });
+        $.get(tooltip_url,function(data) {
+          if(current_tooltip == self){
+            $("#tooltip").html(data);
+          }
+        });
       }
       $("#tooltip").css('left', e.pageX + 10);
       $("#tooltip").css('top', e.pageY + 10);
       $("#tooltip").show();
     }).mouseleave(function() {
+      current_tooltip = null;
       $("#tooltip").hide();
     });
 
