@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?xml-stylesheet type="text/xsl" href="/_layout/items/info.xsl"?>
+<page globalSearch="1" lang="en_us" requestQuery="i=42026" requestUrl="/item-info.xml">
+  <itemInfo>
+    <item icon="inv_jewelry_necklace_36" id="42026" level="200" name="Hateful Gladiator's Pendant of Salvation" quality="4" type="Miscellaneous"/>
+  </itemInfo>
+</page>

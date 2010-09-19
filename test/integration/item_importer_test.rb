@@ -18,6 +18,12 @@ class ItemImporterTest < ActiveSupport::TestCase
        assert_equal expected, item.spell_effects
     end
 
+    should "import resilence items correctly" do
+      item = ItemImporter.import_from_wowarmory!(42026)
+      expected = {:stamina => 57, :intellect => 24, :resilience => 33, :mana_regen => 18, :spell_power => 59}
+      assert_equal expected, item.bonuses
+    end
+
     should "import caster cloak correctly" do
       item = ItemImporter.import_from_wowarmory!(50468)
       expected = {:stamina => 69, :intellect => 69, :crit => 52, :mana_regen => 30, :spell_power => 97, :armor=>177}
