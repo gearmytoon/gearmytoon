@@ -13,7 +13,7 @@
   $(document).ready(function(){
     var tooltip_url = null;
     var current_tooltip = null;
-    $('.with_tooltip').mousemove(function(e) {
+    $('.with_tooltip').mouseenter(function(e){
       var self = this;
       current_tooltip = self;
       var new_tooltip_url = $(this).attr('href') + '/tooltip';
@@ -27,11 +27,11 @@
           }
         });
       }
+      $("#tooltip").show();
+    }).mousemove(function(e) {
       $("#tooltip").css('left', e.pageX + 10);
       $("#tooltip").css('top', e.pageY + 10);
-      $("#tooltip").show();
     }).mouseleave(function() {
-      current_tooltip = null;
       $("#tooltip").hide();
     });
 
