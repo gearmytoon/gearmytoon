@@ -80,3 +80,9 @@ end
 Factory.define(:item_popularity) do |model|
   model.association :item
 end
+
+Factory.define(:comment) do |model|
+  model.association :user
+  model.comment "hello world"
+  model.association :commentable, :factory => :item
+end

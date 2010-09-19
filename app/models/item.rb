@@ -24,6 +24,7 @@ class Item < ActiveRecord::Base
   named_scope :usable_in_same_slot_as, Proc.new { |item| {:conditions => {:slot => item.slot}} }
   has_many :item_sources, :dependent => :destroy
   has_many :dropped_sources
+  has_many :comments, :as => :commentable
   has_many :item_popularities, :dependent => :destroy
   has_many :character_items
   #TODO: REMOVE THIS in favor of item sources usable by

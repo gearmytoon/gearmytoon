@@ -31,6 +31,7 @@ class ItemTest < ActiveSupport::TestCase
       item = Factory(:item, :bonuses => weapon_stats)
       assert_equal({}, item.equipped_stats)
     end
+
     should "exclude armor" do
       armor = {:armor => 1}
       item = Factory(:item, :bonuses => armor)

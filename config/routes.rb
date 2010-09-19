@@ -4,7 +4,9 @@ ActionController::Routing::Routes.draw do |map|
   map.resources :areas
   map.resources :specs, :collection => {:create_or_update => :post}
   map.spec "/specs/:scope/:id", :controller => "specs", :action => "show"
-  map.resources :items, :member => {:tooltip => :get, :update_used_by => :post}
+  map.resources :items, :member => {:tooltip => :get, :update_used_by => :post} do |item|
+    item.resource :comments
+  end
   map.resources :character_refreshes
   map.resources :users
   map.resource :payment_receipts
