@@ -9,6 +9,28 @@ class CommentsControllerTest < ActionController::TestCase
       end
       assert_response 302
     end
+
+    should "save referer" do
+      item = Factory(:item)
+      referer = "http://localhost:3000/items/#{item.id}"
+      @request.env["HTTP_REFERER"] = referer
+      assert_no_difference "item.reload.comments.count" do
+        post :create, :item_id => item.id
+      end
+      assert_equal referer, session[:return_to]
+      assert_response 302
+    end
+
+    should "save user request url if referer is nil" do
+      item = Factory(:item)
+      @request.env["HTTP_REFERER"] = nil
+      assert_no_difference "item.reload.comments.count" do
+        post :create, :item_id => item.id
+      end
+      assert_equal "/items/#{item.id}/comments", session[:return_to]
+      assert_response 302
+    end
+
   end
 
   context "show" do

@@ -65,7 +65,11 @@ class ApplicationController < ActionController::Base
   end
 
   def store_location
-    session[:return_to] = request.request_uri
+    if request.post? && request.env["HTTP_REFERER"]
+      session[:return_to] = request.env["HTTP_REFERER"]
+    else
+      session[:return_to] = request.request_uri
+    end
   end
 
   def redirect_back_or_default(default)

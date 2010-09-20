@@ -1,6 +1,15 @@
 require File.dirname(__FILE__) + '/../test_helper'
 
 class PaymentsControllerTest < ActionController::TestCase
+
+  context "get show without logging in" do
+    should "respond with success" do
+      get :show
+      assert_response :redirect
+      assert_equal "/payment", session[:return_to]
+    end
+  end
+
   context "get show" do
     setup do
       activate_authlogic
@@ -72,12 +81,6 @@ class PaymentsControllerTest < ActionController::TestCase
 
     should "know if the payment is a recurring plan" do
       get :receipt, "transactionId" => "abcd134", "status" => "SS", "subscriptionId" => "1234"
-      new_payment = Payment.find_by_transaction_id("abcd134")
-      assert_equal Payment::RECURRING, new_payment.plan_type
-    end
-
-    should "set the expiry date to a month from now if recurring" do
-      get :receipt, "transactionId" => "abcd134", "status" => "SS", "recurringFrequency" => "1 month"
       new_payment = Payment.find_by_transaction_id("abcd134")
       assert_equal Payment::RECURRING, new_payment.plan_type
     end
