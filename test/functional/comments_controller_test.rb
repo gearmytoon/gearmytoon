@@ -16,9 +16,25 @@ class CommentsControllerTest < ActionController::TestCase
       item = Factory(:comment, :comment => "zomg first post").commentable 
       get :show, :item_id => item.id
       assert_response :success
-      assert_select ".comment", :text => "zomg first post"
+      assert_select ".comment_text", :text => "zomg first post"
     end
-    
+
+    should "show a commenters name" do
+      item = Factory(:comment, :user => Factory(:user, :name => "some guy")).commentable 
+      get :show, :item_id => item.id
+      assert_response :success
+      assert_select ".commenter", :text => "some guy"
+    end
+
+    should "show when a comment was posted" do
+      freeze_time(1.minute.ago)
+      item = Factory(:comment).commentable 
+      freeze_time(1.minute.from_now)
+      get :show, :item_id => item.id
+      assert_response :success
+      assert_select ".posted_at", :text => "1 minute ago"
+    end
+
     should "not render layout" do
       item = Factory(:comment).commentable 
       get :show, :item_id => item.id
@@ -45,7 +61,6 @@ class CommentsControllerTest < ActionController::TestCase
       item = Factory(:item)
       assert_difference "item.reload.comments.count" do
         post :create, :item_id => item.id, :comment => {:comment => "hello there!"}
-        assert_response :success
       end
     end
 
@@ -53,7 +68,6 @@ class CommentsControllerTest < ActionController::TestCase
       item = Factory(:item)
       assert_difference "@user.reload.comments.count" do
         post :create, :item_id => item.id, :comment => {:comment => "hello there!"}
-        assert_response :success
       end
     end
 
@@ -61,7 +75,14 @@ class CommentsControllerTest < ActionController::TestCase
       item = Factory(:item)
       assert_no_difference "item.reload.comments.count" do
         post :create, :item_id => item.id, :comment => {:comment => ""}
-        assert_response :success
+      end
+    end
+
+    should "redirect to items page" do
+      item = Factory(:item)
+      assert_difference "@user.reload.comments.count" do
+        post :create, :item_id => item.id, :comment => {:comment => "first post"}
+        assert_redirected_to item_path(item)
       end
     end
 

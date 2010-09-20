@@ -19,4 +19,15 @@ class CommentTest < ActiveSupport::TestCase
       assert Factory.build(:comment).valid?
     end
   end
+  
+  context "default_scope" do
+    should_eventually 'order by reverse date' do
+      #fails when run units, i dunno why
+      item = Factory(:item)
+      first_comment = Factory(:comment, :commentable => item)
+      sleep(2)
+      second_comment = Factory(:comment, :commentable => item)
+      assert_equal [second_comment, first_comment], item.reload.comments
+    end
+  end
 end

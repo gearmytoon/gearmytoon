@@ -71,7 +71,7 @@
 .upgrade .gmt_points{
   color:#1EFF00;
 }
-.upgrade, .downgrade, .item_popularity{
+.upgrade, .downgrade, .item_popularity, .comment{
   vertical-align:middle;
   background-color:#1A1A1A;
   border:1px solid black;
@@ -223,3 +223,7 @@
   padding-bottom:20px;
 }
 
+.item_container{
+  width:100%;
+  float:left;
+}

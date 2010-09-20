@@ -1,0 +1,25 @@
+.add_comment{
+  font-style:underline;
+  font-size:12px;
+}
+
+.poster{
+  padding:5px;
+  font-size:11px;
+  border-bottom:1px solid black;
+}
+.comment_text{
+  padding:10px;
+}
+.comment_header{
+  padding-bottom:15px;
+}
+.comment{
+  margin-bottom:7px;
+  -moz-border-radius: 7px;
+  -webkit-border-radius: 7px;
+}
+.comment_text{
+  color:#E5CC80;
+}
+

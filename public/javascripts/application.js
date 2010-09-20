@@ -9,7 +9,17 @@
       window.location = $(this).find('a:first').attr('href');
     });
   }
-
+  
+  $.fn.loadComments = function() {
+    var self = this;
+    var comment_list = $(this).parents('#comment_list');
+    $.get($(this).attr('href'), function(data) {
+      var parent = comment_list;
+      parent.html(data);
+      parent.show();
+    });
+  }
+  
   $(document).ready(function(){
     var tooltip_url = null;
     var current_tooltip = null;
@@ -40,9 +50,12 @@
     $('#welcome .actions ul li.toon_search form input[type=text]').example(function() { return $(this).prev('label').text(); }).prev('label').hide();
     $('form input[type=submit]').each(function(i,button) {
       var form = $(button).parents('form');
-      var gearMeLink =  $('<a href="#" class="submit awesome large red"></a>').text($(button).attr('value')).click(function(){ $(form).submit(); });
+      var gearMeLink =  $('<a class="submit awesome large red"></a>').text($(button).attr('value')).click(function(){ $(form).submit(); });
       $(button).replaceWith(gearMeLink);
     });
+    
+    $("#commentable").loadComments();
+    
     $('.character, #contact ul li').clickable();
 
     $('#character_refresh').everyTime(1000,function(i){

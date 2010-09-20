@@ -5,11 +5,11 @@ class CommentsController < ApplicationController
   def create
     item = Item.find(params[:item_id])
     item.comments.create(params[:comment].merge({:user => current_user}))
-    render :text => "Profit"
+    redirect_to item_path(item)
   end
   
   def show
-    @comments = Comment.paginate(:per_page => 30, :page => params[:page], :conditions => {:commentable_id => params[:item_id]}, :include => :user)
+    @comments = Item.find(params[:item_id]).comments.paginate(:per_page => 30, :page => params[:page], :include => :user)
   end
   
 end
