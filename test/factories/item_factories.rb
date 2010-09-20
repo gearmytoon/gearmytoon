@@ -24,7 +24,7 @@ Factory.define(:item) do |model|
   model.side Item::ANY_SIDE
   model.name "Factory Item"
   model.icon "Factory_icon.png"
-  model.slot "Head"
+  model.slot "Helm"
   model.quality "epic"
   model.sequence(:wowarmory_item_id){|n| n}
   model.bonuses :attack_power => 100
