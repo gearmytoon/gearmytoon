@@ -1,6 +1,7 @@
 .add_comment{
   font-style:underline;
   font-size:12px;
+  padding:10px;
 }
 
 .poster{
@@ -23,3 +24,7 @@
   color:#E5CC80;
 }
 
+#new_comment{
+  padding:10px;
+  display:none;
+}
