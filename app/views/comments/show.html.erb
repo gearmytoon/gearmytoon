@@ -5,7 +5,7 @@
       posted <span class="posted_at"><%= time_ago_in_words comment.created_at %> ago</span> by <span class="commenter"><%= link_to comment.user.name, "#" %></span> 
     </div>
     <div class="comment_text">
-      <%= comment.comment %>
+      <%=h comment.comment %>
     </div>
   </li>
 <% end %>

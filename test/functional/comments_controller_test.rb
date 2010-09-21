@@ -34,11 +34,18 @@ class CommentsControllerTest < ActionController::TestCase
   end
 
   context "show" do
-    should "create a comment for a item" do
+    should "show a comments text" do
       item = Factory(:comment, :comment => "zomg first post").commentable 
       get :show, :item_id => item.id
       assert_response :success
       assert_select ".comment_text", :text => "zomg first post"
+    end
+
+    should "html escape a comment" do
+      item = Factory(:comment, :comment => "<script>alert('hacked');</script>").commentable 
+      get :show, :item_id => item.id
+      assert_response :success
+      assert_select ".comment_text", :text => "&lt;script&gt;alert('hacked');&lt;/script&gt;"
     end
 
     should "show a commenters name" do
