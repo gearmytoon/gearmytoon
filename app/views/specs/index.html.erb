@@ -1,4 +1,4 @@
-<h2 id="spec_class_header">Browse the best gear for your class</h2>
+<h2 id="spec_class_header">Browse the best gear used by your class</h2>
 <div id="spec_class_table">
   <% @specs.group_by(&:wow_class).each do |wow_class, specs| %>
     <div class="class_column <%= wow_class.css_border_name %>">

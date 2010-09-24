@@ -9,6 +9,10 @@ class SpecsController < ApplicationController
                                                           :conditions => ["items.slot != 'Tabard' AND items.slot != 'Shirt'"])
   end
   
+  def index
+    @specs = Spec.all_played_specs
+  end
+
   def create_or_update
     spec = Spec.find_by_wow_class_and_name(params[:spec][:wow_class_name], params[:spec][:spec_name])
     spec.update_attributes!(params[:spec].slice(:average_gmt_score, :gmt_score_standard_deviation))

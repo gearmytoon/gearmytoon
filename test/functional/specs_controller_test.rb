@@ -1,6 +1,37 @@
 require File.dirname(__FILE__) + '/../test_helper'
 
 class SpecsControllerTest < ActionController::TestCase
+  context "get index" do
+    should "not set cache headers" do
+      get :index
+      assert_equal "private, max-age=0, must-revalidate", @response.headers['Cache-Control']
+    end
+
+    should "respond with success" do
+      Factory(:marks_hunter_spec)
+      get :index
+      assert_response :success
+    end
+
+    should "have a link to each spec under their class" do
+      Factory(:survival_hunter_spec)
+      Factory(:marks_hunter_spec)
+      Factory(:enhance_shaman_spec)
+      get :index
+      assert_select ".class_column", :count => 2
+      assert_select ".class_column .class_name", :count => 2
+      assert_select ".spec_entry", :count => 3
+    end
+
+    should "list each classes name and spec name" do
+      Factory(:survival_hunter_spec)
+      get :index
+      assert_select ".class_name", :text => "Hunter"
+      assert_select ".spec_entry", :text => "Survival"
+    end
+  end
+
+
   context "get show" do
     should "respond with success" do
       spec = Factory(:survival_hunter_spec)
