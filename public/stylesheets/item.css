@@ -1,10 +1,10 @@
-.item { width: 400px; float: right; }
+.item { width: 370px; float: left; padding:10px; padding-right:100px; }
 .item ul.links { clear: both; float: right; margin-top: 6px; }
 .item ul.links li { padding: 4px 0 6px 26px; font-size: 10px; float: left; margin-right: 10px; }
 .item ul.links li.wowwiki { background: transparent url(/images/icons/wowwiki.png) 0 0 no-repeat; }
 .item ul.links li.wowhead { background: transparent url(/images/icons/wowhead.png) 0 0 no-repeat; }
 
-.item_details { float: left; font-size: 14px; width: 500px; }
+.item_details { float: left; font-size: 14px; }
 .item_details ul { margin: 10px 0 24px 12px; }
 .item_details ul li { margin-bottom: 10px; }
 
