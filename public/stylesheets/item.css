@@ -1,4 +1,4 @@
-.item { width: 370px; float: left; padding:10px; padding-right:100px; }
+.item { width: 390px; float: left; padding:10px; padding-right:100px; }
 .item ul.links { clear: both; float: right; margin-top: 6px; }
 .item ul.links li { padding: 4px 0 6px 26px; font-size: 10px; float: left; margin-right: 10px; }
 .item ul.links li.wowwiki { background: transparent url(/images/icons/wowwiki.png) 0 0 no-repeat; }
