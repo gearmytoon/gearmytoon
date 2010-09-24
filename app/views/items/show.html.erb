@@ -44,7 +44,7 @@
 <div id="comment_section">
   <h2 class="comment_header">Comments:</h2>
   <div id="new_comment_form" class='comment'>
-    <a class="add_comment">Add Y  our Comment</a>
+    <a class="add_comment">Add Your Comment</a>
     <% form_for Comment.new, :url => item_comments_path(@item) do |f| %>
       <div>
         <%= f.text_area :comment, :cols => 70, :rows => 7 %>
