@@ -1,4 +1,5 @@
 <h2 id="spec_class_header">Browse the best gear used by your class</h2>
+<div class="spec_header_description">Using our <%= link_to "formula's", home_path(:anchor => "math") %> on all the toons playing World of Warcraft we provide you this way to leverage the wisdom of the crowds to find the best gear!</div>
 <div id="spec_class_table">
   <% @specs.group_by(&:wow_class).each do |wow_class, specs| %>
     <div class="class_column <%= wow_class.css_border_name %>">
