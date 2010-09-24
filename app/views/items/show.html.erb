@@ -30,7 +30,7 @@
         <tbody>
           <% @item.item_popularities.each do |item_popularity| %>
             <tr class="item_popularity">
-              <td class="wow_class <%= item_popularity.wow_class.css_name %>"><%= item_popularity.wow_class.name %></td>
+              <td class=""><%= link_to item_popularity.wow_class.name, spec_path(item_popularity.wow_class, item_popularity.spec), :class => "wow_class #{item_popularity.wow_class.css_name}" %></td>
               <td class="wow_spec spec_icon <%= item_popularity.spec.css_icon_name %>"></td>
               <td class="percentage"><%= item_popularity.percentage %>%</td>
               <td class="average_gmt_score"><%= item_popularity.average_gmt_score %></td>
@@ -44,7 +44,7 @@
 <div id="comment_section">
   <h2 class="comment_header">Comments:</h2>
   <div id="new_comment_form" class='comment'>
-    <a class="add_comment">Add Your Comment</a>
+    <a class="add_comment">Add Y  our Comment</a>
     <% form_for Comment.new, :url => item_comments_path(@item) do |f| %>
       <div>
         <%= f.text_area :comment, :cols => 70, :rows => 7 %>
