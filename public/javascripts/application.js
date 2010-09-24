@@ -48,7 +48,12 @@
     $('.add_comment').click(function(){
       $('#new_comment').slideToggle();
     });
-
+    
+    $('#slot_select').change(function(){
+      var filter_path = $("#slot_select option:selected").val();
+      window.location = filter_path;
+    });
+    
     $('#character_realm').autocomplete(realms);
     $('#welcome .actions ul li:not(li.toon_search)').clickable();
     $('#welcome .actions ul li.toon_search form input[type=text]').example(function() { return $(this).prev('label').text(); }).prev('label').hide();
