@@ -9,7 +9,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20100919021411) do
+ActiveRecord::Schema.define(:version => 20100926160709) do
 
   create_table "areas", :force => true do |t|
     t.string   "name"
@@ -139,6 +139,7 @@ ActiveRecord::Schema.define(:version => 20100919021411) do
     t.integer  "container_id"
   end
 
+  add_index "item_sources", ["creature_id"], :name => "index_item_sources_on_creature_id"
   add_index "item_sources", ["item_id"], :name => "index_item_sources_on_item_id"
   add_index "item_sources", ["type"], :name => "index_item_sources_on_type"
 
