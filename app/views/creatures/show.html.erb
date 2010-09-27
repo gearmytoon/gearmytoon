@@ -1,8 +1,16 @@
 <div class="creature">
   <h2 class="name"><%= @creature.name %></h2>
   <div class="classification"><%= @creature.humanize_classification %></div>
-  <div class="area"><%= @creature.area.name %></div>
-  <% @creature.dropped_sources.each do |item_source| %>
-    <div class="item_dropped"><%= item_source.item.name %></div>
+  <div class="area">
+    <div class="name"><%= @creature.area.name %></div>
+    <% @creature.other_creatures_in_same_area.each do |other_creature| %>
+      <%= link_to other_creature.name, creature_path(other_creature), :class => "other_creature" %>
+    <% end %>
+  </div>
+  <% @creature.all_difficulties.each do |creature| %>
+    <div class="difficulty"><%= creature.area.difficulty_players %></div>
+    <% creature.dropped_sources.each do |item_source| %>
+      <div class="item_dropped"><%= item_source.item.name %></div>
+    <% end %>
   <% end %>
 </div>

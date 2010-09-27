@@ -21,7 +21,7 @@ class CreaturesControllerTest < ActionController::TestCase
       get :show, :id => creature.id
       assert_select ".creature .item_dropped", :count => 2
     end
-
+    
     should "show classification" do
       creature = Factory(:creature, :classification => "3")
       get :show, :id => creature.id
@@ -31,10 +31,44 @@ class CreaturesControllerTest < ActionController::TestCase
     should "show area found in" do
       creature = Factory(:creature, :area => Factory(:dungeon, :name => "That Place Over There"))
       get :show, :id => creature.id
-      assert_select ".creature .area", :text => "That Place Over There"
+      assert_select ".creature .area .name", :text => "That Place Over There"
     end
     
-    should "show other bosses in the same area if is a boss and in a raid/dungeon"
+    should "show other drops from the same boss" do
+      area_25 = Factory(:heroic_raid_25, :wowarmory_area_id => Area::RAIDS.last, :name => "That Place Over There")
+      area_10 = Factory(:raid_10, :wowarmory_area_id => Area::RAIDS.last, :name => "That Place Over There")
+      bob_25 = Factory(:creature, :name => "bob", :area => area_25)
+      Factory(:dungeon_dropped_source, :creature => bob_25)
+      bob_10 = Factory(:creature, :name => "bob", :area => area_10)
+      Factory(:dungeon_dropped_source, :creature => bob_10)
+      get :show, :id => bob_25.id
+      assert_select ".creature .item_dropped", :count => 2
+    end
+    
+    should "dropped items source difficulty" do
+      area_25 = Factory(:heroic_raid_25, :wowarmory_area_id => Area::RAIDS.last, :name => "That Place Over There")
+      area_10 = Factory(:raid_10, :wowarmory_area_id => Area::RAIDS.last, :name => "That Place Over There")
+      bob_25 = Factory(:creature, :name => "bob", :area => area_25)
+      Factory(:dungeon_dropped_source, :creature => bob_25)
+      bob_10 = Factory(:creature, :name => "bob", :area => area_10)
+      Factory(:dungeon_dropped_source, :creature => bob_10)
+      get :show, :id => bob_25.id
+      assert_select ".creature .difficulty", :text => "Heroic 25"
+      assert_select ".creature .difficulty", :text => "Normal 10"
+    end
+
+    should "show other bosses in the same area if is a boss and in a raid/dungeon" do
+      area_25 = Factory(:heroic_raid_25, :wowarmory_area_id => Area::RAIDS.last, :name => "That Place Over There")
+      area_10 = Factory(:raid_10, :wowarmory_area_id => Area::RAIDS.last, :name => "That Place Over There")
+      bob_25 = Factory(:creature, :name => "bob", :area => area_25)
+      Factory(:creature, :name => "bob", :area => area_10)
+      Factory(:creature, :name => "bob's brother", :area => area_25)
+      Factory(:creature, :name => "bob's brother", :area => area_10)
+      get :show, :id => bob_25.id
+      assert_select ".creature .area .other_creature", :count => 2
+      assert_select ".creature .area .other_creature", :text => "bob"
+      assert_select ".creature .area .other_creature", :text => "bob's brother"
+    end
     
   end
 end
