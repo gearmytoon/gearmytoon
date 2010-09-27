@@ -1,5 +1,6 @@
 <div class="creature">
-  <div class="name"><%= @creature.name %></div>
+  <h2 class="name"><%= @creature.name %></h2>
+  <div class="classification"><%= @creature.humanize_classification %></div>
   <% @creature.dropped_sources.each do |item_source| %>
     <div class="item_dropped"><%= item_source.item.name %></div>
   <% end %>
