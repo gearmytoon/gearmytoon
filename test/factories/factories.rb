@@ -56,6 +56,7 @@ end
 
 Factory.define(:creature) do |model|
   model.name "Foo"
+  model.association :area, :factory => :dungeon
 end
 
 Factory.define(:dungeon_creature, :class => :creature) do |model|

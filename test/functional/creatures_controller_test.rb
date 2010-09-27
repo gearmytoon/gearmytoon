@@ -28,7 +28,12 @@ class CreaturesControllerTest < ActionController::TestCase
       assert_select ".creature .classification", :text => "Boss"
     end
     
-    should "show area found in"
+    should "show area found in" do
+      creature = Factory(:creature, :area => Factory(:dungeon, :name => "That Place Over There"))
+      get :show, :id => creature.id
+      assert_select ".creature .area", :text => "That Place Over There"
+    end
+    
     should "show other bosses in the same area if is a boss and in a raid/dungeon"
     
   end
