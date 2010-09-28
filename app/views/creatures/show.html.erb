@@ -3,14 +3,25 @@
   <div class="classification"><%= @creature.humanize_classification %></div>
   <div class="area">
     <div class="name"><%= @creature.area.name %></div>
-    <% @creature.other_creatures_in_same_area.each do |other_creature| %>
-      <%= link_to other_creature.name, creature_path(other_creature), :class => "other_creature" %>
-    <% end %>
+    <ul>
+      <% @creature.other_bosses_in_same_area.each do |other_creature| %>
+        <li>
+          <%= link_to other_creature.name, creature_path(other_creature), :class => "other_creature" %>
+        </li>
+      <% end %>
+    </ul>
   </div>
   <% @creature.all_difficulties.each do |creature| %>
     <div class="difficulty"><%= creature.area.difficulty_players %></div>
-    <% creature.dropped_sources.each do |item_source| %>
-      <div class="item_dropped"><%= item_source.item.name %></div>
-    <% end %>
+    <table>
+      <tbody>
+        <% creature.dropped_sources.each do |item_source| %>
+          <tr>
+            <td><%= item_image_link item_source.item %></td>
+            <td class="item_dropped"><%= stylized_item_name(item_source.item) %></td>
+          </tr>
+        <% end %>
+      </tbody>
+    </table>
   <% end %>
 </div>
