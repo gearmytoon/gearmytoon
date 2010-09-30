@@ -1,27 +1,36 @@
 <div class="creature">
-  <h2 class="name"><%= @creature.name %></h2>
-  <div class="classification"><%= @creature.humanize_classification %></div>
-  <div class="area">
-    <div class="name"><%= @creature.area.name %></div>
-    <ul>
-      <% @creature.other_bosses_in_same_area.each do |other_creature| %>
-        <li>
-          <%= link_to other_creature.name, creature_path(other_creature), :class => "other_creature" %>
-        </li>
-      <% end %>
-    </ul>
+  <div class="info">
+    <div class="summary">
+      <h2 class="name"><%= @creature.name %></h2>
+      <div>Type:<span class="classification"><%= @creature.humanize_classification %></span></div>
+      <div>Level:<span class="level_range"><%= @creature.level_range %></span></div>
+      <div>Found in:<span class="found_in"><%= @creature.area.name %></span></div>
+    </div>
+    <div class="area">
+      <div class="name"><%= @creature.area.name %></div>
+      <ul>
+        <% @creature.other_bosses_in_same_area.each do |other_creature| %>
+          <li>
+            <%= link_to other_creature.name, creature_path(other_creature), :class => "other_creature" %>
+          </li>
+        <% end %>
+      </ul>
+    </div>
   </div>
-  <% @creature.all_difficulties.each do |creature| %>
-    <div class="difficulty"><%= creature.area.difficulty_players %></div>
-    <table>
+  <div class="items_dropped">
+    <table class="items_dropped">
       <tbody>
-        <% creature.dropped_sources.each do |item_source| %>
-          <tr>
-            <td><%= item_image_link item_source.item %></td>
-            <td class="item_dropped"><%= stylized_item_name(item_source.item) %></td>
-          </tr>
+        <% @creature.all_difficulties.each do |creature| %>
+          <% creature.dropped_sources.each do |item_source| %>
+            <tr class='item_dropped'>
+              <td><%= item_image_link item_source.item %></td>
+              <td class="item_name"><%= stylized_item_name(item_source.item) %></td>
+              <td class="difficulty"><%= creature.area.difficulty_players %></td>
+              <td class="item_type"><%= item_source.item.slot_info %></td>
+            </tr>
+          <% end %>
         <% end %>
       </tbody>
     </table>
-  <% end %>
+  </div>
 </div>

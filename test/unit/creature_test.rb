@@ -15,4 +15,14 @@ class CreatureTest < ActiveSupport::TestCase
       assert_equal "Boss", Factory.build(:creature, :classification => "3").humanize_classification
     end
   end
+  
+  context "level_range" do
+    should "show the range of levels for a creature" do
+      assert_equal "1-22", Factory.build(:creature, :min_level => 1, :max_level => 22).level_range
+    end
+    should "show only show level if min and max are the same" do
+      assert_equal "22", Factory.build(:creature, :min_level => 22, :max_level => 22).level_range
+    end
+  end
+  
 end

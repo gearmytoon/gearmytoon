@@ -19,4 +19,8 @@ class Creature < ActiveRecord::Base
   def other_bosses_in_same_area
     Creature.in_same_area(self).that_are_bosses.unique_name
   end
+  
+  def level_range
+    max_level == min_level ? max_level.to_s : "#{min_level}-#{max_level}"
+  end
 end

@@ -1,7 +1,8 @@
 class ArmorType < ActiveRecord::Base
   has_many :wow_classes, :foreign_key => "primary_armor_type_id"
   has_many :items
-  ALL_SUPPORTED_ARMOR_TYPES = ["Plate", "Leather", "Mail", "Cloth", "Miscellaneous", "Fist Weapon", "Sword", 
+  ARMOR = ["Plate", "Leather", "Mail", "Cloth"]
+  ALL_SUPPORTED_ARMOR_TYPES = ARMOR + ["Miscellaneous", "Fist Weapon", "Sword", 
     "Axe", "Dagger", "Polearm", "Staff", "Bow", "Gun", "Crossbow", "Mace", "Thrown", "Wand", "Sigil", 
     "Totem", "Libram", "Idol"]
   
@@ -15,5 +16,9 @@ class ArmorType < ActiveRecord::Base
   
   def should_be_shown?
     self.name != "Miscellaneous"
+  end
+  
+  def is_armor?
+    ARMOR.include?(self.name)
   end
 end

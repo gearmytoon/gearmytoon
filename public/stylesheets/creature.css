@@ -1,0 +1,15 @@
+.creature .info{
+  width:100%;
+}
+.creature .info .summary{
+  float:left;
+  width:200px;
+}
+.creature .info .area{
+  width:200px;
+  float:left;
+  clear:right;
+}
+.items_dropped{
+  clear:both;
+}

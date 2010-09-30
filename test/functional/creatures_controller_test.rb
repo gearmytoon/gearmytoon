@@ -7,12 +7,26 @@ class CreaturesControllerTest < ActionController::TestCase
       get :show, :id => creature.id
       assert_select ".creature .name", :text => "Kevin Sorbo"
     end
+
+    should "show level range" do
+      creature = Factory(:creature, :min_level => 1, :max_level => 83)
+      get :show, :id => creature.id
+      assert_select ".creature .level_range", :text => "1-83"
+    end
+
+    should "show dropped items type and difficulty" do
+      creature = Factory(:creature)
+      Factory(:dungeon_dropped_source, :creature => creature, :item => Factory(:item, :armor_type => ArmorType.mail, :slot => "Helm", :name => "Something"))
+      get :show, :id => creature.id
+      assert_select ".item_dropped .item_type", :text => "Mail Helm"
+      assert_select ".item_dropped .difficulty", :text => "Normal 10"
+    end
     
     should "show items dropped by" do
       creature = Factory(:creature)
       Factory(:dungeon_dropped_source, :creature => creature, :item => Factory(:item, :name => "Something"))
       get :show, :id => creature.id
-      assert_select ".creature .item_dropped", :text => "Something"
+      assert_select ".item_dropped .item_name", :text => "Something"
     end
     
     should "show all items dropped by" do
@@ -32,6 +46,7 @@ class CreaturesControllerTest < ActionController::TestCase
       creature = Factory(:creature, :area => Factory(:dungeon, :name => "That Place Over There"))
       get :show, :id => creature.id
       assert_select ".creature .area .name", :text => "That Place Over There"
+      assert_select ".creature .found_in", :text => "That Place Over There"
     end
     
     should "show other drops from the same boss" do
