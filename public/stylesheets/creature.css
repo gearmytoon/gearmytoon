@@ -13,3 +13,10 @@
 .items_dropped{
   clear:both;
 }
+.items_table th{
+  text-align:center;
+}
+.items_dropped{
+  float:left;
+  margin-top:25px;
+}

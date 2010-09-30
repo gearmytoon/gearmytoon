@@ -213,4 +213,5 @@ class ItemTest < ActiveSupport::TestCase
       assert_equal 2, item.popularity_params.size
     end
   end
+
 end

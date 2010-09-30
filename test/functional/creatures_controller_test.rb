@@ -14,12 +14,13 @@ class CreaturesControllerTest < ActionController::TestCase
       assert_select ".creature .level_range", :text => "1-83"
     end
 
-    should "show dropped items type and difficulty" do
+    should "show dropped items type, difficulty, and drop rate" do
       creature = Factory(:creature)
-      Factory(:dungeon_dropped_source, :creature => creature, :item => Factory(:item, :armor_type => ArmorType.mail, :slot => "Helm", :name => "Something"))
+      Factory(:dungeon_dropped_source, :creature => creature, :item => Factory(:item, :armor_type => ArmorType.mail, :slot => "Helm", :name => "Something"), :drop_rate => "3")
       get :show, :id => creature.id
       assert_select ".item_dropped .item_type", :text => "Mail Helm"
       assert_select ".item_dropped .difficulty", :text => "Normal 10"
+      assert_select ".item_dropped .drop_rate", :text => "15-24%"
     end
     
     should "show items dropped by" do

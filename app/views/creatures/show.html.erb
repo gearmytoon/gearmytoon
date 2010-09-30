@@ -18,7 +18,16 @@
     </div>
   </div>
   <div class="items_dropped">
-    <table class="items_dropped">
+    <table class="items_table">
+      <thead>
+        <tr>
+          <th></th>
+          <th>Name</th>
+          <th>Difficulty</th>
+          <th>Slot</th>
+          <th>Drop Rate</th>
+        </tr>
+      </thead>
       <tbody>
         <% @creature.all_difficulties.each do |creature| %>
           <% creature.dropped_sources.each do |item_source| %>
@@ -27,6 +36,7 @@
               <td class="item_name"><%= stylized_item_name(item_source.item) %></td>
               <td class="difficulty"><%= creature.area.difficulty_players %></td>
               <td class="item_type"><%= item_source.item.slot_info %></td>
+              <td class="drop_rate"><%= item_source.drop_rate_percent %></td>
             </tr>
           <% end %>
         <% end %>

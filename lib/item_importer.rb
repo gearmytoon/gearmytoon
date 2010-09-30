@@ -83,7 +83,7 @@ class ItemImporter < WowArmoryMapper
     
   def get_dropped_sources(item)
     @wowarmory_item_info.xpath("//dropCreatures/creature").map do |creature|
-      DroppedSource.create(:item => item, :creature => find_or_create_creature(creature))
+      DroppedSource.create(:item => item, :creature => find_or_create_creature(creature), :drop_rate => creature['dropRate'])
     end
   end
 
