@@ -52,6 +52,20 @@ class SpecsControllerTest < ActionController::TestCase
       assert_select ".item_popularity", :count => 0
     end
 
+    should "filter poor quality items" do
+      spec = Factory(:survival_hunter_spec)
+      Factory(:item_popularity, :spec => spec, :item => Factory(:item, :quality => "poor"))
+      get :show, :id => spec.id, :scope => spec.wow_class.id
+      assert_select ".item_popularity", :count => 0
+    end
+
+    should "filter common quality items" do
+      spec = Factory(:survival_hunter_spec)
+      Factory(:item_popularity, :spec => spec, :item => Factory(:item, :quality => "common"))
+      get :show, :id => spec.id, :scope => spec.wow_class.id
+      assert_select ".item_popularity", :count => 0
+    end
+
     should "filter out shirts" do
       spec = Factory(:survival_hunter_spec)
       Factory(:item_popularity, :spec => spec, :item => Factory(:shirt))

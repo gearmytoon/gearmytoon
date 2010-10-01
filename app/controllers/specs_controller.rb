@@ -7,7 +7,7 @@ class SpecsController < ApplicationController
     @spec = Spec.find(params[:id], :scope => params[:scope])
     @item_popularities = @spec.item_popularities.paginate(:per_page => 25, :page => params[:page], 
                                                           :order => 'average_gmt_score DESC', :include => :item,
-                                                          :conditions => ["items.slot != 'Tabard' AND items.slot != 'Shirt'"])
+                                                          :conditions => ["items.slot != 'Tabard' AND items.slot != 'Shirt' AND items.quality != 'poor' AND items.quality != 'common'"])
   end
   
   def index
