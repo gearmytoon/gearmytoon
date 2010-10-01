@@ -45,6 +45,7 @@
       <div id="flash" class="error row grid_12"><p><%= flash[:error] %></p></div>
     <% end -%>
     <div id="content" class="row">
+      <%= render :partial => "shared/google_ad_sense" %>
       <%= yield %>
     </div>
     <div id="footer">
