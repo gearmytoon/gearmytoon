@@ -7,7 +7,7 @@ class ItemSource < ActiveRecord::Base
   }
   belongs_to :item
   has_many :upgrades, :foreign_key => "new_item_source_id", :dependent => :destroy
-
+  DROP_RATE_MAPPING = {nil => "?", "1" => "1-2%", "2" => "3-14%", "3" => "15-24%", "4" => "25-50%", "5" => "51-99%", "6" => "100%"}
 
   def as_source_type
     self.class.name.gsub(/Source/,"").downcase
@@ -27,4 +27,8 @@ class ItemSource < ActiveRecord::Base
   
   #container_source
   belongs_to :container
+  
+  def drop_rate_percent
+    DROP_RATE_MAPPING[drop_rate]
+  end
 end

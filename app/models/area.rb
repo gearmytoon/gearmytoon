@@ -14,6 +14,14 @@ class Area < ActiveRecord::Base
     [difficulty_as_word, name].compact.join(" ")
   end
   
+  def difficulty_players
+    [full_difficulty_as_word, players].join(" ")
+  end
+  
+  def full_difficulty_as_word
+    difficulty == HEROIC ? "Heroic" : "Normal"
+  end
+  
   def difficulty_as_word
     difficulty == HEROIC ? "Heroic" : nil
   end

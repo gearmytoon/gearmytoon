@@ -24,6 +24,17 @@ class ItemTest < ActiveSupport::TestCase
     end
   end
 
+  context "slot_info" do
+    should "show with armor type name if it is armor" do
+      item = Factory(:item, :armor_type => ArmorType.cloth, :slot => "Helm")
+      assert_equal "Cloth Helm", item.slot_info
+    end
+    should "not show with armor type name if it is not armor" do
+      item = Factory(:item, :armor_type => ArmorType.crossbow, :slot => "Ranged")
+      assert_equal "Ranged", item.slot_info
+    end
+  end
+
   context "equipped_stats" do
     should "exclude weapon stats" do
       weapon_stats = {:melee_attack_speed => 1, :melee_min_damage => 1, :melee_max_damage => 1, :melee_dps => 1,
@@ -202,4 +213,5 @@ class ItemTest < ActiveSupport::TestCase
       assert_equal 2, item.popularity_params.size
     end
   end
+
 end

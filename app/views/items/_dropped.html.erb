@@ -1,3 +1,3 @@
 <span class="source">
-  <%= link_to item_source.creature.name, "#", :class => "neutral npc" %> in <img src="/images/game_icons/dungeon.png" width="20" height="20" /><%= link_to item_source.creature.area.full_name, "#" %>
+  <%= link_to item_source.creature.name, creature_path(item_source.creature), :class => "neutral npc" %> in <img src="/images/game_icons/dungeon.png" width="20" height="20" /><%= link_to item_source.creature.area.full_name, "#" %>
 </span>

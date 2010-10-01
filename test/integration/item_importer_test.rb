@@ -11,6 +11,13 @@ class ItemImporterTest < ActiveSupport::TestCase
   
   context "import_from_wowarmory!" do
 
+    should "import dropped items correctly" do
+      item = ItemImporter.import_from_wowarmory!(49116)
+      item.reload
+      assert_equal 1, item.item_sources.size
+      assert_equal "3", item.item_sources.first.drop_rate
+    end
+
     should "import multiple spell effects correctly" do
       item = ItemImporter.import_from_wowarmory!(31003)
       expected = [{:description=>"Increases attack power by 90.", :trigger=>1},

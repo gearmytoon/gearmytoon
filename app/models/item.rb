@@ -159,4 +159,8 @@ class Item < ActiveRecord::Base
     item_popularities.map(&:params_to_post)
   end
 
+  def slot_info
+    self.armor_type.is_armor? ? "#{armor_type.name} #{slot}" : slot
+  end
+
 end
