@@ -2,11 +2,11 @@ require File.dirname(__FILE__) + '/../test_helper'
 
 class SpecsControllerTest < ActionController::TestCase
   context "get index" do
-    should "not set cache headers" do
+    should "set cache headers" do
       get :index
-      assert_equal "private, max-age=0, must-revalidate", @response.headers['Cache-Control']
+      assert_equal "public, must-revalidate, max-age=86400", @response.headers['Cache-Control']
     end
-
+    
     should "respond with success" do
       Factory(:marks_hunter_spec)
       get :index
@@ -33,6 +33,12 @@ class SpecsControllerTest < ActionController::TestCase
 
 
   context "get show" do
+    should "set cache headers" do
+      spec = Factory(:survival_hunter_spec)
+      get :show, :id => spec.id, :scope => spec.wow_class.id
+      assert_equal "public, must-revalidate, max-age=3600", @response.headers['Cache-Control']
+    end
+    
     should "respond with success" do
       spec = Factory(:survival_hunter_spec)
       get :show, :id => spec.id, :scope => spec.wow_class.id

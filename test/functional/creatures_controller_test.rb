@@ -2,6 +2,11 @@ require File.dirname(__FILE__) + '/../test_helper'
 
 class CreaturesControllerTest < ActionController::TestCase
   context "get show" do
+    should "set the cache headers" do
+      creature = Factory(:creature)
+      get :show, :id => creature.id
+      assert_equal "public, must-revalidate, max-age=3600", @response.headers['Cache-Control']
+    end
     should "show creatures name" do
       creature = Factory(:creature, :name => "Kevin Sorbo")
       get :show, :id => creature.id

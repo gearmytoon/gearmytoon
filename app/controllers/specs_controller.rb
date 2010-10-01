@@ -1,7 +1,8 @@
 class SpecsController < ApplicationController
   skip_before_filter :verify_authenticity_token, :only => [:create_or_update]
   before_filter :check_basic_auth, :only => [:create_or_update]
-  
+  before_filter :cache_for_a_hour, :only => [:show]
+  before_filter :cache_for_a_day, :only => [:index]
   def show
     @spec = Spec.find(params[:id], :scope => params[:scope])
     @item_popularities = @spec.item_popularities.paginate(:per_page => 25, :page => params[:page], 

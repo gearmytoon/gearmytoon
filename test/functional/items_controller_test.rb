@@ -33,6 +33,11 @@ class ItemsControllerTest < ActionController::TestCase
   end
 
   context "get show" do
+    should "set the cache headers" do
+      item = Factory(:item, :name => "Epic Guitar")
+      get :show, :id => item.id
+      assert_equal "public, must-revalidate, max-age=3600", @response.headers['Cache-Control']
+    end
     should "set the page title" do
       item = Factory(:item, :name => "Epic Guitar")
       get :show, :id => item.id
@@ -53,7 +58,7 @@ class ItemsControllerTest < ActionController::TestCase
     should "set the meta description" do
       item = Factory(:item)
       get :show, :id => item.id
-      assert_equal "#{item.name} is an epic mail belt for Rogues", assigns(:meta_tags)[:description]
+      assert_equal "#{item.name} is an epic Mail Helm", assigns(:meta_tags)[:description]
     end
 
     should "show base stats" do

@@ -2,6 +2,7 @@ class ItemsController < ApplicationController
   before_filter :require_admin, :only => :index
   skip_before_filter :verify_authenticity_token, :only => [:update_used_by]
   before_filter :check_basic_auth, :only => [:update_used_by]
+  before_filter :cache_for_a_hour, :only => [:show]
   
   def index
     @items = Item.all(:order => :name)
@@ -16,7 +17,7 @@ class ItemsController < ApplicationController
                                                 :item_popularities => {:spec => :wow_class}
                                                 })
     @title = "#{@item.name}"
-    @meta_tags[:description] = "#{@item.name} is an epic mail belt for Rogues"
+    @meta_tags[:description] = @item.description
   end
 
   def tooltip

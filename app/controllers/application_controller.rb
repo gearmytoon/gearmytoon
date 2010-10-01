@@ -14,6 +14,10 @@ class ApplicationController < ActionController::Base
     headers['Cache-Control'] = "public, must-revalidate, max-age=#{1.day.seconds}"
   end
 
+  def cache_for_a_hour
+    headers['Cache-Control'] = "public, must-revalidate, max-age=#{1.hour.seconds}"
+  end
+
   def assign_character
     headers['Cache-Control'] = 'public, must-revalidate'
     @character = params[:character_id] ? Character.find(params[:character_id]) : Character.find(params[:id])

@@ -162,5 +162,9 @@ class Item < ActiveRecord::Base
   def slot_info
     self.armor_type.is_armor? ? "#{armor_type.name} #{slot}" : slot
   end
+  
+  def description
+    "#{self.name} is an #{self.quality} #{self.slot_info}"
+  end
 
 end
