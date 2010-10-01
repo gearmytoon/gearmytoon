@@ -9,8 +9,4 @@ class HomeController < ApplicationController
   def contact
   end
 
-  private
-  def cache_for_a_day
-    headers['Cache-Control'] = "public, must-revalidate, max-age=#{1.day.seconds}"
-  end
 end
