@@ -78,10 +78,9 @@ class SpecsControllerTest < ActionController::TestCase
       Factory(:item_popularity, :spec => spec, :item => Factory(:item, :name => "Foo's Bar"), :percentage => 1, :average_gmt_score => 3232)
       get :show, :id => spec.id, :scope => spec.wow_class.id
       assert_select ".with_tooltip", :text => "Foo's Bar"
-      assert_select ".percentage", :text => "1"
       assert_select ".average_gmt_score", :text => "3232"
     end
-
+    should "show the percent of prot warriors using a shield"
   end
   
   context "post create_or_update" do
