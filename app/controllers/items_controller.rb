@@ -20,6 +20,8 @@ class ItemsController < ApplicationController
                                                 })
     @title = "#{@item.name}"
     @meta_tags[:description] = @item.description
+    @meta_tags['og:description'] = @item.description
+    @meta_tags['og:url'] = item_url(@item, :host => "gearmytoon.com")
   end
 
   def tooltip

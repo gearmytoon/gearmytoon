@@ -45,6 +45,9 @@ class ApplicationController < ActionController::Base
     @meta_tags = {}
     @meta_tags[:keywords] = "world of warcraft, gear, toon, upgrade, emblem of frost, emblem of triumph, druid, death knight, hunter, mage, paladin, priest, rogue, shaman, warlock, warrior"
     @meta_tags[:description] = "Find the best upgrades for your World of Warcraft toon. Put away the spreadsheets and stop scouring forums."
+    @meta_tags['og:sitename'] = "GearMyToon"
+    @meta_tags['fb:admins'] = "100001014321723"
+    @meta_tags['og:type'] = "game"
     @meta_tags
   end
 
