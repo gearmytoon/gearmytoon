@@ -2,6 +2,7 @@
   <div class="item">
     <%= render 'tooltip', :item => @item %>
   </div>
+  <%= render :partial => "shared/facebook_like", :locals => {:url => item_url(@item, :host => "gearmytoon.com")} %>
   <div class="item_details">
     <h2>Sources</h2>
     <ul class="sources">
