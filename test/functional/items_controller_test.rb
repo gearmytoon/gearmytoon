@@ -36,7 +36,8 @@ class ItemsControllerTest < ActionController::TestCase
     should "set the cache headers" do
       item = Factory(:item, :name => "Epic Guitar")
       get :show, :id => item.id
-      assert_equal "public, must-revalidate, max-age=3600", @response.headers['Cache-Control']
+      assert_equal item.reload.updated_at.utc.httpdate, @response.headers['Last-Modified']
+      assert_equal "max-age=10800, public", @response.headers['Cache-Control']
     end
     should "set the page title" do
       item = Factory(:item, :name => "Epic Guitar")

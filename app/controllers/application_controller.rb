@@ -17,9 +17,13 @@ class ApplicationController < ActionController::Base
   def cache_for_a_hour
     headers['Cache-Control'] = "public, must-revalidate, max-age=#{1.hour.seconds}"
   end
+  
+  def public_must_revalidate
+    headers['Cache-Control'] = 'public, must-revalidate'
+  end
 
   def assign_character
-    headers['Cache-Control'] = 'public, must-revalidate'
+    public_must_revalidate
     @character = params[:character_id] ? Character.find(params[:character_id]) : Character.find(params[:id])
     return(redirect_to not_found_character_url(@character)) if @character.does_not_exist?
     @character.refresh_in_background! if @character.updated_at < 5.minutes.ago

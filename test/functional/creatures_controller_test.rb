@@ -5,7 +5,8 @@ class CreaturesControllerTest < ActionController::TestCase
     should "set the cache headers" do
       creature = Factory(:creature)
       get :show, :id => creature.id
-      assert_equal "public, must-revalidate, max-age=3600", @response.headers['Cache-Control']
+      assert_equal creature.reload.updated_at.utc.httpdate, @response.headers['Last-Modified']
+      assert_equal "max-age=10800, public", @response.headers['Cache-Control']
     end
     should "show creatures name" do
       creature = Factory(:creature, :name => "Kevin Sorbo")

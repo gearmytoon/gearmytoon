@@ -2,13 +2,15 @@ class ItemsController < ApplicationController
   before_filter :require_admin, :only => :index
   skip_before_filter :verify_authenticity_token, :only => [:update_used_by]
   before_filter :check_basic_auth, :only => [:update_used_by]
-  before_filter :cache_for_a_hour, :only => [:show]
   
   def index
     @items = Item.all(:order => :name)
   end
 
   def show
+    @item = Item.find(params[:id])
+    expires_in 3.hours, :public => true
+    return if fresh_when(:last_modified => @item.updated_at.utc) #return if the cached copy is still good
     @item = Item.find(params[:id], :include => {:item_sources => [{:items_used_to_purchase => :currency_item}, 
                                                                   {:vendor => :area},
                                                                   {:creature => :area},
