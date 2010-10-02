@@ -4,12 +4,27 @@
 .creature .info .summary{
   float:left;
   width:200px;
+  -moz-border-radius: 5px;
+  -webkit-border-radius: 5px;
+  background-color:#1A1A1A;
+  margin-right:20px;
+  padding:0 10px 10px 10px;
+}
+.creature .info .summary .name{
+  font-weight:normal;
 }
 .creature .info .area{
   width:200px;
   float:left;
-  clear:right;
+  -moz-border-radius: 5px;
+  -webkit-border-radius: 5px;
+  background-color:#1A1A1A;
+  padding:5px 2px;
 }
+.creature .info .area .name{
+  text-align:center;
+}
+
 .items_dropped{
   clear:both;
 }
@@ -29,3 +44,7 @@ a.alliance { padding-left: 18px; background-image: url(/images/icons/alliance.gi
 a.horde { padding-left: 20px; background-image: url(/images/icons/horde.gif); }
 a.neutral { padding-left: 18px; background-image: url(/images/icons/neutral.gif); }
 a.neutral { padding-left: 18px; background-image: url(/images/icons/neutral.gif); }
+
+.related .encounter{
+  padding:2px;
+}
