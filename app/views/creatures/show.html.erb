@@ -2,7 +2,7 @@
   <div class="info">
     <div class="summary">
       <h2 class="name"><%= @creature.name %></h2>
-      <div><span class="classification"><%= @creature.humanize_classification %></span></div>
+      <div><span class="type"><%= @creature.creature_type %></span> - <span class="classification"><%= @creature.humanize_classification %></span></div>
       <div>Level <span class="level_range"><%= @creature.level_range %></span></div>
       <div>Found in <span class="found_in"><%= @creature.area.simplified_name %></span></div>
     </div>

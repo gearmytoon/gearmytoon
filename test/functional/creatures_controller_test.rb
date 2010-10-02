@@ -16,12 +16,18 @@ class CreaturesControllerTest < ActionController::TestCase
     end
 
     should "show simplified area name" do
-      creature = Factory(:creature, :name => "Kevin Sorbo", :area => Factory(:raid, :name => "Icecrown Citadel (25)"))
+      creature = Factory(:creature, :area => Factory(:raid, :name => "Icecrown Citadel (25)"))
       get :show, :id => creature.id
       assert_select ".summary .found_in", :text => "Icecrown Citadel"
       assert_select ".area .name", :text => "Icecrown Citadel"
     end
-
+    
+    should "show creature type" do
+      creature = Factory(:creature, :creature_type => "Undead")
+      get :show, :id => creature.id
+      assert_select ".summary .type", :text => "Undead"
+    end
+    
     should "show level range" do
       creature = Factory(:creature, :min_level => 1, :max_level => 83)
       get :show, :id => creature.id
