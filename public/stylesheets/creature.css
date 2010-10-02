@@ -20,3 +20,12 @@
   float:left;
   margin-top:25px;
 }
+
+a.npc{
+  color:yellow;
+}
+a.npc { color: yellow; background: transparent none 0 3px no-repeat; }
+a.alliance { padding-left: 18px; background-image: url(/images/icons/alliance.gif); }
+a.horde { padding-left: 20px; background-image: url(/images/icons/horde.gif); }
+a.neutral { padding-left: 18px; background-image: url(/images/icons/neutral.gif); }
+a.neutral { padding-left: 18px; background-image: url(/images/icons/neutral.gif); }

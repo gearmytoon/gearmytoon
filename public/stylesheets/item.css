@@ -21,11 +21,6 @@
 .item_details ul.sources li .silver { padding-left: 20px; background-image: url(http://static.wowhead.com/images/icons/money-silver.gif); background-position: 3px 6px; }
 .item_details ul.sources li .copper { padding-left: 20px; background-image: url(http://static.wowhead.com/images/icons/money-copper.gif); background-position: 3px 6px; }
 
-.item_details ul.sources li .npc { color: yellow; background: transparent none 0 3px no-repeat; }
-.item_details ul.sources li .alliance { padding-left: 18px; background-image: url(/images/icons/alliance.gif); }
-.item_details ul.sources li .horde { padding-left: 20px; background-image: url(/images/icons/horde.gif); }
-.item_details ul.sources li .neutral { padding-left: 18px; background-image: url(/images/icons/neutral.gif); }
-
 .legendary, a.legendary:visited, a.legendary:hover{
   color:#FF8000;
 }

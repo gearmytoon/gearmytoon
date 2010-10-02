@@ -18,6 +18,10 @@ class Area < ActiveRecord::Base
     [full_difficulty_as_word, players].join(" ")
   end
   
+  def simplified_name
+    name.gsub(/[\(\d\)]/,"").strip
+  end
+  
   def full_difficulty_as_word
     difficulty == HEROIC ? "Heroic" : "Normal"
   end

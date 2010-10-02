@@ -8,10 +8,18 @@ class CreaturesControllerTest < ActionController::TestCase
       assert_equal creature.reload.updated_at.utc.httpdate, @response.headers['Last-Modified']
       assert_equal "max-age=10800, public", @response.headers['Cache-Control']
     end
+
     should "show creatures name" do
       creature = Factory(:creature, :name => "Kevin Sorbo")
       get :show, :id => creature.id
       assert_select ".creature .name", :text => "Kevin Sorbo"
+    end
+
+    should "show simplified area name" do
+      creature = Factory(:creature, :name => "Kevin Sorbo", :area => Factory(:raid, :name => "Icecrown Citadel (25)"))
+      get :show, :id => creature.id
+      assert_select ".summary .found_in", :text => "Icecrown Citadel"
+      assert_select ".area .name", :text => "Icecrown Citadel"
     end
 
     should "show level range" do

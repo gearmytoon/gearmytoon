@@ -4,14 +4,14 @@
       <h2 class="name"><%= @creature.name %></h2>
       <div>Type:<span class="classification"><%= @creature.humanize_classification %></span></div>
       <div>Level:<span class="level_range"><%= @creature.level_range %></span></div>
-      <div>Found in:<span class="found_in"><%= @creature.area.name %></span></div>
+      <div>Found in:<span class="found_in"><%= @creature.area.simplified_name %></span></div>
     </div>
     <div class="area">
-      <div class="name"><%= @creature.area.name %></div>
+      <div class="name"><%= @creature.area.simplified_name %></div>
       <ul>
         <% @creature.other_bosses_in_same_area.each do |other_creature| %>
           <li>
-            <%= link_to other_creature.name, creature_path(other_creature), :class => "other_creature" %>
+            <%= link_to other_creature.name, creature_path(other_creature), :class => "other_creature neutral npc" %>
           </li>
         <% end %>
       </ul>
