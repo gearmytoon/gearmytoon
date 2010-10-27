@@ -13,7 +13,8 @@
         <inventoryType>0</inventoryType>
       </equipData>
       <damageData/>
-      <gemProperties>+42 Attack Power and Minor Run Speed Increase</gemProperties>
+      <blockValue>52</blockValue>
+      <gemProperties>+21 Critical Strike Rating and Minor Run Speed Increase</gemProperties>
       <requiredLevel>-1</requiredLevel>
       <itemLevel>80</itemLevel>
       <desc>Only fits in a meta gem slot.</desc>

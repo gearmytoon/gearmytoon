@@ -16,16 +16,15 @@
       </equipData>
       <damageData/>
       <blockValue>259</blockValue>
-      <bonusStamina>78</bonusStamina>
-      <bonusIntellect>78</bonusIntellect>
-      <armor armorBonus="0">9262</armor>
+      <bonusIntellect>94</bonusIntellect>
+      <bonusStamina>146</bonusStamina>
+      <armor armorBonus="0">7699</armor>
       <socketData>
         <socket color="Yellow"/>
       </socketData>
       <durability current="120" max="120"/>
       <requiredLevel>80</requiredLevel>
       <itemLevel>277</itemLevel>
-      <bonusSpellPower>110</bonusSpellPower>
       <bonusHasteRating>60</bonusHasteRating>
       <bonusCritRating>68</bonusCritRating>
       <itemSource areaId="4812" areaName="Icecrown Citadel (25)" creatureId="37957" creatureName="Lord Marrowgar" difficulty="h" dropRate="3" value="sourceType.creatureDrop"/>

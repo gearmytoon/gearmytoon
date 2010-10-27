@@ -12,14 +12,14 @@ class CharacterImporterTest < ActiveSupport::TestCase
       character = Factory(:character, :name => "Rails", :realm => "Baelgun")
       CharacterImporter.refresh_character!(character)
       #rails active spec point dist
-      assert_equal "000000000000000000000000005500513522315232133301232150030000000000000000000000", character.active_talent_point_distribution
+      assert_equal "003000000000000000000200000000000000000003203213211113012311", character.active_talent_point_distribution
     end
 
     should "import a character correctly" do
       WowClass.create_class!("Hunter")
-      character = Factory(:character, :name => "Nihmm", :realm => "twisting nether", :locale => 'eu')
+      character = Factory(:character, :name => "Merb", :realm => "Baelgun", :locale => 'us')
       CharacterImporter.import_and_crawl_associated!(character.id)
-      assert_equal "Marksmanship", character.reload.spec.name
+      assert_equal "Beast Mastery", character.reload.spec.name
     end
 
     should "update a characters state to geared" do
@@ -32,7 +32,7 @@ class CharacterImporterTest < ActiveSupport::TestCase
     should "import a hunters spec correctly" do
       character = Factory(:character, :name => "Merb", :realm => "Baelgun")
       CharacterImporter.refresh_character!(character)
-      assert_equal "Survival", character.primary_spec
+      assert_equal "Beast Mastery", character.primary_spec
     end
     
     should "refresh a characters updated_at time" do
@@ -60,7 +60,7 @@ class CharacterImporterTest < ActiveSupport::TestCase
       paladin = WowClass.create_class!("Paladin")
       character = Factory(:new_character, :name => "Rails", :realm => "Baelgun")
       CharacterImporter.import!(character)
-      assert_equal "5754.0", character.reload.gmt_score.to_s
+      assert_equal "1844.58", character.reload.gmt_score.to_s
     end
 
     should "import a characters total_item_bonuses" do

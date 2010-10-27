@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?xml-stylesheet type="text/xsl" href="/_layout/items/tooltip.xsl"?>
+<page globalSearch="1" lang="en_us" requestUrl="/item-tooltip.xml">
+  <itemTooltips>
+    <itemTooltip>
+      <id>50759</id>
+      <name>Bone Warden's Splitter</name>
+      <icon>inv_axe_113</icon>
+      <overallQualityId>4</overallQualityId>
+      <bonding>1</bonding>
+      <classId>2</classId>
+      <equipData>
+        <inventoryType>13</inventoryType>
+        <subclassName>Axe</subclassName>
+      </equipData>
+      <damageData>
+        <damage>
+          <type>0</type>
+          <min>215</min>
+          <max>401</max>
+        </damage>
+        <speed>1.5</speed>
+        <dps>205.33</dps>
+      </damageData>
+      <bonusAgility>62</bonusAgility>
+      <bonusStamina>93</bonusStamina>
+      <durability current="105" max="105"/>
+      <requiredLevel>80</requiredLevel>
+      <itemLevel>251</itemLevel>
+      <bonusHasteRating>41</bonusHasteRating>
+      <bonusCritRating>41</bonusCritRating>
+      <itemSource areaId="4812" areaName="Icecrown Citadel (10)" creatureId="36612" creatureName="Lord Marrowgar" difficulty="n" dropRate="2" value="sourceType.creatureDrop"/>
+    </itemTooltip>
+  </itemTooltips>
+</page>

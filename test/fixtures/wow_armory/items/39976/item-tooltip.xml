@@ -4,7 +4,7 @@
   <itemTooltips>
     <itemTooltip>
       <id>39976</id>
-      <name>Enduring Dark Jade</name>
+      <name>Regal Dark Jade</name>
       <icon>inv_jewelcrafting_gem_19</icon>
       <overallQualityId>2</overallQualityId>
       <bonding>0</bonding>
@@ -13,7 +13,7 @@
         <inventoryType>0</inventoryType>
       </equipData>
       <damageData/>
-      <gemProperties>+6 Defense Rating and +9 Stamina </gemProperties>
+      <gemProperties>+6 Dodge Rating and +9 Stamina</gemProperties>
       <requiredLevel>-1</requiredLevel>
       <itemLevel>70</itemLevel>
       <desc>Matches a Yellow or Blue Socket.</desc>

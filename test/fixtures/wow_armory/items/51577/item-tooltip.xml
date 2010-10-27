@@ -14,21 +14,19 @@
         <subclassName>Mail</subclassName>
       </equipData>
       <damageData/>
-      <bonusAgility>71</bonusAgility>
-      <bonusStamina>122</bonusStamina>
-      <bonusIntellect>54</bonusIntellect>
-      <armor armorBonus="0">1060</armor>
+      <bonusAgility>99</bonusAgility>
+      <bonusStamina>160</bonusStamina>
+      <armor armorBonus="0">1386</armor>
       <socketData>
         <socket color="Yellow"/>
       </socketData>
-      <durability current="85" max="85"/>
+      <durability current="100" max="100"/>
       <allowableClasses>
         <class>Hunter</class>
         <class>Shaman</class>
       </allowableClasses>
       <requiredLevel>80</requiredLevel>
       <itemLevel>251</itemLevel>
-      <bonusAttackPower>126</bonusAttackPower>
       <bonusHitRating>63</bonusHitRating>
       <bonusResilienceRating>71</bonusResilienceRating>
       <itemSource value="sourceType.vendor"/>

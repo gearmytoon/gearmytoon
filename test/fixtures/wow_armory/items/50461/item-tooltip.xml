@@ -11,17 +11,21 @@
       <classId>4</classId>
       <equipData>
         <inventoryType>28</inventoryType>
-        <subclassName>Libram</subclassName>
+        <subclassName>Relic</subclassName>
       </equipData>
       <damageData/>
+      <bonusStamina>77</bonusStamina>
+      <bonusStrength>51</bonusStrength>
+      <socketData>
+        <socket color="Red"/>
+      </socketData>
+      <allowableClasses>
+        <class>Paladin</class>
+      </allowableClasses>
       <requiredLevel>80</requiredLevel>
       <itemLevel>264</itemLevel>
-      <spellData>
-        <spell>
-          <trigger>1</trigger>
-          <desc>Your Shield of Righteousness ability grants 73 dodge rating for 15 sec.  Stacks up to 3 times.</desc>
-        </spell>
-      </spellData>
+      <bonusDodgeRating>34</bonusDodgeRating>
+      <bonusParryRating>34</bonusParryRating>
       <itemSource value="sourceType.vendor"/>
     </itemTooltip>
   </itemTooltips>

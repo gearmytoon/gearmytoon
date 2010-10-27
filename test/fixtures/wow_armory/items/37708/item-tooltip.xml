@@ -21,6 +21,7 @@
         <speed>3.0</speed>
         <dps>1.00</dps>
       </damageData>
+      <durability current="16" max="16"/>
       <requiredLevel>-1</requiredLevel>
       <itemLevel>1</itemLevel>
       <spellData>

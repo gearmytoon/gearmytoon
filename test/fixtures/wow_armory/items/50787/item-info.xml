@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?xml-stylesheet type="text/xsl" href="/_layout/items/info.xsl"?>
+<page globalSearch="1" lang="en_us" requestQuery="i=50787" requestUrl="/item-info.xml">
+  <itemInfo>
+    <item icon="inv_axe_113" id="50787" level="251" name="Frost Giant's Cleaver" quality="4" type="One-Handed Axes">
+      <cost sellPrice="233721"/>
+      <disenchantLoot requiredSkillRank="375">
+        <item canAuction="1" dropRate="6" icon="inv_enchant_abysscrystal" id="34057" level="80" maxCount="1" minCount="1" name="Abyss Crystal" quality="4" type="Enchanting"/>
+      </disenchantLoot>
+      <containerObjects>
+        <object area="Icecrown Citadel (10)" areaUrl="fl[source]=dungeon&amp;fl[dungeon]=icecrowncitadel10&amp;fl[boss]=all&amp;fl[difficulty]=all" dropRate="3" id="202178" name="Gunship Armory"/>
+      </containerObjects>
+    </item>
+  </itemInfo>
+</page>

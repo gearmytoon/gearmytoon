@@ -3,9 +3,12 @@
 <page globalSearch="1" lang="en_us" requestQuery="i=50402" requestUrl="/item-info.xml">
   <itemInfo>
     <item icon="inv_jewelry_ring_81" id="50402" level="277" name="Ashen Band of Endless Vengeance" quality="4" type="Miscellaneous">
-      <cost>
+      <cost sellPrice="1">
         <token count="1" icon="inv_jewelry_ring_81" id="52572"/>
       </cost>
+      <disenchantLoot requiredSkillRank="375">
+        <item canAuction="1" dropRate="6" icon="inv_enchant_abysscrystal" id="34057" level="80" maxCount="1" minCount="1" name="Abyss Crystal" quality="4" type="Enchanting"/>
+      </disenchantLoot>
       <objectiveOfQuests>
         <quest area="Icecrown Citadel" id="24846" level="80" name="A Change of Heart" reqMinLevel="80" suggestedPartySize="0"/>
       </objectiveOfQuests>

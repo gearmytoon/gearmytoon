@@ -13,17 +13,16 @@
         <inventoryType>16</inventoryType>
       </equipData>
       <damageData/>
-      <bonusStamina>69</bonusStamina>
-      <bonusIntellect>69</bonusIntellect>
-      <armor armorBonus="0">177</armor>
+      <bonusIntellect>83</bonusIntellect>
+      <bonusStamina>129</bonusStamina>
+      <bonusSpirit>60</bonusSpirit>
+      <armor armorBonus="0">556</armor>
       <socketData>
         <socket color="Blue"/>
       </socketData>
       <requiredLevel>80</requiredLevel>
       <itemLevel>264</itemLevel>
-      <bonusSpellPower>97</bonusSpellPower>
       <bonusCritRating>52</bonusCritRating>
-      <bonusManaRegen>30</bonusManaRegen>
       <itemSource value="sourceType.vendor"/>
     </itemTooltip>
   </itemTooltips>

@@ -17,23 +17,22 @@
       <damageData>
         <damage>
           <type>0</type>
-          <min>782</min>
-          <max>1071</max>
+          <min>834</min>
+          <max>1252</max>
         </damage>
         <speed>3.0</speed>
-        <dps>308.93</dps>
+        <dps>347.67</dps>
       </damageData>
       <bonusAgility>62</bonusAgility>
-      <bonusStamina>62</bonusStamina>
+      <bonusStamina>80</bonusStamina>
       <socketData>
         <socket color="Red"/>
       </socketData>
       <durability current="90" max="90"/>
       <requiredLevel>80</requiredLevel>
       <itemLevel>284</itemLevel>
-      <bonusAttackPower>66</bonusAttackPower>
       <bonusCritRating>41</bonusCritRating>
-      <bonusArmorPenetration>33</bonusArmorPenetration>
+      <bonusHasteRating>33</bonusHasteRating>
       <desc>Thalas'din belore.</desc>
       <itemSource areaId="4812" areaName="Icecrown Citadel (25)" creatureId="39166" creatureName="The Lich King" difficulty="h" dropRate="2" value="sourceType.creatureDrop"/>
     </itemTooltip>

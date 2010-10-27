@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?xml-stylesheet type="text/xsl" href="/_layout/items/info.xsl"?>
+<page globalSearch="1" lang="en_us" requestQuery="i=43157" requestUrl="/item-info.xml">
+  <itemInfo>
+    <item icon="inv_shirt_guildtabard_01" id="43157" level="75" name="Tabard of the Kirin Tor" quality="1" type="Miscellaneous">
+      <cost buyPrice="10000" sellPrice="2500"/>
+      <vendors>
+        <creature area="Crystalsong Forest" classification="0" heroic="1" id="32287" maxLevel="80" minLevel="80" name="Archmage Alvareaux" title="Kirin Tor Quartermaster" type="Humanoid"/>
+      </vendors>
+    </item>
+  </itemInfo>
+</page>

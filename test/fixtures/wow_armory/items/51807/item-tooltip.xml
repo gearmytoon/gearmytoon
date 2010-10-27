@@ -14,12 +14,11 @@
       </equipData>
       <damageData/>
       <bonusAgility>63</bonusAgility>
-      <bonusStamina>69</bonusStamina>
+      <bonusStamina>99</bonusStamina>
       <requiredLevel>80</requiredLevel>
       <itemLevel>226</itemLevel>
-      <bonusAttackPower>84</bonusAttackPower>
       <bonusCritRating>36</bonusCritRating>
-      <bonusArmorPenetration>46</bonusArmorPenetration>
+      <bonusHasteRating>46</bonusHasteRating>
       <itemSource areaId="209" areaName="" creatureId="0" creatureName="" difficulty="" dropRate="3" value="sourceType.creatureDrop"/>
     </itemTooltip>
   </itemTooltips>

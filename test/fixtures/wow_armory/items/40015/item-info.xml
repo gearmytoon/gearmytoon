@@ -2,10 +2,10 @@
 <?xml-stylesheet type="text/xsl" href="/_layout/items/info.xsl"?>
 <page globalSearch="1" lang="en_us" requestQuery="i=40015" requestUrl="/item-info.xml">
   <itemInfo>
-    <item canAuction="1" icon="inv_jewelcrafting_gem_26" id="40015" level="80" name="Thick Autumn's Glow" quality="3" type="Yellow">
+    <item canAuction="1" icon="inv_jewelcrafting_gem_26" id="40015" level="80" name="Subtle Autumn's Glow" quality="3" type="Yellow">
       <cost sellPrice="45000"/>
       <createdBy>
-        <spell icon="inv_misc_gem_01" id="53959" name="Thick Autumn's Glow">
+        <spell icon="inv_misc_gem_01" id="53959" name="Subtle Autumn's Glow">
           <reagent count="1" icon="inv_jewelcrafting_gem_03" id="36921" name="Autumn's Glow" quality="3"/>
         </spell>
       </createdBy>

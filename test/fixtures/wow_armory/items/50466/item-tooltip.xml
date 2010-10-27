@@ -15,14 +15,13 @@
       <damageData/>
       <bonusStrength>90</bonusStrength>
       <bonusStamina>124</bonusStamina>
-      <armor armorBonus="1">737</armor>
+      <armor armorBonus="0">556</armor>
       <socketData>
         <socket color="Yellow"/>
       </socketData>
       <requiredLevel>80</requiredLevel>
       <itemLevel>264</itemLevel>
-      <bonusDefenseSkillRating>48</bonusDefenseSkillRating>
-      <bonusDodgeRating>48</bonusDodgeRating>
+      <bonusDodgeRating>72</bonusDodgeRating>
       <itemSource value="sourceType.vendor"/>
     </itemTooltip>
   </itemTooltips>

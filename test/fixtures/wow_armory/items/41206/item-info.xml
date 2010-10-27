@@ -3,7 +3,10 @@
 <page globalSearch="1" lang="en_us" requestQuery="i=41206" requestUrl="/item-info.xml">
   <itemInfo>
     <item icon="inv_pants_mail_16" id="41206" level="251" name="Relentless Gladiator's Chain Leggings" quality="4" type="Mail">
-      <cost arena="770" factionId="0" honor="13200"/>
+      <cost buyPrice="746282" sellPrice="149256"/>
+      <disenchantLoot requiredSkillRank="375">
+        <item canAuction="1" dropRate="6" icon="inv_enchant_abysscrystal" id="34057" level="80" maxCount="1" minCount="1" name="Abyss Crystal" quality="4" type="Enchanting"/>
+      </disenchantLoot>
       <vendors>
         <creature area="Crystalsong Forest" classification="0" heroic="1" id="33927" maxLevel="75" minLevel="75" name="Nargle Lashcord" title="Veteran Arena Vendor" type="Humanoid"/>
         <creature area="Icecrown Citadel" classification="0" heroic="1" id="38858" maxLevel="80" minLevel="80" name="Goodman the &quot;Closer&quot;" title="Emblem of Frost Quartermaster" type="Humanoid"/>

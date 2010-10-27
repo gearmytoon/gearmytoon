@@ -2,10 +2,10 @@
 <?xml-stylesheet type="text/xsl" href="/_layout/items/info.xsl"?>
 <page globalSearch="1" lang="en_us" requestQuery="i=36766" requestUrl="/item-info.xml">
   <itemInfo>
-    <item icon="inv_jewelcrafting_dragonseye05" id="36766" level="80" name="Bright Dragon's Eye" quality="4" requiredSkill="Jewelcrafting" requiredSkillRank="350" type="Red">
+    <item icon="inv_jewelcrafting_dragonseye05" id="36766" level="80" name="Delicate Dragon's Eye" quality="4" requiredSkill="Jewelcrafting" requiredSkillRank="350" type="Red">
       <cost sellPrice="11250"/>
       <createdBy>
-        <spell icon="inv_misc_gem_01" id="56054" name="Bright Dragon's Eye">
+        <spell icon="inv_misc_gem_01" id="56054" name="Delicate Dragon's Eye">
           <reagent count="1" icon="inv_jewelcrafting_dragonseye01" id="42225" name="Dragon's Eye" quality="3"/>
         </spell>
       </createdBy>

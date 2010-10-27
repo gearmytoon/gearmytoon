@@ -20,7 +20,7 @@
       <spellData>
         <spell>
           <trigger>1</trigger>
-          <desc>Chance on melee or ranged critical strike to increase your armor penetration rating by 678 for 10 sec.</desc>
+          <desc>Chance on melee or ranged critical strike to increase your haste rating by 678 for 10 sec.</desc>
         </spell>
       </spellData>
       <itemSource areaId="4809" areaName="Forge of Souls" creatureId="36502" creatureName="Devourer of Souls" difficulty="h" dropRate="2" value="sourceType.creatureDrop"/>

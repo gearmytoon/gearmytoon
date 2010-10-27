@@ -2,7 +2,7 @@
 <?xml-stylesheet type="text/xsl" href="/_layout/items/info.xsl"?>
 <page globalSearch="1" lang="en_us" requestQuery="i=39976" requestUrl="/item-info.xml">
   <itemInfo>
-    <item canAuction="1" icon="inv_jewelcrafting_gem_19" id="39976" level="70" name="Enduring Dark Jade" quality="2" type="Green">
+    <item canAuction="1" icon="inv_jewelcrafting_gem_19" id="39976" level="70" name="Regal Dark Jade" quality="2" type="Green">
       <cost sellPrice="5000"/>
     </item>
   </itemInfo>

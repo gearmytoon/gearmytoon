@@ -32,16 +32,8 @@
       <bonusCritRating>20</bonusCritRating>
       <bonusResilienceRating>14</bonusResilienceRating>
       <bonusHitRating>9</bonusHitRating>
-      <spellData>
-        <spell>
-          <trigger>1</trigger>
-          <desc>Increases attack power by 42.</desc>
-        </spell>
-        <spell>
-          <trigger>1</trigger>
-          <desc>Increases armor penetration rating by 6.</desc>
-        </spell>
-      </spellData>
+      <bonusAttackPower>42</bonusAttackPower>
+      <bonusHasteRating>6</bonusHasteRating>
       <itemSource value="sourceType.vendor"/>
     </itemTooltip>
   </itemTooltips>

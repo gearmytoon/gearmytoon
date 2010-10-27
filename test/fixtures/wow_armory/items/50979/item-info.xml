@@ -3,9 +3,7 @@
 <page globalSearch="1" lang="en_us" requestQuery="i=50979" requestUrl="/item-info.xml">
   <itemInfo>
     <item icon="inv_gauntlets_84" id="50979" level="264" name="Logsplitters" quality="4" type="Mail">
-      <cost buyPrice="376484" sellPrice="75296">
-        <token count="60" icon="inv_misc_frostemblem_01" id="49426"/>
-      </cost>
+      <cost buyPrice="376484" sellPrice="75296"/>
       <disenchantLoot requiredSkillRank="375">
         <item canAuction="1" dropRate="6" icon="inv_enchant_abysscrystal" id="34057" level="80" maxCount="1" minCount="1" name="Abyss Crystal" quality="4" type="Enchanting"/>
       </disenchantLoot>

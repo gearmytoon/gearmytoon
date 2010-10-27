@@ -11,18 +11,21 @@
       <classId>4</classId>
       <equipData>
         <inventoryType>28</inventoryType>
-        <subclassName>Totem</subclassName>
+        <subclassName>Relic</subclassName>
       </equipData>
       <damageData/>
+      <bonusStamina>77</bonusStamina>
+      <bonusIntellect>51</bonusIntellect>
+      <socketData>
+        <socket color="Red"/>
+      </socketData>
+      <allowableClasses>
+        <class>Shaman</class>
+      </allowableClasses>
       <requiredLevel>80</requiredLevel>
       <itemLevel>264</itemLevel>
-      <spellData>
-        <spell>
-          <trigger>1</trigger>
-          <desc>The periodic damage from your Flame Shock spell grants 44 haste rating for 30 sec.  Stacks up to 5 times.</desc>
-        </spell>
-      </spellData>
-      <desc>Counts as an Air, Earth, Fire, and Water totem.</desc>
+      <bonusCritRating>34</bonusCritRating>
+      <bonusHasteRating>34</bonusHasteRating>
       <itemSource value="sourceType.vendor"/>
     </itemTooltip>
   </itemTooltips>

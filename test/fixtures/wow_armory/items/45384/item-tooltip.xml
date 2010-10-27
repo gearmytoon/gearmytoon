@@ -16,7 +16,7 @@
       <damageData/>
       <bonusStrength>106</bonusStrength>
       <bonusStamina>135</bonusStamina>
-      <armor armorBonus="0">2032</armor>
+      <armor armorBonus="0">2076</armor>
       <socketData>
         <socket color="Red"/>
         <socket color="Yellow"/>
@@ -27,8 +27,7 @@
       </allowableClasses>
       <requiredLevel>80</requiredLevel>
       <itemLevel>219</itemLevel>
-      <bonusDefenseSkillRating>56</bonusDefenseSkillRating>
-      <bonusDodgeRating>40</bonusDodgeRating>
+      <bonusDodgeRating>72</bonusDodgeRating>
       <bonusParryRating>55</bonusParryRating>
       <setData>
         <name>Aegis Plate</name>
@@ -38,7 +37,7 @@
         <item name="Aegis Legguards"/>
         <item name="Aegis Shoulderguards"/>
         <setBonus desc="Increases the damage done by your Seals of Vengeance, Corruption, and Righteousness by 10%." threshold="2"/>
-        <setBonus desc="Shield of Righteousness now increases your shield block value by 225 for that attack and for 6 sec afterward." threshold="4"/>
+        <setBonus desc="Shield of Righteousness now increases your shield block value by 5% for 6 sec." threshold="4"/>
       </setData>
       <itemSource areaId="4603" areaName="Vault of Archavon" creatureId="33993" creatureName="Emalon the Storm Watcher" difficulty="n" dropRate="1" value="sourceType.creatureDrop"/>
     </itemTooltip>

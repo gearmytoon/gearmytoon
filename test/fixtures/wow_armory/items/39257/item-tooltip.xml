@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?xml-stylesheet type="text/xsl" href="/_layout/items/tooltip.xsl"?>
+<page globalSearch="1" lang="en_us" requestUrl="/item-tooltip.xml">
+  <itemTooltips>
+    <itemTooltip>
+      <id>39257</id>
+      <name>Loatheb's Shadow</name>
+      <icon>inv_trinket_naxxramas03</icon>
+      <overallQualityId>4</overallQualityId>
+      <bonding>1</bonding>
+      <maxCount>1</maxCount>
+      <classId>4</classId>
+      <equipData>
+        <inventoryType>12</inventoryType>
+      </equipData>
+      <damageData/>
+      <requiredLevel>80</requiredLevel>
+      <itemLevel>200</itemLevel>
+      <bonusCritRating>84</bonusCritRating>
+      <spellData>
+        <spell>
+          <trigger>0</trigger>
+          <desc>Increases attack power by 670 for 20 sec.</desc>
+          <charges>0</charges>
+          <maxCharges>0</maxCharges>
+        </spell>
+      </spellData>
+      <itemSource areaId="3456" areaName="Naxxramas" creatureId="16011" creatureName="Loatheb" difficulty="n" dropRate="3" value="sourceType.creatureDrop"/>
+    </itemTooltip>
+  </itemTooltips>
+</page>

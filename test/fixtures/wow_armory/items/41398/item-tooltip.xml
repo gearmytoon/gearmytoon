@@ -13,6 +13,7 @@
         <inventoryType>0</inventoryType>
       </equipData>
       <damageData/>
+      <blockValue>52</blockValue>
       <gemProperties>+21 Agility and 3% Increased Critical Damage</gemProperties>
       <requiredLevel>-1</requiredLevel>
       <itemLevel>80</itemLevel>

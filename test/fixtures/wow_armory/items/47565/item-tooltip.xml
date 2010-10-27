@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?xml-stylesheet type="text/xsl" href="/_layout/items/tooltip.xsl"?>
+<page globalSearch="1" lang="en_us" requestUrl="/item-tooltip.xml">
+  <itemTooltips>
+    <itemTooltip>
+      <id>47565</id>
+      <name>Vambraces of Unholy Command</name>
+      <icon>inv_bracer_07</icon>
+      <overallQualityId>4</overallQualityId>
+      <bonding>1</bonding>
+      <classId>4</classId>
+      <equipData>
+        <inventoryType>9</inventoryType>
+        <subclassName>Plate</subclassName>
+      </equipData>
+      <damageData/>
+      <bonusStrength>60</bonusStrength>
+      <bonusStamina>89</bonusStamina>
+      <armor armorBonus="0">1038</armor>
+      <durability current="55" max="55"/>
+      <requiredLevel>80</requiredLevel>
+      <itemLevel>219</itemLevel>
+      <bonusHasteRating>46</bonusHasteRating>
+      <bonusCritRating>29</bonusCritRating>
+      <itemSource areaId="4723" areaName="Trial of the Champion" creatureId="35451" creatureName="The Black Knight" difficulty="h" dropRate="2" value="sourceType.creatureDrop"/>
+    </itemTooltip>
+  </itemTooltips>
+</page>

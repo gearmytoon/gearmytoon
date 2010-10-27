@@ -14,19 +14,17 @@
         <subclassName>Mail</subclassName>
       </equipData>
       <damageData/>
-      <bonusAgility>57</bonusAgility>
-      <bonusStamina>66</bonusStamina>
-      <bonusIntellect>44</bonusIntellect>
-      <armor armorBonus="0">985</armor>
+      <bonusAgility>77</bonusAgility>
+      <bonusStamina>99</bonusStamina>
+      <armor armorBonus="0">1282</armor>
       <socketData>
         <socket color="Red"/>
       </socketData>
-      <durability current="85" max="85"/>
+      <durability current="100" max="100"/>
       <requiredLevel>80</requiredLevel>
       <itemLevel>226</itemLevel>
-      <bonusAttackPower>154</bonusAttackPower>
       <bonusHasteRating>56</bonusHasteRating>
-      <bonusCritRating>36</bonusCritRating>
+      <bonusCritRating>70</bonusCritRating>
       <itemSource value="sourceType.worldDrop"/>
     </itemTooltip>
   </itemTooltips>

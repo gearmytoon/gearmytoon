@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?xml-stylesheet type="text/xsl" href="/_layout/items/tooltip.xsl"?>
+<page globalSearch="1" lang="en_us" requestUrl="/item-tooltip.xml">
+  <itemTooltips>
+    <itemTooltip>
+      <id>40706</id>
+      <name>Libram of Reciprocation</name>
+      <icon>inv_relics_libramofhope</icon>
+      <overallQualityId>4</overallQualityId>
+      <bonding>1</bonding>
+      <classId>4</classId>
+      <equipData>
+        <inventoryType>28</inventoryType>
+        <subclassName>Relic</subclassName>
+      </equipData>
+      <damageData/>
+      <bonusStamina>42</bonusStamina>
+      <bonusStrength>28</bonusStrength>
+      <socketData>
+        <socket color="Red"/>
+      </socketData>
+      <allowableClasses>
+        <class>Paladin</class>
+      </allowableClasses>
+      <requiredLevel>80</requiredLevel>
+      <itemLevel>200</itemLevel>
+      <bonusCritRating>19</bonusCritRating>
+      <bonusHitRating>19</bonusHitRating>
+      <itemSource value="sourceType.vendor"/>
+    </itemTooltip>
+  </itemTooltips>
+</page>

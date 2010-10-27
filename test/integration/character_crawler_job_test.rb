@@ -18,7 +18,7 @@ class CharacterCrawlerJobTest < ActiveSupport::TestCase
   
   should "import a characters guild" do
     WowClass.create_class!("Priest")
-    character = Factory(:character, :name => "Escath", :realm => "Baelgun", :guild => nil)
+    character = Factory(:character, :name => "Wolor", :realm => "Baelgun", :guild => nil)
     assert_difference "Resque.size('guild_crawler_jobs')" do
       assert_difference "Guild.count" do
         CharacterCrawlerJob.perform(character.id)
@@ -33,7 +33,7 @@ class CharacterCrawlerJobTest < ActiveSupport::TestCase
   should "not import a characters guild if it is not new" do
     WowClass.create_class!("Priest")
     Factory(:guild, :name => "Wipes on Trash", :realm => "Baelgun")
-    character = Factory(:character, :name => "Escath", :realm => "Baelgun", :guild => nil)
+    character = Factory(:character, :name => "Wolor", :realm => "Baelgun", :guild => nil)
     assert_no_difference "Resque.size('guild_crawler_jobs')" do
       assert_no_difference "Guild.count" do
         CharacterCrawlerJob.perform(character.id)

@@ -16,15 +16,13 @@
       </equipData>
       <damageData/>
       <bonusAgility>89</bonusAgility>
-      <bonusStamina>76</bonusStamina>
-      <bonusIntellect>37</bonusIntellect>
-      <armor armorBonus="0">746</armor>
-      <durability current="50" max="50"/>
+      <bonusStamina>134</bonusStamina>
+      <armor armorBonus="0">970</armor>
+      <durability current="55" max="55"/>
       <requiredLevel>80</requiredLevel>
       <itemLevel>232</itemLevel>
-      <bonusAttackPower>130</bonusAttackPower>
-      <bonusHasteRating>54</bonusHasteRating>
-      <bonusHitRating>47</bonusHitRating>
+      <bonusHasteRating>64</bonusHasteRating>
+      <bonusHitRating>52</bonusHitRating>
       <itemSource areaId="4813" areaName="Pit of Saron" creatureId="36658" creatureName="Scourgelord Tyrannus" difficulty="h" dropRate="2" value="sourceType.creatureDrop"/>
     </itemTooltip>
   </itemTooltips>

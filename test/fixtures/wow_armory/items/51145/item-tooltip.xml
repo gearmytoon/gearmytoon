@@ -14,20 +14,19 @@
         <subclassName>Leather</subclassName>
       </equipData>
       <damageData/>
-      <bonusStamina>123</bonusStamina>
-      <bonusIntellect>123</bonusIntellect>
-      <armor armorBonus="0">665</armor>
+      <bonusIntellect>146</bonusIntellect>
+      <bonusStamina>231</bonusStamina>
+      <armor armorBonus="0">1407</armor>
       <socketData>
         <socket color="Red"/>
         <socket color="Yellow"/>
       </socketData>
-      <durability current="120" max="120"/>
+      <durability current="165" max="165"/>
       <allowableClasses>
         <class>Druid</class>
       </allowableClasses>
       <requiredLevel>80</requiredLevel>
       <itemLevel>264</itemLevel>
-      <bonusSpellPower>171</bonusSpellPower>
       <bonusCritRating>108</bonusCritRating>
       <bonusHasteRating>92</bonusHasteRating>
       <setData>

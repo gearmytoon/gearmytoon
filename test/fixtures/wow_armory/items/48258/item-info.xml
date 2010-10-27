@@ -4,7 +4,6 @@
   <itemInfo>
     <item icon="inv_pants_mail_25" id="48258" level="245" name="Windrunner's Legguards of Triumph" quality="4" type="Mail">
       <cost>
-        <token count="75" icon="spell_holy_summonchampion" id="47241"/>
         <token count="1" icon="inv_misc_trophy_argent" id="47242"/>
       </cost>
       <disenchantLoot requiredSkillRank="375">

@@ -24,7 +24,7 @@
         <dps>109.29</dps>
       </damageData>
       <bonusAgility>22</bonusAgility>
-      <bonusStamina>29</bonusStamina>
+      <bonusStamina>47</bonusStamina>
       <durability current="125" max="125"/>
       <allowableClasses>
         <class>Warrior</class>
@@ -33,12 +33,6 @@
       <requiredLevel>70</requiredLevel>
       <itemLevel>156</itemLevel>
       <bonusHitRating>21</bonusHitRating>
-      <spellData>
-        <spell>
-          <trigger>1</trigger>
-          <desc>Increases attack power by 44.</desc>
-        </spell>
-      </spellData>
       <setData>
         <name>The Twin Blades of Azzinoth</name>
         <item name="Warglaive of Azzinoth"/>

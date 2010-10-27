@@ -14,12 +14,11 @@
         <inventoryType>2</inventoryType>
       </equipData>
       <damageData/>
-      <bonusStamina>57</bonusStamina>
-      <bonusIntellect>24</bonusIntellect>
+      <bonusIntellect>50</bonusIntellect>
+      <bonusStamina>70</bonusStamina>
+      <bonusSpirit>36</bonusSpirit>
       <requiredLevel>80</requiredLevel>
       <itemLevel>200</itemLevel>
-      <bonusSpellPower>59</bonusSpellPower>
-      <bonusManaRegen>18</bonusManaRegen>
       <bonusResilienceRating>33</bonusResilienceRating>
       <itemSource value="sourceType.none"/>
     </itemTooltip>

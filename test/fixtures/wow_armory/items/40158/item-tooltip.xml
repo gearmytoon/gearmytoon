@@ -4,7 +4,7 @@
   <itemTooltips>
     <itemTooltip>
       <id>40158</id>
-      <name>Empowered Ametrine</name>
+      <name>Lucent Ametrine</name>
       <icon>inv_jewelcrafting_gem_39</icon>
       <overallQualityId>4</overallQualityId>
       <bonding>0</bonding>
@@ -13,7 +13,7 @@
         <inventoryType>0</inventoryType>
       </equipData>
       <damageData/>
-      <gemProperties>+20 Attack Power and +10 Resilience Rating</gemProperties>
+      <gemProperties>+10 Agility and +10 Resilience Rating</gemProperties>
       <requiredLevel>-1</requiredLevel>
       <itemLevel>80</itemLevel>
       <desc>Matches a Red or Yellow Socket.</desc>

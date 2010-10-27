@@ -3,9 +3,6 @@
 <page globalSearch="1" lang="en_us" requestQuery="i=48250" requestUrl="/item-info.xml">
   <itemInfo>
     <item icon="inv_helmet_95" id="48250" level="232" name="Windrunner's Headpiece of Conquest" quality="4" type="Mail">
-      <cost>
-        <token count="50" icon="spell_holy_summonchampion" id="47241"/>
-      </cost>
       <disenchantLoot requiredSkillRank="375">
         <item canAuction="1" dropRate="6" icon="inv_enchant_abysscrystal" id="34057" level="80" maxCount="1" minCount="1" name="Abyss Crystal" quality="4" type="Enchanting"/>
       </disenchantLoot>

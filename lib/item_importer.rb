@@ -152,21 +152,7 @@ class ItemImporter < WowArmoryMapper
   
   def get_purchased_sources(item)
     @wowarmory_item_info.xpath("//itemInfo/item/vendors/creature").map do |vendor|
-      cost = @wowarmory_item_info.at("//itemInfo/item/cost")
-      next nil if cost.nil?
-      if cost.search("token").any?
-        purchase_source = PurchaseSource.create!(:item => item, :vendor => find_or_create_creature(vendor))
-        cost.search("token").map do |token|
-          purchase_source.items_used_to_purchase.create!(:quantity => token['count'], :wowarmory_item_id => token['id'])
-        end
-        purchase_source
-      else
-        if cost['arena']
-          ArenaSource.create(:arena_point_cost => cost['arena'],:honor_point_cost => cost['honor'], :item => item, :vendor => find_or_create_creature(vendor))
-        elsif cost['honor']
-          HonorSource.create(:honor_point_cost => cost['honor'], :item => item, :vendor => find_or_create_creature(vendor))
-        end
-      end
+      PurchaseSource.create!(:item => item, :vendor => find_or_create_creature(vendor))
     end.compact
   end
   

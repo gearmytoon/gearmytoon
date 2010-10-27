@@ -23,12 +23,11 @@
         <dps>255.56</dps>
       </damageData>
       <bonusAgility>43</bonusAgility>
-      <bonusStamina>43</bonusStamina>
+      <bonusStamina>64</bonusStamina>
       <requiredLevel>80</requiredLevel>
       <itemLevel>245</itemLevel>
-      <bonusAttackPower>57</bonusAttackPower>
       <bonusExpertiseRating>28</bonusExpertiseRating>
-      <bonusArmorPenetration>28</bonusArmorPenetration>
+      <bonusCritRating>28</bonusCritRating>
       <itemSource value="sourceType.vendor"/>
     </itemTooltip>
   </itemTooltips>

@@ -24,7 +24,7 @@
         <dps>226.54</dps>
       </damageData>
       <bonusAgility>61</bonusAgility>
-      <bonusStamina>53</bonusStamina>
+      <bonusStamina>99</bonusStamina>
       <socketData>
         <socket color="Red"/>
       </socketData>
@@ -32,8 +32,7 @@
       <requiredLevel>80</requiredLevel>
       <itemLevel>264</itemLevel>
       <bonusHasteRating>50</bonusHasteRating>
-      <bonusArmorPenetration>33</bonusArmorPenetration>
-      <bonusAttackPower>106</bonusAttackPower>
+      <bonusCritRating>33</bonusCritRating>
       <itemSource areaId="4812" areaName="Icecrown Citadel (10)" creatureId="36627" creatureName="Rotface" difficulty="h" dropRate="3" value="sourceType.creatureDrop"/>
     </itemTooltip>
   </itemTooltips>

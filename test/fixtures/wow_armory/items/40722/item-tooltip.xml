@@ -15,11 +15,10 @@
       <damageData/>
       <bonusStrength>41</bonusStrength>
       <bonusStamina>84</bonusStamina>
-      <armor armorBonus="0">154</armor>
+      <armor armorBonus="0">428</armor>
       <requiredLevel>80</requiredLevel>
       <itemLevel>213</itemLevel>
-      <bonusDefenseSkillRating>38</bonusDefenseSkillRating>
-      <bonusDodgeRating>37</bonusDodgeRating>
+      <bonusDodgeRating>56</bonusDodgeRating>
       <bonusHitRating>32</bonusHitRating>
       <itemSource value="sourceType.vendor"/>
     </itemTooltip>

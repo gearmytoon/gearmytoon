@@ -14,9 +14,9 @@
         <subclassName>Plate</subclassName>
       </equipData>
       <damageData/>
-      <bonusStrength>161</bonusStrength>
-      <bonusStamina>185</bonusStamina>
-      <armor armorBonus="0">2310</armor>
+      <bonusStrength>138</bonusStrength>
+      <bonusStamina>243</bonusStamina>
+      <armor armorBonus="0">2311</armor>
       <socketData>
         <socket color="Red"/>
         <socket color="Yellow"/>
@@ -26,7 +26,7 @@
       <requiredLevel>80</requiredLevel>
       <itemLevel>264</itemLevel>
       <bonusCritRating>100</bonusCritRating>
-      <bonusArmorPenetration>92</bonusArmorPenetration>
+      <bonusHasteRating>92</bonusHasteRating>
       <itemSource value="sourceType.createdBySpell"/>
     </itemTooltip>
   </itemTooltips>

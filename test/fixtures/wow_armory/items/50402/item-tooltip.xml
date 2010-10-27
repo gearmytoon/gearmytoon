@@ -15,14 +15,13 @@
       </equipData>
       <damageData/>
       <bonusAgility>88</bonusAgility>
-      <bonusStamina>84</bonusStamina>
+      <bonusStamina>136</bonusStamina>
       <socketData>
         <socket color="Yellow"/>
       </socketData>
       <requiredLevel>80</requiredLevel>
       <requiredFaction name="The Ashen Verdict" rep="7"/>
       <itemLevel>277</itemLevel>
-      <bonusAttackPower>135</bonusAttackPower>
       <bonusCritRating>59</bonusCritRating>
       <bonusHitRating>59</bonusHitRating>
       <spellData>

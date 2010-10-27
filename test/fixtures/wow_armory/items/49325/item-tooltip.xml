@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?xml-stylesheet type="text/xsl" href="/_layout/items/tooltip.xsl"?>
+<page globalSearch="1" lang="en_us" requestUrl="/item-tooltip.xml">
+  <itemTooltips>
+    <itemTooltip>
+      <id>49325</id>
+      <name>Judgement Helm</name>
+      <icon>inv_helmet_74</icon>
+      <overallQualityId>4</overallQualityId>
+      <bonding>1</bonding>
+      <classId>4</classId>
+      <equipData>
+        <inventoryType>1</inventoryType>
+        <subclassName>Plate</subclassName>
+      </equipData>
+      <damageData/>
+      <bonusStrength>100</bonusStrength>
+      <bonusStamina>157</bonusStamina>
+      <armor armorBonus="0">1948</armor>
+      <socketData>
+        <socket color="Meta"/>
+        <socket color="Yellow"/>
+      </socketData>
+      <durability current="100" max="100"/>
+      <allowableClasses>
+        <class>Paladin</class>
+      </allowableClasses>
+      <requiredLevel>80</requiredLevel>
+      <itemLevel>232</itemLevel>
+      <bonusCritRating>75</bonusCritRating>
+      <bonusHasteRating>68</bonusHasteRating>
+      <itemSource areaId="2159" areaName="Onyxia's Lair" creatureId="10184" creatureName="Onyxia" difficulty="n" dropRate="2" value="sourceType.creatureDrop"/>
+    </itemTooltip>
+  </itemTooltips>
+</page>

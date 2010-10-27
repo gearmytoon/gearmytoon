@@ -14,22 +14,20 @@
         <subclassName>Mail</subclassName>
       </equipData>
       <damageData/>
-      <bonusAgility>80</bonusAgility>
-      <bonusStamina>138</bonusStamina>
-      <bonusIntellect>60</bonusIntellect>
-      <armor armorBonus="0">1325</armor>
+      <bonusAgility>88</bonusAgility>
+      <bonusStamina>181</bonusStamina>
+      <armor armorBonus="0">1725</armor>
       <socketData>
         <socket color="Red"/>
         <socket color="Yellow"/>
       </socketData>
-      <durability current="140" max="140"/>
+      <durability current="165" max="165"/>
       <allowableClasses>
         <class>Hunter</class>
       </allowableClasses>
       <requiredLevel>80</requiredLevel>
       <itemLevel>232</itemLevel>
-      <bonusAttackPower>130</bonusAttackPower>
-      <bonusCritRating>64</bonusCritRating>
+      <bonusCritRating>80</bonusCritRating>
       <bonusResilienceRating>80</bonusResilienceRating>
       <setData>
         <name>Gladiator's Pursuit</name>
@@ -40,7 +38,7 @@
         <item name="Gladiator's Chain Spaulders"/>
         <setBonus desc="+100 resilience rating." threshold="2"/>
         <setBonus desc="Increases attack power by 50." threshold="2"/>
-        <setBonus desc="Reduces the cooldown of your Traps by 2 seconds." threshold="4"/>
+        <setBonus desc="Increases the regeneration of your Focus by 5%." threshold="4"/>
         <setBonus desc="Increases attack power by 150." threshold="4"/>
       </setData>
       <itemSource value="sourceType.pvpReward"/>
