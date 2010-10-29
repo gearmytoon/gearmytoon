@@ -49,6 +49,12 @@ class ItemTest < ActiveSupport::TestCase
       assert_equal({}, item.equipped_stats)
     end
 
+    should "include resilience" do
+      resilience = {:resilience => 1}
+      item = Factory(:item, :bonuses => resilience)
+      assert_equal({:resilience => 1}, item.equipped_stats)
+    end
+
     should "exclude base_stats" do
       base_stats = {:spirit => 1, :stamina => 1, :intellect => 1, :strength => 1, :agility => 1}
       item = Factory(:item, :bonuses => base_stats)

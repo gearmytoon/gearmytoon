@@ -250,7 +250,7 @@ class ItemImporterTest < ActiveSupport::TestCase
       item = ItemImporter.import_from_wowarmory!(Item::FROST_EMBLEM_ARMORY_ID)
       assert_equal "epic", item.quality
     end
-    
+        
     should_eventually "import pvp items that are purchasable with honor" do
       item = ItemImporter.import_from_wowarmory!(41087)
       assert_equal 54500, item.item_sources.first.honor_point_cost

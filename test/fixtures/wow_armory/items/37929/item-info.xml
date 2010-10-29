@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?xml-stylesheet type="text/xsl" href="/_layout/items/info.xsl"?>
+<page globalSearch="1" lang="en_us" requestQuery="i=37929" requestUrl="/item-info.xml">
+  <itemInfo>
+    <item icon="inv_jewelry_necklace_36" id="37929" level="154" name="Guardian's Pendant of Reprieve" quality="4" type="Miscellaneous">
+      <cost buyPrice="1" sellPrice="1"/>
+      <disenchantLoot requiredSkillRank="300">
+        <item canAuction="1" dropRate="6" icon="inv_enchant_voidcrystal" id="22450" level="70" maxCount="2" minCount="1" name="Void Crystal" quality="4" type="Enchanting"/>
+      </disenchantLoot>
+      <vendors>
+        <creature area="Elwynn Forest" classification="0" heroic="1" id="26395" maxLevel="65" minLevel="65" name="Lieutenant Tristia" title="Armor Quartermaster" type="Humanoid"/>
+        <creature area="Elwynn Forest" classification="0" heroic="1" id="12778" maxLevel="65" minLevel="65" name="Lieutenant Rachel Vaccar" title="Outland Armor Quartermaster" type="Humanoid"/>
+        <creature area="Durotar" classification="1" heroic="1" id="26398" maxLevel="70" minLevel="70" name="Doris Chiltonius" title="Armor Quartermaster" type="Humanoid"/>
+        <creature area="Durotar" classification="0" heroic="1" id="12788" maxLevel="62" minLevel="62" name="Legionnaire Teena" title="Outland Armor Quartermaster" type="Humanoid"/>
+      </vendors>
+    </item>
+  </itemInfo>
+</page>

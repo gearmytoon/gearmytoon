@@ -177,3 +177,4 @@ class ItemImporter < WowArmoryMapper
   end
 
 end
+ItemImporter.import_from_wowarmory!(37929)

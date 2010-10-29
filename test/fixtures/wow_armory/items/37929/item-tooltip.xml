@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?xml-stylesheet type="text/xsl" href="/_layout/items/tooltip.xsl"?>
+<page globalSearch="1" lang="en_us" requestUrl="/item-tooltip.xml">
+  <itemTooltips>
+    <itemTooltip>
+      <id>37929</id>
+      <name>Guardian's Pendant of Reprieve</name>
+      <icon>inv_jewelry_necklace_36</icon>
+      <overallQualityId>4</overallQualityId>
+      <bonding>1</bonding>
+      <maxCount>1</maxCount>
+      <classId>4</classId>
+      <equipData>
+        <inventoryType>2</inventoryType>
+      </equipData>
+      <damageData/>
+      <bonusStamina>40</bonusStamina>
+      <bonusIntellect>26</bonusIntellect>
+      <socketData>
+        <socket color="Yellow"/>
+      </socketData>
+      <requiredLevel>70</requiredLevel>
+      <itemLevel>154</itemLevel>
+      <bonusResilienceRating>18</bonusResilienceRating>
+      <bonusHasteRating>26</bonusHasteRating>
+      <itemSource value="sourceType.vendor"/>
+    </itemTooltip>
+  </itemTooltips>
+</page>
