@@ -31,11 +31,11 @@
           <li><%= link_to "Contact", contact_path %></li>
           <li><%= link_to "Your Account", account_path %></li>
         </ul>
-        <ul id="social_links">
-          <li><%= link_to image_tag('twitter.png'), "http://twitter.com/gearmytoon", :title => 'Follow Gear My Toon on Twitter' %></li>
-          <li><%= link_to image_tag('facebook.png'), "http://www.facebook.com/pages/Gear-My-Toon/116201925065981", :title => 'Become a Gear My Toon Fan on Facebook' %></li>
-          <p>follow us</p>
-        </ul>
+        <div id="social_links">
+          <span><%= link_to image_tag('twitter.png'), "http://twitter.com/gearmytoon", :title => 'Follow Gear My Toon on Twitter' %></span>
+          <span><%= link_to image_tag('facebook.png'), "http://www.facebook.com/pages/Gear-My-Toon/116201925065981", :title => 'Become a Gear My Toon Fan on Facebook' %></span>
+          <div>follow us</div>
+        </div>
       </div>
     </div>
     <% if flash[:notice].present? -%>
