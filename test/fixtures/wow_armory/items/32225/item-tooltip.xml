@@ -4,8 +4,8 @@
   <itemTooltips>
     <itemTooltip>
       <id>32225</id>
-      <name>Dazzling Seaspray Emerald</name>
-      <icon>inv_jewelcrafting_seasprayemerald_02</icon>
+      <name>Purified Shadowsong Amethyst</name>
+      <icon>inv_jewelcrafting_shadowsongamethyst_02</icon>
       <overallQualityId>4</overallQualityId>
       <bonding>0</bonding>
       <classId>3</classId>
@@ -13,10 +13,10 @@
         <inventoryType>0</inventoryType>
       </equipData>
       <damageData/>
-      <gemProperties>+5 Intellect and +3 Mana every 5 seconds</gemProperties>
+      <gemProperties>+5 Intellect and +5 Spirit</gemProperties>
       <requiredLevel>-1</requiredLevel>
       <itemLevel>70</itemLevel>
-      <desc>Matches a Blue or Yellow Socket.</desc>
+      <desc>Matches a Red or Blue Socket.</desc>
       <itemSource value="sourceType.createdBySpell"/>
     </itemTooltip>
   </itemTooltips>

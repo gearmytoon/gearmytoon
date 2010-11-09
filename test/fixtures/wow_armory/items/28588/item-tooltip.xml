@@ -22,17 +22,12 @@
         <speed>1.5</speed>
         <dps>161.00</dps>
       </damageData>
-      <bonusIntellect>13</bonusIntellect>
+      <bonusStamina>20</bonusStamina>
       <bonusSpirit>11</bonusSpirit>
+      <bonusIntellect>13</bonusIntellect>
       <durability current="75" max="75"/>
       <requiredLevel>70</requiredLevel>
       <itemLevel>115</itemLevel>
-      <spellData>
-        <spell>
-          <trigger>1</trigger>
-          <desc>Increases spell power by 15.</desc>
-        </spell>
-      </spellData>
       <itemSource areaId="3457" areaName="Karazhan" creatureId="18168" creatureName="The Crone" difficulty="n" dropRate="4" value="sourceType.creatureDrop"/>
     </itemTooltip>
   </itemTooltips>

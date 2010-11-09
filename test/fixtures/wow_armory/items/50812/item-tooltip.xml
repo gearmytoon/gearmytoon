@@ -15,19 +15,17 @@
       </equipData>
       <damageData/>
       <bonusAgility>91</bonusAgility>
-      <bonusStamina>84</bonusStamina>
-      <bonusIntellect>60</bonusIntellect>
-      <armor armorBonus="0">972</armor>
+      <bonusStamina>131</bonusStamina>
+      <armor armorBonus="0">1271</armor>
       <socketData>
         <socket color="Red"/>
         <socket color="Yellow"/>
       </socketData>
-      <durability current="70" max="70"/>
+      <durability current="75" max="75"/>
       <requiredLevel>80</requiredLevel>
       <itemLevel>251</itemLevel>
-      <bonusAttackPower>153</bonusAttackPower>
-      <bonusCritRating>33</bonusCritRating>
-      <bonusArmorPenetration>62</bonusArmorPenetration>
+      <bonusCritRating>78</bonusCritRating>
+      <bonusHasteRating>62</bonusHasteRating>
       <itemSource areaId="4812" areaName="Icecrown Citadel (10)" creatureId="36626" creatureName="Festergut" difficulty="n" dropRate="3" value="sourceType.creatureDrop"/>
     </itemTooltip>
   </itemTooltips>

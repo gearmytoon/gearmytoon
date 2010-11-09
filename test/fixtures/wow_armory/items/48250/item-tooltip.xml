@@ -15,22 +15,20 @@
       </equipData>
       <damageData/>
       <bonusAgility>104</bonusAgility>
-      <bonusStamina>95</bonusStamina>
-      <bonusIntellect>63</bonusIntellect>
-      <armor armorBonus="0">1077</armor>
+      <bonusStamina>142</bonusStamina>
+      <armor armorBonus="0">1401</armor>
       <socketData>
         <socket color="Meta"/>
         <socket color="Yellow"/>
       </socketData>
-      <durability current="85" max="85"/>
+      <durability current="100" max="100"/>
       <allowableClasses>
         <class>Hunter</class>
       </allowableClasses>
       <requiredLevel>80</requiredLevel>
       <itemLevel>232</itemLevel>
-      <bonusAttackPower>129</bonusAttackPower>
-      <bonusCritRating>80</bonusCritRating>
-      <bonusArmorPenetration>47</bonusArmorPenetration>
+      <bonusCritRating>104</bonusCritRating>
+      <bonusHasteRating>47</bonusHasteRating>
       <setData>
         <name>Windrunner's Battlegear</name>
         <item name="Windrunner's Handguards "/>
@@ -38,7 +36,7 @@
         <item name="Windrunner's Legguards "/>
         <item name="Windrunner's Spaulders "/>
         <item name="Windrunner's Tunic "/>
-        <setBonus desc="The damage done by your Serpent Sting ability can now be critical strikes." threshold="2"/>
+        <setBonus desc="Increases the damage done by your Serpent Sting ability by 10%." threshold="2"/>
         <setBonus desc="Each time you hit with a ranged attack, you have a chance to grant your pet 600 attack power for 15 sec." threshold="4"/>
       </setData>
       <itemSource value="sourceType.vendor"/>

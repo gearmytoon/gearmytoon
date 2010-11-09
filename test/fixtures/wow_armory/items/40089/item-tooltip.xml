@@ -4,7 +4,7 @@
   <itemTooltips>
     <itemTooltip>
       <id>40089</id>
-      <name>Enduring Forest Emerald</name>
+      <name>Regal Forest Emerald</name>
       <icon>inv_jewelcrafting_gem_25</icon>
       <overallQualityId>3</overallQualityId>
       <bonding>0</bonding>
@@ -13,7 +13,7 @@
         <inventoryType>0</inventoryType>
       </equipData>
       <damageData/>
-      <gemProperties>+8 Defense Rating and +12 Stamina</gemProperties>
+      <gemProperties>+8 Dodge Rating and +12 Stamina</gemProperties>
       <requiredLevel>-1</requiredLevel>
       <itemLevel>80</itemLevel>
       <desc>Matches a Yellow or Blue Socket.</desc>

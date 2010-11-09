@@ -14,22 +14,20 @@
         <subclassName>Mail</subclassName>
       </equipData>
       <damageData/>
-      <bonusAgility>120</bonusAgility>
-      <bonusStamina>95</bonusStamina>
-      <bonusIntellect>63</bonusIntellect>
-      <armor armorBonus="0">923</armor>
+      <bonusAgility>112</bonusAgility>
+      <bonusStamina>181</bonusStamina>
+      <armor armorBonus="0">1215</armor>
       <socketData>
         <socket color="Red"/>
       </socketData>
-      <durability current="50" max="50"/>
+      <durability current="55" max="55"/>
       <allowableClasses>
         <class>Hunter</class>
       </allowableClasses>
       <requiredLevel>80</requiredLevel>
       <itemLevel>264</itemLevel>
-      <bonusAttackPower>145</bonusAttackPower>
-      <bonusCritRating>72</bonusCritRating>
-      <bonusHitRating>63</bonusHitRating>
+      <bonusCritRating>80</bonusCritRating>
+      <bonusHitRating>72</bonusHitRating>
       <setData>
         <name>Ahn'Kahar Blood Hunter's Battlegear</name>
         <item name="Ahn'Kahar Blood Hunter's Handguards"/>

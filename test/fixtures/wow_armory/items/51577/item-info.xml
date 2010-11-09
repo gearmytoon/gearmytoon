@@ -3,9 +3,7 @@
 <page globalSearch="1" lang="en_us" requestQuery="i=51577" requestUrl="/item-info.xml">
   <itemInfo>
     <item icon="inv_shoulder_102" id="51577" level="251" name="Titan-Forged Shoulders of Triumph" quality="4" type="Mail">
-      <cost buyPrice="526175" sellPrice="105235">
-        <token count="40" icon="inv_jewelry_ring_66" id="43589"/>
-      </cost>
+      <cost buyPrice="526175" sellPrice="105235"/>
       <disenchantLoot requiredSkillRank="375">
         <item canAuction="1" dropRate="6" icon="inv_enchant_abysscrystal" id="34057" level="80" maxCount="1" minCount="1" name="Abyss Crystal" quality="4" type="Enchanting"/>
       </disenchantLoot>

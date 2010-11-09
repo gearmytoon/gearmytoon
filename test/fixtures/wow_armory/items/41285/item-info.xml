@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?xml-stylesheet type="text/xsl" href="/_layout/items/info.xsl"?>
+<page globalSearch="1" lang="en_us" requestQuery="i=41285" requestUrl="/item-info.xml">
+  <itemInfo>
+    <item canAuction="1" icon="inv_jewelcrafting_icediamond_02" id="41285" level="80" name="Chaotic Skyflare Diamond" quality="3" type="Meta">
+      <cost sellPrice="60000"/>
+      <createdBy>
+        <spell icon="inv_misc_gem_01" id="55389" name="Chaotic Skyflare Diamond">
+          <reagent count="1" icon="inv_jewelcrafting_icediamond_01" id="41266" name="Skyflare Diamond" quality="3"/>
+        </spell>
+      </createdBy>
+    </item>
+  </itemInfo>
+</page>

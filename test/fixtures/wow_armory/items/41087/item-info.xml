@@ -3,7 +3,10 @@
 <page globalSearch="1" lang="en_us" requestQuery="i=41087" requestUrl="/item-info.xml">
   <itemInfo>
     <item icon="inv_chest_mail_02" id="41087" level="232" name="Furious Gladiator's Chain Armor" quality="4" type="Mail">
-      <cost factionId="0" honor="54500"/>
+      <cost buyPrice="677310" sellPrice="135462"/>
+      <disenchantLoot requiredSkillRank="375">
+        <item canAuction="1" dropRate="6" icon="inv_enchant_abysscrystal" id="34057" level="80" maxCount="1" minCount="1" name="Abyss Crystal" quality="4" type="Enchanting"/>
+      </disenchantLoot>
       <vendors>
         <creature area="Netherstorm" classification="0" heroic="1" id="33932" maxLevel="70" minLevel="70" name="Big Zokk Torquewrench" title="Arena Vendor" type="Humanoid"/>
         <creature area="Netherstorm" classification="0" heroic="1" id="33918" maxLevel="70" minLevel="70" name="Kezzik the Striker" title="Veteran Arena Vendor" type="Humanoid"/>

@@ -16,14 +16,13 @@
       <damageData>
         <damage>
           <type>0</type>
-          <min>266</min>
-          <max>492</max>
+          <min>449</min>
+          <max>674</max>
         </damage>
         <speed>2.1</speed>
-        <dps>180.48</dps>
+        <dps>102.62</dps>
       </damageData>
-      <bonusStamina>109</bonusStamina>
-      <bonusIntellect>128</bonusIntellect>
+      <bonusStamina>220</bonusStamina>
       <socketData>
         <socket color="Red"/>
         <socket color="Blue"/>
@@ -31,7 +30,7 @@
       <durability current="120" max="120"/>
       <requiredLevel>80</requiredLevel>
       <itemLevel>251</itemLevel>
-      <bonusSpellPower>657</bonusSpellPower>
+      <bonusSpellPower>823</bonusSpellPower>
       <bonusHitRating>101</bonusHitRating>
       <bonusHasteRating>136</bonusHasteRating>
       <spellData>

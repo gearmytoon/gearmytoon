@@ -4,7 +4,7 @@
   <itemTooltips>
     <itemTooltip>
       <id>36766</id>
-      <name>Bright Dragon's Eye</name>
+      <name>Delicate Dragon's Eye</name>
       <icon>inv_jewelcrafting_dragonseye05</icon>
       <overallQualityId>4</overallQualityId>
       <bonding>1</bonding>
@@ -13,7 +13,7 @@
         <inventoryType>0</inventoryType>
       </equipData>
       <damageData/>
-      <gemProperties>+68 Attack Power</gemProperties>
+      <gemProperties>+34 Agility</gemProperties>
       <requiredLevel>-1</requiredLevel>
       <requiredSkill name="Jewelcrafting" rank="350"/>
       <itemLevel>80</itemLevel>

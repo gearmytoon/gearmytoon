@@ -23,13 +23,12 @@
         <speed>1.5</speed>
         <dps>120.00</dps>
       </damageData>
+      <bonusAgility>29</bonusAgility>
       <bonusStamina>44</bonusStamina>
-      <durability current="18" max="18"/>
       <requiredLevelMin>1</requiredLevelMin>
       <requiredLevelMax>80</requiredLevelMax>
       <requiredLevelCurr>80</requiredLevelCurr>
       <itemLevel>1</itemLevel>
-      <bonusAttackPower>58</bonusAttackPower>
       <bonusResilienceRating>29</bonusResilienceRating>
       <itemSource value="sourceType.vendor"/>
     </itemTooltip>

@@ -15,20 +15,18 @@
       </equipData>
       <damageData/>
       <bonusAgility>146</bonusAgility>
-      <bonusStamina>128</bonusStamina>
-      <bonusIntellect>85</bonusIntellect>
-      <armor armorBonus="0">1477</armor>
+      <bonusStamina>192</bonusStamina>
+      <armor armorBonus="0">1944</armor>
       <socketData>
         <socket color="Red"/>
         <socket color="Yellow"/>
         <socket color="Blue"/>
       </socketData>
-      <durability current="140" max="140"/>
+      <durability current="165" max="165"/>
       <requiredLevel>80</requiredLevel>
       <itemLevel>264</itemLevel>
-      <bonusAttackPower>184</bonusAttackPower>
-      <bonusCritRating>108</bonusCritRating>
-      <bonusArmorPenetration>69</bonusArmorPenetration>
+      <bonusCritRating>146</bonusCritRating>
+      <bonusHasteRating>69</bonusHasteRating>
       <itemSource value="sourceType.vendor"/>
     </itemTooltip>
   </itemTooltips>

@@ -11,17 +11,21 @@
       <classId>4</classId>
       <equipData>
         <inventoryType>28</inventoryType>
-        <subclassName>Idol</subclassName>
+        <subclassName>Relic</subclassName>
       </equipData>
       <damageData/>
+      <bonusStamina>28</bonusStamina>
+      <bonusAgility>19</bonusAgility>
+      <socketData>
+        <socket color="Red"/>
+      </socketData>
+      <allowableClasses>
+        <class>Druid</class>
+      </allowableClasses>
       <requiredLevel>70</requiredLevel>
       <itemLevel>159</itemLevel>
-      <spellData>
-        <spell>
-          <trigger>1</trigger>
-          <desc>Your Mangle ability also grants you 39 resilience rating for 6 sec.</desc>
-        </spell>
-      </spellData>
+      <bonusCritRating>13</bonusCritRating>
+      <bonusResilienceRating>13</bonusResilienceRating>
       <itemSource value="sourceType.vendor"/>
     </itemTooltip>
   </itemTooltips>

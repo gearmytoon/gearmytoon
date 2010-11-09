@@ -14,12 +14,11 @@
         <inventoryType>11</inventoryType>
       </equipData>
       <damageData/>
-      <bonusStamina>58</bonusStamina>
-      <bonusIntellect>58</bonusIntellect>
+      <bonusIntellect>76</bonusIntellect>
+      <bonusStamina>108</bonusStamina>
       <bonusSpirit>50</bonusSpirit>
       <requiredLevel>80</requiredLevel>
       <itemLevel>245</itemLevel>
-      <bonusSpellPower>89</bonusSpellPower>
       <bonusHasteRating>50</bonusHasteRating>
       <itemSource value="sourceType.vendor"/>
     </itemTooltip>

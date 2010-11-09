@@ -15,21 +15,20 @@
       </equipData>
       <damageData/>
       <bonusAgility>144</bonusAgility>
-      <bonusStamina>144</bonusStamina>
-      <armor armorBonus="0">636</armor>
+      <bonusStamina>191</bonusStamina>
+      <armor armorBonus="0">1321</armor>
       <socketData>
         <socket color="Red"/>
         <socket color="Yellow"/>
       </socketData>
-      <durability current="120" max="120"/>
+      <durability current="165" max="165"/>
       <allowableClasses>
         <class>Rogue</class>
       </allowableClasses>
       <requiredLevel>80</requiredLevel>
       <itemLevel>251</itemLevel>
-      <bonusAttackPower>159</bonusAttackPower>
       <bonusCritRating>96</bonusCritRating>
-      <bonusArmorPenetration>80</bonusArmorPenetration>
+      <bonusHasteRating>80</bonusHasteRating>
       <setData>
         <name>Shadowblade's Battlegear</name>
         <item name="Shadowblade Pauldrons"/>

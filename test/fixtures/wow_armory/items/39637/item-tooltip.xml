@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?xml-stylesheet type="text/xsl" href="/_layout/items/tooltip.xsl"?>
+<page globalSearch="1" lang="en_us" requestUrl="/item-tooltip.xml">
+  <itemTooltips>
+    <itemTooltip>
+      <id>39637</id>
+      <name>Heroes' Redemption Shoulderplates</name>
+      <icon>inv_shoulder_29</icon>
+      <overallQualityId>4</overallQualityId>
+      <bonding>1</bonding>
+      <classId>4</classId>
+      <equipData>
+        <inventoryType>3</inventoryType>
+        <subclassName>Plate</subclassName>
+      </equipData>
+      <damageData/>
+      <bonusStrength>66</bonusStrength>
+      <bonusStamina>70</bonusStamina>
+      <armor armorBonus="0">1753</armor>
+      <socketData>
+        <socket color="Blue"/>
+      </socketData>
+      <durability current="100" max="100"/>
+      <allowableClasses>
+        <class>Paladin</class>
+      </allowableClasses>
+      <requiredLevel>80</requiredLevel>
+      <itemLevel>200</itemLevel>
+      <bonusCritRating>50</bonusCritRating>
+      <bonusHitRating>39</bonusHitRating>
+      <setData>
+        <name>Redemption Battlegear</name>
+        <item name="Redemption Chestpiece"/>
+        <item name="Redemption Gauntlets"/>
+        <item name="Redemption Helm"/>
+        <item name="Redemption Legplates"/>
+        <item name="Redemption Shoulderplates"/>
+        <setBonus desc="Increases the damage dealt by your Divine Storm by 10%." threshold="2"/>
+        <setBonus desc="Reduces the cooldown of your Judgment ability by 1 second." threshold="4"/>
+      </setData>
+      <itemSource value="sourceType.vendor"/>
+    </itemTooltip>
+  </itemTooltips>
+</page>

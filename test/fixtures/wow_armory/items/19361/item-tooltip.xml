@@ -16,22 +16,17 @@
       <damageData>
         <damage>
           <type>0</type>
-          <min>149</min>
-          <max>225</max>
+          <min>206</min>
+          <max>310</max>
         </damage>
         <speed>3.4</speed>
-        <dps>55.00</dps>
+        <dps>75.88</dps>
       </damageData>
       <bonusStamina>7</bonusStamina>
       <durability current="90" max="90"/>
       <requiredLevel>60</requiredLevel>
       <itemLevel>77</itemLevel>
-      <spellData>
-        <spell>
-          <trigger>1</trigger>
-          <desc>Increases ranged attack power by 36.</desc>
-        </spell>
-      </spellData>
+      <bonusRangedAttackPower>36</bonusRangedAttackPower>
       <itemSource areaId="2677" areaName="Blackwing Lair" creatureId="14020" creatureName="Chromaggus" difficulty="n" dropRate="2" value="sourceType.creatureDrop"/>
     </itemTooltip>
   </itemTooltips>

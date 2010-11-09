@@ -3,9 +3,7 @@
 <page globalSearch="1" lang="en_us" requestQuery="i=50468" requestUrl="/item-info.xml">
   <itemInfo>
     <item icon="inv_misc_cape_16" id="50468" level="264" name="Drape of the Violet Tower" quality="4" type="Cloth">
-      <cost buyPrice="367902" sellPrice="73580">
-        <token count="50" icon="inv_misc_frostemblem_01" id="49426"/>
-      </cost>
+      <cost buyPrice="367902" sellPrice="73580"/>
       <disenchantLoot requiredSkillRank="375">
         <item canAuction="1" dropRate="6" icon="inv_enchant_abysscrystal" id="34057" level="80" maxCount="1" minCount="1" name="Abyss Crystal" quality="4" type="Enchanting"/>
       </disenchantLoot>

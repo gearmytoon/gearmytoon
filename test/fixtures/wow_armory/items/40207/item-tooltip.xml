@@ -12,17 +12,21 @@
       <classId>4</classId>
       <equipData>
         <inventoryType>28</inventoryType>
-        <subclassName>Sigil</subclassName>
+        <subclassName>Relic</subclassName>
       </equipData>
       <damageData/>
+      <bonusStamina>47</bonusStamina>
+      <bonusStrength>32</bonusStrength>
+      <socketData>
+        <socket color="Red"/>
+      </socketData>
+      <allowableClasses>
+        <class>Death Knight</class>
+      </allowableClasses>
       <requiredLevel>80</requiredLevel>
       <itemLevel>213</itemLevel>
-      <spellData>
-        <spell>
-          <trigger>1</trigger>
-          <desc>Increases the base damage dealt by your Scourge Strike by 189, your Obliterate by 336, and your Death Strike by 315.</desc>
-        </spell>
-      </spellData>
+      <bonusCritRating>21</bonusCritRating>
+      <bonusHasteRating>21</bonusHasteRating>
       <itemSource value="sourceType.vendor"/>
     </itemTooltip>
   </itemTooltips>

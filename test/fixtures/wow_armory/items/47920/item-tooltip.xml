@@ -15,15 +15,15 @@
         <inventoryType>11</inventoryType>
       </equipData>
       <damageData/>
-      <bonusStrength>70</bonusStrength>
-      <bonusStamina>86</bonusStamina>
+      <bonusStrength>59</bonusStrength>
+      <bonusStamina>113</bonusStamina>
       <socketData>
         <socket color="Blue"/>
         <socket color="Yellow"/>
       </socketData>
       <requiredLevel>80</requiredLevel>
       <itemLevel>245</itemLevel>
-      <bonusArmorPenetration>41</bonusArmorPenetration>
+      <bonusCritRating>41</bonusCritRating>
       <bonusHasteRating>42</bonusHasteRating>
       <itemSource areaId="4722" areaName="Trial of the Crusader (10)" creatureId="34797" creatureName="Icehowl" difficulty="h" dropRate="3" value="sourceType.creatureDrop"/>
     </itemTooltip>

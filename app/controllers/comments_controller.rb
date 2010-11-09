@@ -1,5 +1,6 @@
 class CommentsController < ApplicationController
   before_filter :require_user, :only => [:create]
+  before_filter :public_must_revalidate, :only => :show
   layout false
   
   def create
@@ -9,7 +10,13 @@ class CommentsController < ApplicationController
   end
   
   def show
-    @comments = Item.find(params[:item_id]).comments.paginate(:per_page => 30, :page => params[:page], :include => :user)
+    item = Item.find(params[:item_id])
+    response.etag = item.comments
+    if request.fresh?(response)
+      head :not_modified
+    else
+      @comments = item.comments.paginate(:per_page => 30, :page => params[:page], :include => :user)
+    end
   end
   
 end

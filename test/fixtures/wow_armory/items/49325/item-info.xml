@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?xml-stylesheet type="text/xsl" href="/_layout/items/info.xsl"?>
+<page globalSearch="1" lang="en_us" requestQuery="i=49325" requestUrl="/item-info.xml">
+  <itemInfo>
+    <item icon="inv_helmet_74" id="49325" level="232" name="Judgement Helm" quality="4" type="Plate">
+      <cost sellPrice="116647"/>
+      <disenchantLoot requiredSkillRank="375">
+        <item canAuction="1" dropRate="6" icon="inv_enchant_abysscrystal" id="34057" level="80" maxCount="1" minCount="1" name="Abyss Crystal" quality="4" type="Enchanting"/>
+      </disenchantLoot>
+      <dropCreatures>
+        <creature area="Onyxia's Lair" areaUrl="fl[source]=dungeon&amp;fl[dungeon]=onyxiaslair&amp;fl[boss]=all&amp;fl[difficulty]=all" classification="3" dropRate="2" id="10184" maxLevel="83" minLevel="83" name="Onyxia" type="Dragonkin" url="fl[source]=dungeon&amp;fl[dungeon]=onyxiaslair&amp;fl[difficulty]=all&amp;fl[boss]=10184"/>
+      </dropCreatures>
+    </item>
+  </itemInfo>
+</page>

@@ -23,8 +23,8 @@
         <speed>3.6</speed>
         <dps>267.22</dps>
       </damageData>
-      <bonusStrength>164</bonusStrength>
-      <bonusStamina>164</bonusStamina>
+      <bonusStrength>144</bonusStrength>
+      <bonusStamina>216</bonusStamina>
       <durability current="120" max="120"/>
       <requiredLevel>80</requiredLevel>
       <itemLevel>251</itemLevel>

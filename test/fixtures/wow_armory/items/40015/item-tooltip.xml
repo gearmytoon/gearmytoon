@@ -4,7 +4,7 @@
   <itemTooltips>
     <itemTooltip>
       <id>40015</id>
-      <name>Thick Autumn's Glow</name>
+      <name>Subtle Autumn's Glow</name>
       <icon>inv_jewelcrafting_gem_26</icon>
       <overallQualityId>3</overallQualityId>
       <bonding>0</bonding>
@@ -13,7 +13,7 @@
         <inventoryType>0</inventoryType>
       </equipData>
       <damageData/>
-      <gemProperties>+16 Defense Rating</gemProperties>
+      <gemProperties>+16 Dodge Rating</gemProperties>
       <requiredLevel>-1</requiredLevel>
       <itemLevel>80</itemLevel>
       <desc>Matches a Yellow Socket.</desc>

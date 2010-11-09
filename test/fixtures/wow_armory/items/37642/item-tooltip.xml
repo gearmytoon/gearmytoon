@@ -15,16 +15,10 @@
       </equipData>
       <damageData/>
       <bonusAgility>49</bonusAgility>
-      <bonusStamina>51</bonusStamina>
+      <bonusStamina>95</bonusStamina>
       <requiredLevel>80</requiredLevel>
       <itemLevel>200</itemLevel>
       <bonusExpertiseRating>33</bonusExpertiseRating>
-      <spellData>
-        <spell>
-          <trigger>1</trigger>
-          <desc>Increases attack power by 100.</desc>
-        </spell>
-      </spellData>
       <itemSource areaId="4416" areaName="Gundrak" creatureId="29306" creatureName="Gal'darah" difficulty="h" dropRate="4" value="sourceType.creatureDrop"/>
     </itemTooltip>
   </itemTooltips>

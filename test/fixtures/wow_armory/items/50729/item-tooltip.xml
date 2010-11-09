@@ -18,21 +18,15 @@
       <blockValue>259</blockValue>
       <bonusStrength>102</bonusStrength>
       <bonusStamina>141</bonusStamina>
-      <armor armorBonus="0">9262</armor>
+      <armor armorBonus="0">7699</armor>
       <socketData>
         <socket color="Red"/>
       </socketData>
       <durability current="120" max="120"/>
       <requiredLevel>80</requiredLevel>
       <itemLevel>277</itemLevel>
-      <bonusDefenseSkillRating>54</bonusDefenseSkillRating>
-      <bonusParryRating>46</bonusParryRating>
-      <spellData>
-        <spell>
-          <trigger>1</trigger>
-          <desc>Increases the block value of your shield by 168.</desc>
-        </spell>
-      </spellData>
+      <bonusParryRating>72</bonusParryRating>
+      <bonusDodgeRating>68</bonusDodgeRating>
       <itemSource areaId="4812" areaName="Icecrown Citadel (25)" creatureId="38434" creatureName="Blood-Queen Lana'thel" difficulty="h" dropRate="2" value="sourceType.creatureDrop"/>
     </itemTooltip>
   </itemTooltips>

@@ -15,21 +15,19 @@
       </equipData>
       <damageData/>
       <bonusAgility>120</bonusAgility>
-      <bonusStamina>95</bonusStamina>
-      <bonusIntellect>63</bonusIntellect>
-      <armor armorBonus="0">1108</armor>
+      <bonusStamina>142</bonusStamina>
+      <armor armorBonus="0">1458</armor>
       <socketData>
         <socket color="Red"/>
       </socketData>
-      <durability current="85" max="85"/>
+      <durability current="100" max="100"/>
       <allowableClasses>
         <class>Hunter</class>
       </allowableClasses>
       <requiredLevel>80</requiredLevel>
       <itemLevel>264</itemLevel>
-      <bonusAttackPower>145</bonusAttackPower>
-      <bonusCritRating>80</bonusCritRating>
-      <bonusArmorPenetration>55</bonusArmorPenetration>
+      <bonusCritRating>112</bonusCritRating>
+      <bonusHasteRating>55</bonusHasteRating>
       <setData>
         <name>Ahn'Kahar Blood Hunter's Battlegear</name>
         <item name="Ahn'Kahar Blood Hunter's Handguards"/>

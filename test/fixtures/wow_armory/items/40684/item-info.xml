@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?xml-stylesheet type="text/xsl" href="/_layout/items/info.xsl"?>
+<page globalSearch="1" lang="en_us" requestQuery="i=40684" requestUrl="/item-info.xml">
+  <itemInfo>
+    <item icon="inv_jewelry_talisman_08" id="40684" level="200" name="Mirror of Truth" quality="4" type="Miscellaneous">
+      <disenchantLoot requiredSkillRank="375">
+        <item canAuction="1" dropRate="6" icon="inv_enchant_abysscrystal" id="34057" level="80" maxCount="1" minCount="1" name="Abyss Crystal" quality="4" type="Enchanting"/>
+      </disenchantLoot>
+      <vendors>
+        <creature area="Crystalsong Forest" classification="0" heroic="1" id="31580" maxLevel="80" minLevel="80" name="Arcanist Ivrenne" title="Emblem of Heroism Quartermaster" type="Humanoid"/>
+        <creature area="Crystalsong Forest" classification="0" heroic="1" id="31582" maxLevel="80" minLevel="80" name="Magistrix Lambriesse" title="Emblem of Heroism Quartermaster" type="Humanoid"/>
+        <creature area="Crystalsong Forest" classification="0" heroic="1" id="29528" maxLevel="75" minLevel="75" name="Debbi Moore" title="Trinkets &amp; Charms" type="Humanoid"/>
+      </vendors>
+    </item>
+  </itemInfo>
+</page>

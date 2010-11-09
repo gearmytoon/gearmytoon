@@ -29,13 +29,7 @@
       <requiredLevel>70</requiredLevel>
       <itemLevel>154</itemLevel>
       <bonusHasteRating>16</bonusHasteRating>
-      <spellData>
-        <spell>
-          <trigger>1</trigger>
-          <desc>Increases attack power by 36.</desc>
-          <charges>1</charges>
-        </spell>
-      </spellData>
+      <bonusAttackPower>36</bonusAttackPower>
       <itemSource value="sourceType.worldDrop"/>
     </itemTooltip>
   </itemTooltips>

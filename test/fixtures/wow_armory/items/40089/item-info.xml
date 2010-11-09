@@ -2,10 +2,10 @@
 <?xml-stylesheet type="text/xsl" href="/_layout/items/info.xsl"?>
 <page globalSearch="1" lang="en_us" requestQuery="i=40089" requestUrl="/item-info.xml">
   <itemInfo>
-    <item canAuction="1" icon="inv_jewelcrafting_gem_25" id="40089" level="80" name="Enduring Forest Emerald" quality="3" type="Green">
+    <item canAuction="1" icon="inv_jewelcrafting_gem_25" id="40089" level="80" name="Regal Forest Emerald" quality="3" type="Green">
       <cost sellPrice="45000"/>
       <createdBy>
-        <spell icon="inv_misc_gem_01" id="53998" name="Enduring Forest Emerald">
+        <spell icon="inv_misc_gem_01" id="53998" name="Regal Forest Emerald">
           <reagent count="1" icon="inv_jewelcrafting_gem_01" id="36933" name="Forest Emerald" quality="3"/>
         </spell>
       </createdBy>

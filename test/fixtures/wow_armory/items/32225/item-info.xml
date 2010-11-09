@@ -2,10 +2,10 @@
 <?xml-stylesheet type="text/xsl" href="/_layout/items/info.xsl"?>
 <page globalSearch="1" lang="en_us" requestQuery="i=32225" requestUrl="/item-info.xml">
   <itemInfo>
-    <item canAuction="1" icon="inv_jewelcrafting_seasprayemerald_02" id="32225" level="70" name="Dazzling Seaspray Emerald" quality="4" type="Green">
+    <item canAuction="1" icon="inv_jewelcrafting_shadowsongamethyst_02" id="32225" level="70" name="Purified Shadowsong Amethyst" quality="4" type="Purple">
       <cost sellPrice="60000"/>
       <createdBy>
-        <spell icon="inv_misc_gem_01" id="39741" name="Dazzling Seaspray Emerald">
+        <spell icon="inv_misc_gem_01" id="39741" name="Purified Shadowsong Amethyst">
           <reagent count="1" icon="inv_jewelcrafting_seasprayemerald_01" id="32249" name="Seaspray Emerald" quality="4"/>
         </spell>
       </createdBy>

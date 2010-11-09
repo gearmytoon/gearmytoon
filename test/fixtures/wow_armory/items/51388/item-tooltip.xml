@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?xml-stylesheet type="text/xsl" href="/_layout/items/tooltip.xsl"?>
+<page globalSearch="1" lang="en_us" requestUrl="/item-tooltip.xml">
+  <itemTooltips>
+    <itemTooltip>
+      <id>51388</id>
+      <name>Wrathful Gladiator's Decapitator</name>
+      <icon>inv_axe_115</icon>
+      <overallQualityId>4</overallQualityId>
+      <bonding>1</bonding>
+      <classId>2</classId>
+      <equipData>
+        <inventoryType>17</inventoryType>
+        <subclassName>Axe</subclassName>
+      </equipData>
+      <damageData>
+        <damage>
+          <type>0</type>
+          <min>848</min>
+          <max>1273</max>
+        </damage>
+        <speed>3.6</speed>
+        <dps>294.58</dps>
+      </damageData>
+      <bonusStamina>243</bonusStamina>
+      <socketData>
+        <socket color="Red"/>
+        <socket color="Blue"/>
+      </socketData>
+      <durability current="120" max="120"/>
+      <requiredLevel>80</requiredLevel>
+      <itemLevel>264</itemLevel>
+      <bonusAttackPower>324</bonusAttackPower>
+      <bonusCritRating>92</bonusCritRating>
+      <bonusResilienceRating>92</bonusResilienceRating>
+      <itemSource value="sourceType.vendor"/>
+      <requiredPersonalArenaRating personalArenaRating="1800"/>
+    </itemTooltip>
+  </itemTooltips>
+</page>

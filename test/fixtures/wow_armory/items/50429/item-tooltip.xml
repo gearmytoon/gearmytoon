@@ -16,14 +16,13 @@
       <damageData>
         <damage>
           <type>0</type>
-          <min>320</min>
-          <max>583</max>
+          <min>522</min>
+          <max>784</max>
         </damage>
         <speed>2.1</speed>
-        <dps>215.15</dps>
+        <dps>119.29</dps>
       </damageData>
-      <bonusStamina>167</bonusStamina>
-      <bonusIntellect>167</bonusIntellect>
+      <bonusStamina>313</bonusStamina>
       <bonusSpirit>130</bonusSpirit>
       <socketData>
         <socket color="Red"/>
@@ -32,7 +31,7 @@
       <durability current="120" max="120"/>
       <requiredLevel>80</requiredLevel>
       <itemLevel>271</itemLevel>
-      <bonusSpellPower>792</bonusSpellPower>
+      <bonusSpellPower>992</bonusSpellPower>
       <bonusHasteRating>130</bonusHasteRating>
       <itemSource areaId="4812" areaName="Icecrown Citadel (25)" creatureId="39166" creatureName="The Lich King" difficulty="n" dropRate="2" value="sourceType.creatureDrop"/>
     </itemTooltip>

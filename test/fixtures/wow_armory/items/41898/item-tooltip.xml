@@ -14,13 +14,13 @@
         <subclassName>Cloth</subclassName>
       </equipData>
       <damageData/>
-      <bonusStamina>96</bonusStamina>
-      <bonusIntellect>42</bonusIntellect>
-      <armor armorBonus="0">177</armor>
+      <bonusIntellect>77</bonusIntellect>
+      <bonusStamina>119</bonusStamina>
+      <armor armorBonus="0">508</armor>
       <socketData>
         <socket color="Blue"/>
       </socketData>
-      <durability current="35" max="35"/>
+      <durability current="55" max="55"/>
       <allowableClasses>
         <class>Priest</class>
         <class>Mage</class>
@@ -28,7 +28,6 @@
       </allowableClasses>
       <requiredLevel>80</requiredLevel>
       <itemLevel>226</itemLevel>
-      <bonusSpellPower>90</bonusSpellPower>
       <bonusCritRating>48</bonusCritRating>
       <bonusResilienceRating>56</bonusResilienceRating>
       <itemSource value="sourceType.pvpReward"/>

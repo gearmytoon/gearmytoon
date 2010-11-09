@@ -16,7 +16,7 @@
       <damageData/>
       <bonusStrength>107</bonusStrength>
       <bonusStamina>148</bonusStamina>
-      <armor armorBonus="0">1894</armor>
+      <armor armorBonus="0">1900</armor>
       <socketData>
         <socket color="Red"/>
       </socketData>
@@ -26,8 +26,7 @@
       </allowableClasses>
       <requiredLevel>80</requiredLevel>
       <itemLevel>251</itemLevel>
-      <bonusDefenseSkillRating>56</bonusDefenseSkillRating>
-      <bonusDodgeRating>48</bonusDodgeRating>
+      <bonusDodgeRating>76</bonusDodgeRating>
       <bonusParryRating>56</bonusParryRating>
       <setData>
         <name>Ymirjar Lord's Plate</name>
@@ -37,7 +36,7 @@
         <item name="Ymirjar Lord's Handguards"/>
         <item name="Ymirjar Lord's Breastplate"/>
         <setBonus desc="Your Shield Slam and Shockwave abilities deal 20% increased damage." threshold="2"/>
-        <setBonus desc="Your Bloodrage ability no longer costs health to use, and now causes you to absorb damage equal to 20% of your maximum health.  Lasts until cancelled." threshold="4"/>
+        <setBonus desc="Your Battle Shout and Commanding Shout abilities now cause you to absorb damage equal to 20% of your maximum health.  Lasts 10 sec." threshold="4"/>
       </setData>
       <itemSource value="sourceType.vendor"/>
     </itemTooltip>

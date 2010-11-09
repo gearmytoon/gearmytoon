@@ -3,32 +3,32 @@
 <page globalSearch="1" lang="en_us" requestQuery="i=34349" requestUrl="/item-info.xml">
   <itemInfo>
     <item icon="inv_throwingknife_07" id="34349" level="154" name="Blade of Life's Inevitability" quality="4" type="Thrown">
-      <cost arena="1630" sellPrice="36368"/>
+      <cost sellPrice="36368"/>
       <disenchantLoot requiredSkillRank="300">
         <item canAuction="1" dropRate="6" icon="inv_enchant_voidcrystal" id="22450" level="70" maxCount="2" minCount="1" name="Void Crystal" quality="4" type="Enchanting"/>
       </disenchantLoot>
       <dropCreatures>
         <creature area="Sunwell Plateau" classification="1" dropRate="1" heroic="1" id="25367" maxLevel="70" minLevel="70" name="Sunblade Arch Mage" type="Humanoid"/>
+        <creature area="Sunwell Plateau" classification="1" dropRate="1" heroic="1" id="25593" maxLevel="71" minLevel="71" name="Apocalypse Guard" type="Demon"/>
         <creature area="Sunwell Plateau" classification="1" dropRate="1" heroic="1" id="25363" maxLevel="70" minLevel="70" name="Sunblade Cabalist" type="Humanoid"/>
         <creature area="Sunwell Plateau" classification="1" dropRate="1" heroic="1" id="25867" maxLevel="70" minLevel="70" name="Sunblade Dragonhawk" type="Beast"/>
-        <creature area="Sunwell Plateau" classification="1" dropRate="1" heroic="1" id="25593" maxLevel="71" minLevel="71" name="Apocalypse Guard" type="Demon"/>
         <creature area="Sunwell Plateau" classification="1" dropRate="1" heroic="1" id="25371" maxLevel="70" minLevel="70" name="Sunblade Dawn Priest" type="Humanoid"/>
         <creature area="Sunwell Plateau" classification="1" dropRate="1" heroic="1" id="25483" maxLevel="71" minLevel="71" name="Shadowsword Manafiend" type="Humanoid"/>
         <creature area="Sunwell Plateau" classification="1" dropRate="1" heroic="1" id="25837" maxLevel="71" minLevel="71" name="Shadowsword Commander" type="Humanoid"/>
         <creature area="Sunwell Plateau" classification="1" dropRate="1" heroic="1" id="25507" maxLevel="72" minLevel="72" name="Sunblade Protector" type="Mechanical"/>
         <creature area="Sunwell Plateau" classification="1" dropRate="1" heroic="1" id="25509" maxLevel="71" minLevel="71" name="Priestess of Torment" type="Demon"/>
         <creature area="Sunwell Plateau" classification="1" dropRate="1" heroic="1" id="25591" maxLevel="71" minLevel="71" name="Painbringer" type="Demon"/>
+        <creature area="Sunwell Plateau" classification="1" dropRate="1" heroic="1" id="25506" maxLevel="71" minLevel="71" name="Shadowsword Lifeshaper" type="Humanoid"/>
         <creature area="Sunwell Plateau" classification="1" dropRate="1" heroic="1" id="25484" maxLevel="71" minLevel="71" name="Shadowsword Assassin" type="Humanoid"/>
-        <creature area="Sunwell Plateau" classification="1" dropRate="1" heroic="1" id="25592" maxLevel="71" minLevel="71" name="Doomfire Destroyer" type="Demon"/>
+        <creature area="Sunwell Plateau" classification="1" dropRate="1" heroic="1" id="25369" maxLevel="70" minLevel="70" name="Sunblade Vindicator" type="Humanoid"/>
         <creature area="Sunwell Plateau" classification="1" dropRate="1" heroic="1" id="25599" maxLevel="71" minLevel="71" name="Cataclysm Hound" type="Demon"/>
         <creature area="Sunwell Plateau" classification="1" dropRate="1" heroic="1" id="25486" maxLevel="71" minLevel="71" name="Shadowsword Vanquisher" type="Humanoid"/>
         <creature area="Sunwell Plateau" classification="1" dropRate="1" heroic="1" id="25595" maxLevel="71" minLevel="71" name="Chaos Gazer" type="Demon"/>
         <creature area="Sunwell Plateau" classification="1" dropRate="1" heroic="1" id="25370" maxLevel="70" minLevel="70" name="Sunblade Dusk Priest" type="Humanoid"/>
+        <creature area="Sunwell Plateau" classification="1" dropRate="1" heroic="1" id="25592" maxLevel="71" minLevel="71" name="Doomfire Destroyer" type="Demon"/>
         <creature area="Sunwell Plateau" classification="1" dropRate="1" heroic="1" id="25597" maxLevel="71" minLevel="71" name="Oblivion Mage" type="Demon"/>
         <creature area="Sunwell Plateau" classification="1" dropRate="1" heroic="1" id="25508" maxLevel="72" minLevel="72" name="Shadowsword Guardian" type="Mechanical"/>
         <creature area="Sunwell Plateau" classification="1" dropRate="1" heroic="1" id="25368" maxLevel="70" minLevel="70" name="Sunblade Slayer" type="Humanoid"/>
-        <creature area="Sunwell Plateau" classification="1" dropRate="1" heroic="1" id="25369" maxLevel="70" minLevel="70" name="Sunblade Vindicator" type="Humanoid"/>
-        <creature area="Sunwell Plateau" classification="1" dropRate="1" heroic="1" id="25506" maxLevel="71" minLevel="71" name="Shadowsword Lifeshaper" type="Humanoid"/>
       </dropCreatures>
     </item>
   </itemInfo>

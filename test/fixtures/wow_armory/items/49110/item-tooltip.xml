@@ -17,7 +17,7 @@
       <gemProperties>+10 All Stats</gemProperties>
       <requiredLevel>-1</requiredLevel>
       <itemLevel>80</itemLevel>
-      <desc>Matches any socket.</desc>
+      <desc>Matches a Red, Yellow or Blue socket.  Maximum of one socketed in your equipment.</desc>
       <itemSource value="sourceType.createdBySpell"/>
     </itemTooltip>
   </itemTooltips>

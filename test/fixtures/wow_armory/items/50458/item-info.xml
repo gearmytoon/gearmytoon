@@ -2,10 +2,7 @@
 <?xml-stylesheet type="text/xsl" href="/_layout/items/info.xsl"?>
 <page globalSearch="1" lang="en_us" requestQuery="i=50458" requestUrl="/item-info.xml">
   <itemInfo>
-    <item icon="spell_frost_frostnova" id="50458" level="264" name="Bizuri's Totem of Shattered Ice" quality="4" type="Totems">
-      <cost>
-        <token count="30" icon="inv_misc_frostemblem_01" id="49426"/>
-      </cost>
+    <item icon="spell_frost_frostnova" id="50458" level="264" name="Bizuri's Totem of Shattered Ice" quality="4" type="Relic">
       <disenchantLoot requiredSkillRank="375">
         <item canAuction="1" dropRate="6" icon="inv_enchant_abysscrystal" id="34057" level="80" maxCount="1" minCount="1" name="Abyss Crystal" quality="4" type="Enchanting"/>
       </disenchantLoot>

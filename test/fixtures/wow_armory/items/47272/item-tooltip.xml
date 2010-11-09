@@ -14,10 +14,9 @@
       </equipData>
       <damageData/>
       <bonusAgility>76</bonusAgility>
-      <bonusStamina>76</bonusStamina>
+      <bonusStamina>114</bonusStamina>
       <requiredLevel>80</requiredLevel>
       <itemLevel>245</itemLevel>
-      <bonusAttackPower>101</bonusAttackPower>
       <bonusCritRating>54</bonusCritRating>
       <bonusHasteRating>44</bonusHasteRating>
       <itemSource areaId="4722" areaName="Trial of the Crusader (25)" creatureId="35216" creatureName="Lord Jaraxxus" difficulty="n" dropRate="3" value="sourceType.creatureDrop"/>

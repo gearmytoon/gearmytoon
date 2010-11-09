@@ -2,13 +2,13 @@
 <?xml-stylesheet type="text/xsl" href="/_layout/items/info.xsl"?>
 <page globalSearch="1" lang="en_us" requestQuery="i=40154" requestUrl="/item-info.xml">
   <itemInfo>
-    <item canAuction="1" icon="inv_jewelcrafting_gem_39" id="40154" level="80" name="Durable Ametrine" quality="4" type="Orange">
+    <item canAuction="1" icon="inv_jewelcrafting_gem_39" id="40154" level="80" name="Willful Ametrine" quality="4" type="Orange">
       <cost buyPrice="360000" sellPrice="90000"/>
       <vendors>
         <creature area="Trial of the Crusader" classification="0" heroic="1" id="33290" maxLevel="80" minLevel="80" name="Jillian McWeaksauce" title="The Cutest McWeaksauce" type="Humanoid"/>
       </vendors>
       <createdBy>
-        <spell icon="inv_misc_gem_01" id="66571" name="Durable Ametrine">
+        <spell icon="inv_misc_gem_01" id="66571" name="Willful Ametrine">
           <reagent count="1" icon="inv_jewelcrafting_gem_33" id="36931" name="Ametrine" quality="4"/>
         </spell>
       </createdBy>

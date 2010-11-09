@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?xml-stylesheet type="text/xsl" href="/_layout/items/info.xsl"?>
+<page globalSearch="1" lang="en_us" requestQuery="i=47494" requestUrl="/item-info.xml">
+  <itemInfo>
+    <item icon="inv_jewelry_necklace_36" id="47494" level="219" name="Ancient Pendant of Arathor" quality="4" type="Miscellaneous">
+      <cost sellPrice="75623"/>
+      <disenchantLoot requiredSkillRank="375">
+        <item canAuction="1" dropRate="6" icon="inv_enchant_abysscrystal" id="34057" level="80" maxCount="1" minCount="1" name="Abyss Crystal" quality="4" type="Enchanting"/>
+      </disenchantLoot>
+      <containerObjects>
+        <object area="Trial of the Champion" areaUrl="fl[source]=dungeon&amp;fl[dungeon]=trialofthechampion&amp;fl[boss]=all&amp;fl[difficulty]=all" dropRate="3" heroic="1" id="195324" name="Confessor's Cache"/>
+        <object area="Trial of the Champion" areaUrl="fl[source]=dungeon&amp;fl[dungeon]=trialofthechampion&amp;fl[boss]=all&amp;fl[difficulty]=all" dropRate="3" heroic="1" id="195375" name="Eadric's Cache"/>
+      </containerObjects>
+    </item>
+  </itemInfo>
+</page>

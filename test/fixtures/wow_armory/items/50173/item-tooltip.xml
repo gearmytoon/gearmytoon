@@ -13,11 +13,10 @@
         <inventoryType>23</inventoryType>
       </equipData>
       <damageData/>
-      <bonusStamina>69</bonusStamina>
-      <bonusIntellect>69</bonusIntellect>
+      <bonusIntellect>91</bonusIntellect>
+      <bonusStamina>129</bonusStamina>
       <requiredLevel>80</requiredLevel>
       <itemLevel>264</itemLevel>
-      <bonusSpellPower>106</bonusSpellPower>
       <bonusCritRating>60</bonusCritRating>
       <bonusHasteRating>60</bonusHasteRating>
       <itemSource areaId="4812" areaName="Icecrown Citadel (25)" creatureId="38401" creatureName="Prince Valanar" difficulty="n" dropRate="4" value="sourceType.creatureDrop"/>

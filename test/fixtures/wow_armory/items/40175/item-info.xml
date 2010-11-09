@@ -2,13 +2,13 @@
 <?xml-stylesheet type="text/xsl" href="/_layout/items/info.xsl"?>
 <page globalSearch="1" lang="en_us" requestQuery="i=40175" requestUrl="/item-info.xml">
   <itemInfo>
-    <item canAuction="1" icon="inv_jewelcrafting_gem_41" id="40175" level="80" name="Dazzling Eye of Zul" quality="4" type="Green">
+    <item canAuction="1" icon="inv_jewelcrafting_gem_40" id="40175" level="80" name="Purified Dreadstone" quality="4" type="Purple">
       <cost buyPrice="360000" sellPrice="90000"/>
       <vendors>
         <creature area="Trial of the Crusader" classification="0" heroic="1" id="33290" maxLevel="80" minLevel="80" name="Jillian McWeaksauce" title="The Cutest McWeaksauce" type="Humanoid"/>
       </vendors>
       <createdBy>
-        <spell icon="inv_misc_gem_01" id="66430" name="Dazzling Eye of Zul">
+        <spell icon="inv_misc_gem_01" id="66430" name="Purified Dreadstone">
           <reagent count="1" icon="inv_jewelcrafting_gem_34" id="36934" name="Eye of Zul" quality="4"/>
         </spell>
       </createdBy>

@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?xml-stylesheet type="text/xsl" href="/_layout/items/tooltip.xsl"?>
+<page globalSearch="1" lang="en_us" requestUrl="/item-tooltip.xml">
+  <itemTooltips>
+    <itemTooltip>
+      <id>37171</id>
+      <name>Flame-Bathed Steel Girdle</name>
+      <icon>inv_belt_34</icon>
+      <overallQualityId>4</overallQualityId>
+      <bonding>1</bonding>
+      <classId>4</classId>
+      <equipData>
+        <inventoryType>6</inventoryType>
+        <subclassName>Plate</subclassName>
+      </equipData>
+      <damageData/>
+      <bonusStrength>66</bonusStrength>
+      <bonusStamina>85</bonusStamina>
+      <armor armorBonus="0">1315</armor>
+      <socketData>
+        <socket color="Blue"/>
+      </socketData>
+      <durability current="55" max="55"/>
+      <requiredLevel>80</requiredLevel>
+      <itemLevel>200</itemLevel>
+      <bonusCritRating>59</bonusCritRating>
+      <itemSource areaId="4265" areaName="Nexus" creatureId="26723" creatureName="Keristrasza" difficulty="h" dropRate="4" value="sourceType.creatureDrop"/>
+    </itemTooltip>
+  </itemTooltips>
+</page>

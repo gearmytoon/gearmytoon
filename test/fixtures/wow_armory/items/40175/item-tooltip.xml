@@ -4,8 +4,8 @@
   <itemTooltips>
     <itemTooltip>
       <id>40175</id>
-      <name>Dazzling Eye of Zul</name>
-      <icon>inv_jewelcrafting_gem_41</icon>
+      <name>Purified Dreadstone</name>
+      <icon>inv_jewelcrafting_gem_40</icon>
       <overallQualityId>4</overallQualityId>
       <bonding>0</bonding>
       <classId>3</classId>
@@ -13,10 +13,10 @@
         <inventoryType>0</inventoryType>
       </equipData>
       <damageData/>
-      <gemProperties>+10 Intellect and +5 Mana every 5 seconds</gemProperties>
+      <gemProperties>+10 Intellect and +10 Spirit</gemProperties>
       <requiredLevel>-1</requiredLevel>
       <itemLevel>80</itemLevel>
-      <desc>Matches a Yellow or Blue Socket.</desc>
+      <desc>Matches a Red or Blue Socket.</desc>
       <itemSource value="sourceType.createdBySpell"/>
     </itemTooltip>
   </itemTooltips>

@@ -3,9 +3,6 @@
 <page globalSearch="1" lang="en_us" requestQuery="i=47659" requestUrl="/item-info.xml">
   <itemInfo>
     <item icon="inv_throwingknife_07" id="47659" level="245" name="Crimson Star" quality="4" type="Thrown">
-      <cost>
-        <token count="25" icon="spell_holy_summonchampion" id="47241"/>
-      </cost>
       <disenchantLoot requiredSkillRank="375">
         <item canAuction="1" dropRate="6" icon="inv_enchant_abysscrystal" id="34057" level="80" maxCount="1" minCount="1" name="Abyss Crystal" quality="4" type="Enchanting"/>
       </disenchantLoot>

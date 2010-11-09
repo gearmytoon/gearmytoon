@@ -16,11 +16,11 @@
       <damageData>
         <damage>
           <type>0</type>
-          <min>541</min>
-          <max>887</max>
+          <min>577</min>
+          <max>1073</max>
         </damage>
         <speed>2.8</speed>
-        <dps>255.01</dps>
+        <dps>294.64</dps>
       </damageData>
       <bonusAgility>34</bonusAgility>
       <bonusStamina>51</bonusStamina>

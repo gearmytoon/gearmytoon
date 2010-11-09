@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?xml-stylesheet type="text/xsl" href="/_layout/items/tooltip.xsl"?>
+<page globalSearch="1" lang="en_us" requestUrl="/item-tooltip.xml">
+  <itemTooltips>
+    <itemTooltip>
+      <id>46153</id>
+      <name>Conqueror's Aegis Legplates</name>
+      <icon>inv_pants_plate_24</icon>
+      <overallQualityId>4</overallQualityId>
+      <bonding>1</bonding>
+      <classId>4</classId>
+      <equipData>
+        <inventoryType>7</inventoryType>
+        <subclassName>Plate</subclassName>
+      </equipData>
+      <damageData/>
+      <bonusStrength>99</bonusStrength>
+      <bonusStamina>170</bonusStamina>
+      <armor armorBonus="0">2088</armor>
+      <socketData>
+        <socket color="Red"/>
+        <socket color="Blue"/>
+      </socketData>
+      <durability current="120" max="120"/>
+      <allowableClasses>
+        <class>Paladin</class>
+      </allowableClasses>
+      <requiredLevel>80</requiredLevel>
+      <itemLevel>226</itemLevel>
+      <bonusHitRating>58</bonusHitRating>
+      <bonusCritRating>74</bonusCritRating>
+      <setData>
+        <name>Aegis Battlegear</name>
+        <item name="Aegis Battleplate"/>
+        <item name="Aegis Gauntlets"/>
+        <item name="Aegis Helm"/>
+        <item name="Aegis Legplates"/>
+        <item name="Aegis Shoulderplates"/>
+        <setBonus desc="Increases the damage done by your Exorcism and Hammer of Wrath abilities by 10%." threshold="2"/>
+        <setBonus desc="Increases the critical strike chance of your Divine Storm and Crusader Strike abilities by 10%." threshold="4"/>
+      </setData>
+      <itemSource areaId="4603" areaName="Vault of Archavon" creatureId="33993" creatureName="Emalon the Storm Watcher" difficulty="h" dropRate="1" value="sourceType.creatureDrop"/>
+    </itemTooltip>
+  </itemTooltips>
+</page>

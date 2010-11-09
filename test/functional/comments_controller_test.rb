@@ -34,6 +34,39 @@ class CommentsControllerTest < ActionController::TestCase
   end
 
   context "show" do
+    should "set cache headers" do
+      item = Factory(:comment, :comment => "zomg first post").commentable 
+      get :show, :item_id => item.id
+      assert_response :success
+      assert_not_nil @response.headers['ETag']
+      assert_equal 'public, must-revalidate', @response.headers['Cache-Control']
+    end
+
+    should "not change etag when there is no new comment" do
+      item = Factory(:comment, :comment => "zomg first post").commentable 
+      get :show, :item_id => item.id
+      old_etag = @response.headers['ETag']
+      get :show, :item_id => item.id
+      assert_equal old_etag, @response.headers['ETag']
+    end
+
+    should "change etag when there is a new comment" do
+      item = Factory(:comment, :comment => "zomg first post").commentable 
+      get :show, :item_id => item.id
+      old_etag = @response.headers['ETag']
+      Factory(:comment, :comment => "second post", :commentable => item)
+      get :show, :item_id => item.id
+      assert_not_equal old_etag, @response.headers['ETag']
+    end
+
+    should "return not modified if the etag hasn't changed" do
+      item = Factory(:comment, :comment => "zomg first post").commentable 
+      get :show, :item_id => item.id
+      @request.env["HTTP_IF_NONE_MATCH"] = @response.headers['ETag']
+      get :show, :item_id => item.id
+      assert_response :not_modified
+    end
+
     should "show a comments text" do
       item = Factory(:comment, :comment => "zomg first post").commentable 
       get :show, :item_id => item.id

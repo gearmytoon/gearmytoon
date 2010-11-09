@@ -16,7 +16,7 @@
       <damageData/>
       <bonusStrength>89</bonusStrength>
       <bonusStamina>111</bonusStamina>
-      <armor armorBonus="0">2241</armor>
+      <armor armorBonus="0">2337</armor>
       <socketData>
         <socket color="Blue"/>
         <socket color="Yellow"/>
@@ -27,14 +27,7 @@
       </allowableClasses>
       <requiredLevel>80</requiredLevel>
       <itemLevel>200</itemLevel>
-      <bonusDefenseSkillRating>38</bonusDefenseSkillRating>
-      <bonusBlockRating>47</bonusBlockRating>
-      <spellData>
-        <spell>
-          <trigger>1</trigger>
-          <desc>Increases the block value of your shield by 117.</desc>
-        </spell>
-      </spellData>
+      <bonusDodgeRating>64</bonusDodgeRating>
       <setData>
         <name>Redemption Plate</name>
         <item name="Redemption Breastplate"/>
