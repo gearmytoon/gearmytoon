@@ -29,6 +29,10 @@ class ItemTest < ActiveSupport::TestCase
       item = Factory(:item, :armor_type => ArmorType.cloth, :slot => "Helm")
       assert_equal "Cloth Helm", item.slot_info
     end
+    should "not error out if there is no armor type" do
+      item = Factory(:item, :armor_type => nil, :slot => "Helm")
+      assert_equal "Helm", item.slot_info
+    end
     should "not show with armor type name if it is not armor" do
       item = Factory(:item, :armor_type => ArmorType.crossbow, :slot => "Ranged")
       assert_equal "Ranged", item.slot_info

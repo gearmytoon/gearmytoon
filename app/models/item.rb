@@ -160,7 +160,7 @@ class Item < ActiveRecord::Base
   end
 
   def slot_info
-    self.armor_type.is_armor? ? "#{armor_type.name} #{slot}" : slot
+    self.armor_type && self.armor_type.is_armor? ? "#{armor_type.name} #{slot}" : slot
   end
   
   def description
