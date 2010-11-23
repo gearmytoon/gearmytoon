@@ -1,6 +1,8 @@
 class CommentsController < ApplicationController
   before_filter :require_user, :only => [:create]
   before_filter :public_must_revalidate, :only => :show
+  skip_before_filter :verify_authenticity_token, :only => [:create]
+  
   layout false
   
   def create
